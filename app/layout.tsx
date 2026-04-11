@@ -49,6 +49,7 @@ export default function RootLayout({
                 <li><a href="/beratung-praevention" className="hover:text-white transition-colors">Beratung &amp; Prävention</a></li>
                 <li><a href="/uebergang-arbeit" className="hover:text-white transition-colors">Übergang Arbeit</a></li>
                 <li><a href="/ankerkleidung" className="hover:text-white transition-colors">Ankerkleidung</a></li>
+                <li><a href="/kita-beratung" className="hover:text-white transition-colors">Beratung in Kitas</a></li>
               </ul>
             </div>
             <div>

@@ -14,6 +14,7 @@ const angebote = [
   { label: "Beratung & Prävention", href: "/beratung-praevention" },
   { label: "Übergang Arbeit", href: "/uebergang-arbeit" },
   { label: "Ankerkleidung", href: "/ankerkleidung" },
+  { label: "Beratung in Kitas", href: "/kita-beratung" },
 ];
 
 export default function Navigation() {

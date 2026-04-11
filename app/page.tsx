@@ -91,6 +91,15 @@ const angebote = [
     farbe: "#1a2e45",
     gross: false,
   },
+  {
+    slug: "kita-beratung",
+    titel: "Beratung in Kitas",
+    claim: "Früh erkennen. Gezielt begleiten.",
+    beschreibung: "Therapeutisch fundierte Beratung für Kitas — zur Unterstützung von Fachkräften im Umgang mit auffälligen Kindern und herausfordernden Situationen.",
+    zielgruppe: "Kitas & Fachkräfte",
+    farbe: "#1e3d5a",
+    gross: false,
+  },
 ];
 
 const staerken = [
