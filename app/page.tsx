@@ -270,6 +270,53 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ANKERKLEIDUNG TEASER */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-[400px]"
+            style={{ background: "linear-gradient(135deg, #1a2e45 0%, #2c3e50 100%)" }}>
+            {/* Text */}
+            <div className="p-12 flex flex-col justify-center">
+              <p className="text-[#4A7FA5] text-xs font-bold uppercase tracking-widest mb-4">
+                Neu — Ankernetz Versorgung
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight" style={{ letterSpacing: "-0.02em" }}>
+                Wir machen mehr als Beratung.
+              </h2>
+              <p className="text-white/60 text-base leading-relaxed mb-8">
+                Ankerkleidung ist ein integrierter Teil unseres Hilfesystems:
+                spezialisierte Kleidung für Kinder und Jugendliche mit unterschiedlichen
+                Störungsbildern — entwickelt mit Fachkräften, nicht im Katalog ausgewählt.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-8">
+                {["ADHS", "Trauma & PTBS", "Autismus", "Bindungsstörungen", "Angststörungen", "Vernachlässigung"].map((tag) => (
+                  <span key={tag} className="text-xs font-medium text-white/60 border border-white/20 px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <Link href="/ankerkleidung"
+                className="inline-flex items-center gap-2 text-sm font-semibold bg-white text-[#1a2e45] px-6 py-3 rounded-full hover:bg-white/90 transition-colors w-fit">
+                Kollektion entdecken
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 7h8M7 3l4 4-4 4" /></svg>
+              </Link>
+            </div>
+            {/* Visual */}
+            <div className="hidden lg:flex items-center justify-center p-12">
+              <div className="grid grid-cols-3 gap-3 w-full max-w-xs">
+                {["ADHS", "Trauma", "Autismus", "Bindung", "Angst", "Vernach."].map((tag, i) => (
+                  <div key={tag}
+                    className="aspect-square rounded-2xl flex items-end p-3"
+                    style={{ background: `rgba(74,127,165,${0.1 + i * 0.06})`, border: "1px solid rgba(255,255,255,0.08)" }}>
+                    <p className="text-white/50 text-[10px] font-medium leading-tight">{tag}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* STÄRKEN */}
       <section className="py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
