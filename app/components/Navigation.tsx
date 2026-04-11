@@ -8,9 +8,12 @@ const angebote = [
   { label: "Therapie & Wohnen", href: "/therapie-wohnen" },
   { label: "Jugendhilfe", href: "/jugendhilfe" },
   { label: "Diagnostik & Clearing", href: "/diagnostik-clearing" },
-  { label: "Therapiezentrum", href: "/therapiezentrum" },
+  { label: "Psychotherapie", href: "/psychotherapie" },
+  { label: "Frühe Hilfen", href: "/fruehe-hilfen" },
+  { label: "Versorgung", href: "/versorgung" },
   { label: "Beratung & Prävention", href: "/beratung-praevention" },
   { label: "Übergang Arbeit", href: "/uebergang-arbeit" },
+  { label: "Ankerkleidung", href: "/ankerkleidung" },
 ];
 
 export default function Navigation() {
@@ -32,7 +35,7 @@ export default function Navigation() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-[52px] flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 h-[52px] flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
@@ -45,7 +48,6 @@ export default function Navigation() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-7">
-          {/* Angebote Dropdown */}
           <div className="relative">
             <button
               onMouseEnter={() => setAngeboteOpen(true)}
@@ -123,7 +125,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-black/5 px-6 py-6 space-y-1">
+        <div className="md:hidden bg-white border-t border-black/5 px-6 py-6 space-y-1 max-h-[85vh] overflow-y-auto">
           <p className="text-xs font-semibold uppercase tracking-widest text-[#6E6E73] mb-3">Angebote</p>
           {angebote.map((a) => (
             <Link

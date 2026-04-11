@@ -7,7 +7,8 @@ const angebote = [
     claim: "Sofort da. Wenn es zählt.",
     beschreibung: "24/7 Krisenaufnahme, Stabilisierung und Perspektivklärung für Jugendliche in akuten Krisensituationen.",
     zielgruppe: "12–17 Jahre",
-    farbe: "#1A1A2E",
+    farbe: "#0f172a",
+    gross: true,
   },
   {
     slug: "therapie-wohnen",
@@ -15,7 +16,26 @@ const angebote = [
     claim: "Raum zum Ankommen. Begleitung zum Wachsen.",
     beschreibung: "Therapeutische Wohngruppen mit intensiver Begleitung, therapeutischem Rahmen und Traumaarbeit.",
     zielgruppe: "12–17 Jahre",
-    farbe: "#2C3E50",
+    farbe: "#1e3a5f",
+    gross: false,
+  },
+  {
+    slug: "psychotherapie",
+    titel: "Kinder- und Jugendpsychotherapie",
+    claim: "Professionelle Therapie. Im Herzen des Systems.",
+    beschreibung: "Psychotherapie mit Kassensitz, diagnostische Behandlung und enge Vernetzung mit Wohngruppen, Jugendamt und Familien.",
+    zielgruppe: "Kinder & Jugendliche",
+    farbe: "#1a2f4a",
+    gross: false,
+  },
+  {
+    slug: "fruehe-hilfen",
+    titel: "Frühe Hilfen",
+    claim: "Schutz von Anfang an.",
+    beschreibung: "Aufnahme und intensive Betreuung von Kleinkindern — mit Fokus auf Bindung, Sicherheit und entwicklungspsychologische Förderung.",
+    zielgruppe: "0–6 Jahre",
+    farbe: "#2d4a6e",
+    gross: false,
   },
   {
     slug: "jugendhilfe",
@@ -23,7 +43,8 @@ const angebote = [
     claim: "Sicherheit im Alltag. Zukunft im Blick.",
     beschreibung: "Kinderwohngruppen mit sicherer Alltagsstruktur, Beziehungsarbeit und Entwicklungsförderung.",
     zielgruppe: "6–12 Jahre",
-    farbe: "#1E3A5F",
+    farbe: "#243b55",
+    gross: false,
   },
   {
     slug: "diagnostik-clearing",
@@ -31,23 +52,26 @@ const angebote = [
     claim: "Klarheit schafft die richtige Hilfe.",
     beschreibung: "Psychologische Diagnostik, IQ-Testung, Verhaltenseinschätzung und Vorbereitung der Hilfeplanung für Jugendämter.",
     zielgruppe: "Alle Altersgruppen",
-    farbe: "#243B55",
+    farbe: "#1e3650",
+    gross: false,
   },
   {
-    slug: "therapiezentrum",
-    titel: "Therapiezentrum",
-    claim: "Professionell. Ganzheitlich. Menschlich.",
-    beschreibung: "Diagnostik, therapeutische Begleitung und psychologisch-medizinische Schnittstellen unter einem Dach.",
+    slug: "versorgung",
+    titel: "Versorgung",
+    claim: "Mehr als das Nötigste. Würde im Alltag.",
+    beschreibung: "Bereitstellung von Kleidung und Ausstattung für Kinder und Jugendliche mit spezifischen Störungsbildern — als Teil des Hilfesystems.",
     zielgruppe: "Kinder & Jugendliche",
-    farbe: "#1A2F4A",
+    farbe: "#2c3e50",
+    gross: false,
   },
   {
     slug: "beratung-praevention",
     titel: "Beratung & Prävention",
     claim: "Früh helfen. Gemeinsam stärken.",
-    beschreibung: "Beratungsstelle, Familiengespräche, Online-Beratung, Sorgentelefon und Präventionsangebote für Schulen.",
+    beschreibung: "Niedrigschwelliger Einstieg: Familienberatung, Online-Beratung, Sorgentelefon und Präventionsangebote für Schulen und Institutionen.",
     zielgruppe: "Familien & Fachkräfte",
-    farbe: "#2D4A6E",
+    farbe: "#1f3d5c",
+    gross: false,
   },
   {
     slug: "uebergang-arbeit",
@@ -55,7 +79,17 @@ const angebote = [
     claim: "Der nächste Schritt. Mit Begleitung.",
     beschreibung: "Berufsorientierung, Bewerbungstraining, Praktika und Begleitung des Übergangs von Schule in den Beruf.",
     zielgruppe: "Jugendliche & junge Erwachsene",
-    farbe: "#1E3650",
+    farbe: "#163452",
+    gross: false,
+  },
+  {
+    slug: "ankerkleidung",
+    titel: "Ankerkleidung",
+    claim: "Stabilität. Selbstwert. Alltag.",
+    beschreibung: "Spezialisierte Kleidungsversorgung für Kinder und Jugendliche mit besonderen Bedarfen — als integrierter Teil des Hilfeprozesses.",
+    zielgruppe: "Kinder & Jugendliche",
+    farbe: "#1a2e45",
+    gross: false,
   },
 ];
 
@@ -84,16 +118,13 @@ export default function HomePage() {
           background: "linear-gradient(160deg, #0f172a 0%, #1A1A2E 40%, #1e3a5f 100%)",
         }}
       >
-        {/* Subtle grid overlay */}
         <div
           className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
             backgroundSize: "48px 48px",
           }}
         />
-
         <div className="relative z-10 max-w-4xl mx-auto">
           <p className="fade-in-up text-[#4A7FA5] text-sm font-semibold uppercase tracking-widest mb-6">
             Kinder- und Jugendhilfe
@@ -105,7 +136,7 @@ export default function HomePage() {
             Ankernetz
           </h1>
           <p className="fade-in-up delay-2 text-xl md:text-2xl text-white/70 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-            Stabilität in Krisen.<br />Perspektiven für junge Menschen.
+            Stabilität. Orientierung. Perspektive.
           </p>
           <div className="fade-in-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -122,8 +153,6 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
           <div className="w-px h-12 bg-white/60 animate-pulse" />
         </div>
@@ -133,46 +162,93 @@ export default function HomePage() {
       <section className="py-28 px-6 bg-[#F5F5F7] text-center">
         <div className="max-w-3xl mx-auto">
           <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-5">
-            Ein Netz. Sieben Antworten.
+            Ein Netz. Zehn Antworten.
           </p>
           <h2
             className="text-3xl md:text-5xl font-bold text-[#1A1A2E] mb-6 leading-tight"
             style={{ letterSpacing: "-0.02em" }}
           >
-            Für jede Krise die richtige Hilfe.
+            Für jede Situation die richtige Hilfe.
           </h2>
           <p className="text-lg text-[#6E6E73] leading-relaxed">
             Ankernetz ist ein Netzwerk aus spezialisierten Hilfsangeboten für Kinder und Jugendliche —
-            von der akuten Krisenintervention bis zum Übergang in den Beruf.
-            Alle Angebote sind aufeinander abgestimmt und unter einem gemeinsamen starken Dach vereint.
+            von der akuten Krisenintervention über Psychotherapie und frühe Hilfen
+            bis zum Übergang in den Beruf. Alle Angebote sind aufeinander abgestimmt
+            und unter einem gemeinsamen starken Dach vereint.
           </p>
         </div>
       </section>
 
       {/* ANGEBOTE GRID */}
       <section id="angebote" className="py-8 px-6 bg-[#F5F5F7]">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {angebote.map((a) => (
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Krisenintervention groß */}
+          <Link
+            href="/krisenintervention"
+            className="group relative rounded-3xl overflow-hidden md:col-span-2 min-h-[360px] flex flex-col justify-end p-8 hover:scale-[1.01] transition-transform duration-300"
+            style={{ background: "linear-gradient(145deg, #0f172a 0%, #1e3a5f 100%)" }}
+          >
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+            <div className="relative z-10">
+              <span className="inline-block bg-red-500/20 text-red-300 text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+                24/7 Krisenaufnahme
+              </span>
+              <h3 className="text-white text-3xl font-bold mb-2 tracking-tight">Krisenintervention</h3>
+              <p className="text-white/60 text-base italic mb-3">Sofort da. Wenn es zählt.</p>
+              <p className="text-white/70 text-sm leading-relaxed mb-5 max-w-lg">
+                Rund um die Uhr verfügbar — für Jugendliche in akuten Krisensituationen.
+                Sofortaufnahme, Stabilisierung und schnelle Perspektivklärung.
+              </p>
+              <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                Mehr erfahren
+                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+
+          {/* Psychotherapie groß */}
+          <Link
+            href="/psychotherapie"
+            className="group relative rounded-3xl overflow-hidden min-h-[360px] flex flex-col justify-end p-8 hover:scale-[1.02] transition-transform duration-300"
+            style={{ background: "linear-gradient(145deg, #1a2f4a 0%, #243b55 100%)" }}
+          >
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+            <div className="relative z-10">
+              <span className="inline-block bg-blue-400/20 text-blue-300 text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+                Zentrale Säule
+              </span>
+              <h3 className="text-white text-2xl font-bold mb-2 tracking-tight">Kinder- und Jugend&shy;psychotherapie</h3>
+              <p className="text-white/60 text-sm italic mb-3">Professionelle Therapie. Im Herzen des Systems.</p>
+              <p className="text-white/70 text-sm leading-relaxed mb-5">
+                Mit Kassensitz, eingebunden in alle Hilfeprozesse.
+              </p>
+              <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                Mehr erfahren
+                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+
+          {/* Restliche Angebote */}
+          {angebote.slice(2).filter(a => a.slug !== "krisenintervention" && a.slug !== "psychotherapie").map((a) => (
             <Link
               key={a.slug}
               href={`/${a.slug}`}
-              className="group relative rounded-3xl overflow-hidden min-h-[320px] flex flex-col justify-end p-8 hover:scale-[1.02] transition-transform duration-300"
-              style={{ background: `linear-gradient(145deg, ${a.farbe} 0%, ${a.farbe}dd 100%)` }}
+              className="group relative rounded-3xl overflow-hidden min-h-[280px] flex flex-col justify-end p-8 hover:scale-[1.02] transition-transform duration-300"
+              style={{ background: `linear-gradient(145deg, ${a.farbe} 0%, ${a.farbe}cc 100%)` }}
             >
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               <div className="relative z-10">
                 <span className="text-white/50 text-xs font-medium uppercase tracking-widest">
                   {a.zielgruppe}
                 </span>
-                <h3 className="text-white text-2xl font-bold mt-2 mb-2 tracking-tight">
-                  {a.titel}
-                </h3>
-                <p className="text-white/60 text-sm font-medium italic mb-3">
-                  {a.claim}
-                </p>
-                <p className="text-white/70 text-sm leading-relaxed mb-5">
-                  {a.beschreibung}
-                </p>
+                <h3 className="text-white text-xl font-bold mt-2 mb-2 tracking-tight">{a.titel}</h3>
+                <p className="text-white/60 text-sm italic mb-3">{a.claim}</p>
+                <p className="text-white/70 text-sm leading-relaxed mb-4">{a.beschreibung}</p>
                 <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                   Mehr erfahren
                   <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -228,8 +304,8 @@ export default function HomePage() {
           </h2>
           <p className="text-white/60 text-lg mb-10 leading-relaxed">
             Ankernetz arbeitet eng mit Jugendämtern und Fachkräften zusammen.
-            Wir bieten schnelle Rückmeldungen, transparente Einschätzungen
-            und passgenaue Hilfeformen — direkt und unkompliziert.
+            Schnelle Rückmeldungen, transparente Einschätzungen und passgenaue
+            Hilfeformen — direkt und unkompliziert.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

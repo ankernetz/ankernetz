@@ -43,9 +43,12 @@ export default function RootLayout({
                 <li><a href="/therapie-wohnen" className="hover:text-white transition-colors">Therapie &amp; Wohnen</a></li>
                 <li><a href="/jugendhilfe" className="hover:text-white transition-colors">Jugendhilfe</a></li>
                 <li><a href="/diagnostik-clearing" className="hover:text-white transition-colors">Diagnostik &amp; Clearing</a></li>
-                <li><a href="/therapiezentrum" className="hover:text-white transition-colors">Therapiezentrum</a></li>
+                <li><a href="/psychotherapie" className="hover:text-white transition-colors">Psychotherapie</a></li>
+                <li><a href="/fruehe-hilfen" className="hover:text-white transition-colors">Frühe Hilfen</a></li>
+                <li><a href="/versorgung" className="hover:text-white transition-colors">Versorgung</a></li>
                 <li><a href="/beratung-praevention" className="hover:text-white transition-colors">Beratung &amp; Prävention</a></li>
                 <li><a href="/uebergang-arbeit" className="hover:text-white transition-colors">Übergang Arbeit</a></li>
+                <li><a href="/ankerkleidung" className="hover:text-white transition-colors">Ankerkleidung</a></li>
               </ul>
             </div>
             <div>
