@@ -237,25 +237,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ EINLEITUNG ═══ */}
-      <section className="py-28 relative overflow-hidden"
-        style={{ background: "linear-gradient(180deg, #0d1f35 0%, #0f172a 40%, #111827 100%)" }}>
-        {/* Continuity glow from hero */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, rgba(74,127,165,0.1) 0%, transparent 70%)" }} />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)" }} />
+      {/* ═══ EINLEITUNG ═══ — HELL */}
+      <section className="py-28 relative overflow-hidden bg-[#F5F5F7]">
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
 
         <div className="site-container">
           <ScrollReveal className="text-center max-w-2xl mx-auto">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">
               Ein Netz. Elf Antworten.
             </p>
-            <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-white mb-6 leading-[1.1]"
+            <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1A1A2E] mb-6 leading-[1.1]"
               style={{ letterSpacing: "-0.03em" }}>
               Für jede Situation<br />die richtige Hilfe.
             </h2>
-            <p className="text-base text-white/45 font-normal leading-[1.9] max-w-xl mx-auto">
+            <p className="text-base text-[#6E6E73] font-normal leading-[1.9] max-w-xl mx-auto">
               Ankernetz ist ein Netzwerk aus spezialisierten Hilfsangeboten für Kinder und Jugendliche —
               von der akuten Krisenintervention über Psychotherapie und frühe Hilfen bis zum Übergang in den Beruf.
             </p>
@@ -263,10 +259,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ BENTO GRID — ANGEBOTE ═══ */}
-      <section id="angebote" className="pb-32"
-        style={{ background: "linear-gradient(180deg, #111827 0%, #0f172a 100%)" }}>
-        <div className="site-container space-y-4">
+      {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
+      <section id="angebote" className="py-16 bg-[#0f172a]">
+        <div className="site-container space-y-4 pb-16">
 
           {/* Reihe 1: Krisenintervention groß + Psychotherapie */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -453,17 +448,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ STÄRKEN ═══ */}
-      <section className="py-32 relative overflow-hidden"
-        style={{ background: "linear-gradient(180deg, #0f172a 0%, #0c1420 100%)" }}>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, rgba(74,127,165,0.08) 0%, transparent 70%)" }} />
+      {/* ═══ STÄRKEN ═══ — HELL */}
+      <section className="py-32 bg-white relative overflow-hidden">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+          style={{ background: "radial-gradient(ellipse, rgba(74,127,165,0.06) 0%, transparent 70%)" }} />
 
         <div className="site-container">
           <ScrollReveal>
             <div className="text-center mb-20">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">Was uns auszeichnet</p>
-              <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-black text-white" style={{ letterSpacing: "-0.028em" }}>
+              <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-black text-[#1A1A2E]" style={{ letterSpacing: "-0.028em" }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
@@ -473,14 +467,13 @@ export default function HomePage() {
               const Icon = s.icon;
               return (
                 <ScrollReveal key={s.titel} delay={i * 100}>
-                  <div className="p-8 rounded-3xl transition-colors"
-                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                  <div className="p-8 rounded-3xl bg-[#F5F5F7] hover:bg-[#EBEBED] transition-colors">
                     <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-6"
-                      style={{ background: `${s.color}18`, border: `1px solid ${s.color}30` }}>
+                      style={{ background: `${s.color}15`, border: `1px solid ${s.color}25` }}>
                       <Icon size={20} style={{ color: s.color }} />
                     </div>
-                    <h3 className="text-xl font-black text-white mb-3" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
-                    <p className="text-white/40 font-normal leading-[1.8] text-[0.9375rem]">{s.text}</p>
+                    <h3 className="text-xl font-black text-[#1A1A2E] mb-3" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
+                    <p className="text-[#6E6E73] font-normal leading-[1.8] text-[0.9375rem]">{s.text}</p>
                   </div>
                 </ScrollReveal>
               );
