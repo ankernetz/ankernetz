@@ -432,61 +432,100 @@ export default async function AngebotPage({
   if (!data) notFound();
 
   return (
-    <main>
-      {/* HERO */}
+    <main style={{ overflowX: "hidden" }}>
+
+      {/* ═══ HERO ═══ */}
       <section
-        className="relative min-h-[60vh] flex items-end pb-20 px-6 pt-32"
         style={{
-          background: `linear-gradient(160deg, ${data.farbe} 0%, #1e3a5f 100%)`,
+          position: "relative",
+          minHeight: "62vh",
+          display: "flex",
+          alignItems: "flex-end",
+          paddingBottom: "5rem",
+          paddingTop: "8rem",
+          background: "linear-gradient(155deg, #0d2444 0%, #1a3f6f 60%, #1e4d82 100%)",
         }}
       >
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-        <div className="relative z-10 max-w-4xl mx-auto w-full">
-          <p className="text-[#1a3f6f] text-sm font-semibold uppercase tracking-widest mb-4">
+        {/* Dot-Grid */}
+        <div style={{
+          position: "absolute", inset: 0, opacity: 0.04,
+          backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+          backgroundSize: "40px 40px",
+        }} />
+        {/* Colour blob */}
+        <div style={{
+          position: "absolute", top: "10%", right: "8%",
+          width: "420px", height: "420px", borderRadius: "50%", pointerEvents: "none",
+          background: "radial-gradient(circle, rgba(111,163,254,0.12) 0%, transparent 65%)",
+        }} />
+
+        <div className="site-container" style={{ position: "relative", zIndex: 10, width: "100%" }}>
+          {/* Label */}
+          <p style={{
+            fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.18em",
+            textTransform: "uppercase", color: "rgba(255,255,255,0.5)",
+            marginBottom: "1rem",
+          }}>
             {data.untertitel}
           </p>
-          <h1
-            className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight"
-            style={{ letterSpacing: "-0.02em" }}
-          >
+          <h1 style={{
+            fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 800,
+            color: "#ffffff", lineHeight: 1.1, letterSpacing: "-0.02em",
+            marginBottom: "1rem", maxWidth: "18ch",
+          }}>
             {data.titel}
           </h1>
-          <p className="text-white/60 text-xl md:text-2xl font-light italic">
+          <p style={{
+            fontSize: "clamp(1.05rem, 2vw, 1.35rem)", fontWeight: 300,
+            color: "rgba(255,255,255,0.65)", fontStyle: "italic",
+          }}>
             {data.claim}
           </p>
         </div>
       </section>
 
-      {/* EINLEITUNG */}
-      <section className="py-20 px-6 bg-[#F5F5F7]">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-lg md:text-xl text-[#1D1D1F] leading-relaxed">
+      {/* ═══ EINLEITUNG ═══ */}
+      <section style={{ background: "#d8e4f0", padding: "4rem 0" }}>
+        <div className="site-container" style={{ maxWidth: "760px" }}>
+          <p style={{
+            fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
+            color: "#1a3f6f", lineHeight: 1.85, fontWeight: 400,
+          }}>
             {data.einleitung}
           </p>
         </div>
       </section>
 
-      {/* ZIELGRUPPE + LEISTUNGEN */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+      {/* ═══ ZIELGRUPPE + LEISTUNGEN ═══ */}
+      <section style={{ background: "#ffffff", padding: "5rem 0" }}>
+        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "4rem" }}>
+
+          {/* Zielgruppe */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-6">Zielgruppe</p>
-            <p className="text-2xl font-bold text-[#1A1A2E] mb-4">{data.zielgruppe}</p>
-            <p className="text-[#6E6E73] leading-relaxed">{data.zielgruppeDetail}</p>
+            <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem" }}>
+              Zielgruppe
+            </p>
+            <p style={{ fontSize: "2rem", fontWeight: 700, color: "#1a3f6f", marginBottom: "0.875rem", lineHeight: 1.15 }}>
+              {data.zielgruppe}
+            </p>
+            <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.75 }}>
+              {data.zielgruppeDetail}
+            </p>
           </div>
+
+          {/* Leistungen */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-6">Leistungen</p>
-            <ul className="space-y-3">
+            <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem" }}>
+              Leistungen
+            </p>
+            <ul style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               {data.leistungen.map((l) => (
-                <li key={l} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a3f6f] flex-shrink-0" />
-                  <span className="text-[#1D1D1F]">{l}</span>
+                <li key={l} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                  <span style={{
+                    marginTop: "0.45rem", width: "6px", height: "6px",
+                    borderRadius: "50%", background: "#1a3f6f", flexShrink: 0,
+                  }} />
+                  <span style={{ fontSize: "0.9375rem", color: "#1a3f6f", lineHeight: 1.6 }}>{l}</span>
                 </li>
               ))}
             </ul>
@@ -494,39 +533,62 @@ export default async function AngebotPage({
         </div>
       </section>
 
-      {/* BESONDERHEITEN */}
-      <section className="py-20 px-6 bg-[#F5F5F7]">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-10 text-center">Was uns auszeichnet</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      {/* ═══ BESONDERHEITEN ═══ */}
+      <section style={{ background: "#d8e4f0", padding: "5rem 0" }}>
+        <div className="site-container">
+          <p style={{
+            fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
+            textTransform: "uppercase", color: "#1a3f6f",
+            marginBottom: "2.5rem", textAlign: "center",
+          }}>
+            Was uns auszeichnet
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1.25rem" }}>
             {data.besonderheiten.map((b, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 text-center shadow-sm">
-                <div className="w-8 h-1 bg-[#1a3f6f] mx-auto mb-4 rounded-full" />
-                <p className="text-sm text-[#1D1D1F] font-medium leading-snug">{b}</p>
+              <div key={i} className="bento-card" style={{
+                background: "#f0f4f8",
+                borderRadius: "0.875rem",
+                padding: "1.625rem",
+                border: "1px solid rgba(26,63,111,0.08)",
+              }}>
+                <div style={{ width: "2rem", height: "3px", background: i % 2 === 0 ? "#6FA3FE" : "#FEC274", borderRadius: "9999px", marginBottom: "1rem" }} />
+                <p style={{ fontSize: "0.875rem", color: "#1a3f6f", fontWeight: 500, lineHeight: 1.55 }}>{b}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PROZESS */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-10 text-center">Ablauf</p>
-          <div className="space-y-0">
+      {/* ═══ PROZESS ═══ */}
+      <section style={{ background: "#ffffff", padding: "5rem 0" }}>
+        <div className="site-container" style={{ maxWidth: "760px" }}>
+          <p style={{
+            fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
+            textTransform: "uppercase", color: "#1a3f6f",
+            marginBottom: "2.5rem", textAlign: "center",
+          }}>
+            Ablauf
+          </p>
+          <div>
             {data.prozess.map((p, i) => (
-              <div key={i} className="flex gap-6 pb-10 relative">
-                <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#1A1A2E] text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+              <div key={i} style={{ display: "flex", gap: "1.5rem", paddingBottom: i < data.prozess.length - 1 ? "2rem" : 0, position: "relative" }}>
+                {/* Line */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                  <div style={{
+                    width: "2.25rem", height: "2.25rem", borderRadius: "50%",
+                    background: "#1a3f6f", color: "white",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: "0.8rem", fontWeight: 700, flexShrink: 0,
+                  }}>
                     {i + 1}
                   </div>
                   {i < data.prozess.length - 1 && (
-                    <div className="w-px flex-1 bg-[#E5E5EA] mt-2" />
+                    <div style={{ width: "1px", flex: 1, background: "rgba(26,63,111,0.15)", marginTop: "0.5rem" }} />
                   )}
                 </div>
-                <div className="pb-2">
-                  <p className="font-bold text-[#1A1A2E] mb-1">{p.schritt}</p>
-                  <p className="text-[#6E6E73]">{p.beschreibung}</p>
+                <div style={{ paddingBottom: "0.5rem" }}>
+                  <p style={{ fontWeight: 700, color: "#1a3f6f", marginBottom: "0.25rem", fontSize: "0.9375rem" }}>{p.schritt}</p>
+                  <p style={{ color: "rgba(26,63,111,0.65)", fontSize: "0.9rem", lineHeight: 1.65 }}>{p.beschreibung}</p>
                 </div>
               </div>
             ))}
@@ -534,47 +596,59 @@ export default async function AngebotPage({
         </div>
       </section>
 
-      {/* FÜR FACHKRÄFTE */}
-      <section
-        className="py-20 px-6"
-        style={{ background: `linear-gradient(135deg, ${data.farbe} 0%, #1e3a5f 100%)` }}
-      >
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-8">Für Jugendämter & Fachkräfte</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* ═══ FÜR FACHKRÄFTE ═══ */}
+      <section style={{ background: "#d8e4f0", padding: "5rem 0" }}>
+        <div className="site-container">
+          <p style={{
+            fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
+            textTransform: "uppercase", color: "#1a3f6f", marginBottom: "2rem",
+          }}>
+            Für Jugendämter &amp; Fachkräfte
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
             {data.fuerFachkraefte.map((f, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a3f6f] flex-shrink-0" />
-                <span className="text-white/80">{f}</span>
+              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                <span style={{
+                  marginTop: "0.45rem", width: "6px", height: "6px",
+                  borderRadius: "50%", background: "#6FA3FE", flexShrink: 0,
+                }} />
+                <span style={{ fontSize: "0.9375rem", color: "#1a3f6f", lineHeight: 1.65 }}>{f}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-6 bg-[#F5F5F7] text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#1A1A2E] mb-4">Interesse oder Fragen?</h2>
-          <p className="text-[#6E6E73] mb-8">
+      {/* ═══ CTA ═══ */}
+      <section style={{ background: "#1a3f6f", padding: "5rem 0", textAlign: "center" }}>
+        <div className="site-container" style={{ maxWidth: "620px" }}>
+          <h2 style={{
+            fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 700,
+            color: "#ffffff", marginBottom: "1rem", letterSpacing: "-0.01em",
+          }}>
+            Interesse oder Fragen?
+          </h2>
+          <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.6)", marginBottom: "2.25rem", lineHeight: 1.7 }}>
             Sprechen Sie uns direkt an. Wir melden uns schnell und unkompliziert.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/platzanfrage"
-              className="px-8 py-3.5 bg-[#1A1A2E] text-white font-semibold rounded-full text-sm hover:bg-[#2a2a3e] transition-colors"
-            >
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
+            <Link href="/platzanfrage" className="btn btn-primary">
               Platzanfrage stellen
             </Link>
-            <Link
-              href="/kontakt"
-              className="px-8 py-3.5 border border-[#1A1A2E]/20 text-[#1A1A2E] font-medium rounded-full text-sm hover:bg-[#1A1A2E]/5 transition-colors"
-            >
+            <Link href="/kontakt" style={{
+              fontSize: "0.875rem", fontWeight: 500,
+              color: "rgba(255,255,255,0.75)",
+              border: "1px solid rgba(255,255,255,0.25)",
+              borderRadius: "9999px",
+              padding: "0.5rem 1.25rem",
+              textDecoration: "none",
+            }}>
               Kontakt aufnehmen
             </Link>
           </div>
         </div>
       </section>
+
     </main>
   );
 }
