@@ -145,16 +145,16 @@ export default function HomePage() {
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
-      <section id="angebote" className="bg-[#1a3f6f]" style={{ paddingTop: "4.5rem", paddingBottom: "5rem" }}>
+      <section id="angebote" className="bg-[#d8e4f0]" style={{ paddingTop: "4.5rem", paddingBottom: "5rem" }}>
         <div className="site-container">
 
           {/* Abschnitts-Header */}
           <BlurFade>
             <div className="text-center" style={{ marginBottom: "2.5rem" }}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6FA3FE] mb-4">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: "#1a3f6f" }}>
                 Unsere Angebote
               </p>
-              <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black text-white" style={{ letterSpacing: "-0.028em" }}>
+              <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black" style={{ letterSpacing: "-0.028em", color: "#1a3f6f" }}>
                 Spezialisiert. Vernetzt. Menschlich.
               </h2>
             </div>
