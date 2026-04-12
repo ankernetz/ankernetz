@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens ──────────────────────────────────────────── */
 :root {
   --navy:     #0f172a;
   --navy-mid: #1A1A2E;
@@ -9,38 +10,120 @@
   --text:     #1D1D1F;
   --subtext:  #6E6E73;
   --white:    #FFFFFF;
+
+  /* Category colors */
+  --krise:       #ef4444;
+  --wohnen:      #4A7FA5;
+  --diagnostik:  #8b5cf6;
+  --versorgung:  #10b981;
+
+  /* Typography */
+  --font-sans:    var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: var(--font-geist-sans), -apple-system, sans-serif;
+
+  /* Spacing grid */
+  --container: 1280px;
+  --gap:       1.5rem;
 }
 
+/* ─── Reset ──────────────────────────────────────────────────── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-sans);
   background: var(--white);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Bento-Kachel Hover */
+/* ─── Typography scale ───────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* ─── Container utility ──────────────────────────────────────── */
+.site-container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* ─── Bento card hover ───────────────────────────────────────── */
 .bento-card {
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s ease;
 }
 .bento-card:hover {
   transform: translateY(-4px) scale(1.005);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
 }
 
-/* Sanfte Scrollanimation — Fallback ohne JS */
+/* ─── Category glow orbs ─────────────────────────────────────── */
+.glow-red    { --glow: #ef4444; }
+.glow-blue   { --glow: #4A7FA5; }
+.glow-violet { --glow: #8b5cf6; }
+.glow-green  { --glow: #10b981; }
+.glow-amber  { --glow: #f59e0b; }
+.glow-cyan   { --glow: #06b6d4; }
+.glow-lime   { --glow: #a3e635; }
+.glow-pink   { --glow: #e879f9; }
+.glow-slate  { --glow: #94a3b8; }
+.glow-orange { --glow: #fb923c; }
+
+.category-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 80% 20%, color-mix(in srgb, var(--glow) 22%, transparent), transparent 70%);
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.4s ease;
+}
+.bento-card:hover .category-glow::before,
+.category-glow:hover::before {
+  opacity: 1.4;
+}
+
+/* ─── Gradient text ──────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.55) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Scroll reveal ──────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
     transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+/* ─── Fade-in-up (hero) ──────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.24s; }
+.delay-3 { animation-delay: 0.38s; }
+
+/* ─── Pulse scroll indicator ─────────────────────────────────── */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.2; transform: scaleY(1); }
+  50%       { opacity: 0.5; transform: scaleY(1.15); }
+}
+.scroll-pulse { animation: scrollPulse 2.2s ease-in-out infinite; }
