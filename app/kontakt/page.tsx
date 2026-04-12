@@ -7,7 +7,7 @@ export default function KontaktPage() {
         style={{ background: "linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%)" }}
       >
         <div className="max-w-4xl mx-auto w-full">
-          <p className="text-[#4A7FA5] text-sm font-semibold uppercase tracking-widest mb-4">Ankernetz</p>
+          <p className="text-[#1a3f6f] text-sm font-semibold uppercase tracking-widest mb-4">Ankernetz</p>
           <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight" style={{ letterSpacing: "-0.02em" }}>
             Kontakt
           </h1>
@@ -39,10 +39,10 @@ export default function KontaktPage() {
             },
           ].map((k) => (
             <div key={k.titel} className="bg-white rounded-3xl p-8 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-4">{k.titel}</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-4">{k.titel}</p>
               <p className="text-xl font-bold text-[#1A1A2E] mb-2">{k.wert}</p>
               <p className="text-[#6E6E73] text-sm">{k.sub}</p>
-              {k.note && <p className="text-[#4A7FA5] text-xs mt-2 font-medium">{k.note}</p>}
+              {k.note && <p className="text-[#1a3f6f] text-xs mt-2 font-medium">{k.note}</p>}
             </div>
           ))}
         </div>
@@ -51,7 +51,7 @@ export default function KontaktPage() {
       {/* KONTAKTFORMULAR */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-2xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-4 text-center">Direkte Nachricht</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#1a3f6f] mb-4 text-center">Direkte Nachricht</p>
           <h2 className="text-3xl font-bold text-[#1A1A2E] mb-10 text-center" style={{ letterSpacing: "-0.02em" }}>
             Schreiben Sie uns.
           </h2>
@@ -62,7 +62,7 @@ export default function KontaktPage() {
                 <input
                   type="text"
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] text-[#1D1D1F] bg-[#F5F5F7]"
+                  className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] text-[#1D1D1F] bg-[#F5F5F7]"
                   placeholder="Max"
                 />
               </div>
@@ -71,7 +71,7 @@ export default function KontaktPage() {
                 <input
                   type="text"
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] text-[#1D1D1F] bg-[#F5F5F7]"
+                  className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] text-[#1D1D1F] bg-[#F5F5F7]"
                   placeholder="Mustermann"
                 />
               </div>
@@ -80,7 +80,7 @@ export default function KontaktPage() {
               <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Organisation / Jugendamt</label>
               <input
                 type="text"
-                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] text-[#1D1D1F] bg-[#F5F5F7]"
+                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] text-[#1D1D1F] bg-[#F5F5F7]"
                 placeholder="Jugendamt Stadt XY"
               />
             </div>
@@ -89,7 +89,7 @@ export default function KontaktPage() {
               <input
                 type="email"
                 required
-                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] text-[#1D1D1F] bg-[#F5F5F7]"
+                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] text-[#1D1D1F] bg-[#F5F5F7]"
                 placeholder="max@jugendamt.de"
               />
             </div>
@@ -97,7 +97,7 @@ export default function KontaktPage() {
               <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Telefon</label>
               <input
                 type="tel"
-                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] text-[#1D1D1F] bg-[#F5F5F7]"
+                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] text-[#1D1D1F] bg-[#F5F5F7]"
                 placeholder="+49 ..."
               />
             </div>
@@ -105,7 +105,7 @@ export default function KontaktPage() {
               <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Ihr Anliegen *</label>
               <select
                 required
-                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] text-[#1D1D1F] bg-[#F5F5F7]"
+                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] text-[#1D1D1F] bg-[#F5F5F7]"
               >
                 <option value="">Bitte wählen...</option>
                 <option>Platzanfrage</option>
@@ -124,7 +124,7 @@ export default function KontaktPage() {
               <textarea
                 required
                 rows={5}
-                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] text-[#1D1D1F] bg-[#F5F5F7] resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] text-[#1D1D1F] bg-[#F5F5F7] resize-none"
                 placeholder="Bitte beschreiben Sie kurz Ihr Anliegen..."
               />
             </div>
@@ -132,7 +132,7 @@ export default function KontaktPage() {
               <input type="checkbox" required className="mt-1 flex-shrink-0" id="dsgvo" />
               <label htmlFor="dsgvo" className="text-sm text-[#6E6E73]">
                 Ich stimme der Verarbeitung meiner Daten gemäß der{" "}
-                <a href="/datenschutz" className="text-[#4A7FA5] hover:underline">Datenschutzerklärung</a>{" "}
+                <a href="/datenschutz" className="text-[#1a3f6f] hover:underline">Datenschutzerklärung</a>{" "}
                 zu. *
               </label>
             </div>
@@ -152,7 +152,7 @@ export default function KontaktPage() {
         style={{ background: "linear-gradient(135deg, #1A1A2E 0%, #1e3a5f 100%)" }}
       >
         <div className="max-w-2xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-4">Jugendämter & Fachkräfte</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#1a3f6f] mb-4">Jugendämter & Fachkräfte</p>
           <p className="text-white/70 text-lg leading-relaxed mb-6">
             Bei dringendem Platzbedarf oder Kriseninterventionen: Rufen Sie uns direkt an.
             Wir reagieren schnell.

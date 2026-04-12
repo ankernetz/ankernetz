@@ -448,7 +448,7 @@ export default async function AngebotPage({
           }}
         />
         <div className="relative z-10 max-w-4xl mx-auto w-full">
-          <p className="text-[#4A7FA5] text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-[#1a3f6f] text-sm font-semibold uppercase tracking-widest mb-4">
             {data.untertitel}
           </p>
           <h1
@@ -476,16 +476,16 @@ export default async function AngebotPage({
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-6">Zielgruppe</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-6">Zielgruppe</p>
             <p className="text-2xl font-bold text-[#1A1A2E] mb-4">{data.zielgruppe}</p>
             <p className="text-[#6E6E73] leading-relaxed">{data.zielgruppeDetail}</p>
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-6">Leistungen</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-6">Leistungen</p>
             <ul className="space-y-3">
               {data.leistungen.map((l) => (
                 <li key={l} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A7FA5] flex-shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a3f6f] flex-shrink-0" />
                   <span className="text-[#1D1D1F]">{l}</span>
                 </li>
               ))}
@@ -497,11 +497,11 @@ export default async function AngebotPage({
       {/* BESONDERHEITEN */}
       <section className="py-20 px-6 bg-[#F5F5F7]">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-10 text-center">Was uns auszeichnet</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-10 text-center">Was uns auszeichnet</p>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {data.besonderheiten.map((b, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 text-center shadow-sm">
-                <div className="w-8 h-1 bg-[#4A7FA5] mx-auto mb-4 rounded-full" />
+                <div className="w-8 h-1 bg-[#1a3f6f] mx-auto mb-4 rounded-full" />
                 <p className="text-sm text-[#1D1D1F] font-medium leading-snug">{b}</p>
               </div>
             ))}
@@ -512,7 +512,7 @@ export default async function AngebotPage({
       {/* PROZESS */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-10 text-center">Ablauf</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-10 text-center">Ablauf</p>
           <div className="space-y-0">
             {data.prozess.map((p, i) => (
               <div key={i} className="flex gap-6 pb-10 relative">
@@ -540,11 +540,11 @@ export default async function AngebotPage({
         style={{ background: `linear-gradient(135deg, ${data.farbe} 0%, #1e3a5f 100%)` }}
       >
         <div className="max-w-4xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-8">Für Jugendämter & Fachkräfte</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-8">Für Jugendämter & Fachkräfte</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {data.fuerFachkraefte.map((f, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A7FA5] flex-shrink-0" />
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a3f6f] flex-shrink-0" />
                 <span className="text-white/80">{f}</span>
               </div>
             ))}

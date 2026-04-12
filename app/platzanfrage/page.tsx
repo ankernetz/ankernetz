@@ -7,7 +7,7 @@ export default function PlatzanfragePage() {
         style={{ background: "linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%)" }}
       >
         <div className="max-w-4xl mx-auto w-full">
-          <p className="text-[#4A7FA5] text-sm font-semibold uppercase tracking-widest mb-4">Für Jugendämter & Fachkräfte</p>
+          <p className="text-[#1a3f6f] text-sm font-semibold uppercase tracking-widest mb-4">Für Jugendämter & Fachkräfte</p>
           <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight" style={{ letterSpacing: "-0.02em" }}>
             Platzanfrage
           </h1>
@@ -43,41 +43,41 @@ export default function PlatzanfragePage() {
 
             {/* Einreichende Person */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-5">Ihre Daten</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-5">Ihre Daten</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Vorname *</label>
-                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7]" />
+                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7]" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Nachname *</label>
-                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7]" />
+                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7]" />
                 </div>
               </div>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Jugendamt / Institution *</label>
-              <input type="text" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7]" placeholder="z.B. Jugendamt Berlin Mitte" />
+              <input type="text" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7]" placeholder="z.B. Jugendamt Berlin Mitte" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-[#1D1D1F] mb-2">E-Mail *</label>
-                <input type="email" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7]" />
+                <input type="email" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7]" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Telefon *</label>
-                <input type="tel" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7]" />
+                <input type="tel" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7]" />
               </div>
             </div>
 
             {/* Angebotsbereich */}
             <div className="pt-4 border-t border-black/5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-5">Gewünschtes Angebot</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-5">Gewünschtes Angebot</p>
               <div>
                 <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Bereich *</label>
-                <select required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7]">
+                <select required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7]">
                   <option value="">Bitte wählen...</option>
                   <option>Krisenintervention (24/7)</option>
                   <option>Therapie & Wohnen</option>
@@ -95,15 +95,15 @@ export default function PlatzanfragePage() {
 
             {/* Kind / Jugendlicher */}
             <div className="pt-4 border-t border-black/5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-5">Angaben zum Kind / Jugendlichen</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-5">Angaben zum Kind / Jugendlichen</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Alter *</label>
-                  <input type="number" min="0" max="25" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7]" placeholder="z.B. 14" />
+                  <input type="number" min="0" max="25" required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7]" placeholder="z.B. 14" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Geschlecht</label>
-                  <select className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7]">
+                  <select className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7]">
                     <option value="">Bitte wählen</option>
                     <option>Männlich</option>
                     <option>Weiblich</option>
@@ -116,7 +116,7 @@ export default function PlatzanfragePage() {
 
             <div>
               <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Dringlichkeit *</label>
-              <select required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7]">
+              <select required className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7]">
                 <option value="">Bitte wählen</option>
                 <option>Sofort (Krisenaufnahme)</option>
                 <option>Innerhalb von 1 Woche</option>
@@ -130,7 +130,7 @@ export default function PlatzanfragePage() {
               <textarea
                 required
                 rows={5}
-                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7] resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7] resize-none"
                 placeholder="Bitte beschreiben Sie kurz die aktuelle Situation und den Hilfebedarf..."
               />
             </div>
@@ -139,7 +139,7 @@ export default function PlatzanfragePage() {
               <label className="block text-sm font-medium text-[#1D1D1F] mb-2">Bisherige Hilfen (optional)</label>
               <textarea
                 rows={3}
-                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#4A7FA5] bg-[#F5F5F7] resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-black/10 focus:outline-none focus:border-[#1a3f6f] bg-[#F5F5F7] resize-none"
                 placeholder="Welche Hilfen wurden bisher gewährt?"
               />
             </div>
@@ -148,7 +148,7 @@ export default function PlatzanfragePage() {
               <input type="checkbox" required className="mt-1 flex-shrink-0" id="dsgvo" />
               <label htmlFor="dsgvo" className="text-sm text-[#6E6E73]">
                 Ich stimme der Verarbeitung der übermittelten Daten gemäß der{" "}
-                <a href="/datenschutz" className="text-[#4A7FA5] hover:underline">Datenschutzerklärung</a>{" "}
+                <a href="/datenschutz" className="text-[#1a3f6f] hover:underline">Datenschutzerklärung</a>{" "}
                 zu. Die Daten werden ausschließlich zur Bearbeitung dieser Anfrage genutzt. *
               </label>
             </div>

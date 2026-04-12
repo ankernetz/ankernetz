@@ -3,7 +3,7 @@ export default function ImpressumPage() {
     <main className="min-h-screen pt-28 pb-20 px-6 bg-[#F5F5F7]">
       <div className="max-w-3xl mx-auto">
 
-        <p className="text-xs font-bold uppercase tracking-widest text-[#4A7FA5] mb-4">Rechtliches</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-[#1a3f6f] mb-4">Rechtliches</p>
         <h1 className="text-4xl font-black text-[#1A1A2E] mb-12" style={{ letterSpacing: "-0.02em" }}>
           Impressum
         </h1>
@@ -113,7 +113,7 @@ export default function ImpressumPage() {
             <p className="text-sm text-[#6E6E73] leading-relaxed">
               Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
               <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer"
-                className="text-[#4A7FA5] hover:underline">
+                className="text-[#1a3f6f] hover:underline">
                 https://ec.europa.eu/consumers/odr/
               </a>
               <br /><br />

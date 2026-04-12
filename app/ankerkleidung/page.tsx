@@ -85,7 +85,7 @@ export default function AnkerkleidungPage() {
           }}
         />
         <div className="relative z-10 max-w-4xl mx-auto w-full">
-          <p className="text-[#4A7FA5] text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-[#1a3f6f] text-sm font-semibold uppercase tracking-widest mb-4">
             Ankernetz Versorgung
           </p>
           <h1
@@ -107,7 +107,7 @@ export default function AnkerkleidungPage() {
       {/* PHILOSOPHIE */}
       <section className="py-20 px-6 bg-[#F5F5F7]">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-6">Unsere Philosophie</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#1a3f6f] mb-6">Unsere Philosophie</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A2E] mb-6 leading-tight" style={{ letterSpacing: "-0.02em" }}>
             Kleidung ist mehr als Stoff.
           </h2>
@@ -126,7 +126,7 @@ export default function AnkerkleidungPage() {
       {/* KATEGORIE-ÜBERSICHT */}
       <section className="py-8 px-6 bg-[#F5F5F7]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-10 text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#1a3f6f] mb-10 text-center">
             Nach Störungsbild wählen
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -136,7 +136,7 @@ export default function AnkerkleidungPage() {
                 href={`#${k.slug}`}
                 className="bg-white rounded-2xl p-5 text-center hover:shadow-md transition-shadow group"
               >
-                <div className="w-8 h-1 bg-[#4A7FA5] mx-auto mb-3 rounded-full group-hover:w-12 transition-all" />
+                <div className="w-8 h-1 bg-[#1a3f6f] mx-auto mb-3 rounded-full group-hover:w-12 transition-all" />
                 <p className="text-sm font-semibold text-[#1A1A2E] leading-snug">{k.titel}</p>
               </a>
             ))}
@@ -154,7 +154,7 @@ export default function AnkerkleidungPage() {
           <div className="max-w-7xl mx-auto">
             {/* Kategorie Header */}
             <div className="mb-12 max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-3">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-3">
                 Störungsbild
               </p>
               <h2
@@ -228,7 +228,7 @@ export default function AnkerkleidungPage() {
         style={{ background: "linear-gradient(135deg, #1a2e45 0%, #2c3e50 100%)" }}
       >
         <div className="max-w-3xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-5">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#1a3f6f] mb-5">
             Bestellung & Kostenübernahme
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight" style={{ letterSpacing: "-0.02em" }}>

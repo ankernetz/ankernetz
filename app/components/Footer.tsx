@@ -32,7 +32,7 @@ const label: React.CSSProperties = {
   fontWeight: 700,
   letterSpacing: "0.2em",
   textTransform: "uppercase",
-  color: "#3b5a73",
+  color: "#6FA3FE",
   marginBottom: "1.25rem",
   display: "block",
 };

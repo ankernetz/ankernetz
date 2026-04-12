@@ -3,7 +3,7 @@ export default function DatenschutzPage() {
     <main className="min-h-screen pt-28 pb-20 px-6 bg-[#F5F5F7]">
       <div className="max-w-3xl mx-auto">
 
-        <p className="text-xs font-bold uppercase tracking-widest text-[#4A7FA5] mb-4">Rechtliches</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-[#1a3f6f] mb-4">Rechtliches</p>
         <h1 className="text-4xl font-black text-[#1A1A2E] mb-12" style={{ letterSpacing: "-0.02em" }}>
           Datenschutzerklärung
         </h1>
@@ -69,7 +69,7 @@ export default function DatenschutzPage() {
                 "Ihre Daten in einem übertragbaren Format zu erhalten (Art. 20 DSGVO)",
               ].map((r) => (
                 <li key={r} className="flex items-start gap-2">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A7FA5] flex-shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a3f6f] flex-shrink-0" />
                   {r}
                 </li>
               ))}
@@ -115,7 +115,7 @@ export default function DatenschutzPage() {
               CA 94104, USA gehostet. Vercel ist ein Auftragsverarbeiter gemäß Art. 28 DSGVO.
               Es besteht ein Auftragsverarbeitungsvertrag. Weitere Informationen finden Sie unter:{" "}
               <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer"
-                className="text-[#4A7FA5] hover:underline">vercel.com/legal/privacy-policy</a>
+                className="text-[#1a3f6f] hover:underline">vercel.com/legal/privacy-policy</a>
             </p>
           </div>
 
@@ -137,7 +137,7 @@ export default function DatenschutzPage() {
               Bei Fragen zum Datenschutz wenden Sie sich bitte an:<br />
               <strong className="text-[#1D1D1F]">Hwerk GmbH</strong><br />
               Friedrich-Franz-Straße 13, 12103 Berlin<br />
-              E-Mail: <a href="mailto:datenschutz@ankernetz.com" className="text-[#4A7FA5] hover:underline">
+              E-Mail: <a href="mailto:datenschutz@ankernetz.com" className="text-[#1a3f6f] hover:underline">
                 datenschutz@ankernetz.com
               </a>
             </p>

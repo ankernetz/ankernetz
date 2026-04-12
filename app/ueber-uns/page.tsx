@@ -32,7 +32,7 @@ export default function UeberUnsPage() {
           }}
         />
         <div className="relative z-10 max-w-4xl mx-auto w-full">
-          <p className="text-[#4A7FA5] text-sm font-semibold uppercase tracking-widest mb-4">Ankernetz</p>
+          <p className="text-[#1a3f6f] text-sm font-semibold uppercase tracking-widest mb-4">Ankernetz</p>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" style={{ letterSpacing: "-0.02em" }}>
             Über uns
           </h1>
@@ -46,7 +46,7 @@ export default function UeberUnsPage() {
       {/* VISION */}
       <section className="py-28 px-6 bg-[#F5F5F7]">
         <div className="max-w-3xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-6">Unsere Vision</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#1a3f6f] mb-6">Unsere Vision</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A2E] mb-8 leading-tight" style={{ letterSpacing: "-0.02em" }}>
             Ein Netz, das trägt.
           </h2>
@@ -81,7 +81,7 @@ export default function UeberUnsPage() {
           ].map((z) => (
             <div key={z.zahl} className="text-center p-6">
               <p className="text-4xl md:text-5xl font-bold text-[#1A1A2E] mb-1" style={{ letterSpacing: "-0.02em" }}>{z.zahl}</p>
-              <p className="text-[#4A7FA5] font-semibold text-sm mb-2">{z.einheit}</p>
+              <p className="text-[#1a3f6f] font-semibold text-sm mb-2">{z.einheit}</p>
               <p className="text-[#6E6E73] text-sm">{z.text}</p>
             </div>
           ))}
@@ -92,13 +92,13 @@ export default function UeberUnsPage() {
       <section className="py-28 px-6 bg-[#F5F5F7]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-4">Was uns leitet</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#1a3f6f] mb-4">Was uns leitet</p>
             <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A2E]" style={{ letterSpacing: "-0.02em" }}>Unsere Werte</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {werte.map((w) => (
               <div key={w.titel} className="bg-white rounded-3xl p-8 shadow-sm">
-                <div className="w-8 h-1 bg-[#4A7FA5] mb-6 rounded-full" />
+                <div className="w-8 h-1 bg-[#1a3f6f] mb-6 rounded-full" />
                 <h3 className="text-xl font-bold text-[#1A1A2E] mb-3">{w.titel}</h3>
                 <p className="text-[#6E6E73] leading-relaxed">{w.text}</p>
               </div>
@@ -111,7 +111,7 @@ export default function UeberUnsPage() {
       <section className="py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-4">Wer wir sind</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#1a3f6f] mb-4">Wer wir sind</p>
             <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A2E]" style={{ letterSpacing: "-0.02em" }}>Das Team</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -121,7 +121,7 @@ export default function UeberUnsPage() {
                   <span className="text-white text-xl font-bold">A</span>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#4A7FA5] mb-1">{t.rolle}</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#1a3f6f] mb-1">{t.rolle}</p>
                   <p className="font-bold text-[#1A1A2E] mb-2">{t.name}</p>
                   <p className="text-[#6E6E73] text-sm leading-relaxed">{t.text}</p>
                 </div>
@@ -138,7 +138,7 @@ export default function UeberUnsPage() {
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#4A7FA5] mb-5">Qualität & Standards</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#1a3f6f] mb-5">Qualität & Standards</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight" style={{ letterSpacing: "-0.02em" }}>
               Professionell.<br />Reguliert.<br />Verlässlich.
             </h2>
@@ -158,7 +158,7 @@ export default function UeberUnsPage() {
               "Datenschutz nach DSGVO",
             ].map((p) => (
               <div key={p} className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#4A7FA5] flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1a3f6f] flex-shrink-0" />
                 <span className="text-white/70 text-sm">{p}</span>
               </div>
             ))}
