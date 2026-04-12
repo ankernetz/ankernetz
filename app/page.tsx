@@ -303,28 +303,28 @@ export default function HomePage() {
       </section>
 
       {/* ═══ STÄRKEN ═══ */}
-      <section className="relative overflow-hidden bg-white" style={{ paddingTop: "6rem", paddingBottom: "6rem" }}>
+      <section className="relative overflow-hidden bg-white" style={{ paddingTop: "7rem", paddingBottom: "7rem" }}>
         <div className="site-container">
           <BlurFade>
-            <div style={{ marginBottom: "4rem" }}>
-              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#4A7FA5", marginBottom: "1rem" }}>Was uns auszeichnet</p>
+            <div style={{ marginBottom: "4.5rem" }}>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#4A7FA5", marginBottom: "1.25rem" }}>Was uns auszeichnet</p>
               <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.028em", lineHeight: 1.15 }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
             {staerken.map((s, i) => {
               const Icon = s.icon;
               return (
                 <BlurFade key={s.titel} delay={i * 0.1}>
-                  <div className="group relative overflow-hidden" style={{ background: "#ffffff", borderRadius: "1rem", border: "1px solid rgba(0,0,0,0.07)", padding: "2.5rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.04)", transition: "box-shadow 0.3s ease, transform 0.3s ease" }}>
+                  <div className="group relative overflow-hidden" style={{ background: "#ffffff", borderRadius: "1.125rem", border: "1px solid rgba(0,0,0,0.07)", padding: "3rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 8px 28px rgba(0,0,0,0.05)", transition: "box-shadow 0.3s ease, transform 0.3s ease" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: s.color }} />
-                    <div style={{ width: "3rem", height: "3rem", borderRadius: "0.75rem", background: `${s.color}12`, border: `1px solid ${s.color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.75rem" }}>
+                    <div style={{ width: "3.25rem", height: "3.25rem", borderRadius: "0.875rem", background: `${s.color}12`, border: `1px solid ${s.color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2.25rem" }}>
                       <Icon size={22} strokeWidth={1.5} style={{ color: s.color }} />
                     </div>
-                    <h3 style={{ fontSize: "1.1875rem", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.02em", marginBottom: "0.75rem" }}>{s.titel}</h3>
-                    <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: "1.9", fontWeight: 400 }}>{s.text}</p>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.02em", marginBottom: "1rem" }}>{s.titel}</h3>
+                    <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: "2", fontWeight: 400 }}>{s.text}</p>
                   </div>
                 </BlurFade>
               );
