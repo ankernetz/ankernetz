@@ -80,7 +80,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="fade-in-up delay-1 leading-none"
-            style={{ fontSize: "clamp(3.25rem,9vw,6rem)", fontWeight: 900, letterSpacing: "-0.035em", color: "#03295C", marginBottom: "1.5rem" }}>
+            style={{ fontSize: "clamp(3.25rem,9vw,6rem)", fontWeight: 900, letterSpacing: "-0.035em", color: "#1a3f6f", marginBottom: "1.5rem" }}>
             Anker<span style={{
               backgroundImage: "linear-gradient(135deg, #6FA3FE 0%, #FEC274 100%)",
               WebkitBackgroundClip: "text",
@@ -90,7 +90,7 @@ export default function HomePage() {
           </h1>
 
           <div className="fade-in-up delay-2" style={{ marginBottom: "3rem" }}>
-            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#03295C", fontWeight: 400, lineHeight: 1.7, marginBottom: "0.25rem" }}>
+            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#1a3f6f", fontWeight: 400, lineHeight: 1.7, marginBottom: "0.25rem" }}>
               Stabilität in Krisen.
             </p>
             <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "rgba(3,41,92,0.45)", fontWeight: 400, lineHeight: 1.7 }}>
@@ -131,7 +131,7 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6FA3FE] mb-5">
                 Ein Netz. Elf Antworten.
               </p>
-              <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#03295C] mb-8 leading-[1.1]"
+              <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1a3f6f] mb-8 leading-[1.1]"
                 style={{ letterSpacing: "-0.03em" }}>
                 Für jede Situation —<br />die richtige Hilfe.
               </h2>
@@ -145,7 +145,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
-      <section id="angebote" className="bg-[#03295C]" style={{ paddingTop: "4.5rem", paddingBottom: "5rem" }}>
+      <section id="angebote" className="bg-[#1a3f6f]" style={{ paddingTop: "4.5rem", paddingBottom: "5rem" }}>
         <div className="site-container">
 
           {/* Abschnitts-Header */}
@@ -168,7 +168,7 @@ export default function HomePage() {
 
             <BlurFade className="md:col-span-2">
               <Link href="/krisenintervention" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[0].stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[0].stripe}22 0%, transparent 55%), rgba(255,255,255,0.06)`, border: "1px solid rgba(255,255,255,0.12)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[0].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[0].stripe, background: `${angebote[0].stripe}18`, border: `1px solid ${angebote[0].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[0].badge}</span>
@@ -187,7 +187,7 @@ export default function HomePage() {
 
             <BlurFade delay={0.1}>
               <Link href="/psychotherapie" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[1].stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[1].stripe}22 0%, transparent 55%), rgba(255,255,255,0.06)`, border: "1px solid rgba(255,255,255,0.12)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[1].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[1].stripe, background: `${angebote[1].stripe}18`, border: `1px solid ${angebote[1].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[1].badge}</span>
@@ -212,7 +212,7 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.08}>
                   <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
-                    style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${a.stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "380px", padding: "2.5rem 3rem" }}>
+                    style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${a.stripe}22 0%, transparent 55%), rgba(255,255,255,0.06)`, border: "1px solid rgba(255,255,255,0.12)", borderRadius: "1.5rem", minHeight: "380px", padding: "2.5rem 3rem" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
                     <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                       <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: a.stripe, background: `${a.stripe}18`, border: `1px solid ${a.stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{a.badge}</span>
@@ -239,7 +239,7 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.06}>
                   <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
-                    style={{ background: `radial-gradient(ellipse 70% 55% at 90% 5%, ${a.stripe}18 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2rem 2.25rem" }}>
+                    style={{ background: `radial-gradient(ellipse 70% 55% at 90% 5%, ${a.stripe}22 0%, transparent 55%), rgba(255,255,255,0.06)`, border: "1px solid rgba(255,255,255,0.12)", borderRadius: "1.5rem", minHeight: "260px", padding: "2rem 2.25rem" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
                     <div style={{ position: "relative", zIndex: 10 }}>
                       <Icon size={22} strokeWidth={1.5} style={{ color: a.iconColor, marginBottom: "0.875rem" }} />
@@ -258,7 +258,7 @@ export default function HomePage() {
 
             <BlurFade delay={0.08} className="md:col-span-2">
               <Link href="/ankerkleidung" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[9].stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[9].stripe}22 0%, transparent 55%), rgba(255,255,255,0.06)`, border: "1px solid rgba(255,255,255,0.12)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[9].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[9].stripe, background: `${angebote[9].stripe}18`, border: `1px solid ${angebote[9].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[9].badge}</span>
@@ -277,7 +277,7 @@ export default function HomePage() {
 
             <BlurFade delay={0.15}>
               <Link href="/versorgung" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[10].stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[10].stripe}22 0%, transparent 55%), rgba(255,255,255,0.06)`, border: "1px solid rgba(255,255,255,0.12)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[10].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[10].stripe, background: `${angebote[10].stripe}18`, border: `1px solid ${angebote[10].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[10].badge}</span>
@@ -304,7 +304,7 @@ export default function HomePage() {
           <BlurFade>
             <div style={{ marginBottom: "4.5rem" }}>
               <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem" }}>Was uns auszeichnet</p>
-              <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#03295C", letterSpacing: "-0.028em", lineHeight: 1.15 }}>
+              <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.028em", lineHeight: 1.15 }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
@@ -319,7 +319,7 @@ export default function HomePage() {
                     <div style={{ width: "3.25rem", height: "3.25rem", borderRadius: "0.875rem", background: `${s.color}12`, border: `1px solid ${s.color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2.25rem" }}>
                       <Icon size={22} strokeWidth={1.5} style={{ color: s.color }} />
                     </div>
-                    <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#03295C", letterSpacing: "-0.02em", marginBottom: "1rem" }}>{s.titel}</h3>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.02em", marginBottom: "1rem" }}>{s.titel}</h3>
                     <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: "2", fontWeight: 400 }}>{s.text}</p>
                   </div>
                 </BlurFade>
@@ -331,7 +331,7 @@ export default function HomePage() {
 
       {/* ═══ FÜR FACHKRÄFTE ═══ */}
       <section className="text-white relative overflow-hidden"
-        style={{ background: "#03295C", paddingTop: "6rem", paddingBottom: "6rem" }}>
+        style={{ background: "#1a3f6f", paddingTop: "6rem", paddingBottom: "6rem" }}>
 
         {/* Subtle grid lines */}
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
