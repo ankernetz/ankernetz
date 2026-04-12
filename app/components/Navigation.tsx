@@ -187,7 +187,7 @@ export default function Navigation() {
               {megaMenu.map((gruppe) => (
                 <div key={gruppe.kategorie}>
                   {/* Kategorie-Header */}
-                  <p style={{ fontSize: "14px", fontWeight: 400, color: "#1D1D1F", marginBottom: "1.25rem" }}>
+                  <p style={{ fontSize: "13px", fontWeight: 400, color: "#1D1D1F", marginBottom: "1.25rem" }}>
                     {gruppe.kategorie}
                   </p>
 
@@ -201,7 +201,7 @@ export default function Navigation() {
                           style={{
                             display: "block",
                             padding: "0.45rem 0",
-                            fontSize: "14px",
+                            fontSize: "13px",
                             fontWeight: 400,
                             color: "#1D1D1F",
                             textDecoration: "none",
