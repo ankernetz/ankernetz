@@ -308,6 +308,11 @@ section {
   will-change: transform, opacity;
 }
 
+/* ─── Footer links ───────────────────────────────────────────── */
+.footer-link:hover {
+  color: #ffffff !important;
+}
+
 /* ─── Spotlight effect on hover (Aceternity-inspired) ───────── */
 .spotlight-card {
   position: relative;
