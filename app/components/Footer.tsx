@@ -47,7 +47,7 @@ const link: React.CSSProperties = {
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#0b1220" }}>
+    <footer style={{ background: "#0f2238" }}>
 
       {/* ── Notfall-Banner ── */}
       <div style={{ background: "#9f1239", padding: "0.7rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
