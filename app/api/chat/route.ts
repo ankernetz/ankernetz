@@ -60,15 +60,18 @@ function detectCrisis(message: string): boolean {
   return CRISIS_KEYWORDS.some(kw => lower.includes(kw));
 }
 
-async function sendWhatsApp(text: string) {
-  const phone = process.env.WHATSAPP_PHONE;
-  const apikey = process.env.WHATSAPP_APIKEY;
-  if (!phone || !apikey) return;
+async function sendTelegram(text: string) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) return;
   try {
-    const encoded = encodeURIComponent(text);
-    await fetch(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${encoded}&apikey=${apikey}`);
+    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: "HTML" }),
+    });
   } catch {
-    // Fehler bei WA-Benachrichtigung nicht an User weitergeben
+    // Fehler bei Benachrichtigung nicht an User weitergeben
   }
 }
 
@@ -80,9 +83,11 @@ export async function POST(req: Request) {
 
   // WhatsApp-Benachrichtigung bei erster Nachricht oder Krisenhinweis
   if (isFirstMessage || isCrisis) {
-    const label = isCrisis ? "🚨 KRISE" : "💬 Neue Anfrage";
-    const preview = lastMessage.slice(0, 120);
-    sendWhatsApp(`${label} – Ankernetz Chat\n\n"${preview}"\n\nankernetz.com`);
+    const preview = lastMessage.slice(0, 200);
+    const text = isCrisis
+      ? `🚨 <b>KRISE – Ankernetz Chat</b>\n\n"${preview}"\n\n<i>Bitte sofort reagieren.</i>`
+      : `💬 <b>Neue Anfrage – Ankernetz Chat</b>\n\n"${preview}"`;
+    sendTelegram(text);
   }
 
   const systemPrompt = isCrisis
