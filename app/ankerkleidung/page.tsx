@@ -1,19 +1,42 @@
 "use client";
 
 import { useState } from "react";
-import { ShoppingCart, X, Plus, Minus, Check } from "lucide-react";
+import {
+  ShoppingCart, X, Plus, Minus, Check,
+  Shirt, Wind, Feather, Circle,
+  Shield, Activity, Layers, Sun,
+  Zap, Repeat, Footprints, Move,
+  Package, Gift, BookOpen, Droplets,
+  EyeOff, Umbrella, AlignJustify,
+  Tag, Heart, Link2, Anchor,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const kategorien = [
+const kategorien: {
+  slug: string;
+  titel: string;
+  akzent: string;
+  beschreibung: string;
+  produkte: {
+    name: string;
+    material: string;
+    groessen: string[];
+    farben: string[];
+    preis: number;
+    beschreibung: string;
+    icon: LucideIcon;
+  }[];
+}[] = [
   {
     slug: "adhs",
     titel: "ADHS & Hyperaktivität",
     akzent: "#6FA3FE",
     beschreibung: "Reizarm, funktional, komfortabel. Keine ablenkenden Details, bequeme Schnitte, einfaches An- und Ausziehen.",
     produkte: [
-      { name: "Basishose Komfort", material: "100% Bio-Baumwolle", groessen: ["104","116","128","140","152","164"], farben: ["Anthrazit","Navy","Grau"], preis: 29.90, beschreibung: "Weicher Bund ohne Knöpfe, elastischer Schnitt, keine störenden Nähte innen." },
-      { name: "Alltags-Shirt Reizarm", material: "Jersey Bio-Baumwolle", groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Weiß","Hellgrau","Blau"], preis: 19.90, beschreibung: "Ohne Aufdruck, nahtlos verarbeitet, angenehm auf der Haut." },
-      { name: "Übergangsjacke Soft", material: "Fleece/Softshell", groessen: ["116","128","140","152","164","S","M"], farben: ["Navy","Grau"], preis: 49.90, beschreibung: "Leicht, warm, einfach zu öffnen — kein Zipper-Stress." },
-      { name: "Socken Komfort-Set", material: "Bambus/Baumwolle", groessen: ["23–26","27–30","31–34","35–38","39–42"], farben: ["Grau","Weiß","Schwarz"], preis: 14.90, beschreibung: "Ohne störende Zehennaht, rutschfest, langlebig." },
+      { name: "Basishose Komfort",     icon: AlignJustify, material: "100% Bio-Baumwolle",      groessen: ["104","116","128","140","152","164"],           farben: ["Anthrazit","Navy","Grau"],   preis: 29.90, beschreibung: "Weicher Bund ohne Knöpfe, elastischer Schnitt, keine störenden Nähte innen." },
+      { name: "Alltags-Shirt Reizarm", icon: Shirt,        material: "Jersey Bio-Baumwolle",     groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Weiß","Hellgrau","Blau"],    preis: 19.90, beschreibung: "Ohne Aufdruck, nahtlos verarbeitet, angenehm auf der Haut." },
+      { name: "Übergangsjacke Soft",   icon: Wind,         material: "Fleece/Softshell",         groessen: ["116","128","140","152","164","S","M"],           farben: ["Navy","Grau"],              preis: 49.90, beschreibung: "Leicht, warm, einfach zu öffnen — kein Zipper-Stress." },
+      { name: "Socken Komfort-Set",    icon: Footprints,   material: "Bambus/Baumwolle",         groessen: ["23–26","27–30","31–34","35–38","39–42"],         farben: ["Grau","Weiß","Schwarz"],    preis: 14.90, beschreibung: "Ohne störende Zehennaht, rutschfest, langlebig." },
     ],
   },
   {
@@ -22,10 +45,10 @@ const kategorien = [
     akzent: "#FEC274",
     beschreibung: "Kleidung als Schutzraum: weich, hüllend, sicher. Für Kinder und Jugendliche, die Weichheit als Stabilisierung erleben.",
     produkte: [
-      { name: "Comfort-Hoodie", material: "Fleece innen, Baumwolle außen", groessen: ["116","128","140","152","164","S","M","L"], farben: ["Grau","Dunkelblau","Beige"], preis: 54.90, beschreibung: "Besonders weich gefüttert, großer Kapuzen-Schutzraum, beruhigend beim Tragen." },
-      { name: "Wohlfühl-Jogger", material: "French Terry Bio", groessen: ["116","128","140","152","164","S","M","L"], farben: ["Dunkelgrau","Navy","Schwarz"], preis: 39.90, beschreibung: "Hochgezogener Bund, kuschelig weich, gibt Halt ohne zu drücken." },
-      { name: "Weighted Weste", material: "Spezialmaterial mit Gewichtseinlage", groessen: ["116","128","140","152","164"], farben: ["Grau","Dunkelblau"], preis: 89.90, beschreibung: "Leichte Gewichtsweste — strukturgebend, beruhigend, dezentes Design." },
-      { name: "Decken-Shirt Oversize", material: "100% Baumwolle schwer", groessen: ["140","152","164","S","M","L","XL"], farben: ["Beige","Weiß","Hellgrau"], preis: 34.90, beschreibung: "Schweres, weiches Shirt mit Hülleffekt. Gibt Geborgenheit." },
+      { name: "Comfort-Hoodie",        icon: Shield,   material: "Fleece innen, Baumwolle außen",       groessen: ["116","128","140","152","164","S","M","L"], farben: ["Grau","Dunkelblau","Beige"],  preis: 54.90, beschreibung: "Besonders weich gefüttert, großer Kapuzen-Schutzraum, beruhigend beim Tragen." },
+      { name: "Wohlfühl-Jogger",       icon: Activity, material: "French Terry Bio",                    groessen: ["116","128","140","152","164","S","M","L"], farben: ["Dunkelgrau","Navy","Schwarz"], preis: 39.90, beschreibung: "Hochgezogener Bund, kuschelig weich, gibt Halt ohne zu drücken." },
+      { name: "Weighted Weste",        icon: Layers,   material: "Spezialmaterial mit Gewichtseinlage", groessen: ["116","128","140","152","164"],             farben: ["Grau","Dunkelblau"],         preis: 89.90, beschreibung: "Leichte Gewichtsweste — strukturgebend, beruhigend, dezentes Design." },
+      { name: "Decken-Shirt Oversize", icon: Sun,      material: "100% Baumwolle schwer",               groessen: ["140","152","164","S","M","L","XL"],        farben: ["Beige","Weiß","Hellgrau"],   preis: 34.90, beschreibung: "Schweres, weiches Shirt mit Hülleffekt. Gibt Geborgenheit." },
     ],
   },
   {
@@ -34,10 +57,10 @@ const kategorien = [
     akzent: "#6FA3FE",
     beschreibung: "Sensorisch verträgliche Kleidung: keine Etiketten, keine störenden Nähte, eindeutige Passformen.",
     produkte: [
-      { name: "Sensory-Shirt Nahtlos", material: "Bio-Baumwolle nahtlos gestrickt", groessen: ["104","116","128","140","152","164","S","M"], farben: ["Weiß","Grau","Hellblau"], preis: 34.90, beschreibung: "Komplett nahtlos, keine Etiketten, angenehm auf empfindlicher Haut." },
-      { name: "Hose Easy-Fit", material: "Baumwoll-Stretch", groessen: ["104","116","128","140","152","164"], farben: ["Schwarz","Navy","Grau"], preis: 39.90, beschreibung: "Gleicher Schnitt in allen Größen — Verlässlichkeit durch Konsistenz." },
-      { name: "Kompressionsshirt", material: "Elastan-Mix", groessen: ["116","128","140","152","164","S","M"], farben: ["Grau","Dunkelblau"], preis: 44.90, beschreibung: "Leichter Kompressionsdruck — strukturgebend und beruhigend." },
-      { name: "Schuhe Klettverschluss", material: "Leder/Textil", groessen: ["28","30","32","34","36","38","40"], farben: ["Schwarz","Grau"], preis: 59.90, beschreibung: "Einfach anzuziehen, ohne Schnürsenkel, stabiler Halt." },
+      { name: "Sensory-Shirt Nahtlos",   icon: Feather, material: "Bio-Baumwolle nahtlos gestrickt", groessen: ["104","116","128","140","152","164","S","M"], farben: ["Weiß","Grau","Hellblau"],  preis: 34.90, beschreibung: "Komplett nahtlos, keine Etiketten, angenehm auf empfindlicher Haut." },
+      { name: "Hose Easy-Fit",           icon: Repeat,  material: "Baumwoll-Stretch",                groessen: ["104","116","128","140","152","164"],         farben: ["Schwarz","Navy","Grau"],   preis: 39.90, beschreibung: "Gleicher Schnitt in allen Größen — Verlässlichkeit durch Konsistenz." },
+      { name: "Kompressionsshirt",       icon: Zap,     material: "Elastan-Mix",                     groessen: ["116","128","140","152","164","S","M"],       farben: ["Grau","Dunkelblau"],      preis: 44.90, beschreibung: "Leichter Kompressionsdruck — strukturgebend und beruhigend." },
+      { name: "Schuhe Klettverschluss",  icon: Move,    material: "Leder/Textil",                    groessen: ["28","30","32","34","36","38","40"],          farben: ["Schwarz","Grau"],         preis: 59.90, beschreibung: "Einfach anzuziehen, ohne Schnürsenkel, stabiler Halt." },
     ],
   },
   {
@@ -46,10 +69,10 @@ const kategorien = [
     akzent: "#FEC274",
     beschreibung: "Würdige Grundausstattung: vollständig, sauber, passend. Für Kinder, die eine komplette Erstausstattung benötigen.",
     produkte: [
-      { name: "Starter-Set Kind", material: "Verschiedene", groessen: ["104–128","128–152"], farben: ["Neutral"], preis: 129.90, beschreibung: "Vollständige Erstausstattung: 3 Shirts, 2 Hosen, Unterwäsche-Set, Socken, Jacke." },
-      { name: "Starter-Set Jugendliche", material: "Verschiedene", groessen: ["152–164","S/M","M/L"], farben: ["Neutral"], preis: 159.90, beschreibung: "Vollständige Erstausstattung für Jugendliche — altersgerecht und würdevoll." },
-      { name: "Schul-Paket", material: "Verschiedene", groessen: ["Universal"], farben: ["Neutral"], preis: 89.90, beschreibung: "Alles für den Schulstart: Rucksack, Federmäppchen, Schulkleidung-Set." },
-      { name: "Hygiene-Starter", material: "—", groessen: ["Universal"], farben: ["—"], preis: 24.90, beschreibung: "Grundlegende Hygieneartikel als Ergänzung zur Ausstattung." },
+      { name: "Starter-Set Kind",        icon: Package,  material: "Verschiedene", groessen: ["104–128","128–152"],      farben: ["Neutral"], preis: 129.90, beschreibung: "Vollständige Erstausstattung: 3 Shirts, 2 Hosen, Unterwäsche-Set, Socken, Jacke." },
+      { name: "Starter-Set Jugendliche", icon: Gift,     material: "Verschiedene", groessen: ["152–164","S/M","M/L"],    farben: ["Neutral"], preis: 159.90, beschreibung: "Vollständige Erstausstattung für Jugendliche — altersgerecht und würdevoll." },
+      { name: "Schul-Paket",            icon: BookOpen, material: "Verschiedene", groessen: ["Universal"],              farben: ["Neutral"], preis: 89.90,  beschreibung: "Alles für den Schulstart: Rucksack, Federmäppchen, Schulkleidung-Set." },
+      { name: "Hygiene-Starter",         icon: Droplets, material: "—",           groessen: ["Universal"],              farben: ["—"],       preis: 24.90,  beschreibung: "Grundlegende Hygieneartikel als Ergänzung zur Ausstattung." },
     ],
   },
   {
@@ -58,10 +81,10 @@ const kategorien = [
     akzent: "#6FA3FE",
     beschreibung: "Dezent, unauffällig, nicht beengend. Kleidung, die Sicherheit gibt ohne aufzufallen.",
     produkte: [
-      { name: "Unauffällig-Set Basic", material: "Bio-Baumwolle", groessen: ["116","128","140","152","164","S","M"], farben: ["Grau","Navy","Schwarz"], preis: 49.90, beschreibung: "Dezentes 2-teiliges Set ohne Logos. Macht unsichtbar im positiven Sinne." },
-      { name: "Kapuzenpulli Rückzug", material: "Baumwolle French Terry", groessen: ["128","140","152","164","S","M","L"], farben: ["Dunkelgrau","Schwarz","Navy"], preis: 44.90, beschreibung: "Große Kapuze als Rückzugsraum, weich und warm." },
-      { name: "Leggings Allrounder", material: "Baumwolle-Stretch", groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Schwarz","Dunkelgrau","Navy"], preis: 24.90, beschreibung: "Bequem, dehnbar, unauffällig — passt zu allem." },
-      { name: "Layering-Shirt", material: "Jersey Bio", groessen: ["116","128","140","152","164","S","M","L"], farben: ["Weiß","Grau","Beige"], preis: 19.90, beschreibung: "Zum Layern — gibt zusätzliche Sicherheit." },
+      { name: "Unauffällig-Set Basic",  icon: EyeOff,       material: "Bio-Baumwolle",     groessen: ["116","128","140","152","164","S","M"],       farben: ["Grau","Navy","Schwarz"],    preis: 49.90, beschreibung: "Dezentes 2-teiliges Set ohne Logos. Macht unsichtbar im positiven Sinne." },
+      { name: "Kapuzenpulli Rückzug",   icon: Umbrella,     material: "Baumwolle French Terry", groessen: ["128","140","152","164","S","M","L"],     farben: ["Dunkelgrau","Schwarz","Navy"], preis: 44.90, beschreibung: "Große Kapuze als Rückzugsraum, weich und warm." },
+      { name: "Leggings Allrounder",    icon: AlignJustify, material: "Baumwolle-Stretch",  groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Schwarz","Dunkelgrau","Navy"], preis: 24.90, beschreibung: "Bequem, dehnbar, unauffällig — passt zu allem." },
+      { name: "Layering-Shirt",         icon: Layers,       material: "Jersey Bio",         groessen: ["116","128","140","152","164","S","M","L"],   farben: ["Weiß","Grau","Beige"],     preis: 19.90, beschreibung: "Zum Layern — gibt zusätzliche Sicherheit." },
     ],
   },
   {
@@ -70,10 +93,10 @@ const kategorien = [
     akzent: "#FEC274",
     beschreibung: "Kleidung als Beziehungsanker: erkennbar, persönlich, verbindend. Für Kinder, die durch persönliche Gegenstände Stabilität erleben.",
     produkte: [
-      { name: "Personalisiertes Shirt", material: "Bio-Baumwolle", groessen: ["104","116","128","140","152","164"], farben: ["Hellblau","Rosa","Grün","Gelb"], preis: 29.90, beschreibung: "Mit individuellem Namen — schafft Identität und Zugehörigkeit." },
-      { name: "Lieblings-Hoodie", material: "Fleece", groessen: ["116","128","140","152","164","S","M","L"], farben: ["Frei wählbar"], preis: 54.90, beschreibung: "In der Lieblingsfarbe des Kindes — stärkt das Selbstgefühl." },
-      { name: "Matching-Set Betreuer", material: "Bio-Baumwolle", groessen: ["Kind + Erwachsen"], farben: ["Gemeinsam wählbar"], preis: 39.90, beschreibung: "Passendes Set für Kind und Bezugsbetreuer — visueller Beziehungsanker." },
-      { name: "Übergangs-Objekt Schal", material: "Merino-Mix weich", groessen: ["Universal"], farben: ["Warm, weich"], preis: 24.90, beschreibung: "Weicher Schal als Übergangsobjekt." },
+      { name: "Personalisiertes Shirt",  icon: Tag,    material: "Bio-Baumwolle",  groessen: ["104","116","128","140","152","164"],  farben: ["Hellblau","Rosa","Grün","Gelb"],  preis: 29.90, beschreibung: "Mit individuellem Namen — schafft Identität und Zugehörigkeit." },
+      { name: "Lieblings-Hoodie",        icon: Heart,  material: "Fleece",         groessen: ["116","128","140","152","164","S","M","L"], farben: ["Frei wählbar"],            preis: 54.90, beschreibung: "In der Lieblingsfarbe des Kindes — stärkt das Selbstgefühl." },
+      { name: "Matching-Set Betreuer",   icon: Link2,  material: "Bio-Baumwolle",  groessen: ["Kind + Erwachsen"],                  farben: ["Gemeinsam wählbar"],             preis: 39.90, beschreibung: "Passendes Set für Kind und Bezugsbetreuer — visueller Beziehungsanker." },
+      { name: "Übergangs-Objekt Schal",  icon: Anchor, material: "Merino-Mix weich", groessen: ["Universal"],                       farben: ["Warm, weich"],                   preis: 24.90, beschreibung: "Weicher Schal als Übergangsobjekt." },
     ],
   },
 ];
@@ -265,22 +288,23 @@ export default function AnkerkleidungPage() {
                   border: "1px solid rgba(26,63,111,0.08)",
                   display: "flex", flexDirection: "column", overflow: "hidden",
                 }}>
-                  {/* Bild-Placeholder */}
+                  {/* Icon-Placeholder */}
                   <div style={{
                     height: "148px", display: "flex", alignItems: "center", justifyContent: "center",
                     background: "linear-gradient(135deg, #1a3f6f 0%, #2d5fa0 100%)",
                   }}>
                     <div style={{ textAlign: "center" }}>
                       <div style={{
-                        width: "36px", height: "36px", borderRadius: "50%",
-                        border: `2px solid ${aktKat.akzent}`,
+                        width: "52px", height: "52px", borderRadius: "50%",
+                        border: `1.5px solid ${aktKat.akzent}`,
+                        background: `${aktKat.akzent}18`,
                         display: "flex", alignItems: "center", justifyContent: "center",
-                        margin: "0 auto 0.5rem",
+                        margin: "0 auto 0.625rem",
                       }}>
-                        <span style={{ fontSize: "16px", color: aktKat.akzent }}>☆</span>
+                        <produkt.icon size={22} color={aktKat.akzent} strokeWidth={1.5} />
                       </div>
-                      <p style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.35)",
-                        letterSpacing: "0.12em", textTransform: "uppercase" }}>Ankerkleidung</p>
+                      <p style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.3)",
+                        letterSpacing: "0.14em", textTransform: "uppercase" }}>Ankerkleidung</p>
                     </div>
                   </div>
 
