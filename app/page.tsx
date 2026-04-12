@@ -302,32 +302,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ STÄRKEN ═══ — HELL */}
-      <section className="py-40 bg-white relative overflow-hidden">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, rgba(74,127,165,0.06) 0%, transparent 70%)" }} />
-
+      {/* ═══ STÄRKEN ═══ */}
+      <section className="relative overflow-hidden bg-white" style={{ paddingTop: "6rem", paddingBottom: "6rem" }}>
         <div className="site-container">
           <BlurFade>
-            <div className="text-center mb-20">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">Was uns auszeichnet</p>
-              <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-black text-[#1A1A2E]" style={{ letterSpacing: "-0.028em" }}>
+            <div style={{ marginBottom: "4rem" }}>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#4A7FA5", marginBottom: "1rem" }}>Was uns auszeichnet</p>
+              <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.028em", lineHeight: 1.15 }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
             {staerken.map((s, i) => {
               const Icon = s.icon;
               return (
                 <BlurFade key={s.titel} delay={i * 0.1}>
-                  <div className="p-12 rounded-3xl bg-[#F5F5F7] hover:bg-[#EBEBED] transition-colors h-full">
-                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8"
-                      style={{ background: `${s.color}15`, border: `1px solid ${s.color}25` }}>
-                      <Icon size={24} strokeWidth={1.5} style={{ color: s.color }} />
+                  <div className="group relative overflow-hidden" style={{ background: "#ffffff", borderRadius: "1rem", border: "1px solid rgba(0,0,0,0.07)", padding: "2.5rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.04)", transition: "box-shadow 0.3s ease, transform 0.3s ease" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: s.color }} />
+                    <div style={{ width: "3rem", height: "3rem", borderRadius: "0.75rem", background: `${s.color}12`, border: `1px solid ${s.color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.75rem" }}>
+                      <Icon size={22} strokeWidth={1.5} style={{ color: s.color }} />
                     </div>
-                    <h3 className="text-xl font-black text-[#1A1A2E] mb-5" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
-                    <p className="text-[#6E6E73] font-normal leading-[2] text-[0.9375rem]">{s.text}</p>
+                    <h3 style={{ fontSize: "1.1875rem", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.02em", marginBottom: "0.75rem" }}>{s.titel}</h3>
+                    <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: "1.9", fontWeight: 400 }}>{s.text}</p>
                   </div>
                 </BlurFade>
               );
@@ -337,14 +334,11 @@ export default function HomePage() {
       </section>
 
       {/* ═══ FÜR FACHKRÄFTE ═══ */}
-      <section className="py-40 text-white relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #070b14 0%, #0d1f35 100%)" }}>
+      <section className="text-white relative overflow-hidden"
+        style={{ background: "#070c18", paddingTop: "6rem", paddingBottom: "6rem" }}>
 
-        {/* Glow blobs */}
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(74,127,165,0.1) 0%, transparent 65%)" }} />
-        <div className="absolute bottom-0 right-0 w-[450px] h-[450px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 65%)" }} />
+        {/* Subtle grid lines */}
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -373,21 +367,20 @@ export default function HomePage() {
               </BlurFade>
             </div>
 
-            {/* Stat-Grid — 5 Spalten, offset 1 */}
+            {/* Stat-Grid */}
             <div className="lg:col-span-5 lg:col-start-8">
               <BlurFade delay={0.12}>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-2" style={{ gap: "1rem" }}>
                   {[
                     { zahl: "< 24h", label: "Rückmeldung auf Anfragen", color: "#4A7FA5" },
                     { zahl: "24/7",  label: "Krisenbereitschaft",       color: "#ef4444" },
                     { zahl: "11",    label: "Spezialisierte Angebote",  color: "#8b5cf6" },
                     { zahl: "100%",  label: "Fachlich qualifiziert",    color: "#10b981" },
                   ].map((stat) => (
-                    <div key={stat.zahl}
-                      className="rounded-2xl p-8 text-center"
-                      style={{ background: `${stat.color}12`, border: `1px solid ${stat.color}30` }}>
-                      <p className="text-[2.5rem] font-black text-white mb-4" style={{ letterSpacing: "-0.03em" }}>{stat.zahl}</p>
-                      <p className="text-white/55 text-xs font-normal leading-relaxed">{stat.label}</p>
+                    <div key={stat.zahl} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "0.875rem", padding: "2rem 1.75rem", position: "relative", overflow: "hidden" }}>
+                      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: stat.color }} />
+                      <p style={{ fontSize: "2.25rem", fontWeight: 900, color: "#ffffff", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{stat.zahl}</p>
+                      <p style={{ fontSize: "0.8125rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.5, fontWeight: 400 }}>{stat.label}</p>
                     </div>
                   ))}
                 </div>
