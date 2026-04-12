@@ -302,8 +302,8 @@ export default function HomePage() {
             {/* Krisenintervention — Large, col-span-2 */}
             <BlurFade className="md:col-span-2">
               <Link href="/krisenintervention"
-                className={`bento-card spotlight-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
-                style={{ background: angebote[0].bg, minHeight: "480px", padding: "2rem" }}>
+                className={`bento-card spotlight-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col`}
+                style={{ background: angebote[0].bg, minHeight: "480px", padding: "2.5rem 3rem" }}>
                 {/* Accent stripe */}
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[0].stripe }} />
                 {/* Decorative SVG */}
@@ -322,13 +322,13 @@ export default function HomePage() {
                   <span className={`text-xs font-medium ${angebote[0].badgeClass} px-3 py-1 rounded-full`}>{angebote[0].badge}</span>
                 </div>
                 {/* Content — top down */}
-                <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
-                  <AlertTriangle size={32} strokeWidth={1.5} className={`${angebote[0].iconClass} mb-6`} />
+                <div className="relative z-10">
+                  <AlertTriangle size={32} strokeWidth={1.5} className={`${angebote[0].iconClass} mb-3`} />
                   <h3 className="text-white font-black mb-3 leading-tight" style={{ fontSize: "1.875rem", letterSpacing: "-0.025em" }}>
                     {angebote[0].titel}
                   </h3>
                   <p className="text-white/55 text-sm italic mb-4">{angebote[0].claim}</p>
-                  <p className="text-white/60 text-sm font-normal mb-8 max-w-md" style={{ lineHeight: "2" }}>{angebote[0].kurz}</p>
+                  <p className="text-white/60 text-sm font-normal mb-8 max-w-md" style={{ lineHeight: "2.2" }}>{angebote[0].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                     Mehr erfahren <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
@@ -339,8 +339,8 @@ export default function HomePage() {
             {/* Psychotherapie — Medium */}
             <BlurFade delay={0.1}>
               <Link href="/psychotherapie"
-                className={`bento-card spotlight-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
-                style={{ background: angebote[1].bg, minHeight: "480px", padding: "2rem" }}>
+                className={`bento-card spotlight-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col`}
+                style={{ background: angebote[1].bg, minHeight: "480px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[1].stripe }} />
                 {/* Decorative: sine wave */}
                 <div className="absolute bottom-0 left-0 right-0 opacity-[0.04] pointer-events-none px-6" style={{ paddingBottom: "2rem" }}>
@@ -352,11 +352,11 @@ export default function HomePage() {
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
                   <span className={`text-xs font-medium ${angebote[1].badgeClass} px-3 py-1 rounded-full`}>{angebote[1].badge}</span>
                 </div>
-                <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
-                  <Brain size={26} strokeWidth={1.5} className={`${angebote[1].iconClass} mb-5`} />
+                <div className="relative z-10">
+                  <Brain size={26} strokeWidth={1.5} className={`${angebote[1].iconClass} mb-3`} />
                   <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.375rem" }}>{angebote[1].titel}</h3>
                   <p className="text-white/50 text-sm italic mb-3">{angebote[1].claim}</p>
-                  <p className="text-white/60 text-sm font-normal leading-[1.85] mb-6">{angebote[1].kurz}</p>
+                  <p className="text-white/60 text-sm font-normal mb-6" style={{ lineHeight: "2.2" }}>{angebote[1].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                     Mehr erfahren <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
@@ -372,17 +372,17 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.08}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
-                    style={{ background: a.bg, minHeight: "420px", padding: "2rem" }}>
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col`}
+                    style={{ background: a.bg, minHeight: "420px", padding: "2.5rem 3rem" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: a.stripe }} />
                     <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
                       <span className={`text-xs font-medium ${a.badgeClass} px-3 py-1 rounded-full`}>{a.badge}</span>
                     </div>
-                    <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
-                      <Icon size={26} strokeWidth={1.5} className={`${a.iconClass} mb-5`} />
+                    <div className="relative z-10">
+                      <Icon size={26} strokeWidth={1.5} className={`${a.iconClass} mb-3`} />
                       <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.375rem" }}>{a.titel}</h3>
                       <p className="text-white/55 text-sm italic mb-4">{a.claim}</p>
-                      <p className="text-white/60 text-sm font-normal mb-6" style={{ lineHeight: "1.9" }}>{a.kurz}</p>
+                      <p className="text-white/60 text-sm font-normal mb-6" style={{ lineHeight: "2.2" }}>{a.kurz}</p>
                       <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                         Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
                       </span>
@@ -400,14 +400,14 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.06}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
-                    style={{ background: a.bg, minHeight: "280px", padding: "2rem" }}>
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col`}
+                    style={{ background: a.bg, minHeight: "280px", padding: "2.5rem 3rem" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: a.stripe }} />
                     <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
                       <span className={`text-[10px] font-medium ${a.badgeClass} px-2 py-0.5 rounded-full`}>{a.badge}</span>
                     </div>
-                    <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
-                      <Icon size={22} strokeWidth={1.5} className={`${a.iconClass} mb-5`} />
+                    <div className="relative z-10">
+                      <Icon size={22} strokeWidth={1.5} className={`${a.iconClass} mb-3`} />
                       <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.125rem" }}>{a.titel}</h3>
                       <p className="text-white/55 text-xs italic mb-5">{a.claim}</p>
                       <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
@@ -426,8 +426,8 @@ export default function HomePage() {
             {/* Ankerkleidung — Large, col-span-2 */}
             <BlurFade delay={0.08} className="md:col-span-2">
               <Link href="/ankerkleidung"
-                className={`bento-card ${angebote[9].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
-                style={{ background: angebote[9].bg, minHeight: "280px", padding: "2rem" }}>
+                className={`bento-card ${angebote[9].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col`}
+                style={{ background: angebote[9].bg, minHeight: "280px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[9].stripe }} />
                 {/* Decorative T-Shirt */}
                 <div className="absolute inset-0 opacity-[0.03] flex items-center justify-end pr-8 pointer-events-none select-none">
@@ -445,11 +445,11 @@ export default function HomePage() {
                 <div style={{ position: "absolute", top: "1.5rem", right: "10rem" }}>
                   <span className={`text-xs font-medium ${angebote[9].badgeClass} px-3 py-1 rounded-full`}>{angebote[9].badge}</span>
                 </div>
-                <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
-                  <Shirt size={26} strokeWidth={1.5} className={`${angebote[9].iconClass} mb-5`} />
+                <div className="relative z-10">
+                  <Shirt size={26} strokeWidth={1.5} className={`${angebote[9].iconClass} mb-3`} />
                   <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.875rem", letterSpacing: "-0.025em" }}>{angebote[9].titel}</h3>
                   <p className="text-white/45 text-sm italic mb-3">{angebote[9].claim}</p>
-                  <p className="text-white/50 text-sm font-normal leading-relaxed mb-5 max-w-sm">{angebote[9].kurz}</p>
+                  <p className="text-white/50 text-sm font-normal mb-5 max-w-sm" style={{ lineHeight: "2.2" }}>{angebote[9].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                     Kollektion entdecken <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
@@ -460,17 +460,17 @@ export default function HomePage() {
             {/* Versorgung — Medium */}
             <BlurFade delay={0.15}>
               <Link href="/versorgung"
-                className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
-                style={{ background: angebote[10].bg, minHeight: "280px", padding: "2rem" }}>
+                className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col`}
+                style={{ background: angebote[10].bg, minHeight: "280px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[10].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
                   <span className={`text-xs font-medium ${angebote[10].badgeClass} px-2.5 py-1 rounded-full`}>{angebote[10].badge}</span>
                 </div>
-                <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
-                  <Star size={26} strokeWidth={1.5} className={`${angebote[10].iconClass} mb-5`} />
+                <div className="relative z-10">
+                  <Star size={26} strokeWidth={1.5} className={`${angebote[10].iconClass} mb-3`} />
                   <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.375rem", letterSpacing: "-0.02em" }}>{angebote[10].titel}</h3>
                   <p className="text-white/50 text-sm italic mb-3">{angebote[10].claim}</p>
-                  <p className="text-white/60 text-sm font-normal leading-[1.85] mb-5">{angebote[10].kurz}</p>
+                  <p className="text-white/60 text-sm font-normal mb-5" style={{ lineHeight: "2.2" }}>{angebote[10].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                     Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
                   </span>
