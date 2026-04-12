@@ -215,14 +215,16 @@ export default function HomePage() {
             >netz</span>
           </h1>
 
-          <p className="fade-in-up delay-2 text-[clamp(1rem,2.2vw,1.25rem)] text-white/55 font-light max-w-lg mx-auto mb-2 leading-relaxed">
-            Stabilität in Krisen.
-          </p>
-          <p className="fade-in-up delay-2 text-[clamp(1rem,2.2vw,1.25rem)] text-white/30 font-light max-w-lg mx-auto mb-16 leading-relaxed">
-            Perspektiven für junge Menschen.
-          </p>
+          <div className="fade-in-up delay-2 text-center mb-12">
+            <p className="text-[clamp(1.05rem,2.2vw,1.25rem)] text-white/70 font-light leading-relaxed mb-1">
+              Stabilität in Krisen.
+            </p>
+            <p className="text-[clamp(1.05rem,2.2vw,1.25rem)] text-white/45 font-light leading-relaxed">
+              Perspektiven für junge Menschen.
+            </p>
+          </div>
 
-          <div className="fade-in-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="fade-in-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-3 mb-24">
             <a href="#angebote" className="btn btn-primary btn-lg group">
               Angebote entdecken
               <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
@@ -231,11 +233,30 @@ export default function HomePage() {
               Platzanfrage stellen
             </Link>
           </div>
+
+          {/* Faktenstreifen */}
+          <div className="fade-in-up delay-3 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+            {[
+              { zahl: "11",    label: "Spezialisierte Angebote" },
+              { zahl: "24/7", label: "Krisenintervention" },
+              { zahl: "100%", label: "Fachlich qualifiziert" },
+            ].map((f, i) => (
+              <div key={i} className="flex items-center gap-3">
+                {i > 0 && <span className="hidden sm:block w-px h-5 bg-white/12 flex-shrink-0" />}
+                <span className="text-white font-black text-xl" style={{ letterSpacing: "-0.02em" }}>{f.zahl}</span>
+                <span className="text-white/40 text-xs font-normal tracking-wide">{f.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
+        {/* Bottom fade — weicher Übergang */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, transparent, rgba(7,11,20,0.6))" }} />
+
         {/* Scroll indicator */}
-        <div className="scroll-pulse absolute bottom-8 left-1/2 -translate-x-1/2">
-          <div className="w-px h-10 bg-white/30" />
+        <div className="scroll-pulse absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+          <div className="w-px h-8 bg-white/25" />
         </div>
       </section>
 
