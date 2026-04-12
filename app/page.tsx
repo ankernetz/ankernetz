@@ -164,31 +164,29 @@ const staerken = [
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
 
       {/* ═══ HERO ═══ */}
       <section
-        className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
         style={{ background: "linear-gradient(160deg, #070b14 0%, #0f172a 40%, #0d1f35 100%)" }}
       >
         {/* Dot grid */}
-        <div className="absolute inset-0 opacity-[0.035]"
+        <div className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "36px 36px" }} />
 
-        {/* Accent glow — blue */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(74,127,165,0.14) 0%, transparent 65%)" }} />
-        {/* Red accent — Krise */}
-        <div className="absolute top-1/4 right-1/4 w-[350px] h-[350px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(239,68,68,0.07) 0%, transparent 70%)" }} />
-        {/* Violet accent — Diagnostik */}
-        <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)" }} />
+        {/* Glow blobs */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(74,127,165,0.12) 0%, transparent 60%)" }} />
+        <div className="absolute top-1/4 right-[15%] w-[380px] h-[380px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(239,68,68,0.08) 0%, transparent 70%)" }} />
+        <div className="absolute bottom-1/4 left-[10%] w-[320px] h-[320px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)" }} />
 
-        <div className="relative z-10 max-w-[760px] mx-auto">
-          <div className="fade-in-up inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-full px-4 py-1.5 mb-8 backdrop-blur-sm">
+        <div className="relative z-10 w-full max-w-[760px] mx-auto px-6">
+          <div className="fade-in-up inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-full px-4 py-1.5 mb-10 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
-            <span className="text-white/65 text-xs font-medium tracking-wide">Krisenintervention 24/7 verfügbar</span>
+            <span className="text-white/65 text-xs font-normal tracking-wide">Krisenintervention 24/7 verfügbar</span>
           </div>
 
           <h1 className="fade-in-up delay-1 text-[clamp(3.5rem,10vw,6.5rem)] font-black text-white leading-none mb-6"
@@ -196,21 +194,21 @@ export default function HomePage() {
             Anker<span style={{ color: "var(--accent)" }}>netz</span>
           </h1>
 
-          <p className="fade-in-up delay-2 text-[clamp(1.1rem,2.5vw,1.375rem)] text-white/55 font-light max-w-xl mx-auto mb-3 leading-relaxed">
+          <p className="fade-in-up delay-2 text-[clamp(1rem,2.2vw,1.25rem)] text-white/55 font-light max-w-lg mx-auto mb-2 leading-relaxed">
             Stabilität in Krisen.
           </p>
-          <p className="fade-in-up delay-2 text-[clamp(1.1rem,2.5vw,1.375rem)] text-white/35 font-light max-w-xl mx-auto mb-14 leading-relaxed">
+          <p className="fade-in-up delay-2 text-[clamp(1rem,2.2vw,1.25rem)] text-white/30 font-light max-w-lg mx-auto mb-16 leading-relaxed">
             Perspektiven für junge Menschen.
           </p>
 
           <div className="fade-in-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#angebote"
-              className="group flex items-center gap-2 px-8 py-3.5 bg-white text-[#0f172a] font-bold rounded-full text-sm hover:bg-white/95 transition-all shadow-lg shadow-white/10">
+              className="group flex items-center gap-2 px-8 py-3.5 bg-white text-[#0f172a] font-bold rounded-full text-sm hover:bg-white/95 transition-all shadow-lg shadow-black/20">
               Angebote entdecken
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <Link href="/platzanfrage"
-              className="flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white font-medium rounded-full text-sm hover:bg-white/8 transition-colors backdrop-blur-sm">
+              className="flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white/80 font-normal rounded-full text-sm hover:bg-white/8 hover:text-white transition-all backdrop-blur-sm">
               Platzanfrage stellen
             </Link>
           </div>
@@ -218,54 +216,57 @@ export default function HomePage() {
 
         {/* Scroll indicator */}
         <div className="scroll-pulse absolute bottom-8 left-1/2 -translate-x-1/2">
-          <div className="w-px h-10 bg-white/40" />
+          <div className="w-px h-10 bg-white/30" />
         </div>
       </section>
 
       {/* ═══ EINLEITUNG ═══ */}
-      <section className="py-28 px-6 bg-[#F5F5F7]">
-        <div className="max-w-[1280px] mx-auto">
-          <ScrollReveal className="text-center max-w-3xl mx-auto">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#4A7FA5] mb-6">
+      <section className="py-32 bg-[#F5F5F7] relative overflow-hidden">
+        {/* Subtle violet glow blob */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-40"
+          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)" }} />
+
+        <div className="max-w-[1280px] mx-auto px-6">
+          <ScrollReveal className="text-center max-w-2xl mx-auto">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">
               Ein Netz. Elf Antworten.
             </p>
-            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-black text-[#1A1A2E] mb-8 leading-[1.08]"
+            <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1A1A2E] mb-6 leading-[1.1]"
               style={{ letterSpacing: "-0.03em" }}>
               Für jede Situation<br />die richtige Hilfe.
             </h2>
-            <p className="text-[1.125rem] text-[#6E6E73] leading-[1.8] max-w-2xl mx-auto">
+            <p className="text-base text-[#6E6E73] font-normal leading-[1.9] max-w-xl mx-auto">
               Ankernetz ist ein Netzwerk aus spezialisierten Hilfsangeboten für Kinder und Jugendliche —
               von der akuten Krisenintervention über Psychotherapie und frühe Hilfen bis zum Übergang in den Beruf.
-              Alle Angebote sind aufeinander abgestimmt und unter einem gemeinsamen starken Dach vereint.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ */}
-      <section id="angebote" className="pb-6 px-6 bg-[#F5F5F7]">
-        <div className="max-w-[1280px] mx-auto space-y-4">
+      <section id="angebote" className="pb-32 bg-[#F5F5F7]">
+        <div className="max-w-[1280px] mx-auto px-6 space-y-4">
 
           {/* Reihe 1: Krisenintervention groß + Psychotherapie */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <ScrollReveal className="md:col-span-2">
               <Link href="/krisenintervention"
-                className={`bento-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[400px] flex flex-col justify-end p-8 block`}
+                className={`bento-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
                 style={{ background: angebote[0].bg }}>
                 <div className="absolute top-6 right-6">
-                  <span className={`text-xs font-bold ${angebote[0].badgeClass} px-3 py-1 rounded-full`}>
+                  <span className={`text-xs font-medium ${angebote[0].badgeClass} px-3 py-1 rounded-full`}>
                     {angebote[0].badge}
                   </span>
                 </div>
                 <div className="relative z-10">
-                  <AlertTriangle size={32} className={`${angebote[0].iconClass} mb-5`} />
+                  <AlertTriangle size={30} className={`${angebote[0].iconClass} mb-5`} />
                   <h3 className="text-white text-[2rem] font-black mb-2 leading-tight" style={{ letterSpacing: "-0.025em" }}>
                     {angebote[0].titel}
                   </h3>
-                  <p className="text-white/45 text-sm italic mb-3">{angebote[0].claim}</p>
-                  <p className="text-white/55 text-sm leading-relaxed mb-6 max-w-md">{angebote[0].kurz}</p>
-                  <span className="inline-flex items-center gap-2 text-white text-sm font-bold group-hover:gap-3 transition-all">
-                    Mehr erfahren <ArrowRight size={15} />
+                  <p className="text-white/40 text-sm italic mb-3">{angebote[0].claim}</p>
+                  <p className="text-white/50 text-sm font-normal leading-relaxed mb-6 max-w-md">{angebote[0].kurz}</p>
+                  <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                    Mehr erfahren <ArrowRight size={14} />
                   </span>
                 </div>
               </Link>
@@ -273,19 +274,19 @@ export default function HomePage() {
 
             <ScrollReveal delay={100}>
               <Link href="/psychotherapie"
-                className={`bento-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[400px] flex flex-col justify-end p-7 block`}
+                className={`bento-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-7 block`}
                 style={{ background: angebote[1].bg }}>
                 <div className="absolute top-6 right-6">
-                  <span className={`text-xs font-bold ${angebote[1].badgeClass} px-3 py-1 rounded-full`}>
+                  <span className={`text-xs font-medium ${angebote[1].badgeClass} px-3 py-1 rounded-full`}>
                     {angebote[1].badge}
                   </span>
                 </div>
                 <div className="relative z-10">
-                  <Brain size={28} className={`${angebote[1].iconClass} mb-4`} />
+                  <Brain size={26} className={`${angebote[1].iconClass} mb-4`} />
                   <h3 className="text-white text-xl font-black mb-1 leading-tight">{angebote[1].titel}</h3>
-                  <p className="text-white/45 text-xs italic mb-2">{angebote[1].claim}</p>
-                  <p className="text-white/55 text-sm leading-relaxed mb-5">{angebote[1].kurz}</p>
-                  <span className="inline-flex items-center gap-2 text-white text-sm font-bold group-hover:gap-3 transition-all">
+                  <p className="text-white/40 text-xs italic mb-2">{angebote[1].claim}</p>
+                  <p className="text-white/50 text-sm font-normal leading-relaxed mb-5">{angebote[1].kurz}</p>
+                  <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                     Mehr erfahren <ArrowRight size={14} />
                   </span>
                 </div>
@@ -300,19 +301,19 @@ export default function HomePage() {
               return (
                 <ScrollReveal key={a.slug} delay={i * 80}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[290px] flex flex-col justify-end p-7 block`}
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[300px] flex flex-col justify-end p-7 block`}
                     style={{ background: a.bg }}>
                     <div className="absolute top-5 right-5">
-                      <span className={`text-xs font-bold ${a.badgeClass} px-2.5 py-1 rounded-full`}>
+                      <span className={`text-xs font-medium ${a.badgeClass} px-2.5 py-1 rounded-full`}>
                         {a.badge}
                       </span>
                     </div>
                     <div className="relative z-10">
-                      <Icon size={24} className={`${a.iconClass} mb-3`} />
+                      <Icon size={22} className={`${a.iconClass} mb-3`} />
                       <h3 className="text-white text-lg font-black mb-1 leading-tight">{a.titel}</h3>
-                      <p className="text-white/45 text-xs italic mb-2">{a.claim}</p>
-                      <p className="text-white/55 text-sm leading-relaxed mb-4">{a.kurz}</p>
-                      <span className="inline-flex items-center gap-2 text-white text-xs font-bold group-hover:gap-3 transition-all">
+                      <p className="text-white/40 text-xs italic mb-2">{a.claim}</p>
+                      <p className="text-white/50 text-sm font-normal leading-relaxed mb-4">{a.kurz}</p>
+                      <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
                         Mehr <ArrowRight size={12} />
                       </span>
                     </div>
@@ -329,13 +330,13 @@ export default function HomePage() {
               return (
                 <ScrollReveal key={a.slug} delay={i * 60}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[210px] flex flex-col justify-end p-6 block`}
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[220px] flex flex-col justify-end p-6 block`}
                     style={{ background: a.bg }}>
                     <div className="relative z-10">
-                      <Icon size={20} className={`${a.iconClass} mb-3`} />
+                      <Icon size={18} className={`${a.iconClass} mb-3`} />
                       <h3 className="text-white text-base font-black mb-1 leading-tight">{a.titel}</h3>
-                      <p className="text-white/45 text-xs italic mb-3">{a.claim}</p>
-                      <span className="inline-flex items-center gap-1.5 text-white text-xs font-bold group-hover:gap-2.5 transition-all">
+                      <p className="text-white/40 text-xs italic mb-3">{a.claim}</p>
+                      <span className="inline-flex items-center gap-1.5 text-white text-xs font-semibold group-hover:gap-2.5 transition-all">
                         Mehr <ArrowRight size={11} />
                       </span>
                     </div>
@@ -347,56 +348,76 @@ export default function HomePage() {
 
           {/* Reihe 4: Ankerkleidung + Versorgung */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <ScrollReveal delay={100} className="md:col-span-2">
+            <ScrollReveal delay={80} className="md:col-span-2">
               <Link href="/ankerkleidung"
-                className={`bento-card ${angebote[9].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[230px] flex items-center p-8 block`}
+                className={`bento-card ${angebote[9].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex items-center p-8 block`}
                 style={{ background: angebote[9].bg }}>
-                <div className="flex-1 relative z-10">
+
+                {/* Visual: abstract clothing silhouettes */}
+                <div className="absolute inset-0 opacity-[0.06] flex items-center justify-end pr-8 pointer-events-none select-none">
+                  <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
+                    {/* T-Shirt silhouette */}
+                    <path d="M60 40 L20 70 L40 80 L40 160 L180 160 L180 80 L200 70 L160 40 L140 55 Q110 68 80 55 Z"
+                      fill="white" />
+                    {/* Collar */}
+                    <path d="M80 55 Q110 75 140 55" stroke="white" strokeWidth="2" fill="none" />
+                  </svg>
+                </div>
+                {/* Floating tags */}
+                <div className="absolute top-5 right-5 bottom-5 hidden md:flex flex-col justify-center gap-2 pointer-events-none">
+                  {["ADHS", "Trauma", "Autismus", "Bindung", "Angst"].map((t) => (
+                    <span key={t} className="text-[11px] text-white/30 border border-white/10 px-2.5 py-1 rounded-full text-center">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="relative z-10 flex-1 pr-4">
                   <div className="flex items-center gap-3 mb-4">
-                    <Shirt size={26} className={angebote[9].iconClass} />
-                    <span className={`text-xs font-bold ${angebote[9].badgeClass} px-3 py-1 rounded-full`}>Shop</span>
+                    <Shirt size={24} className={angebote[9].iconClass} />
+                    <span className={`text-xs font-medium ${angebote[9].badgeClass} px-3 py-1 rounded-full`}>Shop</span>
                   </div>
                   <h3 className="text-white text-2xl font-black mb-2" style={{ letterSpacing: "-0.02em" }}>Ankerkleidung</h3>
-                  <p className="text-white/45 text-sm italic mb-3">Stabilität. Selbstwert. Alltag.</p>
-                  <p className="text-white/55 text-sm leading-relaxed mb-5 max-w-md">{angebote[9].kurz}</p>
-                  <span className="inline-flex items-center gap-2 text-white text-sm font-bold group-hover:gap-3 transition-all">
-                    Kollektion entdecken <ArrowRight size={15} />
+                  <p className="text-white/40 text-sm italic mb-3">Stabilität. Selbstwert. Alltag.</p>
+                  <p className="text-white/50 text-sm font-normal leading-relaxed mb-5 max-w-sm">{angebote[9].kurz}</p>
+                  <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                    Kollektion entdecken <ArrowRight size={14} />
                   </span>
-                </div>
-                <div className="hidden md:flex gap-2 flex-wrap max-w-[180px] relative z-10">
-                  {["ADHS", "Trauma", "Autismus", "Bindung", "Angst"].map((t) => (
-                    <span key={t} className="text-xs text-white/40 border border-white/10 px-2 py-1 rounded-full">{t}</span>
-                  ))}
                 </div>
               </Link>
             </ScrollReveal>
 
             <ScrollReveal delay={150}>
               <Link href="/versorgung"
-                className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[230px] flex flex-col justify-end p-7 block`}
+                className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex flex-col justify-end p-7 block`}
                 style={{ background: angebote[10].bg }}>
                 <div className="relative z-10">
-                  <Star size={22} className={`${angebote[10].iconClass} mb-3`} />
+                  <Star size={20} className={`${angebote[10].iconClass} mb-3`} />
                   <h3 className="text-white text-lg font-black mb-1" style={{ letterSpacing: "-0.02em" }}>Versorgung</h3>
-                  <p className="text-white/45 text-xs italic mb-2">Würde im Alltag.</p>
-                  <p className="text-white/55 text-sm leading-relaxed mb-4">{angebote[10].kurz}</p>
-                  <span className="inline-flex items-center gap-2 text-white text-xs font-bold group-hover:gap-3 transition-all">
+                  <p className="text-white/40 text-xs italic mb-2">Würde im Alltag.</p>
+                  <p className="text-white/50 text-sm font-normal leading-relaxed mb-4">{angebote[10].kurz}</p>
+                  <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
                     Mehr <ArrowRight size={12} />
                   </span>
                 </div>
               </Link>
             </ScrollReveal>
           </div>
+
         </div>
       </section>
 
       {/* ═══ STÄRKEN ═══ */}
-      <section className="py-28 px-6 bg-white">
-        <div className="max-w-[1280px] mx-auto">
+      <section className="py-32 bg-white relative overflow-hidden">
+        {/* Green glow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+          style={{ background: "radial-gradient(ellipse, rgba(16,185,129,0.05) 0%, transparent 70%)" }} />
+
+        <div className="max-w-[1280px] mx-auto px-6">
           <ScrollReveal>
-            <div className="text-center mb-16">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#4A7FA5] mb-4">Was uns auszeichnet</p>
-              <h2 className="text-[clamp(2rem,4.5vw,3rem)] font-black text-[#1A1A2E]" style={{ letterSpacing: "-0.028em" }}>
+            <div className="text-center mb-20">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">Was uns auszeichnet</p>
+              <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-black text-[#1A1A2E]" style={{ letterSpacing: "-0.028em" }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
@@ -407,12 +428,12 @@ export default function HomePage() {
               return (
                 <ScrollReveal key={s.titel} delay={i * 100}>
                   <div className="p-8 rounded-3xl bg-[#F5F5F7] hover:bg-[#EBEBED] transition-colors">
-                    <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
-                      style={{ background: `${s.color}18`, border: `1px solid ${s.color}30` }}>
+                    <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-6"
+                      style={{ background: `${s.color}15`, border: `1px solid ${s.color}25` }}>
                       <Icon size={20} style={{ color: s.color }} />
                     </div>
                     <h3 className="text-xl font-black text-[#1A1A2E] mb-3" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
-                    <p className="text-[#6E6E73] leading-relaxed text-[0.9375rem]">{s.text}</p>
+                    <p className="text-[#6E6E73] font-normal leading-[1.8] text-[0.9375rem]">{s.text}</p>
                   </div>
                 </ScrollReveal>
               );
@@ -422,55 +443,66 @@ export default function HomePage() {
       </section>
 
       {/* ═══ FÜR FACHKRÄFTE ═══ */}
-      <section className="py-28 px-6 text-white relative overflow-hidden"
+      <section className="py-32 text-white relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, #070b14 0%, #0d1f35 100%)" }}>
-        {/* Background glows */}
+
+        {/* Glow blobs */}
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(74,127,165,0.1) 0%, transparent 70%)" }} />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(74,127,165,0.1) 0%, transparent 65%)" }} />
+        <div className="absolute bottom-0 right-0 w-[450px] h-[450px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 65%)" }} />
 
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-          <ScrollReveal>
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#4A7FA5] mb-5">Für Jugendämter & Fachkräfte</p>
-            <h2 className="text-[clamp(2rem,4.5vw,3.25rem)] font-black mb-6 leading-[1.1]" style={{ letterSpacing: "-0.03em" }}>
-              Klare Prozesse.<br />Schnelle Reaktion.<br />Verlässliche Partner.
-            </h2>
-            <p className="text-white/45 text-[1.0625rem] leading-[1.8] mb-10">
-              Ankernetz arbeitet eng mit Jugendämtern und Fachkräften zusammen.
-              Schnelle Rückmeldungen, transparente Einschätzungen und passgenaue
-              Hilfeformen — direkt und unkompliziert.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/platzanfrage"
-                className="group flex items-center gap-2 px-8 py-3.5 bg-white text-[#0f172a] font-bold rounded-full text-sm hover:bg-white/95 transition-all">
-                Platzanfrage stellen
-                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link href="/kontakt"
-                className="flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white font-medium rounded-full text-sm hover:bg-white/8 transition-colors">
-                Kontakt aufnehmen
-              </Link>
-            </div>
-          </ScrollReveal>
+        <div className="max-w-[1280px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
-          <ScrollReveal delay={150}>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { zahl: "< 24h", label: "Rückmeldung auf Anfragen", color: "#4A7FA5" },
-                { zahl: "24/7",  label: "Krisenbereitschaft",       color: "#ef4444" },
-                { zahl: "11",    label: "Spezialisierte Angebote",  color: "#8b5cf6" },
-                { zahl: "100%",  label: "Fachlich qualifiziert",    color: "#10b981" },
-              ].map((stat) => (
-                <div key={stat.zahl}
-                  className="rounded-2xl p-6 text-center"
-                  style={{ background: `${stat.color}0d`, border: `1px solid ${stat.color}25` }}>
-                  <p className="text-[2rem] font-black text-white mb-1" style={{ letterSpacing: "-0.03em", fontFamily: "var(--font-geist-sans)" }}>{stat.zahl}</p>
-                  <p className="text-white/40 text-xs leading-snug">{stat.label}</p>
+            {/* Text — 6 Spalten */}
+            <div className="lg:col-span-6">
+              <ScrollReveal>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">Für Jugendämter & Fachkräfte</p>
+                <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-6 leading-[1.1]" style={{ letterSpacing: "-0.03em" }}>
+                  Klare Prozesse.<br />Schnelle Reaktion.<br />Verlässliche Partner.
+                </h2>
+                <p className="text-white/45 text-[1.0625rem] font-normal leading-[1.85] mb-10 max-w-lg">
+                  Ankernetz arbeitet eng mit Jugendämtern und Fachkräften zusammen.
+                  Schnelle Rückmeldungen, transparente Einschätzungen und passgenaue
+                  Hilfeformen — direkt und unkompliziert.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/platzanfrage"
+                    className="group flex items-center gap-2 px-8 py-3.5 bg-white text-[#0f172a] font-bold rounded-full text-sm hover:bg-white/95 transition-all">
+                    Platzanfrage stellen
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <Link href="/kontakt"
+                    className="flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white/80 font-normal rounded-full text-sm hover:bg-white/8 hover:text-white transition-all">
+                    Kontakt aufnehmen
+                  </Link>
                 </div>
-              ))}
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
+
+            {/* Stat-Grid — 5 Spalten, offset 1 */}
+            <div className="lg:col-span-5 lg:col-start-8">
+              <ScrollReveal delay={120}>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { zahl: "< 24h", label: "Rückmeldung auf Anfragen", color: "#4A7FA5" },
+                    { zahl: "24/7",  label: "Krisenbereitschaft",       color: "#ef4444" },
+                    { zahl: "11",    label: "Spezialisierte Angebote",  color: "#8b5cf6" },
+                    { zahl: "100%",  label: "Fachlich qualifiziert",    color: "#10b981" },
+                  ].map((stat) => (
+                    <div key={stat.zahl}
+                      className="rounded-2xl p-6 text-center"
+                      style={{ background: `${stat.color}0c`, border: `1px solid ${stat.color}22` }}>
+                      <p className="text-[2.25rem] font-black text-white mb-2" style={{ letterSpacing: "-0.03em" }}>{stat.zahl}</p>
+                      <p className="text-white/40 text-xs font-normal leading-snug">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+            </div>
+
+          </div>
         </div>
       </section>
 

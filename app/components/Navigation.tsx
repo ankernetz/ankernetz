@@ -156,14 +156,19 @@ export default function Navigation() {
         <div
           onMouseEnter={openMega}
           onMouseLeave={closeMega}
-          className="hidden lg:block absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl shadow-2xl border-t border-black/5"
+          className="hidden lg:block absolute top-full left-0 right-0 shadow-2xl border-t border-white/10"
+          style={{
+            background: "rgba(10, 14, 24, 0.82)",
+            backdropFilter: "blur(24px) saturate(180%)",
+            WebkitBackdropFilter: "blur(24px) saturate(180%)",
+          }}
         >
           <div className="max-w-[1280px] mx-auto px-6 py-8">
             <div className="grid grid-cols-4 gap-6">
               {megaMenu.map((gruppe) => (
                 <div key={gruppe.kategorie}>
                   {/* Kategorie-Header mit Icon */}
-                  <div className="flex items-center gap-2 mb-4 pb-3 border-b border-black/5">
+                  <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/8">
                     <span style={{ color: gruppe.farbe }}>{gruppe.icon}</span>
                     <p className="text-xs font-black uppercase tracking-widest" style={{ color: gruppe.farbe }}>
                       {gruppe.kategorie}
@@ -175,15 +180,15 @@ export default function Navigation() {
                         key={item.href}
                         href={item.href}
                         onClick={() => setMegaOpen(false)}
-                        className="flex items-center justify-between px-3 py-3 rounded-xl hover:bg-[#F5F5F7] transition-colors group"
+                        className="flex items-center justify-between px-3 py-3 rounded-xl hover:bg-white/8 transition-colors group"
                       >
                         <div>
-                          <p className="text-[13px] font-semibold text-[#1A1A2E] group-hover:text-[#4A7FA5] transition-colors leading-tight">
+                          <p className="text-[13px] font-semibold text-white/85 group-hover:text-white transition-colors leading-tight">
                             {item.label}
                           </p>
-                          <p className="text-[11px] text-[#9CA3AF] mt-0.5">{item.sub}</p>
+                          <p className="text-[11px] text-white/35 mt-0.5">{item.sub}</p>
                         </div>
-                        <svg width="12" height="12" fill="none" stroke="#9CA3AF" strokeWidth="2"
+                        <svg width="12" height="12" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="2"
                           className="opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
                           <path d="M2 6h8M6 2l4 4-4 4" />
                         </svg>
@@ -195,12 +200,12 @@ export default function Navigation() {
             </div>
 
             {/* Bottom strip */}
-            <div className="mt-6 pt-5 border-t border-black/5 flex items-center justify-between">
-              <p className="text-[13px] text-[#6E6E73]">
+            <div className="mt-6 pt-5 border-t border-white/8 flex items-center justify-between">
+              <p className="text-[13px] text-white/40">
                 Nicht sicher, welches Angebot passt?
               </p>
               <Link href="/kontakt" onClick={() => setMegaOpen(false)}
-                className="text-[13px] font-semibold text-[#4A7FA5] hover:underline flex items-center gap-1.5">
+                className="text-[13px] font-semibold text-[#4A7FA5] hover:text-[#6ba3c5] transition-colors flex items-center gap-1.5">
                 Kontaktieren Sie uns direkt
                 <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 7h8M7 3l4 4-4 4" /></svg>
               </Link>
