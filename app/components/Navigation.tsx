@@ -125,18 +125,12 @@ export default function Navigation() {
             </Link>
           ))}
 
-          <a href="tel:+49000000"
-            className="text-[13px] font-semibold bg-red-600 text-white px-4 py-1.5 rounded-full hover:bg-red-700 transition-colors flex items-center gap-2">
+          <a href="tel:+49000000" className="btn btn-danger btn-sm flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse flex-shrink-0" />
             Notfall 24/7
           </a>
 
-          <Link href="/platzanfrage"
-            className={`text-[13px] font-semibold px-5 py-1.5 rounded-full transition-colors ${
-              isLight
-                ? "bg-white text-[#1A1A2E] hover:bg-white/90"
-                : "bg-[#1A1A2E] text-white hover:bg-[#2a2a3e]"
-            }`}>
+          <Link href="/platzanfrage" className="btn btn-primary btn-sm">
             Platzanfrage
           </Link>
         </div>
@@ -219,8 +213,7 @@ export default function Navigation() {
       {menuOpen && (
         <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-black/5 max-h-[85vh] overflow-y-auto">
           <div className="px-6 py-4">
-            <a href="tel:+49000000"
-              className="flex items-center gap-2 w-full mb-5 py-3 px-4 bg-red-600 text-white rounded-xl font-semibold text-sm">
+            <a href="tel:+49000000" className="btn btn-danger w-full mb-5 justify-center">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
               Notfall 24/7 — Jetzt anrufen
             </a>
@@ -251,7 +244,7 @@ export default function Navigation() {
                   className="block py-2 text-[13px] text-[#1D1D1F] font-medium">{item.label}</Link>
               ))}
               <Link href="/platzanfrage" onClick={() => setMenuOpen(false)}
-                className="block mt-4 text-center text-[13px] font-bold bg-[#1A1A2E] text-white px-4 py-3 rounded-full">
+                className="btn btn-primary w-full mt-4 justify-center">
                 Platzanfrage stellen
               </Link>
             </div>

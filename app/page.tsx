@@ -218,14 +218,12 @@ export default function HomePage() {
             Perspektiven für junge Menschen.
           </p>
 
-          <div className="fade-in-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#angebote"
-              className="group flex items-center gap-2 px-8 py-3.5 bg-white text-[#0f172a] font-bold rounded-full text-sm hover:bg-white/95 transition-all shadow-lg shadow-black/20">
+          <div className="fade-in-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="#angebote" className="btn btn-primary btn-lg group">
               Angebote entdecken
-              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
-            <Link href="/platzanfrage"
-              className="flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white/80 font-normal rounded-full text-sm hover:bg-white/8 hover:text-white transition-all backdrop-blur-sm">
+            <Link href="/platzanfrage" className="btn btn-outline-light btn-lg">
               Platzanfrage stellen
             </Link>
           </div>
@@ -507,14 +505,12 @@ export default function HomePage() {
                   Schnelle Rückmeldungen, transparente Einschätzungen und passgenaue
                   Hilfeformen — direkt und unkompliziert.
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link href="/platzanfrage"
-                    className="group flex items-center gap-2 px-8 py-3.5 bg-white text-[#0f172a] font-bold rounded-full text-sm hover:bg-white/95 transition-all">
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/platzanfrage" className="btn btn-primary btn-lg group">
                     Platzanfrage stellen
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                   </Link>
-                  <Link href="/kontakt"
-                    className="flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white/80 font-normal rounded-full text-sm hover:bg-white/8 hover:text-white transition-all">
+                  <Link href="/kontakt" className="btn btn-outline-light btn-lg">
                     Kontakt aufnehmen
                   </Link>
                 </div>

@@ -40,7 +40,8 @@ export default function RootLayout({
                 <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                 <p className="text-sm font-semibold">Krisenintervention — 24 Stunden, 7 Tage die Woche erreichbar</p>
               </div>
-              <a href="tel:+49404087654321" className="text-sm font-bold bg-white text-red-700 px-5 py-1.5 rounded-full hover:bg-red-50 transition-colors whitespace-nowrap">
+              <a href="tel:+49404087654321" className="btn btn-sm whitespace-nowrap"
+                style={{ background: "white", color: "#b91c1c", borderColor: "white" }}>
                 +49 (0) 40 87 65 43 21 — Jetzt anrufen
               </a>
             </div>
@@ -117,8 +118,7 @@ export default function RootLayout({
                     20459 Hamburg
                   </p>
                 </div>
-                <Link href="/platzanfrage"
-                  className="inline-block mt-2 text-sm font-semibold bg-[#4A7FA5] text-white px-5 py-2.5 rounded-full hover:bg-[#3a6f95] transition-colors">
+                <Link href="/platzanfrage" className="btn btn-primary btn-sm mt-2">
                   Platzanfrage →
                 </Link>
               </div>
@@ -136,8 +136,7 @@ export default function RootLayout({
                   placeholder="Ihre E-Mail-Adresse"
                   className="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-[#4A7FA5]"
                 />
-                <button type="submit"
-                  className="w-full py-2.5 bg-[#4A7FA5] text-white text-sm font-semibold rounded-xl hover:bg-[#3a6f95] transition-colors">
+                <button type="submit" className="btn btn-primary w-full">
                   Anmelden
                 </button>
               </form>
