@@ -163,20 +163,24 @@ export default function Navigation() {
                   </p>
 
                   {/* Items */}
-                  <ul className="space-y-1">
+                  <ul style={{ display: "flex", flexDirection: "column", gap: "0.125rem" }}>
                     {gruppe.items.map((item) => (
                       <li key={item.href}>
                         <Link
                           href={item.href}
                           onClick={() => setMegaOpen(false)}
-                          className="group block py-2"
+                          style={{
+                            display: "block",
+                            padding: "0.45rem 0",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            color: "#1D1D1F",
+                            textDecoration: "none",
+                            transition: "color 0.15s ease",
+                          }}
+                          className="mega-item"
                         >
-                          <p className="text-[15px] font-semibold text-[#1D1D1F] group-hover:text-black transition-colors leading-snug">
-                            {item.label}
-                          </p>
-                          <p className="text-[12px] text-[#6E6E73] mt-0.5 font-normal">
-                            {item.sub}
-                          </p>
+                          {item.label}
                         </Link>
                       </li>
                     ))}

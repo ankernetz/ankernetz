@@ -313,6 +313,11 @@ section {
   color: #ffffff !important;
 }
 
+/* ─── Mega menu item hover ───────────────────────────────────── */
+.mega-item:hover {
+  color: #000000 !important;
+}
+
 /* ─── Spotlight effect on hover (Aceternity-inspired) ───────── */
 .spotlight-card {
   position: relative;
