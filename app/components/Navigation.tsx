@@ -187,7 +187,7 @@ export default function Navigation() {
               {megaMenu.map((gruppe) => (
                 <div key={gruppe.kategorie}>
                   {/* Kategorie-Header */}
-                  <p style={{ fontSize: "11px", fontWeight: 600, color: "#6E6E73", textTransform: "uppercase", letterSpacing: "0.14em", marginBottom: "1.25rem" }}>
+                  <p style={{ fontSize: "14px", fontWeight: 400, color: "#1D1D1F", marginBottom: "1.25rem" }}>
                     {gruppe.kategorie}
                   </p>
 
@@ -218,23 +218,6 @@ export default function Navigation() {
               ))}
             </div>
 
-            {/* Bottom strip */}
-            <div className="mt-8 pt-6 flex items-center justify-between"
-              style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
-              <p className="text-[13px] text-[#6E6E73]">
-                Nicht sicher, welches Angebot passt?
-              </p>
-              <Link
-                href="/kontakt"
-                onClick={() => setMegaOpen(false)}
-                className="text-[13px] font-medium text-[#4A7FA5] hover:text-[#2d6a8f] transition-colors flex items-center gap-1"
-              >
-                Kontaktieren Sie uns direkt
-                <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" className="mt-px">
-                  <path d="M2 6.5h8M7 3l3.5 3.5L7 10" />
-                </svg>
-              </Link>
-            </div>
           </div>
         </div>
       )}
