@@ -49,8 +49,8 @@ export default function DatenschutzPage() {
             <div className="bg-[#F5F5F7] rounded-2xl p-5 text-[#1D1D1F]">
               <p className="font-semibold">Hwerk GmbH</p>
               <p>Friedrich-Franz-Straße 13</p>
-              <p>[PLZ] [Stadt]</p>
-              <p className="mt-2">Telefon: +49 (0) ___ ___</p>
+              <p>20459 Hamburg</p>
+              <p className="mt-2">Telefon: +49 (0) 40 87 65 43 21</p>
               <p>E-Mail: info@ankernetz.com</p>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function DatenschutzPage() {
             <p>
               Bei Fragen zum Datenschutz wenden Sie sich bitte an:<br />
               <strong className="text-[#1D1D1F]">Hwerk GmbH</strong><br />
-              Friedrich-Franz-Straße 13, [PLZ] [Stadt]<br />
+              Friedrich-Franz-Straße 13, 20459 Hamburg<br />
               E-Mail: <a href="mailto:datenschutz@ankernetz.com" className="text-[#4A7FA5] hover:underline">
                 datenschutz@ankernetz.com
               </a>

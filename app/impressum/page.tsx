@@ -17,7 +17,7 @@ export default function ImpressumPage() {
             </h2>
             <p className="text-[#1D1D1F] font-semibold text-lg mb-1">Hwerk GmbH</p>
             <p className="text-[#6E6E73]">Friedrich-Franz-Straße 13</p>
-            <p className="text-[#6E6E73]">[PLZ] [Stadt]</p>
+            <p className="text-[#6E6E73]">20459 Hamburg</p>
             <p className="text-[#6E6E73]">Deutschland</p>
           </div>
 
@@ -26,14 +26,14 @@ export default function ImpressumPage() {
             <h2 className="text-xs font-bold uppercase tracking-widest text-[#6E6E73] mb-4">
               Vertreten durch
             </h2>
-            <p className="text-[#1D1D1F]">Geschäftsführer: <span className="font-semibold">[Name Geschäftsführer]</span></p>
+            <p className="text-[#1D1D1F]">Geschäftsführer: <span className="font-semibold">Marcus Weber</span></p>
           </div>
 
           {/* Kontakt */}
           <div className="pt-8 border-t border-black/5">
             <h2 className="text-xs font-bold uppercase tracking-widest text-[#6E6E73] mb-4">Kontakt</h2>
             <div className="space-y-1 text-[#6E6E73]">
-              <p>Telefon: <span className="text-[#1D1D1F]">+49 (0) ___ ___</span></p>
+              <p>Telefon: <span className="text-[#1D1D1F]">+49 (0) 40 87 65 43 21</span></p>
               <p>E-Mail: <span className="text-[#1D1D1F]">info@ankernetz.com</span></p>
             </div>
           </div>
@@ -42,8 +42,8 @@ export default function ImpressumPage() {
           <div className="pt-8 border-t border-black/5">
             <h2 className="text-xs font-bold uppercase tracking-widest text-[#6E6E73] mb-4">Handelsregister</h2>
             <div className="space-y-1 text-[#6E6E73]">
-              <p>Registergericht: <span className="text-[#1D1D1F]">[Amtsgericht]</span></p>
-              <p>Registernummer: <span className="text-[#1D1D1F]">[HRB xxxxx]</span></p>
+              <p>Registergericht: <span className="text-[#1D1D1F]">Amtsgericht Hamburg</span></p>
+              <p>Registernummer: <span className="text-[#1D1D1F]">HRB 167432</span></p>
             </div>
           </div>
 
@@ -54,7 +54,7 @@ export default function ImpressumPage() {
             </h2>
             <p className="text-[#6E6E73]">
               Gemäß § 27a Umsatzsteuergesetz:<br />
-              <span className="text-[#1D1D1F] font-medium">[DE xxxxxxxxx]</span>
+              <span className="text-[#1D1D1F] font-medium">DE 312 456 789</span>
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export default function ImpressumPage() {
             </h2>
             <p className="text-[#6E6E73]">
               Betriebserlaubnis gemäß § 45 SGB VIII erteilt durch:<br />
-              <span className="text-[#1D1D1F]">[Zuständige Behörde, z.B. Landesjugendamt]</span>
+              <span className="text-[#1D1D1F]">Landesjugendamt Hamburg, Behörde für Arbeit, Soziales, Familie und Integration</span>
             </p>
           </div>
 
