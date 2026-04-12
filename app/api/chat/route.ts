@@ -99,7 +99,7 @@ export async function POST(req: Request) {
     async start(controller) {
       try {
         const response = await client.messages.stream({
-          model: "claude-haiku-4-5-20251001",
+          model: "claude-3-5-haiku-20241022",
           max_tokens: 300,
           system: systemPrompt,
           messages: messages.map((m: { role: string; content: string }) => ({
