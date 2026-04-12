@@ -182,8 +182,8 @@ export default function Navigation() {
             boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
           }}
         >
-          <div className="site-container py-10">
-            <div className="grid grid-cols-4 gap-12">
+          <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "3rem 2.5rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "3rem" }}>
               {megaMenu.map((gruppe) => (
                 <div key={gruppe.kategorie}>
                   {/* Kategorie-Header */}
@@ -200,7 +200,7 @@ export default function Navigation() {
                           onClick={() => setMegaOpen(false)}
                           style={{
                             display: "block",
-                            padding: "0.45rem 0",
+                            padding: "0.5rem 0.625rem",
                             fontSize: "13px",
                             fontWeight: 400,
                             color: "#1D1D1F",
