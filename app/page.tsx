@@ -314,7 +314,7 @@ export default function HomePage() {
               const Icon = s.icon;
               return (
                 <BlurFade key={s.titel} delay={i * 0.1}>
-                  <div className="group relative overflow-hidden" style={{ background: "#ffffff", borderRadius: "1.125rem", border: "1px solid rgba(0,0,0,0.07)", padding: "3rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 8px 28px rgba(0,0,0,0.05)", transition: "box-shadow 0.3s ease, transform 0.3s ease" }}>
+                  <div className="bento-card group relative overflow-hidden" style={{ background: "#ffffff", borderRadius: "1.125rem", border: "1px solid rgba(0,0,0,0.07)", padding: "3rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 8px 28px rgba(0,0,0,0.05)", transition: "box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1)" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: s.color }} />
                     <div style={{ width: "3.25rem", height: "3.25rem", borderRadius: "0.875rem", background: `${s.color}12`, border: `1px solid ${s.color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2.25rem" }}>
                       <Icon size={22} strokeWidth={1.5} style={{ color: s.color }} />
@@ -373,7 +373,7 @@ export default function HomePage() {
                     { zahl: "11",    label: "Spezialisierte Angebote",  color: "#FEC274" },
                     { zahl: "100%",  label: "Fachlich qualifiziert",    color: "#6FA3FE" },
                   ].map((stat) => (
-                    <div key={stat.zahl} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "0.875rem", padding: "2rem 1.75rem", position: "relative", overflow: "hidden" }}>
+                    <div key={stat.zahl} className="bento-card" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "0.875rem", padding: "2rem 1.75rem", position: "relative", overflow: "hidden" }}>
                       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: stat.color }} />
                       <p style={{ fontSize: "2.25rem", fontWeight: 900, color: "#ffffff", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{stat.zahl}</p>
                       <p style={{ fontSize: "0.8125rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.5, fontWeight: 400 }}>{stat.label}</p>
