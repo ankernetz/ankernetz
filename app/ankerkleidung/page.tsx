@@ -307,14 +307,14 @@ export default function AnkerkleidungPage() {
 
       {/* ═══ HERO ═══ */}
       <section style={{
-        position: "relative", minHeight: "62vh",
+        position: "relative", minHeight: "100vh",
         display: "grid", gridTemplateColumns: "1fr 1fr",
         background: "linear-gradient(155deg, #0d2444 0%, #1a3f6f 60%, #1e4d82 100%)",
       }}>
         {/* Links: Text */}
         <div style={{
           display: "flex", flexDirection: "column", justifyContent: "center",
-          padding: "7rem 4rem 3.5rem 6rem",
+          padding: "8rem 4rem 4rem 6rem",
           position: "relative", zIndex: 2,
         }}>
           <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.22em",
