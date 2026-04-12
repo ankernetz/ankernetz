@@ -713,7 +713,7 @@ export default function AnkerkleidungPage() {
       {cartCount > 0 && !cartOpen && !checkoutOpen && (
         <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 800,
           background: "#1a3f6f", borderTop: "1px solid rgba(255,255,255,0.1)",
-          padding: "0.875rem 2rem", display: "flex", alignItems: "center",
+          padding: "0.875rem 5.5rem 0.875rem 2rem", display: "flex", alignItems: "center",
           justifyContent: "space-between", gap: "1rem",
           boxShadow: "0 -4px 24px rgba(26,63,111,0.3)" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
