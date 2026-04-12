@@ -60,11 +60,30 @@ function detectCrisis(message: string): boolean {
   return CRISIS_KEYWORDS.some(kw => lower.includes(kw));
 }
 
+async function sendWhatsApp(text: string) {
+  const phone = process.env.WHATSAPP_PHONE;
+  const apikey = process.env.WHATSAPP_APIKEY;
+  if (!phone || !apikey) return;
+  try {
+    const encoded = encodeURIComponent(text);
+    await fetch(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${encoded}&apikey=${apikey}`);
+  } catch {
+    // Fehler bei WA-Benachrichtigung nicht an User weitergeben
+  }
+}
+
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+  const { messages, isFirstMessage } = await req.json();
 
   const lastMessage = messages[messages.length - 1]?.content ?? "";
   const isCrisis = detectCrisis(lastMessage);
+
+  // WhatsApp-Benachrichtigung bei erster Nachricht oder Krisenhinweis
+  if (isFirstMessage || isCrisis) {
+    const label = isCrisis ? "🚨 KRISE" : "💬 Neue Anfrage";
+    const preview = lastMessage.slice(0, 120);
+    sendWhatsApp(`${label} – Ankernetz Chat\n\n"${preview}"\n\nankernetz.com`);
+  }
 
   const systemPrompt = isCrisis
     ? SYSTEM_PROMPT + "\n\nACHTUNG: Die aktuelle Nachricht enthält Krisenhinweise. Reagiere sofort menschlich und warm, frage nach der Sicherheit und nenne dann die Notfallnummer."

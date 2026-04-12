@@ -64,11 +64,15 @@ export default function ChatWidget() {
     setLoading(true);
 
     try {
+      // Erste echte Nutzernachricht = messages hatte vorher nur die Begrüßung
+      const isFirstMessage = messages.filter(m => m.role === "user").length === 0;
+
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: newMessages.map(m => ({ role: m.role, content: m.content })),
+          isFirstMessage,
         }),
       });
 
