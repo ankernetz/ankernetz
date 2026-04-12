@@ -247,7 +247,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ EINLEITUNG ═══ — HELL */}
-      <section className="py-40 relative overflow-hidden bg-[#F5F5F7]">
+      <section className="py-56 relative overflow-hidden bg-[#F5F5F7]">
         <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
 
