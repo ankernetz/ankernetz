@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   AlertTriangle, Home, Brain, Baby, Search, Shirt,
-  MessageCircle, Briefcase, School, Heart, ArrowRight,
+  MessageCircle, Rocket, School, Heart, ArrowRight,
   Shield, Network, Star
 } from "lucide-react";
 import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
@@ -112,7 +112,7 @@ const angebote = [
     titel: "Übergang Arbeit",
     claim: "Der nächste Schritt.",
     kurz: "Berufsorientierung und Begleitung vom Hilfesystem in ein eigenständiges Leben.",
-    icon: Briefcase,
+    icon: Rocket,
     glow: "glow-pink",
     bg: "linear-gradient(145deg, #3d1568 0%, #561e90 100%)",
     badge: "Übergang",
@@ -271,7 +271,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
-      <section id="angebote" className="bg-[#0f172a]" style={{ paddingTop: "3.5rem", paddingBottom: "3.5rem" }}>
+      <section id="angebote" className="bg-[#0f172a]" style={{ paddingTop: "4.5rem", paddingBottom: "5rem" }}>
         <div className="site-container">
 
           {/* Abschnitts-Header */}
@@ -287,10 +287,10 @@ export default function HomePage() {
           </BlurFade>
 
         </div>
-        <div className="site-container space-y-5">
+        <div className="site-container" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
 
           {/* Reihe 1: Krisenintervention groß + Psychotherapie */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
             <BlurFade className="md:col-span-2">
               <Link href="/krisenintervention"
                 className={`bento-card spotlight-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
@@ -332,7 +332,7 @@ export default function HomePage() {
 
             <BlurFade delay={0.1}>
               <Link href="/psychotherapie"
-                className={`bento-card spotlight-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-7 block`}
+                className={`bento-card spotlight-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
                 style={{ background: angebote[1].bg }}>
                 {/* Decorative: sine wave */}
                 <div className="absolute top-8 left-0 right-0 opacity-[0.06] pointer-events-none px-6">
@@ -362,7 +362,7 @@ export default function HomePage() {
           </div>
 
           {/* Reihe 2: 3 gleichgroß */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
             {[angebote[2], angebote[3], angebote[4]].map((a, i) => {
               const Icon = a.icon;
               return (
@@ -391,13 +391,13 @@ export default function HomePage() {
           </div>
 
           {/* Reihe 3: 4 kompakt */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "2rem" }}>
             {[angebote[5], angebote[6], angebote[7], angebote[8]].map((a, i) => {
               const Icon = a.icon;
               return (
                 <BlurFade key={a.slug} delay={i * 0.06}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[260px] flex flex-col justify-end p-7 block`}
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[260px] flex flex-col justify-end p-8 block`}
                     style={{ background: a.bg }}>
                     <div className="relative z-10">
                       <Icon size={20} strokeWidth={1.5} className={`${a.iconClass} mb-4`} />
@@ -414,14 +414,14 @@ export default function HomePage() {
           </div>
 
           {/* Reihe 4: Ankerkleidung + Versorgung */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
             <BlurFade delay={0.08} className="md:col-span-2">
               <Link href="/ankerkleidung"
                 className={`bento-card ${angebote[9].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex items-center p-8 block`}
                 style={{ background: angebote[9].bg }}>
 
                 {/* Visual: abstract clothing silhouettes */}
-                <div className="absolute inset-0 opacity-[0.06] flex items-center justify-end pr-8 pointer-events-none select-none">
+                <div className="absolute inset-0 opacity-[0.04] flex items-center justify-end pr-8 pointer-events-none select-none">
                   <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
                     {/* T-Shirt silhouette */}
                     <path d="M60 40 L20 70 L40 80 L40 160 L180 160 L180 80 L200 70 L160 40 L140 55 Q110 68 80 55 Z"
@@ -431,9 +431,9 @@ export default function HomePage() {
                   </svg>
                 </div>
                 {/* Floating tags */}
-                <div className="absolute top-5 right-5 bottom-5 hidden md:flex flex-col justify-center gap-2 pointer-events-none">
+                <div className="absolute top-8 right-8 hidden md:flex flex-col gap-2 pointer-events-none">
                   {["ADHS", "Trauma", "Autismus", "Bindung", "Angst"].map((t) => (
-                    <span key={t} className="text-[11px] text-white/30 border border-white/10 px-2.5 py-1 rounded-full text-center">
+                    <span key={t} className="text-[11px] text-white/40 border border-white/15 px-2.5 py-1 rounded-full text-center">
                       {t}
                     </span>
                   ))}
@@ -456,8 +456,13 @@ export default function HomePage() {
 
             <BlurFade delay={0.15}>
               <Link href="/versorgung"
-                className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex flex-col justify-end p-7 block`}
+                className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex flex-col justify-end p-8 block`}
                 style={{ background: angebote[10].bg }}>
+                <div className="absolute top-6 right-6">
+                  <span className={`text-xs font-medium ${angebote[10].badgeClass} px-2.5 py-1 rounded-full`}>
+                    Ausstattung
+                  </span>
+                </div>
                 <div className="relative z-10">
                   <Star size={22} strokeWidth={1.5} className={`${angebote[10].iconClass} mb-4`} />
                   <h3 className="text-white text-lg font-black mb-2" style={{ letterSpacing: "-0.02em" }}>Versorgung</h3>
