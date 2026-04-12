@@ -22,6 +22,7 @@ const angebote = [
     badge: "24/7",
     badgeClass: "bg-red-400/30 text-red-200 border border-red-300/40",
     iconClass: "text-red-300",
+    stripe: "#ef4444",
   },
   {
     slug: "psychotherapie",
@@ -34,6 +35,7 @@ const angebote = [
     badge: "Kassensitz",
     badgeClass: "bg-purple-400/30 text-purple-200 border border-purple-300/40",
     iconClass: "text-purple-300",
+    stripe: "#8b5cf6",
   },
   {
     slug: "fruehe-hilfen",
@@ -46,6 +48,7 @@ const angebote = [
     badge: "0–6 Jahre",
     badgeClass: "bg-emerald-400/30 text-emerald-200 border border-emerald-300/40",
     iconClass: "text-emerald-300",
+    stripe: "#10b981",
   },
   {
     slug: "therapie-wohnen",
@@ -57,7 +60,8 @@ const angebote = [
     bg: "linear-gradient(145deg, #0d2d5c 0%, #153f80 100%)",
     badge: "12–17 Jahre",
     badgeClass: "bg-blue-400/30 text-blue-200 border border-blue-300/40",
-    iconClass: "text-white",
+    iconClass: "text-blue-300",
+    stripe: "#4A7FA5",
   },
   {
     slug: "jugendhilfe",
@@ -70,56 +74,55 @@ const angebote = [
     badge: "6–12 Jahre",
     badgeClass: "bg-amber-400/30 text-amber-200 border border-amber-300/40",
     iconClass: "text-amber-300",
-    bodyClass: "text-amber-100/65",
+    stripe: "#f59e0b",
   },
   {
     slug: "diagnostik-clearing",
     titel: "Diagnostik & Clearing",
     claim: "Klarheit schafft die richtige Hilfe.",
-    kurz: "Psychologische Diagnostik und handlungsorientierte Berichte für Jugendämter.",
     icon: Search,
     glow: "glow-cyan",
     bg: "linear-gradient(145deg, #073550 0%, #0d4a6e 100%)",
     badge: "Gutachten",
     badgeClass: "bg-cyan-400/30 text-cyan-200 border border-cyan-300/40",
     iconClass: "text-cyan-300",
+    stripe: "#06b6d4",
   },
   {
     slug: "beratung-praevention",
     titel: "Beratung & Prävention",
     claim: "Früh helfen. Gemeinsam stärken.",
-    kurz: "Niedrigschwellig, online und vor Ort — als erster Schritt ins System.",
     icon: MessageCircle,
     glow: "glow-lime",
     bg: "linear-gradient(145deg, #1a3d10 0%, #275c18 100%)",
     badge: "Online & vor Ort",
     badgeClass: "bg-lime-400/30 text-lime-200 border border-lime-300/40",
     iconClass: "text-lime-300",
+    stripe: "#a3e635",
   },
   {
     slug: "kita-beratung",
     titel: "Beratung in Kitas",
     claim: "Früh erkennen.",
-    kurz: "Therapeutisch fundierte Beratung für Kita-Fachkräfte.",
     icon: Building2,
     glow: "glow-orange",
     bg: "linear-gradient(145deg, #4a2008 0%, #6b300f 100%)",
     badge: "Fachkräfte",
     badgeClass: "bg-orange-400/30 text-orange-200 border border-orange-300/40",
     iconClass: "text-orange-300",
+    stripe: "#fb923c",
   },
   {
     slug: "uebergang-arbeit",
     titel: "Übergang Arbeit",
     claim: "Der nächste Schritt.",
-    kurz: "Berufsorientierung und Begleitung vom Hilfesystem in ein eigenständiges Leben.",
     icon: Rocket,
     glow: "glow-pink",
     bg: "linear-gradient(145deg, #3d1568 0%, #561e90 100%)",
     badge: "Übergang",
     badgeClass: "bg-fuchsia-400/30 text-fuchsia-200 border border-fuchsia-300/40",
     iconClass: "text-fuchsia-300",
-    topIcon: true,
+    stripe: "#e879f9",
   },
   {
     slug: "ankerkleidung",
@@ -132,6 +135,7 @@ const angebote = [
     badge: "Shop",
     badgeClass: "bg-slate-400/30 text-slate-200 border border-slate-300/40",
     iconClass: "text-slate-300",
+    stripe: "#94a3b8",
   },
   {
     slug: "versorgung",
@@ -144,6 +148,7 @@ const angebote = [
     badge: "Ausstattung",
     badgeClass: "bg-amber-400/30 text-amber-200 border border-amber-300/40",
     iconClass: "text-amber-300",
+    stripe: "#f59e0b",
   },
 ];
 
@@ -291,13 +296,17 @@ export default function HomePage() {
         </div>
         <div className="site-container" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
 
-          {/* Reihe 1: Krisenintervention groß + Psychotherapie */}
+          {/* ── Reihe 1: Krisenintervention (Large) + Psychotherapie (Medium) ── */}
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
+
+            {/* Krisenintervention — Large, col-span-2 */}
             <BlurFade className="md:col-span-2">
               <Link href="/krisenintervention"
-                className={`bento-card spotlight-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
-                style={{ background: angebote[0].bg }}>
-                {/* Decorative: large faded icon + ring */}
+                className={`bento-card spotlight-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
+                style={{ background: angebote[0].bg, minHeight: "480px", padding: "2rem" }}>
+                {/* Accent stripe */}
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[0].stripe }} />
+                {/* Decorative SVG */}
                 <div className="absolute top-0 right-0 w-72 h-72 opacity-[0.04] pointer-events-none"
                   style={{ transform: "translate(30%, -20%)" }}>
                   <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
@@ -307,20 +316,15 @@ export default function HomePage() {
                     <line x1="50" y1="35" x2="50" y2="55" stroke="white" strokeWidth="3" strokeLinecap="round" />
                   </svg>
                 </div>
-                {/* MagicUI ShineBorder */}
                 <ShineBorder shineColor={["#ef4444", "#f97316", "#dc2626"]} duration={6} borderWidth={1} />
-                {/* Pulse rings */}
-                <div className="absolute top-8 left-8 w-16 h-16 rounded-full border border-red-500/15 pointer-events-none" />
-                <div className="absolute top-6 left-6 w-20 h-20 rounded-full border border-red-500/8 pointer-events-none" />
-
-                <div className="absolute top-6 right-6">
-                  <span className={`text-xs font-medium ${angebote[0].badgeClass} px-3 py-1 rounded-full`}>
-                    {angebote[0].badge}
-                  </span>
+                {/* Badge */}
+                <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                  <span className={`text-xs font-medium ${angebote[0].badgeClass} px-3 py-1 rounded-full`}>{angebote[0].badge}</span>
                 </div>
-                <div className="relative z-10" style={{ paddingLeft: "0.25rem" }}>
-                  <AlertTriangle size={28} strokeWidth={1.5} className={`${angebote[0].iconClass} mb-5`} />
-                  <h3 className="text-white text-[2rem] font-black mb-3 leading-tight" style={{ letterSpacing: "-0.025em" }}>
+                {/* Content — top down */}
+                <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
+                  <AlertTriangle size={32} strokeWidth={1.5} className={`${angebote[0].iconClass} mb-6`} />
+                  <h3 className="text-white font-black mb-3 leading-tight" style={{ fontSize: "1.875rem", letterSpacing: "-0.025em" }}>
                     {angebote[0].titel}
                   </h3>
                   <p className="text-white/55 text-sm italic mb-4">{angebote[0].claim}</p>
@@ -332,28 +336,26 @@ export default function HomePage() {
               </Link>
             </BlurFade>
 
+            {/* Psychotherapie — Medium */}
             <BlurFade delay={0.1}>
               <Link href="/psychotherapie"
-                className={`bento-card spotlight-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
-                style={{ background: angebote[1].bg }}>
+                className={`bento-card spotlight-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
+                style={{ background: angebote[1].bg, minHeight: "480px", padding: "2rem" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[1].stripe }} />
                 {/* Decorative: sine wave */}
-                <div className="absolute top-8 left-0 right-0 opacity-[0.04] pointer-events-none px-6">
+                <div className="absolute bottom-0 left-0 right-0 opacity-[0.04] pointer-events-none px-6" style={{ paddingBottom: "2rem" }}>
                   <svg viewBox="0 0 300 80" fill="none" className="w-full">
                     <path d="M0 40 Q37.5 10 75 40 Q112.5 70 150 40 Q187.5 10 225 40 Q262.5 70 300 40"
                       stroke="white" strokeWidth="2" fill="none" />
-                    <path d="M0 40 Q37.5 15 75 40 Q112.5 65 150 40 Q187.5 15 225 40 Q262.5 65 300 40"
-                      stroke="white" strokeWidth="1" fill="none" opacity="0.5" />
                   </svg>
                 </div>
-                <div className="absolute top-6 right-6">
-                  <span className={`text-xs font-medium ${angebote[1].badgeClass} px-3 py-1 rounded-full`}>
-                    {angebote[1].badge}
-                  </span>
+                <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                  <span className={`text-xs font-medium ${angebote[1].badgeClass} px-3 py-1 rounded-full`}>{angebote[1].badge}</span>
                 </div>
-                <div className="relative z-10">
+                <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
                   <Brain size={26} strokeWidth={1.5} className={`${angebote[1].iconClass} mb-5`} />
-                  <h3 className="text-white text-xl font-black mb-2 leading-tight">{angebote[1].titel}</h3>
-                  <p className="text-white/50 text-xs italic mb-3">{angebote[1].claim}</p>
+                  <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.375rem" }}>{angebote[1].titel}</h3>
+                  <p className="text-white/50 text-sm italic mb-3">{angebote[1].claim}</p>
                   <p className="text-white/60 text-sm font-normal leading-[1.85] mb-6">{angebote[1].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                     Mehr erfahren <ArrowRight size={14} strokeWidth={1.5} />
@@ -363,25 +365,24 @@ export default function HomePage() {
             </BlurFade>
           </div>
 
-          {/* Reihe 2: 3 gleichgroß */}
+          {/* ── Reihe 2: 3 Medium ── */}
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
             {[angebote[2], angebote[3], angebote[4]].map((a, i) => {
               const Icon = a.icon;
               return (
                 <BlurFade key={a.slug} delay={i * 0.08}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[400px] flex flex-col justify-end p-8 block`}
-                    style={{ background: a.bg }}>
-                    <div className="absolute top-6 right-6">
-                      <span className={`text-xs font-medium ${a.badgeClass} px-3 py-1 rounded-full`}>
-                        {a.badge}
-                      </span>
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
+                    style={{ background: a.bg, minHeight: "420px", padding: "2rem" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: a.stripe }} />
+                    <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                      <span className={`text-xs font-medium ${a.badgeClass} px-3 py-1 rounded-full`}>{a.badge}</span>
                     </div>
-                    <div className="relative z-10">
-                      <Icon size={24} strokeWidth={1.5} className={`${a.iconClass} mb-6`} />
-                      <h3 className="text-white text-xl font-black mb-3 leading-tight">{a.titel}</h3>
-                      <p className="text-white/65 text-sm italic mb-4">{a.claim}</p>
-                      <p className={`${(a as any).bodyClass ?? "text-white/60"} text-sm font-normal mb-6`} style={{ lineHeight: "1.9" }}>{a.kurz}</p>
+                    <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
+                      <Icon size={26} strokeWidth={1.5} className={`${a.iconClass} mb-5`} />
+                      <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.375rem" }}>{a.titel}</h3>
+                      <p className="text-white/55 text-sm italic mb-4">{a.claim}</p>
+                      <p className="text-white/60 text-sm font-normal mb-6" style={{ lineHeight: "1.9" }}>{a.kurz}</p>
                       <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                         Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
                       </span>
@@ -392,102 +393,86 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* Reihe 3: 4 kompakt */}
+          {/* ── Reihe 3: 4 Compact ── */}
           <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "2rem" }}>
             {[angebote[5], angebote[6], angebote[7], angebote[8]].map((a, i) => {
               const Icon = a.icon;
-              const isTopIcon = (a as any).topIcon === true;
               return (
                 <BlurFade key={a.slug} delay={i * 0.06}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[300px] flex flex-col p-8 block`}
-                    style={{ background: a.bg }}>
-                    {isTopIcon ? (
-                      /* Übergang Arbeit: Icon oben, Text unten */
-                      <>
-                        <Icon size={22} strokeWidth={1.5} className={`${a.iconClass} flex-shrink-0`} />
-                        <div className="mt-auto">
-                          <h3 className="text-white text-xl font-black mb-2 leading-tight">{a.titel}</h3>
-                          <p className="text-white/65 text-xs font-semibold italic mb-4">{a.claim}</p>
-                          <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
-                            Mehr <ArrowRight size={12} strokeWidth={1.5} />
-                          </span>
-                        </div>
-                      </>
-                    ) : (
-                      /* Alle anderen: Icon + Text unten */
-                      <div className="mt-auto">
-                        <Icon size={20} strokeWidth={1.5} className={`${a.iconClass} mb-5`} />
-                        <h3 className="text-white text-xl font-black mb-2 leading-tight">{a.titel}</h3>
-                        <p className="text-white/65 text-xs italic mb-4">{a.claim}</p>
-                        <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
-                          Mehr <ArrowRight size={12} strokeWidth={1.5} />
-                        </span>
-                      </div>
-                    )}
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
+                    style={{ background: a.bg, minHeight: "280px", padding: "2rem" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: a.stripe }} />
+                    <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                      <span className={`text-[10px] font-medium ${a.badgeClass} px-2 py-0.5 rounded-full`}>{a.badge}</span>
+                    </div>
+                    <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
+                      <Icon size={22} strokeWidth={1.5} className={`${a.iconClass} mb-5`} />
+                      <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.125rem" }}>{a.titel}</h3>
+                      <p className="text-white/55 text-xs italic mb-5">{a.claim}</p>
+                      <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
+                        Mehr <ArrowRight size={12} strokeWidth={1.5} />
+                      </span>
+                    </div>
                   </Link>
                 </BlurFade>
               );
             })}
           </div>
 
-          {/* Reihe 4: Ankerkleidung + Versorgung */}
+          {/* ── Reihe 4: Ankerkleidung (Large) + Versorgung (Medium) ── */}
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
+
+            {/* Ankerkleidung — Large, col-span-2 */}
             <BlurFade delay={0.08} className="md:col-span-2">
               <Link href="/ankerkleidung"
-                className={`bento-card ${angebote[9].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex items-center p-8 block`}
-                style={{ background: angebote[9].bg }}>
-
-                {/* Visual: abstract clothing silhouettes */}
+                className={`bento-card ${angebote[9].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
+                style={{ background: angebote[9].bg, minHeight: "280px", padding: "2rem" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[9].stripe }} />
+                {/* Decorative T-Shirt */}
                 <div className="absolute inset-0 opacity-[0.03] flex items-center justify-end pr-8 pointer-events-none select-none">
                   <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
-                    {/* T-Shirt silhouette */}
-                    <path d="M60 40 L20 70 L40 80 L40 160 L180 160 L180 80 L200 70 L160 40 L140 55 Q110 68 80 55 Z"
-                      fill="white" />
-                    {/* Collar */}
+                    <path d="M60 40 L20 70 L40 80 L40 160 L180 160 L180 80 L200 70 L160 40 L140 55 Q110 68 80 55 Z" fill="white" />
                     <path d="M80 55 Q110 75 140 55" stroke="white" strokeWidth="2" fill="none" />
                   </svg>
                 </div>
                 {/* Floating tags */}
                 <div className="absolute top-8 right-8 hidden md:flex flex-col gap-2 pointer-events-none">
                   {["ADHS", "Trauma", "Autismus", "Bindung", "Angst"].map((t) => (
-                    <span key={t} className="text-[11px] text-white/40 border border-white/15 px-2.5 py-1 rounded-full text-center">
-                      {t}
-                    </span>
+                    <span key={t} className="text-[11px] text-white/40 border border-white/15 px-2.5 py-1 rounded-full text-center">{t}</span>
                   ))}
                 </div>
-
-                <div className="relative z-10 flex-1 pr-4">
-                  <div className="flex items-center gap-3 mb-5">
-                    <Shirt size={24} strokeWidth={1.5} className={angebote[9].iconClass} />
-                    <span className={`text-xs font-medium ${angebote[9].badgeClass} px-3 py-1 rounded-full`}>Shop</span>
-                  </div>
-                  <h3 className="text-white font-black mb-2" style={{ letterSpacing: "-0.025em", fontSize: "1.875rem" }}>Ankerkleidung</h3>
-                  <p className="text-white/40 text-sm italic mb-3">Stabilität. Selbstwert. Alltag.</p>
+                <div style={{ position: "absolute", top: "1.5rem", right: "10rem" }}>
+                  <span className={`text-xs font-medium ${angebote[9].badgeClass} px-3 py-1 rounded-full`}>{angebote[9].badge}</span>
+                </div>
+                <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
+                  <Shirt size={26} strokeWidth={1.5} className={`${angebote[9].iconClass} mb-5`} />
+                  <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.875rem", letterSpacing: "-0.025em" }}>{angebote[9].titel}</h3>
+                  <p className="text-white/45 text-sm italic mb-3">{angebote[9].claim}</p>
                   <p className="text-white/50 text-sm font-normal leading-relaxed mb-5 max-w-sm">{angebote[9].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
-                    Kollektion entdecken <ArrowRight size={14} />
+                    Kollektion entdecken <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
             </BlurFade>
 
+            {/* Versorgung — Medium */}
             <BlurFade delay={0.15}>
               <Link href="/versorgung"
-                className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex flex-col justify-end p-8 block`}
-                style={{ background: angebote[10].bg }}>
-                <div className="absolute top-6 right-6">
-                  <span className={`text-xs font-medium ${angebote[10].badgeClass} px-2.5 py-1 rounded-full`}>
-                    Ausstattung
-                  </span>
+                className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden flex flex-col block`}
+                style={{ background: angebote[10].bg, minHeight: "280px", padding: "2rem" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[10].stripe }} />
+                <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                  <span className={`text-xs font-medium ${angebote[10].badgeClass} px-2.5 py-1 rounded-full`}>{angebote[10].badge}</span>
                 </div>
-                <div className="relative z-10">
-                  <Star size={22} strokeWidth={1.5} className={`${angebote[10].iconClass} mb-4`} />
-                  <h3 className="text-white text-lg font-black mb-2" style={{ letterSpacing: "-0.02em" }}>Versorgung</h3>
-                  <p className="text-white/50 text-xs italic mb-3">Würde im Alltag.</p>
+                <div className="relative z-10" style={{ marginTop: "1.5rem" }}>
+                  <Star size={26} strokeWidth={1.5} className={`${angebote[10].iconClass} mb-5`} />
+                  <h3 className="text-white font-black mb-2 leading-tight" style={{ fontSize: "1.375rem", letterSpacing: "-0.02em" }}>{angebote[10].titel}</h3>
+                  <p className="text-white/50 text-sm italic mb-3">{angebote[10].claim}</p>
                   <p className="text-white/60 text-sm font-normal leading-[1.85] mb-5">{angebote[10].kurz}</p>
-                  <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
-                    Mehr <ArrowRight size={12} strokeWidth={1.5} />
+                  <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                    Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
