@@ -221,21 +221,24 @@ export default function HomePage() {
       </section>
 
       {/* ═══ EINLEITUNG ═══ */}
-      <section className="py-32 bg-[#F5F5F7] relative overflow-hidden">
-        {/* Subtle violet glow blob */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-40"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)" }} />
+      <section className="py-28 relative overflow-hidden"
+        style={{ background: "linear-gradient(180deg, #0d1f35 0%, #0f172a 40%, #111827 100%)" }}>
+        {/* Continuity glow from hero */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] pointer-events-none"
+          style={{ background: "radial-gradient(ellipse, rgba(74,127,165,0.1) 0%, transparent 70%)" }} />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)" }} />
 
         <div className="site-container">
           <ScrollReveal className="text-center max-w-2xl mx-auto">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">
               Ein Netz. Elf Antworten.
             </p>
-            <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1A1A2E] mb-6 leading-[1.1]"
+            <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-white mb-6 leading-[1.1]"
               style={{ letterSpacing: "-0.03em" }}>
               Für jede Situation<br />die richtige Hilfe.
             </h2>
-            <p className="text-base text-[#6E6E73] font-normal leading-[1.9] max-w-xl mx-auto">
+            <p className="text-base text-white/45 font-normal leading-[1.9] max-w-xl mx-auto">
               Ankernetz ist ein Netzwerk aus spezialisierten Hilfsangeboten für Kinder und Jugendliche —
               von der akuten Krisenintervention über Psychotherapie und frühe Hilfen bis zum Übergang in den Beruf.
             </p>
@@ -244,7 +247,8 @@ export default function HomePage() {
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ */}
-      <section id="angebote" className="pb-32 bg-[#F5F5F7]">
+      <section id="angebote" className="pb-32"
+        style={{ background: "linear-gradient(180deg, #111827 0%, #0f172a 100%)" }}>
         <div className="site-container space-y-4">
 
           {/* Reihe 1: Krisenintervention groß + Psychotherapie */}
@@ -253,6 +257,20 @@ export default function HomePage() {
               <Link href="/krisenintervention"
                 className={`bento-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
                 style={{ background: angebote[0].bg }}>
+                {/* Decorative: large faded icon + ring */}
+                <div className="absolute top-0 right-0 w-72 h-72 opacity-[0.04] pointer-events-none"
+                  style={{ transform: "translate(30%, -20%)" }}>
+                  <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
+                    <polygon points="50,8 95,85 5,85" stroke="white" strokeWidth="3" fill="none" />
+                    <polygon points="50,22 82,78 18,78" stroke="white" strokeWidth="1.5" fill="none" opacity="0.5" />
+                    <circle cx="50" cy="60" r="4" fill="white" opacity="0.8" />
+                    <line x1="50" y1="35" x2="50" y2="55" stroke="white" strokeWidth="3" strokeLinecap="round" />
+                  </svg>
+                </div>
+                {/* Pulse ring */}
+                <div className="absolute top-8 left-8 w-16 h-16 rounded-full border border-red-500/15 pointer-events-none" />
+                <div className="absolute top-6 left-6 w-20 h-20 rounded-full border border-red-500/8 pointer-events-none" />
+
                 <div className="absolute top-6 right-6">
                   <span className={`text-xs font-medium ${angebote[0].badgeClass} px-3 py-1 rounded-full`}>
                     {angebote[0].badge}
@@ -276,6 +294,15 @@ export default function HomePage() {
               <Link href="/psychotherapie"
                 className={`bento-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-7 block`}
                 style={{ background: angebote[1].bg }}>
+                {/* Decorative: sine wave */}
+                <div className="absolute top-8 left-0 right-0 opacity-[0.06] pointer-events-none px-6">
+                  <svg viewBox="0 0 300 80" fill="none" className="w-full">
+                    <path d="M0 40 Q37.5 10 75 40 Q112.5 70 150 40 Q187.5 10 225 40 Q262.5 70 300 40"
+                      stroke="white" strokeWidth="2" fill="none" />
+                    <path d="M0 40 Q37.5 15 75 40 Q112.5 65 150 40 Q187.5 15 225 40 Q262.5 65 300 40"
+                      stroke="white" strokeWidth="1" fill="none" opacity="0.5" />
+                  </svg>
+                </div>
                 <div className="absolute top-6 right-6">
                   <span className={`text-xs font-medium ${angebote[1].badgeClass} px-3 py-1 rounded-full`}>
                     {angebote[1].badge}
@@ -408,16 +435,16 @@ export default function HomePage() {
       </section>
 
       {/* ═══ STÄRKEN ═══ */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        {/* Green glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, rgba(16,185,129,0.05) 0%, transparent 70%)" }} />
+      <section className="py-32 relative overflow-hidden"
+        style={{ background: "linear-gradient(180deg, #0f172a 0%, #0c1420 100%)" }}>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] pointer-events-none"
+          style={{ background: "radial-gradient(ellipse, rgba(74,127,165,0.08) 0%, transparent 70%)" }} />
 
         <div className="site-container">
           <ScrollReveal>
             <div className="text-center mb-20">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">Was uns auszeichnet</p>
-              <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-black text-[#1A1A2E]" style={{ letterSpacing: "-0.028em" }}>
+              <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-black text-white" style={{ letterSpacing: "-0.028em" }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
@@ -427,13 +454,14 @@ export default function HomePage() {
               const Icon = s.icon;
               return (
                 <ScrollReveal key={s.titel} delay={i * 100}>
-                  <div className="p-8 rounded-3xl bg-[#F5F5F7] hover:bg-[#EBEBED] transition-colors">
+                  <div className="p-8 rounded-3xl transition-colors"
+                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
                     <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-6"
-                      style={{ background: `${s.color}15`, border: `1px solid ${s.color}25` }}>
+                      style={{ background: `${s.color}18`, border: `1px solid ${s.color}30` }}>
                       <Icon size={20} style={{ color: s.color }} />
                     </div>
-                    <h3 className="text-xl font-black text-[#1A1A2E] mb-3" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
-                    <p className="text-[#6E6E73] font-normal leading-[1.8] text-[0.9375rem]">{s.text}</p>
+                    <h3 className="text-xl font-black text-white mb-3" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
+                    <p className="text-white/40 font-normal leading-[1.8] text-[0.9375rem]">{s.text}</p>
                   </div>
                 </ScrollReveal>
               );

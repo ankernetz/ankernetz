@@ -158,9 +158,10 @@ export default function Navigation() {
           onMouseLeave={closeMega}
           className="hidden lg:block absolute top-full left-0 right-0 shadow-2xl border-t border-white/10"
           style={{
-            background: "rgba(10, 14, 24, 0.82)",
-            backdropFilter: "blur(24px) saturate(180%)",
-            WebkitBackdropFilter: "blur(24px) saturate(180%)",
+            background: "rgba(7, 11, 20, 0.88)",
+            backdropFilter: "blur(32px) saturate(200%)",
+            WebkitBackdropFilter: "blur(32px) saturate(200%)",
+            borderTop: "1px solid rgba(255,255,255,0.07)",
           }}
         >
           <div className="site-container py-8">
