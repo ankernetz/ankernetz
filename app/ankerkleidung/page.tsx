@@ -19,7 +19,7 @@ import type { LucideIcon } from "lucide-react";
 const farbenMap: Record<string, string> = {
   "Anthrazit": "#4b5563", "Navy": "#1e3a5f", "Grau": "#9ca3af",
   "Weiß": "#f3f4f6", "Hellgrau": "#d1d5db", "Blau": "#3b82f6",
-  "Dunkelblau": "#1e3a5f", "Dunkelgrau": "#374151", "Schwarz": "#111827",
+  "Dunkelblau": "#1e3a5f", "Dunkelgrau": "#374151", "Schwarz": "#1a3f6f",
   "Beige": "#d4b896", "Hellblau": "#93c5fd", "Rosa": "#f9a8d4",
   "Grün": "#86efac", "Gelb": "#fde68a", "Neutral": "#9ca3af",
   "Frei wählbar": "#6FA3FE", "Gemeinsam wählbar": "#FEC274",
@@ -169,13 +169,13 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
         {produkt.badge ? (
           <div>
             <span style={{ fontSize: "9px", letterSpacing: "0.15em", textTransform: "uppercase",
-              fontWeight: 700, color: "#111827" }}>
+              fontWeight: 700, color: kat.akzent }}>
               {badgeLabels[produkt.badge] ?? produkt.badge}
             </span>
-            <div style={{ width: "100%", height: "1.5px", background: "#111827", marginTop: "2px" }} />
+            <div style={{ width: "100%", height: "1.5px", background: kat.akzent, marginTop: "2px" }} />
             <div style={{ width: 0, height: 0, margin: "0 auto",
               borderLeft: "5px solid transparent", borderRight: "5px solid transparent",
-              borderTop: "5px solid #111827" }} />
+              borderTop: `5px solid ${kat.akzent}` }} />
           </div>
         ) : <div />}
         <button
@@ -183,14 +183,15 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
           style={{ background: "none", border: "none", cursor: "pointer", padding: "0",
             display: "flex", marginLeft: "0.5rem", flexShrink: 0 }}
         >
-          <Heart size={17} color={wished ? "#ef4444" : "#111827"}
+          <Heart size={17} color={wished ? "#ef4444" : "#1a3f6f"}
             fill={wished ? "#ef4444" : "none"} strokeWidth={1.5} />
         </button>
       </div>
 
       {/* ── Bildbereich ── */}
       <div style={{ position: "relative", height: "280px", overflow: "hidden",
-        background: "#f5f5f5", display: "flex", alignItems: "center", justifyContent: "center",
+        background: "linear-gradient(155deg, #eef2f7 0%, #f4f7fb 100%)",
+        display: "flex", alignItems: "center", justifyContent: "center",
         cursor: "default" }}>
         {/* Icon */}
         <Icon size={64} color="#1a3f6f" strokeWidth={0.9}
@@ -200,7 +201,7 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
         {/* Größen-Overlay bei Hover */}
         <div style={{
           position: "absolute", bottom: 0, left: 0, right: 0,
-          background: "rgba(255,255,255,0.94)",
+          background: "rgba(26,63,111,0.95)",
           backdropFilter: "blur(6px)",
           padding: "0.625rem 0.75rem",
           transform: hovered ? "translateY(0)" : "translateY(100%)",
@@ -208,10 +209,10 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
         }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between",
             marginBottom: "0.375rem" }}>
-            <p style={{ fontSize: "9px", color: "#6b7280", letterSpacing: "0.12em",
+            <p style={{ fontSize: "9px", color: "rgba(255,255,255,0.6)", letterSpacing: "0.12em",
               textTransform: "uppercase", fontWeight: 600 }}>Verfügbare Größen</p>
             <button onClick={() => setSizeGuide(true)}
-              style={{ fontSize: "9px", color: "#6b7280", background: "none", border: "none",
+              style={{ fontSize: "9px", color: "rgba(255,255,255,0.5)", background: "none", border: "none",
                 cursor: "pointer", display: "flex", alignItems: "center", gap: "2px",
                 letterSpacing: "0.08em", textTransform: "uppercase", padding: 0 }}>
               <Ruler size={9} /> Tabelle
@@ -221,9 +222,9 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
             {produkt.groessen.map(g => (
               <button key={g} onClick={() => setSel("groesse", g)} style={{
                 fontSize: "10px", padding: "2px 7px",
-                border: sel.groesse === g ? "1.5px solid #111827" : "1px solid rgba(0,0,0,0.2)",
-                background: sel.groesse === g ? "#111827" : "transparent",
-                color: sel.groesse === g ? "white" : "#374151",
+                border: sel.groesse === g ? `1.5px solid ${kat.akzent}` : "1px solid rgba(255,255,255,0.25)",
+                background: sel.groesse === g ? kat.akzent : "rgba(255,255,255,0.1)",
+                color: "white",
                 cursor: "pointer", fontWeight: sel.groesse === g ? 700 : 400,
                 letterSpacing: "0.02em",
               }}>{g}</button>
@@ -234,15 +235,18 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
 
       {/* ── Produktinfo ── */}
       <div style={{ paddingTop: "0.75rem", flex: 1, display: "flex", flexDirection: "column" }}>
-        <p style={{ fontSize: "9px", fontWeight: 700, color: "#9ca3af",
-          letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "0.25rem" }}>
+        <p style={{ fontSize: "9px", fontWeight: 700, color: kat.akzent,
+          letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "0.25rem",
+          display: "flex", alignItems: "center", gap: "0.3rem" }}>
+          <span style={{ width: "5px", height: "5px", borderRadius: "50%",
+            background: kat.akzent, flexShrink: 0, display: "inline-block" }} />
           {kat.titel}
         </p>
-        <h3 style={{ fontSize: "0.875rem", fontWeight: 700, color: "#111827",
+        <h3 style={{ fontSize: "0.875rem", fontWeight: 700, color: "#1a3f6f",
           marginBottom: "0.2rem", lineHeight: 1.3, letterSpacing: "-0.01em" }}>
           {produkt.name}
         </h3>
-        <p style={{ fontSize: "0.875rem", color: "#111827", marginBottom: "0.625rem" }}>
+        <p style={{ fontSize: "0.875rem", color: "#1a3f6f", marginBottom: "0.625rem" }}>
           € {produkt.preis.toFixed(2).replace(".", ",")}
         </p>
 
@@ -254,7 +258,7 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
             return (
               <button key={f} onClick={() => setSel("farbe", f)} title={f} style={{
                 width: "16px", height: "16px", borderRadius: "50%", background: hex,
-                border: sel.farbe === f ? "2px solid #111827" : isLight ? "1px solid rgba(0,0,0,0.2)" : "1.5px solid transparent",
+                border: sel.farbe === f ? "2px solid #1a3f6f" : isLight ? "1px solid rgba(0,0,0,0.2)" : "1.5px solid transparent",
                 outline: sel.farbe === f ? "2px solid white" : "none",
                 outlineOffset: "-2px", cursor: "pointer",
                 boxShadow: isLight ? "inset 0 0 0 1px rgba(0,0,0,0.1)" : "none",
@@ -272,7 +276,7 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
           {sel.groesse ? (
             <button onClick={onAdd} disabled={!ready} style={{
               width: "100%", padding: "0.5rem 0",
-              background: ready ? "#111827" : "transparent",
+              background: ready ? "#1a3f6f" : "transparent",
               color: ready ? "white" : "rgba(0,0,0,0.35)",
               border: ready ? "none" : "1px solid rgba(0,0,0,0.15)",
               fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em",
@@ -297,7 +301,7 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
             boxShadow: "0 20px 60px rgba(0,0,0,0.2)", overflow: "hidden" }}>
             <div style={{ padding: "1.125rem 1.5rem", borderBottom: "1px solid #e8ecf0",
               display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              <span style={{ fontWeight: 800, color: "#111827", fontSize: "0.9375rem" }}>Größentabelle</span>
+              <span style={{ fontWeight: 800, color: "#1a3f6f", fontSize: "0.9375rem" }}>Größentabelle</span>
               <button onClick={() => setSizeGuide(false)} style={{ background: "none", border: "none",
                 cursor: "pointer", color: "#6b7280", display: "flex" }}><X size={18} /></button>
             </div>
@@ -307,7 +311,7 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
                   <tr style={{ background: "#f9fafb" }}>
                     {["Größe","Alter (ca.)","Körpergröße","Gewicht (ca.)"].map(h => (
                       <th key={h} style={{ padding: "0.625rem 0.875rem", textAlign: "left",
-                        fontWeight: 700, color: "#111827", fontSize: "0.72rem",
+                        fontWeight: 700, color: "#1a3f6f", fontSize: "0.72rem",
                         letterSpacing: "0.08em", textTransform: "uppercase",
                         borderBottom: "1px solid #e5e7eb" }}>{h}</th>
                     ))}
@@ -329,7 +333,7 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
                       background: i % 2 === 0 ? "white" : "#f9fafb" }}>
                       {row.map((cell, j) => (
                         <td key={j} style={{ padding: "0.5rem 0.875rem",
-                          color: j === 0 ? "#111827" : "#6b7280",
+                          color: j === 0 ? "#1a3f6f" : "#6b7280",
                           fontWeight: j === 0 ? 700 : 400 }}>{cell}</td>
                       ))}
                     </tr>
@@ -477,24 +481,26 @@ export default function AnkerkleidungPage() {
     <main style={{ background: "#ffffff", paddingTop: "56px" }}>
 
       {/* ══ SEITEN-HEADER ══ */}
-      <div style={{ borderBottom: "1px solid #e5e7eb", padding: "1.5rem 0" }}>
+      <div style={{ borderBottom: "1px solid #dde4ee",
+        background: "linear-gradient(180deg, #f4f7fb 0%, #ffffff 100%)", padding: "2rem 0" }}>
         <div className="site-container">
-          <p style={{ fontSize: "10px", color: "#9ca3af", letterSpacing: "0.12em",
-            textTransform: "uppercase", marginBottom: "0.375rem" }}>
-            Ankernetz / Ankerkleidung
+          <p style={{ fontSize: "9px", color: "#6FA3FE", letterSpacing: "0.18em",
+            textTransform: "uppercase", fontWeight: 700, marginBottom: "0.5rem" }}>
+            Ankernetz — Spezialisierte Kleidung
           </p>
-          <h1 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827",
-            letterSpacing: "-0.02em", lineHeight: 1.2 }}>
-            Spezialisierte Kleidung
+          <h1 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#1a3f6f",
+            letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: "0.5rem" }}>
+            Kleidung,{" "}
+            <span style={{ color: "#6FA3FE" }}>die versteht.</span>
           </h1>
-          <p style={{ fontSize: "0.875rem", color: "#6b7280", marginTop: "0.375rem" }}>
+          <p style={{ fontSize: "0.875rem", color: "rgba(26,63,111,0.55)", maxWidth: "52ch" }}>
             Entwickelt mit Fachkräften der Kinder- und Jugendhilfe — für Kinder mit besonderen Bedürfnissen.
           </p>
         </div>
       </div>
 
       {/* ══ VALUE STRIP ══ */}
-      <div style={{ background: "#f9fafb", borderBottom: "1px solid #e5e7eb" }}>
+      <div style={{ background: "rgba(26,63,111,0.03)", borderBottom: "1px solid #dde4ee" }}>
         <div className="site-container" style={{ display: "flex", justifyContent: "space-between",
           padding: "0.875rem 0", flexWrap: "wrap", gap: "1rem" }}>
           {[
@@ -504,8 +510,8 @@ export default function AnkerkleidungPage() {
             { Icon: Phone,             text: "+49 30 22 45 43 22" },
           ].map(v => (
             <div key={v.text} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <v.Icon size={14} color="#6b7280" strokeWidth={1.75} />
-              <span style={{ fontSize: "0.75rem", color: "#6b7280" }}>{v.text}</span>
+              <v.Icon size={14} color="#6FA3FE" strokeWidth={1.75} />
+              <span style={{ fontSize: "0.75rem", color: "rgba(26,63,111,0.6)", fontWeight: 500 }}>{v.text}</span>
             </div>
           ))}
         </div>
@@ -520,9 +526,9 @@ export default function AnkerkleidungPage() {
 
             {/* Filtern Header */}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between",
-              paddingBottom: "1rem", borderBottom: "1px solid #e5e7eb", marginBottom: "1.5rem" }}>
-              <span style={{ fontSize: "11px", fontWeight: 700, color: "#111827",
-                letterSpacing: "0.12em", textTransform: "uppercase" }}>Filtern</span>
+              paddingBottom: "1rem", borderBottom: "1px solid #dde4ee", marginBottom: "1.5rem" }}>
+              <span style={{ fontSize: "11px", fontWeight: 700, color: "#6FA3FE",
+                letterSpacing: "0.18em", textTransform: "uppercase" }}>Filtern</span>
               {filterKats.size > 0 && (
                 <button onClick={() => setFilterKats(new Set())} style={{
                   fontSize: "10px", color: "#6b7280", background: "none", border: "none",
@@ -535,7 +541,7 @@ export default function AnkerkleidungPage() {
 
             {/* Kategorien */}
             <div style={{ marginBottom: "2rem" }}>
-              <p style={{ fontSize: "10px", fontWeight: 700, color: "#111827",
+              <p style={{ fontSize: "10px", fontWeight: 700, color: "#1a3f6f",
                 letterSpacing: "0.14em", textTransform: "uppercase",
                 marginBottom: "1rem", display: "flex", alignItems: "center",
                 justifyContent: "space-between", cursor: "pointer" }}>
@@ -552,9 +558,9 @@ export default function AnkerkleidungPage() {
                       checked={filterKats.has(k.slug)}
                       onChange={() => toggleFilter(k.slug)}
                       style={{ width: "13px", height: "13px", cursor: "pointer",
-                        accentColor: "#111827" }}
+                        accentColor: "#1a3f6f" }}
                     />
-                    <span style={{ fontSize: "12px", color: filterKats.has(k.slug) ? "#111827" : "#6b7280",
+                    <span style={{ fontSize: "12px", color: filterKats.has(k.slug) ? "#1a3f6f" : "#6b7280",
                       fontWeight: filterKats.has(k.slug) ? 600 : 400,
                       lineHeight: 1.3 }}>
                       {k.titel}
@@ -569,7 +575,7 @@ export default function AnkerkleidungPage() {
 
             {/* Sortierung */}
             <div style={{ paddingTop: "1.25rem", borderTop: "1px solid #e5e7eb" }}>
-              <p style={{ fontSize: "10px", fontWeight: 700, color: "#111827",
+              <p style={{ fontSize: "10px", fontWeight: 700, color: "#1a3f6f",
                 letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "0.875rem" }}>
                 Sortierung
               </p>
@@ -583,8 +589,8 @@ export default function AnkerkleidungPage() {
                   <input type="radio" name="sort" value={opt.value}
                     checked={sort === opt.value}
                     onChange={() => setSort(opt.value as typeof sort)}
-                    style={{ accentColor: "#111827", width: "12px", height: "12px" }} />
-                  <span style={{ fontSize: "12px", color: sort === opt.value ? "#111827" : "#6b7280",
+                    style={{ accentColor: "#1a3f6f", width: "12px", height: "12px" }} />
+                  <span style={{ fontSize: "12px", color: sort === opt.value ? "#1a3f6f" : "#6b7280",
                     fontWeight: sort === opt.value ? 600 : 400 }}>
                     {opt.label}
                   </span>
@@ -598,15 +604,16 @@ export default function AnkerkleidungPage() {
 
             {/* Treffer + Warenkorb-Button */}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between",
-              marginBottom: "1.75rem", paddingBottom: "1rem", borderBottom: "1px solid #e5e7eb" }}>
-              <span style={{ fontSize: "12px", color: "#9ca3af", letterSpacing: "0.04em" }}>
-                {allProdukte.length} {allProdukte.length === 1 ? "Artikel" : "Artikel"}
-                {filterKats.size > 0 && ` · ${filterKats.size} Filter aktiv`}
+              marginBottom: "1.75rem", paddingBottom: "1rem", borderBottom: "1px solid #dde4ee" }}>
+              <span style={{ fontSize: "12px", color: "rgba(26,63,111,0.45)", letterSpacing: "0.04em" }}>
+                <strong style={{ color: "#6FA3FE", fontWeight: 700 }}>{allProdukte.length}</strong>
+                {" "}Artikel
+                {filterKats.size > 0 && <span style={{ color: "#FEC274" }}> · {filterKats.size} Filter aktiv</span>}
               </span>
               {cartCount > 0 && (
                 <button onClick={() => setCartOpen(true)} style={{
                   display: "flex", alignItems: "center", gap: "0.5rem",
-                  background: "#111827", color: "white", border: "none",
+                  background: "#1a3f6f", color: "white", border: "none",
                   padding: "0.5rem 1rem", fontSize: "11px", fontWeight: 700,
                   letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer" }}>
                   <ShoppingCart size={13} />
@@ -641,7 +648,7 @@ export default function AnkerkleidungPage() {
                   marginTop: "1rem", fontSize: "11px", fontWeight: 700,
                   letterSpacing: "0.12em", textTransform: "uppercase",
                   background: "none", border: "none", cursor: "pointer",
-                  color: "#111827", textDecoration: "underline" }}>
+                  color: "#1a3f6f", textDecoration: "underline" }}>
                   Filter zurücksetzen
                 </button>
               </div>
@@ -653,7 +660,7 @@ export default function AnkerkleidungPage() {
       {/* ══ STICKY CART BAR ══ */}
       {cartCount > 0 && !cartOpen && !checkoutOpen && (
         <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 800,
-          background: "#111827", borderTop: "1px solid rgba(255,255,255,0.1)",
+          background: "#1a3f6f", borderTop: "1px solid rgba(255,255,255,0.1)",
           padding: "0.875rem 5.5rem 0.875rem 2rem", display: "flex", alignItems: "center",
           justifyContent: "space-between", gap: "1rem",
           boxShadow: "0 -4px 24px rgba(0,0,0,0.2)" }}>
@@ -668,7 +675,7 @@ export default function AnkerkleidungPage() {
               {cartTotal.toFixed(2).replace(".", ",")} €
             </span>
             <button onClick={() => setCartOpen(true)} style={{
-              background: "white", color: "#111827", border: "none",
+              background: "white", color: "#1a3f6f", border: "none",
               padding: "0.5rem 1.125rem", fontWeight: 700, fontSize: "0.75rem",
               cursor: "pointer", letterSpacing: "0.08em", textTransform: "uppercase" }}>
               Warenkorb
@@ -694,8 +701,8 @@ export default function AnkerkleidungPage() {
             <div style={{ padding: "1.5rem", borderBottom: "1px solid #e5e7eb",
               display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
-                <ShoppingCart size={17} color="#111827" />
-                <span style={{ fontWeight: 700, color: "#111827", fontSize: "0.9375rem",
+                <ShoppingCart size={17} color="#1a3f6f" />
+                <span style={{ fontWeight: 700, color: "#1a3f6f", fontSize: "0.9375rem",
                   letterSpacing: "0.04em", textTransform: "uppercase" }}>Warenkorb</span>
                 <span style={{ fontSize: "0.75rem", color: "#9ca3af" }}>({cartCount})</span>
               </div>
@@ -712,7 +719,7 @@ export default function AnkerkleidungPage() {
                 <div key={idx} style={{ display: "flex", gap: "1rem", padding: "1rem",
                   border: "1px solid #e5e7eb" }}>
                   <div style={{ flex: 1 }}>
-                    <p style={{ fontWeight: 600, color: "#111827", fontSize: "0.8125rem", marginBottom: "0.25rem" }}>
+                    <p style={{ fontWeight: 600, color: "#1a3f6f", fontSize: "0.8125rem", marginBottom: "0.25rem" }}>
                       {item.produkt}
                     </p>
                     <p style={{ fontSize: "0.72rem", color: "#9ca3af" }}>{item.groesse} · {item.farbe}</p>
@@ -720,18 +727,18 @@ export default function AnkerkleidungPage() {
                       <button onClick={() => changeQty(idx, -1)} style={{ width: "24px", height: "24px",
                         border: "1px solid #e5e7eb", background: "white", cursor: "pointer",
                         display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Minus size={11} color="#111827" />
+                        <Minus size={11} color="#1a3f6f" />
                       </button>
-                      <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "#111827",
+                      <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "#1a3f6f",
                         minWidth: "1.25rem", textAlign: "center" }}>{item.menge}</span>
                       <button onClick={() => changeQty(idx, 1)} style={{ width: "24px", height: "24px",
                         border: "1px solid #e5e7eb", background: "white", cursor: "pointer",
                         display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Plus size={11} color="#111827" />
+                        <Plus size={11} color="#1a3f6f" />
                       </button>
                     </div>
                   </div>
-                  <span style={{ fontWeight: 700, color: "#111827", fontSize: "0.9375rem", flexShrink: 0 }}>
+                  <span style={{ fontWeight: 700, color: "#1a3f6f", fontSize: "0.9375rem", flexShrink: 0 }}>
                     {(item.preis * item.menge).toFixed(2).replace(".", ",")} €
                   </span>
                 </div>
@@ -742,12 +749,12 @@ export default function AnkerkleidungPage() {
                 <div style={{ display: "flex", justifyContent: "space-between",
                   marginBottom: "1rem", paddingBottom: "1rem", borderBottom: "1px solid #e5e7eb" }}>
                   <span style={{ fontSize: "0.875rem", color: "#9ca3af" }}>Gesamt</span>
-                  <span style={{ fontWeight: 700, color: "#111827", fontSize: "1.125rem" }}>
+                  <span style={{ fontWeight: 700, color: "#1a3f6f", fontSize: "1.125rem" }}>
                     {cartTotal.toFixed(2).replace(".", ",")} €
                   </span>
                 </div>
                 <button onClick={() => { setCartOpen(false); setCheckoutOpen(true); }} style={{
-                  width: "100%", padding: "0.875rem", background: "#111827", color: "white",
+                  width: "100%", padding: "0.875rem", background: "#1a3f6f", color: "white",
                   border: "none", fontWeight: 700, fontSize: "0.8125rem",
                   letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer" }}>
                   Zur Kasse →
@@ -776,14 +783,14 @@ export default function AnkerkleidungPage() {
                   justifyContent: "center", margin: "0 auto 1.5rem" }}>
                   <Check size={28} color="#22c55e" />
                 </div>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#111827",
+                <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1a3f6f",
                   letterSpacing: "-0.02em", marginBottom: "0.75rem" }}>Bestellung eingegangen.</h3>
                 <p style={{ fontSize: "0.9rem", color: "#6b7280", lineHeight: 1.75, marginBottom: "2rem" }}>
                   Wir melden uns innerhalb von 24 Stunden.<br />
                   Bei dringendem Bedarf: +49 30 22 45 43 22
                 </p>
                 <button onClick={() => { setCheckoutOpen(false); setCart([]); setSubmitted(false); }} style={{
-                  padding: "0.75rem 2rem", background: "#111827", color: "white", border: "none",
+                  padding: "0.75rem 2rem", background: "#1a3f6f", color: "white", border: "none",
                   fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer" }}>
                   Fertig
                 </button>
@@ -792,7 +799,7 @@ export default function AnkerkleidungPage() {
               <>
                 <div style={{ padding: "1.25rem 1.5rem", display: "flex", alignItems: "center",
                   justifyContent: "space-between", borderBottom: "1px solid #e5e7eb" }}>
-                  <span style={{ fontWeight: 700, color: "#111827", fontSize: "0.9375rem",
+                  <span style={{ fontWeight: 700, color: "#1a3f6f", fontSize: "0.9375rem",
                     letterSpacing: "0.04em", textTransform: "uppercase" }}>Bestellung abschließen</span>
                   <button onClick={() => setCheckoutOpen(false)} style={{ background: "none", border: "none",
                     cursor: "pointer", color: "#6b7280", display: "flex" }}><X size={18} /></button>
@@ -803,14 +810,14 @@ export default function AnkerkleidungPage() {
                       <div key={idx} style={{ display: "flex", justifyContent: "space-between",
                         fontSize: "0.8125rem", padding: "0.2rem 0" }}>
                         <span style={{ color: "#6b7280" }}>{item.menge}× {item.produkt} ({item.groesse}, {item.farbe})</span>
-                        <span style={{ fontWeight: 600, color: "#111827", flexShrink: 0, marginLeft: "1rem" }}>
+                        <span style={{ fontWeight: 600, color: "#1a3f6f", flexShrink: 0, marginLeft: "1rem" }}>
                           {(item.preis * item.menge).toFixed(2).replace(".", ",")} €
                         </span>
                       </div>
                     ))}
                     <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.625rem",
                       paddingTop: "0.625rem", borderTop: "1px solid #e5e7eb",
-                      fontWeight: 700, color: "#111827", fontSize: "0.9375rem" }}>
+                      fontWeight: 700, color: "#1a3f6f", fontSize: "0.9375rem" }}>
                       <span>Gesamt</span><span>{cartTotal.toFixed(2).replace(".", ",")} €</span>
                     </div>
                   </div>
@@ -873,7 +880,7 @@ export default function AnkerkleidungPage() {
                     </div>
                     <button onClick={submitOrder} disabled={!form.name || !form.email || submitting} style={{
                       width: "100%", padding: "0.875rem",
-                      background: form.name && form.email ? "#111827" : "#e5e7eb",
+                      background: form.name && form.email ? "#1a3f6f" : "#e5e7eb",
                       color: form.name && form.email ? "white" : "#9ca3af",
                       border: "none", fontWeight: 700, fontSize: "0.8125rem",
                       letterSpacing: "0.1em", textTransform: "uppercase",
