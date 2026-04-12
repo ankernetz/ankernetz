@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   AlertTriangle, Home, Brain, Baby, Search, Shirt,
-  MessageCircle, Rocket, School, Heart, ArrowRight,
+  MessageCircle, Rocket, Building2, Heart, ArrowRight,
   Shield, Network, Star
 } from "lucide-react";
 import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
@@ -57,7 +57,7 @@ const angebote = [
     bg: "linear-gradient(145deg, #0d2d5c 0%, #153f80 100%)",
     badge: "12–17 Jahre",
     badgeClass: "bg-blue-400/30 text-blue-200 border border-blue-300/40",
-    iconClass: "text-blue-300",
+    iconClass: "text-white",
   },
   {
     slug: "jugendhilfe",
@@ -70,6 +70,7 @@ const angebote = [
     badge: "6–12 Jahre",
     badgeClass: "bg-amber-400/30 text-amber-200 border border-amber-300/40",
     iconClass: "text-amber-300",
+    bodyClass: "text-amber-100/65",
   },
   {
     slug: "diagnostik-clearing",
@@ -100,7 +101,7 @@ const angebote = [
     titel: "Beratung in Kitas",
     claim: "Früh erkennen.",
     kurz: "Therapeutisch fundierte Beratung für Kita-Fachkräfte.",
-    icon: School,
+    icon: Building2,
     glow: "glow-orange",
     bg: "linear-gradient(145deg, #4a2008 0%, #6b300f 100%)",
     badge: "Fachkräfte",
@@ -118,6 +119,7 @@ const angebote = [
     badge: "Übergang",
     badgeClass: "bg-fuchsia-400/30 text-fuchsia-200 border border-fuchsia-300/40",
     iconClass: "text-fuchsia-300",
+    topIcon: true,
   },
   {
     slug: "ankerkleidung",
@@ -316,13 +318,13 @@ export default function HomePage() {
                     {angebote[0].badge}
                   </span>
                 </div>
-                <div className="relative z-10">
-                  <AlertTriangle size={28} strokeWidth={1.5} className={`${angebote[0].iconClass} mb-6`} />
+                <div className="relative z-10" style={{ paddingLeft: "0.25rem" }}>
+                  <AlertTriangle size={28} strokeWidth={1.5} className={`${angebote[0].iconClass} mb-5`} />
                   <h3 className="text-white text-[2rem] font-black mb-3 leading-tight" style={{ letterSpacing: "-0.025em" }}>
                     {angebote[0].titel}
                   </h3>
-                  <p className="text-white/50 text-sm italic mb-3">{angebote[0].claim}</p>
-                  <p className="text-white/60 text-sm font-normal leading-[1.85] mb-8 max-w-md">{angebote[0].kurz}</p>
+                  <p className="text-white/55 text-sm italic mb-4">{angebote[0].claim}</p>
+                  <p className="text-white/60 text-sm font-normal mb-8 max-w-md" style={{ lineHeight: "2" }}>{angebote[0].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                     Mehr erfahren <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
@@ -335,7 +337,7 @@ export default function HomePage() {
                 className={`bento-card spotlight-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
                 style={{ background: angebote[1].bg }}>
                 {/* Decorative: sine wave */}
-                <div className="absolute top-8 left-0 right-0 opacity-[0.06] pointer-events-none px-6">
+                <div className="absolute top-8 left-0 right-0 opacity-[0.04] pointer-events-none px-6">
                   <svg viewBox="0 0 300 80" fill="none" className="w-full">
                     <path d="M0 40 Q37.5 10 75 40 Q112.5 70 150 40 Q187.5 10 225 40 Q262.5 70 300 40"
                       stroke="white" strokeWidth="2" fill="none" />
@@ -371,15 +373,15 @@ export default function HomePage() {
                     className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[400px] flex flex-col justify-end p-8 block`}
                     style={{ background: a.bg }}>
                     <div className="absolute top-6 right-6">
-                      <span className={`text-xs font-medium ${a.badgeClass} px-2.5 py-1 rounded-full`}>
+                      <span className={`text-xs font-medium ${a.badgeClass} px-3 py-1 rounded-full`}>
                         {a.badge}
                       </span>
                     </div>
                     <div className="relative z-10">
-                      <Icon size={24} strokeWidth={1.5} className={`${a.iconClass} mb-5`} />
-                      <h3 className="text-white text-xl font-black mb-2 leading-tight">{a.titel}</h3>
-                      <p className="text-white/50 text-sm italic mb-3">{a.claim}</p>
-                      <p className="text-white/60 text-sm font-normal leading-[1.85] mb-6">{a.kurz}</p>
+                      <Icon size={24} strokeWidth={1.5} className={`${a.iconClass} mb-6`} />
+                      <h3 className="text-white text-xl font-black mb-3 leading-tight">{a.titel}</h3>
+                      <p className="text-white/65 text-sm italic mb-4">{a.claim}</p>
+                      <p className={`${(a as any).bodyClass ?? "text-white/60"} text-sm font-normal mb-6`} style={{ lineHeight: "1.9" }}>{a.kurz}</p>
                       <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
                         Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
                       </span>
@@ -394,19 +396,35 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "2rem" }}>
             {[angebote[5], angebote[6], angebote[7], angebote[8]].map((a, i) => {
               const Icon = a.icon;
+              const isTopIcon = (a as any).topIcon === true;
               return (
                 <BlurFade key={a.slug} delay={i * 0.06}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[260px] flex flex-col justify-end p-8 block`}
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[300px] flex flex-col p-8 block`}
                     style={{ background: a.bg }}>
-                    <div className="relative z-10">
-                      <Icon size={20} strokeWidth={1.5} className={`${a.iconClass} mb-4`} />
-                      <h3 className="text-white text-base font-black mb-2 leading-tight">{a.titel}</h3>
-                      <p className="text-white/50 text-xs italic mb-4">{a.claim}</p>
-                      <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
-                        Mehr <ArrowRight size={12} strokeWidth={1.5} />
-                      </span>
-                    </div>
+                    {isTopIcon ? (
+                      /* Übergang Arbeit: Icon oben, Text unten */
+                      <>
+                        <Icon size={22} strokeWidth={1.5} className={`${a.iconClass} flex-shrink-0`} />
+                        <div className="mt-auto">
+                          <h3 className="text-white text-xl font-black mb-2 leading-tight">{a.titel}</h3>
+                          <p className="text-white/65 text-xs font-semibold italic mb-4">{a.claim}</p>
+                          <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
+                            Mehr <ArrowRight size={12} strokeWidth={1.5} />
+                          </span>
+                        </div>
+                      </>
+                    ) : (
+                      /* Alle anderen: Icon + Text unten */
+                      <div className="mt-auto">
+                        <Icon size={20} strokeWidth={1.5} className={`${a.iconClass} mb-5`} />
+                        <h3 className="text-white text-xl font-black mb-2 leading-tight">{a.titel}</h3>
+                        <p className="text-white/65 text-xs italic mb-4">{a.claim}</p>
+                        <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
+                          Mehr <ArrowRight size={12} strokeWidth={1.5} />
+                        </span>
+                      </div>
+                    )}
                   </Link>
                 </BlurFade>
               );
@@ -421,7 +439,7 @@ export default function HomePage() {
                 style={{ background: angebote[9].bg }}>
 
                 {/* Visual: abstract clothing silhouettes */}
-                <div className="absolute inset-0 opacity-[0.04] flex items-center justify-end pr-8 pointer-events-none select-none">
+                <div className="absolute inset-0 opacity-[0.03] flex items-center justify-end pr-8 pointer-events-none select-none">
                   <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
                     {/* T-Shirt silhouette */}
                     <path d="M60 40 L20 70 L40 80 L40 160 L180 160 L180 80 L200 70 L160 40 L140 55 Q110 68 80 55 Z"
@@ -444,7 +462,7 @@ export default function HomePage() {
                     <Shirt size={24} strokeWidth={1.5} className={angebote[9].iconClass} />
                     <span className={`text-xs font-medium ${angebote[9].badgeClass} px-3 py-1 rounded-full`}>Shop</span>
                   </div>
-                  <h3 className="text-white text-2xl font-black mb-2" style={{ letterSpacing: "-0.02em" }}>Ankerkleidung</h3>
+                  <h3 className="text-white font-black mb-2" style={{ letterSpacing: "-0.025em", fontSize: "1.875rem" }}>Ankerkleidung</h3>
                   <p className="text-white/40 text-sm italic mb-3">Stabilität. Selbstwert. Alltag.</p>
                   <p className="text-white/50 text-sm font-normal leading-relaxed mb-5 max-w-sm">{angebote[9].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
