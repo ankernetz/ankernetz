@@ -271,12 +271,12 @@ export default function HomePage() {
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
-      <section id="angebote" className="pt-32 pb-32 bg-[#0f172a]">
+      <section id="angebote" className="bg-[#0f172a]" style={{ paddingTop: "6rem", paddingBottom: "6rem" }}>
         <div className="site-container">
 
           {/* Abschnitts-Header */}
           <BlurFade>
-            <div className="text-center mb-20">
+            <div className="text-center" style={{ marginBottom: "4rem" }}>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">
                 Unsere Angebote
               </p>
