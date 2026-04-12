@@ -9,35 +9,35 @@ import { ShineText } from "./components/ShineText";
 import { BlurFade } from "./components/BlurFade";
 
 const angebote = [
-  { slug: "krisenintervention",   titel: "Krisenintervention",             claim: "Sofort da. Wenn es zählt.",            kurz: "24/7 Sofortaufnahme für Jugendliche in akuter Not — rund um die Uhr, an 365 Tagen.",                           icon: AlertTriangle, badge: "24/7",           iconColor: "#c4786e", stripe: "#a85c54" },
-  { slug: "psychotherapie",       titel: "Kinder- & Jugend­psychotherapie", claim: "Professionelle Therapie. Mit Kassensitz.", kurz: "Eingebunden in alle Hilfeprozesse — direkt dort, wo Kinder und Jugendliche leben.",               icon: Brain,         badge: "Kassensitz",   iconColor: "#9d87c4", stripe: "#7a63a8" },
-  { slug: "fruehe-hilfen",        titel: "Frühe Hilfen",                   claim: "Schutz von Anfang an.",                kurz: "Bindung, Sicherheit und Entwicklung für die Kleinsten.",                                                    icon: Baby,          badge: "0–6 Jahre",    iconColor: "#6aab88", stripe: "#4a8c6a" },
-  { slug: "therapie-wohnen",      titel: "Therapie & Wohnen",              claim: "Raum zum Ankommen.",                   kurz: "Therapeutische Wohngruppen mit intensiver Begleitung und Traumaarbeit.",                                   icon: Home,          badge: "12–17 Jahre",  iconColor: "#5a8fad", stripe: "#3d6b8c" },
-  { slug: "jugendhilfe",          titel: "Jugendhilfe",                    claim: "Sicherheit im Alltag.",                kurz: "Kinderwohngruppen mit verlässlicher Struktur und Beziehungsarbeit.",                                        icon: Heart,         badge: "6–12 Jahre",   iconColor: "#c4955a", stripe: "#a87840" },
-  { slug: "diagnostik-clearing",  titel: "Diagnostik & Clearing",          claim: "Klarheit schafft die richtige Hilfe.", icon: Search,        badge: "Gutachten",    iconColor: "#4aaab8", stripe: "#2d8899" },
-  { slug: "beratung-praevention", titel: "Beratung & Prävention",          claim: "Früh helfen. Gemeinsam stärken.",      icon: MessageCircle, badge: "Online & vor Ort", iconColor: "#6aab80", stripe: "#3d8a5a" },
-  { slug: "kita-beratung",        titel: "Beratung in Kitas",              claim: "Früh erkennen.",                       icon: Building2,     badge: "Fachkräfte",   iconColor: "#c48a5a", stripe: "#a86d3d" },
-  { slug: "uebergang-arbeit",     titel: "Übergang Arbeit",                claim: "Der nächste Schritt.",                 icon: Rocket,        badge: "Übergang",     iconColor: "#b07ac0", stripe: "#8d5ca0" },
-  { slug: "ankerkleidung",        titel: "Ankerkleidung",                  claim: "Stabilität. Selbstwert. Alltag.",      kurz: "Spezialisierte Kleidung nach Störungsbild — Teil des Hilfesystems.",                                        icon: Shirt,         badge: "Shop",         iconColor: "#7a8fa3", stripe: "#546070" },
-  { slug: "versorgung",           titel: "Versorgung",                     claim: "Würde im Alltag.",                     kurz: "Bedarfsorientierte Ausstattung für Kinder und Jugendliche im Hilfesystem.",                                  icon: Star,          badge: "Ausstattung",  iconColor: "#c4955a", stripe: "#a87840" },
+  { slug: "krisenintervention",   titel: "Krisenintervention",             claim: "Sofort da. Wenn es zählt.",            kurz: "24/7 Sofortaufnahme für Jugendliche in akuter Not — rund um die Uhr, an 365 Tagen.",                           icon: AlertTriangle, badge: "24/7",           iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "psychotherapie",       titel: "Kinder- & Jugend­psychotherapie", claim: "Professionelle Therapie. Mit Kassensitz.", kurz: "Eingebunden in alle Hilfeprozesse — direkt dort, wo Kinder und Jugendliche leben.",               icon: Brain,         badge: "Kassensitz",   iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "fruehe-hilfen",        titel: "Frühe Hilfen",                   claim: "Schutz von Anfang an.",                kurz: "Bindung, Sicherheit und Entwicklung für die Kleinsten.",                                                    icon: Baby,          badge: "0–6 Jahre",    iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "therapie-wohnen",      titel: "Therapie & Wohnen",              claim: "Raum zum Ankommen.",                   kurz: "Therapeutische Wohngruppen mit intensiver Begleitung und Traumaarbeit.",                                   icon: Home,          badge: "12–17 Jahre",  iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "jugendhilfe",          titel: "Jugendhilfe",                    claim: "Sicherheit im Alltag.",                kurz: "Kinderwohngruppen mit verlässlicher Struktur und Beziehungsarbeit.",                                        icon: Heart,         badge: "6–12 Jahre",   iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "diagnostik-clearing",  titel: "Diagnostik & Clearing",          claim: "Klarheit schafft die richtige Hilfe.", icon: Search,        badge: "Gutachten",    iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "beratung-praevention", titel: "Beratung & Prävention",          claim: "Früh helfen. Gemeinsam stärken.",      icon: MessageCircle, badge: "Online & vor Ort", iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "kita-beratung",        titel: "Beratung in Kitas",              claim: "Früh erkennen.",                       icon: Building2,     badge: "Fachkräfte",   iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "uebergang-arbeit",     titel: "Übergang Arbeit",                claim: "Der nächste Schritt.",                 icon: Rocket,        badge: "Übergang",     iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "ankerkleidung",        titel: "Ankerkleidung",                  claim: "Stabilität. Selbstwert. Alltag.",      kurz: "Spezialisierte Kleidung nach Störungsbild — Teil des Hilfesystems.",                                        icon: Shirt,         badge: "Shop",         iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "versorgung",           titel: "Versorgung",                     claim: "Würde im Alltag.",                     kurz: "Bedarfsorientierte Ausstattung für Kinder und Jugendliche im Hilfesystem.",                                  icon: Star,          badge: "Ausstattung",  iconColor: "#FEC274", stripe: "#c47a20" },
 ];
 
 const staerken = [
   {
     icon: Shield,
-    color: "#4A7FA5",
+    color: "#6FA3FE",
     titel: "Verlässlich",
     text: "Feste Ansprechpartner, klare Prozesse, transparente Kommunikation — immer.",
   },
   {
     icon: Network,
-    color: "#8b5cf6",
+    color: "#FEC274",
     titel: "Vernetzt",
     text: "Alle 11 Angebote greifen ineinander. Kein Kind fällt zwischen die Stühle.",
   },
   {
     icon: Brain,
-    color: "#10b981",
+    color: "#6FA3FE",
     titel: "Spezialisiert",
     text: "Jedes Angebot ist auf eine spezifische Situation und Zielgruppe ausgelegt.",
   },
@@ -50,22 +50,22 @@ export default function HomePage() {
       {/* ═══ HERO ═══ */}
       <section
         className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
-        style={{ background: "linear-gradient(155deg, #f0f7ff 0%, #fafbff 45%, #f5f0ff 100%)" }}
+        style={{ background: "linear-gradient(155deg, #eef4ff 0%, #fafbff 45%, #fff8ee 100%)" }}
       >
         {/* Soft color blobs */}
         <div className="absolute top-0 left-[10%] w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(74,127,165,0.12) 0%, transparent 65%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(111,163,254,0.14) 0%, transparent 65%)" }} />
         <div className="absolute bottom-0 right-[5%] w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.09) 0%, transparent 65%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(254,194,116,0.12) 0%, transparent 65%)" }} />
         <div className="absolute top-1/3 right-[20%] w-[350px] h-[350px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(16,185,129,0.07) 0%, transparent 65%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(3,41,92,0.05) 0%, transparent 65%)" }} />
 
         {/* Animated Grid Pattern */}
         <AnimatedGridPattern
           numSquares={35}
           maxOpacity={0.04}
           duration={3}
-          strokeColor="rgba(74,127,165,0.12)"
+          strokeColor="rgba(111,163,254,0.15)"
           className="z-0"
         />
 
@@ -80,9 +80,9 @@ export default function HomePage() {
           </div>
 
           <h1 className="fade-in-up delay-1 leading-none"
-            style={{ fontSize: "clamp(3.25rem,9vw,6rem)", fontWeight: 900, letterSpacing: "-0.035em", color: "#0f172a", marginBottom: "1.5rem" }}>
+            style={{ fontSize: "clamp(3.25rem,9vw,6rem)", fontWeight: 900, letterSpacing: "-0.035em", color: "#03295C", marginBottom: "1.5rem" }}>
             Anker<span style={{
-              backgroundImage: "linear-gradient(135deg, #4A7FA5 0%, #8b5cf6 100%)",
+              backgroundImage: "linear-gradient(135deg, #6FA3FE 0%, #FEC274 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -90,10 +90,10 @@ export default function HomePage() {
           </h1>
 
           <div className="fade-in-up delay-2" style={{ marginBottom: "3rem" }}>
-            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#334155", fontWeight: 400, lineHeight: 1.7, marginBottom: "0.25rem" }}>
+            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#03295C", fontWeight: 400, lineHeight: 1.7, marginBottom: "0.25rem" }}>
               Stabilität in Krisen.
             </p>
-            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#94a3b8", fontWeight: 400, lineHeight: 1.7 }}>
+            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "rgba(3,41,92,0.45)", fontWeight: 400, lineHeight: 1.7 }}>
               Perspektiven für junge Menschen.
             </p>
           </div>
@@ -112,7 +112,7 @@ export default function HomePage() {
 
         {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent, #fafbff)" }} />
+          style={{ background: "linear-gradient(to bottom, transparent, #fff8ee)" }} />
 
         {/* Scroll indicator */}
         <div className="scroll-pulse absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
@@ -128,10 +128,10 @@ export default function HomePage() {
         <div className="site-container">
           <BlurFade>
             <div className="text-center" style={{ maxWidth: "640px", margin: "0 auto" }}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6FA3FE] mb-5">
                 Ein Netz. Elf Antworten.
               </p>
-              <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1A1A2E] mb-8 leading-[1.1]"
+              <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#03295C] mb-8 leading-[1.1]"
                 style={{ letterSpacing: "-0.03em" }}>
                 Für jede Situation —<br />die richtige Hilfe.
               </h2>
@@ -145,13 +145,13 @@ export default function HomePage() {
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
-      <section id="angebote" className="bg-[#0d1829]" style={{ paddingTop: "4.5rem", paddingBottom: "5rem" }}>
+      <section id="angebote" className="bg-[#03295C]" style={{ paddingTop: "4.5rem", paddingBottom: "5rem" }}>
         <div className="site-container">
 
           {/* Abschnitts-Header */}
           <BlurFade>
             <div className="text-center" style={{ marginBottom: "2.5rem" }}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6FA3FE] mb-4">
                 Unsere Angebote
               </p>
               <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black text-white" style={{ letterSpacing: "-0.028em" }}>
@@ -168,7 +168,7 @@ export default function HomePage() {
 
             <BlurFade className="md:col-span-2">
               <Link href="/krisenintervention" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[0].stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[0].stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[0].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[0].stripe, background: `${angebote[0].stripe}18`, border: `1px solid ${angebote[0].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[0].badge}</span>
@@ -187,7 +187,7 @@ export default function HomePage() {
 
             <BlurFade delay={0.1}>
               <Link href="/psychotherapie" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[1].stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[1].stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[1].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[1].stripe, background: `${angebote[1].stripe}18`, border: `1px solid ${angebote[1].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[1].badge}</span>
@@ -212,7 +212,7 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.08}>
                   <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
-                    style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${a.stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "380px", padding: "2.5rem 3rem" }}>
+                    style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${a.stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "380px", padding: "2.5rem 3rem" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
                     <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                       <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: a.stripe, background: `${a.stripe}18`, border: `1px solid ${a.stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{a.badge}</span>
@@ -239,7 +239,7 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.06}>
                   <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
-                    style={{ background: `radial-gradient(ellipse 70% 55% at 90% 5%, ${a.stripe}18 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2rem 2.25rem" }}>
+                    style={{ background: `radial-gradient(ellipse 70% 55% at 90% 5%, ${a.stripe}18 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2rem 2.25rem" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
                     <div style={{ position: "relative", zIndex: 10 }}>
                       <Icon size={22} strokeWidth={1.5} style={{ color: a.iconColor, marginBottom: "0.875rem" }} />
@@ -258,7 +258,7 @@ export default function HomePage() {
 
             <BlurFade delay={0.08} className="md:col-span-2">
               <Link href="/ankerkleidung" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[9].stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[9].stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[9].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[9].stripe, background: `${angebote[9].stripe}18`, border: `1px solid ${angebote[9].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[9].badge}</span>
@@ -277,7 +277,7 @@ export default function HomePage() {
 
             <BlurFade delay={0.15}>
               <Link href="/versorgung" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[10].stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[10].stripe}1a 0%, transparent 55%), #03295C`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[10].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[10].stripe, background: `${angebote[10].stripe}18`, border: `1px solid ${angebote[10].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[10].badge}</span>
@@ -303,8 +303,8 @@ export default function HomePage() {
         <div className="site-container">
           <BlurFade>
             <div style={{ marginBottom: "4.5rem" }}>
-              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#4A7FA5", marginBottom: "1.25rem" }}>Was uns auszeichnet</p>
-              <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.028em", lineHeight: 1.15 }}>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem" }}>Was uns auszeichnet</p>
+              <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#03295C", letterSpacing: "-0.028em", lineHeight: 1.15 }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
@@ -319,7 +319,7 @@ export default function HomePage() {
                     <div style={{ width: "3.25rem", height: "3.25rem", borderRadius: "0.875rem", background: `${s.color}12`, border: `1px solid ${s.color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2.25rem" }}>
                       <Icon size={22} strokeWidth={1.5} style={{ color: s.color }} />
                     </div>
-                    <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.02em", marginBottom: "1rem" }}>{s.titel}</h3>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#03295C", letterSpacing: "-0.02em", marginBottom: "1rem" }}>{s.titel}</h3>
                     <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: "2", fontWeight: 400 }}>{s.text}</p>
                   </div>
                 </BlurFade>
@@ -331,7 +331,7 @@ export default function HomePage() {
 
       {/* ═══ FÜR FACHKRÄFTE ═══ */}
       <section className="text-white relative overflow-hidden"
-        style={{ background: "#0b1422", paddingTop: "6rem", paddingBottom: "6rem" }}>
+        style={{ background: "#03295C", paddingTop: "6rem", paddingBottom: "6rem" }}>
 
         {/* Subtle grid lines */}
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
@@ -342,7 +342,7 @@ export default function HomePage() {
             {/* Text — 6 Spalten */}
             <div className="lg:col-span-6">
               <BlurFade>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-6">Für Jugendämter & Fachkräfte</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6FA3FE] mb-6">Für Jugendämter & Fachkräfte</p>
                 <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-10 leading-[1.15]" style={{ letterSpacing: "-0.03em" }}>
                   Klare Prozesse.<br />Schnelle Reaktion.<br />Verlässliche Partner.
                 </h2>
@@ -368,10 +368,10 @@ export default function HomePage() {
               <BlurFade delay={0.12}>
                 <div className="grid grid-cols-2" style={{ gap: "1rem" }}>
                   {[
-                    { zahl: "< 24h", label: "Rückmeldung auf Anfragen", color: "#4A7FA5" },
+                    { zahl: "< 24h", label: "Rückmeldung auf Anfragen", color: "#6FA3FE" },
                     { zahl: "24/7",  label: "Krisenbereitschaft",       color: "#ef4444" },
-                    { zahl: "11",    label: "Spezialisierte Angebote",  color: "#8b5cf6" },
-                    { zahl: "100%",  label: "Fachlich qualifiziert",    color: "#10b981" },
+                    { zahl: "11",    label: "Spezialisierte Angebote",  color: "#FEC274" },
+                    { zahl: "100%",  label: "Fachlich qualifiziert",    color: "#6FA3FE" },
                   ].map((stat) => (
                     <div key={stat.zahl} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "0.875rem", padding: "2rem 1.75rem", position: "relative", overflow: "hidden" }}>
                       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: stat.color }} />
