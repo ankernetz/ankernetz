@@ -92,7 +92,7 @@ export default function Navigation() {
           : "bg-transparent backdrop-blur-none"
       }`}
     >
-      <nav className="max-w-[1280px] mx-auto px-6 h-[58px] flex items-center justify-between">
+      <nav className="site-container h-[58px] flex items-center justify-between">
 
         {/* LOGO */}
         <Link href="/" className={`flex items-center gap-2.5 transition-colors duration-300 ${isLight ? "text-white" : "text-[#1A1A2E]"}`}>
@@ -163,7 +163,7 @@ export default function Navigation() {
             WebkitBackdropFilter: "blur(24px) saturate(180%)",
           }}
         >
-          <div className="max-w-[1280px] mx-auto px-6 py-8">
+          <div className="site-container py-8">
             <div className="grid grid-cols-4 gap-6">
               {megaMenu.map((gruppe) => (
                 <div key={gruppe.kategorie}>

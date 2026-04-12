@@ -183,7 +183,7 @@ export default function HomePage() {
         <div className="absolute bottom-1/4 left-[10%] w-[320px] h-[320px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)" }} />
 
-        <div className="relative z-10 w-full max-w-[760px] mx-auto px-6">
+        <div className="relative z-10 w-full" style={{ maxWidth: "760px", marginLeft: "auto", marginRight: "auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
           <div className="fade-in-up inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-full px-4 py-1.5 mb-10 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
             <span className="text-white/65 text-xs font-normal tracking-wide">Krisenintervention 24/7 verfügbar</span>
@@ -226,7 +226,7 @@ export default function HomePage() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-40"
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)" }} />
 
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="site-container">
           <ScrollReveal className="text-center max-w-2xl mx-auto">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">
               Ein Netz. Elf Antworten.
@@ -245,7 +245,7 @@ export default function HomePage() {
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ */}
       <section id="angebote" className="pb-32 bg-[#F5F5F7]">
-        <div className="max-w-[1280px] mx-auto px-6 space-y-4">
+        <div className="site-container space-y-4">
 
           {/* Reihe 1: Krisenintervention groß + Psychotherapie */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -413,7 +413,7 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
           style={{ background: "radial-gradient(ellipse, rgba(16,185,129,0.05) 0%, transparent 70%)" }} />
 
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="site-container">
           <ScrollReveal>
             <div className="text-center mb-20">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">Was uns auszeichnet</p>
@@ -452,7 +452,7 @@ export default function HomePage() {
         <div className="absolute bottom-0 right-0 w-[450px] h-[450px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 65%)" }} />
 
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
             {/* Text — 6 Spalten */}

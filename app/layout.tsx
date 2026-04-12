@@ -35,7 +35,7 @@ export default function RootLayout({
 
           {/* Notfall-Banner */}
           <div className="bg-red-700 py-4 px-6">
-            <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+            <div className="site-container flex flex-col md:flex-row items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                 <p className="text-sm font-semibold">Krisenintervention — 24 Stunden, 7 Tage die Woche erreichbar</p>
@@ -47,7 +47,7 @@ export default function RootLayout({
           </div>
 
           {/* Haupt-Footer */}
-          <div className="max-w-[1280px] mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="site-container py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
             {/* Spalte 1: Mission */}
             <div className="lg:col-span-1">
@@ -162,7 +162,7 @@ export default function RootLayout({
 
           {/* Bodenzeile */}
           <div className="border-t border-white/5 px-6 py-6">
-            <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[#475569]">
+            <div className="site-container flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[#475569]">
               <p>© {new Date().getFullYear()} Ankernetz — Hwerk GmbH. Alle Rechte vorbehalten.</p>
               <div className="flex gap-6">
                 <Link href="/impressum" className="hover:text-white transition-colors">Impressum</Link>
