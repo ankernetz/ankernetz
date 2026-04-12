@@ -23,18 +23,18 @@ const organisation = [
 ];
 
 const labelStyle: React.CSSProperties = {
-  fontSize: "0.6875rem",
+  fontSize: "0.625rem",
   fontWeight: 700,
-  letterSpacing: "0.16em",
+  letterSpacing: "0.18em",
   textTransform: "uppercase",
   color: "#4A7FA5",
-  marginBottom: "1.25rem",
+  marginBottom: "1.5rem",
   display: "block",
 };
 
 const linkStyle: React.CSSProperties = {
-  fontSize: "0.875rem",
-  color: "#64748b",
+  fontSize: "0.8125rem",
+  color: "#475569",
   textDecoration: "none",
   lineHeight: 1,
   transition: "color 0.15s ease",
@@ -102,7 +102,7 @@ export default function Footer() {
           {/* Spalte 2: Angebote */}
           <div>
             <span style={labelStyle}>Angebote</span>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "1rem" }}>
               {angebote.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} style={linkStyle}
@@ -117,7 +117,7 @@ export default function Footer() {
           {/* Spalte 3: Organisation */}
           <div>
             <span style={labelStyle}>Organisation</span>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "2.5rem" }}>
+            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2.5rem" }}>
               {organisation.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} style={linkStyle} className="footer-link">
