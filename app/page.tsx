@@ -330,11 +330,8 @@ export default function HomePage() {
       </section>
 
       {/* ═══ FÜR FACHKRÄFTE ═══ */}
-      <section className="text-white relative overflow-hidden"
-        style={{ background: "#1a3f6f", paddingTop: "6rem", paddingBottom: "6rem" }}>
-
-        {/* Subtle grid lines */}
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+      <section className="relative overflow-hidden"
+        style={{ background: "#d8e4f0", paddingTop: "6rem", paddingBottom: "6rem" }}>
 
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -342,11 +339,11 @@ export default function HomePage() {
             {/* Text — 6 Spalten */}
             <div className="lg:col-span-6">
               <BlurFade>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6FA3FE] mb-6">Für Jugendämter & Fachkräfte</p>
-                <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-10 leading-[1.15]" style={{ letterSpacing: "-0.03em" }}>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: "#1a3f6f" }}>Für Jugendämter & Fachkräfte</p>
+                <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-10 leading-[1.15]" style={{ letterSpacing: "-0.03em", color: "#1a3f6f" }}>
                   Klare Prozesse.<br />Schnelle Reaktion.<br />Verlässliche Partner.
                 </h2>
-                <p className="text-white/55 text-[1.0625rem] font-normal leading-[2] mb-14 max-w-lg">
+                <p className="text-[1.0625rem] font-normal leading-[2] mb-14 max-w-lg" style={{ color: "rgba(26,63,111,0.65)" }}>
                   Ankernetz arbeitet eng mit Jugendämtern und Fachkräften zusammen.
                   Schnelle Rückmeldungen, transparente Einschätzungen und passgenaue
                   Hilfeformen — direkt und unkompliziert.
@@ -356,7 +353,7 @@ export default function HomePage() {
                     Platzanfrage stellen
                     <ArrowRight size={14} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
                   </Link>
-                  <Link href="/kontakt" className="btn btn-outline-light btn-lg">
+                  <Link href="/kontakt" className="btn btn-outline btn-lg">
                     Kontakt aufnehmen
                   </Link>
                 </div>
@@ -373,10 +370,10 @@ export default function HomePage() {
                     { zahl: "11",    label: "Spezialisierte Angebote",  color: "#FEC274" },
                     { zahl: "100%",  label: "Fachlich qualifiziert",    color: "#6FA3FE" },
                   ].map((stat) => (
-                    <div key={stat.zahl} className="bento-card" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "0.875rem", padding: "2rem 1.75rem", position: "relative", overflow: "hidden" }}>
+                    <div key={stat.zahl} className="bento-card" style={{ background: "#f0f4f8", border: "1px solid rgba(26,63,111,0.1)", borderRadius: "0.875rem", padding: "2rem 1.75rem", position: "relative", overflow: "hidden" }}>
                       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: stat.color }} />
-                      <p style={{ fontSize: "2.25rem", fontWeight: 900, color: "#ffffff", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{stat.zahl}</p>
-                      <p style={{ fontSize: "0.8125rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.5, fontWeight: 400 }}>{stat.label}</p>
+                      <p style={{ fontSize: "2.25rem", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{stat.zahl}</p>
+                      <p style={{ fontSize: "0.8125rem", color: "rgba(26,63,111,0.55)", lineHeight: 1.5, fontWeight: 400 }}>{stat.label}</p>
                     </div>
                   ))}
                 </div>
