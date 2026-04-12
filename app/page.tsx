@@ -9,17 +9,17 @@ import { ShineText } from "./components/ShineText";
 import { BlurFade } from "./components/BlurFade";
 
 const angebote = [
-  { slug: "krisenintervention",   titel: "Krisenintervention",             claim: "Sofort da. Wenn es zählt.",            kurz: "24/7 Sofortaufnahme für Jugendliche in akuter Not — rund um die Uhr, an 365 Tagen.",                           icon: AlertTriangle, badge: "24/7",           iconColor: "#f87171", stripe: "#ef4444" },
-  { slug: "psychotherapie",       titel: "Kinder- & Jugend­psychotherapie", claim: "Professionelle Therapie. Mit Kassensitz.", kurz: "Eingebunden in alle Hilfeprozesse — direkt dort, wo Kinder und Jugendliche leben.",               icon: Brain,         badge: "Kassensitz",   iconColor: "#a78bfa", stripe: "#8b5cf6" },
-  { slug: "fruehe-hilfen",        titel: "Frühe Hilfen",                   claim: "Schutz von Anfang an.",                kurz: "Bindung, Sicherheit und Entwicklung für die Kleinsten.",                                                    icon: Baby,          badge: "0–6 Jahre",    iconColor: "#34d399", stripe: "#10b981" },
-  { slug: "therapie-wohnen",      titel: "Therapie & Wohnen",              claim: "Raum zum Ankommen.",                   kurz: "Therapeutische Wohngruppen mit intensiver Begleitung und Traumaarbeit.",                                   icon: Home,          badge: "12–17 Jahre",  iconColor: "#60a5fa", stripe: "#4A7FA5" },
-  { slug: "jugendhilfe",          titel: "Jugendhilfe",                    claim: "Sicherheit im Alltag.",                kurz: "Kinderwohngruppen mit verlässlicher Struktur und Beziehungsarbeit.",                                        icon: Heart,         badge: "6–12 Jahre",   iconColor: "#fbbf24", stripe: "#f59e0b" },
-  { slug: "diagnostik-clearing",  titel: "Diagnostik & Clearing",          claim: "Klarheit schafft die richtige Hilfe.", icon: Search,        badge: "Gutachten",    iconColor: "#22d3ee", stripe: "#06b6d4" },
-  { slug: "beratung-praevention", titel: "Beratung & Prävention",          claim: "Früh helfen. Gemeinsam stärken.",      icon: MessageCircle, badge: "Online & vor Ort", iconColor: "#86efac", stripe: "#22c55e" },
-  { slug: "kita-beratung",        titel: "Beratung in Kitas",              claim: "Früh erkennen.",                       icon: Building2,     badge: "Fachkräfte",   iconColor: "#fb923c", stripe: "#f97316" },
-  { slug: "uebergang-arbeit",     titel: "Übergang Arbeit",                claim: "Der nächste Schritt.",                 icon: Rocket,        badge: "Übergang",     iconColor: "#e879f9", stripe: "#d946ef" },
-  { slug: "ankerkleidung",        titel: "Ankerkleidung",                  claim: "Stabilität. Selbstwert. Alltag.",      kurz: "Spezialisierte Kleidung nach Störungsbild — Teil des Hilfesystems.",                                        icon: Shirt,         badge: "Shop",         iconColor: "#94a3b8", stripe: "#64748b" },
-  { slug: "versorgung",           titel: "Versorgung",                     claim: "Würde im Alltag.",                     kurz: "Bedarfsorientierte Ausstattung für Kinder und Jugendliche im Hilfesystem.",                                  icon: Star,          badge: "Ausstattung",  iconColor: "#fbbf24", stripe: "#f59e0b" },
+  { slug: "krisenintervention",   titel: "Krisenintervention",             claim: "Sofort da. Wenn es zählt.",            kurz: "24/7 Sofortaufnahme für Jugendliche in akuter Not — rund um die Uhr, an 365 Tagen.",                           icon: AlertTriangle, badge: "24/7",           iconColor: "#c4786e", stripe: "#a85c54" },
+  { slug: "psychotherapie",       titel: "Kinder- & Jugend­psychotherapie", claim: "Professionelle Therapie. Mit Kassensitz.", kurz: "Eingebunden in alle Hilfeprozesse — direkt dort, wo Kinder und Jugendliche leben.",               icon: Brain,         badge: "Kassensitz",   iconColor: "#9d87c4", stripe: "#7a63a8" },
+  { slug: "fruehe-hilfen",        titel: "Frühe Hilfen",                   claim: "Schutz von Anfang an.",                kurz: "Bindung, Sicherheit und Entwicklung für die Kleinsten.",                                                    icon: Baby,          badge: "0–6 Jahre",    iconColor: "#6aab88", stripe: "#4a8c6a" },
+  { slug: "therapie-wohnen",      titel: "Therapie & Wohnen",              claim: "Raum zum Ankommen.",                   kurz: "Therapeutische Wohngruppen mit intensiver Begleitung und Traumaarbeit.",                                   icon: Home,          badge: "12–17 Jahre",  iconColor: "#5a8fad", stripe: "#3d6b8c" },
+  { slug: "jugendhilfe",          titel: "Jugendhilfe",                    claim: "Sicherheit im Alltag.",                kurz: "Kinderwohngruppen mit verlässlicher Struktur und Beziehungsarbeit.",                                        icon: Heart,         badge: "6–12 Jahre",   iconColor: "#c4955a", stripe: "#a87840" },
+  { slug: "diagnostik-clearing",  titel: "Diagnostik & Clearing",          claim: "Klarheit schafft die richtige Hilfe.", icon: Search,        badge: "Gutachten",    iconColor: "#4aaab8", stripe: "#2d8899" },
+  { slug: "beratung-praevention", titel: "Beratung & Prävention",          claim: "Früh helfen. Gemeinsam stärken.",      icon: MessageCircle, badge: "Online & vor Ort", iconColor: "#6aab80", stripe: "#3d8a5a" },
+  { slug: "kita-beratung",        titel: "Beratung in Kitas",              claim: "Früh erkennen.",                       icon: Building2,     badge: "Fachkräfte",   iconColor: "#c48a5a", stripe: "#a86d3d" },
+  { slug: "uebergang-arbeit",     titel: "Übergang Arbeit",                claim: "Der nächste Schritt.",                 icon: Rocket,        badge: "Übergang",     iconColor: "#b07ac0", stripe: "#8d5ca0" },
+  { slug: "ankerkleidung",        titel: "Ankerkleidung",                  claim: "Stabilität. Selbstwert. Alltag.",      kurz: "Spezialisierte Kleidung nach Störungsbild — Teil des Hilfesystems.",                                        icon: Shirt,         badge: "Shop",         iconColor: "#7a8fa3", stripe: "#546070" },
+  { slug: "versorgung",           titel: "Versorgung",                     claim: "Würde im Alltag.",                     kurz: "Bedarfsorientierte Ausstattung für Kinder und Jugendliche im Hilfesystem.",                                  icon: Star,          badge: "Ausstattung",  iconColor: "#c4955a", stripe: "#a87840" },
 ];
 
 const staerken = [
@@ -145,7 +145,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
-      <section id="angebote" className="bg-[#0f172a]" style={{ paddingTop: "4.5rem", paddingBottom: "5rem" }}>
+      <section id="angebote" className="bg-[#0d1829]" style={{ paddingTop: "4.5rem", paddingBottom: "5rem" }}>
         <div className="site-container">
 
           {/* Abschnitts-Header */}
@@ -168,17 +168,17 @@ export default function HomePage() {
 
             <BlurFade className="md:col-span-2">
               <Link href="/krisenintervention" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[0].stripe}22 0%, transparent 60%), #0c1220`, border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1.25rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[0].stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[0].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[0].stripe, background: `${angebote[0].stripe}18`, border: `1px solid ${angebote[0].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[0].badge}</span>
                 </div>
                 <div style={{ position: "relative", zIndex: 10 }}>
                   <AlertTriangle size={30} strokeWidth={1.5} style={{ color: angebote[0].iconColor, marginBottom: "1rem" }} />
-                  <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.875rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.625rem" }}>{angebote[0].titel}</h3>
-                  <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.25rem" }}>{angebote[0].claim}</p>
-                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "2rem", maxWidth: "38ch" }}>{angebote[0].kurz}</p>
-                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(255,255,255,0.75)", fontSize: "0.875rem", fontWeight: 600 }}>
+                  <h3 style={{ color: "#eef2f7", fontWeight: 900, fontSize: "1.875rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.625rem" }}>{angebote[0].titel}</h3>
+                  <p style={{ color: "rgba(238,242,247,0.42)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.25rem" }}>{angebote[0].claim}</p>
+                  <p style={{ color: "rgba(238,242,247,0.5)", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "2rem", maxWidth: "38ch" }}>{angebote[0].kurz}</p>
+                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(238,242,247,0.7)", fontSize: "0.875rem", fontWeight: 600 }}>
                     Mehr erfahren <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
                 </div>
@@ -187,17 +187,17 @@ export default function HomePage() {
 
             <BlurFade delay={0.1}>
               <Link href="/psychotherapie" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[1].stripe}22 0%, transparent 60%), #0c1220`, border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1.25rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[1].stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[1].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[1].stripe, background: `${angebote[1].stripe}18`, border: `1px solid ${angebote[1].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[1].badge}</span>
                 </div>
                 <div style={{ position: "relative", zIndex: 10 }}>
                   <Brain size={26} strokeWidth={1.5} style={{ color: angebote[1].iconColor, marginBottom: "1rem" }} />
-                  <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[1].titel}</h3>
-                  <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[1].claim}</p>
-                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[1].kurz}</p>
-                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(255,255,255,0.75)", fontSize: "0.875rem", fontWeight: 600 }}>
+                  <h3 style={{ color: "#eef2f7", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[1].titel}</h3>
+                  <p style={{ color: "rgba(238,242,247,0.42)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[1].claim}</p>
+                  <p style={{ color: "rgba(238,242,247,0.5)", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[1].kurz}</p>
+                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(238,242,247,0.7)", fontSize: "0.875rem", fontWeight: 600 }}>
                     Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
                   </span>
                 </div>
@@ -212,17 +212,17 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.08}>
                   <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
-                    style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${a.stripe}22 0%, transparent 60%), #0c1220`, border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1.25rem", minHeight: "380px", padding: "2.5rem 3rem" }}>
+                    style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${a.stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "380px", padding: "2.5rem 3rem" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
                     <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                       <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: a.stripe, background: `${a.stripe}18`, border: `1px solid ${a.stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{a.badge}</span>
                     </div>
                     <div style={{ position: "relative", zIndex: 10 }}>
                       <Icon size={24} strokeWidth={1.5} style={{ color: a.iconColor, marginBottom: "1rem" }} />
-                      <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.25rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{a.titel}</h3>
-                      <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{a.claim}</p>
-                      <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{a.kurz}</p>
-                      <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(255,255,255,0.75)", fontSize: "0.875rem", fontWeight: 600 }}>
+                      <h3 style={{ color: "#eef2f7", fontWeight: 900, fontSize: "1.25rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{a.titel}</h3>
+                      <p style={{ color: "rgba(238,242,247,0.42)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{a.claim}</p>
+                      <p style={{ color: "rgba(238,242,247,0.5)", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{a.kurz}</p>
+                      <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(238,242,247,0.7)", fontSize: "0.875rem", fontWeight: 600 }}>
                         Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
                       </span>
                     </div>
@@ -239,11 +239,11 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.06}>
                   <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
-                    style={{ background: `radial-gradient(ellipse 70% 55% at 90% 5%, ${a.stripe}1e 0%, transparent 55%), #0c1220`, border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1.25rem", minHeight: "260px", padding: "2rem 2.25rem" }}>
+                    style={{ background: `radial-gradient(ellipse 70% 55% at 90% 5%, ${a.stripe}18 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2rem 2.25rem" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
                     <div style={{ position: "relative", zIndex: 10 }}>
                       <Icon size={22} strokeWidth={1.5} style={{ color: a.iconColor, marginBottom: "0.875rem" }} />
-                      <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.0625rem", letterSpacing: "-0.018em", lineHeight: 1.2, marginBottom: "0.375rem" }}>{a.titel}</h3>
+                      <h3 style={{ color: "#eef2f7", fontWeight: 900, fontSize: "1.0625rem", letterSpacing: "-0.018em", lineHeight: 1.2, marginBottom: "0.375rem" }}>{a.titel}</h3>
                       <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.8125rem", fontStyle: "italic", marginBottom: "1.25rem" }}>{a.claim}</p>
                       <span style={{ display: "inline-block", fontSize: "0.6875rem", fontWeight: 600, color: a.stripe, background: `${a.stripe}15`, border: `1px solid ${a.stripe}30`, padding: "0.2rem 0.6rem", borderRadius: "100px" }}>{a.badge}</span>
                     </div>
@@ -258,17 +258,17 @@ export default function HomePage() {
 
             <BlurFade delay={0.08} className="md:col-span-2">
               <Link href="/ankerkleidung" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[9].stripe}22 0%, transparent 60%), #0c1220`, border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1.25rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[9].stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[9].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[9].stripe, background: `${angebote[9].stripe}18`, border: `1px solid ${angebote[9].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[9].badge}</span>
                 </div>
                 <div style={{ position: "relative", zIndex: 10 }}>
                   <Shirt size={26} strokeWidth={1.5} style={{ color: angebote[9].iconColor, marginBottom: "1rem" }} />
-                  <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.625rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.5rem" }}>{angebote[9].titel}</h3>
+                  <h3 style={{ color: "#eef2f7", fontWeight: 900, fontSize: "1.625rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.5rem" }}>{angebote[9].titel}</h3>
                   <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[9].claim}</p>
                   <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem", maxWidth: "40ch" }}>{angebote[9].kurz}</p>
-                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(255,255,255,0.75)", fontSize: "0.875rem", fontWeight: 600 }}>
+                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(238,242,247,0.7)", fontSize: "0.875rem", fontWeight: 600 }}>
                     Kollektion entdecken <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
                 </div>
@@ -277,17 +277,17 @@ export default function HomePage() {
 
             <BlurFade delay={0.15}>
               <Link href="/versorgung" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[10].stripe}22 0%, transparent 60%), #0c1220`, border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1.25rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[10].stripe}1a 0%, transparent 55%), #0d1829`, border: "1px solid rgba(255,255,255,0.06)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[10].stripe }} />
                 <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
                   <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[10].stripe, background: `${angebote[10].stripe}18`, border: `1px solid ${angebote[10].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[10].badge}</span>
                 </div>
                 <div style={{ position: "relative", zIndex: 10 }}>
                   <Star size={24} strokeWidth={1.5} style={{ color: angebote[10].iconColor, marginBottom: "1rem" }} />
-                  <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[10].titel}</h3>
-                  <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[10].claim}</p>
-                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[10].kurz}</p>
-                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(255,255,255,0.75)", fontSize: "0.875rem", fontWeight: 600 }}>
+                  <h3 style={{ color: "#eef2f7", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[10].titel}</h3>
+                  <p style={{ color: "rgba(238,242,247,0.42)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[10].claim}</p>
+                  <p style={{ color: "rgba(238,242,247,0.5)", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[10].kurz}</p>
+                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(238,242,247,0.7)", fontSize: "0.875rem", fontWeight: 600 }}>
                     Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
                   </span>
                 </div>
@@ -331,7 +331,7 @@ export default function HomePage() {
 
       {/* ═══ FÜR FACHKRÄFTE ═══ */}
       <section className="text-white relative overflow-hidden"
-        style={{ background: "#070c18", paddingTop: "6rem", paddingBottom: "6rem" }}>
+        style={{ background: "#0b1422", paddingTop: "6rem", paddingBottom: "6rem" }}>
 
         {/* Subtle grid lines */}
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
