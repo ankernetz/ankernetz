@@ -39,7 +39,7 @@ const label: React.CSSProperties = {
 
 const link: React.CSSProperties = {
   fontSize: "0.8rem",
-  color: "#3d4f63",
+  color: "rgba(255,255,255,0.5)",
   textDecoration: "none",
   lineHeight: 1,
   transition: "color 0.15s ease",
@@ -78,7 +78,7 @@ export default function Footer() {
               <span style={{ fontSize: "0.9375rem", fontWeight: 700, color: "white", letterSpacing: "-0.01em" }}>Ankernetz</span>
             </div>
 
-            <p style={{ fontSize: "0.7875rem", color: "#3d4f63", lineHeight: "1.75", marginBottom: "1.75rem", maxWidth: "24ch" }}>
+            <p style={{ fontSize: "0.7875rem", color: "rgba(255,255,255,0.5)", lineHeight: "1.75", marginBottom: "1.75rem", maxWidth: "24ch" }}>
               Spezialisierte Hilfen für Kinder und Jugendliche. Vernetzt. Menschlich.
             </p>
 
@@ -90,7 +90,7 @@ export default function Footer() {
                 <a href="mailto:hilfe@ankernetz.com" style={{ ...link, marginTop: "0.25rem", display: "inline-block" }} className="footer-link">hilfe@ankernetz.com</a>
               </div>
               <div>
-                <p style={{ ...label, marginBottom: "0.4rem", color: "#7f1d1d" }}>Notfall 24/7</p>
+                <p style={{ ...label, marginBottom: "0.4rem", color: "#ffffff" }}>Notfall 24/7</p>
                 <a href="tel:+4930224543220" style={{ ...link, color: "rgba(255,255,255,0.75)", fontWeight: 600 }} className="footer-link">+49 (0) 30 22 45 43 22</a>
               </div>
               <div>
@@ -130,7 +130,7 @@ export default function Footer() {
           {/* Spalte 4: Newsletter */}
           <div style={col}>
             <span style={label}>Newsletter</span>
-            <p style={{ fontSize: "0.7875rem", color: "#3d4f63", lineHeight: "1.75", marginBottom: "1.25rem" }}>
+            <p style={{ fontSize: "0.7875rem", color: "rgba(255,255,255,0.5)", lineHeight: "1.75", marginBottom: "1.25rem" }}>
               Aktuelle Informationen zu unseren Angeboten.
             </p>
             <form style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -164,7 +164,7 @@ export default function Footer() {
       {/* ── Bodenzeile ── */}
       <div style={{ padding: "1.125rem 0" }}>
         <div className="site-container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
-          <p style={{ fontSize: "0.75rem", color: "#1e2d3d" }}>
+          <p style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.35)" }}>
             © {new Date().getFullYear()} Ankernetz — Hwerk GmbH. Alle Rechte vorbehalten.
           </p>
           <div style={{ display: "flex", gap: "1.5rem" }}>
@@ -174,7 +174,7 @@ export default function Footer() {
               { label: "Kontakt",     href: "/kontakt" },
             ].map((item) => (
               <Link key={item.href} href={item.href}
-                style={{ fontSize: "0.75rem", color: "#1e2d3d", textDecoration: "none" }}
+                style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.35)", textDecoration: "none" }}
                 className="footer-link">
                 {item.label}
               </Link>
