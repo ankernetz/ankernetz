@@ -135,3 +135,73 @@ section {
   50%       { opacity: 0.5; transform: scaleY(1.15); }
 }
 .scroll-pulse { animation: scrollPulse 2.2s ease-in-out infinite; }
+
+/* ─── MagicUI: AnimatedShinyText ─────────────────────────────── */
+/* Source: github.com/magicuidesign/magicui */
+@keyframes shiny-text {
+  0%, 90%, 100% { background-position: calc(-100% - var(--shiny-width)) 0; }
+  30%, 60%       { background-position: calc(100% + var(--shiny-width))  0; }
+}
+.animate-shiny-text {
+  animation: shiny-text 3s infinite ease-in-out;
+}
+
+/* ─── MagicUI: AnimatedGradientText ─────────────────────────── */
+/* Source: github.com/magicuidesign/magicui */
+@keyframes gradient-move {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+.animate-gradient {
+  animation: gradient-move 4s ease infinite;
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── MagicUI: BorderBeam ────────────────────────────────────── */
+/* Source: github.com/magicuidesign/magicui */
+@keyframes borderBeamSpin {
+  0%   { --beam-angle: 0deg;   }
+  100% { --beam-angle: 360deg; }
+}
+@property --beam-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* ─── MagicUI: ShineBorder ───────────────────────────────────── */
+/* Source: github.com/magicuidesign/magicui */
+@keyframes shine {
+  0%   { background-position: 0%   0%;   }
+  50%  { background-position: 100% 100%; }
+  to   { background-position: 0%   0%;   }
+}
+.animate-shine {
+  animation: shine var(--duration, 14s) infinite linear;
+  will-change: background-position;
+}
+
+/* ─── Spotlight effect on hover (Aceternity-inspired) ───────── */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255,255,255,0.04) 0%,
+    transparent 40%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.spotlight-card:hover::after {
+  opacity: 1;
+}

@@ -5,6 +5,9 @@ import {
   Shield, Network, Star
 } from "lucide-react";
 import ScrollReveal from "./components/ScrollReveal";
+import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
+import { ShineText } from "./components/ShineText";
+import { ShineBorder } from "./components/ShineBorder";
 
 const angebote = [
   {
@@ -171,9 +174,14 @@ export default function HomePage() {
         className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
         style={{ background: "linear-gradient(160deg, #070b14 0%, #0f172a 40%, #0d1f35 100%)" }}
       >
-        {/* Dot grid */}
-        <div className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "36px 36px" }} />
+        {/* Animated Grid Pattern — MagicUI */}
+        <AnimatedGridPattern
+          numSquares={35}
+          maxOpacity={0.08}
+          duration={3}
+          strokeColor="rgba(255,255,255,0.08)"
+          className="z-0"
+        />
 
         {/* Glow blobs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
@@ -185,13 +193,22 @@ export default function HomePage() {
 
         <div className="relative z-10 w-full" style={{ maxWidth: "760px", marginLeft: "auto", marginRight: "auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
           <div className="fade-in-up inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-full px-4 py-1.5 mb-10 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
-            <span className="text-white/65 text-xs font-normal tracking-wide">Krisenintervention 24/7 verfügbar</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse flex-shrink-0" />
+            <ShineText shimmerWidth={120} className="text-xs font-normal tracking-wide text-white/60">
+              Krisenintervention 24/7 verfügbar
+            </ShineText>
           </div>
 
           <h1 className="fade-in-up delay-1 text-[clamp(3.5rem,10vw,6.5rem)] font-black text-white leading-none mb-6"
             style={{ letterSpacing: "-0.035em" }}>
-            Anker<span style={{ color: "var(--accent)" }}>netz</span>
+            Anker
+            <span
+              className="animate-gradient"
+              style={{
+                backgroundImage: "linear-gradient(90deg, #4A7FA5, #8b5cf6, #4A7FA5)",
+                backgroundSize: "300% 300%",
+              }}
+            >netz</span>
           </h1>
 
           <p className="fade-in-up delay-2 text-[clamp(1rem,2.2vw,1.25rem)] text-white/55 font-light max-w-lg mx-auto mb-2 leading-relaxed">
@@ -255,7 +272,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <ScrollReveal className="md:col-span-2">
               <Link href="/krisenintervention"
-                className={`bento-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
+                className={`bento-card spotlight-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
                 style={{ background: angebote[0].bg }}>
                 {/* Decorative: large faded icon + ring */}
                 <div className="absolute top-0 right-0 w-72 h-72 opacity-[0.04] pointer-events-none"
@@ -267,7 +284,9 @@ export default function HomePage() {
                     <line x1="50" y1="35" x2="50" y2="55" stroke="white" strokeWidth="3" strokeLinecap="round" />
                   </svg>
                 </div>
-                {/* Pulse ring */}
+                {/* MagicUI ShineBorder */}
+                <ShineBorder shineColor={["#ef4444", "#f97316", "#dc2626"]} duration={6} borderWidth={1} />
+                {/* Pulse rings */}
                 <div className="absolute top-8 left-8 w-16 h-16 rounded-full border border-red-500/15 pointer-events-none" />
                 <div className="absolute top-6 left-6 w-20 h-20 rounded-full border border-red-500/8 pointer-events-none" />
 
@@ -292,7 +311,7 @@ export default function HomePage() {
 
             <ScrollReveal delay={100}>
               <Link href="/psychotherapie"
-                className={`bento-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-7 block`}
+                className={`bento-card spotlight-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-7 block`}
                 style={{ background: angebote[1].bg }}>
                 {/* Decorative: sine wave */}
                 <div className="absolute top-8 left-0 right-0 opacity-[0.06] pointer-events-none px-6">
