@@ -234,20 +234,6 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Faktenstreifen */}
-          <div className="fade-in-up delay-3 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-            {[
-              { zahl: "11",    label: "Spezialisierte Angebote" },
-              { zahl: "24/7", label: "Krisenintervention" },
-              { zahl: "100%", label: "Fachlich qualifiziert" },
-            ].map((f, i) => (
-              <div key={i} className="flex items-center gap-3">
-                {i > 0 && <span className="hidden sm:block w-px h-5 bg-white/12 flex-shrink-0" />}
-                <span className="text-white font-black text-xl" style={{ letterSpacing: "-0.02em" }}>{f.zahl}</span>
-                <span className="text-white/40 text-xs font-normal tracking-wide">{f.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Bottom fade — weicher Übergang */}
