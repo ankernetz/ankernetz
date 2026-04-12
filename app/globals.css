@@ -318,6 +318,12 @@ section {
   color: #000000 !important;
 }
 
+/* ─── Nav CTA primary hover glow ────────────────────────────── */
+.nav-cta-primary:hover {
+  background: #0077ed !important;
+  box-shadow: 0 0 0 3px rgba(61, 107, 140, 0.25), 0 4px 16px rgba(0, 113, 227, 0.35) !important;
+}
+
 /* ─── Spotlight effect on hover (Aceternity-inspired) ───────── */
 .spotlight-card {
   position: relative;

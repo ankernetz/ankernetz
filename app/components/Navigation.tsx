@@ -65,9 +65,9 @@ export default function Navigation() {
       }}
     >
       {/* ── NAVBAR ── */}
-      <nav className="site-container h-[52px] flex items-center justify-between">
+      <nav style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1.5rem", height: "56px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
-        {/* Logo */}
+        {/* Logo — unberührt */}
         <Link href="/" className="flex items-center gap-2 text-[#1D1D1F] flex-shrink-0">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
             <circle cx="14" cy="14" r="13" stroke="currentColor" strokeWidth="1.5" />
@@ -78,16 +78,16 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop nav links */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center" style={{ gap: "2rem" }}>
           {/* Angebote dropdown trigger */}
           <div onMouseEnter={openMega} onMouseLeave={closeMega}>
             <button
-              className="text-[13px] text-[#1D1D1F] hover:text-black transition-colors flex items-center gap-1"
-              style={{ fontWeight: 400 }}
+              className="transition-colors flex items-center"
+              style={{ fontSize: "13px", fontWeight: 400, color: "#1D1D1F", gap: "0.25rem" }}
             >
               Angebote
               <svg width="9" height="5" viewBox="0 0 9 5" fill="currentColor"
-                className={`mt-px opacity-60 transition-transform duration-200 ${megaOpen ? "rotate-180" : ""}`}>
+                style={{ marginTop: "1px", opacity: 0.5, transition: "transform 0.2s", transform: megaOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
                 <path d="M0 0l4.5 5L9 0z" />
               </svg>
             </button>
@@ -99,18 +99,47 @@ export default function Navigation() {
             { label: "Kontakt",  href: "/kontakt"   },
           ].map((item) => (
             <Link key={item.href} href={item.href}
-              className="text-[13px] text-[#1D1D1F] hover:text-black transition-colors"
-              style={{ fontWeight: 400 }}>
+              className="transition-colors hover:text-black"
+              style={{ fontSize: "13px", fontWeight: 400, color: "#1D1D1F", textDecoration: "none" }}>
               {item.label}
             </Link>
           ))}
 
           {/* CTAs */}
-          <a href="tel:+4930224543220" className="btn btn-danger btn-sm flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse flex-shrink-0" />
+          <a
+            href="tel:+4930224543220"
+            className="flex items-center transition-all"
+            style={{
+              fontSize: "13px",
+              fontWeight: 500,
+              color: "#ffffff",
+              background: "#d93025",
+              border: "1px solid #d93025",
+              borderRadius: "9999px",
+              padding: "0.375rem 0.875rem",
+              textDecoration: "none",
+              gap: "0.375rem",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "white", flexShrink: 0, animation: "pulse 2s infinite" }} />
             Notfall 24/7
           </a>
-          <Link href="/platzanfrage" className="btn btn-primary btn-sm">
+          <Link
+            href="/platzanfrage"
+            className="transition-all nav-cta-primary"
+            style={{
+              fontSize: "13px",
+              fontWeight: 500,
+              color: "#ffffff",
+              background: "#0071e3",
+              border: "1px solid #3d6b8c",
+              borderRadius: "9999px",
+              padding: "0.375rem 1rem",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
             Platzanfrage
           </Link>
         </div>
@@ -133,7 +162,7 @@ export default function Navigation() {
         <div
           className="hidden lg:block fixed inset-0 z-40 pointer-events-none"
           style={{
-            top: "52px",
+            top: "56px",
             background: "rgba(255,255,255,0.55)",
             backdropFilter: "blur(4px)",
             WebkitBackdropFilter: "blur(4px)",
