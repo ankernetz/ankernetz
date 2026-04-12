@@ -296,6 +296,18 @@ section {
   will-change: background-position;
 }
 
+/* ─── MagicUI: Meteors ───────────────────────────────────────── */
+/* Source: github.com/magicuidesign/magicui */
+@keyframes meteor {
+  0%   { transform: translateY(0) translateX(0);    opacity: 1; }
+  80%  { opacity: 0.8; }
+  100% { transform: translateY(600px) translateX(-600px); opacity: 0; }
+}
+.animate-meteor {
+  animation: meteor linear infinite;
+  will-change: transform, opacity;
+}
+
 /* ─── Spotlight effect on hover (Aceternity-inspired) ───────── */
 .spotlight-card {
   position: relative;

@@ -128,28 +128,30 @@ export default function Navigation() {
         </button>
       </nav>
 
-      {/* ── APPLE-STYLE MEGA-MENÜ ── */}
+      {/* ── GLASSMORPHISM MEGA-MENÜ ── */}
       {megaOpen && (
         <div
           onMouseEnter={openMega}
           onMouseLeave={closeMega}
           className="hidden lg:block absolute top-full left-0 right-0"
           style={{
-            background: "#ffffff",
-            borderBottom: "1px solid rgba(0,0,0,0.08)",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.06)",
+            background: "rgba(12, 18, 32, 0.88)",
+            backdropFilter: "saturate(180%) blur(28px)",
+            WebkitBackdropFilter: "saturate(180%) blur(28px)",
+            borderBottom: "1px solid rgba(255,255,255,0.07)",
+            boxShadow: "0 12px 48px rgba(0,0,0,0.35)",
           }}
         >
           <div className="site-container py-10">
             <div className="grid grid-cols-4 gap-12">
               {megaMenu.map((gruppe) => (
                 <div key={gruppe.kategorie}>
-                  {/* Kategorie-Header — wie Apple: klein, grau, leicht */}
-                  <p className="text-[11px] font-semibold text-[#6E6E73] uppercase tracking-[0.12em] mb-5">
+                  {/* Kategorie-Header */}
+                  <p className="text-[11px] font-semibold text-[#4A7FA5] uppercase tracking-[0.14em] mb-5">
                     {gruppe.kategorie}
                   </p>
 
-                  {/* Items — wie Apple: fett, schwarz, groß */}
+                  {/* Items */}
                   <ul className="space-y-1">
                     {gruppe.items.map((item) => (
                       <li key={item.href}>
@@ -158,10 +160,10 @@ export default function Navigation() {
                           onClick={() => setMegaOpen(false)}
                           className="group block py-2"
                         >
-                          <p className="text-[15px] font-semibold text-[#1D1D1F] group-hover:text-[#0071e3] transition-colors leading-snug">
+                          <p className="text-[15px] font-semibold text-white/85 group-hover:text-white transition-colors leading-snug">
                             {item.label}
                           </p>
-                          <p className="text-[12px] text-[#9CA3AF] mt-0.5 font-normal">
+                          <p className="text-[12px] text-white/35 mt-0.5 font-normal">
                             {item.sub}
                           </p>
                         </Link>
@@ -173,14 +175,15 @@ export default function Navigation() {
             </div>
 
             {/* Bottom strip */}
-            <div className="mt-8 pt-6 border-t border-[#F0F0F0] flex items-center justify-between">
-              <p className="text-[13px] text-[#9CA3AF]">
+            <div className="mt-8 pt-6 flex items-center justify-between"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+              <p className="text-[13px] text-white/30">
                 Nicht sicher, welches Angebot passt?
               </p>
               <Link
                 href="/kontakt"
                 onClick={() => setMegaOpen(false)}
-                className="text-[13px] font-medium text-[#0071e3] hover:underline flex items-center gap-1"
+                className="text-[13px] font-medium text-[#4A7FA5] hover:text-[#6ea8c9] transition-colors flex items-center gap-1"
               >
                 Kontaktieren Sie uns direkt
                 <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" className="mt-px">

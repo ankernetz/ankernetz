@@ -4,10 +4,11 @@ import {
   MessageCircle, Briefcase, School, Heart, ArrowRight,
   Shield, Network, Star
 } from "lucide-react";
-import ScrollReveal from "./components/ScrollReveal";
 import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
 import { ShineText } from "./components/ShineText";
 import { ShineBorder } from "./components/ShineBorder";
+import { BlurFade } from "./components/BlurFade";
+import { Meteors } from "./components/Meteors";
 
 const angebote = [
   {
@@ -183,6 +184,9 @@ export default function HomePage() {
           className="z-0"
         />
 
+        {/* Meteors — MagicUI */}
+        <Meteors count={16} />
+
         {/* Glow blobs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(74,127,165,0.12) 0%, transparent 60%)" }} />
@@ -241,7 +245,7 @@ export default function HomePage() {
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
 
         <div className="site-container">
-          <ScrollReveal className="text-center max-w-2xl mx-auto">
+          <BlurFade className="text-center max-w-2xl mx-auto">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">
               Ein Netz. Elf Antworten.
             </p>
@@ -253,7 +257,7 @@ export default function HomePage() {
               Ankernetz ist ein Netzwerk aus spezialisierten Hilfsangeboten für Kinder und Jugendliche —
               von der akuten Krisenintervention über Psychotherapie und frühe Hilfen bis zum Übergang in den Beruf.
             </p>
-          </ScrollReveal>
+          </BlurFade>
         </div>
       </section>
 
@@ -263,7 +267,7 @@ export default function HomePage() {
 
           {/* Reihe 1: Krisenintervention groß + Psychotherapie */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <ScrollReveal className="md:col-span-2">
+            <BlurFade className="md:col-span-2">
               <Link href="/krisenintervention"
                 className={`bento-card spotlight-card ${angebote[0].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-8 block`}
                 style={{ background: angebote[0].bg }}>
@@ -300,9 +304,9 @@ export default function HomePage() {
                   </span>
                 </div>
               </Link>
-            </ScrollReveal>
+            </BlurFade>
 
-            <ScrollReveal delay={100}>
+            <BlurFade delay={0.1}>
               <Link href="/psychotherapie"
                 className={`bento-card spotlight-card ${angebote[1].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[420px] flex flex-col justify-end p-7 block`}
                 style={{ background: angebote[1].bg }}>
@@ -330,7 +334,7 @@ export default function HomePage() {
                   </span>
                 </div>
               </Link>
-            </ScrollReveal>
+            </BlurFade>
           </div>
 
           {/* Reihe 2: 3 gleichgroß */}
@@ -338,7 +342,7 @@ export default function HomePage() {
             {[angebote[2], angebote[3], angebote[4]].map((a, i) => {
               const Icon = a.icon;
               return (
-                <ScrollReveal key={a.slug} delay={i * 80}>
+                <BlurFade key={a.slug} delay={i * 0.08}>
                   <Link href={`/${a.slug}`}
                     className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[300px] flex flex-col justify-end p-7 block`}
                     style={{ background: a.bg }}>
@@ -357,7 +361,7 @@ export default function HomePage() {
                       </span>
                     </div>
                   </Link>
-                </ScrollReveal>
+                </BlurFade>
               );
             })}
           </div>
@@ -367,7 +371,7 @@ export default function HomePage() {
             {[angebote[5], angebote[6], angebote[7], angebote[8]].map((a, i) => {
               const Icon = a.icon;
               return (
-                <ScrollReveal key={a.slug} delay={i * 60}>
+                <BlurFade key={a.slug} delay={i * 0.06}>
                   <Link href={`/${a.slug}`}
                     className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[220px] flex flex-col justify-end p-6 block`}
                     style={{ background: a.bg }}>
@@ -380,14 +384,14 @@ export default function HomePage() {
                       </span>
                     </div>
                   </Link>
-                </ScrollReveal>
+                </BlurFade>
               );
             })}
           </div>
 
           {/* Reihe 4: Ankerkleidung + Versorgung */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <ScrollReveal delay={80} className="md:col-span-2">
+            <BlurFade delay={0.08} className="md:col-span-2">
               <Link href="/ankerkleidung"
                 className={`bento-card ${angebote[9].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex items-center p-8 block`}
                 style={{ background: angebote[9].bg }}>
@@ -424,9 +428,9 @@ export default function HomePage() {
                   </span>
                 </div>
               </Link>
-            </ScrollReveal>
+            </BlurFade>
 
-            <ScrollReveal delay={150}>
+            <BlurFade delay={0.15}>
               <Link href="/versorgung"
                 className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex flex-col justify-end p-7 block`}
                 style={{ background: angebote[10].bg }}>
@@ -440,7 +444,7 @@ export default function HomePage() {
                   </span>
                 </div>
               </Link>
-            </ScrollReveal>
+            </BlurFade>
           </div>
 
         </div>
@@ -452,19 +456,19 @@ export default function HomePage() {
           style={{ background: "radial-gradient(ellipse, rgba(74,127,165,0.06) 0%, transparent 70%)" }} />
 
         <div className="site-container">
-          <ScrollReveal>
+          <BlurFade>
             <div className="text-center mb-24">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">Was uns auszeichnet</p>
               <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-black text-[#1A1A2E]" style={{ letterSpacing: "-0.028em" }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
-          </ScrollReveal>
+          </BlurFade>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {staerken.map((s, i) => {
               const Icon = s.icon;
               return (
-                <ScrollReveal key={s.titel} delay={i * 100}>
+                <BlurFade key={s.titel} delay={i * 0.1}>
                   <div className="p-10 rounded-3xl bg-[#F5F5F7] hover:bg-[#EBEBED] transition-colors">
                     <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-8"
                       style={{ background: `${s.color}15`, border: `1px solid ${s.color}25` }}>
@@ -473,7 +477,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-black text-[#1A1A2E] mb-4" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
                     <p className="text-[#6E6E73] font-normal leading-[2] text-[0.9375rem]">{s.text}</p>
                   </div>
-                </ScrollReveal>
+                </BlurFade>
               );
             })}
           </div>
@@ -495,7 +499,7 @@ export default function HomePage() {
 
             {/* Text — 6 Spalten */}
             <div className="lg:col-span-6">
-              <ScrollReveal>
+              <BlurFade>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-6">Für Jugendämter & Fachkräfte</p>
                 <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-8 leading-[1.15]" style={{ letterSpacing: "-0.03em" }}>
                   Klare Prozesse.<br />Schnelle Reaktion.<br />Verlässliche Partner.
@@ -514,12 +518,12 @@ export default function HomePage() {
                     Kontakt aufnehmen
                   </Link>
                 </div>
-              </ScrollReveal>
+              </BlurFade>
             </div>
 
             {/* Stat-Grid — 5 Spalten, offset 1 */}
             <div className="lg:col-span-5 lg:col-start-8">
-              <ScrollReveal delay={120}>
+              <BlurFade delay={0.12}>
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { zahl: "< 24h", label: "Rückmeldung auf Anfragen", color: "#4A7FA5" },
@@ -535,7 +539,7 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
-              </ScrollReveal>
+              </BlurFade>
             </div>
 
           </div>
