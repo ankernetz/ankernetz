@@ -11,6 +11,7 @@ import {
   Tag, Heart, Link2, Anchor,
   ArrowRight, Truck, FileText, SlidersHorizontal, Phone,
   Ruler, ChevronDown, Building2,
+  Snowflake, Star, Box, ShoppingBag, Thermometer, CloudSun,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -92,6 +93,36 @@ const kategorien: {
       { name: "Lieblings-Hoodie",       badge: "Bestseller",icon: Heart,  material: "Fleece",           groessen: ["116","128","140","152","164","S","M","L"], farben: ["Frei wählbar"],                 preis: 54.90, beschreibung: "In der Lieblingsfarbe — stärkt das Selbstgefühl." },
       { name: "Matching-Set Betreuer",                      icon: Link2,  material: "Bio-Baumwolle",    groessen: ["Kind + Erwachsen"],                      farben: ["Gemeinsam wählbar"],            preis: 39.90, beschreibung: "Set für Kind und Bezugsbetreuer — visueller Beziehungsanker." },
       { name: "Übergangs-Schal",                            icon: Anchor, material: "Merino-Mix weich", groessen: ["Universal"],                             farben: ["Warm, weich"],                  preis: 24.90, beschreibung: "Weicher Schal als Übergangsobjekt." },
+    ],
+  },
+  {
+    slug: "erstbekleidung", titel: "Erstbekleidungspakete", akzent: "#22c55e", bg: "rgba(34,197,94,0.07)",
+    beschreibung: "Komplettausstattung für den ersten Tag — würdevoll und vollständig.",
+    produkte: [
+      { name: "Erstpaket Klein",      badge: "Bestseller", icon: Package,     material: "Gemischte Materialien", groessen: ["80–104","104–116"],         farben: ["Neutral"],       preis: 119.90, beschreibung: "5 Oberteile, 3 Hosen, Unterwäsche, Socken, Jacke — alles für den Start." },
+      { name: "Erstpaket Mittel",     badge: "Empfohlen",  icon: Box,         material: "Gemischte Materialien", groessen: ["116–128","128–140"],         farben: ["Neutral"],       preis: 139.90, beschreibung: "Vollständige Ausstattung für Schulkinder — altersgerecht und praktisch." },
+      { name: "Erstpaket Groß",                            icon: ShoppingBag, material: "Gemischte Materialien", groessen: ["140–152","152–164","S/M"],   farben: ["Frei wählbar"],  preis: 159.90, beschreibung: "Komplettset für Jugendliche — inkl. Freizeitkleidung und Schuloutfit." },
+      { name: "Erstpaket Premium",    badge: "Neu",        icon: Star,        material: "Premium Bio-Baumwolle", groessen: ["Alle Größen wählbar"],       farben: ["Frei wählbar"],  preis: 199.90, beschreibung: "Premium-Ausstattung mit individueller Beratung und Größenanpassung." },
+    ],
+  },
+  {
+    slug: "winterpauschale", titel: "Winterpauschale", akzent: "#93c5fd", bg: "rgba(147,197,253,0.08)",
+    beschreibung: "Warm, wetterfest und vollständig für die kalte Jahreszeit.",
+    produkte: [
+      { name: "Winterpaket Kleinkind",  badge: "Bestseller", icon: Snowflake,   material: "Fleece + Außenmaterial", groessen: ["80–104","104–116"],       farben: ["Navy","Dunkelgrau","Schwarz"], preis: 149.90, beschreibung: "Winterjacke, Thermohose, Mütze, Handschuhe, Schal, Thermosocken." },
+      { name: "Winterpaket Kind",       badge: "Empfohlen",  icon: Thermometer, material: "Softshell + Fleece",     groessen: ["116–128","128–140"],       farben: ["Navy","Dunkelgrau","Anthrazit"], preis: 169.90, beschreibung: "Komplettes Winteroutfit inkl. wasserabweisender Jacke und Thermobase." },
+      { name: "Winterpaket Jugend",                          icon: Wind,        material: "Funktionsmaterial",      groessen: ["140–152","152–164","S/M"], farben: ["Schwarz","Navy","Dunkelgrau"],  preis: 189.90, beschreibung: "Jugend-Winterset mit wärmender Funktionsjacke und Outdoorhose." },
+      { name: "Winterjacke Einzeln",    badge: "Neu",        icon: Shield,      material: "Softshell wasserdicht",  groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Navy","Schwarz","Anthrazit"], preis: 79.90, beschreibung: "Hochwertige Winterjacke — wasserdicht, winddicht, warm." },
+    ],
+  },
+  {
+    slug: "sommerpauschale", titel: "Sommerpauschale", akzent: "#f97316", bg: "rgba(249,115,22,0.07)",
+    beschreibung: "Leicht, atmungsaktiv und feriengerecht für warme Monate.",
+    produkte: [
+      { name: "Sommerpaket Kleinkind",  badge: "Bestseller", icon: Sun,       material: "100% Bio-Baumwolle leicht", groessen: ["80–104","104–116"],       farben: ["Hellblau","Hellgrau","Weiß"],  preis: 99.90,  beschreibung: "3 T-Shirts, 2 Shorts, Sonnenhut, Badesachen, leichte Sandalen." },
+      { name: "Sommerpaket Kind",       badge: "Beliebt",    icon: CloudSun,  material: "Leichtgewebe atmungsaktiv", groessen: ["116–128","128–140"],       farben: ["Hellblau","Weiß","Grün"],      preis: 119.90, beschreibung: "Sommeroutfit für den Schulalltag und Freizeit — UV-schützende Qualität." },
+      { name: "Sommerpaket Jugend",                          icon: Feather,   material: "Jersey + Leinen-Mix",       groessen: ["140–152","152–164","S/M"], farben: ["Frei wählbar"],                preis: 139.90, beschreibung: "Komplettes Sommerpaket für Jugendliche inkl. Schwimmbekleidung." },
+      { name: "Sonnenschutz-Set",       badge: "Neu",        icon: Umbrella,  material: "UV 50+ Funktionsmaterial",  groessen: ["Universal"],               farben: ["Hellblau","Weiß"],             preis: 39.90,  beschreibung: "Sonnenhut, Schutzkragen und UV-Shirt — Ergänzung zu jedem Sommerpaket." },
     ],
   },
 ];
@@ -547,7 +578,7 @@ export default function AnkerkleidungPage() {
           </div>
           <div style={{ position: "absolute", bottom: "3rem", left: "3rem", right: "3rem",
             display: "flex", gap: "2rem" }}>
-            {[{ n: "6", label: "Störungsbilder" },{ n: "24", label: "Produkte" },{ n: "24h", label: "Lieferzeit" }].map(s => (
+            {[{ n: "9", label: "Kategorien" },{ n: "36", label: "Produkte" },{ n: "24h", label: "Lieferzeit" }].map(s => (
               <div key={s.label}>
                 <p style={{ fontSize: "1.5rem", fontWeight: 800, color: "white", lineHeight: 1 }}>{s.n}</p>
                 <p style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em",
