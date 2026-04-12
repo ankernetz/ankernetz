@@ -18,10 +18,10 @@ const angebote = [
     kurz: "24/7 Sofortaufnahme für Jugendliche in akuter Not — rund um die Uhr, an 365 Tagen.",
     icon: AlertTriangle,
     glow: "glow-red",
-    bg: "linear-gradient(145deg, #150608 0%, #2d0a0f 50%, #1a0305 100%)",
+    bg: "linear-gradient(145deg, #4a0d14 0%, #6b1520 50%, #3d0a10 100%)",
     badge: "24/7",
-    badgeClass: "bg-red-500/20 text-red-300 border border-red-400/30",
-    iconClass: "text-red-400",
+    badgeClass: "bg-red-400/30 text-red-200 border border-red-300/40",
+    iconClass: "text-red-300",
   },
   {
     slug: "psychotherapie",
@@ -30,10 +30,10 @@ const angebote = [
     kurz: "Eingebunden in alle Hilfeprozesse — direkt dort, wo Kinder und Jugendliche leben.",
     icon: Brain,
     glow: "glow-violet",
-    bg: "linear-gradient(145deg, #120d1f 0%, #1e1035 100%)",
+    bg: "linear-gradient(145deg, #2d1560 0%, #3d1f80 100%)",
     badge: "Kassensitz",
-    badgeClass: "bg-purple-500/20 text-purple-300 border border-purple-400/30",
-    iconClass: "text-purple-400",
+    badgeClass: "bg-purple-400/30 text-purple-200 border border-purple-300/40",
+    iconClass: "text-purple-300",
   },
   {
     slug: "fruehe-hilfen",
@@ -42,10 +42,10 @@ const angebote = [
     kurz: "Bindung, Sicherheit und Entwicklung für die Kleinsten.",
     icon: Baby,
     glow: "glow-green",
-    bg: "linear-gradient(145deg, #031a10 0%, #052e1a 100%)",
+    bg: "linear-gradient(145deg, #0d4a28 0%, #155c35 100%)",
     badge: "0–6 Jahre",
-    badgeClass: "bg-emerald-500/20 text-emerald-300 border border-emerald-400/30",
-    iconClass: "text-emerald-400",
+    badgeClass: "bg-emerald-400/30 text-emerald-200 border border-emerald-300/40",
+    iconClass: "text-emerald-300",
   },
   {
     slug: "therapie-wohnen",
@@ -54,10 +54,10 @@ const angebote = [
     kurz: "Therapeutische Wohngruppen mit intensiver Begleitung und Traumaarbeit.",
     icon: Home,
     glow: "glow-blue",
-    bg: "linear-gradient(145deg, #070f1a 0%, #0d1f35 100%)",
+    bg: "linear-gradient(145deg, #0d2d5c 0%, #153f80 100%)",
     badge: "12–17 Jahre",
-    badgeClass: "bg-blue-500/20 text-blue-300 border border-blue-400/30",
-    iconClass: "text-blue-400",
+    badgeClass: "bg-blue-400/30 text-blue-200 border border-blue-300/40",
+    iconClass: "text-blue-300",
   },
   {
     slug: "jugendhilfe",
@@ -66,10 +66,10 @@ const angebote = [
     kurz: "Kinderwohngruppen mit verlässlicher Struktur und Beziehungsarbeit.",
     icon: Heart,
     glow: "glow-amber",
-    bg: "linear-gradient(145deg, #1a0e02 0%, #2d1a05 100%)",
+    bg: "linear-gradient(145deg, #4a2808 0%, #6b3a0f 100%)",
     badge: "6–12 Jahre",
-    badgeClass: "bg-amber-500/20 text-amber-300 border border-amber-400/30",
-    iconClass: "text-amber-400",
+    badgeClass: "bg-amber-400/30 text-amber-200 border border-amber-300/40",
+    iconClass: "text-amber-300",
   },
   {
     slug: "diagnostik-clearing",
@@ -78,10 +78,10 @@ const angebote = [
     kurz: "Psychologische Diagnostik und handlungsorientierte Berichte für Jugendämter.",
     icon: Search,
     glow: "glow-cyan",
-    bg: "linear-gradient(145deg, #021420 0%, #052535 100%)",
+    bg: "linear-gradient(145deg, #073550 0%, #0d4a6e 100%)",
     badge: "Gutachten",
-    badgeClass: "bg-cyan-500/20 text-cyan-300 border border-cyan-400/30",
-    iconClass: "text-cyan-400",
+    badgeClass: "bg-cyan-400/30 text-cyan-200 border border-cyan-300/40",
+    iconClass: "text-cyan-300",
   },
   {
     slug: "beratung-praevention",
@@ -90,10 +90,10 @@ const angebote = [
     kurz: "Niedrigschwellig, online und vor Ort — als erster Schritt ins System.",
     icon: MessageCircle,
     glow: "glow-lime",
-    bg: "linear-gradient(145deg, #081208 0%, #0f2010 100%)",
+    bg: "linear-gradient(145deg, #1a3d10 0%, #275c18 100%)",
     badge: "Online & vor Ort",
-    badgeClass: "bg-lime-500/20 text-lime-300 border border-lime-400/30",
-    iconClass: "text-lime-400",
+    badgeClass: "bg-lime-400/30 text-lime-200 border border-lime-300/40",
+    iconClass: "text-lime-300",
   },
   {
     slug: "kita-beratung",
@@ -102,10 +102,10 @@ const angebote = [
     kurz: "Therapeutisch fundierte Beratung für Kita-Fachkräfte.",
     icon: School,
     glow: "glow-orange",
-    bg: "linear-gradient(145deg, #180a02 0%, #2a1205 100%)",
+    bg: "linear-gradient(145deg, #4a2008 0%, #6b300f 100%)",
     badge: "Fachkräfte",
-    badgeClass: "bg-orange-500/20 text-orange-300 border border-orange-400/30",
-    iconClass: "text-orange-400",
+    badgeClass: "bg-orange-400/30 text-orange-200 border border-orange-300/40",
+    iconClass: "text-orange-300",
   },
   {
     slug: "uebergang-arbeit",
@@ -114,10 +114,10 @@ const angebote = [
     kurz: "Berufsorientierung und Begleitung vom Hilfesystem in ein eigenständiges Leben.",
     icon: Briefcase,
     glow: "glow-pink",
-    bg: "linear-gradient(145deg, #18082a 0%, #2a1048 100%)",
+    bg: "linear-gradient(145deg, #3d1568 0%, #561e90 100%)",
     badge: "Übergang",
-    badgeClass: "bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-400/30",
-    iconClass: "text-fuchsia-400",
+    badgeClass: "bg-fuchsia-400/30 text-fuchsia-200 border border-fuchsia-300/40",
+    iconClass: "text-fuchsia-300",
   },
   {
     slug: "ankerkleidung",
@@ -126,10 +126,10 @@ const angebote = [
     kurz: "Spezialisierte Kleidung nach Störungsbild — Teil des Hilfesystems.",
     icon: Shirt,
     glow: "glow-slate",
-    bg: "linear-gradient(145deg, #0c1018 0%, #141c28 100%)",
+    bg: "linear-gradient(145deg, #1e2d45 0%, #283d5e 100%)",
     badge: "Shop",
-    badgeClass: "bg-slate-500/20 text-slate-300 border border-slate-400/30",
-    iconClass: "text-slate-400",
+    badgeClass: "bg-slate-400/30 text-slate-200 border border-slate-300/40",
+    iconClass: "text-slate-300",
   },
   {
     slug: "versorgung",
@@ -138,10 +138,10 @@ const angebote = [
     kurz: "Bedarfsorientierte Ausstattung für Kinder und Jugendliche im Hilfesystem.",
     icon: Star,
     glow: "glow-amber",
-    bg: "linear-gradient(145deg, #161208 0%, #221c0e 100%)",
+    bg: "linear-gradient(145deg, #3d3008 0%, #574510 100%)",
     badge: "Ausstattung",
-    badgeClass: "bg-amber-500/20 text-amber-300 border border-amber-400/30",
-    iconClass: "text-amber-400",
+    badgeClass: "bg-amber-400/30 text-amber-200 border border-amber-300/40",
+    iconClass: "text-amber-300",
   },
 ];
 
@@ -262,8 +262,21 @@ export default function HomePage() {
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
-      <section id="angebote" className="py-16 bg-[#0f172a]">
-        <div className="site-container space-y-4 pb-16">
+      <section id="angebote" className="pt-24 pb-24 bg-[#0f172a]">
+        <div className="site-container">
+
+          {/* Abschnitts-Header */}
+          <BlurFade className="text-center mb-16">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">
+              Unsere Angebote
+            </p>
+            <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black text-white" style={{ letterSpacing: "-0.028em" }}>
+              Spezialisiert. Vernetzt. Menschlich.
+            </h2>
+          </BlurFade>
+
+        </div>
+        <div className="site-container space-y-4">
 
           {/* Reihe 1: Krisenintervention groß + Psychotherapie */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

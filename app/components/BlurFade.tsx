@@ -36,6 +36,7 @@ export function BlurFade({
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}
+      style={{ width: "100%" }}
       className={className}
     >
       {children}
