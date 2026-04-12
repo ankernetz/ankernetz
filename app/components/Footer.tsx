@@ -50,15 +50,15 @@ export default function Footer() {
     <footer style={{ background: "#0b1220" }}>
 
       {/* ── Notfall-Banner ── */}
-      <div style={{ background: "#9f1239", padding: "0.7rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div style={{ background: "#ffffff", padding: "0.7rem 0", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
         <div className="site-container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
-            <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", background: "white", flexShrink: 0, animation: "pulse 2s infinite" }} />
-            <p style={{ fontSize: "0.8125rem", fontWeight: 500, color: "rgba(255,255,255,0.85)", letterSpacing: "0.01em" }}>
+            <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", background: "#9f1239", flexShrink: 0, animation: "pulse 2s infinite" }} />
+            <p style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#1a3f6f", letterSpacing: "0.01em" }}>
               Krisenintervention — 24 Stunden, 7 Tage die Woche erreichbar
             </p>
           </div>
-          <a href="tel:+4930224543220" style={{ fontSize: "0.75rem", fontWeight: 700, color: "#9f1239", background: "white", padding: "0.35rem 0.875rem", borderRadius: "0.3rem", textDecoration: "none", whiteSpace: "nowrap" }}>
+          <a href="tel:+4930224543220" style={{ fontSize: "0.75rem", fontWeight: 700, color: "white", background: "#9f1239", padding: "0.35rem 0.875rem", borderRadius: "0.3rem", textDecoration: "none", whiteSpace: "nowrap" }}>
             +49 (0) 30 22 45 43 22 — Jetzt anrufen
           </a>
         </div>
