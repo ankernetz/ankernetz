@@ -225,7 +225,7 @@ export default function HomePage() {
           <div className="fade-in-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="#angebote" className="btn btn-primary btn-lg group">
               Angebote entdecken
-              <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
             <Link href="/platzanfrage" className="btn btn-outline-light btn-lg">
               Platzanfrage stellen
@@ -240,43 +240,47 @@ export default function HomePage() {
       </section>
 
       {/* ═══ EINLEITUNG ═══ — HELL */}
-      <section className="py-36 relative overflow-hidden bg-[#F5F5F7]">
+      <section className="py-40 relative overflow-hidden bg-[#F5F5F7]">
         <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
 
-        <div className="site-container">
-          <BlurFade className="text-center max-w-2xl mx-auto">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">
-              Ein Netz. Elf Antworten.
-            </p>
-            <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1A1A2E] mb-6 leading-[1.1]"
-              style={{ letterSpacing: "-0.03em" }}>
-              Für jede Situation<br />die richtige Hilfe.
-            </h2>
-            <p className="text-base text-[#6E6E73] font-normal leading-[1.9] max-w-xl mx-auto">
-              Ankernetz ist ein Netzwerk aus spezialisierten Hilfsangeboten für Kinder und Jugendliche —
-              von der akuten Krisenintervention über Psychotherapie und frühe Hilfen bis zum Übergang in den Beruf.
-            </p>
+        <div className="site-container flex justify-center">
+          <BlurFade>
+            <div className="text-center" style={{ maxWidth: "640px" }}>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">
+                Ein Netz. Elf Antworten.
+              </p>
+              <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1A1A2E] mb-8 leading-[1.1]"
+                style={{ letterSpacing: "-0.03em" }}>
+                Für jede Situation —<br />die richtige Hilfe.
+              </h2>
+              <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.9]">
+                Ankernetz ist ein Netzwerk aus spezialisierten Hilfsangeboten für Kinder und Jugendliche —
+                von der akuten Krisenintervention über Psychotherapie und frühe Hilfen bis zum Übergang in den Beruf.
+              </p>
+            </div>
           </BlurFade>
         </div>
       </section>
 
       {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
-      <section id="angebote" className="pt-24 pb-24 bg-[#0f172a]">
+      <section id="angebote" className="pt-32 pb-32 bg-[#0f172a]">
         <div className="site-container">
 
           {/* Abschnitts-Header */}
-          <BlurFade className="text-center mb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">
-              Unsere Angebote
-            </p>
-            <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black text-white" style={{ letterSpacing: "-0.028em" }}>
-              Spezialisiert. Vernetzt. Menschlich.
-            </h2>
+          <BlurFade>
+            <div className="text-center mb-20">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">
+                Unsere Angebote
+              </p>
+              <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black text-white" style={{ letterSpacing: "-0.028em" }}>
+                Spezialisiert. Vernetzt. Menschlich.
+              </h2>
+            </div>
           </BlurFade>
 
         </div>
-        <div className="site-container space-y-4">
+        <div className="site-container space-y-5">
 
           {/* Reihe 1: Krisenintervention groß + Psychotherapie */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -306,14 +310,14 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="relative z-10">
-                  <AlertTriangle size={30} className={`${angebote[0].iconClass} mb-5`} />
-                  <h3 className="text-white text-[2rem] font-black mb-2 leading-tight" style={{ letterSpacing: "-0.025em" }}>
+                  <AlertTriangle size={28} strokeWidth={1.5} className={`${angebote[0].iconClass} mb-6`} />
+                  <h3 className="text-white text-[2rem] font-black mb-3 leading-tight" style={{ letterSpacing: "-0.025em" }}>
                     {angebote[0].titel}
                   </h3>
-                  <p className="text-white/40 text-sm italic mb-3">{angebote[0].claim}</p>
-                  <p className="text-white/50 text-sm font-normal leading-relaxed mb-6 max-w-md">{angebote[0].kurz}</p>
+                  <p className="text-white/50 text-sm italic mb-3">{angebote[0].claim}</p>
+                  <p className="text-white/60 text-sm font-normal leading-[1.85] mb-8 max-w-md">{angebote[0].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
-                    Mehr erfahren <ArrowRight size={14} />
+                    Mehr erfahren <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
@@ -338,12 +342,12 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="relative z-10">
-                  <Brain size={26} className={`${angebote[1].iconClass} mb-4`} />
-                  <h3 className="text-white text-xl font-black mb-1 leading-tight">{angebote[1].titel}</h3>
-                  <p className="text-white/40 text-xs italic mb-2">{angebote[1].claim}</p>
-                  <p className="text-white/50 text-sm font-normal leading-relaxed mb-5">{angebote[1].kurz}</p>
+                  <Brain size={26} strokeWidth={1.5} className={`${angebote[1].iconClass} mb-5`} />
+                  <h3 className="text-white text-xl font-black mb-2 leading-tight">{angebote[1].titel}</h3>
+                  <p className="text-white/50 text-xs italic mb-3">{angebote[1].claim}</p>
+                  <p className="text-white/60 text-sm font-normal leading-[1.85] mb-6">{angebote[1].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
-                    Mehr erfahren <ArrowRight size={14} />
+                    Mehr erfahren <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
@@ -357,20 +361,20 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.08}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[300px] flex flex-col justify-end p-7 block`}
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[400px] flex flex-col justify-end p-8 block`}
                     style={{ background: a.bg }}>
-                    <div className="absolute top-5 right-5">
+                    <div className="absolute top-6 right-6">
                       <span className={`text-xs font-medium ${a.badgeClass} px-2.5 py-1 rounded-full`}>
                         {a.badge}
                       </span>
                     </div>
                     <div className="relative z-10">
-                      <Icon size={22} className={`${a.iconClass} mb-3`} />
-                      <h3 className="text-white text-lg font-black mb-1 leading-tight">{a.titel}</h3>
-                      <p className="text-white/40 text-xs italic mb-2">{a.claim}</p>
-                      <p className="text-white/50 text-sm font-normal leading-relaxed mb-4">{a.kurz}</p>
-                      <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
-                        Mehr <ArrowRight size={12} />
+                      <Icon size={24} strokeWidth={1.5} className={`${a.iconClass} mb-5`} />
+                      <h3 className="text-white text-xl font-black mb-2 leading-tight">{a.titel}</h3>
+                      <p className="text-white/50 text-sm italic mb-3">{a.claim}</p>
+                      <p className="text-white/60 text-sm font-normal leading-[1.85] mb-6">{a.kurz}</p>
+                      <span className="inline-flex items-center gap-2 text-white text-sm font-semibold group-hover:gap-3 transition-all">
+                        Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
                       </span>
                     </div>
                   </Link>
@@ -386,14 +390,14 @@ export default function HomePage() {
               return (
                 <BlurFade key={a.slug} delay={i * 0.06}>
                   <Link href={`/${a.slug}`}
-                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[220px] flex flex-col justify-end p-6 block`}
+                    className={`bento-card ${a.glow} category-glow group relative rounded-3xl overflow-hidden min-h-[260px] flex flex-col justify-end p-7 block`}
                     style={{ background: a.bg }}>
                     <div className="relative z-10">
-                      <Icon size={18} className={`${a.iconClass} mb-3`} />
-                      <h3 className="text-white text-base font-black mb-1 leading-tight">{a.titel}</h3>
-                      <p className="text-white/40 text-xs italic mb-3">{a.claim}</p>
-                      <span className="inline-flex items-center gap-1.5 text-white text-xs font-semibold group-hover:gap-2.5 transition-all">
-                        Mehr <ArrowRight size={11} />
+                      <Icon size={20} strokeWidth={1.5} className={`${a.iconClass} mb-4`} />
+                      <h3 className="text-white text-base font-black mb-2 leading-tight">{a.titel}</h3>
+                      <p className="text-white/50 text-xs italic mb-4">{a.claim}</p>
+                      <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
+                        Mehr <ArrowRight size={12} strokeWidth={1.5} />
                       </span>
                     </div>
                   </Link>
@@ -429,8 +433,8 @@ export default function HomePage() {
                 </div>
 
                 <div className="relative z-10 flex-1 pr-4">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Shirt size={24} className={angebote[9].iconClass} />
+                  <div className="flex items-center gap-3 mb-5">
+                    <Shirt size={24} strokeWidth={1.5} className={angebote[9].iconClass} />
                     <span className={`text-xs font-medium ${angebote[9].badgeClass} px-3 py-1 rounded-full`}>Shop</span>
                   </div>
                   <h3 className="text-white text-2xl font-black mb-2" style={{ letterSpacing: "-0.02em" }}>Ankerkleidung</h3>
@@ -448,12 +452,12 @@ export default function HomePage() {
                 className={`bento-card ${angebote[10].glow} category-glow group relative rounded-3xl overflow-hidden min-h-[240px] flex flex-col justify-end p-7 block`}
                 style={{ background: angebote[10].bg }}>
                 <div className="relative z-10">
-                  <Star size={20} className={`${angebote[10].iconClass} mb-3`} />
-                  <h3 className="text-white text-lg font-black mb-1" style={{ letterSpacing: "-0.02em" }}>Versorgung</h3>
-                  <p className="text-white/40 text-xs italic mb-2">Würde im Alltag.</p>
-                  <p className="text-white/50 text-sm font-normal leading-relaxed mb-4">{angebote[10].kurz}</p>
+                  <Star size={22} strokeWidth={1.5} className={`${angebote[10].iconClass} mb-4`} />
+                  <h3 className="text-white text-lg font-black mb-2" style={{ letterSpacing: "-0.02em" }}>Versorgung</h3>
+                  <p className="text-white/50 text-xs italic mb-3">Würde im Alltag.</p>
+                  <p className="text-white/60 text-sm font-normal leading-[1.85] mb-5">{angebote[10].kurz}</p>
                   <span className="inline-flex items-center gap-2 text-white text-xs font-semibold group-hover:gap-3 transition-all">
-                    Mehr <ArrowRight size={12} />
+                    Mehr <ArrowRight size={12} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
@@ -464,30 +468,30 @@ export default function HomePage() {
       </section>
 
       {/* ═══ STÄRKEN ═══ — HELL */}
-      <section className="py-36 bg-white relative overflow-hidden">
+      <section className="py-40 bg-white relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
           style={{ background: "radial-gradient(ellipse, rgba(74,127,165,0.06) 0%, transparent 70%)" }} />
 
         <div className="site-container">
           <BlurFade>
-            <div className="text-center mb-24">
+            <div className="text-center mb-20">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">Was uns auszeichnet</p>
               <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-black text-[#1A1A2E]" style={{ letterSpacing: "-0.028em" }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {staerken.map((s, i) => {
               const Icon = s.icon;
               return (
                 <BlurFade key={s.titel} delay={i * 0.1}>
-                  <div className="p-10 rounded-3xl bg-[#F5F5F7] hover:bg-[#EBEBED] transition-colors">
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-8"
+                  <div className="p-12 rounded-3xl bg-[#F5F5F7] hover:bg-[#EBEBED] transition-colors h-full">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8"
                       style={{ background: `${s.color}15`, border: `1px solid ${s.color}25` }}>
-                      <Icon size={22} style={{ color: s.color }} />
+                      <Icon size={24} strokeWidth={1.5} style={{ color: s.color }} />
                     </div>
-                    <h3 className="text-xl font-black text-[#1A1A2E] mb-4" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
+                    <h3 className="text-xl font-black text-[#1A1A2E] mb-5" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
                     <p className="text-[#6E6E73] font-normal leading-[2] text-[0.9375rem]">{s.text}</p>
                   </div>
                 </BlurFade>
@@ -498,7 +502,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ FÜR FACHKRÄFTE ═══ */}
-      <section className="py-36 text-white relative overflow-hidden"
+      <section className="py-40 text-white relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, #070b14 0%, #0d1f35 100%)" }}>
 
         {/* Glow blobs */}
@@ -514,10 +518,10 @@ export default function HomePage() {
             <div className="lg:col-span-6">
               <BlurFade>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-6">Für Jugendämter & Fachkräfte</p>
-                <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-8 leading-[1.15]" style={{ letterSpacing: "-0.03em" }}>
+                <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-10 leading-[1.15]" style={{ letterSpacing: "-0.03em" }}>
                   Klare Prozesse.<br />Schnelle Reaktion.<br />Verlässliche Partner.
                 </h2>
-                <p className="text-white/50 text-[1.0625rem] font-normal leading-[2] mb-12 max-w-lg">
+                <p className="text-white/55 text-[1.0625rem] font-normal leading-[2] mb-14 max-w-lg">
                   Ankernetz arbeitet eng mit Jugendämtern und Fachkräften zusammen.
                   Schnelle Rückmeldungen, transparente Einschätzungen und passgenaue
                   Hilfeformen — direkt und unkompliziert.
@@ -525,7 +529,7 @@ export default function HomePage() {
                 <div className="flex flex-wrap gap-3">
                   <Link href="/platzanfrage" className="btn btn-primary btn-lg group">
                     Platzanfrage stellen
-                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight size={14} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                   <Link href="/kontakt" className="btn btn-outline-light btn-lg">
                     Kontakt aufnehmen
@@ -537,7 +541,7 @@ export default function HomePage() {
             {/* Stat-Grid — 5 Spalten, offset 1 */}
             <div className="lg:col-span-5 lg:col-start-8">
               <BlurFade delay={0.12}>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-5">
                   {[
                     { zahl: "< 24h", label: "Rückmeldung auf Anfragen", color: "#4A7FA5" },
                     { zahl: "24/7",  label: "Krisenbereitschaft",       color: "#ef4444" },
@@ -546,9 +550,9 @@ export default function HomePage() {
                   ].map((stat) => (
                     <div key={stat.zahl}
                       className="rounded-2xl p-8 text-center"
-                      style={{ background: `${stat.color}0c`, border: `1px solid ${stat.color}22` }}>
-                      <p className="text-[2.5rem] font-black text-white mb-3" style={{ letterSpacing: "-0.03em" }}>{stat.zahl}</p>
-                      <p className="text-white/45 text-xs font-normal leading-relaxed">{stat.label}</p>
+                      style={{ background: `${stat.color}12`, border: `1px solid ${stat.color}30` }}>
+                      <p className="text-[2.5rem] font-black text-white mb-4" style={{ letterSpacing: "-0.03em" }}>{stat.zahl}</p>
+                      <p className="text-white/55 text-xs font-normal leading-relaxed">{stat.label}</p>
                     </div>
                   ))}
                 </div>
