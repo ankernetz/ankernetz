@@ -109,45 +109,104 @@ export default function ChatWidget() {
 
   if (!open) {
     return (
-      <button
-        onClick={() => setOpen(true)}
-        aria-label="Chat öffnen"
+      <div
         style={{
           position: "fixed",
           bottom: "1.75rem",
           right: "1.75rem",
           zIndex: 1000,
-          width: "56px",
-          height: "56px",
-          borderRadius: "50%",
-          background: "#1a3f6f",
-          border: "none",
-          cursor: "pointer",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "0 4px 24px rgba(26,63,111,0.45)",
-          transition: "transform 0.2s ease, box-shadow 0.2s ease",
-        }}
-        onMouseEnter={e => {
-          (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.08)";
-          (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 8px 32px rgba(26,63,111,0.55)";
-        }}
-        onMouseLeave={e => {
-          (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
-          (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 24px rgba(26,63,111,0.45)";
+          gap: "0.75rem",
         }}
       >
-        <MessageCircle size={24} color="white" strokeWidth={1.5} />
-        {/* Puls-Ring */}
-        <span style={{
-          position: "absolute",
-          inset: 0,
-          borderRadius: "50%",
-          border: "2px solid rgba(26,63,111,0.4)",
-          animation: "pulse 2.5s ease-out infinite",
-        }} />
-      </button>
+        {/* Label-Blase */}
+        <div style={{
+          background: "white",
+          borderRadius: "0.875rem",
+          padding: "0.625rem 1rem",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
+          border: "1px solid rgba(26,63,111,0.1)",
+          cursor: "pointer",
+          animation: "floatIn 0.4s ease both",
+        }} onClick={() => setOpen(true)}>
+          <p style={{ fontSize: "13px", fontWeight: 600, color: "#1a3f6f", whiteSpace: "nowrap", lineHeight: 1.3 }}>
+            Wie kann ich helfen?
+          </p>
+          <p style={{ fontSize: "11px", color: "#6b7280", lineHeight: 1.3, marginTop: "1px" }}>
+            Lena · Ankernetz
+          </p>
+        </div>
+
+        {/* Haupt-Button */}
+        <button
+          onClick={() => setOpen(true)}
+          aria-label="Chat öffnen"
+          style={{
+            width: "60px",
+            height: "60px",
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #1a3f6f 0%, #2d5fa0 100%)",
+            border: "3px solid white",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 6px 28px rgba(26,63,111,0.5)",
+            transition: "transform 0.2s ease, box-shadow 0.2s ease",
+            position: "relative",
+            flexShrink: 0,
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.1)";
+            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 10px 36px rgba(26,63,111,0.6)";
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
+            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 6px 28px rgba(26,63,111,0.5)";
+          }}
+        >
+          <MessageCircle size={26} color="white" strokeWidth={1.5} />
+          {/* Online-Dot */}
+          <span style={{
+            position: "absolute",
+            top: "3px",
+            right: "3px",
+            width: "12px",
+            height: "12px",
+            borderRadius: "50%",
+            background: "#22c55e",
+            border: "2px solid white",
+          }} />
+          {/* Puls-Ringe */}
+          <span style={{
+            position: "absolute",
+            inset: "-6px",
+            borderRadius: "50%",
+            border: "2px solid rgba(26,63,111,0.25)",
+            animation: "chatPulse 2.5s ease-out infinite",
+          }} />
+          <span style={{
+            position: "absolute",
+            inset: "-12px",
+            borderRadius: "50%",
+            border: "1.5px solid rgba(26,63,111,0.12)",
+            animation: "chatPulse 2.5s ease-out 0.6s infinite",
+          }} />
+        </button>
+
+        <style>{`
+          @keyframes chatPulse {
+            0% { transform: scale(0.95); opacity: 1; }
+            70% { transform: scale(1.15); opacity: 0; }
+            100% { transform: scale(1.15); opacity: 0; }
+          }
+          @keyframes floatIn {
+            from { opacity: 0; transform: translateX(12px); }
+            to   { opacity: 1; transform: translateX(0); }
+          }
+        `}</style>
+      </div>
     );
   }
 
