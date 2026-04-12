@@ -314,8 +314,15 @@ section {
 }
 
 /* ─── Mega menu item hover ───────────────────────────────────── */
+.mega-item {
+  border-radius: 6px;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  margin-left: -0.5rem;
+}
 .mega-item:hover {
   color: #000000 !important;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 /* ─── Nav CTA primary hover glow ────────────────────────────── */
