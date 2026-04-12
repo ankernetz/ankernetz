@@ -7,7 +7,6 @@ import {
 import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
 import { ShineText } from "./components/ShineText";
 import { BlurFade } from "./components/BlurFade";
-import { Meteors } from "./components/Meteors";
 
 const angebote = [
   { slug: "krisenintervention",   titel: "Krisenintervention",             claim: "Sofort da. Wenn es zählt.",            kurz: "24/7 Sofortaufnahme für Jugendliche in akuter Not — rund um die Uhr, an 365 Tagen.",                           icon: AlertTriangle, badge: "24/7",           iconColor: "#f87171", stripe: "#ef4444" },
@@ -51,76 +50,73 @@ export default function HomePage() {
       {/* ═══ HERO ═══ */}
       <section
         className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
-        style={{ background: "linear-gradient(160deg, #070b14 0%, #0f172a 40%, #0d1f35 100%)" }}
+        style={{ background: "linear-gradient(155deg, #f0f7ff 0%, #fafbff 45%, #f5f0ff 100%)" }}
       >
-        {/* Animated Grid Pattern — MagicUI */}
+        {/* Soft color blobs */}
+        <div className="absolute top-0 left-[10%] w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(74,127,165,0.12) 0%, transparent 65%)" }} />
+        <div className="absolute bottom-0 right-[5%] w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.09) 0%, transparent 65%)" }} />
+        <div className="absolute top-1/3 right-[20%] w-[350px] h-[350px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(16,185,129,0.07) 0%, transparent 65%)" }} />
+
+        {/* Animated Grid Pattern */}
         <AnimatedGridPattern
           numSquares={35}
-          maxOpacity={0.08}
+          maxOpacity={0.04}
           duration={3}
-          strokeColor="rgba(255,255,255,0.08)"
+          strokeColor="rgba(74,127,165,0.12)"
           className="z-0"
         />
 
-        {/* Meteors — MagicUI */}
-        <Meteors count={16} />
+        <div className="relative z-10 w-full" style={{ maxWidth: "780px", marginLeft: "auto", marginRight: "auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
 
-        {/* Glow blobs */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(74,127,165,0.12) 0%, transparent 60%)" }} />
-        <div className="absolute top-1/4 right-[15%] w-[380px] h-[380px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(239,68,68,0.08) 0%, transparent 70%)" }} />
-        <div className="absolute bottom-1/4 left-[10%] w-[320px] h-[320px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)" }} />
-
-        <div className="relative z-10 w-full" style={{ maxWidth: "760px", marginLeft: "auto", marginRight: "auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
-          <div className="fade-in-up inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-full px-4 py-1.5 mb-10 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse flex-shrink-0" />
-            <ShineText shimmerWidth={120} className="text-xs font-normal tracking-wide text-white/60">
+          {/* Badge */}
+          <div className="fade-in-up" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: "100px", padding: "0.375rem 0.875rem", marginBottom: "2.5rem" }}>
+            <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", background: "#ef4444", flexShrink: 0, animation: "pulse 2s infinite" }} />
+            <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#b91c1c", letterSpacing: "0.01em" }}>
               Krisenintervention 24/7 verfügbar
-            </ShineText>
+            </span>
           </div>
 
-          <h1 className="fade-in-up delay-1 text-[clamp(3.5rem,10vw,6.5rem)] font-black text-white leading-none mb-6"
-            style={{ letterSpacing: "-0.035em" }}>
-            Anker
-            <span
-              className="animate-gradient"
-              style={{
-                backgroundImage: "linear-gradient(90deg, #4A7FA5, #8b5cf6, #4A7FA5)",
-                backgroundSize: "300% 300%",
-              }}
-            >netz</span>
+          <h1 className="fade-in-up delay-1 leading-none"
+            style={{ fontSize: "clamp(3.25rem,9vw,6rem)", fontWeight: 900, letterSpacing: "-0.035em", color: "#0f172a", marginBottom: "1.5rem" }}>
+            Anker<span style={{
+              backgroundImage: "linear-gradient(135deg, #4A7FA5 0%, #8b5cf6 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>netz</span>
           </h1>
 
-          <div className="fade-in-up delay-2 text-center mb-12">
-            <p className="text-[clamp(1.05rem,2.2vw,1.25rem)] text-white/70 font-light leading-relaxed mb-1">
+          <div className="fade-in-up delay-2" style={{ marginBottom: "3rem" }}>
+            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#334155", fontWeight: 400, lineHeight: 1.7, marginBottom: "0.25rem" }}>
               Stabilität in Krisen.
             </p>
-            <p className="text-[clamp(1.05rem,2.2vw,1.25rem)] text-white/45 font-light leading-relaxed">
+            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#94a3b8", fontWeight: 400, lineHeight: 1.7 }}>
               Perspektiven für junge Menschen.
             </p>
           </div>
 
-          <div className="fade-in-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-3 mb-24">
+          <div className="fade-in-up delay-3" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "0.75rem", marginBottom: "6rem" }}>
             <a href="#angebote" className="btn btn-primary btn-lg group">
               Angebote entdecken
               <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
-            <Link href="/platzanfrage" className="btn btn-outline-light btn-lg">
+            <Link href="/platzanfrage" className="btn btn-outline btn-lg">
               Platzanfrage stellen
             </Link>
           </div>
 
         </div>
 
-        {/* Bottom fade — weicher Übergang */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent, rgba(7,11,20,0.6))" }} />
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, transparent, #fafbff)" }} />
 
         {/* Scroll indicator */}
         <div className="scroll-pulse absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-px h-8 bg-white/25" />
+          <div className="w-px h-8" style={{ background: "rgba(15,23,42,0.15)" }} />
         </div>
       </section>
 
