@@ -48,7 +48,7 @@ export default function RootLayout({
           </div>
 
           {/* Haupt-Footer */}
-          <div className="site-container py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="site-container py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
 
             {/* Spalte 1: Mission */}
             <div className="lg:col-span-1">

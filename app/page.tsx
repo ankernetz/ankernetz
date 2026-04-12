@@ -236,7 +236,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ EINLEITUNG ═══ — HELL */}
-      <section className="py-28 relative overflow-hidden bg-[#F5F5F7]">
+      <section className="py-36 relative overflow-hidden bg-[#F5F5F7]">
         <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
 
@@ -447,31 +447,31 @@ export default function HomePage() {
       </section>
 
       {/* ═══ STÄRKEN ═══ — HELL */}
-      <section className="py-32 bg-white relative overflow-hidden">
+      <section className="py-36 bg-white relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
           style={{ background: "radial-gradient(ellipse, rgba(74,127,165,0.06) 0%, transparent 70%)" }} />
 
         <div className="site-container">
           <ScrollReveal>
-            <div className="text-center mb-20">
+            <div className="text-center mb-24">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-4">Was uns auszeichnet</p>
               <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-black text-[#1A1A2E]" style={{ letterSpacing: "-0.028em" }}>
                 Stärke durch Verbindung.
               </h2>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {staerken.map((s, i) => {
               const Icon = s.icon;
               return (
                 <ScrollReveal key={s.titel} delay={i * 100}>
-                  <div className="p-8 rounded-3xl bg-[#F5F5F7] hover:bg-[#EBEBED] transition-colors">
-                    <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-6"
+                  <div className="p-10 rounded-3xl bg-[#F5F5F7] hover:bg-[#EBEBED] transition-colors">
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-8"
                       style={{ background: `${s.color}15`, border: `1px solid ${s.color}25` }}>
-                      <Icon size={20} style={{ color: s.color }} />
+                      <Icon size={22} style={{ color: s.color }} />
                     </div>
-                    <h3 className="text-xl font-black text-[#1A1A2E] mb-3" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
-                    <p className="text-[#6E6E73] font-normal leading-[1.8] text-[0.9375rem]">{s.text}</p>
+                    <h3 className="text-xl font-black text-[#1A1A2E] mb-4" style={{ letterSpacing: "-0.02em" }}>{s.titel}</h3>
+                    <p className="text-[#6E6E73] font-normal leading-[2] text-[0.9375rem]">{s.text}</p>
                   </div>
                 </ScrollReveal>
               );
@@ -481,7 +481,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ FÜR FACHKRÄFTE ═══ */}
-      <section className="py-32 text-white relative overflow-hidden"
+      <section className="py-36 text-white relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, #070b14 0%, #0d1f35 100%)" }}>
 
         {/* Glow blobs */}
@@ -496,11 +496,11 @@ export default function HomePage() {
             {/* Text — 6 Spalten */}
             <div className="lg:col-span-6">
               <ScrollReveal>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">Für Jugendämter & Fachkräfte</p>
-                <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-6 leading-[1.1]" style={{ letterSpacing: "-0.03em" }}>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-6">Für Jugendämter & Fachkräfte</p>
+                <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-8 leading-[1.15]" style={{ letterSpacing: "-0.03em" }}>
                   Klare Prozesse.<br />Schnelle Reaktion.<br />Verlässliche Partner.
                 </h2>
-                <p className="text-white/45 text-[1.0625rem] font-normal leading-[1.85] mb-10 max-w-lg">
+                <p className="text-white/50 text-[1.0625rem] font-normal leading-[2] mb-12 max-w-lg">
                   Ankernetz arbeitet eng mit Jugendämtern und Fachkräften zusammen.
                   Schnelle Rückmeldungen, transparente Einschätzungen und passgenaue
                   Hilfeformen — direkt und unkompliziert.
@@ -528,10 +528,10 @@ export default function HomePage() {
                     { zahl: "100%",  label: "Fachlich qualifiziert",    color: "#10b981" },
                   ].map((stat) => (
                     <div key={stat.zahl}
-                      className="rounded-2xl p-6 text-center"
+                      className="rounded-2xl p-8 text-center"
                       style={{ background: `${stat.color}0c`, border: `1px solid ${stat.color}22` }}>
-                      <p className="text-[2.25rem] font-black text-white mb-2" style={{ letterSpacing: "-0.03em" }}>{stat.zahl}</p>
-                      <p className="text-white/40 text-xs font-normal leading-snug">{stat.label}</p>
+                      <p className="text-[2.5rem] font-black text-white mb-3" style={{ letterSpacing: "-0.03em" }}>{stat.zahl}</p>
+                      <p className="text-white/45 text-xs font-normal leading-relaxed">{stat.label}</p>
                     </div>
                   ))}
                 </div>

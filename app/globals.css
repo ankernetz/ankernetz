@@ -38,9 +38,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── Typography scale ───────────────────────────────────────── */
+/* ─── Typography scale (Refactoring UI: hierarchy through space) */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
+  line-height: 1.15;
+}
+
+p {
+  line-height: 1.85;
+}
+
+/* Label / eyebrow text above headings */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4A7FA5;
+  display: block;
+  margin-bottom: 1.25rem;
 }
 
 /* ─── Container utility ──────────────────────────────────────── */
