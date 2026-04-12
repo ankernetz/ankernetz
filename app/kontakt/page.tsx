@@ -21,20 +21,20 @@ export default function KontaktPage() {
           {[
             {
               titel: "Telefon",
-              wert: "+49 (0) ___ ___",
+              wert: "+49 (0) 30 22 45 43 22",
               sub: "Montag – Freitag, 8–18 Uhr",
               note: "Krisennotfall: 24/7 erreichbar",
             },
             {
               titel: "E-Mail",
-              wert: "info@ankernetz.com",
+              wert: "hilfe@ankernetz.com",
               sub: "Antwort innerhalb von 24 Stunden",
               note: null,
             },
             {
               titel: "Adresse",
               wert: "Ankernetz",
-              sub: "Musterstraße 1, 00000 Stadt",
+              sub: "Friedrich-Franz-Straße 13, 12103 Berlin",
               note: "Termine nach Vereinbarung",
             },
           ].map((k) => (
@@ -158,7 +158,7 @@ export default function KontaktPage() {
             Wir reagieren schnell.
           </p>
           <a
-            href="tel:+49000000"
+            href="tel:+4930224543220"
             className="inline-block px-8 py-3.5 bg-white text-[#1A1A2E] font-semibold rounded-full text-sm hover:bg-white/90 transition-colors"
           >
             Jetzt anrufen

@@ -17,7 +17,7 @@ export default function ImpressumPage() {
             </h2>
             <p className="text-[#1D1D1F] font-semibold text-lg mb-1">Hwerk GmbH</p>
             <p className="text-[#6E6E73]">Friedrich-Franz-Straße 13</p>
-            <p className="text-[#6E6E73]">20459 Hamburg</p>
+            <p className="text-[#6E6E73]">12103 Berlin</p>
             <p className="text-[#6E6E73]">Deutschland</p>
           </div>
 
@@ -33,8 +33,8 @@ export default function ImpressumPage() {
           <div className="pt-8 border-t border-black/5">
             <h2 className="text-xs font-bold uppercase tracking-widest text-[#6E6E73] mb-4">Kontakt</h2>
             <div className="space-y-1 text-[#6E6E73]">
-              <p>Telefon: <span className="text-[#1D1D1F]">+49 (0) 40 87 65 43 21</span></p>
-              <p>E-Mail: <span className="text-[#1D1D1F]">info@ankernetz.com</span></p>
+              <p>Telefon: <span className="text-[#1D1D1F]">+49 (0) 30 22 45 43 22</span></p>
+              <p>E-Mail: <span className="text-[#1D1D1F]">hilfe@ankernetz.com</span></p>
             </div>
           </div>
 
@@ -42,7 +42,7 @@ export default function ImpressumPage() {
           <div className="pt-8 border-t border-black/5">
             <h2 className="text-xs font-bold uppercase tracking-widest text-[#6E6E73] mb-4">Handelsregister</h2>
             <div className="space-y-1 text-[#6E6E73]">
-              <p>Registergericht: <span className="text-[#1D1D1F]">Amtsgericht Hamburg</span></p>
+              <p>Registergericht: <span className="text-[#1D1D1F]">Amtsgericht Berlin</span></p>
               <p>Registernummer: <span className="text-[#1D1D1F]">HRB 167432</span></p>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function ImpressumPage() {
             </h2>
             <p className="text-[#6E6E73]">
               Betriebserlaubnis gemäß § 45 SGB VIII erteilt durch:<br />
-              <span className="text-[#1D1D1F]">Landesjugendamt Hamburg, Behörde für Arbeit, Soziales, Familie und Integration</span>
+              <span className="text-[#1D1D1F]">Landesjugendamt Berlin, Senatsverwaltung für Bildung, Jugend und Familie</span>
             </p>
           </div>
 
