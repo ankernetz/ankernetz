@@ -9,7 +9,7 @@ import {
   Package, Gift, BookOpen, Droplets,
   EyeOff, Umbrella, AlignJustify,
   Tag, Heart, Link2, Anchor,
-  ArrowRight,
+  ArrowRight, Truck, FileText, SlidersHorizontal, Phone,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -309,7 +309,7 @@ export default function AnkerkleidungPage() {
       <section style={{
         position: "relative", minHeight: "100vh",
         display: "grid", gridTemplateColumns: "1fr 1fr",
-        background: "#0b1828",
+        background: "linear-gradient(155deg, #0d2444 0%, #1a3f6f 60%, #1e4d82 100%)",
       }}>
         {/* Links: Text */}
         <div style={{
@@ -411,13 +411,13 @@ export default function AnkerkleidungPage() {
         <div className="site-container" style={{ display: "flex", justifyContent: "space-between",
           padding: "1.25rem 0", flexWrap: "wrap", gap: "1rem" }}>
           {[
-            { icon: "🚚", text: "Kostenlose Lieferung" },
-            { icon: "📋", text: "Kostenträgerabrechnung möglich" },
-            { icon: "🔄", text: "Individuelle Bedarfsermittlung" },
-            { icon: "📞", text: "Persönliche Beratung: +49 30 22 45 43 22" },
+            { Icon: Truck,              text: "Kostenlose Lieferung" },
+            { Icon: FileText,           text: "Kostenträgerabrechnung möglich" },
+            { Icon: SlidersHorizontal,  text: "Individuelle Bedarfsermittlung" },
+            { Icon: Phone,              text: "Persönliche Beratung: +49 30 22 45 43 22" },
           ].map(v => (
             <div key={v.text} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <span style={{ fontSize: "1rem" }}>{v.icon}</span>
+              <v.Icon size={15} color="#6FA3FE" strokeWidth={1.75} />
               <span style={{ fontSize: "0.8125rem", color: "rgba(26,63,111,0.65)", fontWeight: 500 }}>{v.text}</span>
             </div>
           ))}
@@ -507,7 +507,7 @@ export default function AnkerkleidungPage() {
       </section>
 
       {/* ═══ INFO-BANNER ═══ */}
-      <section style={{ background: "#0b1828", padding: "4rem 0" }}>
+      <section style={{ background: "linear-gradient(155deg, #0d2444 0%, #1a3f6f 100%)", padding: "4rem 0" }}>
         <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
           <div>
             <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
