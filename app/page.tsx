@@ -244,9 +244,9 @@ export default function HomePage() {
         <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
 
-        <div className="site-container flex justify-center">
+        <div className="site-container">
           <BlurFade>
-            <div className="text-center" style={{ maxWidth: "640px" }}>
+            <div className="text-center" style={{ maxWidth: "640px", margin: "0 auto" }}>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A7FA5] mb-5">
                 Ein Netz. Elf Antworten.
               </p>
