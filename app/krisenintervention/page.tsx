@@ -802,6 +802,194 @@ export default function KriseninterventionPage() {
         </div>
       </section>
 
+      {/* ══ CHAT LENA ════════════════════════════════════════════ */}
+      <section style={{ background: "#d8e4f0", padding: "5rem 0" }}>
+        <div className="site-container" style={{
+          display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center",
+        }}>
+          {/* Text */}
+          <div>
+            <p style={{
+              fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em",
+              textTransform: "uppercase", color: "#1a3f6f", marginBottom: "1rem",
+            }}>
+              Sofortkontakt per Chat
+            </p>
+            <h2 style={{
+              fontSize: "clamp(1.75rem, 3vw, 2.25rem)", fontWeight: 800,
+              color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em",
+              marginBottom: "1.25rem",
+            }}>
+              Lena beantwortet Ihre erste Frage — sofort.
+            </h2>
+            <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.85, marginBottom: "1.25rem" }}>
+              Unser Chat-Assistent <strong style={{ color: "#1a3f6f" }}>Lena</strong> ist
+              direkt auf dieser Website erreichbar — unten rechts auf jeder Seite. Sie
+              beantwortet erste Fragen zur Krisenintervention, klärt Zuständigkeiten
+              und leitet Sie unkompliziert weiter.
+            </p>
+            <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.85, marginBottom: "2rem" }}>
+              Sobald Sie Lena kontaktieren, wird <strong style={{ color: "#1a3f6f" }}>automatisch
+              ein Mitarbeiter unseres Teams benachrichtigt</strong> — per direkter Nachricht
+              auf unser internes System. So stellt Lena sicher, dass keine Anfrage verloren
+              geht und eine Fachkraft zeitnah reagiert.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
+              {[
+                "Rund um die Uhr verfügbar — auch nachts und am Wochenende",
+                "Direkte Benachrichtigung eines Mitarbeiters bei jeder Anfrage",
+                "Kein Formular, kein Login — einfach tippen und fragen",
+                "Vertraulich und ohne persönliche Registrierung",
+              ].map((p, i) => (
+                <div key={i} style={{
+                  display: "flex", alignItems: "center", gap: "10px",
+                  padding: "0.75rem 1rem", background: "white",
+                  borderRadius: "10px", border: "1px solid rgba(26,63,111,0.08)",
+                }}>
+                  <span style={{
+                    width: "7px", height: "7px", borderRadius: "50%",
+                    background: "#6FA3FE", flexShrink: 0,
+                  }} />
+                  <p style={{ fontSize: "13px", color: "#1a3f6f", fontWeight: 500, lineHeight: 1.5 }}>{p}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Chat-Vorschau */}
+          <div>
+            <div style={{
+              background: "white", borderRadius: "20px", overflow: "hidden",
+              boxShadow: "0 8px 40px rgba(26,63,111,0.14)",
+              border: "1px solid rgba(26,63,111,0.1)",
+              maxWidth: "360px", margin: "0 auto",
+            }}>
+              {/* Header */}
+              <div style={{
+                background: "#1a3f6f", padding: "1rem 1.25rem",
+                display: "flex", alignItems: "center", gap: "12px",
+              }}>
+                <div style={{
+                  width: "40px", height: "40px", borderRadius: "50%",
+                  background: "linear-gradient(135deg, #6FA3FE 0%, #2d5fa0 100%)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: "16px", fontWeight: 800, color: "white", flexShrink: 0,
+                }}>
+                  L
+                </div>
+                <div>
+                  <p style={{ fontWeight: 700, color: "white", fontSize: "14px", lineHeight: 1.2 }}>Lena</p>
+                  <div style={{ display: "flex", alignItems: "center", gap: "5px", marginTop: "3px" }}>
+                    <span style={{
+                      width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80",
+                    }} />
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.6)" }}>Online · Ankernetz-Team</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Nachrichten */}
+              <div style={{ padding: "1.25rem", display: "flex", flexDirection: "column", gap: "0.875rem", background: "#f4f7fb" }}>
+                {/* Lena */}
+                <div style={{ display: "flex", gap: "8px", alignItems: "flex-end" }}>
+                  <div style={{
+                    width: "28px", height: "28px", borderRadius: "50%",
+                    background: "#1a3f6f", display: "flex", alignItems: "center",
+                    justifyContent: "center", fontSize: "11px", fontWeight: 800,
+                    color: "white", flexShrink: 0,
+                  }}>L</div>
+                  <div style={{
+                    background: "white", borderRadius: "12px 12px 12px 0",
+                    padding: "10px 14px", maxWidth: "260px",
+                    boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+                  }}>
+                    <p style={{ fontSize: "13px", color: "#1a3f6f", lineHeight: 1.55 }}>
+                      Hallo, ich bin Lena vom Ankernetz-Team. Wie kann ich Ihnen heute helfen?
+                    </p>
+                  </div>
+                </div>
+
+                {/* Nutzer */}
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                  <div style={{
+                    background: "#1a3f6f", borderRadius: "12px 12px 0 12px",
+                    padding: "10px 14px", maxWidth: "220px",
+                  }}>
+                    <p style={{ fontSize: "13px", color: "white", lineHeight: 1.55 }}>
+                      Wir brauchen dringend einen Krisenplatz für heute Nacht.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Lena Antwort */}
+                <div style={{ display: "flex", gap: "8px", alignItems: "flex-end" }}>
+                  <div style={{
+                    width: "28px", height: "28px", borderRadius: "50%",
+                    background: "#1a3f6f", display: "flex", alignItems: "center",
+                    justifyContent: "center", fontSize: "11px", fontWeight: 800,
+                    color: "white", flexShrink: 0,
+                  }}>L</div>
+                  <div style={{
+                    background: "white", borderRadius: "12px 12px 12px 0",
+                    padding: "10px 14px", maxWidth: "260px",
+                    boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+                  }}>
+                    <p style={{ fontSize: "13px", color: "#1a3f6f", lineHeight: 1.55 }}>
+                      Ich leite Ihre Anfrage sofort an unser Bereitschaftsteam weiter. Sie werden innerhalb weniger Minuten zurückgerufen.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Systemmeldung */}
+                <div style={{
+                  textAlign: "center", padding: "0.5rem",
+                }}>
+                  <span style={{
+                    fontSize: "11px", color: "#6b7280",
+                    background: "rgba(26,63,111,0.07)", borderRadius: "9999px",
+                    padding: "4px 12px",
+                  }}>
+                    Mitarbeiter wurde benachrichtigt
+                  </span>
+                </div>
+              </div>
+
+              {/* Input */}
+              <div style={{
+                padding: "0.875rem 1rem", background: "white",
+                borderTop: "1px solid #eef2f8",
+                display: "flex", gap: "8px", alignItems: "center",
+              }}>
+                <div style={{
+                  flex: 1, background: "#f4f7fb", borderRadius: "8px",
+                  padding: "9px 14px", fontSize: "13px", color: "#9ca3af",
+                }}>
+                  Schreiben Sie eine Nachricht …
+                </div>
+                <div style={{
+                  width: "34px", height: "34px", borderRadius: "8px",
+                  background: "#1a3f6f", display: "flex", alignItems: "center",
+                  justifyContent: "center", flexShrink: 0,
+                }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Hinweis */}
+            <p style={{
+              fontSize: "12px", color: "#6b7280", textAlign: "center",
+              marginTop: "1.25rem", lineHeight: 1.6,
+            }}>
+              Chat-Widget unten rechts auf jeder Seite verfügbar.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ══ FAQ ═══════════════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
         <div className="site-container" style={{ maxWidth: "760px" }}>
