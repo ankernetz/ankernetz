@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useMemo } from "react";
 import {
   ShoppingCart, X, Plus, Minus, Check,
@@ -13,7 +12,6 @@ import {
   Truck, FileText, SlidersHorizontal, Phone,
   Ruler, ChevronDown, Building2,
   Snowflake, Star, Box, ShoppingBag, Thermometer, CloudSun,
-  ArrowRight, Brain,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -480,147 +478,7 @@ export default function AnkerkleidungPage() {
   };
 
   return (
-    <main style={{ background: "#ffffff" }}>
-
-      {/* ══ HERO ══ */}
-      <section style={{
-        background: "linear-gradient(155deg, #0d2444 0%, #1a3f6f 60%, #1e4d82 100%)",
-        color: "#fff",
-        padding: "100px 24px 72px",
-        position: "relative",
-        overflow: "hidden",
-      }}>
-        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "500px", height: "500px", borderRadius: "50%", background: "rgba(111,163,254,0.07)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "-120px", left: "-60px", width: "400px", height: "400px", borderRadius: "50%", background: "rgba(255,255,255,0.04)", pointerEvents: "none" }} />
-        <div className="site-container" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{
-            display: "inline-flex", alignItems: "center", gap: "8px",
-            background: "rgba(111,163,254,0.2)", border: "1px solid rgba(111,163,254,0.4)",
-            borderRadius: "24px", padding: "6px 16px", marginBottom: "28px",
-          }}>
-            <Shirt size={14} color="#6FA3FE" />
-            <span style={{ fontSize: "13px", color: "#6FA3FE", fontWeight: 600, letterSpacing: "0.05em" }}>
-              SPEZIALISIERTE KLEIDUNG FÜR KINDER & JUGENDLICHE IN HILFEN
-            </span>
-          </div>
-          <h1 style={{ fontSize: "clamp(2.2rem, 5vw, 3.8rem)", fontWeight: 800, lineHeight: 1.1, marginBottom: "20px", maxWidth: "780px" }}>
-            Ankerkleidung
-          </h1>
-          <p style={{ fontSize: "1.25rem", color: "#d8e4f0", maxWidth: "640px", lineHeight: 1.7, marginBottom: "16px", fontWeight: 300 }}>
-            Kleidung, die versteht.
-          </p>
-          <p style={{ fontSize: "1.05rem", color: "rgba(216,228,240,0.85)", maxWidth: "680px", lineHeight: 1.8, marginBottom: "48px" }}>
-            Entwickelt mit Fachkräften der Kinder- und Jugendhilfe — für Kinder mit ADHS, Trauma, Autismus-Spektrum-Störungen, Bindungsstörungen und besonderen Bedarfen.
-          </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "16px", maxWidth: "780px", marginBottom: "40px" }}>
-            {[
-              { wert: "9", label: "Spezialisierte Produktlinien", icon: Layers },
-              { wert: "klinisch", label: "Entwickelt mit Therapeuten & Fachkräften", icon: Shield },
-              { wert: "0 Hürden", label: "Kostenträgerabrechnung direkt möglich", icon: FileText },
-              { wert: "< 48h", label: "Erstausstattung bei Notaufnahme", icon: Zap },
-            ].map((k) => {
-              const Icon = k.icon;
-              return (
-                <div key={k.wert} style={{
-                  background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)",
-                  borderRadius: "12px", padding: "20px 16px", backdropFilter: "blur(8px)",
-                }}>
-                  <Icon size={20} color="#6FA3FE" style={{ marginBottom: "10px" }} />
-                  <div style={{ fontSize: "1.4rem", fontWeight: 800, color: "#fff", marginBottom: "4px" }}>{k.wert}</div>
-                  <div style={{ fontSize: "0.78rem", color: "rgba(216,228,240,0.8)", lineHeight: 1.4 }}>{k.label}</div>
-                </div>
-              );
-            })}
-          </div>
-          <a href="#shop" style={{
-            display: "inline-flex", alignItems: "center", gap: "8px",
-            background: "#6FA3FE", color: "#fff",
-            padding: "14px 28px", borderRadius: "8px",
-            fontWeight: 700, fontSize: "0.95rem", textDecoration: "none",
-          }}>
-            Zum Shop <ArrowRight size={16} />
-          </a>
-        </div>
-      </section>
-
-      {/* ══ WARUM ANKERKLEIDUNG ══ */}
-      <section style={{ padding: "72px 24px", background: "#fff" }}>
-        <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
-            <div>
-              <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Warum spezialisiert?</div>
-              <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800, marginBottom: "20px", lineHeight: 1.2 }}>
-                Normale Kleidung reicht nicht — wenn die Haut alles fühlt
-              </h2>
-              <p style={{ color: "#4a5568", lineHeight: 1.8, marginBottom: "16px" }}>
-                Kinder mit ADHS, Autismus oder Traumafolgestörungen erleben Kleidung anders. Eine Naht kann sich anfühlen wie Schmerz. Ein Etikett wie ein Dauer-Reiz. Eine zu enge Jacke wie ein Gefängnis. Normale Kleidung ist für diese Kinder nicht neutral — sie kann belasten, ablenken und den Alltag erschweren.
-              </p>
-              <p style={{ color: "#4a5568", lineHeight: 1.8, marginBottom: "16px" }}>
-                Ankerkleidung wurde gemeinsam mit Kinder- und Jugendpsychotherapeuten, Ergotherapeuten und erfahrenen Jugendhilfe-Fachkräften entwickelt. Jedes Produkt trägt das Wissen derer, die täglich mit diesen Kindern arbeiten.
-              </p>
-              <p style={{ color: "#4a5568", lineHeight: 1.8 }}>
-                Das Ergebnis: Kleidung, die nicht stört. Die Sicherheit gibt. Die Würde ausdrückt. Die einfach passt — auch wenn vieles andere im Leben dieser Kinder gerade nicht passt.
-              </p>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {[
-                { icon: Brain, titel: "Sensorik verstanden", text: "Nahtlose Verarbeitung, weiche Materialien, keine störenden Etiketten — für Kinder mit sensorischer Empfindlichkeit." },
-                { icon: Shield, titel: "Therapeutisch fundiert", text: "Weighted Vests, Kompressionsmaterialien, Hüll-Effekte — klinisch sinnvoll, nicht modisch zufällig." },
-                { icon: Heart, titel: "Würde sichtbar machen", text: "Kleidung, die Kinder gut aussehen und sich gut fühlen lässt. Ein kleines, aber wichtiges Signal von Wertschätzung." },
-                { icon: Layers, titel: "Für das gesamte Hilfesystem", text: "Einzel-Produkte, Saisonpakete, Erstausstattungen — abrechnungsfähig über Kostenträger." },
-              ].map((p, i) => {
-                const Icon = p.icon;
-                return (
-                  <div key={i} style={{ display: "flex", gap: "14px", alignItems: "flex-start", padding: "16px", background: "#f4f7fb", borderRadius: "12px", border: "1px solid #e8edf5" }}>
-                    <div style={{ background: "#d8e4f0", borderRadius: "8px", padding: "8px", flexShrink: 0 }}>
-                      <Icon size={18} color="#1a3f6f" />
-                    </div>
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: "0.93rem", marginBottom: "4px" }}>{p.titel}</div>
-                      <div style={{ color: "#6b7280", fontSize: "0.84rem", lineHeight: 1.6 }}>{p.text}</div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ PRODUKTLINIEN ══ */}
-      <section style={{ padding: "72px 24px", background: "#f4f7fb" }}>
-        <div className="site-container">
-          <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Produktlinien</div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>9 spezialisierte Linien — eine für jedes Bild</h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "16px" }}>
-            {[
-              { titel: "ADHS & Hyperaktivität", text: "Reizarm, funktional, komfortabel — kein unnötiger Input.", akzent: "#6FA3FE" },
-              { titel: "Trauma & PTBS", text: "Weich, hüllend, sicher — Kleidung, die schützt und beruhigt.", akzent: "#FEC274" },
-              { titel: "Autismus-Spektrum", text: "Nahtlos, konsistent, ohne Überraschungen.", akzent: "#6FA3FE" },
-              { titel: "Erstausstattung", text: "Vollständige Grundausstattung für Kinder, die mit nichts ankommen.", akzent: "#FEC274" },
-              { titel: "Angststörungen", text: "Dezent, unauffällig — kein Anlass zur Beschämung.", akzent: "#6FA3FE" },
-              { titel: "Bindungsstörungen", text: "Erkennbar, persönlich, verbindend — Kleidung als Beziehungsanker.", akzent: "#FEC274" },
-              { titel: "Erstbekleidungspakete", text: "Komplettsets für den ersten Tag — würdevoll und vollständig.", akzent: "#22c55e" },
-              { titel: "Winterpauschale", text: "Warm, wetterfest, vollständig für die kalte Jahreszeit.", akzent: "#93c5fd" },
-              { titel: "Sommerpauschale", text: "Leicht, atmungsaktiv und feriengerecht.", akzent: "#f97316" },
-            ].map((l, i) => (
-              <div key={i} className="bento-card" style={{
-                background: "#fff", borderRadius: "12px", padding: "20px",
-                border: `1px solid ${l.akzent}30`,
-                borderLeft: `3px solid ${l.akzent}`,
-              }}>
-                <h3 style={{ fontWeight: 700, fontSize: "0.9rem", marginBottom: "6px", color: "#1a1a2e" }}>{l.titel}</h3>
-                <p style={{ color: "#6b7280", fontSize: "0.82rem", lineHeight: 1.5, margin: 0 }}>{l.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ SHOP-ANCHOR ══ */}
-      <div id="shop" />
+    <main style={{ background: "#ffffff", paddingTop: "56px" }}>
 
       {/* ══ SEITEN-HEADER ══ */}
       <div style={{ borderBottom: "1px solid #dde4ee",
@@ -909,95 +767,6 @@ export default function AnkerkleidungPage() {
           </div>
         </>
       )}
-
-      {/* ══ WIE BESTELLEN ══ */}
-      <section style={{ padding: "72px 24px", background: "#fff" }}>
-        <div className="site-container">
-          <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Bestellprozess</div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>So einfach bestellen Sie</h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0" }}>
-            {[
-              { nr: "01", icon: SlidersHorizontal, titel: "Kategorie wählen", text: "Wählen Sie die passende Produktlinie für das Störungsbild oder den Bedarf des Kindes." },
-              { nr: "02", icon: Ruler, titel: "Größe & Farbe", text: "Größe im Hover-Overlay auswählen, Farbe per Farbkreis bestimmen — dann in den Warenkorb." },
-              { nr: "03", icon: ShoppingCart, titel: "Warenkorb prüfen", text: "Alle Artikel im Warenkorb kontrollieren, Mengen anpassen, dann zur Kasse gehen." },
-              { nr: "04", icon: Check, titel: "Bestellung absenden", text: "Name, E-Mail und Zahlungsart eingeben. Sofortige Bestätigung — Lieferung innerhalb weniger Tage." },
-            ].map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <div key={s.nr} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", position: "relative", padding: "0 8px" }}>
-                  {i < 3 && (
-                    <div style={{ position: "absolute", top: "28px", left: "calc(50% + 28px)", height: "2px", background: "#d8e4f0", width: "calc(100% - 56px)", zIndex: 0 }} />
-                  )}
-                  <div style={{
-                    width: "56px", height: "56px", borderRadius: "50%",
-                    background: "#1a3f6f", color: "#fff",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    marginBottom: "16px", position: "relative", zIndex: 1, flexShrink: 0,
-                  }}>
-                    <Icon size={22} />
-                  </div>
-                  <div style={{ fontSize: "0.72rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.08em", marginBottom: "6px" }}>{s.nr}</div>
-                  <h3 style={{ fontWeight: 700, fontSize: "0.95rem", marginBottom: "8px" }}>{s.titel}</h3>
-                  <p style={{ color: "#4a5568", fontSize: "0.82rem", lineHeight: 1.6 }}>{s.text}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ FAQ ══ */}
-      <section style={{ padding: "72px 24px", background: "#f4f7fb" }}>
-        <div className="site-container">
-          <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Häufige Fragen</div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>FAQ — Ankerkleidung</h2>
-          </div>
-          <div style={{ maxWidth: "820px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "12px" }}>
-            {[
-              { f: "Kann die Bestellung über das Jugendamt abgerechnet werden?", a: "Ja. Ankerkleidung ist über Kostenträger abrechnungsfähig. Wir stellen auf Wunsch eine vollständige Dokumentation bereit — inkl. Bedarfsbegründung nach Störungsbild. Sprechen Sie uns an, wir unterstützen bei der Kostenklärung." },
-              { f: "Für welche Altersgruppen gibt es Produkte?", a: "Unsere Produktlinien decken Größen von 80 cm (Kleinkind) bis L/XL (ältere Jugendliche) ab. Die meisten Produkte sind in den Kerngrößen 104 bis 164 sowie S, M und L verfügbar." },
-              { f: "Wie schnell wird geliefert?", a: "Bei Standardbestellungen innerhalb von 3–5 Werktagen. Bei Notaufnahmen und dringendem Bedarf stellen wir eine Erstausstattung innerhalb von 48 Stunden bereit — bitte rufen Sie direkt an." },
-              { f: "Kann ich auch ohne festes Störungsbild bestellen?", a: "Ja. Die Kategorie 'Erstausstattung' und 'Erstbekleidungspakete' sind ohne spezifische Indikation bestellbar. Wenn Sie unsicher sind, welche Produktlinie passt, rufen Sie uns an oder schreiben Sie eine E-Mail — wir beraten kostenlos." },
-              { f: "Welche Zahlungsarten sind möglich?", a: "Vorkasse per Überweisung, PayPal, Apple Pay und Google Pay. Für institutionelle Bestellungen (Einrichtungen, Jugendämter) auch auf Rechnung nach Absprache." },
-              { f: "Was passiert bei falscher Größe?", a: "Kostenloser Umtausch innerhalb von 30 Tagen. Bei Kindern in stationären Hilfen empfehlen wir im Zweifelsfall die nächstgrößere Größe — die Maßtabelle im Shop hilft bei der Auswahl." },
-              { f: "Gibt es Mengenrabatte für Einrichtungen?", a: "Ja. Für Einrichtungen, die regelmäßig bestellen oder Saisonpakete für mehrere Kinder benötigen, bieten wir Rahmenvereinbarungen mit Mengenrabatten an. Bitte nehmen Sie direkt Kontakt auf." },
-              { f: "Wie ist das 'Matching-Set Betreuer' gedacht?", a: "Das Matching-Set (aus der Kategorie Bindungsstörungen) besteht aus einem Set für Kind und Bezugsbetreuer. Es soll als visueller Beziehungsanker wirken — ein kleines, aber wirksames Element der Bindungsarbeit. Es wird von Fachkräften empfohlen, ist aber optional." },
-            ].map((item, i) => (
-              <details key={i} style={{ background: "#fff", border: "1px solid #e8edf5", borderRadius: "12px", overflow: "hidden" }}>
-                <summary style={{ padding: "20px 24px", fontWeight: 700, fontSize: "0.95rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between", listStyle: "none", userSelect: "none" }}>
-                  {item.f}
-                  <ChevronDown size={18} color="#6FA3FE" style={{ flexShrink: 0, marginLeft: "12px" }} />
-                </summary>
-                <div style={{ padding: "0 24px 20px", color: "#4a5568", lineHeight: 1.8, borderTop: "1px solid #f0f4f8", paddingTop: "16px" }}>{item.a}</div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ CTA ══ */}
-      <section style={{ padding: "72px 24px", background: "linear-gradient(155deg, #0d2444 0%, #1a3f6f 60%, #1e4d82 100%)", color: "#fff", textAlign: "center" }}>
-        <div className="site-container">
-          <div style={{ background: "rgba(111,163,254,0.15)", borderRadius: "50%", width: "72px", height: "72px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
-            <Shirt size={36} color="#6FA3FE" />
-          </div>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 800, marginBottom: "20px", color: "#fff" }}>Beraten lassen oder direkt bestellen?</h2>
-          <p style={{ fontSize: "1.1rem", color: "rgba(216,228,240,0.85)", maxWidth: "560px", margin: "0 auto 40px", lineHeight: 1.7 }}>
-            Bei Fragen zur richtigen Produktlinie, Kostenträgerabrechnung oder Notaufnahme-Erstausstattung stehen wir jederzeit zur Verfügung.
-          </p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="#shop" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "#6FA3FE", color: "#fff", padding: "16px 32px", borderRadius: "8px", fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}>
-              Zum Shop <ArrowRight size={18} />
-            </a>
-            <Link href="/kontakt" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "transparent", border: "2px solid rgba(255,255,255,0.35)", color: "#fff", padding: "16px 32px", borderRadius: "8px", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}>
-              <Phone size={18} /> Beratung anfragen
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* ══ CHECKOUT MODAL ══ */}
       {checkoutOpen && (
