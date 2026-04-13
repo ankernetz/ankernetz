@@ -40,17 +40,18 @@ export default function ChatWidget() {
   /* ── Drag ── */
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef<{ ox: number; oy: number; startX: number; startY: number; moved: boolean } | null>(null);
+  const dragRef = useRef<{ ox: number; oy: number; startX: number; startY: number } | null>(null);
+  const wasDragged = useRef(false);
 
   function startDrag(e: React.PointerEvent) {
     if (e.button !== undefined && e.button > 0) return;
+    wasDragged.current = false;
     const rect = containerRef.current!.getBoundingClientRect();
     dragRef.current = {
       ox: e.clientX - rect.left,
       oy: e.clientY - rect.top,
       startX: e.clientX,
       startY: e.clientY,
-      moved: false,
     };
   }
 
@@ -58,9 +59,8 @@ export default function ChatWidget() {
     if (!dragRef.current) return;
     const dx = Math.abs(e.clientX - dragRef.current.startX);
     const dy = Math.abs(e.clientY - dragRef.current.startY);
-    // Erst ab 6px Bewegung als Drag werten
     if (dx < 6 && dy < 6) return;
-    dragRef.current.moved = true;
+    wasDragged.current = true;
     const newX = e.clientX - dragRef.current.ox;
     const newY = e.clientY - dragRef.current.oy;
     const w = containerRef.current?.offsetWidth ?? 360;
@@ -73,6 +73,9 @@ export default function ChatWidget() {
 
   function endDrag() {
     dragRef.current = null;
+    // wasDragged bleibt bis zum nächsten startDrag erhalten,
+    // damit onClick es noch lesen kann
+    setTimeout(() => { wasDragged.current = false; }, 50);
   }
 
   /* Verhindert ungewolltes Textselektieren beim Ziehen */
@@ -178,7 +181,7 @@ export default function ChatWidget() {
             animation: "floatIn 0.4s ease both",
           }}
           onClick={() => {
-            if (!dragRef.current?.moved) setOpen(true);
+            if (!wasDragged.current) setOpen(true);
           }}
         >
           <p style={{ fontSize: "13px", fontWeight: 600, color: "#1a3f6f", whiteSpace: "nowrap", lineHeight: 1.3 }}>
@@ -193,7 +196,7 @@ export default function ChatWidget() {
         <button
           aria-label="Chat öffnen"
           onClick={() => {
-            if (!dragRef.current?.moved) setOpen(true);
+            if (!wasDragged.current) setOpen(true);
           }}
           style={{
             width: "60px",
