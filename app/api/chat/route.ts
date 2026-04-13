@@ -82,20 +82,45 @@ async function sendTelegram(text: string) {
   }
 }
 
+function berlinTime(): string {
+  return new Date().toLocaleTimeString("de-DE", {
+    timeZone: "Europe/Berlin",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
 export async function POST(req: Request) {
-  const { messages, isFirstMessage } = await req.json();
+  const { messages, sessionId, userMessageCount } = await req.json();
 
   const lastMessage = messages[messages.length - 1]?.content ?? "";
   const isCrisis = detectCrisis(lastMessage);
+  const session = sessionId ?? "????";
+  const uhrzeit = berlinTime();
+  const nr = userMessageCount ?? "?";
 
-  // WhatsApp-Benachrichtigung bei erster Nachricht oder Krisenhinweis
-  if (isFirstMessage || isCrisis) {
-    const preview = lastMessage.slice(0, 200);
-    const text = isCrisis
-      ? `🚨 <b>KRISE – Ankernetz Chat</b>\n\n"${preview}"\n\n<i>Bitte sofort reagieren.</i>`
-      : `💬 <b>Neue Anfrage – Ankernetz Chat</b>\n\n"${preview}"`;
-    sendTelegram(text);
+  const preview = lastMessage.slice(0, 300);
+
+  let telegramText: string;
+  if (isCrisis) {
+    telegramText =
+      `🚨 <b>KRISE · #${session}</b>\n` +
+      `🕐 ${uhrzeit} Uhr · Nachricht ${nr}\n\n` +
+      `"${preview}"\n\n` +
+      `⚠️ <b>Bitte sofort reagieren.</b>`;
+  } else if (nr === 1) {
+    telegramText =
+      `💬 <b>Neuer Chat · #${session}</b>\n` +
+      `🕐 ${uhrzeit} Uhr\n\n` +
+      `"${preview}"`;
+  } else {
+    telegramText =
+      `📩 <b>#${session}</b> · Nachricht ${nr}\n` +
+      `🕐 ${uhrzeit} Uhr\n\n` +
+      `"${preview}"`;
   }
+
+  await sendTelegram(telegramText);
 
   const systemPrompt = isCrisis
     ? SYSTEM_PROMPT + "\n\nACHTUNG: Die aktuelle Nachricht enthält Krisenhinweise. Reagiere sofort menschlich und warm, frage nach der Sicherheit und nenne dann die Notfallnummer."

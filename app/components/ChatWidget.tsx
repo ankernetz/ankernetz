@@ -21,6 +21,11 @@ function isCrisisMessage(text: string): boolean {
   return CRISIS_KEYWORDS.some(kw => lower.includes(kw));
 }
 
+function generateSessionId(): string {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  return Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [minimized, setMinimized] = useState(false);
@@ -30,6 +35,7 @@ export default function ChatWidget() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [showCrisisBanner, setShowCrisisBanner] = useState(false);
+  const sessionId = useRef<string>(generateSessionId());
 
   /* ── Drag ── */
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
@@ -96,13 +102,14 @@ export default function ChatWidget() {
     setInput("");
     setLoading(true);
     try {
-      const isFirstMessage = messages.filter(m => m.role === "user").length === 0;
+      const userMessageCount = messages.filter(m => m.role === "user").length + 1;
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: newMessages.map(m => ({ role: m.role, content: m.content })),
-          isFirstMessage,
+          sessionId: sessionId.current,
+          userMessageCount,
         }),
       });
       const reader = res.body?.getReader();
