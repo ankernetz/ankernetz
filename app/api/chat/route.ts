@@ -150,8 +150,9 @@ export async function POST(req: Request) {
         }
         controller.close();
       } catch (err) {
-        console.error("Chat API error:", err);
-        controller.enqueue(encoder.encode("Entschuldigung, ich bin kurz nicht erreichbar. Ruf uns direkt an: +49 (0) 30 22 45 43 22"));
+        const msg = err instanceof Error ? err.message : String(err);
+        console.error("Chat API error:", msg);
+        controller.enqueue(encoder.encode(`[DEBUG] ${msg}`));
         controller.close();
       }
     },
