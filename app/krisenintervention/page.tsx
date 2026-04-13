@@ -236,7 +236,7 @@ export default function KriseninterventionPage() {
         justifyContent: "flex-end",
         paddingBottom: "5rem",
         paddingTop: "8rem",
-        background: "linear-gradient(160deg, #0a1628 0%, #0f2240 40%, #1a3f6f 100%)",
+        background: "linear-gradient(160deg, #1a3f6f 0%, #2d5fa0 60%, #1a3f6f 100%)",
         overflow: "hidden",
       }}>
         {/* Dot grid */}
@@ -559,7 +559,7 @@ export default function KriseninterventionPage() {
 
       {/* ══ PROZESS ═══════════════════════════════════════════════ */}
       <section style={{
-        background: "linear-gradient(160deg, #0f2240 0%, #1a3f6f 100%)",
+        background: "linear-gradient(160deg, #1a3f6f 0%, #2d5fa0 60%, #1a3f6f 100%)",
         padding: "5rem 0",
         position: "relative", overflow: "hidden",
       }}>
@@ -846,7 +846,7 @@ export default function KriseninterventionPage() {
 
       {/* ══ CTA ═══════════════════════════════════════════════════ */}
       <section style={{
-        background: "linear-gradient(160deg, #0f2240 0%, #1a3f6f 100%)",
+        background: "linear-gradient(160deg, #1a3f6f 0%, #2d5fa0 60%, #1a3f6f 100%)",
         padding: "6rem 0", textAlign: "center",
         position: "relative", overflow: "hidden",
       }}>
