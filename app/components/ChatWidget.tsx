@@ -40,27 +40,31 @@ export default function ChatWidget() {
   /* ── Drag ── */
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef<{ ox: number; oy: number; moved: boolean } | null>(null);
+  const dragRef = useRef<{ ox: number; oy: number; startX: number; startY: number; moved: boolean } | null>(null);
 
   function startDrag(e: React.PointerEvent) {
-    // nur primäre Maustaste / Touch
     if (e.button !== undefined && e.button > 0) return;
-    e.currentTarget.setPointerCapture(e.pointerId);
     const rect = containerRef.current!.getBoundingClientRect();
     dragRef.current = {
       ox: e.clientX - rect.left,
       oy: e.clientY - rect.top,
+      startX: e.clientX,
+      startY: e.clientY,
       moved: false,
     };
   }
 
   function moveDrag(e: React.PointerEvent) {
     if (!dragRef.current) return;
+    const dx = Math.abs(e.clientX - dragRef.current.startX);
+    const dy = Math.abs(e.clientY - dragRef.current.startY);
+    // Erst ab 6px Bewegung als Drag werten
+    if (dx < 6 && dy < 6) return;
+    dragRef.current.moved = true;
     const newX = e.clientX - dragRef.current.ox;
     const newY = e.clientY - dragRef.current.oy;
     const w = containerRef.current?.offsetWidth ?? 360;
     const h = containerRef.current?.offsetHeight ?? 60;
-    dragRef.current.moved = true;
     setPos({
       x: Math.max(0, Math.min(window.innerWidth - w, newX)),
       y: Math.max(0, Math.min(window.innerHeight - h, newY)),
