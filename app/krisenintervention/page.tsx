@@ -236,7 +236,7 @@ export default function KriseninterventionPage() {
         justifyContent: "flex-end",
         paddingBottom: "5rem",
         paddingTop: "8rem",
-        background: "linear-gradient(160deg, #1a3f6f 0%, #2d5fa0 60%, #1a3f6f 100%)",
+        background: "linear-gradient(155deg, #0d2444 0%, #1a3f6f 60%, #1e4d82 100%)",
         overflow: "hidden",
       }}>
         {/* Dot grid */}
