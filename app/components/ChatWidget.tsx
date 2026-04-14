@@ -21,16 +21,6 @@ function isCrisisMessage(text: string): boolean {
   return CRISIS_KEYWORDS.some(kw => text.toLowerCase().includes(kw));
 }
 
-async function getLocation(): Promise<{ lat: number; lon: number } | null> {
-  return new Promise(resolve => {
-    if (typeof navigator === "undefined" || !navigator.geolocation) { resolve(null); return; }
-    const timer = setTimeout(() => resolve(null), 3000);
-    navigator.geolocation.getCurrentPosition(
-      pos => { clearTimeout(timer); resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }); },
-      () => { clearTimeout(timer); resolve(null); }
-    );
-  });
-}
 
 function generateSessionId(): string {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -115,7 +105,10 @@ export default function ChatWidget() {
 
   useEffect(() => {
     if (open && locationRef.current === null) {
-      getLocation().then(loc => { locationRef.current = loc; });
+      try {
+        const stored = localStorage.getItem("ankernetz_location");
+        if (stored) locationRef.current = JSON.parse(stored);
+      } catch { /* ignore */ }
     }
   }, [open]);
 

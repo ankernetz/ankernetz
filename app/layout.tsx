@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ChatWidget from "./components/ChatWidget";
+import CookieBanner from "./components/CookieBanner";
 import Link from "next/link";
 
 const inter = Inter({
@@ -33,6 +34,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <ChatWidget />
+        <CookieBanner />
       </body>
     </html>
   );
