@@ -169,8 +169,11 @@ export default function ChatWidget() {
   function sendChip(l: string) {
     setChipsUsed(true);
     const preset = chipPresets[l];
-    if (preset) {
-      if (preset.crisis) setCrisisBanner(true);
+    if (preset?.crisis) {
+      // Krise: immer durch API → Telegram-Benachrichtigung + echte Lena-Antwort
+      sendMessageWithText(l);
+    } else if (preset) {
+      // Nicht-Krise: statische Preset-Antwort, kein API-Call nötig
       setMessages(prev => [
         ...prev,
         { role: "user", content: l },
