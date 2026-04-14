@@ -8,7 +8,9 @@ const LOCATION_KEY = "ankernetz_location";
 function requestLocation() {
   if (typeof navigator !== "undefined" && navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-      pos => localStorage.setItem(LOCATION_KEY, JSON.stringify({ lat: pos.coords.latitude, lon: pos.coords.longitude })),
+      pos => localStorage.setItem(LOCATION_KEY, JSON.stringify({
+        lat: pos.coords.latitude, lon: pos.coords.longitude,
+      })),
       () => {}
     );
   }
@@ -30,183 +32,250 @@ export default function CookieBanner() {
     if (komfortOn) requestLocation();
     setVisible(false);
   }
-  function acceptAll()  { save(true); }
-  function saveChoice() { save(komfort); }
-  function rejectAll()  { save(false); }
 
   if (!visible) return null;
 
+  // ── Toggle-Komponente ──────────────────────────────────────────
   const Toggle = ({ on, onChange, disabled }: { on: boolean; onChange: () => void; disabled?: boolean }) => (
-    <button onClick={disabled ? undefined : onChange} style={{
-      width: "38px", height: "20px", borderRadius: "10px", border: "none", padding: 0,
-      background: on ? "#c0392b" : "#555",
-      cursor: disabled ? "default" : "pointer",
-      position: "relative", flexShrink: 0, transition: "background 0.18s",
-    }}>
+    <button
+      onClick={disabled ? undefined : onChange}
+      aria-checked={on}
+      role="switch"
+      style={{
+        width: "40px", height: "22px", borderRadius: "11px",
+        border: "none", padding: 0, flexShrink: 0,
+        background: on ? "#cc0000" : "#555555",
+        cursor: disabled ? "default" : "pointer",
+        position: "relative", transition: "background 0.2s",
+        outline: "none",
+      }}
+    >
       <span style={{
-        position: "absolute", top: "2px", left: on ? "20px" : "2px",
-        width: "16px", height: "16px", borderRadius: "50%", background: "white",
-        transition: "left 0.18s", boxShadow: "0 1px 3px rgba(0,0,0,0.25)",
+        position: "absolute",
+        top: "3px",
+        left: on ? "21px" : "3px",
+        width: "16px", height: "16px",
+        borderRadius: "50%",
+        background: "white",
+        transition: "left 0.2s",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.35)",
         display: "block",
       }} />
     </button>
   );
 
+  const BTN_BASE: React.CSSProperties = {
+    display: "block", width: "100%",
+    padding: "9px 10px",
+    fontSize: "12px", fontWeight: 700,
+    fontFamily: "Arial, Helvetica, sans-serif",
+    textAlign: "center", cursor: "pointer",
+    border: "2px solid #1a1a1a",
+    borderRadius: "0px",
+    whiteSpace: "nowrap",
+    lineHeight: 1.3,
+    transition: "opacity 0.15s",
+  };
+
   return (
-    <div style={{
-      position: "fixed", top: 0, left: 0, right: 0, zIndex: 9999,
-      background: "white",
-      boxShadow: "0 2px 16px rgba(0,0,0,0.22)",
-      fontFamily: "Arial, Helvetica, sans-serif",
-      fontSize: "12px", color: "#222",
-      lineHeight: 1.5,
-    }}>
-
-      {/* ── Hauptbereich: Text links | Buttons rechts ── */}
-      <div style={{ display: "flex", borderBottom: "1px solid #ddd" }}>
-
-        {/* Text scrollbar links */}
-        <div style={{
-          flex: 1,
-          height: "130px",
-          overflowY: "scroll",
-          padding: "14px 18px",
-          borderRight: "1px solid #ddd",
-        }}>
-          <p style={{ fontWeight: 700, fontSize: "13px", marginBottom: "8px" }}>
-            Ihre Cookie-Einstellungen
-          </p>
-          <p style={{ color: "#333" }}>
-            Neben technisch notwendigen Cookies verwenden wir und unsere hier aufgelisteten Empfänger
-            auch Einwilligungs-bedürftige Cookies und ähnliche Technologien. Indem Sie auf die
-            Schaltfläche "Alle optionalen Cookies zulassen" klicken, stimmen Sie dem Setzen der
-            optionalen Cookies selbst sowie der weiteren Verarbeitung – inklusive Übermittlung –
-            Ihrer personenbezogenen Daten zu Zwecken der Verbesserung Ihres Komforts und der
-            Berücksichtigung von Präferenzen durch Personalisierung, Analyse des Nutzerverhaltens
-            sowie der Durchführung und Überprüfung von Werbemaßnahmen zu. Alternativ können Sie
-            auch einzelne Kategorien von Cookies auswählen und deren Verwendung zustimmen, indem
-            Sie auf die Schaltfläche "Auswahl speichern" klicken. Ihre Einwilligung umfasst dabei
-            stets die Verarbeitung in unsicheren Drittländern. Wir weisen auf ein nicht mit der EU
-            vergleichbares Datenschutzniveau bei solchen Ländern hin. Es besteht u.a. das Risiko,
-            dass dortige Behörden auf die verarbeiteten Daten zugreifen können und Ihre
-            Datenschutzrechte eingeschränkt sind. Weitere Erklärungen zu den verwendeten Cookies
-            und ähnlichen Technologien sowie zur Verarbeitung Ihrer personenbezogenen Daten, z.B.
-            zu den verarbeiteten Daten, den Speicherdauern und den Datenempfängern, können Sie
-            durch Anklicken von "Details zeigen" oder durch Aufrufen unserer Datenschutzerklärung,
-            die am Ende der Webseite verlinkt ist, wählen und finden. Je nach den von Ihnen
-            gewählten Einstellungen oder wenn Sie die Schaltfläche "Alle optionalen Cookies
-            ablehnen" wählen, stehen Ihnen möglicherweise einige Funktionen der Website nicht mehr
-            zur Verfügung. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft in
-            unserer Datenschutzerklärung oder durch Anklicken des Datenschutz-Symbols am Ende der
-            Seite widerrufen.
-          </p>
-
-          {details && (
-            <div style={{ marginTop: "14px", borderTop: "1px solid #ddd", paddingTop: "14px", display: "flex", flexDirection: "column", gap: "10px" }}>
-              {[
-                { label: "Notwendig",                   desc: "Technisch erforderliche Cookies. Speicherdauer: Sitzung.", on: true,     required: true,  fn: undefined },
-                { label: "Komfort und Personalisierung", desc: "Standorterfassung für Notfallhilfe im Chat. Speicherdauer: 30 Tage.",   on: komfort,  required: false, fn: () => setKomfort(v => !v) },
-                { label: "Analyse",                     desc: "Analyse des Nutzerverhaltens. Derzeit nicht aktiv.",          on: analyse,  required: false, fn: () => setAnalyse(v => !v) },
-                { label: "Marketing",                   desc: "Zielgerichtete Werbung. Derzeit nicht aktiv.",                on: marketing, required: false, fn: () => setMarketing(v => !v) },
-              ].map(c => (
-                <div key={c.label} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
-                  <Toggle on={c.on} onChange={c.fn ?? (() => {})} disabled={c.required} />
-                  <div>
-                    <p style={{ fontWeight: 700, fontSize: "12px" }}>{c.label}{c.required && <span style={{ fontWeight: 400, color: "#888", marginLeft: "5px" }}>(immer aktiv)</span>}</p>
-                    <p style={{ color: "#666", fontSize: "11px" }}>{c.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Buttons rechts */}
-        <div style={{
-          width: "210px", flexShrink: 0,
-          display: "flex", flexDirection: "column", gap: "7px",
-          padding: "14px 16px", justifyContent: "center",
-        }}>
-          <button onClick={acceptAll} style={{
-            padding: "8px 12px", border: "none", borderRadius: "2px",
-            background: "#c0392b", color: "white",
-            fontSize: "12px", fontWeight: 700, cursor: "pointer",
-            whiteSpace: "nowrap", transition: "background 0.15s",
-          }}
-            onMouseEnter={e => (e.currentTarget.style.background = "#a93226")}
-            onMouseLeave={e => (e.currentTarget.style.background = "#c0392b")}
-          >
-            Alle optionalen Cookies zulassen
-          </button>
-          <button onClick={saveChoice} style={{
-            padding: "8px 12px", borderRadius: "2px",
-            background: "white", border: "2px solid #222", color: "#222",
-            fontSize: "12px", fontWeight: 700, cursor: "pointer",
-            whiteSpace: "nowrap", transition: "background 0.15s",
-          }}
-            onMouseEnter={e => (e.currentTarget.style.background = "#f5f5f5")}
-            onMouseLeave={e => (e.currentTarget.style.background = "white")}
-          >
-            Auswahl speichern
-          </button>
-          <button onClick={rejectAll} style={{
-            padding: "8px 12px", borderRadius: "2px",
-            background: "white", border: "2px solid #222", color: "#222",
-            fontSize: "12px", fontWeight: 700, cursor: "pointer",
-            whiteSpace: "nowrap", transition: "background 0.15s",
-          }}
-            onMouseEnter={e => (e.currentTarget.style.background = "#f5f5f5")}
-            onMouseLeave={e => (e.currentTarget.style.background = "white")}
-          >
-            Alle optionalen Cookies ablehnen
-          </button>
-        </div>
-      </div>
-
-      {/* ── Footer-Leiste ── */}
+    <>
+      {/* ── Dunkles Overlay — sperrt die Seite ── */}
       <div style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "8px 18px", background: "#fff",
-        borderTop: "1px solid #e8e8e8",
-        gap: "12px", flexWrap: "wrap",
-      }}>
-        {/* Cookiebot-Style Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: "6px", flexShrink: 0 }}>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <rect width="22" height="22" rx="4" fill="#1a3f6f"/>
-            <text x="11" y="16" textAnchor="middle" fill="white" fontSize="12" fontWeight="900" fontFamily="Arial">A</text>
-          </svg>
-          <div style={{ lineHeight: 1.1 }}>
-            <div style={{ fontSize: "11px", fontWeight: 700, color: "#1a3f6f" }}>Ankernetz</div>
-            <div style={{ fontSize: "9px", color: "#999" }}>by Datenschutz</div>
+        position: "fixed", inset: 0, zIndex: 9998,
+        background: "rgba(0,0,0,0.5)",
+      }} />
+
+      {/* ── Cookie-Banner ── */}
+      <div
+        id="CybotCookiebotDialog"
+        style={{
+          position: "fixed", top: 0, left: 0, right: 0, zIndex: 9999,
+          background: "#ffffff",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
+          fontFamily: "Arial, Helvetica, sans-serif",
+          fontSize: "12px", color: "#1a1a1a",
+          lineHeight: "1.5",
+        }}
+      >
+        {/* ── Hauptbereich: Text | Buttons ── */}
+        <div style={{
+          display: "flex",
+          borderBottom: "1px solid #cccccc",
+        }}>
+
+          {/* Linke Spalte: Scrollbarer Text */}
+          <div style={{
+            flex: 1,
+            minWidth: 0,
+            height: "128px",
+            overflowY: "scroll",
+            padding: "14px 20px 14px 20px",
+            borderRight: "1px solid #cccccc",
+          }}>
+            <p style={{
+              fontWeight: 700,
+              fontSize: "13px",
+              marginBottom: "8px",
+              color: "#000000",
+            }}>
+              Ihre Cookie-Einstellungen
+            </p>
+            <p style={{ color: "#333333", fontSize: "12px" }}>
+              Neben technisch notwendigen Cookies verwenden wir und unsere hier
+              aufgelisteten Empfänger auch Einwilligungs-bedürftige Cookies und ähnliche
+              Technologien. Indem Sie auf die Schaltfläche "Alle optionalen Cookies
+              zulassen" klicken, stimmen Sie dem Setzen der optionalen Cookies selbst
+              sowie der weiteren Verarbeitung – inklusive Übermittlung – Ihrer
+              personenbezogenen Daten zu Zwecken der Verbesserung Ihres Komforts und der
+              Berücksichtigung von Präferenzen durch Personalisierung, Analyse des
+              Nutzerverhaltens sowie der Durchführung und Überprüfung von
+              Werbemaßnahmen zu. Alternativ können Sie auch einzelne Kategorien von
+              Cookies auswählen und deren Verwendung zustimmen, indem Sie auf die
+              Schaltfläche "Auswahl speichern" klicken. Ihre Einwilligung umfasst dabei
+              stets die Verarbeitung in unsicheren Drittländern. Wir weisen auf ein nicht
+              mit der EU vergleichbares Datenschutzniveau bei solchen Ländern hin. Es
+              besteht u.a. das Risiko, dass dortige Behörden auf die verarbeiteten Daten
+              zugreifen können und Ihre Datenschutzrechte eingeschränkt sind. Weitere
+              Erklärungen zu den verwendeten Cookies und ähnlichen Technologien sowie zur
+              Verarbeitung Ihrer personenbezogenen Daten, z.B. zu den verarbeiteten
+              Daten, den Speicherdauern und den Datenempfängern, können Sie durch
+              Anklicken von "Details zeigen" oder durch Aufrufen unserer
+              Datenschutzerklärung, die am Ende der Webseite verlinkt ist, wählen und
+              finden. Je nach den von Ihnen gewählten Einstellungen oder wenn Sie die
+              Schaltfläche "Alle optionalen Cookies ablehnen" wählen, stehen Ihnen
+              möglicherweise einige Funktionen der Website nicht mehr zur Verfügung. Sie
+              können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft in unserer
+              Datenschutzerklärung oder durch Anklicken des Datenschutz-Symbols am Ende
+              der Seite widerrufen.
+            </p>
+
+            {/* Details-Bereich */}
+            {details && (
+              <div style={{
+                marginTop: "14px",
+                borderTop: "1px solid #cccccc",
+                paddingTop: "14px",
+                display: "flex", flexDirection: "column", gap: "10px",
+              }}>
+                {([
+                  { label: "Notwendig",                   on: true,     fn: undefined,                   req: true,  desc: "Technisch notwendige Cookies für den Betrieb der Website. Speicherdauer: Sitzung." },
+                  { label: "Komfort und Personalisierung", on: komfort,  fn: () => setKomfort(v => !v),   req: false, desc: "Standorterfassung für schnelle Notfallhilfe im Chat. Speicherdauer: 30 Tage." },
+                  { label: "Analyse",                     on: analyse,  fn: () => setAnalyse(v => !v),   req: false, desc: "Analyse des Nutzerverhaltens. Derzeit nicht aktiv." },
+                  { label: "Marketing",                   on: marketing, fn: () => setMarketing(v => !v), req: false, desc: "Zielgerichtete Werbung. Derzeit nicht aktiv." },
+                ] as const).map(c => (
+                  <div key={c.label} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
+                    <Toggle on={c.on} onChange={c.fn ?? (() => {})} disabled={c.req} />
+                    <div>
+                      <p style={{ fontWeight: 700, fontSize: "12px", marginBottom: "2px" }}>
+                        {c.label}
+                        {c.req && <span style={{ fontWeight: 400, color: "#777", marginLeft: "5px" }}>(immer aktiv)</span>}
+                      </p>
+                      <p style={{ color: "#666", fontSize: "11px", lineHeight: 1.4 }}>{c.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Rechte Spalte: Buttons */}
+          <div style={{
+            width: "208px",
+            flexShrink: 0,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: "8px",
+            padding: "14px 16px",
+          }}>
+            <button
+              onClick={() => save(true)}
+              style={{ ...BTN_BASE, background: "#cc0000", border: "none", color: "white" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            >
+              Alle optionalen Cookies zulassen
+            </button>
+            <button
+              onClick={() => save(komfort)}
+              style={{ ...BTN_BASE, background: "white", color: "#1a1a1a" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "#f0f0f0")}
+              onMouseLeave={e => (e.currentTarget.style.background = "white")}
+            >
+              Auswahl speichern
+            </button>
+            <button
+              onClick={() => save(false)}
+              style={{ ...BTN_BASE, background: "white", color: "#1a1a1a" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "#f0f0f0")}
+              onMouseLeave={e => (e.currentTarget.style.background = "white")}
+            >
+              Alle optionalen Cookies ablehnen
+            </button>
           </div>
         </div>
 
-        {/* Toggles */}
-        <div style={{ display: "flex", alignItems: "center", gap: "18px", flexWrap: "wrap" }}>
-          {[
-            { label: "Notwendig",                   on: true,     fn: undefined,                   required: true },
-            { label: "Komfort und Personalisierung", on: komfort,  fn: () => setKomfort(v => !v) },
-            { label: "Analyse",                     on: analyse,  fn: () => setAnalyse(v => !v)  },
-            { label: "Marketing",                   on: marketing, fn: () => setMarketing(v => !v) },
-          ].map(c => (
-            <div key={c.label} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-              <Toggle on={c.on} onChange={c.fn ?? (() => {})} disabled={c.required} />
-              <span style={{ fontSize: "12px", color: "#333", whiteSpace: "nowrap" }}>{c.label}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Details zeigen */}
-        <button onClick={() => setDetails(v => !v)} style={{
-          background: "none", border: "none", cursor: "pointer",
-          fontSize: "12px", color: "#c0392b", fontWeight: 700,
-          display: "flex", alignItems: "center", gap: "3px", flexShrink: 0,
-          whiteSpace: "nowrap",
+        {/* ── Footer-Leiste ── */}
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "8px 20px",
+          background: "#ffffff",
+          gap: "16px",
+          flexWrap: "wrap",
         }}>
-          {details ? "Details ausblenden" : "Details zeigen"} &gt;
-        </button>
+          {/* Logo — Cookiebot-Style */}
+          <div style={{ display: "flex", alignItems: "center", gap: "7px", flexShrink: 0 }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="3" fill="#1a3f6f"/>
+              <text x="12" y="17" textAnchor="middle" fill="white" fontSize="13" fontWeight="900" fontFamily="Arial">A</text>
+            </svg>
+            <div>
+              <div style={{ fontSize: "10px", fontWeight: 700, color: "#1a1a1a", lineHeight: 1.1 }}>Ankernetz</div>
+              <div style={{ fontSize: "9px", color: "#999999", lineHeight: 1.1 }}>by Datenschutz</div>
+            </div>
+          </div>
+
+          {/* Kategorie-Toggles */}
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "20px",
+            flexWrap: "wrap",
+            flex: 1,
+            justifyContent: "center",
+          }}>
+            {([
+              { label: "Notwendig",                   on: true,     fn: undefined as (() => void) | undefined,  req: true  },
+              { label: "Komfort und Personalisierung", on: komfort,  fn: () => setKomfort(v => !v),             req: false },
+              { label: "Analyse",                     on: analyse,  fn: () => setAnalyse(v => !v),              req: false },
+              { label: "Marketing",                   on: marketing, fn: () => setMarketing(v => !v),           req: false },
+            ]).map(c => (
+              <div key={c.label} style={{ display: "flex", alignItems: "center", gap: "7px" }}>
+                <Toggle on={c.on} onChange={c.fn ?? (() => {})} disabled={c.req} />
+                <span style={{ fontSize: "12px", color: "#333333", whiteSpace: "nowrap" }}>{c.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Details zeigen */}
+          <button
+            onClick={() => setDetails(v => !v)}
+            style={{
+              background: "none", border: "none", cursor: "pointer",
+              fontSize: "12px", fontWeight: 700, color: "#cc0000",
+              display: "flex", alignItems: "center", gap: "3px",
+              whiteSpace: "nowrap", flexShrink: 0,
+              fontFamily: "Arial, Helvetica, sans-serif",
+              padding: 0,
+            }}
+          >
+            {details ? "Details ausblenden" : "Details zeigen"}{" "}
+            <span style={{ fontSize: "13px", lineHeight: 1 }}>›</span>
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
