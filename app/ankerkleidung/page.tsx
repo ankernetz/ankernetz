@@ -405,9 +405,21 @@ function ZahlungButton({ z, active, onClick }: {
   );
 }
 
+/* ─── Bedürfnis-Mapping ────────────────────────────────────────── */
+const beduerfnisse = [
+  { id: "gerausche",       label: "Geräusche reduzieren",  emoji: "🔇", slugs: ["autismus","adhs","angststoerungen"] },
+  { id: "sensorik",        label: "Sensorik beruhigen",    emoji: "✋", slugs: ["autismus","adhs","trauma"] },
+  { id: "geborgenheit",    label: "Geborgenheit & Halt",   emoji: "🛡️", slugs: ["trauma","bindungsstoerungen","angststoerungen"] },
+  { id: "bewegung",        label: "Bewegungsdrang",         emoji: "🏃", slugs: ["adhs"] },
+  { id: "konzentration",   label: "Konzentration",          emoji: "🎯", slugs: ["adhs","autismus"] },
+  { id: "erstausstattung", label: "Erstausstattung",        emoji: "🎒", slugs: ["vernachlaessigung","erstbekleidung"] },
+  { id: "saisonal",        label: "Saisonal",               emoji: "🌤️", slugs: ["winterpauschale","sommerpauschale"] },
+];
+
 /* ─── Hauptseite ───────────────────────────────────────────────── */
 export default function AnkerkleidungPage() {
   const [filterKats, setFilterKats]     = useState<Set<string>>(new Set());
+  const [aktBeduerfnis, setAktBeduerfnis] = useState<string | null>(null);
   const [selection, setSelection]       = useState<Sel>({});
   const [wished, setWished]             = useState<Set<string>>(new Set());
   const [sort, setSort]                 = useState<"default"|"asc"|"desc">("default");
@@ -443,6 +455,19 @@ export default function AnkerkleidungPage() {
       n.has(slug) ? n.delete(slug) : n.add(slug);
       return n;
     });
+  }
+
+  function selectBeduerfnis(id: string) {
+    if (aktBeduerfnis === id) {
+      // Deselect → alle Filter zurücksetzen
+      setAktBeduerfnis(null);
+      setFilterKats(new Set());
+    } else {
+      const b = beduerfnisse.find(b => b.id === id);
+      if (!b) return;
+      setAktBeduerfnis(id);
+      setFilterKats(new Set(b.slugs));
+    }
   }
 
   function addToCart(kat: typeof kategorien[0], produkt: typeof kategorien[0]["produkte"][0]) {
@@ -601,6 +626,56 @@ export default function AnkerkleidungPage() {
 
           {/* ── PRODUKT-GRID ── */}
           <section style={{ flex: 1, minWidth: 0 }}>
+
+            {/* ── Bedürfnis-Chips ── */}
+            <div style={{ marginBottom: "1.75rem" }}>
+              <p style={{ fontSize: "11px", fontWeight: 700, color: "#1a3f6f",
+                letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.875rem" }}>
+                Was wird benötigt?
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                {/* Alle-Chip */}
+                <button
+                  onClick={() => { setAktBeduerfnis(null); setFilterKats(new Set()); }}
+                  style={{
+                    display: "flex", alignItems: "center", gap: "6px",
+                    padding: "7px 14px", borderRadius: "100px",
+                    fontSize: "12px", fontWeight: 600, cursor: "pointer",
+                    border: aktBeduerfnis === null ? "1.5px solid #1a3f6f" : "1.5px solid #dde4ee",
+                    background: aktBeduerfnis === null ? "#1a3f6f" : "white",
+                    color: aktBeduerfnis === null ? "white" : "#6b7280",
+                    transition: "all 0.15s",
+                  }}
+                >
+                  Alle
+                </button>
+
+                {beduerfnisse.map(b => {
+                  const active = aktBeduerfnis === b.id;
+                  return (
+                    <button
+                      key={b.id}
+                      onClick={() => selectBeduerfnis(b.id)}
+                      style={{
+                        display: "flex", alignItems: "center", gap: "6px",
+                        padding: "7px 14px", borderRadius: "100px",
+                        fontSize: "12px", fontWeight: 600, cursor: "pointer",
+                        border: active ? "1.5px solid #1a3f6f" : "1.5px solid #dde4ee",
+                        background: active ? "#eef4ff" : "white",
+                        color: active ? "#1a3f6f" : "#6b7280",
+                        boxShadow: active ? "0 2px 8px rgba(26,63,111,0.12)" : "none",
+                        transition: "all 0.15s",
+                      }}
+                      onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.borderColor = "#6FA3FE"; }}
+                      onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.borderColor = "#dde4ee"; }}
+                    >
+                      <span>{b.emoji}</span>
+                      {b.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
 
             {/* Treffer + Warenkorb-Button */}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between",
