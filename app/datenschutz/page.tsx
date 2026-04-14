@@ -167,24 +167,69 @@ export default function DatenschutzPage() {
     },
     {
       nr: "5",
-      titel: "Cookies",
+      titel: "Cookies & Einwilligungsverwaltung",
       inhalt: (
-        <div>
-          <div style={{
-            display: "flex", alignItems: "center", gap: "0.75rem",
-            background: "#f0fdf4", border: "1px solid #bbf7d0",
-            borderRadius: "12px", padding: "1rem 1.25rem", marginBottom: "1rem",
-          }}>
-            <span style={{ fontSize: "20px" }}>🍪</span>
-            <p style={{ color: "#166534", fontSize: "14px", fontWeight: 600 }}>
-              Diese Website verwendet keine Tracking-Cookies oder Analyse-Tools.
-            </p>
-          </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
           <p>
-            Es werden ausschließlich technisch notwendige Cookies eingesetzt, die für den
-            Betrieb der Website erforderlich sind (z.B. Session-Verwaltung). Diese Cookies
-            erfordern keine Einwilligung gemäß Art. 6 Abs. 1 lit. f DSGVO und können in
-            Ihren Browsereinstellungen deaktiviert werden.
+            Beim Besuch unserer Website erscheint ein Cookie-Banner, über das Sie Ihre
+            Einwilligung zu verschiedenen Kategorien von Cookies und ähnlichen Technologien
+            erteilen oder verweigern können. Ihre Auswahl wird im lokalen Speicher Ihres
+            Browsers gespeichert und kann jederzeit widerrufen werden.
+          </p>
+
+          {/* Tabelle der Kategorien */}
+          {[
+            {
+              name: "Notwendig",
+              basis: "Art. 6 Abs. 1 lit. f DSGVO",
+              dauer: "Sitzung",
+              desc: "Technisch erforderliche Cookies für den einwandfreien Betrieb der Website (z.B. Einwilligungsspeicherung). Keine Einwilligung erforderlich.",
+              required: true,
+            },
+            {
+              name: "Komfort und Personalisierung",
+              basis: "Art. 6 Abs. 1 lit. a DSGVO",
+              dauer: "30 Tage",
+              desc: "Einmalige Erfassung Ihres geografischen Standorts (GPS-Koordinaten) über die Geolocation API des Browsers. Diese Daten werden ausschließlich im Notfall verwendet, um unserem Team eine schnellere Reaktion zu ermöglichen. Die Koordinaten werden lokal gespeichert und nur im Krisenfall an unser internes Benachrichtigungssystem übermittelt.",
+              required: false,
+            },
+            {
+              name: "Analyse",
+              basis: "Art. 6 Abs. 1 lit. a DSGVO",
+              dauer: "—",
+              desc: "Analyse des Nutzerverhaltens zur Verbesserung der Website. Derzeit nicht aktiv — es werden keine Analyse-Tools eingesetzt.",
+              required: false,
+            },
+            {
+              name: "Marketing",
+              basis: "Art. 6 Abs. 1 lit. a DSGVO",
+              dauer: "—",
+              desc: "Cookies für zielgerichtete Werbemaßnahmen. Derzeit nicht aktiv — es werden keine Marketing-Cookies eingesetzt.",
+              required: false,
+            },
+          ].map(cat => (
+            <div key={cat.name} style={{
+              background: "#f4f7fb", borderRadius: "12px", padding: "1rem 1.25rem",
+              borderLeft: `3px solid ${cat.required ? "#22c55e" : "#1a3f6f"}`,
+            }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "6px", flexWrap: "wrap", gap: "8px" }}>
+                <p style={{ fontWeight: 700, color: "#1a3f6f", fontSize: "14px" }}>{cat.name}</p>
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <span style={{ fontSize: "11px", background: "#eef4ff", color: "#1a3f6f", fontWeight: 600, padding: "2px 8px", borderRadius: "6px" }}>{cat.basis}</span>
+                  <span style={{ fontSize: "11px", background: "white", color: "#6b7280", fontWeight: 600, padding: "2px 8px", borderRadius: "6px", border: "1px solid #e5e7eb" }}>Speicherdauer: {cat.dauer}</span>
+                </div>
+              </div>
+              <p style={{ fontSize: "13px", color: "#374151", lineHeight: 1.6 }}>{cat.desc}</p>
+            </div>
+          ))}
+
+          <p style={{ fontSize: "13px", color: "#6b7280", lineHeight: 1.6 }}>
+            Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen,
+            indem Sie den lokalen Speicher Ihres Browsers löschen oder uns unter{" "}
+            <a href="mailto:datenschutz@ankernetz.com" style={{ color: "#1a3f6f", fontWeight: 600, textDecoration: "none" }}>
+              datenschutz@ankernetz.com
+            </a>{" "}
+            kontaktieren.
           </p>
         </div>
       ),
