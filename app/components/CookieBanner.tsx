@@ -42,7 +42,7 @@ export default function CookieBanner() {
       onClick={disabled ? undefined : onChange}
       style={{
         width: "40px", height: "22px", borderRadius: "11px", border: "none",
-        background: on ? "#1a3f6f" : "#d1d5db",
+        background: on ? "#b91c1c" : "#4b5563",
         cursor: disabled ? "default" : "pointer",
         position: "relative", flexShrink: 0, transition: "background 0.2s",
         opacity: disabled ? 1 : 1,
@@ -59,9 +59,9 @@ export default function CookieBanner() {
 
   return (
     <div style={{
-      position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 9999,
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 9999,
       background: "white",
-      boxShadow: "0 -4px 32px rgba(0,0,0,0.14)",
+      boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
       fontFamily: "Inter, system-ui, sans-serif",
       fontSize: "13px", color: "#1a1a1a",
     }}>
