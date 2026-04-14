@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { X, MessageCircle, Send, Phone, ChevronDown, GripVertical } from "lucide-react";
+import { X, Send, Phone, ChevronDown, GripVertical, Zap, Home, HelpCircle, Heart, MessageCircle, Sparkles } from "lucide-react";
 
 interface Message {
   role: "user" | "assistant";
@@ -17,8 +17,7 @@ const CRISIS_KEYWORDS = [
 ];
 
 function isCrisisMessage(text: string): boolean {
-  const lower = text.toLowerCase();
-  return CRISIS_KEYWORDS.some(kw => lower.includes(kw));
+  return CRISIS_KEYWORDS.some(kw => text.toLowerCase().includes(kw));
 }
 
 function generateSessionId(): string {
@@ -26,453 +25,427 @@ function generateSessionId(): string {
   return Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
 }
 
+const quickChips = [
+  { label: "Ich brauche einen Platz", icon: Home,        color: "#3b82f6" },
+  { label: "Krisenintervention",       icon: Zap,         color: "#ef4444" },
+  { label: "Ich habe eine Frage",      icon: HelpCircle,  color: "#8b5cf6" },
+  { label: "Beratung anfragen",        icon: Heart,       color: "#10b981" },
+];
+
 export default function ChatWidget() {
-  const [open, setOpen] = useState(false);
-  const [minimized, setMinimized] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
+  const [open, setOpen]               = useState(false);
+  const [minimized, setMinimized]     = useState(false);
+  const [messages, setMessages]       = useState<Message[]>([
     { role: "assistant", content: "Hallo! Ich bin Lena vom Ankernetz-Team. Ich bin hier, um dir zu helfen — egal ob du eine schnelle Frage hast oder gerade etwas Schwieriges durchmachst." },
   ]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [showCrisisBanner, setShowCrisisBanner] = useState(false);
-  const [chipsUsed, setChipsUsed] = useState(false);
-  const sessionId = useRef<string>(generateSessionId());
+  const [input, setInput]             = useState("");
+  const [loading, setLoading]         = useState(false);
+  const [crisisBanner, setCrisisBanner] = useState(false);
+  const [chipsUsed, setChipsUsed]     = useState(false);
+  const [inputFocused, setInputFocused] = useState(false);
+  const sessionId   = useRef(generateSessionId());
+  const messagesEnd = useRef<HTMLDivElement>(null);
+  const inputRef    = useRef<HTMLTextAreaElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   /* ── Drag ── */
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef<{ ox: number; oy: number; startX: number; startY: number } | null>(null);
+  const dragRef    = useRef<{ ox: number; oy: number; startX: number; startY: number } | null>(null);
   const wasDragged = useRef(false);
 
   function startDrag(e: React.PointerEvent) {
     if (e.button !== undefined && e.button > 0) return;
     wasDragged.current = false;
     const rect = containerRef.current!.getBoundingClientRect();
-    dragRef.current = {
-      ox: e.clientX - rect.left,
-      oy: e.clientY - rect.top,
-      startX: e.clientX,
-      startY: e.clientY,
-    };
+    dragRef.current = { ox: e.clientX - rect.left, oy: e.clientY - rect.top, startX: e.clientX, startY: e.clientY };
   }
-
   function moveDrag(e: React.PointerEvent) {
     if (!dragRef.current) return;
-    const dx = Math.abs(e.clientX - dragRef.current.startX);
-    const dy = Math.abs(e.clientY - dragRef.current.startY);
-    if (dx < 6 && dy < 6) return;
+    if (Math.abs(e.clientX - dragRef.current.startX) < 6 && Math.abs(e.clientY - dragRef.current.startY) < 6) return;
     wasDragged.current = true;
-    const newX = e.clientX - dragRef.current.ox;
-    const newY = e.clientY - dragRef.current.oy;
-    const w = containerRef.current?.offsetWidth ?? 360;
+    const w = containerRef.current?.offsetWidth ?? 380;
     const h = containerRef.current?.offsetHeight ?? 60;
     setPos({
-      x: Math.max(0, Math.min(window.innerWidth - w, newX)),
-      y: Math.max(0, Math.min(window.innerHeight - h, newY)),
+      x: Math.max(0, Math.min(window.innerWidth - w,  e.clientX - dragRef.current.ox)),
+      y: Math.max(0, Math.min(window.innerHeight - h, e.clientY - dragRef.current.oy)),
     });
   }
-
   function endDrag() {
     dragRef.current = null;
-    // wasDragged bleibt bis zum nächsten startDrag erhalten,
-    // damit onClick es noch lesen kann
     setTimeout(() => { wasDragged.current = false; }, 50);
   }
 
-  /* Verhindert ungewolltes Textselektieren beim Ziehen */
-  const draggingStyle: React.CSSProperties = {
-    userSelect: "none",
-    WebkitUserSelect: "none",
-  };
-
-  const posStyle: React.CSSProperties = pos
-    ? { position: "fixed", top: pos.y, left: pos.x, zIndex: 1000 }
-    : { position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 1000 };
-
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLTextAreaElement>(null);
-
   useEffect(() => {
-    if (open && !minimized) messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (open && !minimized) messagesEnd.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open, minimized]);
 
   useEffect(() => {
     if (open && !minimized) inputRef.current?.focus();
   }, [open, minimized]);
 
-  async function sendMessage() {
-    await sendMessageWithText(input.trim());
-  }
+  const userHasWritten = messages.some(m => m.role === "user");
+  const posStyle: React.CSSProperties = pos
+    ? { position: "fixed", top: pos.y, left: pos.x, zIndex: 1000 }
+    : { position: "fixed", bottom: "1.75rem", right: "1.75rem", zIndex: 1000 };
 
-  function handleKey(e: React.KeyboardEvent) {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  }
-
-  /* ── GESCHLOSSEN ── */
-  if (!open) {
-    return (
-      <div
-        ref={containerRef}
-        onPointerDown={startDrag}
-        onPointerMove={moveDrag}
-        onPointerUp={endDrag}
-        style={{
-          ...posStyle,
-          ...draggingStyle,
-          display: "flex",
-          alignItems: "center",
-          gap: "0.75rem",
-          cursor: "grab",
-        }}
-      >
-        {/* Label-Blase */}
-        <div
-          style={{
-            background: "white",
-            borderRadius: "0.875rem",
-            padding: "0.625rem 1rem",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
-            border: "1px solid rgba(26,63,111,0.1)",
-            cursor: "pointer",
-            animation: "floatIn 0.4s ease both",
-          }}
-          onClick={() => {
-            if (!wasDragged.current) setOpen(true);
-          }}
-        >
-          <p style={{ fontSize: "13px", fontWeight: 600, color: "#1a3f6f", whiteSpace: "nowrap", lineHeight: 1.3 }}>
-            Wie kann ich helfen?
-          </p>
-          <p style={{ fontSize: "11px", color: "#6b7280", lineHeight: 1.3, marginTop: "1px" }}>
-            Lena · Ankernetz
-          </p>
-        </div>
-
-        {/* Haupt-Button */}
-        <button
-          aria-label="Chat öffnen"
-          onClick={() => {
-            if (!wasDragged.current) setOpen(true);
-          }}
-          style={{
-            width: "60px",
-            height: "60px",
-            borderRadius: "50%",
-            background: "linear-gradient(135deg, #1a3f6f 0%, #2d5fa0 100%)",
-            border: "3px solid white",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 6px 28px rgba(26,63,111,0.5)",
-            transition: "transform 0.2s ease, box-shadow 0.2s ease",
-            position: "relative",
-            flexShrink: 0,
-          }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.1)";
-            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 10px 36px rgba(26,63,111,0.6)";
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
-            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 6px 28px rgba(26,63,111,0.5)";
-          }}
-        >
-          <MessageCircle size={26} color="white" strokeWidth={1.5} />
-          <span style={{ position: "absolute", top: "3px", right: "3px", width: "12px", height: "12px",
-            borderRadius: "50%", background: "#22c55e", border: "2px solid white" }} />
-          <span style={{ position: "absolute", inset: "-6px", borderRadius: "50%",
-            border: "2px solid rgba(26,63,111,0.25)", animation: "chatPulse 2.5s ease-out infinite" }} />
-          <span style={{ position: "absolute", inset: "-12px", borderRadius: "50%",
-            border: "1.5px solid rgba(26,63,111,0.12)", animation: "chatPulse 2.5s ease-out 0.6s infinite" }} />
-        </button>
-
-        <style>{`
-          @keyframes chatPulse {
-            0% { transform: scale(0.95); opacity: 1; }
-            70% { transform: scale(1.15); opacity: 0; }
-            100% { transform: scale(1.15); opacity: 0; }
-          }
-          @keyframes floatIn {
-            from { opacity: 0; transform: translateX(12px); }
-            to   { opacity: 1; transform: translateX(0); }
-          }
-        `}</style>
-      </div>
-    );
-  }
-
-  const quickChips = [
-    "Ich brauche einen Platz",
-    "Krisenintervention",
-    "Ich habe eine Frage",
-    "Beratung anfragen",
-  ];
-
-  function sendChip(text: string) {
-    setChipsUsed(true);
-    setInput(text);
-    setTimeout(() => {
-      sendMessageWithText(text);
-    }, 0);
-  }
-
+  /* ── API call ── */
   async function sendMessageWithText(text: string) {
     if (!text.trim() || loading) return;
     const crisis = isCrisisMessage(text);
-    if (crisis) setShowCrisisBanner(true);
+    if (crisis) setCrisisBanner(true);
     const newMessages: Message[] = [...messages, { role: "user", content: text, crisis }];
     setMessages(newMessages);
     setInput("");
     setLoading(true);
     try {
-      const userMessageCount = messages.filter(m => m.role === "user").length + 1;
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: newMessages.map(m => ({ role: m.role, content: m.content })),
           sessionId: sessionId.current,
-          userMessageCount,
+          userMessageCount: messages.filter(m => m.role === "user").length + 1,
         }),
       });
       const reader = res.body?.getReader();
       const decoder = new TextDecoder();
-      let assistantText = "";
+      let txt = "";
       setMessages(prev => [...prev, { role: "assistant", content: "" }]);
       if (reader) {
         while (true) {
           const { done, value } = await reader.read();
           if (done) break;
-          assistantText += decoder.decode(value, { stream: true });
-          setMessages(prev => {
-            const updated = [...prev];
-            updated[updated.length - 1] = { role: "assistant", content: assistantText };
-            return updated;
-          });
+          txt += decoder.decode(value, { stream: true });
+          setMessages(prev => { const u = [...prev]; u[u.length - 1] = { role: "assistant", content: txt }; return u; });
         }
       }
     } catch {
-      setMessages(prev => [...prev, { role: "assistant", content: "Ich bin kurz nicht erreichbar. Ruf direkt an: +49 (0) 30 22 45 43 22" }]);
+      setMessages(prev => [...prev, { role: "assistant", content: "Ich bin gerade kurz nicht erreichbar. Ruf uns direkt an: +49 (0) 30 22 45 43 22" }]);
     } finally {
       setLoading(false);
     }
   }
 
-  const userHasWritten = messages.some(m => m.role === "user");
+  function sendMessage()     { sendMessageWithText(input.trim()); }
+  function sendChip(l: string) { setChipsUsed(true); sendMessageWithText(l); }
+  function handleKey(e: React.KeyboardEvent) {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  }
 
-  /* ── GEÖFFNET ── */
+  /* ══ GESCHLOSSEN ══ */
+  if (!open) {
+    return (
+      <div
+        ref={containerRef}
+        onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={endDrag}
+        style={{ ...posStyle, userSelect: "none", WebkitUserSelect: "none", display: "flex", alignItems: "center", gap: "12px", cursor: "grab" }}
+      >
+        {/* Bubble */}
+        <div
+          onClick={() => { if (!wasDragged.current) setOpen(true); }}
+          style={{
+            background: "white", borderRadius: "16px",
+            padding: "10px 16px", boxShadow: "0 4px 24px rgba(0,0,0,0.13)",
+            border: "1px solid rgba(26,63,111,0.08)", cursor: "pointer",
+            animation: "floatIn 0.4s ease both",
+          }}
+        >
+          <p style={{ fontSize: "13px", fontWeight: 700, color: "#0f172a", whiteSpace: "nowrap", lineHeight: 1.3 }}>Wie kann ich helfen?</p>
+          <p style={{ fontSize: "11px", color: "#64748b", lineHeight: 1.3, marginTop: "2px" }}>Lena · Ankernetz</p>
+        </div>
+
+        {/* Button */}
+        <button
+          aria-label="Chat öffnen"
+          onClick={() => { if (!wasDragged.current) setOpen(true); }}
+          style={{
+            width: "62px", height: "62px", borderRadius: "50%",
+            background: "linear-gradient(135deg, #1a3f6f 0%, #3b6fc4 100%)",
+            border: "3px solid white", cursor: "pointer",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            boxShadow: "0 8px 32px rgba(26,63,111,0.45)",
+            position: "relative", flexShrink: 0,
+            transition: "transform 0.2s, box-shadow 0.2s",
+          }}
+          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "scale(1.08)"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
+        >
+          <MessageCircle size={26} color="white" strokeWidth={1.75} />
+          <span style={{ position: "absolute", top: "4px", right: "4px", width: "12px", height: "12px", borderRadius: "50%", background: "#22c55e", border: "2px solid white" }} />
+          <span style={{ position: "absolute", inset: "-6px", borderRadius: "50%", border: "2px solid rgba(26,63,111,0.2)", animation: "pulse 2.5s ease-out infinite" }} />
+          <span style={{ position: "absolute", inset: "-13px", borderRadius: "50%", border: "1.5px solid rgba(26,63,111,0.1)", animation: "pulse 2.5s ease-out 0.7s infinite" }} />
+        </button>
+
+        <style>{`
+          @keyframes pulse { 0%{transform:scale(.95);opacity:1} 70%,100%{transform:scale(1.18);opacity:0} }
+          @keyframes floatIn { from{opacity:0;transform:translateX(10px)} to{opacity:1;transform:translateX(0)} }
+        `}</style>
+      </div>
+    );
+  }
+
+  /* ══ GEÖFFNET ══ */
   return (
     <div
       ref={containerRef}
+      onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={endDrag}
       style={{
         ...posStyle,
-        ...draggingStyle,
-        width: "370px",
-        maxWidth: "calc(100vw - 1.5rem)",
-        borderRadius: "1.25rem",
-        background: "#ffffff",
-        boxShadow: "0 12px 56px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.06)",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-        height: minimized ? "64px" : "560px",
+        userSelect: "none", WebkitUserSelect: "none",
+        width: "375px", maxWidth: "calc(100vw - 1.5rem)",
+        borderRadius: "20px",
+        background: "#fff",
+        boxShadow: "0 24px 64px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.06)",
+        display: "flex", flexDirection: "column", overflow: "hidden",
+        height: minimized ? "68px" : "560px",
         transition: "height 0.3s cubic-bezier(.4,0,.2,1)",
         fontFamily: "Inter, system-ui, sans-serif",
       }}
     >
       {/* ── Header ── */}
       <div
-        onPointerDown={startDrag}
-        onPointerMove={moveDrag}
-        onPointerUp={endDrag}
         onClick={() => minimized && setMinimized(false)}
         style={{
-          background: "linear-gradient(135deg, #0d2444 0%, #1a3f6f 100%)",
-          padding: "1rem 1.125rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexShrink: 0,
-          cursor: "grab",
-          touchAction: "none",
+          background: "linear-gradient(135deg, #0c1e3c 0%, #1a3f6f 55%, #1e5094 100%)",
+          padding: "14px 16px",
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          flexShrink: 0, cursor: "grab", touchAction: "none",
+          position: "relative", overflow: "hidden",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          <GripVertical size={13} color="rgba(255,255,255,0.3)" strokeWidth={2} style={{ flexShrink: 0 }} />
-          {/* Avatar mit grünem Online-Dot */}
+        {/* Hintergrundkreis */}
+        <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "100px", height: "100px", borderRadius: "50%", background: "rgba(255,255,255,0.05)", pointerEvents: "none" }} />
+
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", zIndex: 1 }}>
+          <GripVertical size={12} color="rgba(255,255,255,0.25)" />
+          {/* Avatar */}
           <div style={{ position: "relative", flexShrink: 0 }}>
             <div style={{
-              width: "38px", height: "38px", borderRadius: "50%",
-              background: "linear-gradient(135deg, #2d5fa0 0%, #6FA3FE 100%)",
-              border: "2px solid rgba(255,255,255,0.25)",
+              width: "42px", height: "42px", borderRadius: "50%",
+              background: "linear-gradient(135deg, #3b82f6 0%, #6FA3FE 100%)",
+              border: "2.5px solid rgba(255,255,255,0.3)",
               display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "15px", fontWeight: 800, color: "white",
+              fontSize: "16px", fontWeight: 900, color: "white",
+              boxShadow: "0 4px 12px rgba(59,130,246,0.4)",
             }}>L</div>
             <span style={{
               position: "absolute", bottom: "1px", right: "1px",
-              width: "10px", height: "10px", borderRadius: "50%",
-              background: "#22c55e", border: "2px solid #0d2444",
+              width: "11px", height: "11px", borderRadius: "50%",
+              background: "#22c55e", border: "2px solid #0c1e3c",
+              boxShadow: "0 0 0 2px rgba(34,197,94,0.3)",
             }} />
           </div>
           <div>
-            <p style={{ fontSize: "14px", fontWeight: 700, color: "white", lineHeight: 1.2, letterSpacing: "-0.01em" }}>Lena</p>
-            <p style={{ fontSize: "11px", lineHeight: 1.3, marginTop: "1px",
-              color: loading ? "#86efac" : "rgba(255,255,255,0.55)" }}>
-              {loading ? "● schreibt gerade…" : "Ankernetz Berlin · Online"}
+            <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+              <p style={{ fontSize: "14px", fontWeight: 800, color: "white", lineHeight: 1.2, letterSpacing: "-0.02em" }}>Lena</p>
+              <div style={{ display: "flex", alignItems: "center", gap: "4px", background: "rgba(34,197,94,0.2)", borderRadius: "20px", padding: "1px 7px", border: "1px solid rgba(34,197,94,0.3)" }}>
+                <Sparkles size={9} color="#86efac" />
+                <span style={{ fontSize: "10px", color: "#86efac", fontWeight: 700 }}>KI</span>
+              </div>
+            </div>
+            <p style={{ fontSize: "11px", color: loading ? "#86efac" : "rgba(255,255,255,0.5)", lineHeight: 1.3, marginTop: "1px", transition: "color 0.3s" }}>
+              {loading ? "● schreibt…" : "Ankernetz Berlin · Online"}
             </p>
           </div>
         </div>
-        <div style={{ display: "flex", gap: "0.125rem", alignItems: "center" }}>
+
+        <div style={{ display: "flex", gap: "2px", zIndex: 1 }}>
           <button onClick={e => { e.stopPropagation(); setMinimized(!minimized); }}
-            style={{ background: "none", border: "none", cursor: "pointer", padding: "0.375rem",
-              color: "rgba(255,255,255,0.6)", display: "flex", borderRadius: "6px" }}>
-            <ChevronDown size={16} style={{ transform: minimized ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.25s" }} />
+            style={{ background: "rgba(255,255,255,0.08)", border: "none", cursor: "pointer", padding: "6px", color: "rgba(255,255,255,0.7)", display: "flex", borderRadius: "8px", transition: "background 0.15s" }}
+            onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.18)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}>
+            <ChevronDown size={15} style={{ transform: minimized ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.25s" }} />
           </button>
           <button onClick={e => { e.stopPropagation(); setOpen(false); }}
-            style={{ background: "none", border: "none", cursor: "pointer", padding: "0.375rem",
-              color: "rgba(255,255,255,0.6)", display: "flex", borderRadius: "6px" }}>
-            <X size={16} />
+            style={{ background: "rgba(255,255,255,0.08)", border: "none", cursor: "pointer", padding: "6px", color: "rgba(255,255,255,0.7)", display: "flex", borderRadius: "8px", transition: "background 0.15s" }}
+            onMouseEnter={e => (e.currentTarget.style.background = "rgba(239,68,68,0.3)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}>
+            <X size={15} />
           </button>
         </div>
       </div>
 
       {/* Krisenbanner */}
-      {showCrisisBanner && !minimized && (
-        <div style={{ background: "#fef2f2", borderBottom: "1px solid #fecaca",
-          padding: "0.625rem 1rem", display: "flex", alignItems: "center",
-          justifyContent: "space-between", gap: "0.5rem", flexShrink: 0 }}>
-          <p style={{ fontSize: "11.5px", color: "#dc2626", fontWeight: 600, lineHeight: 1.4 }}>
-            🚨 Akute Gefahr? Sofort anrufen:
+      {crisisBanner && !minimized && (
+        <div style={{ background: "linear-gradient(135deg, #fef2f2, #fff5f5)", borderBottom: "1px solid #fecaca",
+          padding: "10px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", flexShrink: 0 }}>
+          <p style={{ fontSize: "12px", color: "#dc2626", fontWeight: 600, lineHeight: 1.4 }}>
+            🚨 Akute Gefahr? Sofort anrufen
           </p>
           <a href="tel:+4930224543220" style={{ fontSize: "12px", fontWeight: 700, color: "white",
-            background: "#dc2626", padding: "0.3rem 0.75rem", borderRadius: "100px",
-            textDecoration: "none", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "0.3rem" }}>
+            background: "linear-gradient(135deg, #dc2626, #ef4444)", padding: "5px 12px", borderRadius: "100px",
+            textDecoration: "none", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "5px",
+            boxShadow: "0 2px 8px rgba(220,38,38,0.4)" }}>
             <Phone size={11} /> 030 22 45 43 22
           </a>
         </div>
       )}
 
-      {/* Messages */}
+      {/* ── Messages ── */}
       {!minimized && (
-        <div style={{ flex: 1, overflowY: "auto", padding: "1rem 0.875rem",
-          display: "flex", flexDirection: "column", gap: "0.625rem",
-          background: "#f8fafd" }}>
+        <div style={{
+          flex: 1, overflowY: "auto", padding: "16px 14px",
+          display: "flex", flexDirection: "column", gap: "8px",
+          background: "linear-gradient(180deg, #f0f4ff 0%, #f8faff 100%)",
+        }}>
 
           {messages.map((msg, i) => (
-            <div key={i}>
-              <div style={{ display: "flex",
-                justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
-                alignItems: "flex-end", gap: "0.5rem" }}>
-                {msg.role === "assistant" && (
-                  <div style={{
-                    width: "28px", height: "28px", borderRadius: "50%",
-                    background: "linear-gradient(135deg, #1a3f6f 0%, #2d5fa0 100%)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: "11px", fontWeight: 800, color: "white",
-                    flexShrink: 0, marginBottom: "2px", boxShadow: "0 2px 6px rgba(26,63,111,0.3)",
-                  }}>L</div>
-                )}
+            <div key={i} style={{
+              display: "flex",
+              justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
+              alignItems: "flex-end", gap: "8px",
+              animation: "msgIn 0.2s ease both",
+            }}>
+              {msg.role === "assistant" && (
                 <div style={{
-                  maxWidth: "78%",
-                  padding: "0.65rem 0.9rem",
-                  borderRadius: msg.role === "user"
-                    ? "1.1rem 1.1rem 0.2rem 1.1rem"
-                    : "0.2rem 1.1rem 1.1rem 1.1rem",
-                  background: msg.role === "user"
-                    ? "linear-gradient(135deg, #1a3f6f 0%, #2d5fa0 100%)"
-                    : "#ffffff",
-                  color: msg.role === "user" ? "white" : "#1a2e4a",
-                  fontSize: "13.5px", lineHeight: "1.65",
-                  boxShadow: msg.role === "user"
-                    ? "0 2px 8px rgba(26,63,111,0.3)"
-                    : "0 1px 4px rgba(0,0,0,0.08)",
-                }}>
-                  {msg.content || (
-                    <span style={{ display: "flex", gap: "4px", alignItems: "center", padding: "3px 2px" }}>
-                      {[0, 1, 2].map(j => (
-                        <span key={j} style={{ width: "6px", height: "6px", borderRadius: "50%",
-                          background: "#93c5fd", animation: `bounce 1.3s ease-in-out ${j * 0.18}s infinite` }} />
-                      ))}
-                    </span>
-                  )}
-                </div>
+                  width: "30px", height: "30px", borderRadius: "50%",
+                  background: "linear-gradient(135deg, #1a3f6f 0%, #3b6fc4 100%)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: "12px", fontWeight: 900, color: "white",
+                  flexShrink: 0, marginBottom: "2px",
+                  boxShadow: "0 2px 8px rgba(26,63,111,0.3)",
+                }}>L</div>
+              )}
+              <div style={{
+                maxWidth: "76%",
+                padding: msg.content ? "10px 14px" : "12px 16px",
+                borderRadius: msg.role === "user"
+                  ? "18px 18px 4px 18px"
+                  : "4px 18px 18px 18px",
+                background: msg.role === "user"
+                  ? "linear-gradient(135deg, #1a3f6f 0%, #2563eb 100%)"
+                  : "white",
+                color: msg.role === "user" ? "white" : "#0f172a",
+                fontSize: "13.5px", lineHeight: "1.65",
+                boxShadow: msg.role === "user"
+                  ? "0 4px 12px rgba(26,63,111,0.35)"
+                  : "0 2px 8px rgba(0,0,0,0.07)",
+                border: msg.role === "assistant" ? "1px solid rgba(26,63,111,0.06)" : "none",
+              }}>
+                {msg.content || (
+                  <span style={{ display: "flex", gap: "5px", alignItems: "center" }}>
+                    {[0, 1, 2].map(j => (
+                      <span key={j} style={{
+                        width: "7px", height: "7px", borderRadius: "50%",
+                        background: "linear-gradient(135deg, #93c5fd, #3b82f6)",
+                        animation: `typingDot 1.4s ease-in-out ${j * 0.2}s infinite`,
+                      }} />
+                    ))}
+                  </span>
+                )}
               </div>
             </div>
           ))}
 
-          {/* Quick-Reply Chips — nur wenn Nutzer noch nichts geschrieben hat */}
+          {/* Quick-Reply Chips */}
           {!userHasWritten && !chipsUsed && !loading && (
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "0.25rem", paddingLeft: "36px" }}>
-              {quickChips.map(chip => (
-                <button key={chip} onClick={() => sendChip(chip)} style={{
-                  padding: "0.35rem 0.75rem",
-                  background: "white",
-                  border: "1.5px solid #d0dff0",
-                  borderRadius: "100px",
-                  fontSize: "12px", fontWeight: 600, color: "#1a3f6f",
-                  cursor: "pointer",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
-                  transition: "all 0.15s ease",
-                  whiteSpace: "nowrap",
-                }}>
-                  {chip}
-                </button>
-              ))}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "4px", paddingLeft: "38px" }}>
+              {quickChips.map((chip, i) => {
+                const Icon = chip.icon;
+                return (
+                  <button key={chip.label} onClick={() => sendChip(chip.label)} style={{
+                    display: "flex", alignItems: "center", gap: "6px",
+                    padding: "7px 13px",
+                    background: "white",
+                    border: `1.5px solid ${chip.color}30`,
+                    borderRadius: "100px",
+                    fontSize: "12px", fontWeight: 600, color: chip.color,
+                    cursor: "pointer",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                    transition: "all 0.18s ease",
+                    animation: `chipIn 0.3s ease ${i * 0.07}s both`,
+                  }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLElement).style.background = chip.color + "12";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
+                      (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 12px ${chip.color}25`;
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLElement).style.background = "white";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                      (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)";
+                    }}
+                  >
+                    <Icon size={12} strokeWidth={2.5} />
+                    {chip.label}
+                  </button>
+                );
+              })}
             </div>
           )}
 
-          <div ref={messagesEndRef} />
+          <div ref={messagesEnd} />
         </div>
       )}
 
-      {/* Input */}
+      {/* ── Input ── */}
       {!minimized && (
-        <div style={{ borderTop: "1px solid #edf0f5", padding: "0.75rem 0.875rem",
-          display: "flex", flexDirection: "column", gap: "0.5rem",
-          background: "#fff", flexShrink: 0 }}>
-          <div style={{ display: "flex", alignItems: "flex-end", gap: "0.5rem" }}>
+        <div style={{
+          borderTop: `1px solid ${inputFocused ? "#bfdbfe" : "#e8edf5"}`,
+          padding: "12px 14px 10px",
+          background: "white", flexShrink: 0,
+          transition: "border-color 0.2s",
+        }}>
+          <div style={{ display: "flex", alignItems: "flex-end", gap: "8px" }}>
             <textarea
               ref={inputRef}
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKey}
+              onFocus={() => setInputFocused(true)}
+              onBlur={() => setInputFocused(false)}
               placeholder="Schreib eine Nachricht…"
               rows={1}
-              style={{ flex: 1, border: "1.5px solid #e2e8f0", borderRadius: "0.875rem",
-                padding: "0.55rem 0.875rem", fontSize: "13.5px", color: "#1a2e4a",
-                background: "#f8fafd", resize: "none", outline: "none",
-                lineHeight: "1.5", fontFamily: "inherit", maxHeight: "90px", overflowY: "auto",
-                transition: "border-color 0.15s ease" }}
-              onFocus={e => (e.target.style.borderColor = "#6FA3FE")}
-              onBlur={e => (e.target.style.borderColor = "#e2e8f0")}
+              style={{
+                flex: 1, border: `1.5px solid ${inputFocused ? "#93c5fd" : "#e2e8f0"}`,
+                borderRadius: "14px", padding: "9px 13px",
+                fontSize: "13.5px", color: "#0f172a",
+                background: inputFocused ? "#f0f7ff" : "#f8fafd",
+                resize: "none", outline: "none",
+                lineHeight: "1.5", fontFamily: "inherit",
+                maxHeight: "90px", overflowY: "auto",
+                transition: "all 0.2s ease",
+              }}
             />
-            <button onClick={sendMessage} disabled={!input.trim() || loading}
-              style={{ width: "38px", height: "38px", borderRadius: "50%",
+            <button
+              onClick={sendMessage}
+              disabled={!input.trim() || loading}
+              style={{
+                width: "40px", height: "40px", borderRadius: "12px",
                 background: input.trim() && !loading
-                  ? "linear-gradient(135deg, #1a3f6f 0%, #2d5fa0 100%)"
-                  : "#edf0f5",
-                border: "none", cursor: input.trim() && !loading ? "pointer" : "default",
+                  ? "linear-gradient(135deg, #1a3f6f 0%, #2563eb 100%)"
+                  : "#e8edf5",
+                border: "none",
+                cursor: input.trim() && !loading ? "pointer" : "default",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 flexShrink: 0, transition: "all 0.2s ease",
-                boxShadow: input.trim() && !loading ? "0 2px 8px rgba(26,63,111,0.35)" : "none",
-              }}>
-              <Send size={15} color={input.trim() && !loading ? "white" : "#b0bec5"} strokeWidth={2} />
+                boxShadow: input.trim() && !loading ? "0 4px 12px rgba(26,63,111,0.4)" : "none",
+                transform: input.trim() && !loading ? "scale(1)" : "scale(0.95)",
+              }}
+              onMouseEnter={e => { if (input.trim() && !loading) (e.currentTarget as HTMLElement).style.transform = "scale(1.08)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = input.trim() && !loading ? "scale(1)" : "scale(0.95)"; }}
+            >
+              <Send size={16} color={input.trim() && !loading ? "white" : "#94a3b8"} strokeWidth={2} />
             </button>
           </div>
-          <p style={{ fontSize: "10px", color: "#b0bec5", textAlign: "center", letterSpacing: "0.02em" }}>
+          <p style={{ fontSize: "10px", color: "#94a3b8", textAlign: "center", marginTop: "8px", letterSpacing: "0.02em" }}>
             Ankernetz Berlin · Vertraulich · Kostenlos
           </p>
         </div>
       )}
 
       <style>{`
-        @keyframes bounce {
-          0%, 60%, 100% { transform: translateY(0); }
-          30% { transform: translateY(-5px); }
+        @keyframes typingDot {
+          0%,60%,100% { transform: translateY(0); opacity: .5; }
+          30% { transform: translateY(-6px); opacity: 1; }
+        }
+        @keyframes msgIn {
+          from { opacity: 0; transform: translateY(6px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes chipIn {
+          from { opacity: 0; transform: translateY(8px) scale(0.95); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
         }
       `}</style>
     </div>
