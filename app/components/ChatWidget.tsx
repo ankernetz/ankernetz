@@ -7,6 +7,7 @@ interface Message {
   role: "user" | "assistant";
   content: string;
   crisis?: boolean;
+  cta?: { label: string; href: string }[];
 }
 
 const CRISIS_KEYWORDS = [
@@ -31,6 +32,31 @@ const quickChips = [
   { label: "Ich habe eine Frage",      icon: HelpCircle,  color: "#8b5cf6" },
   { label: "Beratung anfragen",        icon: Heart,       color: "#10b981" },
 ];
+
+const chipPresets: Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }> = {
+  "Ich brauche einen Platz": {
+    content: "Kein Problem — dafür gibt es unsere Platzanfrage. Das ist der schnellste Weg zu uns. Du kannst das kurze Formular ausfüllen oder uns direkt anrufen.",
+    cta: [
+      { label: "Zur Platzanfrage →", href: "/platzanfrage" },
+      { label: "030 22 45 43 22", href: "tel:+4930224543220" },
+    ],
+  },
+  "Krisenintervention": {
+    content: "Wenn es gerade akut ist: Wir haben 24/7 eine Sofortaufnahme. Ruf uns bitte sofort an — da ist jemand. Hier findest du auch alle Infos zu unserem Krisendienst.",
+    cta: [
+      { label: "030 22 45 43 22", href: "tel:+4930224543220" },
+      { label: "Krisenintervention →", href: "/krisenintervention" },
+    ],
+    crisis: true,
+  },
+  "Beratung anfragen": {
+    content: "Unsere Beratung ist kostenlos, niedrigschwellig und ohne Antrag. Kein langer Weg — einfach melden. Hier siehst du alle Beratungsangebote.",
+    cta: [
+      { label: "Beratung & Prävention →", href: "/beratung-praevention" },
+      { label: "030 22 45 43 22", href: "tel:+4930224543220" },
+    ],
+  },
+};
 
 export default function ChatWidget() {
   const [open, setOpen]               = useState(false);
@@ -126,8 +152,21 @@ export default function ChatWidget() {
     }
   }
 
-  function sendMessage()     { sendMessageWithText(input.trim()); }
-  function sendChip(l: string) { setChipsUsed(true); sendMessageWithText(l); }
+  function sendMessage() { sendMessageWithText(input.trim()); }
+  function sendChip(l: string) {
+    setChipsUsed(true);
+    const preset = chipPresets[l];
+    if (preset) {
+      if (preset.crisis) setCrisisBanner(true);
+      setMessages(prev => [
+        ...prev,
+        { role: "user", content: l },
+        { role: "assistant", content: preset.content, cta: preset.cta },
+      ]);
+    } else {
+      sendMessageWithText(l);
+    }
+  }
   function handleKey(e: React.KeyboardEvent) {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
   }
@@ -332,6 +371,30 @@ export default function ChatWidget() {
                       }} />
                     ))}
                   </span>
+                )}
+                {msg.cta && msg.cta.length > 0 && (
+                  <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "10px" }}>
+                    {msg.cta.map((btn, bi) => (
+                      <a key={bi} href={btn.href}
+                        onClick={e => e.stopPropagation()}
+                        style={{
+                          display: "block", textAlign: "center",
+                          padding: "7px 12px", borderRadius: "10px",
+                          fontSize: "12px", fontWeight: 700,
+                          textDecoration: "none",
+                          background: bi === 0
+                            ? "linear-gradient(135deg, #1a3f6f, #2563eb)"
+                            : "rgba(26,63,111,0.07)",
+                          color: bi === 0 ? "white" : "#1a3f6f",
+                          border: bi === 0 ? "none" : "1px solid rgba(26,63,111,0.15)",
+                          boxShadow: bi === 0 ? "0 3px 10px rgba(26,63,111,0.3)" : "none",
+                          transition: "opacity 0.15s",
+                        }}
+                        onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+                        onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+                      >{btn.label}</a>
+                    ))}
+                  </div>
                 )}
               </div>
             </div>
