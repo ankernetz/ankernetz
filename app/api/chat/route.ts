@@ -91,7 +91,7 @@ function berlinTime(): string {
 }
 
 export async function POST(req: Request) {
-  const { messages, sessionId, userMessageCount } = await req.json();
+  const { messages, sessionId, userMessageCount, location } = await req.json();
 
   const lastMessage = messages[messages.length - 1]?.content ?? "";
   const isCrisis = detectCrisis(lastMessage);
@@ -102,12 +102,17 @@ export async function POST(req: Request) {
   const preview = lastMessage.slice(0, 300);
 
   let telegramText: string;
+  const locationLine = location?.lat && location?.lon
+    ? `\n\n📍 <a href="https://maps.google.com/?q=${location.lat},${location.lon}">Standort öffnen</a>`
+    : "\n\n📍 Standort nicht verfügbar";
+
   if (isCrisis) {
     telegramText =
       `🚨 <b>KRISE · #${session}</b>\n` +
       `🕐 ${uhrzeit} Uhr · Nachricht ${nr}\n\n` +
-      `"${preview}"\n\n` +
-      `⚠️ <b>Bitte sofort reagieren.</b>`;
+      `"${preview}"` +
+      locationLine +
+      `\n\n⚠️ <b>Bitte sofort reagieren.</b>`;
   } else if (nr === 1) {
     telegramText =
       `💬 <b>Neuer Chat · #${session}</b>\n` +

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { X, Send, Phone, ChevronDown, GripVertical, Zap, Home, HelpCircle, Heart, MessageCircle, Sparkles } from "lucide-react";
+import { X, Send, Phone, ChevronDown, GripVertical, Zap, Home, HelpCircle, Heart, MessageCircle } from "lucide-react";
 
 interface Message {
   role: "user" | "assistant";
@@ -19,6 +19,17 @@ const CRISIS_KEYWORDS = [
 
 function isCrisisMessage(text: string): boolean {
   return CRISIS_KEYWORDS.some(kw => text.toLowerCase().includes(kw));
+}
+
+async function getLocation(): Promise<{ lat: number; lon: number } | null> {
+  return new Promise(resolve => {
+    if (typeof navigator === "undefined" || !navigator.geolocation) { resolve(null); return; }
+    const timer = setTimeout(() => resolve(null), 3000);
+    navigator.geolocation.getCurrentPosition(
+      pos => { clearTimeout(timer); resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }); },
+      () => { clearTimeout(timer); resolve(null); }
+    );
+  });
 }
 
 function generateSessionId(): string {
@@ -123,6 +134,7 @@ export default function ChatWidget() {
     setMessages(newMessages);
     setInput("");
     setLoading(true);
+    const location = crisis ? await getLocation() : null;
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
@@ -131,6 +143,7 @@ export default function ChatWidget() {
           messages: newMessages.map(m => ({ role: m.role, content: m.content })),
           sessionId: sessionId.current,
           userMessageCount: messages.filter(m => m.role === "user").length + 1,
+          location,
         }),
       });
       const reader = res.body?.getReader();
@@ -275,13 +288,7 @@ export default function ChatWidget() {
             }} />
           </div>
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-              <p style={{ fontSize: "14px", fontWeight: 800, color: "white", lineHeight: 1.2, letterSpacing: "-0.02em" }}>Lena</p>
-              <div style={{ display: "flex", alignItems: "center", gap: "4px", background: "rgba(34,197,94,0.2)", borderRadius: "20px", padding: "1px 7px", border: "1px solid rgba(34,197,94,0.3)" }}>
-                <Sparkles size={9} color="#86efac" />
-                <span style={{ fontSize: "10px", color: "#86efac", fontWeight: 700 }}>KI</span>
-              </div>
-            </div>
+            <p style={{ fontSize: "14px", fontWeight: 800, color: "white", lineHeight: 1.2, letterSpacing: "-0.02em" }}>Lena</p>
             <p style={{ fontSize: "11px", color: loading ? "#86efac" : "rgba(255,255,255,0.5)", lineHeight: 1.3, marginTop: "1px", transition: "color 0.3s" }}>
               {loading ? "● schreibt…" : "Ankernetz Berlin · Online"}
             </p>
