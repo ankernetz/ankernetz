@@ -12,6 +12,7 @@ import {
   Truck, FileText, SlidersHorizontal, Phone,
   Ruler, ChevronDown, Building2,
   Snowflake, Star, Box, ShoppingBag, Thermometer, CloudSun,
+  VolumeX, Hand, Target, AlertCircle,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -406,14 +407,15 @@ function ZahlungButton({ z, active, onClick }: {
 }
 
 /* ─── Bedürfnis-Mapping ────────────────────────────────────────── */
-const beduerfnisse = [
-  { id: "gerausche",       label: "Geräusche reduzieren",  emoji: "🔇", slugs: ["autismus","adhs","angststoerungen"] },
-  { id: "sensorik",        label: "Sensorik beruhigen",    emoji: "✋", slugs: ["autismus","adhs","trauma"] },
-  { id: "geborgenheit",    label: "Geborgenheit & Halt",   emoji: "🛡️", slugs: ["trauma","bindungsstoerungen","angststoerungen"] },
-  { id: "bewegung",        label: "Bewegungsdrang",         emoji: "🏃", slugs: ["adhs"] },
-  { id: "konzentration",   label: "Konzentration",          emoji: "🎯", slugs: ["adhs","autismus"] },
-  { id: "erstausstattung", label: "Erstausstattung",        emoji: "🎒", slugs: ["vernachlaessigung","erstbekleidung"] },
-  { id: "saisonal",        label: "Saisonal",               emoji: "🌤️", slugs: ["winterpauschale","sommerpauschale"] },
+const beduerfnisse: { id: string; label: string; icon: LucideIcon; slugs: string[] }[] = [
+  { id: "gerausche",       label: "Geräusche reduzieren", icon: VolumeX,  slugs: ["autismus","adhs","angststoerungen"] },
+  { id: "sensorik",        label: "Sensorik beruhigen",   icon: Hand,     slugs: ["autismus","adhs","trauma"] },
+  { id: "geborgenheit",    label: "Geborgenheit & Halt",  icon: Shield,   slugs: ["trauma","bindungsstoerungen","angststoerungen"] },
+  { id: "bewegung",        label: "Bewegungsdrang",        icon: Activity, slugs: ["adhs"] },
+  { id: "konzentration",   label: "Konzentration",         icon: Target,   slugs: ["adhs","autismus"] },
+  { id: "erstausstattung", label: "Erstausstattung",       icon: Package,  slugs: ["vernachlaessigung","erstbekleidung"] },
+  { id: "saisonal",        label: "Saisonal",              icon: CloudSun,   slugs: ["winterpauschale","sommerpauschale"] },
+  { id: "schmerz",         label: "Schmerzauslöser",       icon: AlertCircle, slugs: ["autismus","angststoerungen","trauma"] },
 ];
 
 /* ─── Hauptseite ───────────────────────────────────────────────── */
@@ -652,6 +654,7 @@ export default function AnkerkleidungPage() {
 
                 {beduerfnisse.map(b => {
                   const active = aktBeduerfnis === b.id;
+                  const BIcon = b.icon;
                   return (
                     <button
                       key={b.id}
@@ -669,7 +672,7 @@ export default function AnkerkleidungPage() {
                       onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.borderColor = "#6FA3FE"; }}
                       onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.borderColor = "#dde4ee"; }}
                     >
-                      <span>{b.emoji}</span>
+                      <BIcon size={13} strokeWidth={2} />
                       {b.label}
                     </button>
                   );
