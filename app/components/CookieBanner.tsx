@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const STORAGE_KEY  = "ankernetz_consent_v3";
+const STORAGE_KEY  = "ankernetz_consent_v4";
 const LOCATION_KEY = "ankernetz_location";
 
 function requestLocation() {
