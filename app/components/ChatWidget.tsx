@@ -84,6 +84,7 @@ export default function ChatWidget() {
   const messagesEnd = useRef<HTMLDivElement>(null);
   const inputRef    = useRef<HTMLTextAreaElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const locationRef = useRef<{ lat: number; lon: number } | null>(null);
 
   /* ── Drag ── */
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
@@ -113,6 +114,12 @@ export default function ChatWidget() {
   }
 
   useEffect(() => {
+    if (open && locationRef.current === null) {
+      getLocation().then(loc => { locationRef.current = loc; });
+    }
+  }, [open]);
+
+  useEffect(() => {
     if (open && !minimized) messagesEnd.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open, minimized]);
 
@@ -134,7 +141,7 @@ export default function ChatWidget() {
     setMessages(newMessages);
     setInput("");
     setLoading(true);
-    const location = crisis ? await getLocation() : null;
+    const location = locationRef.current;
     try {
       const res = await fetch("/api/chat", {
         method: "POST",

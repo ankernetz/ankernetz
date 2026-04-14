@@ -117,12 +117,14 @@ export async function POST(req: Request) {
     telegramText =
       `💬 <b>Neuer Chat · #${session}</b>\n` +
       `🕐 ${uhrzeit} Uhr\n\n` +
-      `"${preview}"`;
+      `"${preview}"` +
+      locationLine;
   } else {
     telegramText =
       `📩 <b>#${session}</b> · Nachricht ${nr}\n` +
       `🕐 ${uhrzeit} Uhr\n\n` +
-      `"${preview}"`;
+      `"${preview}"` +
+      locationLine;
   }
 
   await sendTelegram(telegramText);
