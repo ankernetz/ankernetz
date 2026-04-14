@@ -659,27 +659,28 @@ export default function AnkerkleidungPage() {
                 <button
                   onClick={() => { setAktBeduerfnis(null); setFilterKats(new Set()); }}
                   style={{
-                    display: "flex", flexDirection: "column", alignItems: "center",
-                    gap: "7px", padding: "12px 14px", width: "86px",
+                    display: "flex", alignItems: "center", gap: "9px",
+                    padding: "9px 14px",
                     border: aktBeduerfnis === null ? "1.5px solid #1a3f6f" : "1.5px solid #e8edf5",
                     borderRadius: "4px", cursor: "pointer",
                     background: aktBeduerfnis === null ? "#1a3f6f" : "#fafbfd",
                     transition: "all 0.15s",
                     boxShadow: aktBeduerfnis === null ? "0 2px 10px rgba(26,63,111,0.18)" : "none",
+                    whiteSpace: "nowrap",
                   }}
                   onMouseEnter={e => { if (aktBeduerfnis !== null) { (e.currentTarget as HTMLElement).style.borderColor = "#1a3f6f"; (e.currentTarget as HTMLElement).style.background = "#f4f7fb"; } }}
                   onMouseLeave={e => { if (aktBeduerfnis !== null) { (e.currentTarget as HTMLElement).style.borderColor = "#e8edf5"; (e.currentTarget as HTMLElement).style.background = "#fafbfd"; } }}
                 >
                   <div style={{
-                    width: "32px", height: "32px", borderRadius: "50%",
-                    background: aktBeduerfnis === null ? "rgba(255,255,255,0.2)" : "#eef2f8",
+                    width: "28px", height: "28px", borderRadius: "50%", flexShrink: 0,
+                    background: aktBeduerfnis === null ? "rgba(255,255,255,0.18)" : "#eef2f8",
                     display: "flex", alignItems: "center", justifyContent: "center",
                   }}>
-                    <SlidersHorizontal size={15} color={aktBeduerfnis === null ? "white" : "#1a3f6f"} strokeWidth={1.75} />
+                    <SlidersHorizontal size={13} color={aktBeduerfnis === null ? "white" : "#1a3f6f"} strokeWidth={1.75} />
                   </div>
-                  <span style={{ fontSize: "11px", fontWeight: 600, lineHeight: 1.2, textAlign: "center",
+                  <span style={{ fontSize: "12px", fontWeight: 600,
                     color: aktBeduerfnis === null ? "white" : "#374151" }}>
-                    Alle
+                    Alle anzeigen
                   </span>
                 </button>
 
@@ -691,27 +692,27 @@ export default function AnkerkleidungPage() {
                       key={b.id}
                       onClick={() => selectBeduerfnis(b.id)}
                       style={{
-                        display: "flex", flexDirection: "column", alignItems: "center",
-                        gap: "7px", padding: "12px 14px", width: "86px",
+                        display: "flex", alignItems: "center", gap: "9px",
+                        padding: "9px 14px",
                         border: active ? "1.5px solid #1a3f6f" : "1.5px solid #e8edf5",
                         borderRadius: "4px", cursor: "pointer",
                         background: active ? "#eef4ff" : "#fafbfd",
                         transition: "all 0.15s",
                         boxShadow: active ? "0 2px 10px rgba(26,63,111,0.12)" : "none",
+                        whiteSpace: "nowrap",
                       }}
                       onMouseEnter={e => { if (!active) { (e.currentTarget as HTMLElement).style.borderColor = "#1a3f6f"; (e.currentTarget as HTMLElement).style.background = "#f4f7fb"; } }}
                       onMouseLeave={e => { if (!active) { (e.currentTarget as HTMLElement).style.borderColor = "#e8edf5"; (e.currentTarget as HTMLElement).style.background = "#fafbfd"; } }}
                     >
                       <div style={{
-                        width: "32px", height: "32px", borderRadius: "50%",
-                        background: active ? "rgba(26,63,111,0.12)" : "#eef2f8",
+                        width: "28px", height: "28px", borderRadius: "50%", flexShrink: 0,
+                        background: active ? "rgba(26,63,111,0.1)" : "#eef2f8",
                         display: "flex", alignItems: "center", justifyContent: "center",
                         transition: "background 0.15s",
                       }}>
-                        <BIcon size={15} color={active ? "#1a3f6f" : "#6b7280"} strokeWidth={1.75} />
+                        <BIcon size={13} color={active ? "#1a3f6f" : "#6b7280"} strokeWidth={1.75} />
                       </div>
-                      <span style={{ fontSize: "11px", fontWeight: active ? 700 : 500,
-                        lineHeight: 1.25, textAlign: "center",
+                      <span style={{ fontSize: "12px", fontWeight: active ? 700 : 500,
                         color: active ? "#1a3f6f" : "#374151" }}>
                         {b.label}
                       </span>
