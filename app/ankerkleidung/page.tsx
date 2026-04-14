@@ -12,7 +12,7 @@ import {
   Truck, FileText, SlidersHorizontal, Phone,
   Ruler, ChevronDown, Building2,
   Snowflake, Star, Box, ShoppingBag, Thermometer, CloudSun,
-  VolumeX, Hand, Target, AlertCircle,
+  EarOff, Waves, Brain,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -408,14 +408,14 @@ function ZahlungButton({ z, active, onClick }: {
 
 /* ─── Bedürfnis-Mapping ────────────────────────────────────────── */
 const beduerfnisse: { id: string; label: string; icon: LucideIcon; slugs: string[] }[] = [
-  { id: "gerausche",       label: "Geräusche reduzieren", icon: VolumeX,  slugs: ["autismus","adhs","angststoerungen"] },
-  { id: "sensorik",        label: "Sensorik beruhigen",   icon: Hand,     slugs: ["autismus","adhs","trauma"] },
-  { id: "geborgenheit",    label: "Geborgenheit & Halt",  icon: Shield,   slugs: ["trauma","bindungsstoerungen","angststoerungen"] },
-  { id: "bewegung",        label: "Bewegungsdrang",        icon: Activity, slugs: ["adhs"] },
-  { id: "konzentration",   label: "Konzentration",         icon: Target,   slugs: ["adhs","autismus"] },
-  { id: "erstausstattung", label: "Erstausstattung",       icon: Package,  slugs: ["vernachlaessigung","erstbekleidung"] },
-  { id: "saisonal",        label: "Saisonal",              icon: CloudSun,   slugs: ["winterpauschale","sommerpauschale"] },
-  { id: "schmerz",         label: "Schmerzauslöser",       icon: AlertCircle, slugs: ["autismus","angststoerungen","trauma"] },
+  { id: "gerausche",       label: "Geräusche reduzieren", icon: EarOff,      slugs: ["autismus","adhs","angststoerungen"] },
+  { id: "sensorik",        label: "Sensorik beruhigen",   icon: Waves,       slugs: ["autismus","adhs","trauma"] },
+  { id: "geborgenheit",    label: "Geborgenheit & Halt",  icon: Heart,       slugs: ["trauma","bindungsstoerungen","angststoerungen"] },
+  { id: "bewegung",        label: "Bewegungsdrang",        icon: Footprints,  slugs: ["adhs"] },
+  { id: "konzentration",   label: "Konzentration",         icon: Brain,       slugs: ["adhs","autismus"] },
+  { id: "erstausstattung", label: "Erstausstattung",       icon: Shirt,       slugs: ["vernachlaessigung","erstbekleidung"] },
+  { id: "saisonal",        label: "Saisonal",              icon: Thermometer, slugs: ["winterpauschale","sommerpauschale"] },
+  { id: "schmerz",         label: "Schmerzauslöser",       icon: Zap,         slugs: ["autismus","angststoerungen","trauma"] },
 ];
 
 /* ─── Hauptseite ───────────────────────────────────────────────── */
