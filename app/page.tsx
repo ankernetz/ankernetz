@@ -127,18 +127,28 @@ export default function HomePage() {
 
         <div className="site-container">
           <BlurFade>
-            <div className="text-center" style={{ maxWidth: "640px", margin: "0 auto" }}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6FA3FE] mb-5">
-                Ein Netz. Elf Antworten.
-              </p>
+            <div style={{ maxWidth: "720px", margin: "0 auto" }}>
               <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1a3f6f] mb-8 leading-[1.1]"
                 style={{ letterSpacing: "-0.03em" }}>
-                Für jede Situation —<br />die richtige Hilfe.
+                Ein Netz, das trägt.
               </h2>
-              <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.9]">
-                Ankernetz ist ein Netzwerk aus spezialisierten Hilfsangeboten für Kinder und Jugendliche —
-                von der akuten Krisenintervention über Psychotherapie und frühe Hilfen bis zum Übergang in den Beruf.
-              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.1rem" }}>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">
+                  Ankernetz ist ein Zusammenschluss spezialisierter Hilfsangebote für Kinder und Jugendliche.
+                </p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">
+                  Wir sind da, wenn Situationen unübersichtlich werden, wenn schnelle Entscheidungen notwendig sind oder langfristige Unterstützung gebraucht wird.
+                </p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">
+                  Von der akuten Krisenintervention über therapeutische Begleitung bis hin zu frühen Hilfen und dem Übergang in ein selbstständiges Leben bieten wir verlässliche Strukturen und klare Zuständigkeiten.
+                </p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">
+                  Unsere Angebote greifen ineinander. Wege sind kurz, Absprachen verbindlich, Unterstützung kontinuierlich.
+                </p>
+                <p className="text-[1.0625rem] text-[#374151] font-semibold leading-[1.8]">
+                  So entsteht ein Rahmen, der Sicherheit gibt und Entwicklung möglich macht.
+                </p>
+              </div>
             </div>
           </BlurFade>
         </div>
