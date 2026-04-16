@@ -165,7 +165,7 @@ export default function HomePage() {
                 Unsere Angebote
               </p>
               <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black" style={{ letterSpacing: "-0.028em", color: "#1a3f6f" }}>
-                Spezialisiert. Vernetzt. Menschlich.
+                Spezialisiert. Vernetzt. Haltgebend.
               </h2>
             </div>
           </BlurFade>
