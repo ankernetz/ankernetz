@@ -417,20 +417,26 @@ export default function KriseninterventionPage() {
               color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em",
               marginBottom: "1.5rem",
             }}>
-              Akute Hilfe, die ankommt — bevor es zu spät ist.
+              Schnelle Hilfe, wenn sie wirklich gebraucht wird.
             </h2>
-            <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
-              Krisenintervention ist die intensivste Form der Jugendhilfe: Sie greift dann,
-              wenn herkömmliche Unterstützung nicht mehr ausreicht und sofortiges Handeln
-              erforderlich ist. In einer Krise geht es nicht um Wartelisten — es geht um
-              Minuten und Stunden.
-            </p>
-            <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
-              Unser Team besteht aus erfahrenen Sozialpädagogen, Psychologen und
-              Therapeuten, die speziell für die Arbeit in Krisensituationen ausgebildet sind.
-              Wir schaffen Sicherheit — für den Jugendlichen, für die Familie und für das
-              Jugendamt.
-            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+              <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
+                Krisenintervention bedeutet, in akuten Situationen unmittelbar zu handeln und Unterstützung bereitzustellen.
+                Sie kommt dann zum Einsatz, wenn bestehende Hilfen nicht mehr ausreichen und kurzfristig Stabilität geschaffen werden muss.
+              </p>
+              <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
+                In solchen Momenten geht es darum, Sicherheit herzustellen, Orientierung zu geben und gemeinsam erste tragfähige Schritte zu entwickeln – für den Jugendlichen und sein Umfeld.
+              </p>
+              <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
+                Unser Team besteht aus erfahrenen Sozialpädagoginnen, Psychologinnen und Therapeut*innen mit besonderer Expertise in der Arbeit mit Krisensituationen.
+              </p>
+              <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
+                Wir arbeiten strukturiert, eng abgestimmt und verlässlich - im Kontakt mit dem Jugendlichen, der Familie und dem zuständigen Jugendamt.
+              </p>
+              <p style={{ color: "#1a3f6f", lineHeight: 1.85, fontSize: "15px", fontWeight: 600 }}>
+                Ziel ist es, die Situation zu stabilisieren und eine passende Perspektive zu entwickeln.
+              </p>
+            </div>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
