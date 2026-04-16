@@ -75,23 +75,26 @@ export default function UeberUnsPage() {
               textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>Unsere Geschichte</p>
             <h2 style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f",
               letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "1.75rem" }}>
-              Entstanden aus der Überzeugung,<br />dass es besser geht.
+              Entstanden aus der Überzeugung, dass es verlässlicher gehen muss.
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
-                Ankernetz wurde 2015 gegründet — von Menschen, die selbst in der Kinder- und Jugendhilfe
-                gearbeitet haben und täglich erlebt haben, wie Kinder zwischen den Systemen verloren gehen.
-                Zu viele Übergaben, zu wenig Kontinuität, zu wenig Vernetzung.
+                Ankernetz wurde 2015 gegründet – von Fachkräften, die selbst viele Jahre in der Kinder- und Jugendhilfe gearbeitet haben.
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
-                Die Idee war simpel: Was wäre, wenn alle spezialisierten Hilfeformen unter einem Dach wären?
-                Wenn eine Krisenaufnahme direkt in eine Wohngruppe übergeht, die Psychotherapie im Haus ist
-                und das Jugendamt einen verlässlichen Ansprechpartner hat?
+                Sie haben erlebt, wie herausfordernd es sein kann, passgenaue Hilfe zu organisieren: Übergänge, fehlende Abstimmung und unterbrochene Beziehungen.
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
-                Aus dieser Idee ist Ankernetz geworden — ein echtes Netzwerk, kein Träger-Konstrukt.
-                Mit 11 Angeboten, die ineinandergreifen. Mit Teams, die sich kennen. Für Kinder,
-                die sonst durch das Netz fallen würden.
+                Daraus entstand eine klare Idee: Hilfen so zu gestalten, dass sie aufeinander aufbauen, ineinandergreifen und für junge Menschen nachvollziehbar bleiben.
+              </p>
+              <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
+                Heute verbindet Ankernetz verschiedene spezialisierte Angebote – von der Krisenaufnahme über Wohnen bis hin zu therapeutischer Begleitung.
+              </p>
+              <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
+                Wege sind kurz, Teams arbeiten eng zusammen und es gibt feste Ansprechpartner.
+              </p>
+              <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
+                So entsteht Kontinuität – und ein Rahmen, in dem Kinder und Jugendliche Stabilität und Perspektive entwickeln können.
               </p>
             </div>
           </div>
