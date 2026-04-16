@@ -376,9 +376,14 @@ export default function KriseninterventionPage() {
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <Siren size={20} color="#fca5a5" />
+            <div>
+            <p style={{ color: "white", fontWeight: 700, fontSize: "14px", marginBottom: "2px" }}>
+              Krisennotfall? Wir sind sofort für Sie da.
+            </p>
             <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "13px" }}>
               Kein Anrufbeantworter - echte Fachkräfte am Telefon.
             </p>
+            </div>
           </div>
           <a
             href="tel:+4930224543220"
