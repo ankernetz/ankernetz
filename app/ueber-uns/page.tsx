@@ -172,9 +172,9 @@ export default function UeberUnsPage() {
                 Ein Netz, das trägt.
               </h3>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.6)", lineHeight: 1.85 }}>
-                Wir vision eine Kinder- und Jugendhilfe, in der Übergaben reibungslos funktionieren,
-                Spezialisierung und Menschlichkeit kein Widerspruch sind und jedes Hilfesystem
-                mit jedem anderen spricht — für das Kind, nicht für die Verwaltung.
+                Wir arbeiten daran, eine Kinder- und Jugendhilfe zu gestalten, in der Hilfen ineinandergreifen,
+                Zusammenarbeit selbstverständlich ist und junge Menschen im Mittelpunkt stehen –
+                nicht Strukturen oder Zuständigkeiten.
               </p>
             </div>
           </div>
