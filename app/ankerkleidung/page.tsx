@@ -418,6 +418,116 @@ const beduerfnisse: { id: string; label: string; icon: LucideIcon; slugs: string
   { id: "schmerz",         label: "Schmerzauslöser",       icon: Zap,         slugs: ["autismus","angststoerungen","trauma"] },
 ];
 
+/* ─── Selbstcheck-Daten ────────────────────────────────────────── */
+const selbstCheckFragen: { teil: string; frage: string; antworten: { key: string; text: string }[] }[] = [
+  {
+    teil: "Teil 1 – Wie fühlst du dich im Alltag?",
+    frage: "Wie geht es dir die meiste Zeit?",
+    antworten: [
+      { key: "A", text: "Ich bin oft unruhig oder angespannt" },
+      { key: "B", text: "Mir wird schnell alles zu viel (Geräusche, Menschen etc.)" },
+      { key: "C", text: "Ich fühle mich oft müde, leer oder \u201enicht richtig da\u201c" },
+      { key: "D", text: "Eigentlich stabil, aber manchmal gestresst" },
+    ],
+  },
+  {
+    teil: "Teil 1 – Wie fühlst du dich im Alltag?",
+    frage: "Was passiert bei Stress?",
+    antworten: [
+      { key: "A", text: "Ich werde zappelig oder nervös" },
+      { key: "B", text: "Ich ziehe mich zurück oder mache innerlich \u201ezu\u201c" },
+      { key: "C", text: "Ich werde schnell gereizt oder überfordert" },
+      { key: "D", text: "Ich spüre Anspannung im Körper" },
+    ],
+  },
+  {
+    teil: "Teil 2 – Körper & Verhalten",
+    frage: "Hast du oft das Bedürfnis, etwas mit den Händen zu tun?",
+    antworten: [
+      { key: "A", text: "Ja, sehr oft" },
+      { key: "B", text: "Manchmal" },
+      { key: "C", text: "Selten" },
+      { key: "D", text: "Kaum" },
+    ],
+  },
+  {
+    teil: "Teil 2 – Körper & Verhalten",
+    frage: "Was machst du unbewusst häufig?",
+    antworten: [
+      { key: "A", text: "Mit den Fingern spielen, klopfen, knibbeln" },
+      { key: "B", text: "Dinge festhalten oder anspannen" },
+      { key: "C", text: "Mich zurückziehen oder still werden" },
+      { key: "D", text: "Nichts davon" },
+    ],
+  },
+  {
+    teil: "Teil 3 – Reize & Umgebung",
+    frage: "Wie reagierst du auf Lärm oder viele Eindrücke?",
+    antworten: [
+      { key: "A", text: "Ich werde unruhig" },
+      { key: "B", text: "Es wird mir schnell zu viel" },
+      { key: "C", text: "Ich blende vieles aus oder bin wie weg" },
+      { key: "D", text: "Ich komme gut klar" },
+    ],
+  },
+  {
+    teil: "Teil 3 – Reize & Umgebung",
+    frage: "Wie wichtig ist dir Ruhe um dich herum?",
+    antworten: [
+      { key: "A", text: "Nicht so wichtig" },
+      { key: "B", text: "Sehr wichtig – ich brauche Rückzug" },
+      { key: "C", text: "Unterschiedlich" },
+      { key: "D", text: "Meistens egal" },
+    ],
+  },
+  {
+    teil: "Teil 4 – Was hilft dir?",
+    frage: "Was hilft dir am meisten, wenn du gestresst bist?",
+    antworten: [
+      { key: "A", text: "Bewegung oder etwas mit den Händen" },
+      { key: "B", text: "Druck oder etwas Festes" },
+      { key: "C", text: "Wärme oder Geborgenheit" },
+      { key: "D", text: "Ruhe und weniger Reize" },
+    ],
+  },
+  {
+    teil: "Teil 4 – Was hilft dir?",
+    frage: "Was brauchst du am ehesten in schwierigen Momenten?",
+    antworten: [
+      { key: "A", text: "Ein Ventil für meine Energie" },
+      { key: "B", text: "Halt und Stabilität" },
+      { key: "C", text: "Beruhigung" },
+      { key: "D", text: "Abstand von der Umgebung" },
+    ],
+  },
+];
+
+type CheckResultKey = "A" | "B" | "C" | "D" | "BD" | "MIX" | "AUS";
+interface CheckResultData {
+  titel: string; untertitel: string; farbe: string;
+  ResultIcon: LucideIcon; warum: string; produkte: string[]; slugs: string[];
+}
+const checkResultMap: Record<CheckResultKey, CheckResultData> = {
+  A:   { titel: "Bewegung & Entladung",      untertitel: "Dein Schwerpunkt: Energie in Bewegung wandeln", farbe: "#6FA3FE", ResultIcon: Footprints, warum: "Du hast viel innere Energie. Dein Körper braucht Bewegung, um Spannungen abzubauen.", produkte: ["ANKER FLOW Armband", "Calm Hoodie (mit Bewegungselementen)"], slugs: ["adhs"] },
+  B:   { titel: "Halt & Druck",               untertitel: "Dein Schwerpunkt: Stabilität und Erdung",       farbe: "#FEC274", ResultIcon: Layers,     warum: "Druck und Gewicht helfen dir, dich zu stabilisieren und runterzukommen. Das gibt deinem Körper Orientierung und Sicherheit.", produkte: ["ANKER PRESS Armband", "Gewichtssack", "Schweres Kissen"], slugs: ["trauma", "autismus"] },
+  C:   { titel: "Beruhigung & Geborgenheit",  untertitel: "Dein Schwerpunkt: Emotionale Sicherheit",       farbe: "#f97316", ResultIcon: Heart,      warum: "Du brauchst vor allem emotionale Beruhigung. Wärme und weiche Materialien helfen dir, dich sicherer zu fühlen.", produkte: ["ANKER WARM Armband", "Calm Hoodie", "Kissen"], slugs: ["trauma", "bindungsstoerungen", "angststoerungen"] },
+  D:   { titel: "Ruhe & Reizreduktion",       untertitel: "Dein Schwerpunkt: Weniger ist mehr",             farbe: "#22c55e", ResultIcon: EarOff,     warum: "Du brauchst weniger Reize, um dich wohlzufühlen. Ruhige Umgebungen und Reizschutz helfen dir, stabil zu bleiben.", produkte: ["Geräuschdistanzierende Mütze", "Calm Hoodie", "ANKER CORE Armband"], slugs: ["autismus", "angststoerungen"] },
+  BD:  { titel: "Ruhe & Reizreduktion",       untertitel: "Dein Schwerpunkt: Schutz und Rückzug",          farbe: "#22c55e", ResultIcon: EarOff,     warum: "Du brauchst weniger Reize, um dich wohlzufühlen. Ruhige Umgebungen und Reizschutz helfen dir, stabil zu bleiben.", produkte: ["Geräuschdistanzierende Mütze", "Calm Hoodie", "ANKER CORE Armband"], slugs: ["autismus", "angststoerungen"] },
+  MIX: { titel: "Wahrnehmung & Erdung",       untertitel: "Dein Schwerpunkt: Gezielte Reize und Fokus",    farbe: "#a78bfa", ResultIcon: Waves,      warum: "Gezielte Reize helfen dir, dich besser zu spüren und zu fokussieren. Du reagierst sensibel auf deine Umgebung.", produkte: ["ANKER TOUCH Armband", "Kissen", "Calm Hoodie (optional)"], slugs: ["autismus", "angststoerungen"] },
+  AUS: { titel: "Alltag & leichte Unterstützung", untertitel: "Dein Schwerpunkt: Alltagsstabilität",        farbe: "#6FA3FE", ResultIcon: Anchor,     warum: "Du bist grundsätzlich stabil, möchtest dich aber im Alltag besser unterstützen.", produkte: ["ANKER CORE Armband", "Calm Hoodie (leicht)"], slugs: ["adhs", "angststoerungen"] },
+};
+function computeCheckResult(answers: string[]): CheckResultKey {
+  const counts: Record<string, number> = { A: 0, B: 0, C: 0, D: 0 };
+  for (const a of answers) if (a && a in counts) counts[a]++;
+  const max = Math.max(counts.A, counts.B, counts.C, counts.D);
+  if (max >= 4) {
+    for (const k of ["A", "B", "C", "D"] as const) if (counts[k] === max) return k;
+  }
+  if (counts.B + counts.D >= 5) return "BD";
+  if (max <= 2) return "AUS";
+  return "MIX";
+}
+
 /* ─── Hauptseite ───────────────────────────────────────────────── */
 export default function AnkerkleidungPage() {
   const [filterKats, setFilterKats]     = useState<Set<string>>(new Set());
@@ -432,6 +542,9 @@ export default function AnkerkleidungPage() {
   const [form, setForm]                 = useState({ name: "", einrichtung: "", email: "", telefon: "", notizen: "" });
   const [submitted, setSubmitted]       = useState(false);
   const [submitting, setSubmitting]     = useState(false);
+  const [checkOpen, setCheckOpen]       = useState(false);
+  const [checkStep, setCheckStep]       = useState(-1);
+  const [checkAnswers, setCheckAnswers] = useState<string[]>([]);
 
   const cartTotal = cart.reduce((s, i) => s + i.preis * i.menge, 0);
   const cartCount = cart.reduce((s, i) => s + i.menge, 0);
@@ -628,6 +741,40 @@ export default function AnkerkleidungPage() {
 
           {/* ── PRODUKT-GRID ── */}
           <section style={{ flex: 1, minWidth: 0 }}>
+
+            {/* ── Selbstcheck Banner ── */}
+            <div style={{
+              marginBottom: "1.5rem",
+              background: "linear-gradient(135deg, #f4f7fb 0%, #eef4ff 100%)",
+              border: "1px solid #dde4ee",
+              padding: "1.25rem 1.5rem",
+              display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem",
+            }}>
+              <div>
+                <p style={{ fontSize: "9px", fontWeight: 700, color: "#6FA3FE",
+                  letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "0.375rem" }}>
+                  ANKER Selbstcheck
+                </p>
+                <p style={{ fontSize: "0.9rem", fontWeight: 700, color: "#1a3f6f",
+                  marginBottom: "0.25rem", lineHeight: 1.3 }}>
+                  Nicht sicher, was passt?
+                </p>
+                <p style={{ fontSize: "0.8rem", color: "rgba(26,63,111,0.55)" }}>
+                  8 kurze Fragen — wir zeigen dir, welche Produkte dir im Alltag helfen können.
+                </p>
+              </div>
+              <button
+                onClick={() => { setCheckStep(-1); setCheckAnswers([]); setCheckOpen(true); }}
+                style={{
+                  background: "#1a3f6f", color: "white", border: "none",
+                  padding: "0.75rem 1.25rem", fontWeight: 700, fontSize: "0.78rem",
+                  letterSpacing: "0.08em", textTransform: "uppercase", cursor: "pointer",
+                  whiteSpace: "nowrap", flexShrink: 0,
+                }}
+              >
+                Selbstcheck starten
+              </button>
+            </div>
 
             {/* ── Bedürfnis-Filter ── */}
             <div style={{
@@ -1014,6 +1161,225 @@ export default function AnkerkleidungPage() {
                 </div>
               </>
             )}
+          </div>
+        </>
+      )}
+
+      {/* ══ SELBSTCHECK MODAL ══ */}
+      {checkOpen && (
+        <>
+          <div onClick={() => setCheckOpen(false)} style={{ position: "fixed", inset: 0,
+            background: "rgba(0,0,0,0.5)", zIndex: 1200, backdropFilter: "blur(4px)" }} />
+          <div style={{
+            position: "fixed", top: "50%", left: "50%", transform: "translate(-50%,-50%)",
+            width: "min(540px, calc(100vw - 2rem))", background: "white", zIndex: 1201,
+            boxShadow: "0 24px 80px rgba(0,0,0,0.22)", display: "flex", flexDirection: "column",
+            maxHeight: "90vh", overflow: "hidden",
+          }}>
+            {/* Header */}
+            <div style={{ padding: "1.125rem 1.5rem", borderBottom: "1px solid #e8ecf0",
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              background: "#1a3f6f" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
+                <Anchor size={15} color="#6FA3FE" strokeWidth={2} />
+                <span style={{ fontSize: "11px", fontWeight: 700, color: "white",
+                  letterSpacing: "0.16em", textTransform: "uppercase" }}>ANKER Selbstcheck</span>
+              </div>
+              <button onClick={() => setCheckOpen(false)} style={{ background: "none", border: "none",
+                cursor: "pointer", color: "rgba(255,255,255,0.6)", display: "flex" }}>
+                <X size={17} />
+              </button>
+            </div>
+
+            {/* Progress bar */}
+            {checkStep >= 0 && checkStep < 8 && (
+              <div style={{ background: "#f4f7fb", padding: "0.75rem 1.5rem",
+                borderBottom: "1px solid #e8ecf0" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between",
+                  marginBottom: "0.5rem" }}>
+                  <span style={{ fontSize: "10px", color: "rgba(26,63,111,0.5)", fontWeight: 600 }}>
+                    {selbstCheckFragen[checkStep].teil}
+                  </span>
+                  <span style={{ fontSize: "10px", color: "#6FA3FE", fontWeight: 700 }}>
+                    Frage {checkStep + 1} von 8
+                  </span>
+                </div>
+                <div style={{ height: "3px", background: "#dde4ee", borderRadius: "9999px" }}>
+                  <div style={{
+                    height: "100%", background: "#6FA3FE", borderRadius: "9999px",
+                    width: `${((checkStep + 1) / 8) * 100}%`, transition: "width 0.3s ease",
+                  }} />
+                </div>
+              </div>
+            )}
+
+            {/* Body */}
+            <div style={{ flex: 1, overflowY: "auto", padding: "2rem 1.5rem" }}>
+
+              {/* Intro */}
+              {checkStep === -1 && (
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ width: "56px", height: "56px", background: "rgba(111,163,254,0.1)",
+                    borderRadius: "50%", display: "flex", alignItems: "center",
+                    justifyContent: "center", margin: "0 auto 1.5rem" }}>
+                    <Anchor size={24} color="#6FA3FE" strokeWidth={1.5} />
+                  </div>
+                  <h2 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#1a3f6f",
+                    letterSpacing: "-0.02em", marginBottom: "0.75rem" }}>
+                    Finde heraus, was dir im Alltag gut tut.
+                  </h2>
+                  <p style={{ fontSize: "0.875rem", color: "rgba(26,63,111,0.6)", lineHeight: 1.75,
+                    maxWidth: "40ch", margin: "0 auto 0.625rem" }}>
+                    Dieser Selbstcheck hilft dir, dein eigenes Empfinden besser zu verstehen.
+                    Er zeigt dir, welche Art von Unterstützung dir im Alltag helfen kann.
+                  </p>
+                  <p style={{ fontSize: "0.75rem", color: "#9ca3af", marginBottom: "2rem" }}>
+                    8 Fragen · ca. 2 Minuten · ersetzt keine Diagnose
+                  </p>
+                  <button onClick={() => setCheckStep(0)} style={{
+                    background: "#1a3f6f", color: "white", border: "none",
+                    padding: "0.875rem 2.5rem", fontWeight: 700, fontSize: "0.875rem",
+                    letterSpacing: "0.08em", textTransform: "uppercase", cursor: "pointer",
+                  }}>
+                    Jetzt starten
+                  </button>
+                </div>
+              )}
+
+              {/* Frage */}
+              {checkStep >= 0 && checkStep < 8 && (() => {
+                const frage = selbstCheckFragen[checkStep];
+                return (
+                  <div>
+                    <h3 style={{ fontSize: "1.0625rem", fontWeight: 800, color: "#1a3f6f",
+                      lineHeight: 1.35, marginBottom: "1.75rem", letterSpacing: "-0.01em" }}>
+                      {frage.frage}
+                    </h3>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                      {frage.antworten.map(a => {
+                        const isSelected = checkAnswers[checkStep] === a.key;
+                        return (
+                          <button key={a.key}
+                            onClick={() => {
+                              const n = [...checkAnswers];
+                              n[checkStep] = a.key;
+                              setCheckAnswers(n);
+                              setTimeout(() => {
+                                if (checkStep < 7) setCheckStep(s => s + 1);
+                                else setCheckStep(8);
+                              }, 180);
+                            }}
+                            style={{
+                              display: "flex", alignItems: "center", gap: "1rem",
+                              padding: "1rem 1.25rem", textAlign: "left",
+                              border: isSelected ? "2px solid #1a3f6f" : "1.5px solid #e8ecf0",
+                              background: isSelected ? "#eef4ff" : "white",
+                              cursor: "pointer", transition: "all 0.12s ease",
+                            }}
+                            onMouseEnter={e => { if (!isSelected) { (e.currentTarget as HTMLElement).style.borderColor = "#6FA3FE"; (e.currentTarget as HTMLElement).style.background = "#f8faff"; } }}
+                            onMouseLeave={e => { if (!isSelected) { (e.currentTarget as HTMLElement).style.borderColor = "#e8ecf0"; (e.currentTarget as HTMLElement).style.background = "white"; } }}
+                          >
+                            <div style={{ width: "28px", height: "28px", borderRadius: "50%", flexShrink: 0,
+                              background: isSelected ? "#1a3f6f" : "#f0f4f8",
+                              display: "flex", alignItems: "center", justifyContent: "center" }}>
+                              <span style={{ fontSize: "11px", fontWeight: 800,
+                                color: isSelected ? "white" : "#6b7280", letterSpacing: "0.04em" }}>
+                                {a.key}
+                              </span>
+                            </div>
+                            <span style={{ fontSize: "0.875rem", lineHeight: 1.4,
+                              color: isSelected ? "#1a3f6f" : "#374151",
+                              fontWeight: isSelected ? 600 : 400 }}>
+                              {a.text}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Ergebnis */}
+              {checkStep === 8 && (() => {
+                const resultKey = computeCheckResult(checkAnswers);
+                const result = checkResultMap[resultKey];
+                const RIcon = result.ResultIcon;
+                return (
+                  <div>
+                    <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+                      <div style={{ width: "56px", height: "56px", borderRadius: "50%",
+                        background: `${result.farbe}20`,
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        margin: "0 auto 1.25rem" }}>
+                        <RIcon size={24} color={result.farbe} strokeWidth={1.5} />
+                      </div>
+                      <p style={{ fontSize: "9px", fontWeight: 700, color: result.farbe,
+                        letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: "0.5rem" }}>
+                        Dein Ergebnis
+                      </p>
+                      <h3 style={{ fontSize: "1.375rem", fontWeight: 800, color: "#1a3f6f",
+                        letterSpacing: "-0.02em", marginBottom: "0.375rem" }}>
+                        {result.titel}
+                      </h3>
+                      <p style={{ fontSize: "0.8rem", color: "rgba(26,63,111,0.45)" }}>
+                        {result.untertitel}
+                      </p>
+                    </div>
+                    <div style={{ background: "#f4f7fb", padding: "1.25rem", marginBottom: "1.5rem" }}>
+                      <p style={{ fontSize: "9px", fontWeight: 700, color: "#6FA3FE",
+                        letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "0.625rem" }}>
+                        Warum?
+                      </p>
+                      <p style={{ fontSize: "0.875rem", color: "rgba(26,63,111,0.7)", lineHeight: 1.75 }}>
+                        {result.warum}
+                      </p>
+                    </div>
+                    <div style={{ marginBottom: "2rem" }}>
+                      <p style={{ fontSize: "9px", fontWeight: 700, color: "#6FA3FE",
+                        letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "0.875rem" }}>
+                        Empfohlene Produkte
+                      </p>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                        {result.produkte.map((p, i) => (
+                          <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.75rem",
+                            padding: "0.75rem 1rem", border: "1px solid #e8ecf0", background: "white" }}>
+                            <div style={{ width: "6px", height: "6px", borderRadius: "50%",
+                              background: result.farbe, flexShrink: 0 }} />
+                            <span style={{ fontSize: "0.875rem", fontWeight: 500, color: "#1a3f6f" }}>{p}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div style={{ display: "flex", gap: "0.75rem" }}>
+                      <button
+                        onClick={() => {
+                          setCheckOpen(false);
+                          setAktBeduerfnis(null);
+                          setFilterKats(new Set(result.slugs));
+                        }}
+                        style={{ flex: 1, padding: "0.875rem", background: "#1a3f6f", color: "white",
+                          border: "none", fontWeight: 700, fontSize: "0.78rem",
+                          letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer" }}
+                      >
+                        Passende Produkte anzeigen
+                      </button>
+                      <button
+                        onClick={() => { setCheckStep(-1); setCheckAnswers([]); }}
+                        style={{ padding: "0.875rem 1.25rem", background: "white", color: "#1a3f6f",
+                          border: "1.5px solid #dde4ee", fontWeight: 600, fontSize: "0.78rem",
+                          cursor: "pointer" }}
+                      >
+                        Neu starten
+                      </button>
+                    </div>
+                    <p style={{ fontSize: "0.7rem", color: "#9ca3af", textAlign: "center", marginTop: "1rem" }}>
+                      Dieser Check ersetzt keine professionelle Diagnose.
+                    </p>
+                  </div>
+                );
+              })()}
+            </div>
           </div>
         </>
       )}
