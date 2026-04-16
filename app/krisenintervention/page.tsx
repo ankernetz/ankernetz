@@ -856,10 +856,10 @@ export default function KriseninterventionPage() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
               {[
-                "Rund um die Uhr verfügbar — auch nachts und am Wochenende",
-                "Direkte Benachrichtigung eines Mitarbeiters bei jeder Anfrage",
-                "Kein Formular, kein Login — einfach tippen und fragen",
-                "Vertraulich und ohne persönliche Registrierung",
+                "24/7 erreichbar – wann immer Sie Unterstützung brauchen",
+                "Ihr Anliegen kommt direkt bei uns an",
+                "Einfach schreiben – ohne Hürden oder komplizierte Schritte",
+                "Vertraulich und respektvoll im Umgang mit Ihren Daten",
               ].map((p, i) => (
                 <div key={i} style={{
                   display: "flex", alignItems: "center", gap: "10px",
