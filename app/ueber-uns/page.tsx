@@ -154,12 +154,15 @@ export default function UeberUnsPage() {
                 position: "relative", zIndex: 1 }}>
                 Kein Kind fällt durch das Netz.
               </h3>
-              <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.55)",
-                lineHeight: 1.85, position: "relative", zIndex: 1 }}>
-                Wir stellen sicher, dass jedes Kind — unabhängig von Diagnose, Herkunft oder
-                Schweregrad — den spezialisierten Zugang zu Hilfe bekommt, den es braucht.
-                Nicht irgendwann. Jetzt.
-              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem",
+                position: "relative", zIndex: 1 }}>
+                <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.85 }}>
+                  Wir schaffen Zugänge zu passgenauer Unterstützung – unabhängig von Herkunft, Diagnose oder individuellem Bedarf.
+                </p>
+                <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.85 }}>
+                  Unser Anspruch ist es, Hilfe so zu organisieren, dass sie rechtzeitig ankommt, ineinandergreift und langfristig trägt.
+                </p>
+              </div>
             </div>
             <div style={{ background: "white", padding: "3rem" }}>
               <p style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.2em",
