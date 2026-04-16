@@ -293,14 +293,22 @@ export default function KriseninterventionPage() {
             <span style={{ color: "#6FA3FE" }}>Wenn es zählt.</span>
           </h1>
 
-          <p style={{
+          <div style={{
             fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(255,255,255,0.6)",
-            lineHeight: 1.75, maxWidth: "520px", marginBottom: "3rem",
+            lineHeight: 1.75, maxWidth: "560px", marginBottom: "3rem",
+            display: "flex", flexDirection: "column", gap: "1rem",
           }}>
-            In akuten Krisensituationen brauchen Jugendliche sofortige, professionelle
-            Unterstützung. Unser Team ist rund um die Uhr einsatzbereit — ohne
-            Warteschleifen, ohne bürokratische Hürden.
-          </p>
+            <p style={{ color: "rgba(255,255,255,0.85)", fontWeight: 500 }}>
+              Wenn du gerade nicht weiterweißt, bist du nicht allein.
+            </p>
+            <p>
+              In akuten Krisensituationen ist es wichtig, schnell jemanden zu erreichen, der zuhört und dich ernst nimmt.
+              Unser Krisendienst ist rund um die Uhr für dich da. Ohne Warteschleifen, ohne komplizierte Wege.
+            </p>
+            <p>
+              Du kannst dich jederzeit melden: wir hören dir zu, helfen dir, deine Situation einzuordnen und schauen gemeinsam, was jetzt wichtig ist.
+            </p>
+          </div>
 
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
             <a
