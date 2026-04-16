@@ -128,11 +128,11 @@ export default function HomePage() {
         <div className="site-container">
           <BlurFade>
             <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-              <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1a3f6f] mb-8 leading-[1.1]"
-                style={{ letterSpacing: "-0.03em" }}>
+              <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1a3f6f] leading-[1.1]"
+                style={{ letterSpacing: "-0.03em", marginBottom: "2.5rem" }}>
                 Ein Netz, das trägt.
               </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.1rem" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.4rem" }}>
                 <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">
                   Ankernetz ist ein Zusammenschluss spezialisierter Hilfsangebote für Kinder und Jugendliche.
                 </p>
