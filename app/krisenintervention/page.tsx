@@ -836,20 +836,24 @@ export default function KriseninterventionPage() {
               color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em",
               marginBottom: "1.25rem",
             }}>
-              Lena beantwortet Ihre erste Frage — sofort.
+              Lena ist Ihre erste Anlaufstelle – direkt und unkompliziert.
             </h2>
-            <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.85, marginBottom: "1.25rem" }}>
-              Unser Chat-Assistent <strong style={{ color: "#1a3f6f" }}>Lena</strong> ist
-              direkt auf dieser Website erreichbar — unten rechts auf jeder Seite. Sie
-              beantwortet erste Fragen zur Krisenintervention, klärt Zuständigkeiten
-              und leitet Sie unkompliziert weiter.
-            </p>
-            <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.85, marginBottom: "2rem" }}>
-              Sobald Sie Lena kontaktieren, wird <strong style={{ color: "#1a3f6f" }}>automatisch
-              ein Mitarbeiter unseres Teams benachrichtigt</strong> — per direkter Nachricht
-              auf unser internes System. So stellt Lena sicher, dass keine Anfrage verloren
-              geht und eine Fachkraft zeitnah reagiert.
-            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
+              <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.85 }}>
+                Unser Chat-Assistent <strong style={{ color: "#1a3f6f" }}>Lena</strong> ist
+                auf jeder Seite unten rechts für Sie erreichbar. Sie beantwortet erste Fragen
+                zur Krisenintervention, hilft bei der Orientierung und zeigt Ihnen, an wen
+                Sie sich wenden können.
+              </p>
+              <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.85 }}>
+                Wenn Sie Lena kontaktieren, wird Ihr Anliegen direkt an unser Team
+                weitergeleitet. So stellen wir sicher, dass keine Anfrage unbeachtet bleibt
+                und sich zeitnah eine Fachkraft bei Ihnen meldet.
+              </p>
+              <p style={{ fontSize: "15px", color: "#1a3f6f", fontWeight: 700, lineHeight: 1.85 }}>
+                Schnell. Verlässlich. Ohne Umwege.
+              </p>
+            </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
               {[
                 "Rund um die Uhr verfügbar — auch nachts und am Wochenende",
