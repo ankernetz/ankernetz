@@ -30,12 +30,21 @@ export default function UeberUnsPage() {
             Wir sind das Netz,<br />
             <span style={{ color: "#6FA3FE" }}>das hält.</span>
           </h1>
-          <p style={{ fontSize: "1.0625rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.85,
-            maxWidth: "46ch", marginBottom: "3.5rem" }}>
-            Ankernetz ist ein spezialisiertes Netzwerk für Kinder- und Jugendhilfe in Berlin.
-            Wir verbinden Krisenintervention, Therapie, Wohnen, Diagnostik und soziale Teilhabe
-            unter einem gemeinsamen Dach — für Kinder, Jugendliche und junge Erwachsene bis 25 Jahre.
-          </p>
+          <div style={{ fontSize: "1.0625rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.85,
+            maxWidth: "52ch", marginBottom: "3.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <p>
+              Ankernetz ist ein Zusammenschluss spezialisierter Angebote der Kinder- und Jugendhilfe in Berlin.
+              Wir verbinden Krisenintervention, therapeutische Begleitung, Wohnen, Diagnostik und soziale Teilhabe
+              - abgestimmt auf die individuellen Bedürfnisse junger Menschen und Familien.
+            </p>
+            <p>
+              Unser Angebot richtet sich an Kinder und Jugendliche von 0 bis 18 Jahren sowie an Mütter und Väter
+              mit ihren Kindern im Rahmen von Mutter-Kind-Angeboten.
+            </p>
+            <p style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>
+              Ziel ist es, Stabilität zu schaffen, Entwicklung zu ermöglichen und verlässliche Perspektiven zu eröffnen.
+            </p>
+          </div>
 
           {/* Kennzahlen-Leiste */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "3rem" }}>
