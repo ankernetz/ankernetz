@@ -94,6 +94,7 @@ export default function Navigation() {
           </div>
 
           {[
+            { label: "Ankerkleidung", href: "/ankerkleidung" },
             { label: "Über uns", href: "/ueber-uns" },
             { label: "Karriere", href: "/karriere"  },
             { label: "Kontakt",  href: "/kontakt"   },
