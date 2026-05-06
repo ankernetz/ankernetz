@@ -15,7 +15,7 @@ export default function ImpressumPage() {
       title: "Vertreten durch",
       content: (
         <p style={{ color: "#374151", lineHeight: 1.8 }}>
-          Geschäftsführer: <strong style={{ color: "#1a3f6f" }}>Marcus Weber</strong>
+          Geschäftsführer: <strong style={{ color: "#1a3f6f" }}>Susanne Krause, Meline Hanna Sophie Detlefs und Marvin Elayan</strong>
         </p>
       ),
     },
