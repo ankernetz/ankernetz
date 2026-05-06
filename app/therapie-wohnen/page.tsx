@@ -12,10 +12,10 @@ import {
 /* ─── Daten ─────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "12–17", label: "Jahre — Jugendliche in besonders kritischer Entwicklungsphase", icon: Users },
+  { wert: "12–17", label: "Jahre - Jugendliche in besonders kritischer Entwicklungsphase", icon: Users },
   { wert: "24/7", label: "Bezugsbetreuung und Krisenbegleitung im Alltag", icon: Clock },
   { wert: "Ø 18", label: "Monate therapeutische Begleitung pro Jugendlichem", icon: Target },
-  { wert: "klein", label: "Wohngruppen mit 4–6 Jugendlichen — Qualität vor Quantität", icon: Home },
+  { wert: "klein", label: "Wohngruppen mit 4–6 Jugendlichen - Qualität vor Quantität", icon: Home },
 ];
 
 const indikationen = [
@@ -34,7 +34,7 @@ const indikationen = [
   {
     icon: Activity,
     titel: "Verhaltensauffälligkeiten",
-    text: "Externalisierendes Verhalten, Schulverweigerung, selbstverletzendes Verhalten, dissoziales Auftreten — wenn herkömmliche Hilfen nicht mehr greifen.",
+    text: "Externalisierendes Verhalten, Schulverweigerung, selbstverletzendes Verhalten, dissoziales Auftreten - wenn herkömmliche Hilfen nicht mehr greifen.",
     akzent: "#f97316",
   },
   {
@@ -52,7 +52,7 @@ const indikationen = [
   {
     icon: Compass,
     titel: "Übergang Klinik → Jugendhilfe",
-    text: "Nach stationär-psychiatrischen Aufenthalten als stabilisierende Anschlussversorgung — strukturiert, therapeutisch begleitet und alltagsnah.",
+    text: "Nach stationär-psychiatrischen Aufenthalten als stabilisierende Anschlussversorgung - strukturiert, therapeutisch begleitet und alltagsnah.",
     akzent: "#059669",
   },
 ];
@@ -76,7 +76,7 @@ const leistungen = [
   {
     icon: Shield,
     titel: "Traumasensible Alltagsgestaltung",
-    text: "Der gesamte Alltag — von der Morgenroutine bis zum Abendgespräch — wird nach traumapädagogischen Prinzipien gestaltet: Vorhersehbarkeit, Verlässlichkeit, Sicherheit.",
+    text: "Der gesamte Alltag - von der Morgenroutine bis zum Abendgespräch - wird nach traumapädagogischen Prinzipien gestaltet: Vorhersehbarkeit, Verlässlichkeit, Sicherheit.",
   },
   {
     icon: GraduationCap,
@@ -86,17 +86,17 @@ const leistungen = [
   {
     icon: Users,
     titel: "Familienarbeit & Elterngespräche",
-    text: "Eltern sind kein Gegenüber — sie sind Teil des Hilfesystems. Wir führen regelmäßige Familiengespräche, begleiten Besuchskontakte und arbeiten an Beziehungsklärung.",
+    text: "Eltern sind kein Gegenüber - sie sind Teil des Hilfesystems. Wir führen regelmäßige Familiengespräche, begleiten Besuchskontakte und arbeiten an Beziehungsklärung.",
   },
   {
     icon: Music,
     titel: "Freizeitpädagogik & Erlebnisangebote",
-    text: "Gemeinsame Aktivitäten, Sport, kreative Angebote und Ausflüge — Freizeit als Raum für soziales Lernen, Selbstvertrauen und positive Erfahrungen.",
+    text: "Gemeinsame Aktivitäten, Sport, kreative Angebote und Ausflüge - Freizeit als Raum für soziales Lernen, Selbstvertrauen und positive Erfahrungen.",
   },
   {
     icon: Coffee,
     titel: "Alltagskompetenz & Verselbständigung",
-    text: "Kochen, Haushalt, Finanzen, Behördengänge — gezielte Vorbereitung auf ein eigenständiges Leben als Teil jeder Hilfeplanung.",
+    text: "Kochen, Haushalt, Finanzen, Behördengänge - gezielte Vorbereitung auf ein eigenständiges Leben als Teil jeder Hilfeplanung.",
   },
   {
     icon: Stethoscope,
@@ -106,12 +106,12 @@ const leistungen = [
 ];
 
 const therapeutischerAlltag = [
-  { zeit: "07:00", titel: "Strukturierter Morgen", text: "Gemeinsames Frühstück, Morgenrunde, Tagesplanung — Rhythmus als therapeutisches Mittel." },
-  { zeit: "08:30", titel: "Schule & Bildung", text: "Begleiteter Schulbesuch oder schulische Förderung im Haus — abgestimmt auf den Entwicklungsstand." },
-  { zeit: "14:00", titel: "Therapiezeiten", text: "Einzel- oder Gruppentherapie, Skill-Training, kreative Angebote — therapeutische Arbeit im Alltag." },
-  { zeit: "16:00", titel: "Freizeit & Gemeinschaft", text: "Sport, Kochen, Aktivitäten, Einzelgespräche — Beziehung entsteht im gemeinsamen Tun." },
-  { zeit: "18:30", titel: "Abend & Rückblick", text: "Gemeinsames Abendessen, Tagesrückblick, Bezugspersonengespräch — der Abend als Ankerpunkt." },
-  { zeit: "21:00", titel: "Sicherheit in der Nacht", text: "Bereitschaftsdienst im Haus. Kein Jugendlicher ist allein — auch nicht um Mitternacht." },
+  { zeit: "07:00", titel: "Strukturierter Morgen", text: "Gemeinsames Frühstück, Morgenrunde, Tagesplanung - Rhythmus als therapeutisches Mittel." },
+  { zeit: "08:30", titel: "Schule & Bildung", text: "Begleiteter Schulbesuch oder schulische Förderung im Haus - abgestimmt auf den Entwicklungsstand." },
+  { zeit: "14:00", titel: "Therapiezeiten", text: "Einzel- oder Gruppentherapie, Skill-Training, kreative Angebote - therapeutische Arbeit im Alltag." },
+  { zeit: "16:00", titel: "Freizeit & Gemeinschaft", text: "Sport, Kochen, Aktivitäten, Einzelgespräche - Beziehung entsteht im gemeinsamen Tun." },
+  { zeit: "18:30", titel: "Abend & Rückblick", text: "Gemeinsames Abendessen, Tagesrückblick, Bezugspersonengespräch - der Abend als Ankerpunkt." },
+  { zeit: "21:00", titel: "Sicherheit in der Nacht", text: "Bereitschaftsdienst im Haus. Kein Jugendlicher ist allein - auch nicht um Mitternacht." },
 ];
 
 const prozessSchritte = [
@@ -126,7 +126,7 @@ const prozessSchritte = [
     nr: "02",
     titel: "Schnupperwohnen",
     icon: Home,
-    text: "Ein bis drei Tage Kennenlernen der Gruppe, des Teams und des Alltags. Der Jugendliche entscheidet mit — kein Einzug ohne Zustimmung.",
+    text: "Ein bis drei Tage Kennenlernen der Gruppe, des Teams und des Alltags. Der Jugendliche entscheidet mit - kein Einzug ohne Zustimmung.",
     dauer: "Woche 1",
   },
   {
@@ -147,14 +147,14 @@ const prozessSchritte = [
     nr: "05",
     titel: "Therapeutische Arbeit",
     icon: Activity,
-    text: "Intensive Begleitungsphase: Therapie, Schulbegleitung, Familienarbeit, Krisenmanagement — und messbare Fortschritte.",
+    text: "Intensive Begleitungsphase: Therapie, Schulbegleitung, Familienarbeit, Krisenmanagement - und messbare Fortschritte.",
     dauer: "Laufend",
   },
   {
     nr: "06",
     titel: "Perspektive & Übergang",
     icon: ArrowRight,
-    text: "Vorbereitung auf Rückführung, Verselbständigung oder ambulante Nachbetreuung. Wir begleiten den Übergang aktiv — kein abruptes Ende.",
+    text: "Vorbereitung auf Rückführung, Verselbständigung oder ambulante Nachbetreuung. Wir begleiten den Übergang aktiv - kein abruptes Ende.",
     dauer: "Ab Monat 12",
   },
 ];
@@ -164,7 +164,7 @@ const ansatz = [
     nr: "01",
     icon: Home,
     titel: "Alltag als Therapie",
-    text: "Veränderung entsteht nicht im Behandlungszimmer — sie entsteht im echten Leben. Jeder gemeinsame Mahlzeit, jede Konfliktlösung, jeder Erfolg ist Teil der therapeutischen Arbeit.",
+    text: "Veränderung entsteht nicht im Behandlungszimmer - sie entsteht im echten Leben. Jeder gemeinsame Mahlzeit, jede Konfliktlösung, jeder Erfolg ist Teil der therapeutischen Arbeit.",
   },
   {
     nr: "02",
@@ -176,19 +176,19 @@ const ansatz = [
     nr: "03",
     icon: Brain,
     titel: "Traumasensible Grundhaltung",
-    text: "Verhaltensauffälligkeiten sind Überlebensstrategien, keine Charakterfehler. Wir verstehen bevor wir handeln — und handeln immer auf Basis von Sicherheit.",
+    text: "Verhaltensauffälligkeiten sind Überlebensstrategien, keine Charakterfehler. Wir verstehen bevor wir handeln - und handeln immer auf Basis von Sicherheit.",
   },
   {
     nr: "04",
     icon: Target,
     titel: "Klare Ziele, messbare Schritte",
-    text: "Jeder Hilfeplan enthält konkrete, erreichbare Ziele. Wir überprüfen regelmäßig, passen an und feiern Fortschritte — auch die kleinen.",
+    text: "Jeder Hilfeplan enthält konkrete, erreichbare Ziele. Wir überprüfen regelmäßig, passen an und feiern Fortschritte - auch die kleinen.",
   },
   {
     nr: "05",
     icon: Layers,
     titel: "Systemisch denken",
-    text: "Der Jugendliche ist nicht das Problem — er ist Teil eines Systems. Wir arbeiten mit Familie, Schule, Jugendamt und psychiatrischen Partnern als Team.",
+    text: "Der Jugendliche ist nicht das Problem - er ist Teil eines Systems. Wir arbeiten mit Familie, Schule, Jugendamt und psychiatrischen Partnern als Team.",
   },
   {
     nr: "06",
@@ -201,15 +201,15 @@ const ansatz = [
 const faq = [
   {
     frage: "Wie lange dauert ein Aufenthalt in einer therapeutischen Wohngruppe?",
-    antwort: "Im Durchschnitt 12–24 Monate. Die genaue Dauer richtet sich nach dem individuellen Hilfebedarf und wird gemeinsam mit dem Jugendamt im Hilfeplan festgelegt. Wir planen nicht auf Zeit — wir planen auf Ziele.",
+    antwort: "Im Durchschnitt 12–24 Monate. Die genaue Dauer richtet sich nach dem individuellen Hilfebedarf und wird gemeinsam mit dem Jugendamt im Hilfeplan festgelegt. Wir planen nicht auf Zeit - wir planen auf Ziele.",
   },
   {
     frage: "Was unterscheidet eine therapeutische Wohngruppe von einer regulären Heimgruppe?",
-    antwort: "Therapeutische Wohngruppen haben einen deutlich höheren Betreuungsschlüssel, ausgebildete Therapeuten als festen Teil des Teams, eine traumasensible Konzeption des gesamten Alltags und eine engere psychiatrische Anbindung. Der therapeutische Auftrag ist nicht Ergänzung — er ist Kern.",
+    antwort: "Therapeutische Wohngruppen haben einen deutlich höheren Betreuungsschlüssel, ausgebildete Therapeuten als festen Teil des Teams, eine traumasensible Konzeption des gesamten Alltags und eine engere psychiatrische Anbindung. Der therapeutische Auftrag ist nicht Ergänzung - er ist Kern.",
   },
   {
     frage: "Welche Störungsbilder können Sie begleiten?",
-    antwort: "Wir begleiten Jugendliche mit PTBS, komplexen Traumatisierungen, Depressionen, Angststörungen, Persönlichkeitsentwicklungsstörungen, ADHS mit Komorbiditäten, selbstverletzendem Verhalten und externalisierenden Störungsbildern. Ausschlusskriterien sind akute Psychosen oder stark fremdgefährdendes Verhalten — hier vermitteln wir in geeignetere Einrichtungen.",
+    antwort: "Wir begleiten Jugendliche mit PTBS, komplexen Traumatisierungen, Depressionen, Angststörungen, Persönlichkeitsentwicklungsstörungen, ADHS mit Komorbiditäten, selbstverletzendem Verhalten und externalisierenden Störungsbildern. Ausschlusskriterien sind akute Psychosen oder stark fremdgefährdendes Verhalten - hier vermitteln wir in geeignetere Einrichtungen.",
   },
   {
     frage: "Gibt es Therapie durch ausgebildete Therapeuten oder durch Pädagogen?",
@@ -217,7 +217,7 @@ const faq = [
   },
   {
     frage: "Wie werden Eltern in den Prozess einbezogen?",
-    antwort: "Eltern sind fester Bestandteil des Hilfeprozesses. Wir führen regelmäßige Eltern- und Familiengespräche, begleiten Besuchskontakte und arbeiten aktiv an Beziehungsklärung. Ziel ist immer die bestmögliche Perspektive für den Jugendlichen — ob das Rückführung, Verselbständigung oder eine andere Lösung ist.",
+    antwort: "Eltern sind fester Bestandteil des Hilfeprozesses. Wir führen regelmäßige Eltern- und Familiengespräche, begleiten Besuchskontakte und arbeiten aktiv an Beziehungsklärung. Ziel ist immer die bestmögliche Perspektive für den Jugendlichen - ob das Rückführung, Verselbständigung oder eine andere Lösung ist.",
   },
   {
     frage: "Was passiert in einer Krise innerhalb der Gruppe?",
@@ -229,7 +229,7 @@ const faq = [
   },
   {
     frage: "Welche Schulmodelle gibt es?",
-    antwort: "Wir kooperieren mit umliegenden Schulen aller Schulformen und bieten schulische Förderung im Haus an. Bei Schulverweigerung oder nach längeren Fehlzeiten gibt es ein abgestuftes Wiedereingliederungsmodell — angepasst an den individuellen Stand des Jugendlichen.",
+    antwort: "Wir kooperieren mit umliegenden Schulen aller Schulformen und bieten schulische Förderung im Haus an. Bei Schulverweigerung oder nach längeren Fehlzeiten gibt es ein abgestuftes Wiedereingliederungsmodell - angepasst an den individuellen Stand des Jugendlichen.",
   },
 ];
 
@@ -291,7 +291,7 @@ export default function TherapieWohnenPage() {
           }}>
             Unsere therapeutischen Wohngruppen bieten Jugendlichen den Rahmen, den
             sie brauchen: therapeutisch begleitet, alltagsnah und mit echter Beziehung
-            als Fundament. Veränderung entsteht im echten Leben — nicht im
+            als Fundament. Veränderung entsteht im echten Leben - nicht im
             Behandlungszimmer.
           </p>
 
@@ -364,18 +364,18 @@ export default function TherapieWohnenPage() {
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
               Therapeutische Wohngruppen verbinden das Beste aus zwei Welten: den
               strukturierten Schutzrahmen der stationären Jugendhilfe mit der Tiefe
-              therapeutischer Arbeit. Jugendliche leben hier nicht neben ihrer Therapie —
+              therapeutischer Arbeit. Jugendliche leben hier nicht neben ihrer Therapie -
               sie leben in ihr.
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
               Jeder gemeinsame Abend, jedes gelöste Konfliktgespräch, jeder überwundene
-              schwierige Morgen ist therapeutisch wirksam — weil echte Beziehung der
+              schwierige Morgen ist therapeutisch wirksam - weil echte Beziehung der
               stärkste Wirkfaktor ist, den die Forschung kennt.
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
               Unser Team aus Therapeuten, Pädagogen und Bezugsbetreuern arbeitet nach
               einem gemeinsamen Verständnis: traumasensibel, ressourcenorientiert und
-              immer mit dem Jugendlichen — nicht über seinen Kopf hinweg.
+              immer mit dem Jugendlichen - nicht über seinen Kopf hinweg.
             </p>
           </div>
 
@@ -711,7 +711,7 @@ export default function TherapieWohnenPage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {[
-              { icon: Phone, text: "Direkte Erreichbarkeit der Gruppenleitung — täglich" },
+              { icon: Phone, text: "Direkte Erreichbarkeit der Gruppenleitung - täglich" },
               { icon: FileText, text: "Aufnahmebericht innerhalb von 72h" },
               { icon: ClipboardList, text: "Monatliche Entwicklungsberichte mit Therapiefortschritten" },
               { icon: UserCheck, text: "Fester Ansprechpartner für die gesamte Hilfedauer" },

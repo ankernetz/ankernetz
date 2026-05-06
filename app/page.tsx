@@ -9,8 +9,8 @@ import { ShineText } from "./components/ShineText";
 import { BlurFade } from "./components/BlurFade";
 
 const angebote = [
-  { slug: "krisenintervention",   titel: "Krisenintervention",             claim: "Sofort da. Wenn es zählt.",            kurz: "24/7 Sofortaufnahme für Jugendliche in akuter Not — rund um die Uhr, an 365 Tagen.",                           icon: AlertTriangle, badge: "24/7",           iconColor: "#FEC274", stripe: "#c47a20" },
-  { slug: "psychotherapie",       titel: "Kinder- & Jugend­psychotherapie", claim: "Professionelle Therapie. Mit Kassensitz.", kurz: "Eingebunden in alle Hilfeprozesse — direkt dort, wo Kinder und Jugendliche leben.",               icon: Brain,         badge: "Kassensitz",   iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "krisenintervention",   titel: "Krisenintervention",             claim: "Sofort da. Wenn es zählt.",            kurz: "24/7 Sofortaufnahme für Jugendliche in akuter Not - rund um die Uhr, an 365 Tagen.",                           icon: AlertTriangle, badge: "24/7",           iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "psychotherapie",       titel: "Kinder- & Jugend­psychotherapie", claim: "Professionelle Therapie. Mit Kassensitz.", kurz: "Eingebunden in alle Hilfeprozesse - direkt dort, wo Kinder und Jugendliche leben.",               icon: Brain,         badge: "Kassensitz",   iconColor: "#6FA3FE", stripe: "#4d85e8" },
   { slug: "fruehe-hilfen",        titel: "Frühe Hilfen",                   claim: "Schutz von Anfang an.",                kurz: "Bindung, Sicherheit und Entwicklung für die Kleinsten.",                                                    icon: Baby,          badge: "0–6 Jahre",    iconColor: "#FEC274", stripe: "#c47a20" },
   { slug: "therapie-wohnen",      titel: "Therapie & Wohnen",              claim: "Raum zum Ankommen.",                   kurz: "Therapeutische Wohngruppen mit intensiver Begleitung und Traumaarbeit.",                                   icon: Home,          badge: "12–17 Jahre",  iconColor: "#6FA3FE", stripe: "#4d85e8" },
   { slug: "jugendhilfe",          titel: "Jugendhilfe",                    claim: "Sicherheit im Alltag.",                kurz: "Kinderwohngruppen mit verlässlicher Struktur und Beziehungsarbeit.",                                        icon: Heart,         badge: "6–12 Jahre",   iconColor: "#FEC274", stripe: "#c47a20" },
@@ -18,7 +18,7 @@ const angebote = [
   { slug: "beratung-praevention", titel: "Beratung & Prävention",          claim: "Früh helfen. Gemeinsam stärken.",      icon: MessageCircle, badge: "Online & vor Ort", iconColor: "#6FA3FE", stripe: "#4d85e8" },
   { slug: "kita-beratung",        titel: "Beratung in Kitas",              claim: "Früh erkennen.",                       icon: Building2,     badge: "Fachkräfte",   iconColor: "#FEC274", stripe: "#c47a20" },
   { slug: "uebergang-arbeit",     titel: "Übergang Arbeit",                claim: "Der nächste Schritt.",                 icon: Rocket,        badge: "Übergang",     iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "ankerkleidung",        titel: "Ankerkleidung",                  claim: "Stabilität. Selbstwert. Alltag.",      kurz: "Spezialisierte Kleidung nach Störungsbild — Teil des Hilfesystems.",                                        icon: Shirt,         badge: "Shop",         iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "ankerkleidung",        titel: "Ankerkleidung",                  claim: "Stabilität. Selbstwert. Alltag.",      kurz: "Spezialisierte Kleidung nach Störungsbild - Teil des Hilfesystems.",                                        icon: Shirt,         badge: "Shop",         iconColor: "#6FA3FE", stripe: "#4d85e8" },
   { slug: "versorgung",           titel: "Versorgung",                     claim: "Würde im Alltag.",                     kurz: "Bedarfsorientierte Ausstattung für Kinder und Jugendliche im Hilfesystem.",                                  icon: Star,          badge: "Ausstattung",  iconColor: "#FEC274", stripe: "#c47a20" },
 ];
 
@@ -27,7 +27,7 @@ const staerken = [
     icon: Shield,
     color: "#6FA3FE",
     titel: "Verlässlich",
-    text: "Feste Ansprechpartner, klare Prozesse, transparente Kommunikation — immer.",
+    text: "Feste Ansprechpartner, klare Prozesse, transparente Kommunikation - immer.",
   },
   {
     icon: Network,
@@ -60,7 +60,7 @@ export default function HomePage() {
         <div className="absolute top-1/3 right-[20%] w-[350px] h-[350px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(3,41,92,0.05) 0%, transparent 65%)" }} />
 
-        {/* Animated Grid Pattern — blaues Netz */}
+        {/* Animated Grid Pattern - blaues Netz */}
         <AnimatedGridPattern
           numSquares={35}
           maxOpacity={0.04}
@@ -120,7 +120,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ EINLEITUNG ═══ — HELL */}
+      {/* ═══ EINLEITUNG ═══ - HELL */}
       <section className="relative overflow-hidden bg-[#F5F5F7]" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
@@ -154,7 +154,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ BENTO GRID — ANGEBOTE ═══ — DUNKEL */}
+      {/* ═══ BENTO GRID - ANGEBOTE ═══ - DUNKEL */}
       <section id="angebote" style={{ background: "#d8e4f0", paddingTop: "4.5rem", paddingBottom: "5rem" }}>
         <div className="site-container">
 
@@ -346,7 +346,7 @@ export default function HomePage() {
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
-            {/* Text — 6 Spalten */}
+            {/* Text - 6 Spalten */}
             <div className="lg:col-span-6">
               <BlurFade>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: "#1a3f6f" }}>Für Jugendämter & Fachkräfte</p>
@@ -356,7 +356,7 @@ export default function HomePage() {
                 <p className="text-[1.0625rem] font-normal leading-[2] mb-14 max-w-lg" style={{ color: "rgba(26,63,111,0.65)" }}>
                   Ankernetz arbeitet eng mit Jugendämtern und Fachkräften zusammen.
                   Schnelle Rückmeldungen, transparente Einschätzungen und passgenaue
-                  Hilfeformen — direkt und unkompliziert.
+                  Hilfeformen - direkt und unkompliziert.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/platzanfrage" className="btn btn-primary btn-lg group">

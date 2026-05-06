@@ -219,7 +219,7 @@ export default function PlatzanfragePage() {
                   <option>Beratung & Prävention</option>
                   <option>Übergang Arbeit</option>
                   <option>Versorgung / Ankerkleidung</option>
-                  <option>Noch unklar — Beratungsbedarf</option>
+                  <option>Noch unklar - Beratungsbedarf</option>
                 </select>
               </div>
 

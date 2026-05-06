@@ -1,5 +1,5 @@
 // Adapted from MagicUI ShineBorder
-// Original: github.com/magicuidesign/magicui — apps/www/registry/magicui/shine-border.tsx
+// Original: github.com/magicuidesign/magicui - apps/www/registry/magicui/shine-border.tsx
 // An animated gradient border that sweeps around the card edge
 
 import { type CSSProperties } from "react";

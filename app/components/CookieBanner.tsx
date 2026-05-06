@@ -81,7 +81,7 @@ export default function CookieBanner() {
 
   return (
     <>
-      {/* ── Dunkles Overlay — sperrt die Seite ──────────────────── */}
+      {/* ── Dunkles Overlay - sperrt die Seite ──────────────────── */}
       <div style={{
         position: "fixed", inset: 0,
         background: "rgba(0,0,0,0.5)",

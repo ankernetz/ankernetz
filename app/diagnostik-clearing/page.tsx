@@ -12,7 +12,7 @@ import {
 /* ─── Daten ─────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "0–21", label: "Jahre — alle Altersgruppen, von Säugling bis jungem Erwachsenen", icon: Users },
+  { wert: "0–21", label: "Jahre - alle Altersgruppen, von Säugling bis jungem Erwachsenen", icon: Users },
   { wert: "< 4 Wo", label: "Durchlaufzeit bei Standard-Clearing", icon: Clock },
   { wert: "ICD-11", label: "Diagnostik auf aktuellem internationalem Standard", icon: Brain },
   { wert: "neutral", label: "Unabhängige Facheinschätzung ohne Interessenkonflikt", icon: Shield },
@@ -34,7 +34,7 @@ const diagnostikarten = [
   {
     icon: Shield,
     titel: "Traumadiagnostik",
-    text: "Strukturierte Erfassung traumatischer Erlebnisse und PTBS-Symptomatik. Eingesetzte Verfahren: CATS, CPSS, UCLA-PTSD-RI, CRTI — altersadaptiert.",
+    text: "Strukturierte Erfassung traumatischer Erlebnisse und PTBS-Symptomatik. Eingesetzte Verfahren: CATS, CPSS, UCLA-PTSD-RI, CRTI - altersadaptiert.",
     akzent: "#ef4444",
   },
   {
@@ -64,7 +64,7 @@ const diagnostikarten = [
   {
     icon: ListChecks,
     titel: "Clearing & Hilfeplangutachten",
-    text: "Umfassende Situationsanalyse auf Auftrag des Jugendamts. Einschätzung von Schutzbedarf, Ressourcen und geeigneter Hilfeform — mit klarer Empfehlung.",
+    text: "Umfassende Situationsanalyse auf Auftrag des Jugendamts. Einschätzung von Schutzbedarf, Ressourcen und geeigneter Hilfeform - mit klarer Empfehlung.",
     akzent: "#6FA3FE",
   },
 ];
@@ -103,7 +103,7 @@ const clearingPhasen = [
   {
     icon: Lightbulb,
     titel: "Rückmeldegespräch",
-    text: "Gemeinsame Besprechung der Ergebnisse mit Jugendamt, Familie und — altersgerecht — dem Kind selbst. Offene Fragen werden geklärt.",
+    text: "Gemeinsame Besprechung der Ergebnisse mit Jugendamt, Familie und - altersgerecht - dem Kind selbst. Offene Fragen werden geklärt.",
     dauer: "Nach Bericht",
   },
 ];
@@ -127,7 +127,7 @@ const berichtsarten = [
   {
     icon: Brain,
     titel: "Diagnostischer Kurzbrief",
-    text: "Kompakte Einschätzung für dringende Entscheidungen. Prägnant, verwertbar, ohne langen Vorlauf — bei Bedarf innerhalb von 2 Wochen.",
+    text: "Kompakte Einschätzung für dringende Entscheidungen. Prägnant, verwertbar, ohne langen Vorlauf - bei Bedarf innerhalb von 2 Wochen.",
   },
 ];
 
@@ -142,7 +142,7 @@ const unterschiede = [
 const faq = [
   {
     frage: "Was ist der Unterschied zwischen Diagnostik und Clearing?",
-    antwort: "Diagnostik bezeichnet die gezielte Erfassung psychologischer Merkmale (z.B. IQ, Störungsbild, Traumatisierung). Clearing ist ein umfassenderer Prozess: Es geht um die Gesamteinschätzung einer Situation — Schutzbedarf, Ressourcen, Hilfebedarf — mit dem Ziel, eine fundierte Empfehlung zur passenden Hilfeform zu liefern. Oft werden beide Elemente kombiniert.",
+    antwort: "Diagnostik bezeichnet die gezielte Erfassung psychologischer Merkmale (z.B. IQ, Störungsbild, Traumatisierung). Clearing ist ein umfassenderer Prozess: Es geht um die Gesamteinschätzung einer Situation - Schutzbedarf, Ressourcen, Hilfebedarf - mit dem Ziel, eine fundierte Empfehlung zur passenden Hilfeform zu liefern. Oft werden beide Elemente kombiniert.",
   },
   {
     frage: "Wer kann eine Diagnostik oder ein Clearing beauftragen?",
@@ -158,7 +158,7 @@ const faq = [
   },
   {
     frage: "Werden Kinder und Eltern über die Ergebnisse informiert?",
-    antwort: "Ja — das ist uns wichtig. Nach Fertigstellung des Berichts führen wir ein Rückmeldegespräch mit dem Kind/Jugendlichen (altersgerecht), den Eltern und dem Jugendamt. Niemand erfährt Ergebnisse über seinen Kopf hinweg.",
+    antwort: "Ja - das ist uns wichtig. Nach Fertigstellung des Berichts führen wir ein Rückmeldegespräch mit dem Kind/Jugendlichen (altersgerecht), den Eltern und dem Jugendamt. Niemand erfährt Ergebnisse über seinen Kopf hinweg.",
   },
   {
     frage: "Welche Verfahren setzt ihr ein?",
@@ -166,11 +166,11 @@ const faq = [
   },
   {
     frage: "Kann Diagnostik auch ambulant für externe Kinder erfolgen?",
-    antwort: "Ja. Unser Diagnostikangebot steht nicht nur Kindern in Ankernetz-Einrichtungen offen. Familien und Jugendämter können direkt anfragen. Die Abrechnung erfolgt über SGB VIII oder — bei Krankenkassenleistung — über die gesetzliche KV.",
+    antwort: "Ja. Unser Diagnostikangebot steht nicht nur Kindern in Ankernetz-Einrichtungen offen. Familien und Jugendämter können direkt anfragen. Die Abrechnung erfolgt über SGB VIII oder - bei Krankenkassenleistung - über die gesetzliche KV.",
   },
   {
     frage: "Was passiert nach dem Clearing?",
-    antwort: "Das Clearing mündet in eine konkrete Empfehlung zur passenden Hilfeform. Wenn der Bedarf in ein Ankernetz-Angebot passt, begleiten wir die Überleitung aktiv. Wenn nicht, vermitteln wir in geeignete externe Einrichtungen. Das Clearing endet nicht mit dem Bericht — es beginnt damit.",
+    antwort: "Das Clearing mündet in eine konkrete Empfehlung zur passenden Hilfeform. Wenn der Bedarf in ein Ankernetz-Angebot passt, begleiten wir die Überleitung aktiv. Wenn nicht, vermitteln wir in geeignete externe Einrichtungen. Das Clearing endet nicht mit dem Bericht - es beginnt damit.",
   },
 ];
 
@@ -232,7 +232,7 @@ export default function DiagnostikClearingPage() {
           }}>
             Bevor die richtige Hilfe greifen kann, braucht es ein klares Bild.
             Unser Diagnostik- und Clearingteam liefert fundierte, handlungsorientierte
-            Einschätzungen — für Jugendämter, Fachkräfte und Familien.
+            Einschätzungen - für Jugendämter, Fachkräfte und Familien.
           </p>
 
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "4rem" }}>
@@ -302,13 +302,13 @@ export default function DiagnostikClearingPage() {
               nicht erreicht werden, und Ressourcen, die wirkungslos verpuffen.
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
-              Gute Diagnostik ist keine Bürokratie — sie ist die Voraussetzung für
+              Gute Diagnostik ist keine Bürokratie - sie ist die Voraussetzung für
               wirksame Hilfe. Sie beantwortet die entscheidenden Fragen: Was hat
               dieses Kind erlebt? Wie wirkt es sich aus? Was braucht es jetzt?
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
               Unser Team liefert Einschätzungen, die nicht im Aktenschrank landen,
-              sondern Entscheidungen ermöglichen — klar, verständlich und
+              sondern Entscheidungen ermöglichen - klar, verständlich und
               handlungsorientiert.
             </p>
           </div>
@@ -317,7 +317,7 @@ export default function DiagnostikClearingPage() {
             {[
               { icon: CheckCircle, text: "Validierte, normierte Diagnostikverfahren nach aktuellem Standard" },
               { icon: CheckCircle, text: "ICD-11-orientierte Einschätzung und Diagnosestellung" },
-              { icon: CheckCircle, text: "Handlungsorientierte Berichte — direkt für den ASD verwertbar" },
+              { icon: CheckCircle, text: "Handlungsorientierte Berichte - direkt für den ASD verwertbar" },
               { icon: CheckCircle, text: "Altersbreite 0–21 Jahre, alle Entwicklungsphasen" },
               { icon: CheckCircle, text: "Gerichtsverwertbare Gutachten auf Anfrage" },
               { icon: CheckCircle, text: "Rückmeldegespräch mit Kind, Eltern und Jugendamt" },
@@ -359,7 +359,7 @@ export default function DiagnostikClearingPage() {
             </h2>
             <p style={{ fontSize: "15px", color: "#374151", maxWidth: "540px", margin: "0 auto", lineHeight: 1.75 }}>
               Von der Entwicklungsdiagnostik beim Kleinkind bis zur Persönlichkeitsdiagnostik
-              beim Jugendlichen — mit validierten Verfahren und klarer Fragestellung.
+              beim Jugendlichen - mit validierten Verfahren und klarer Fragestellung.
             </p>
           </div>
 
@@ -466,7 +466,7 @@ export default function DiagnostikClearingPage() {
                 Das richtige Format für jede Fragestellung
               </h2>
               <p style={{ fontSize: "14px", color: "#374151", lineHeight: 1.85 }}>
-                Nicht jede Frage braucht ein vollständiges Gutachten — und nicht
+                Nicht jede Frage braucht ein vollständiges Gutachten - und nicht
                 jede Situation verträgt einen Kurzbrief. Wir besprechen im
                 Auftragsgespräch, welches Format Ihrer Fragestellung gerecht wird.
               </p>
@@ -520,7 +520,7 @@ export default function DiagnostikClearingPage() {
               fontSize: "clamp(1.75rem, 3vw, 2.25rem)", fontWeight: 800,
               color: "white", lineHeight: 1.2, letterSpacing: "-0.02em",
             }}>
-              Diagnostik im Verbund — nicht auf der Warteliste
+              Diagnostik im Verbund - nicht auf der Warteliste
             </h2>
           </div>
 
@@ -576,7 +576,7 @@ export default function DiagnostikClearingPage() {
             </h2>
             <p style={{ fontSize: "14px", color: "#374151", lineHeight: 1.85, marginBottom: "2rem" }}>
               Unsere Berichte sind so geschrieben, dass sie Ihnen die Entscheidung
-              erleichtern — nicht erschweren. Klar, begründet, verwertbar.
+              erleichtern - nicht erschweren. Klar, begründet, verwertbar.
             </p>
             <a href="tel:+4930224543220" style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
@@ -592,7 +592,7 @@ export default function DiagnostikClearingPage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {[
-              { icon: Zap, text: "Ergebnisse in unter 4 Wochen — auch bei dringendem Bedarf schneller" },
+              { icon: Zap, text: "Ergebnisse in unter 4 Wochen - auch bei dringendem Bedarf schneller" },
               { icon: FileText, text: "Berichte, die direkt in den Hilfeplan einfließen können" },
               { icon: Search, text: "Klare Diagnosen nach ICD-11 mit Handlungsempfehlung" },
               { icon: UserCheck, text: "Fester Ansprechpartner während des gesamten Prozesses" },

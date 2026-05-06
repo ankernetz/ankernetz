@@ -120,10 +120,10 @@ const stellen = [
 const vorteile = [
   { titel: "Faire Vergütung", text: "Anlehnung an TVöD mit regelmäßigen Stufensteigerungen.", akzent: "#6FA3FE" },
   { titel: "Supervision", text: "Regelmäßige Einzel- und Teamsupervision als fester Bestandteil der Arbeitszeit.", akzent: "#FEC274" },
-  { titel: "Fortbildung", text: "Jährliches Fortbildungsbudget und interne Schulungen — mindestens 40 Stunden pro Jahr.", akzent: "#22c55e" },
+  { titel: "Fortbildung", text: "Jährliches Fortbildungsbudget und interne Schulungen - mindestens 40 Stunden pro Jahr.", akzent: "#22c55e" },
   { titel: "Teamkultur", text: "Kleine, gut eingespielte Teams mit echter Kollegialität und flachen Hierarchien.", akzent: "#6FA3FE" },
   { titel: "Sinnstiftende Arbeit", text: "Echte Wirkung für Kinder und Jugendliche, die es sonst schwer hätten.", akzent: "#FEC274" },
-  { titel: "Stabilität", text: "Ankernetz wächst kontinuierlich — sichere Stellen, kein Projektbefristungs-Karussell.", akzent: "#22c55e" },
+  { titel: "Stabilität", text: "Ankernetz wächst kontinuierlich - sichere Stellen, kein Projektbefristungs-Karussell.", akzent: "#22c55e" },
 ];
 
 export default function KarrierePage() {
@@ -146,7 +146,7 @@ export default function KarrierePage() {
         <div className="site-container" style={{ position: "relative", zIndex: 2, paddingBottom: "5rem", paddingTop: "10rem" }}>
           <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.22em",
             textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.5rem" }}>
-            Ankernetz — Karriere
+            Ankernetz - Karriere
           </p>
           <h1 style={{ fontSize: "clamp(2.5rem, 4.5vw, 4rem)", fontWeight: 800, color: "#ffffff",
             lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: "1.5rem", maxWidth: "20ch" }}>
@@ -155,7 +155,7 @@ export default function KarrierePage() {
           </h1>
           <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.85,
             maxWidth: "48ch", marginBottom: "3rem" }}>
-            Bei Ankernetz arbeiten Menschen, die echte Veränderung bewirken wollen — für Kinder
+            Bei Ankernetz arbeiten Menschen, die echte Veränderung bewirken wollen - für Kinder
             und Jugendliche, die auf verlässliche Fachkräfte angewiesen sind.
             Wir suchen Sie.
           </p>
@@ -191,16 +191,16 @@ export default function KarrierePage() {
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
                   Die Kinder- und Jugendhilfe ist eine anspruchsvolle Branche. Wer hier arbeitet,
-                  gibt viel — und verdient im Gegenzug echte Unterstützung, Anerkennung und Entwicklung.
+                  gibt viel - und verdient im Gegenzug echte Unterstützung, Anerkennung und Entwicklung.
                 </p>
                 <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
                   Bei Ankernetz sind Supervision, Fortbildung und kollegialer Austausch keine Extras,
-                  die man beantragen muss — sie sind fester Bestandteil der Arbeitskultur.
+                  die man beantragen muss - sie sind fester Bestandteil der Arbeitskultur.
                   Wir glauben: Wer gut für sich gesorgt ist, kann gut für andere sorgen.
                 </p>
                 <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
                   Außerdem: Ankernetz wächst. Wer heute einsteigt, kann morgen Verantwortung übernehmen.
-                  Interne Karrierewege sind kein Versprechen — sie passieren bei uns wirklich.
+                  Interne Karrierewege sind kein Versprechen - sie passieren bei uns wirklich.
                 </p>
               </div>
             </div>
@@ -382,11 +382,11 @@ export default function KarrierePage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "0" }}>
             {[
-              { nr: "01", titel: "Bewerbung", text: "Unterlagen per E-Mail an karriere@ankernetz.com — Anschreiben, Lebenslauf, relevante Zeugnisse." },
+              { nr: "01", titel: "Bewerbung", text: "Unterlagen per E-Mail an karriere@ankernetz.com - Anschreiben, Lebenslauf, relevante Zeugnisse." },
               { nr: "02", titel: "Rückmeldung", text: "Innerhalb von 5 Werktagen erhalten Sie eine Eingangsbestätigung und einen ersten Überblick." },
-              { nr: "03", titel: "Erstgespräch", text: "Telefonisches Kennenlernen — 20–30 Minuten, offen und unverbindlich." },
-              { nr: "04", titel: "Vorstellungsgespräch", text: "Persönliches Gespräch im Team — Sie lernen uns kennen, wir lernen Sie kennen." },
-              { nr: "05", titel: "Angebot", text: "Bei gegenseitigem Interesse: Vertragsangebot mit klaren Konditionen — ohne lange Wartezeit." },
+              { nr: "03", titel: "Erstgespräch", text: "Telefonisches Kennenlernen - 20–30 Minuten, offen und unverbindlich." },
+              { nr: "04", titel: "Vorstellungsgespräch", text: "Persönliches Gespräch im Team - Sie lernen uns kennen, wir lernen Sie kennen." },
+              { nr: "05", titel: "Angebot", text: "Bei gegenseitigem Interesse: Vertragsangebot mit klaren Konditionen - ohne lange Wartezeit." },
             ].map((s, i) => (
               <div key={s.nr} style={{ background: "white", padding: "2rem 1.5rem",
                 borderRight: i < 4 ? "1px solid #dde4ee" : "none",
@@ -426,11 +426,11 @@ export default function KarrierePage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
             {[
               { initiale: "S", farbe: "#6FA3FE", name: "Sozialpädagogin", bereich: "Krisenintervention", seit: "Seit 2018",
-                zitat: "Ich habe in mehreren Trägern gearbeitet. Bei Ankernetz ist es das erste Mal, dass ich das Gefühl habe, meine Arbeit wirklich gut machen zu können — weil das Drumherum stimmt." },
+                zitat: "Ich habe in mehreren Trägern gearbeitet. Bei Ankernetz ist es das erste Mal, dass ich das Gefühl habe, meine Arbeit wirklich gut machen zu können - weil das Drumherum stimmt." },
               { initiale: "M", farbe: "#FEC274", name: "Erzieherin", bereich: "Therapie & Wohnen", seit: "Seit 2020",
                 zitat: "Die Supervision ist kein Pro-forma-Termin. Wir arbeiten wirklich daran. Das hat meine Haltung und meine Belastbarkeit verändert." },
               { initiale: "T", farbe: "#22c55e", name: "Sozialarbeiter", bereich: "Beratung & Prävention", seit: "Seit 2021",
-                zitat: "Ich konnte nach zwei Jahren intern in einen anderen Bereich wechseln. Das war nie ein Problem — im Gegenteil, es wurde gefördert." },
+                zitat: "Ich konnte nach zwei Jahren intern in einen anderen Bereich wechseln. Das war nie ein Problem - im Gegenteil, es wurde gefördert." },
             ].map(s => (
               <div key={s.name} className="bento-card"
                 style={{ background: "#f0f4f8", padding: "2rem" }}>
@@ -475,7 +475,7 @@ export default function KarrierePage() {
             </h2>
             <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.85 }}>
               Wenn Sie in der Kinder- und Jugendhilfe arbeiten oder es sich vorstellen können,
-              schreiben Sie uns — auch wenn gerade keine passende Stelle ausgeschrieben ist.
+              schreiben Sie uns - auch wenn gerade keine passende Stelle ausgeschrieben ist.
               Initiativbewerbungen sind bei uns immer willkommen.
             </p>
           </div>

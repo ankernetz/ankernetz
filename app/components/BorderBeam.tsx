@@ -1,6 +1,6 @@
 "use client";
 
-// Adapted from MagicUI BorderBeam — pure CSS implementation, no additional dependencies
+// Adapted from MagicUI BorderBeam - pure CSS implementation, no additional dependencies
 // Original source: github.com/magicuidesign/magicui
 
 interface BorderBeamProps {

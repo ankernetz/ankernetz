@@ -1,7 +1,7 @@
 "use client";
 
 // Adapted from MagicUI AnimatedGridPattern
-// Original: github.com/magicuidesign/magicui — apps/www/registry/magicui/animated-grid-pattern.tsx
+// Original: github.com/magicuidesign/magicui - apps/www/registry/magicui/animated-grid-pattern.tsx
 // Simplified: uses CSS animations instead of Framer Motion for lighter bundle
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";

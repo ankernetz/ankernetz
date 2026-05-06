@@ -36,14 +36,14 @@ const quickChips = [
 
 const chipPresets: Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }> = {
   "Ich brauche einen Platz": {
-    content: "Kein Problem — dafür gibt es unsere Platzanfrage. Das ist der schnellste Weg zu uns. Du kannst das kurze Formular ausfüllen oder uns direkt anrufen.",
+    content: "Kein Problem - dafür gibt es unsere Platzanfrage. Das ist der schnellste Weg zu uns. Du kannst das kurze Formular ausfüllen oder uns direkt anrufen.",
     cta: [
       { label: "Zur Platzanfrage →", href: "/platzanfrage" },
       { label: "030 22 45 43 22", href: "tel:+4930224543220" },
     ],
   },
   "Krisenintervention": {
-    content: "Wenn es gerade akut ist: Wir haben 24/7 eine Sofortaufnahme. Ruf uns bitte sofort an — da ist jemand. Hier findest du auch alle Infos zu unserem Krisendienst.",
+    content: "Wenn es gerade akut ist: Wir haben 24/7 eine Sofortaufnahme. Ruf uns bitte sofort an - da ist jemand. Hier findest du auch alle Infos zu unserem Krisendienst.",
     cta: [
       { label: "030 22 45 43 22", href: "tel:+4930224543220" },
       { label: "Krisenintervention →", href: "/krisenintervention" },
@@ -51,7 +51,7 @@ const chipPresets: Record<string, { content: string; cta: { label: string; href:
     crisis: true,
   },
   "Beratung anfragen": {
-    content: "Unsere Beratung ist kostenlos, niedrigschwellig und ohne Antrag. Kein langer Weg — einfach melden. Hier siehst du alle Beratungsangebote.",
+    content: "Unsere Beratung ist kostenlos, niedrigschwellig und ohne Antrag. Kein langer Weg - einfach melden. Hier siehst du alle Beratungsangebote.",
     cta: [
       { label: "Beratung & Prävention →", href: "/beratung-praevention" },
       { label: "030 22 45 43 22", href: "tel:+4930224543220" },
@@ -63,7 +63,7 @@ export default function ChatWidget() {
   const [open, setOpen]               = useState(false);
   const [minimized, setMinimized]     = useState(false);
   const [messages, setMessages]       = useState<Message[]>([
-    { role: "assistant", content: "Hallo! Ich bin Lena vom Ankernetz-Team. Ich bin hier, um dir zu helfen — egal ob du eine schnelle Frage hast oder gerade etwas Schwieriges durchmachst." },
+    { role: "assistant", content: "Hallo! Ich bin Lena vom Ankernetz-Team. Ich bin hier, um dir zu helfen - egal ob du eine schnelle Frage hast oder gerade etwas Schwieriges durchmachst." },
   ]);
   const [input, setInput]             = useState("");
   const [loading, setLoading]         = useState(false);

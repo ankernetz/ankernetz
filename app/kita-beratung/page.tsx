@@ -12,7 +12,7 @@ import {
 /* ─── Daten ──────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "vor Ort", label: "Direkt in Ihrer Kita — kein Umweg nötig", icon: MapPin },
+  { wert: "vor Ort", label: "Direkt in Ihrer Kita - kein Umweg nötig", icon: MapPin },
   { wert: "0 Bürokratie", label: "Kein Antrag, keine Überweisung erforderlich", icon: Zap },
   { wert: "< 48h", label: "Erste Rückmeldung innerhalb von 48 Stunden", icon: Clock },
   { wert: "vernetzt", label: "Eingebunden ins gesamte Ankernetz-System", icon: Layers },
@@ -22,21 +22,21 @@ const kernleistungen = [
   {
     icon: Eye,
     titel: "Fallbezogene Beratung",
-    text: "Gemeinsame Einschätzung schwieriger Situationen rund um einzelne Kinder — Verhaltensauffälligkeiten, Entwicklungsverzögerungen, familiäre Belastungen. Wir schauen zusammen hin und entwickeln Handlungsoptionen.",
+    text: "Gemeinsame Einschätzung schwieriger Situationen rund um einzelne Kinder - Verhaltensauffälligkeiten, Entwicklungsverzögerungen, familiäre Belastungen. Wir schauen zusammen hin und entwickeln Handlungsoptionen.",
     badge: "Kernleistung",
     badgeColor: "#1a3f6f",
   },
   {
     icon: AlertTriangle,
     titel: "Kindeswohleinschätzung",
-    text: "Strukturierte Einschätzung bei Verdacht auf Kindeswohlgefährdung nach § 8a SGB VIII. Wir begleiten Ihr Team bei der Risikoeinschätzung — fachlich fundiert, rechtssicher und ohne Zeitdruck.",
+    text: "Strukturierte Einschätzung bei Verdacht auf Kindeswohlgefährdung nach § 8a SGB VIII. Wir begleiten Ihr Team bei der Risikoeinschätzung - fachlich fundiert, rechtssicher und ohne Zeitdruck.",
     badge: "§ 8a SGB VIII",
     badgeColor: "#dc2626",
   },
   {
     icon: Users,
     titel: "Kollegiale Supervision",
-    text: "Gemeinsame Reflexion belastender Fälle im Team. Supervision für Erzieherinnen und Erzieher, die mit herausfordernden Kindern und Familien arbeiten — strukturiert, entlastend und praxisnah.",
+    text: "Gemeinsame Reflexion belastender Fälle im Team. Supervision für Erzieherinnen und Erzieher, die mit herausfordernden Kindern und Familien arbeiten - strukturiert, entlastend und praxisnah.",
     badge: "Team",
     badgeColor: "#7c3aed",
   },
@@ -50,7 +50,7 @@ const kernleistungen = [
   {
     icon: Handshake,
     titel: "Elterngespräche & Mediation",
-    text: "Schwierige Elterngespräche begleiten wir auf Wunsch gemeinsam. Bei Konflikten zwischen Kita und Familie vermitteln wir lösungsorientiert — immer mit dem Kindeswohl im Mittelpunkt.",
+    text: "Schwierige Elterngespräche begleiten wir auf Wunsch gemeinsam. Bei Konflikten zwischen Kita und Familie vermitteln wir lösungsorientiert - immer mit dem Kindeswohl im Mittelpunkt.",
     badge: "Begleitung",
     badgeColor: "#d97706",
   },
@@ -71,7 +71,7 @@ const kernleistungen = [
   {
     icon: MessageSquare,
     titel: "Telefon- & Onlineberatung",
-    text: "Nicht jede Frage braucht einen Besuch vor Ort. Für schnelle Einschätzungen, Zwischenfragen oder erste Orientierung stehen wir per Telefon und Videocall zur Verfügung — unkompliziert und ohne Wartezeit.",
+    text: "Nicht jede Frage braucht einen Besuch vor Ort. Für schnelle Einschätzungen, Zwischenfragen oder erste Orientierung stehen wir per Telefon und Videocall zur Verfügung - unkompliziert und ohne Wartezeit.",
     badge: "Flexibel",
     badgeColor: "#1a3f6f",
   },
@@ -85,43 +85,43 @@ const kernleistungen = [
 ];
 
 const themen = [
-  { icon: Brain, titel: "Verhaltensauffälligkeiten", text: "Aggressives Verhalten, Rückzug, Trotzphasen, Hyperaktivität — wenn ein Kind den Alltag der Gruppe sprengt oder sich selbst verliert." },
+  { icon: Brain, titel: "Verhaltensauffälligkeiten", text: "Aggressives Verhalten, Rückzug, Trotzphasen, Hyperaktivität - wenn ein Kind den Alltag der Gruppe sprengt oder sich selbst verliert." },
   { icon: Shield, titel: "Kindeswohlgefährdung", text: "Auffälligkeiten, die auf Vernachlässigung, Misshandlung oder häusliche Gewalt hindeuten. Sichere Einschätzung und klare nächste Schritte." },
   { icon: Heart, titel: "Trauernde & traumatisierte Kinder", text: "Kinder, die Verluste, Trennungen oder belastende Erlebnisse verarbeiten. Praxistipps für den Kita-Alltag." },
-  { icon: Users, titel: "Elternkonflikte & Hochstreit", text: "Trennungssituationen, Rosenkrieg, Loyalitätskonflikte — wenn Elternkonflikte in der Kita sichtbar werden." },
+  { icon: Users, titel: "Elternkonflikte & Hochstreit", text: "Trennungssituationen, Rosenkrieg, Loyalitätskonflikte - wenn Elternkonflikte in der Kita sichtbar werden." },
   { icon: Star, titel: "Besonders begabte Kinder", text: "Hochbegabung, unerfüllte Potenziale, Langeweile und Unterforderung als Ursache von Auffälligkeiten." },
   { icon: Baby, titel: "Bindungsstörungen", text: "Unsichere oder desorganisierte Bindungsmuster, Bindungslosigkeit, häufige Pflegestellenwechsel in der Vorgeschichte." },
-  { icon: Smile, titel: "Entwicklungsverzögerungen", text: "Sprache, Motorik, Kognition — wenn Kinder deutlich hinter dem Entwicklungsdurchschnitt liegen und weiterführende Einschätzung nötig ist." },
+  { icon: Smile, titel: "Entwicklungsverzögerungen", text: "Sprache, Motorik, Kognition - wenn Kinder deutlich hinter dem Entwicklungsdurchschnitt liegen und weiterführende Einschätzung nötig ist." },
   { icon: AlertTriangle, titel: "Teambelastung & Burnout", text: "Wenn das Team unter chronischer Belastung leidet, Konflikte entstehen oder die Freude an der Arbeit nachlässt." },
   { icon: Building2, titel: "Inklusion & Besondere Bedarfe", text: "Kinder mit diagnostizierten oder vermuteten Beeinträchtigungen: Integration, Förderpläne, Zusammenarbeit mit Therapeuten und Frühförderstellen." },
 ];
 
 const besonderheiten = [
-  { icon: MapPin, titel: "Direkt vor Ort", text: "Wir kommen in Ihre Kita — kein Pendelaufwand, keine Distanz zum Alltag. Die Beratung findet dort statt, wo die Fragen entstehen." },
-  { icon: Shield, titel: "Therapeutisch fundiert", text: "Unser Team vereint kinder- und jugendpsychiatrische, psychotherapeutische und sozialpädagogische Expertise — nicht nur Beratung, sondern Fachkompetenz." },
+  { icon: MapPin, titel: "Direkt vor Ort", text: "Wir kommen in Ihre Kita - kein Pendelaufwand, keine Distanz zum Alltag. Die Beratung findet dort statt, wo die Fragen entstehen." },
+  { icon: Shield, titel: "Therapeutisch fundiert", text: "Unser Team vereint kinder- und jugendpsychiatrische, psychotherapeutische und sozialpädagogische Expertise - nicht nur Beratung, sondern Fachkompetenz." },
   { icon: Zap, titel: "Schnell und unbürokratisch", text: "Kein langer Beantragungsprozess, kein Warten auf Kostenzusagen. Ein Anruf oder eine E-Mail reichen für den Einstieg." },
   { icon: Heart, titel: "Vertraulich und kollegial", text: "Wir verstehen uns als Fachkollegen, nicht als externe Kontrollinstanz. Alles was besprochen wird, bleibt im Rahmen professioneller Vertraulichkeit." },
   { icon: Layers, titel: "Systemisch vernetzt", text: "Wenn eine Situation mehr braucht als Beratung, vermitteln wir direkt: Frühförderung, Kinder- und Jugendpsychiatrie, Familienberatung, Jugendamt." },
-  { icon: Award, titel: "Bedarfsorientiert", text: "Wir passen uns Ihren Bedürfnissen an — einmalige Fallberatung, regelmäßige Supervision, Jahresvertrag mit fester Kontingent-Stundenzahl, alles möglich." },
+  { icon: Award, titel: "Bedarfsorientiert", text: "Wir passen uns Ihren Bedürfnissen an - einmalige Fallberatung, regelmäßige Supervision, Jahresvertrag mit fester Kontingent-Stundenzahl, alles möglich." },
 ];
 
 const prozessSchritte = [
   {
     nr: "01",
     titel: "Kontaktaufnahme",
-    text: "Kita-Leitung oder Fachkraft nimmt Kontakt auf — per Telefon, E-Mail oder über das Platzanfrage-Formular. Kurze Schilderung des Anliegens reicht.",
+    text: "Kita-Leitung oder Fachkraft nimmt Kontakt auf - per Telefon, E-Mail oder über das Platzanfrage-Formular. Kurze Schilderung des Anliegens reicht.",
     icon: Phone,
   },
   {
     nr: "02",
     titel: "Erstgespräch",
-    text: "Kostenloses Erstgespräch zur Klärung: Was ist das Anliegen? Welches Format passt? Vor Ort, telefonisch oder Videocall — nach Wunsch.",
+    text: "Kostenloses Erstgespräch zur Klärung: Was ist das Anliegen? Welches Format passt? Vor Ort, telefonisch oder Videocall - nach Wunsch.",
     icon: MessageSquare,
   },
   {
     nr: "03",
     titel: "Beratung / Supervision",
-    text: "Fallbesprechung, Teamsupervision oder Fortbildung — je nach Bedarf. Wir kommen in Ihre Kita oder Sie nutzen unsere Online-Formate.",
+    text: "Fallbesprechung, Teamsupervision oder Fortbildung - je nach Bedarf. Wir kommen in Ihre Kita oder Sie nutzen unsere Online-Formate.",
     icon: Users,
   },
   {
@@ -139,32 +139,32 @@ const prozessSchritte = [
 ];
 
 const fachkraefteLeistungen = [
-  { icon: FileText, titel: "§ 8a-Beratung", text: "Fachberatung zur Risikoeinschätzung Kindeswohlgefährdung — strukturiert, dokumentierbar, rechtssicher." },
+  { icon: FileText, titel: "§ 8a-Beratung", text: "Fachberatung zur Risikoeinschätzung Kindeswohlgefährdung - strukturiert, dokumentierbar, rechtssicher." },
   { icon: GraduationCap, titel: "Inhouse-Fortbildungen", text: "Maßgeschneiderte Seminare für Ihr Team zu frühkindlicher Traumatisierung, Bindung, Elternarbeit u.v.m." },
-  { icon: Users, titel: "Teamsupervision", text: "Regelmäßige Supervision für Kita-Teams — entlastend, reflektierend, stärkend." },
+  { icon: Users, titel: "Teamsupervision", text: "Regelmäßige Supervision für Kita-Teams - entlastend, reflektierend, stärkend." },
   { icon: ClipboardList, titel: "Konzeptbegleitung", text: "Unterstützung bei der Entwicklung oder Überarbeitung von Schutzkonzepten und Qualitätsstandards." },
-  { icon: Handshake, titel: "Kooperationsvereinbarung", text: "Langfristige Zusammenarbeit mit Stundenkontingent — planbar, verlässlich, kostentransparent." },
+  { icon: Handshake, titel: "Kooperationsvereinbarung", text: "Langfristige Zusammenarbeit mit Stundenkontingent - planbar, verlässlich, kostentransparent." },
   { icon: Layers, titel: "Netzwerkarbeit", text: "Direkte Schnittstelle zum Jugendamt, Frühförderstellen, Kinder- und Jugendpsychiatrie und weiteren Fachstellen." },
-  { icon: Video, titel: "Online-Beratung", text: "Kurzberatungen und Supervision auch per Videocall — für schnelle Fragen ohne Terminaufwand." },
-  { icon: Calendar, titel: "Regelmäßige Sprechstunde", text: "Feste Sprechstundenzeiten für Kitas mit laufender Begleitung — verlässlicher Ansprechpartner für Ihr Team." },
+  { icon: Video, titel: "Online-Beratung", text: "Kurzberatungen und Supervision auch per Videocall - für schnelle Fragen ohne Terminaufwand." },
+  { icon: Calendar, titel: "Regelmäßige Sprechstunde", text: "Feste Sprechstundenzeiten für Kitas mit laufender Begleitung - verlässlicher Ansprechpartner für Ihr Team." },
 ];
 
 const faqItems = [
   {
     frage: "Kostet die Kita-Beratung etwas?",
-    antwort: "Ein Erstgespräch ist für Sie kostenlos. Für regelmäßige Beratung, Supervision oder Fortbildungen arbeiten wir auf Basis von Vereinbarungen mit Trägern oder Kommunen. In vielen Fällen übernehmen Jugendämter oder Träger die Kosten. Sprechen Sie uns an — wir finden eine Lösung.",
+    antwort: "Ein Erstgespräch ist für Sie kostenlos. Für regelmäßige Beratung, Supervision oder Fortbildungen arbeiten wir auf Basis von Vereinbarungen mit Trägern oder Kommunen. In vielen Fällen übernehmen Jugendämter oder Träger die Kosten. Sprechen Sie uns an - wir finden eine Lösung.",
   },
   {
     frage: "Wie schnell kann Ankernetz in unsere Kita kommen?",
-    antwort: "In dringenden Fällen sind wir innerhalb von 24–48 Stunden erreichbar. Für geplante Supervisionen oder Fortbildungen vereinbaren wir Termine nach Ihrem Rhythmus — in der Regel innerhalb einer Woche.",
+    antwort: "In dringenden Fällen sind wir innerhalb von 24–48 Stunden erreichbar. Für geplante Supervisionen oder Fortbildungen vereinbaren wir Termine nach Ihrem Rhythmus - in der Regel innerhalb einer Woche.",
   },
   {
     frage: "Wie gehe ich vor, wenn ich Verdacht auf Kindeswohlgefährdung habe?",
-    antwort: "Rufen Sie uns direkt an. Wir begleiten Sie durch die strukturierte Risikoeinschätzung nach § 8a SGB VIII — dokumentierbar, transparent und ohne Druck. Wir beraten auch, ob und wann eine Meldung an das Jugendamt sinnvoll ist.",
+    antwort: "Rufen Sie uns direkt an. Wir begleiten Sie durch die strukturierte Risikoeinschätzung nach § 8a SGB VIII - dokumentierbar, transparent und ohne Druck. Wir beraten auch, ob und wann eine Meldung an das Jugendamt sinnvoll ist.",
   },
   {
     frage: "Kann auch ein einzelner Erzieher Beratung anfordern, oder muss die Leitung anfragen?",
-    antwort: "Beides ist möglich. Einzelne Fachkräfte können bei uns anrufen und eine Kurzberatung erhalten. Für umfangreichere Maßnahmen empfehlen wir, die Kita-Leitung einzubeziehen — aber der erste Kontakt kann von jedem Teammitglied kommen.",
+    antwort: "Beides ist möglich. Einzelne Fachkräfte können bei uns anrufen und eine Kurzberatung erhalten. Für umfangreichere Maßnahmen empfehlen wir, die Kita-Leitung einzubeziehen - aber der erste Kontakt kann von jedem Teammitglied kommen.",
   },
   {
     frage: "Wie läuft eine Supervision ab?",
@@ -172,7 +172,7 @@ const faqItems = [
   },
   {
     frage: "Sind die Gespräche vertraulich?",
-    antwort: "Ja. Was in der Beratung besprochen wird, bleibt im Rahmen der professionellen Verschwiegenheit. Ausnahmen gelten nur dort, wo gesetzliche Meldepflichten greifen — das besprechen wir transparent mit Ihnen.",
+    antwort: "Ja. Was in der Beratung besprochen wird, bleibt im Rahmen der professionellen Verschwiegenheit. Ausnahmen gelten nur dort, wo gesetzliche Meldepflichten greifen - das besprechen wir transparent mit Ihnen.",
   },
   {
     frage: "Können Sie auch online beraten?",
@@ -180,7 +180,7 @@ const faqItems = [
   },
   {
     frage: "Was unterscheidet Ankernetz von der Fachberatung durch das Jugendamt?",
-    antwort: "Wir sind kein Teil des öffentlichen Systems — das ermöglicht eine offenere, kollegiale Beratung ohne den Eindruck von Kontrolle. Gleichzeitig arbeiten wir eng mit dem Jugendamt zusammen, wenn es sinnvoll ist. Wir ergänzen das öffentliche System, wir ersetzen es nicht.",
+    antwort: "Wir sind kein Teil des öffentlichen Systems - das ermöglicht eine offenere, kollegiale Beratung ohne den Eindruck von Kontrolle. Gleichzeitig arbeiten wir eng mit dem Jugendamt zusammen, wenn es sinnvoll ist. Wir ergänzen das öffentliche System, wir ersetzen es nicht.",
   },
 ];
 
@@ -240,7 +240,7 @@ export default function KitaBeratungPage() {
             Früh erkennen. Gezielt begleiten.
           </p>
           <p style={{ fontSize: "1.05rem", color: "rgba(216,228,240,0.85)", maxWidth: "680px", lineHeight: 1.8, marginBottom: "48px" }}>
-            Kitas sind oft der erste Ort, an dem Auffälligkeiten sichtbar werden. Unser therapeutisch fundiertes Beratungsangebot stärkt Kita-Fachkräfte im Umgang mit herausfordernden Situationen — und schützt Kinder frühzeitig.
+            Kitas sind oft der erste Ort, an dem Auffälligkeiten sichtbar werden. Unser therapeutisch fundiertes Beratungsangebot stärkt Kita-Fachkräfte im Umgang mit herausfordernden Situationen - und schützt Kinder frühzeitig.
           </p>
 
           {/* Kennzahlen */}
@@ -293,7 +293,7 @@ export default function KitaBeratungPage() {
       <section style={{ background: "#059669", color: "#fff", padding: "16px 24px", textAlign: "center" }}>
         <div className="site-container">
           <p style={{ margin: 0, fontSize: "0.95rem", fontWeight: 600, letterSpacing: "0.02em" }}>
-            Kein Antrag. Keine Kostenzusage vorab. Kein langer Vorlauf. — Ein Anruf reicht für den ersten Kontakt.
+            Kein Antrag. Keine Kostenzusage vorab. Kein langer Vorlauf. - Ein Anruf reicht für den ersten Kontakt.
           </p>
         </div>
       </section>
@@ -308,10 +308,10 @@ export default function KitaBeratungPage() {
                 Kita-Fachkräfte brauchen professionelle Rückendeckung
               </h2>
               <p style={{ color: "#4a5568", lineHeight: 1.8, marginBottom: "16px" }}>
-                Erzieherinnen und Erzieher leisten täglich Außerordentliches. Sie beobachten Kinder aus nächster Nähe, nehmen Veränderungen wahr — und stehen dabei oft ohne direkte fachliche Unterstützung da. Kindeswohlgefährdung einzuschätzen, schwierige Elterngespräche zu führen, ein verhaltensauffälliges Kind zu begleiten: Das ist anspruchsvolle Facharbeit.
+                Erzieherinnen und Erzieher leisten täglich Außerordentliches. Sie beobachten Kinder aus nächster Nähe, nehmen Veränderungen wahr - und stehen dabei oft ohne direkte fachliche Unterstützung da. Kindeswohlgefährdung einzuschätzen, schwierige Elterngespräche zu führen, ein verhaltensauffälliges Kind zu begleiten: Das ist anspruchsvolle Facharbeit.
               </p>
               <p style={{ color: "#4a5568", lineHeight: 1.8, marginBottom: "16px" }}>
-                Ankernetz schließt diese Lücke. Wir sind nicht die Aufsichtsbehörde — wir sind Fachkollegen, die auf Augenhöhe beraten, entlasten und stärken. Therapeutisch fundiert, praxisnah, ohne Umwege.
+                Ankernetz schließt diese Lücke. Wir sind nicht die Aufsichtsbehörde - wir sind Fachkollegen, die auf Augenhöhe beraten, entlasten und stärken. Therapeutisch fundiert, praxisnah, ohne Umwege.
               </p>
               <p style={{ color: "#4a5568", lineHeight: 1.8 }}>
                 Vom Einzelfall bis zur Teamentwicklung: Wir passen uns Ihrem Bedarf an und bringen die Kompetenz mit, die in Ihrem Team gebraucht wird.
@@ -319,7 +319,7 @@ export default function KitaBeratungPage() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "Kitas sind rechtlich verpflichtet, Kindeswohlgefährdung einzuschätzen — aber ohne ausreichende Unterstützung",
+                "Kitas sind rechtlich verpflichtet, Kindeswohlgefährdung einzuschätzen - aber ohne ausreichende Unterstützung",
                 "Verhaltensauffällige Kinder belasten das gesamte Team und überfordern oft einzelne Fachkräfte",
                 "Elterngespräche in Konfliktsituationen erfordern Techniken, die in der Ausbildung kaum vermittelt werden",
                 "Viele Hilfen werden zu spät eingeleitet, weil keine fachliche Einschätzung zur Verfügung steht",
@@ -342,7 +342,7 @@ export default function KitaBeratungPage() {
             <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Leistungsangebot</div>
             <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>Was wir für Ihre Kita leisten</h2>
             <p style={{ color: "#6b7280", marginTop: "12px", maxWidth: "560px", margin: "12px auto 0", lineHeight: 1.7 }}>
-              Von der Einzelfallberatung bis zur Teamentwicklung — bedarfsorientiert, praxisnah, sofort einsetzbar.
+              Von der Einzelfallberatung bis zur Teamentwicklung - bedarfsorientiert, praxisnah, sofort einsetzbar.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "24px" }}>
@@ -382,7 +382,7 @@ export default function KitaBeratungPage() {
             <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Beratungsthemen</div>
             <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>Womit kommen Kitas zu uns?</h2>
             <p style={{ color: "#6b7280", marginTop: "12px", maxWidth: "560px", margin: "12px auto 0", lineHeight: 1.7 }}>
-              Diese Themen begegnen uns am häufigsten — aber jede Situation ist individuell.
+              Diese Themen begegnen uns am häufigsten - aber jede Situation ist individuell.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px" }}>
@@ -532,7 +532,7 @@ export default function KitaBeratungPage() {
         <div className="site-container">
           <div style={{ textAlign: "center", marginBottom: "56px" }}>
             <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Häufige Fragen</div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>FAQ — Kita-Beratung</h2>
+            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>FAQ - Kita-Beratung</h2>
           </div>
           <div style={{ maxWidth: "820px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "12px" }}>
             {faqItems.map((f, i) => (
@@ -572,7 +572,7 @@ export default function KitaBeratungPage() {
             Ihre Kita braucht Unterstützung?
           </h2>
           <p style={{ fontSize: "1.1rem", color: "rgba(216,228,240,0.85)", maxWidth: "600px", margin: "0 auto 40px", lineHeight: 1.7 }}>
-            Kein langer Vorlauf, kein Antrag. Nehmen Sie einfach Kontakt auf — wir melden uns innerhalb von 48 Stunden.
+            Kein langer Vorlauf, kein Antrag. Nehmen Sie einfach Kontakt auf - wir melden uns innerhalb von 48 Stunden.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/platzanfrage" style={{

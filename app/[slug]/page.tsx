@@ -18,7 +18,7 @@ const angeboteDaten: Record<string, {
     titel: "Krisenintervention",
     untertitel: "Ankernetz Krisenintervention",
     claim: "Sofort da. Wenn es zählt.",
-    einleitung: "In akuten Krisensituationen brauchen Jugendliche sofortige, professionelle Unterstützung. Unser Kriseninterventionsteam ist rund um die Uhr erreichbar und kann kurzfristig reagieren — ohne bürokratische Verzögerungen.",
+    einleitung: "In akuten Krisensituationen brauchen Jugendliche sofortige, professionelle Unterstützung. Unser Kriseninterventionsteam ist rund um die Uhr erreichbar und kann kurzfristig reagieren - ohne bürokratische Verzögerungen.",
     zielgruppe: "12–17 Jahre",
     zielgruppeDetail: "Jugendliche in akuten psychischen Krisen, bei Eigen- oder Fremdgefährdung, nach traumatischen Ereignissen oder bei akutem Schutzbedarfs.",
     leistungen: [
@@ -39,10 +39,10 @@ const angeboteDaten: Record<string, {
       "Klare Kommunikation und schnelle Rückmeldungen",
     ],
     prozess: [
-      { schritt: "Kontakt", beschreibung: "Jugendamt oder Fachkraft nimmt telefonisch Kontakt auf — rund um die Uhr." },
+      { schritt: "Kontakt", beschreibung: "Jugendamt oder Fachkraft nimmt telefonisch Kontakt auf - rund um die Uhr." },
       { schritt: "Einschätzung", beschreibung: "Innerhalb von 30 Minuten erste Rückmeldung zur Aufnahmekapazität und Passung." },
       { schritt: "Aufnahme", beschreibung: "Strukturierte Aufnahme, Erstgespräch und Sicherung des Jugendlichen." },
-      { schritt: "Stabilisierung", beschreibung: "Intensive Begleitung in den ersten Tagen — Stabilisierung im Vordergrund." },
+      { schritt: "Stabilisierung", beschreibung: "Intensive Begleitung in den ersten Tagen - Stabilisierung im Vordergrund." },
       { schritt: "Perspektive", beschreibung: "Gemeinsam mit Jugendamt und Familie wird eine klare Weiterversorgung geplant." },
     ],
     fuerFachkraefte: [
@@ -59,7 +59,7 @@ const angeboteDaten: Record<string, {
     titel: "Therapie & Wohnen",
     untertitel: "Ankernetz Therapie & Wohnen",
     claim: "Raum zum Ankommen. Begleitung zum Wachsen.",
-    einleitung: "Unsere therapeutischen Wohngruppen bieten Jugendlichen einen stabilen Rahmen, in dem therapeutische Arbeit und gelebter Alltag Hand in Hand gehen. Hier entsteht Veränderung — nicht im Behandlungszimmer, sondern im echten Leben.",
+    einleitung: "Unsere therapeutischen Wohngruppen bieten Jugendlichen einen stabilen Rahmen, in dem therapeutische Arbeit und gelebter Alltag Hand in Hand gehen. Hier entsteht Veränderung - nicht im Behandlungszimmer, sondern im echten Leben.",
     zielgruppe: "12–17 Jahre",
     zielgruppeDetail: "Jugendliche mit komplexen Trauma-Folgestörungen, Verhaltensauffälligkeiten, psychischen Erkrankungen oder schwerwiegenden familiären Belastungen.",
     leistungen: [
@@ -141,7 +141,7 @@ const angeboteDaten: Record<string, {
     titel: "Diagnostik & Clearing",
     untertitel: "Ankernetz Diagnostik & Clearing",
     claim: "Klarheit schafft die richtige Hilfe.",
-    einleitung: "Bevor die richtige Hilfe greifen kann, braucht es ein klares Bild. Unser Diagnostik- und Clearingteam liefert fundierte, handlungsorientierte Einschätzungen — für Jugendämter, Fachkräfte und Familien.",
+    einleitung: "Bevor die richtige Hilfe greifen kann, braucht es ein klares Bild. Unser Diagnostik- und Clearingteam liefert fundierte, handlungsorientierte Einschätzungen - für Jugendämter, Fachkräfte und Familien.",
     zielgruppe: "Alle Altersgruppen",
     zielgruppeDetail: "Kinder und Jugendliche, bei denen Unklarheit über Art und Intensität des Hilfebedarfs besteht, oder die eine Überprüfung ihrer Entwicklung und Belastung benötigen.",
     leistungen: [
@@ -182,7 +182,7 @@ const angeboteDaten: Record<string, {
     titel: "Kinder- und Jugendpsychotherapie",
     untertitel: "Ankernetz Psychotherapie",
     claim: "Professionelle Therapie. Im Herzen des Systems.",
-    einleitung: "Psychotherapie ist eine zentrale Säule wirksamer Jugendhilfe. Unser Therapieangebot mit Kassensitz ist eng in alle Ankernetz-Strukturen eingebunden — und damit direkt dort, wo Kinder und Jugendliche leben und betreut werden.",
+    einleitung: "Psychotherapie ist eine zentrale Säule wirksamer Jugendhilfe. Unser Therapieangebot mit Kassensitz ist eng in alle Ankernetz-Strukturen eingebunden - und damit direkt dort, wo Kinder und Jugendliche leben und betreut werden.",
     zielgruppe: "Kinder & Jugendliche",
     zielgruppeDetail: "Kinder und Jugendliche mit psychischen Störungen, Trauma-Folgestörungen, Angststörungen, ADHS, Depressionen oder Verhaltensauffälligkeiten.",
     leistungen: [
@@ -196,7 +196,7 @@ const angeboteDaten: Record<string, {
       "Gutachten und Stellungnahmen",
     ],
     besonderheiten: [
-      "Kassensitz — keine Privatkosten für Familien",
+      "Kassensitz - keine Privatkosten für Familien",
       "Direkte Einbindung in das Ankernetz-System",
       "Kurze Wege zu Wohngruppen und Betreuern",
       "Spezialisierung auf komplexe Traumatisierungen",
@@ -206,11 +206,11 @@ const angeboteDaten: Record<string, {
       { schritt: "Anmeldung", beschreibung: "Anmeldung über das Jugendamt, die Schule oder direkt durch die Familie." },
       { schritt: "Erstgespräch", beschreibung: "Probatorische Sitzungen zur gegenseitigen Einschätzung." },
       { schritt: "Diagnose", beschreibung: "Systematische Diagnostik und Behandlungsplanung." },
-      { schritt: "Therapie", beschreibung: "Regelmäßige Therapiesitzungen — abgestimmt auf den individuellen Bedarf." },
+      { schritt: "Therapie", beschreibung: "Regelmäßige Therapiesitzungen - abgestimmt auf den individuellen Bedarf." },
       { schritt: "Vernetzung", beschreibung: "Enge Abstimmung mit allen Beteiligten im Hilfeprozess." },
     ],
     fuerFachkraefte: [
-      "Kassenleistung — keine Kostenübernahme notwendig",
+      "Kassenleistung - keine Kostenübernahme notwendig",
       "Enge Kooperation mit dem Jugendamt",
       "Regelmäßige Rückmeldungen an Bezugsbetreuer",
       "Schnelle Aufnahme bei dringendem Bedarf",
@@ -223,7 +223,7 @@ const angeboteDaten: Record<string, {
     titel: "Frühe Hilfen",
     untertitel: "Ankernetz Frühe Hilfen",
     claim: "Schutz von Anfang an.",
-    einleitung: "Die frühen Jahre sind entscheidend. Unser Frühes-Hilfen-Angebot schützt und begleitet Kleinkinder in besonders vulnerablen Situationen — mit einem Team, das Bindung, Sicherheit und Entwicklung in den Mittelpunkt stellt.",
+    einleitung: "Die frühen Jahre sind entscheidend. Unser Frühes-Hilfen-Angebot schützt und begleitet Kleinkinder in besonders vulnerablen Situationen - mit einem Team, das Bindung, Sicherheit und Entwicklung in den Mittelpunkt stellt.",
     zielgruppe: "0–6 Jahre",
     zielgruppeDetail: "Kleinkinder in Gefährdungssituationen, bei Vernachlässigung, mit Entwicklungsverzögerungen oder aus hochbelasteten Familiensystemen.",
     leistungen: [
@@ -245,7 +245,7 @@ const angeboteDaten: Record<string, {
     ],
     prozess: [
       { schritt: "Meldung", beschreibung: "Meldung durch Jugendamt oder Familiengericht bei akuter Gefährdung." },
-      { schritt: "Aufnahme", beschreibung: "Sofortige oder geplante Aufnahme — abgestimmt auf die Situation." },
+      { schritt: "Aufnahme", beschreibung: "Sofortige oder geplante Aufnahme - abgestimmt auf die Situation." },
       { schritt: "Eingewöhnung", beschreibung: "Behutsame Eingewöhnung mit Fokus auf Sicherheit und Bindung." },
       { schritt: "Förderung", beschreibung: "Entwicklungspsychologische Einschätzung und individuelle Förderplanung." },
       { schritt: "Perspektive", beschreibung: "Regelmäßige Standortgespräche und Planung der weiteren Hilfe." },
@@ -264,7 +264,7 @@ const angeboteDaten: Record<string, {
     titel: "Versorgung",
     untertitel: "Ankernetz Versorgung",
     claim: "Mehr als das Nötigste. Würde im Alltag.",
-    einleitung: "Kinder und Jugendliche mit besonderen Bedarfen brauchen mehr als Standardversorgung. Ankernetz Versorgung stellt sicher, dass jedes Kind die Ausstattung bekommt, die es braucht — angepasst an sein Störungsbild und seinen Alltag.",
+    einleitung: "Kinder und Jugendliche mit besonderen Bedarfen brauchen mehr als Standardversorgung. Ankernetz Versorgung stellt sicher, dass jedes Kind die Ausstattung bekommt, die es braucht - angepasst an sein Störungsbild und seinen Alltag.",
     zielgruppe: "Kinder & Jugendliche",
     zielgruppeDetail: "Kinder und Jugendliche in stationären Hilfen, mit spezifischen Störungsbildern oder besonderen Alltagsanforderungen.",
     leistungen: [
@@ -277,7 +277,7 @@ const angeboteDaten: Record<string, {
       "Dokumentation für Jugendamt und Kostenträger",
     ],
     besonderheiten: [
-      "Keine Standard-Versorgung — individuelle Bedarfsermittlung",
+      "Keine Standard-Versorgung - individuelle Bedarfsermittlung",
       "Sensibel für Störungsbilder und Besonderheiten",
       "Eingebettet in den Hilfeprozess",
       "Enge Abstimmung mit Betreuern",
@@ -285,8 +285,8 @@ const angeboteDaten: Record<string, {
     ],
     prozess: [
       { schritt: "Bedarfsermittlung", beschreibung: "Gemeinsam mit dem Betreuungsteam wird der individuelle Bedarf erfasst." },
-      { schritt: "Planung", beschreibung: "Auswahl geeigneter Kleidung und Ausstattung — abgestimmt auf das Kind." },
-      { schritt: "Bereitstellung", beschreibung: "Direkte Lieferung oder Abholung — unkompliziert und schnell." },
+      { schritt: "Planung", beschreibung: "Auswahl geeigneter Kleidung und Ausstattung - abgestimmt auf das Kind." },
+      { schritt: "Bereitstellung", beschreibung: "Direkte Lieferung oder Abholung - unkompliziert und schnell." },
       { schritt: "Anpassung", beschreibung: "Regelmäßige Überprüfung und Anpassung des Bedarfs." },
     ],
     fuerFachkraefte: [
@@ -302,7 +302,7 @@ const angeboteDaten: Record<string, {
     titel: "Beratung & Prävention",
     untertitel: "Anker & Perspektive",
     claim: "Früh helfen. Gemeinsam stärken.",
-    einleitung: "Hilfe muss nicht immer stationär sein. Unsere Beratungsangebote sind niedrigschwellig, zugänglich und wirksam — als erster Schritt ins System oder als begleitende Unterstützung.",
+    einleitung: "Hilfe muss nicht immer stationär sein. Unsere Beratungsangebote sind niedrigschwellig, zugänglich und wirksam - als erster Schritt ins System oder als begleitende Unterstützung.",
     zielgruppe: "Familien & Fachkräfte",
     zielgruppeDetail: "Familien in belasteten Situationen, Jugendliche mit Beratungsbedarf, Fachkräfte aus Schulen, Kitas und sozialen Einrichtungen.",
     leistungen: [
@@ -323,9 +323,9 @@ const angeboteDaten: Record<string, {
       "Vernetzt mit dem gesamten Ankernetz-System",
     ],
     prozess: [
-      { schritt: "Kontakt", beschreibung: "Per Telefon, E-Mail oder Online-Formular — einfach und unkompliziert." },
+      { schritt: "Kontakt", beschreibung: "Per Telefon, E-Mail oder Online-Formular - einfach und unkompliziert." },
       { schritt: "Erstgespräch", beschreibung: "Kurzgespräch zur Klärung des Anliegens und der Möglichkeiten." },
-      { schritt: "Beratung", beschreibung: "Regelmäßige Beratungsgespräche — angepasst an den Bedarf." },
+      { schritt: "Beratung", beschreibung: "Regelmäßige Beratungsgespräche - angepasst an den Bedarf." },
       { schritt: "Weitervermittlung", beschreibung: "Bei Bedarf Vermittlung in weiterführende Angebote im Ankernetz." },
     ],
     fuerFachkraefte: [
@@ -341,7 +341,7 @@ const angeboteDaten: Record<string, {
     titel: "Übergang Arbeit",
     untertitel: "Ankernetz Übergang Arbeit",
     claim: "Der nächste Schritt. Mit Begleitung.",
-    einleitung: "Der Übergang von der Jugendhilfe in ein eigenständiges Leben ist eine der größten Herausforderungen. Wir begleiten Jugendliche und junge Erwachsene dabei — konkret, individuell und mit langem Atem.",
+    einleitung: "Der Übergang von der Jugendhilfe in ein eigenständiges Leben ist eine der größten Herausforderungen. Wir begleiten Jugendliche und junge Erwachsene dabei - konkret, individuell und mit langem Atem.",
     zielgruppe: "Jugendliche & junge Erwachsene",
     zielgruppeDetail: "Jugendliche und junge Erwachsene am Ende stationärer Hilfen oder im Übergang Schule–Beruf.",
     leistungen: [
@@ -362,11 +362,11 @@ const angeboteDaten: Record<string, {
       "Ganzheitlicher Blick auf Biografie und Ressourcen",
     ],
     prozess: [
-      { schritt: "Standortbestimmung", beschreibung: "Wo stehe ich? Was kann ich? Was will ich? — Ehrliche Bestandsaufnahme." },
+      { schritt: "Standortbestimmung", beschreibung: "Wo stehe ich? Was kann ich? Was will ich? - Ehrliche Bestandsaufnahme." },
       { schritt: "Ziele", beschreibung: "Realistische, erreichbare Ziele gemeinsam entwickeln." },
-      { schritt: "Vorbereitung", beschreibung: "Bewerbungen, Praktika, Berufsschule — alles strukturiert vorbereiten." },
+      { schritt: "Vorbereitung", beschreibung: "Bewerbungen, Praktika, Berufsschule - alles strukturiert vorbereiten." },
       { schritt: "Übergang", beschreibung: "Aktive Begleitung in den ersten Wochen am Ausbildungs- oder Arbeitsplatz." },
-      { schritt: "Nachsorge", beschreibung: "Weiterhin erreichbar — auch wenn der offizielle Hilfeprozess endet." },
+      { schritt: "Nachsorge", beschreibung: "Weiterhin erreichbar - auch wenn der offizielle Hilfeprozess endet." },
     ],
     fuerFachkraefte: [
       "Frühzeitige Planung des Übergangs gemeinsam mit dem Jugendamt",
@@ -381,7 +381,7 @@ const angeboteDaten: Record<string, {
     titel: "Beratung in Kitas",
     untertitel: "Ankernetz Kita-Beratung",
     claim: "Früh erkennen. Gezielt begleiten.",
-    einleitung: "Kitas sind oft der erste Ort, an dem Auffälligkeiten sichtbar werden. Unser therapeutisch fundiertes Beratungsangebot stärkt Kita-Fachkräfte im Umgang mit herausfordernden Situationen — und schützt Kinder frühzeitig.",
+    einleitung: "Kitas sind oft der erste Ort, an dem Auffälligkeiten sichtbar werden. Unser therapeutisch fundiertes Beratungsangebot stärkt Kita-Fachkräfte im Umgang mit herausfordernden Situationen - und schützt Kinder frühzeitig.",
     zielgruppe: "Kitas & Fachkräfte",
     zielgruppeDetail: "Erzieherinnen und Erzieher, Kita-Leitungen, Fachkräfte in Kindertageseinrichtungen sowie Träger von Kindertageseinrichtungen.",
     leistungen: [
@@ -402,7 +402,7 @@ const angeboteDaten: Record<string, {
       "Vernetzt mit dem gesamten Ankernetz-System",
     ],
     prozess: [
-      { schritt: "Anfrage", beschreibung: "Kita nimmt Kontakt auf — telefonisch oder per E-Mail." },
+      { schritt: "Anfrage", beschreibung: "Kita nimmt Kontakt auf - telefonisch oder per E-Mail." },
       { schritt: "Erstgespräch", beschreibung: "Kurzgespräch zur Klärung des Anliegens." },
       { schritt: "Beratung", beschreibung: "Fallbesprechung oder Supervision vor Ort oder online." },
       { schritt: "Maßnahmen", beschreibung: "Gemeinsame Planung konkreter Schritte und Maßnahmen." },

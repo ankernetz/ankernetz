@@ -13,8 +13,8 @@ import {
 /* ─── Daten ─────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "6–12", label: "Jahre — Kinder in einer prägenden Entwicklungsphase", icon: Users },
-  { wert: "4–6", label: "Kinder pro Gruppe — Qualität durch Überschaubarkeit", icon: Home },
+  { wert: "6–12", label: "Jahre - Kinder in einer prägenden Entwicklungsphase", icon: Users },
+  { wert: "4–6", label: "Kinder pro Gruppe - Qualität durch Überschaubarkeit", icon: Home },
   { wert: "24/7", label: "Betreuung und Bereitschaft an allen Tagen", icon: Clock },
   { wert: "100%", label: "Bindungsorientierte Pädagogik als Grundprinzip", icon: Heart },
 ];
@@ -62,12 +62,12 @@ const leistungen = [
   {
     icon: Home,
     titel: "Stabile Wohngruppe & Alltagsrahmen",
-    text: "Ein klarer, vorhersehbarer Alltag gibt Sicherheit. Strukturierte Morgen- und Abendroutinen, verlässliche Mahlzeiten und ein eigenes Zimmer — das ist mehr als Unterkunft: es ist Heimat.",
+    text: "Ein klarer, vorhersehbarer Alltag gibt Sicherheit. Strukturierte Morgen- und Abendroutinen, verlässliche Mahlzeiten und ein eigenes Zimmer - das ist mehr als Unterkunft: es ist Heimat.",
   },
   {
     icon: Heart,
     titel: "Bezugsbetreuung & Beziehungskontinuität",
-    text: "Jedes Kind hat eine feste Bezugsfachkraft. Diese Eine ist konstant, verlässlich und begleitet das Kind durch seinen gesamten Aufenthalt. Kontinuität ist kein Komfort — sie ist Heilung.",
+    text: "Jedes Kind hat eine feste Bezugsfachkraft. Diese Eine ist konstant, verlässlich und begleitet das Kind durch seinen gesamten Aufenthalt. Kontinuität ist kein Komfort - sie ist Heilung.",
   },
   {
     icon: GraduationCap,
@@ -77,7 +77,7 @@ const leistungen = [
   {
     icon: Brain,
     titel: "Entwicklungspsychologische Förderung",
-    text: "Gezielte Förderung von Sprache, Kognition, Sozialverhalten und emotionaler Regulation — abgestimmt auf den individuellen Entwicklungsstand jedes Kindes.",
+    text: "Gezielte Förderung von Sprache, Kognition, Sozialverhalten und emotionaler Regulation - abgestimmt auf den individuellen Entwicklungsstand jedes Kindes.",
   },
   {
     icon: Shield,
@@ -87,12 +87,12 @@ const leistungen = [
   {
     icon: Users,
     titel: "Elternarbeit & Familienkontakte",
-    text: "Eltern werden nicht ausgeschlossen — sie werden einbezogen. Wir führen regelmäßige Elterngespräche, begleiten Besuchskontakte und arbeiten, wo möglich, auf Rückführung hin.",
+    text: "Eltern werden nicht ausgeschlossen - sie werden einbezogen. Wir führen regelmäßige Elterngespräche, begleiten Besuchskontakte und arbeiten, wo möglich, auf Rückführung hin.",
   },
   {
     icon: Music,
     titel: "Freizeitgestaltung & soziale Integration",
-    text: "Vereine, Hobbies, Freundschaften, Ausflüge — Kinder sollen Kind sein dürfen. Freizeit ist kein Luxus, sondern Voraussetzung für gesunde Entwicklung.",
+    text: "Vereine, Hobbies, Freundschaften, Ausflüge - Kinder sollen Kind sein dürfen. Freizeit ist kein Luxus, sondern Voraussetzung für gesunde Entwicklung.",
   },
   {
     icon: Stethoscope,
@@ -102,27 +102,27 @@ const leistungen = [
   {
     icon: Activity,
     titel: "Krisenbegleitung im Alltag",
-    text: "Krisen gehören dazu. Unser Team ist ausgebildet in De-Eskalation und traumasensiblem Krisenmanagement — klar, ruhig und ohne Eskalation als Reaktionsprinzip.",
+    text: "Krisen gehören dazu. Unser Team ist ausgebildet in De-Eskalation und traumasensiblem Krisenmanagement - klar, ruhig und ohne Eskalation als Reaktionsprinzip.",
   },
 ];
 
 const alltagsRhythmus = [
   { zeit: "07:00", icon: Sun, titel: "Guter Morgen", text: "Strukturiertes Aufstehen, Körperpflege, gemeinsames Frühstück. Der Morgen gibt den Ton für den Tag." },
   { zeit: "08:00", icon: Bus, titel: "Schule", text: "Begleiteter Schulweg, enge Kooperation mit Lehrerinnen, verlässliche Abhol- und Bringzeiten." },
-  { zeit: "13:30", icon: Utensils, titel: "Mittagessen", text: "Gemeinsames Essen — täglich, warm, zuverlässig. Mahlzeiten sind soziale Ankerpunkte." },
+  { zeit: "13:30", icon: Utensils, titel: "Mittagessen", text: "Gemeinsames Essen - täglich, warm, zuverlässig. Mahlzeiten sind soziale Ankerpunkte." },
   { zeit: "14:30", icon: Pencil, titel: "Hausaufgaben", text: "Ruhige, begleitete Hausaufgabenzeit mit individueller Unterstützung durch Bezugsfachkräfte." },
-  { zeit: "16:00", icon: Gamepad2, titel: "Freizeit & Aktivitäten", text: "Spielen, Sport, Kreativität, Vereine — Kinder sein. Gezielte Freizeitangebote durch das Team." },
+  { zeit: "16:00", icon: Gamepad2, titel: "Freizeit & Aktivitäten", text: "Spielen, Sport, Kreativität, Vereine - Kinder sein. Gezielte Freizeitangebote durch das Team." },
   { zeit: "18:00", icon: Utensils, titel: "Abendessen", text: "Gemeinsames Abendessen, Tagesgespräch, Positives aus dem Tag benennen." },
-  { zeit: "19:30", icon: BookOpen, titel: "Abendroutine", text: "Vorlesen, Einzelgespräch mit der Bezugsperson, Gute-Nacht-Ritual — Sicherheit für die Nacht." },
-  { zeit: "Nacht", icon: Shield, titel: "Nachtbereitschaft", text: "Eine Fachkraft ist immer im Haus. Kein Kind ist allein — auch nicht um 2 Uhr morgens." },
+  { zeit: "19:30", icon: BookOpen, titel: "Abendroutine", text: "Vorlesen, Einzelgespräch mit der Bezugsperson, Gute-Nacht-Ritual - Sicherheit für die Nacht." },
+  { zeit: "Nacht", icon: Shield, titel: "Nachtbereitschaft", text: "Eine Fachkraft ist immer im Haus. Kein Kind ist allein - auch nicht um 2 Uhr morgens." },
 ];
 
 const foerderBereiche = [
-  { icon: BookOpen, titel: "Sprache & Kommunikation", text: "Vorlesen, Geschichtenerzählen, Sprachförderung — Sprache ist der Schlüssel zur Welt." },
+  { icon: BookOpen, titel: "Sprache & Kommunikation", text: "Vorlesen, Geschichtenerzählen, Sprachförderung - Sprache ist der Schlüssel zur Welt." },
   { icon: Brain, titel: "Kognition & Lernen", text: "Individuelle Lernbegleitung, Förderung von Konzentration, Gedächtnis und Problemlösung." },
-  { icon: Heart, titel: "Emotionale Regulation", text: "Benennen von Gefühlen, Umgang mit Wut und Trauer, Selbstberuhigung — Lebenskompetenzen." },
-  { icon: Users, titel: "Soziale Kompetenz", text: "Konfliktlösung, Freundschaften, Grenzen, Kooperation — im täglichen Miteinander lernen." },
-  { icon: Activity, titel: "Motorik & Koordination", text: "Bewegungsangebote, Sport, Feinmotorik — Körper und Geist sind untrennbar verbunden." },
+  { icon: Heart, titel: "Emotionale Regulation", text: "Benennen von Gefühlen, Umgang mit Wut und Trauer, Selbstberuhigung - Lebenskompetenzen." },
+  { icon: Users, titel: "Soziale Kompetenz", text: "Konfliktlösung, Freundschaften, Grenzen, Kooperation - im täglichen Miteinander lernen." },
+  { icon: Activity, titel: "Motorik & Koordination", text: "Bewegungsangebote, Sport, Feinmotorik - Körper und Geist sind untrennbar verbunden." },
   { icon: Smile, titel: "Selbstwert & Identität", text: "Was kann ich? Was bin ich wert? Gezielter Aufbau von Selbstvertrauen und positivem Selbstbild." },
 ];
 
@@ -138,7 +138,7 @@ const prozessSchritte = [
     nr: "02",
     titel: "Kennenlernen",
     icon: Smile,
-    text: "Ein erstes Treffen des Kindes mit der Gruppe, dem Team und den Räumlichkeiten — ohne Druck, im eigenen Tempo. Die Meinung des Kindes zählt.",
+    text: "Ein erstes Treffen des Kindes mit der Gruppe, dem Team und den Räumlichkeiten - ohne Druck, im eigenen Tempo. Die Meinung des Kindes zählt.",
     dauer: "Woche 1",
   },
   {
@@ -152,7 +152,7 @@ const prozessSchritte = [
     nr: "04",
     titel: "Einzug & Eingewöhnung",
     icon: Home,
-    text: "Behutsamer Einzug mit Bezugsperson von Tag eins. Eingewöhnungsplan, der dem Tempo des Kindes folgt — keine Schocktherapie.",
+    text: "Behutsamer Einzug mit Bezugsperson von Tag eins. Eingewöhnungsplan, der dem Tempo des Kindes folgt - keine Schocktherapie.",
     dauer: "Woche 2–6",
   },
   {
@@ -166,7 +166,7 @@ const prozessSchritte = [
     nr: "06",
     titel: "Perspektive & Übergang",
     icon: ArrowRight,
-    text: "Rückführung in die Familie, Wechsel in eine Pflegefamilie oder Übergang in eine andere Hilfeform — begleitet, vorbereitet, sicher.",
+    text: "Rückführung in die Familie, Wechsel in eine Pflegefamilie oder Übergang in eine andere Hilfeform - begleitet, vorbereitet, sicher.",
     dauer: "Bei Bedarf",
   },
 ];
@@ -176,19 +176,19 @@ const ansatz = [
     nr: "01",
     icon: Shield,
     titel: "Sicherheit zuerst",
-    text: "Kein Kind kann lernen, wachsen oder sich entwickeln, wenn es sich nicht sicher fühlt. Sicherheit ist keine Vorbedingung — sie ist das Ziel jedes einzelnen Tages.",
+    text: "Kein Kind kann lernen, wachsen oder sich entwickeln, wenn es sich nicht sicher fühlt. Sicherheit ist keine Vorbedingung - sie ist das Ziel jedes einzelnen Tages.",
   },
   {
     nr: "02",
     icon: Heart,
     titel: "Beziehung trägt alles",
-    text: "Kinder, die Verlässlichkeit nicht kennen, haben gelernt, ihr nicht zu trauen. Wir bauen dieses Vertrauen geduldig auf — Tag für Tag, Geste für Geste.",
+    text: "Kinder, die Verlässlichkeit nicht kennen, haben gelernt, ihr nicht zu trauen. Wir bauen dieses Vertrauen geduldig auf - Tag für Tag, Geste für Geste.",
   },
   {
     nr: "03",
     icon: Brain,
     titel: "Verstehen vor Reagieren",
-    text: "Kein Kind ist schwierig — kein Kind ist absichtlich problematisch. Verhalten ist Kommunikation. Wir übersetzen, bevor wir handeln.",
+    text: "Kein Kind ist schwierig - kein Kind ist absichtlich problematisch. Verhalten ist Kommunikation. Wir übersetzen, bevor wir handeln.",
   },
   {
     nr: "04",
@@ -200,7 +200,7 @@ const ansatz = [
     nr: "05",
     icon: Layers,
     titel: "Familie denken, nicht ersetzen",
-    text: "Wir ersetzen keine Familie — wir überbrücken, stärken und begleiten. Eltern sind Partner, nicht Problemquelle. Familie ist immer Teil des Hilfesystems.",
+    text: "Wir ersetzen keine Familie - wir überbrücken, stärken und begleiten. Eltern sind Partner, nicht Problemquelle. Familie ist immer Teil des Hilfesystems.",
   },
   {
     nr: "06",
@@ -217,7 +217,7 @@ const faq = [
   },
   {
     frage: "Können Eltern ihre Kinder besuchen?",
-    antwort: "Ja — in aller Regel. Besuchskontakte werden mit dem Jugendamt abgestimmt und von uns begleitet. Wir gestalten Kontakte so, dass sie für das Kind positiv und sicher sind. Bei Gefährdungslagen werden Besuche mit dem Jugendamt gemeinsam geregelt.",
+    antwort: "Ja - in aller Regel. Besuchskontakte werden mit dem Jugendamt abgestimmt und von uns begleitet. Wir gestalten Kontakte so, dass sie für das Kind positiv und sicher sind. Bei Gefährdungslagen werden Besuche mit dem Jugendamt gemeinsam geregelt.",
   },
   {
     frage: "Was passiert, wenn ein Kind in eine Krise gerät?",
@@ -225,7 +225,7 @@ const faq = [
   },
   {
     frage: "Gibt es therapeutische Unterstützung vor Ort?",
-    antwort: "Bei diagnostiziertem therapeutischem Bedarf koordinieren wir die Anbindung an externe Kinder- und Jugendpsychotherapeuten. Heilpädagogische Maßnahmen werden direkt vor Ort angeboten. Das pädagogische Team arbeitet traumasensibel und bindungsorientiert — das ist kein Ersatz für Therapie, aber eine wirksame Ergänzung.",
+    antwort: "Bei diagnostiziertem therapeutischem Bedarf koordinieren wir die Anbindung an externe Kinder- und Jugendpsychotherapeuten. Heilpädagogische Maßnahmen werden direkt vor Ort angeboten. Das pädagogische Team arbeitet traumasensibel und bindungsorientiert - das ist kein Ersatz für Therapie, aber eine wirksame Ergänzung.",
   },
   {
     frage: "Welche Schule besuchen die Kinder?",
@@ -233,7 +233,7 @@ const faq = [
   },
   {
     frage: "Wie werden Eltern in die Hilfeplanung einbezogen?",
-    antwort: "Eltern werden regelmäßig zu Gesprächen eingeladen, an Hilfeplangesprächen beteiligt und über Entwicklungen ihres Kindes informiert. Familienarbeit ist fester Bestandteil unseres Konzepts — nicht Bonus, sondern Standard.",
+    antwort: "Eltern werden regelmäßig zu Gesprächen eingeladen, an Hilfeplangesprächen beteiligt und über Entwicklungen ihres Kindes informiert. Familienarbeit ist fester Bestandteil unseres Konzepts - nicht Bonus, sondern Standard.",
   },
   {
     frage: "Gibt es ein Konzept für Kinder mit besonderem Förderbedarf?",
@@ -303,7 +303,7 @@ export default function JugendhilfePage() {
           }}>
             Kinder brauchen Sicherheit, Verlässlichkeit und Beziehungen, die tragen.
             Unsere Kinderwohngruppen bieten genau das: einen stabilen Ort, an dem
-            Kinder wachsen, lernen und sich entwickeln können — mit echten Menschen,
+            Kinder wachsen, lernen und sich entwickeln können - mit echten Menschen,
             die für sie da sind.
           </p>
 
@@ -367,7 +367,7 @@ export default function JugendhilfePage() {
               color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em",
               marginBottom: "1.5rem",
             }}>
-              Ein Zuhause, das hält — wenn das eigene es nicht kann.
+              Ein Zuhause, das hält - wenn das eigene es nicht kann.
             </h2>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
               Stationäre Jugendhilfe ist mehr als eine Unterbringung. Sie ist ein
@@ -377,20 +377,20 @@ export default function JugendhilfePage() {
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
               Viele der Kinder, die zu uns kommen, haben erfahren, dass Erwachsene
               unzuverlässig, gefährlich oder nicht verfügbar sind. Unser Auftrag ist
-              es, dieses Bild Schritt für Schritt zu verändern — durch Verlässlichkeit,
+              es, dieses Bild Schritt für Schritt zu verändern - durch Verlässlichkeit,
               Feinfühligkeit und echte Präsenz.
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
               Mit kleinen Gruppen, geschulten Teams und einem klar strukturierten
               Alltag schaffen wir den Rahmen, den Kinder brauchen, um sich zu
-              entwickeln — schulisch, sozial und als Persönlichkeit.
+              entwickeln - schulisch, sozial und als Persönlichkeit.
             </p>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
             {[
               { icon: CheckCircle, text: "Kleine Gruppen: 4–6 Kinder für intensive Beziehungsarbeit" },
-              { icon: CheckCircle, text: "Feste Bezugsperson von Tag eins — über den gesamten Aufenthalt" },
+              { icon: CheckCircle, text: "Feste Bezugsperson von Tag eins - über den gesamten Aufenthalt" },
               { icon: CheckCircle, text: "Tägliche Hausaufgabenbegleitung und Schulkooperation" },
               { icon: CheckCircle, text: "Bindungsorientierte Pädagogik als Teamstandard" },
               { icon: CheckCircle, text: "Strukturierter, vorhersehbarer Alltag als Sicherheitsfundament" },
@@ -574,11 +574,11 @@ export default function JugendhilfePage() {
                 color: "#1a3f6f", lineHeight: 1.25, letterSpacing: "-0.02em",
                 marginBottom: "1.25rem",
               }}>
-                Ganzheitliche Förderung — in allen Bereichen
+                Ganzheitliche Förderung - in allen Bereichen
               </h2>
               <p style={{ fontSize: "14px", color: "#374151", lineHeight: 1.85 }}>
                 Entwicklung findet nicht in einem Fach statt. Wir fördern Kinder
-                in allen relevanten Entwicklungsbereichen — individuell, alltagsintegriert
+                in allen relevanten Entwicklungsbereichen - individuell, alltagsintegriert
                 und auf Basis einer fundierten Einschätzung ihres Entwicklungsstands.
               </p>
             </div>
@@ -746,7 +746,7 @@ export default function JugendhilfePage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {[
-              { icon: Phone, text: "Direkte Erreichbarkeit des Gruppenteams — täglich" },
+              { icon: Phone, text: "Direkte Erreichbarkeit des Gruppenteams - täglich" },
               { icon: FileText, text: "Aufnahmebericht innerhalb von 72h nach Einzug" },
               { icon: ClipboardList, text: "Monatliche Entwicklungsberichte mit Förderfortschritten" },
               { icon: UserCheck, text: "Feste Ansprechperson während der gesamten Hilfedauer" },

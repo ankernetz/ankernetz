@@ -55,11 +55,11 @@ export default function Footer() {
           <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
             <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", background: "#9f1239", flexShrink: 0, animation: "pulse 2s infinite" }} />
             <p style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#1a3f6f", letterSpacing: "0.01em" }}>
-              Krisenintervention — 24 Stunden, 7 Tage die Woche erreichbar
+              Krisenintervention - 24 Stunden, 7 Tage die Woche erreichbar
             </p>
           </div>
           <a href="tel:+4930224543220" style={{ fontSize: "0.75rem", fontWeight: 700, color: "white", background: "#9f1239", padding: "0.35rem 0.875rem", borderRadius: "0.3rem", textDecoration: "none", whiteSpace: "nowrap" }}>
-            +49 (0) 30 22 45 43 22 — Jetzt anrufen
+            +49 (0) 30 22 45 43 22 - Jetzt anrufen
           </a>
         </div>
       </div>
@@ -165,7 +165,7 @@ export default function Footer() {
       <div style={{ padding: "1.125rem 0" }}>
         <div className="site-container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
           <p style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.35)" }}>
-            © {new Date().getFullYear()} Ankernetz — Hwerk GmbH. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Ankernetz - Hwerk GmbH. Alle Rechte vorbehalten.
           </p>
           <div style={{ display: "flex", gap: "1.5rem" }}>
             {[

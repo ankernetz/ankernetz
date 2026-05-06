@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ankernetz — Stabilität in Krisen. Perspektiven für junge Menschen.",
+  title: "Ankernetz - Stabilität in Krisen. Perspektiven für junge Menschen.",
   description:
-    "Ankernetz ist ein Netzwerk aus spezialisierten Hilfen für Kinder und Jugendliche — Krisenintervention, Therapie, Wohnen, Diagnostik, Beratung und Übergang in Arbeit.",
+    "Ankernetz ist ein Netzwerk aus spezialisierten Hilfen für Kinder und Jugendliche - Krisenintervention, Therapie, Wohnen, Diagnostik, Beratung und Übergang in Arbeit.",
   keywords: [
     "Jugendhilfe", "Krisenintervention", "Therapeutisches Wohnen",
     "Diagnostik", "Jugendamt", "Kinder", "Jugendliche",

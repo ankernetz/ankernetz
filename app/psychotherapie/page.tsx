@@ -12,7 +12,7 @@ import {
 /* ─── Daten ─────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "Kassensitz", label: "Keine Privatkosten — abgerechnet über gesetzliche Krankenversicherung", icon: Shield },
+  { wert: "Kassensitz", label: "Keine Privatkosten - abgerechnet über gesetzliche Krankenversicherung", icon: Shield },
   { wert: "KJP", label: "Approbierte Kinder- und Jugendlichenpsychotherapeuten", icon: Brain },
   { wert: "direkt", label: "Eingebunden in das Ankernetz-Betreuungsnetz", icon: Layers },
   { wert: "kurz", label: "Kurze Wartezeiten durch eigene interne Kapazitäten", icon: Zap },
@@ -24,9 +24,9 @@ const stoerungsbilder = [
   { icon: AlertTriangle, titel: "Angststörungen", text: "Trennungsangst, soziale Phobie, generalisierte Angststörung, Panikstörung, spezifische Phobien und Schulangst.", akzent: "#f97316" },
   { icon: Activity, titel: "ADHS & Aufmerksamkeitsstörungen", text: "Diagnostik und Behandlung von ADHS mit und ohne Hyperaktivität. Verhaltenstherapeutische Interventionen, Elternberatung, Schulkooperation.", akzent: "#0891b2" },
   { icon: Shield, titel: "Verhaltensauffälligkeiten & Störungen des Sozialverhaltens", text: "Aggressives Verhalten, Dissozialität, Oppositionelles Trotzverhalten (ODD) als Ausdruck von Belastungserleben und Regulationsproblemen.", akzent: "#ef4444" },
-  { icon: Eye, titel: "Selbstverletzendes Verhalten", text: "Nicht-suizidales selbstverletzendes Verhalten, Suizidgedanken und -handlungen als Krisenzeichen — im spezialisierten therapeutischen Setting.", akzent: "#dc2626" },
+  { icon: Eye, titel: "Selbstverletzendes Verhalten", text: "Nicht-suizidales selbstverletzendes Verhalten, Suizidgedanken und -handlungen als Krisenzeichen - im spezialisierten therapeutischen Setting.", akzent: "#dc2626" },
   { icon: Users, titel: "Bindungs- und Beziehungsstörungen", text: "Reaktive Bindungsstörungen und andere Störungen des Bindungsverhaltens, die therapeutische Arbeit an frühen Beziehungserfahrungen erfordern.", akzent: "#1a3f6f" },
-  { icon: Smile, titel: "Somatoforme & psychosomatische Störungen", text: "Körperliche Beschwerden ohne ausreichend erklärenden Organbefund als Ausdruck psychischer Belastung — bei Kindern und Jugendlichen häufig unterschätzt.", akzent: "#059669" },
+  { icon: Smile, titel: "Somatoforme & psychosomatische Störungen", text: "Körperliche Beschwerden ohne ausreichend erklärenden Organbefund als Ausdruck psychischer Belastung - bei Kindern und Jugendlichen häufig unterschätzt.", akzent: "#059669" },
 ];
 
 const verfahren = [
@@ -51,7 +51,7 @@ const verfahren = [
   {
     icon: Heart,
     titel: "Bindungsbasierte Therapieverfahren",
-    text: "Therapiemethoden, die gezielt an frühen Bindungserfahrungen ansetzen — für Kinder mit Bindungsstörungen und desorganisierten Bindungsmustern.",
+    text: "Therapiemethoden, die gezielt an frühen Bindungserfahrungen ansetzen - für Kinder mit Bindungsstörungen und desorganisierten Bindungsmustern.",
     kassensitz: false,
   },
   {
@@ -69,7 +69,7 @@ const verfahren = [
   {
     icon: Activity,
     titel: "DBT-A (Dialektisch-Behaviorale Therapie)",
-    text: "Adaptiertes DBT für Jugendliche — speziell bei Borderline-Entwicklungen, selbstverletzendem Verhalten und schwerer Emotionsdysregulation.",
+    text: "Adaptiertes DBT für Jugendliche - speziell bei Borderline-Entwicklungen, selbstverletzendem Verhalten und schwerer Emotionsdysregulation.",
     kassensitz: true,
   },
   {
@@ -85,7 +85,7 @@ const therapeutischerProzess = [
     nr: "01",
     titel: "Anmeldung & Erstgespräch",
     icon: Phone,
-    text: "Anmeldung über das Jugendamt, eine Einrichtung, die Familie oder direkt. Probatorische Sitzungen zur gegenseitigen Einschätzung — ohne Verpflichtung.",
+    text: "Anmeldung über das Jugendamt, eine Einrichtung, die Familie oder direkt. Probatorische Sitzungen zur gegenseitigen Einschätzung - ohne Verpflichtung.",
     dauer: "Woche 1–2",
   },
   {
@@ -99,14 +99,14 @@ const therapeutischerProzess = [
     nr: "03",
     titel: "Antrag & Bewilligung",
     icon: FileText,
-    text: "Beantragung der Kostenübernahme bei der Krankenkasse. Unser Team übernimmt die gesamte Bürokratie — für Familien und Jugendämter.",
+    text: "Beantragung der Kostenübernahme bei der Krankenkasse. Unser Team übernimmt die gesamte Bürokratie - für Familien und Jugendämter.",
     dauer: "Parallel",
   },
   {
     nr: "04",
     titel: "Therapiebeginn",
     icon: Brain,
-    text: "Wöchentliche Einzelsitzungen à 50 Minuten. Ergänzt durch Elterngespräche, Gruppenangebote und — wo sinnvoll — Koordination mit dem Betreuungsteam.",
+    text: "Wöchentliche Einzelsitzungen à 50 Minuten. Ergänzt durch Elterngespräche, Gruppenangebote und - wo sinnvoll - Koordination mit dem Betreuungsteam.",
     dauer: "Ab Monat 1",
   },
   {
@@ -120,7 +120,7 @@ const therapeutischerProzess = [
     nr: "06",
     titel: "Abschluss & Weiterversorgung",
     icon: ArrowRight,
-    text: "Gezielter Therapieabschluss mit Stabilisierungsplan. Übergabe in ambulante Nachsorge oder Weiterbehandlung — kein abruptes Ende.",
+    text: "Gezielter Therapieabschluss mit Stabilisierungsplan. Übergabe in ambulante Nachsorge oder Weiterbehandlung - kein abruptes Ende.",
     dauer: "Ab Monat 12",
   },
 ];
@@ -128,14 +128,14 @@ const therapeutischerProzess = [
 const unterschiede = [
   {
     merkmal: "Kassensitz",
-    ankernetz: "Ja — abgerechnet über gesetzliche KV",
+    ankernetz: "Ja - abgerechnet über gesetzliche KV",
     andere: "Oft nur Privatpraxis oder Selbstzahler",
     plus: true,
   },
   {
     merkmal: "Vernetzung mit Wohngruppe",
-    ankernetz: "Direkt — kurze Wege, täglicher Austausch",
-    andere: "Externe Praxis — oft kein Kontakt",
+    ankernetz: "Direkt - kurze Wege, täglicher Austausch",
+    andere: "Externe Praxis - oft kein Kontakt",
     plus: true,
   },
   {
@@ -161,7 +161,7 @@ const unterschiede = [
 const faq = [
   {
     frage: "Wer übernimmt die Kosten der Psychotherapie?",
-    antwort: "Wir verfügen über einen Kassensitz. Das bedeutet: Die Therapie wird über die gesetzliche Krankenversicherung abgerechnet. Für Familien entstehen keine Eigenkosten. Bei Kindern und Jugendlichen in Jugendhilfeleistungen kann die Kostenübernahme auch über SGB VIII erfolgen — wir klären das gemeinsam.",
+    antwort: "Wir verfügen über einen Kassensitz. Das bedeutet: Die Therapie wird über die gesetzliche Krankenversicherung abgerechnet. Für Familien entstehen keine Eigenkosten. Bei Kindern und Jugendlichen in Jugendhilfeleistungen kann die Kostenübernahme auch über SGB VIII erfolgen - wir klären das gemeinsam.",
   },
   {
     frage: "Wie lange dauert eine Psychotherapie?",
@@ -173,7 +173,7 @@ const faq = [
   },
   {
     frage: "Wie ist die Therapie mit dem Alltag in der Wohngruppe vernetzt?",
-    antwort: "Das ist einer unserer zentralen Vorteile: Therapeuten und Pädagogen tauschen sich regelmäßig aus — in kollegialen Fallbesprechungen, im direkten Gespräch und durch gemeinsame Behandlungspläne. Was in der Therapiestunde bearbeitet wird, kann im Alltag aufgegriffen und geübt werden.",
+    antwort: "Das ist einer unserer zentralen Vorteile: Therapeuten und Pädagogen tauschen sich regelmäßig aus - in kollegialen Fallbesprechungen, im direkten Gespräch und durch gemeinsame Behandlungspläne. Was in der Therapiestunde bearbeitet wird, kann im Alltag aufgegriffen und geübt werden.",
   },
   {
     frage: "Können auch ambulante Kinder (ohne Heimunterbringung) in Therapie?",
@@ -181,11 +181,11 @@ const faq = [
   },
   {
     frage: "Werden Eltern in die Therapie einbezogen?",
-    antwort: "Ja — in aller Regel. Elterngespräche sind fester Bestandteil jeder Kinder- und Jugendlichenpsychotherapie. Bei Bedarf bieten wir auch Eltern-Kind-Therapie oder spezifische Elternberatung an. Die Einbeziehung der Familie verbessert die Therapieergebnisse nachweislich.",
+    antwort: "Ja - in aller Regel. Elterngespräche sind fester Bestandteil jeder Kinder- und Jugendlichenpsychotherapie. Bei Bedarf bieten wir auch Eltern-Kind-Therapie oder spezifische Elternberatung an. Die Einbeziehung der Familie verbessert die Therapieergebnisse nachweislich.",
   },
   {
     frage: "Was ist der Unterschied zwischen Psychotherapie und heilpädagogischer Förderung?",
-    antwort: "Psychotherapie zielt auf die Behandlung psychischer Störungen — sie ist krankenkassenfinanziert und an ein Störungsbild geknüpft. Heilpädagogische Förderung unterstützt Entwicklung und Alltagskompetenz — sie ist pädagogisch ausgerichtet und oft jugendhilfefinanziert. Beides kann sich sinnvoll ergänzen.",
+    antwort: "Psychotherapie zielt auf die Behandlung psychischer Störungen - sie ist krankenkassenfinanziert und an ein Störungsbild geknüpft. Heilpädagogische Förderung unterstützt Entwicklung und Alltagskompetenz - sie ist pädagogisch ausgerichtet und oft jugendhilfefinanziert. Beides kann sich sinnvoll ergänzen.",
   },
   {
     frage: "Wie verläuft eine typische Therapiestunde?",
@@ -250,7 +250,7 @@ export default function PsychotherapiePage() {
             lineHeight: 1.75, maxWidth: "560px", marginBottom: "3rem",
           }}>
             Professionelle Therapie, direkt eingebunden in das Ankernetz-System.
-            Approbierte Therapeuten, evidenzbasierte Verfahren und kurze Wege —
+            Approbierte Therapeuten, evidenzbasierte Verfahren und kurze Wege -
             für Kinder und Jugendliche, die therapeutische Unterstützung brauchen.
           </p>
 
@@ -308,7 +308,7 @@ export default function PsychotherapiePage() {
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <Shield size={20} color="#6FA3FE" />
             <p style={{ color: "white", fontWeight: 700, fontSize: "14px" }}>
-              Kassensitz vorhanden — keine Privatkosten für Familien
+              Kassensitz vorhanden - keine Privatkosten für Familien
             </p>
             <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "13px" }}>
               Abrechnung über alle gesetzlichen Krankenkassen.
@@ -348,17 +348,17 @@ export default function PsychotherapiePage() {
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
               Der größte Schwachpunkt im Jugendhilfesystem ist die Trennung von
               pädagogischer Betreuung und therapeutischer Behandlung. Kinder in
-              Wohngruppen bekommen Therapie in externen Praxen — ohne Verbindung
+              Wohngruppen bekommen Therapie in externen Praxen - ohne Verbindung
               zum Alltag, ohne Abstimmung mit den Betreuern.
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
               Wir schließen diese Lücke. Unsere approbierten Kinder- und
               Jugendlichenpsychotherapeuten sind direkt in das Ankernetz-System
               eingebunden. Was in der Therapiestunde bearbeitet wird, kann im
-              Alltag aufgegriffen werden — und umgekehrt.
+              Alltag aufgegriffen werden - und umgekehrt.
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
-              Das Ergebnis: Therapie, die wirkt. Nicht trotz des Systems —
+              Das Ergebnis: Therapie, die wirkt. Nicht trotz des Systems -
               sondern durch es.
             </p>
           </div>
@@ -366,7 +366,7 @@ export default function PsychotherapiePage() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
             {[
               { icon: CheckCircle, text: "Approbierte Kinder- und Jugendlichenpsychotherapeuten" },
-              { icon: CheckCircle, text: "Kassensitz — kein Eigenanteil für Familien" },
+              { icon: CheckCircle, text: "Kassensitz - kein Eigenanteil für Familien" },
               { icon: CheckCircle, text: "Direkt vernetzt mit Wohngruppen und Bezugsbetreuern" },
               { icon: CheckCircle, text: "Kurze Wartezeiten durch eigene interne Kapazitäten" },
               { icon: CheckCircle, text: "Traumaspezialisierung: PTBS, komplexe Traumatisierung" },
@@ -409,7 +409,7 @@ export default function PsychotherapiePage() {
             </h2>
             <p style={{ fontSize: "15px", color: "#374151", maxWidth: "540px", margin: "0 auto", lineHeight: 1.75 }}>
               Wir behandeln das gesamte Spektrum psychischer Störungen bei
-              Kindern und Jugendlichen — mit besonderer Expertise in
+              Kindern und Jugendlichen - mit besonderer Expertise in
               komplexen Traumatisierungen und Bindungsstörungen.
             </p>
           </div>
@@ -516,7 +516,7 @@ export default function PsychotherapiePage() {
               fontSize: "clamp(1.75rem, 3vw, 2.25rem)", fontWeight: 800,
               color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em",
             }}>
-              Therapie im Verbund — nicht im Silo
+              Therapie im Verbund - nicht im Silo
             </h2>
           </div>
 
@@ -653,7 +653,7 @@ export default function PsychotherapiePage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {[
-              { icon: Shield, text: "Kassensitz — keine zusätzliche Kostenübernahme erforderlich" },
+              { icon: Shield, text: "Kassensitz - keine zusätzliche Kostenübernahme erforderlich" },
               { icon: Zap, text: "Kurze Wartezeiten: priorisierte Aufnahme für Kinder in Ankernetz-Einrichtungen" },
               { icon: MessageSquare, text: "Regelmäßige Rückmeldungen an Bezugsbetreuer und Jugendamt" },
               { icon: ClipboardList, text: "Therapeutische Stellungnahmen für Hilfeplanvorbereitung" },

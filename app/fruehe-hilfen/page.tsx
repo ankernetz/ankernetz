@@ -11,7 +11,7 @@ import {
 /* ─── Daten ─────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "0–6", label: "Jahre — früheste und vulnerabelste Lebensphase", icon: Baby },
+  { wert: "0–6", label: "Jahre - früheste und vulnerabelste Lebensphase", icon: Baby },
   { wert: "24/7", label: "Notaufnahme bei akuter Kindeswohlgefährdung", icon: Shield },
   { wert: "100%", label: "Bindungsorientierter Ansatz in allen Bereichen", icon: Heart },
   { wert: "15+", label: "Jahre Erfahrung in der Kleinstkinderarbeit", icon: Star },
@@ -23,7 +23,7 @@ const warnsignale = [
   { icon: Brain, titel: "Entwicklungsverzögerungen", text: "Sprachliche, motorische oder kognitive Rückstände, die auf fehlende Förderung oder traumatische Erfahrungen zurückzuführen sind.", akzent: "#8b5cf6" },
   { icon: Home, titel: "Hochbelastete Familiensysteme", text: "Psychische Erkrankung der Bezugspersonen, Sucht, häusliche Gewalt oder Wohnungslosigkeit als Belastungsfaktoren.", akzent: "#1a3f6f" },
   { icon: Heart, titel: "Bindungsstörungen", text: "Deutliche Zeichen unsicherer oder desorganisierter Bindungsmuster, die eine professionelle bindungspädagogische Arbeit erfordern.", akzent: "#e11d48" },
-  { icon: Baby, titel: "Neugeborene in Gefährdungslagen", text: "Säuglinge, deren Eltern nicht in der Lage sind, die notwendige Fürsorge zu gewährleisten — z.B. bei Sucht oder schwerer psychischer Erkrankung.", akzent: "#0891b2" },
+  { icon: Baby, titel: "Neugeborene in Gefährdungslagen", text: "Säuglinge, deren Eltern nicht in der Lage sind, die notwendige Fürsorge zu gewährleisten - z.B. bei Sucht oder schwerer psychischer Erkrankung.", akzent: "#0891b2" },
 ];
 
 const leistungen = [
@@ -50,7 +50,7 @@ const leistungen = [
   {
     icon: Users,
     titel: "Elternarbeit & Rückführungsplanung",
-    text: "Strukturierte Elternarbeit mit dem Ziel der Rückführung — sofern das Kindeswohl dies erlaubt. Eltern werden begleitet, gestärkt und in den Hilfeprozess einbezogen.",
+    text: "Strukturierte Elternarbeit mit dem Ziel der Rückführung - sofern das Kindeswohl dies erlaubt. Eltern werden begleitet, gestärkt und in den Hilfeprozess einbezogen.",
   },
   {
     icon: BookOpen,
@@ -60,12 +60,12 @@ const leistungen = [
   {
     icon: HandHeart,
     titel: "Traumasensible Alltagsgestaltung",
-    text: "Jeder Alltag wird nach traumapädagogischen Prinzipien gestaltet: Verlässlichkeit, Vorhersehbarkeit, feinfühlige Reaktion — als tägliche Sprache der Sicherheit.",
+    text: "Jeder Alltag wird nach traumapädagogischen Prinzipien gestaltet: Verlässlichkeit, Vorhersehbarkeit, feinfühlige Reaktion - als tägliche Sprache der Sicherheit.",
   },
   {
     icon: ClipboardList,
     titel: "Fachberatung für Kitas & Einrichtungen",
-    text: "Externe Fachberatung für Kita-Teams bei Auffälligkeiten, Verdacht auf Kindeswohlgefährdung oder Fragen zur Entwicklungsbegleitung — niedrigschwellig und praxisnah.",
+    text: "Externe Fachberatung für Kita-Teams bei Auffälligkeiten, Verdacht auf Kindeswohlgefährdung oder Fragen zur Entwicklungsbegleitung - niedrigschwellig und praxisnah.",
   },
   {
     icon: FileText,
@@ -79,19 +79,19 @@ const ansatz = [
     nr: "01",
     icon: Heart,
     titel: "Bindung als Fundament",
-    text: "Jede Entwicklung baut auf sicherer Bindung auf. Unser gesamtes Team ist in bindungsbasierter Pädagogik ausgebildet — vom ersten Kontakt bis zur Übergabe.",
+    text: "Jede Entwicklung baut auf sicherer Bindung auf. Unser gesamtes Team ist in bindungsbasierter Pädagogik ausgebildet - vom ersten Kontakt bis zur Übergabe.",
   },
   {
     nr: "02",
     icon: Eye,
     titel: "Feinfühligkeit als Haltung",
-    text: "Wir nehmen Signale des Kindes ernst und antworten prompt, angemessen und konsistent. Feinfühligkeit ist keine Technik — sie ist unsere Grundhaltung.",
+    text: "Wir nehmen Signale des Kindes ernst und antworten prompt, angemessen und konsistent. Feinfühligkeit ist keine Technik - sie ist unsere Grundhaltung.",
   },
   {
     nr: "03",
     icon: Sun,
     titel: "Entwicklung fördern, nicht erzwingen",
-    text: "Jedes Kind hat sein eigenes Tempo. Wir begleiten, fordern und fördern — aber immer im Rhythmus des Kindes, nicht im Rhythmus der Institutionen.",
+    text: "Jedes Kind hat sein eigenes Tempo. Wir begleiten, fordern und fördern - aber immer im Rhythmus des Kindes, nicht im Rhythmus der Institutionen.",
   },
   {
     nr: "04",
@@ -103,7 +103,7 @@ const ansatz = [
     nr: "05",
     icon: Users,
     titel: "Eltern einbeziehen, nicht ersetzen",
-    text: "Wir sind keine Alternative zur Familie — wir sind Unterstützer. Eltern werden wo immer möglich einbezogen, gestärkt und auf Rückführung vorbereitet.",
+    text: "Wir sind keine Alternative zur Familie - wir sind Unterstützer. Eltern werden wo immer möglich einbezogen, gestärkt und auf Rückführung vorbereitet.",
   },
   {
     nr: "06",
@@ -125,7 +125,7 @@ const prozessSchritte = [
     nr: "02",
     titel: "Aufnahme",
     icon: Home,
-    text: "Geplante oder Sofortaufnahme — abgestimmt auf die Dringlichkeit. Strukturiertes Aufnahmegespräch mit Jugendamt und — wenn möglich — den Eltern.",
+    text: "Geplante oder Sofortaufnahme - abgestimmt auf die Dringlichkeit. Strukturiertes Aufnahmegespräch mit Jugendamt und - wenn möglich - den Eltern.",
     dauer: "Tag 1",
   },
   {
@@ -139,7 +139,7 @@ const prozessSchritte = [
     nr: "04",
     titel: "Diagnostik & Förderplanung",
     icon: Brain,
-    text: "Entwicklungspsychologische Einschätzung, Bindungsdiagnostik und Erstellung des individuellen Förderplans — in Abstimmung mit dem Jugendamt.",
+    text: "Entwicklungspsychologische Einschätzung, Bindungsdiagnostik und Erstellung des individuellen Förderplans - in Abstimmung mit dem Jugendamt.",
     dauer: "Monat 1–2",
   },
   {
@@ -163,19 +163,19 @@ const teamProfile = [
 const faq = [
   {
     frage: "Ab welchem Alter nehmen Sie Kinder auf?",
-    antwort: "Wir nehmen Kinder ab dem Säuglingsalter auf — in Ausnahmefällen auch Neugeborene direkt nach der Geburt, wenn eine akute Kindeswohlgefährdung vorliegt. Unser Angebot richtet sich an Kinder von 0 bis 6 Jahren.",
+    antwort: "Wir nehmen Kinder ab dem Säuglingsalter auf - in Ausnahmefällen auch Neugeborene direkt nach der Geburt, wenn eine akute Kindeswohlgefährdung vorliegt. Unser Angebot richtet sich an Kinder von 0 bis 6 Jahren.",
   },
   {
     frage: "Wie funktioniert eine Notaufnahme bei akuter Gefährdung?",
-    antwort: "Unser Bereitschaftsdienst ist rund um die Uhr erreichbar. Bei akuter Kindeswohlgefährdung kann eine Aufnahme noch am selben Tag erfolgen. Das Jugendamt nimmt telefonisch Kontakt auf — wir melden uns innerhalb von 30 Minuten mit einer konkreten Rückmeldung.",
+    antwort: "Unser Bereitschaftsdienst ist rund um die Uhr erreichbar. Bei akuter Kindeswohlgefährdung kann eine Aufnahme noch am selben Tag erfolgen. Das Jugendamt nimmt telefonisch Kontakt auf - wir melden uns innerhalb von 30 Minuten mit einer konkreten Rückmeldung.",
   },
   {
     frage: "Werden die Eltern in den Prozess einbezogen?",
-    antwort: "Ja — soweit dies dem Kindeswohl nicht entgegensteht. Wir führen strukturierte Elterngespräche, begleiten Besuchskontakte und arbeiten aktiv auf eine Rückführung hin, wenn die Voraussetzungen dafür gegeben sind. Eltern sind Partner im Hilfeprozess.",
+    antwort: "Ja - soweit dies dem Kindeswohl nicht entgegensteht. Wir führen strukturierte Elterngespräche, begleiten Besuchskontakte und arbeiten aktiv auf eine Rückführung hin, wenn die Voraussetzungen dafür gegeben sind. Eltern sind Partner im Hilfeprozess.",
   },
   {
     frage: "Was unterscheidet Frühe Hilfen von einer regulären Pflegestelle?",
-    antwort: "Unsere Schutzpflegestellen sind keine klassischen Pflegefamilien. Sie werden fachlich eng begleitet, sind speziell geschult und arbeiten mit therapeutischer Unterstützung. Entwicklungsdiagnostik, Bindungsarbeit und Elternarbeit sind fester Bestandteil — nicht optionale Ergänzung.",
+    antwort: "Unsere Schutzpflegestellen sind keine klassischen Pflegefamilien. Sie werden fachlich eng begleitet, sind speziell geschult und arbeiten mit therapeutischer Unterstützung. Entwicklungsdiagnostik, Bindungsarbeit und Elternarbeit sind fester Bestandteil - nicht optionale Ergänzung.",
   },
   {
     frage: "Wie werden Entwicklungsfortschritte dokumentiert?",
@@ -191,7 +191,7 @@ const faq = [
   },
   {
     frage: "Wie lange dauert ein Frühe-Hilfen-Aufenthalt in der Regel?",
-    antwort: "Das hängt stark vom Einzelfall ab. Kurzfristige Schutzmaßnahmen dauern wenige Wochen, längerfristige Begleitungen 6–18 Monate. Die Dauer wird gemeinsam mit dem Jugendamt und im Hilfeplan festgelegt — immer mit dem Ziel, eine nachhaltige Perspektive für das Kind zu entwickeln.",
+    antwort: "Das hängt stark vom Einzelfall ab. Kurzfristige Schutzmaßnahmen dauern wenige Wochen, längerfristige Begleitungen 6–18 Monate. Die Dauer wird gemeinsam mit dem Jugendamt und im Hilfeplan festgelegt - immer mit dem Ziel, eine nachhaltige Perspektive für das Kind zu entwickeln.",
   },
 ];
 
@@ -252,7 +252,7 @@ export default function FrueheHilfenPage() {
             lineHeight: 1.75, maxWidth: "540px", marginBottom: "3rem",
           }}>
             Die ersten Lebensjahre entscheiden über alles. Unser Team schützt und begleitet
-            Kleinkinder in besonders vulnerablen Situationen — bindungsorientiert,
+            Kleinkinder in besonders vulnerablen Situationen - bindungsorientiert,
             entwicklungsfördernd und mit höchster Fachlichkeit.
           </p>
 
@@ -330,14 +330,14 @@ export default function FrueheHilfenPage() {
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
               Die Forschung ist eindeutig: Was in den ersten 1000 Tagen eines Kindes passiert,
-              legt die Grundlage für die gesamte weitere Entwicklung — kognitiv,
+              legt die Grundlage für die gesamte weitere Entwicklung - kognitiv,
               emotional und sozial. Frühe Traumatisierung, Vernachlässigung und
               Bindungslosigkeit hinterlassen Spuren, die ohne professionelle Intervention
               ein Leben lang bestehen bleiben.
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
               Unser Team kombiniert bindungsbasierte Pädagogik, entwicklungspsychologische
-              Fachkompetenz und intensive Elternarbeit — damit aus einem schwierigen
+              Fachkompetenz und intensive Elternarbeit - damit aus einem schwierigen
               Start eine echte Chance werden kann.
             </p>
           </div>
@@ -620,7 +620,7 @@ export default function FrueheHilfenPage() {
               <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.8, fontSize: "14px" }}>
                 Die vulnerabelste Lebensphase. Alles, was in diesen Jahren passiert,
                 beeinflusst die körperliche, geistige und emotionale Entwicklung
-                nachhaltig. Frühzeitiger Schutz ist keine Ausnahme — er ist die Regel.
+                nachhaltig. Frühzeitiger Schutz ist keine Ausnahme - er ist die Regel.
               </p>
             </div>
 
@@ -747,7 +747,7 @@ export default function FrueheHilfenPage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {[
-              { icon: Phone, text: "Direkter Zugang — Notaufnahmen auch nachts und am Wochenende" },
+              { icon: Phone, text: "Direkter Zugang - Notaufnahmen auch nachts und am Wochenende" },
               { icon: FileText, text: "Aufnahmebericht innerhalb von 48h nach Einzug" },
               { icon: Brain, text: "Entwicklungspsychologische Ersteinschätzung nach 4 Wochen" },
               { icon: ClipboardList, text: "Monatliche Entwicklungsberichte mit Förderfortschritten" },

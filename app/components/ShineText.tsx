@@ -1,5 +1,5 @@
 // Adapted from MagicUI AnimatedShinyText
-// Original: github.com/magicuidesign/magicui — apps/www/registry/magicui/animated-shiny-text.tsx
+// Original: github.com/magicuidesign/magicui - apps/www/registry/magicui/animated-shiny-text.tsx
 // The shimmer moves across the text creating a premium gloss effect
 
 import { type ReactNode, type CSSProperties } from "react";

@@ -24,7 +24,7 @@ const farbenMap: Record<string, string> = {
   "Beige": "#d4b896", "Hellblau": "#93c5fd", "Rosa": "#f9a8d4",
   "Grün": "#86efac", "Gelb": "#fde68a", "Neutral": "#9ca3af",
   "Frei wählbar": "#6FA3FE", "Gemeinsam wählbar": "#FEC274",
-  "Warm, weich": "#d4b896", "—": "#e5e7eb",
+  "Warm, weich": "#d4b896", "-": "#e5e7eb",
 };
 
 /* ─── Daten ────────────────────────────────────────────────────── */
@@ -42,7 +42,7 @@ const kategorien: {
     produkte: [
       { name: "Basishose Komfort",     badge: "Bestseller", icon: AlignJustify, material: "100% Bio-Baumwolle",   groessen: ["104","116","128","140","152","164"],             farben: ["Anthrazit","Navy","Grau"],   preis: 29.90, beschreibung: "Weicher Bund ohne Knöpfe, elastischer Schnitt, keine störenden Nähte." },
       { name: "Alltags-Shirt Reizarm", badge: "Beliebt",    icon: Shirt,        material: "Jersey Bio-Baumwolle",  groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Weiß","Hellgrau","Blau"],    preis: 19.90, beschreibung: "Ohne Aufdruck, nahtlos verarbeitet, angenehm auf der Haut." },
-      { name: "Übergangsjacke Soft",                        icon: Wind,         material: "Fleece/Softshell",      groessen: ["116","128","140","152","164","S","M"],           farben: ["Navy","Grau"],              preis: 49.90, beschreibung: "Leicht, warm, einfach zu öffnen — kein Zipper-Stress." },
+      { name: "Übergangsjacke Soft",                        icon: Wind,         material: "Fleece/Softshell",      groessen: ["116","128","140","152","164","S","M"],           farben: ["Navy","Grau"],              preis: 49.90, beschreibung: "Leicht, warm, einfach zu öffnen - kein Zipper-Stress." },
       { name: "Socken Komfort-Set",    badge: "Neu",         icon: Footprints,   material: "Bambus/Baumwolle",      groessen: ["23–26","27–30","31–34","35–38","39–42"],         farben: ["Grau","Weiß","Schwarz"],    preis: 14.90, beschreibung: "Ohne störende Zehennaht, rutschfest, langlebig." },
     ],
   },
@@ -61,8 +61,8 @@ const kategorien: {
     beschreibung: "Keine Nähte, keine Etiketten.",
     produkte: [
       { name: "Sensory-Shirt Nahtlos",  badge: "Neu",      icon: Feather, material: "Bio-Baumwolle nahtlos gestrickt", groessen: ["104","116","128","140","152","164","S","M"], farben: ["Weiß","Grau","Hellblau"],  preis: 34.90, beschreibung: "Komplett nahtlos, keine Etiketten, angenehm auf empfindlicher Haut." },
-      { name: "Hose Easy-Fit",                             icon: Repeat,  material: "Baumwoll-Stretch",                groessen: ["104","116","128","140","152","164"],         farben: ["Schwarz","Navy","Grau"],   preis: 39.90, beschreibung: "Gleicher Schnitt in allen Größen — Verlässlichkeit durch Konsistenz." },
-      { name: "Kompressionsshirt",      badge: "Empfohlen",icon: Zap,     material: "Elastan-Mix",                     groessen: ["116","128","140","152","164","S","M"],       farben: ["Grau","Dunkelblau"],      preis: 44.90, beschreibung: "Leichter Kompressionsdruck — strukturgebend und beruhigend." },
+      { name: "Hose Easy-Fit",                             icon: Repeat,  material: "Baumwoll-Stretch",                groessen: ["104","116","128","140","152","164"],         farben: ["Schwarz","Navy","Grau"],   preis: 39.90, beschreibung: "Gleicher Schnitt in allen Größen - Verlässlichkeit durch Konsistenz." },
+      { name: "Kompressionsshirt",      badge: "Empfohlen",icon: Zap,     material: "Elastan-Mix",                     groessen: ["116","128","140","152","164","S","M"],       farben: ["Grau","Dunkelblau"],      preis: 44.90, beschreibung: "Leichter Kompressionsdruck - strukturgebend und beruhigend." },
       { name: "Schuhe Klettverschluss",                    icon: Move,    material: "Leder/Textil",                    groessen: ["28","30","32","34","36","38","40"],          farben: ["Schwarz","Grau"],         preis: 59.90, beschreibung: "Einfach anzuziehen, ohne Schnürsenkel, stabiler Halt." },
     ],
   },
@@ -71,38 +71,38 @@ const kategorien: {
     beschreibung: "Vollständig, würdevoll, passend.",
     produkte: [
       { name: "Starter-Set Kind",        badge: "Empfohlen", icon: Package,  material: "Verschiedene", groessen: ["104–128","128–152"],   farben: ["Neutral"], preis: 129.90, beschreibung: "3 Shirts, 2 Hosen, Unterwäsche-Set, Socken, Jacke." },
-      { name: "Starter-Set Jugendliche",                     icon: Gift,     material: "Verschiedene", groessen: ["152–164","S/M","M/L"], farben: ["Neutral"], preis: 159.90, beschreibung: "Vollständige Erstausstattung — altersgerecht und würdevoll." },
+      { name: "Starter-Set Jugendliche",                     icon: Gift,     material: "Verschiedene", groessen: ["152–164","S/M","M/L"], farben: ["Neutral"], preis: 159.90, beschreibung: "Vollständige Erstausstattung - altersgerecht und würdevoll." },
       { name: "Schul-Paket",                                 icon: BookOpen, material: "Verschiedene", groessen: ["Universal"],           farben: ["Neutral"], preis: 89.90,  beschreibung: "Rucksack, Federmäppchen, Schulkleidung-Set." },
-      { name: "Hygiene-Starter",          badge: "Neu",      icon: Droplets, material: "—",            groessen: ["Universal"],           farben: ["—"],       preis: 24.90,  beschreibung: "Grundlegende Hygieneartikel als Ergänzung." },
+      { name: "Hygiene-Starter",          badge: "Neu",      icon: Droplets, material: "-",            groessen: ["Universal"],           farben: ["-"],       preis: 24.90,  beschreibung: "Grundlegende Hygieneartikel als Ergänzung." },
     ],
   },
   {
     slug: "angststoerungen", titel: "Angststörungen", akzent: "#6FA3FE", bg: "rgba(111,163,254,0.08)",
     beschreibung: "Dezent, unauffällig, sicher.",
     produkte: [
-      { name: "Unauffällig-Set Basic", badge: "Bestseller", icon: EyeOff,       material: "Bio-Baumwolle",      groessen: ["116","128","140","152","164","S","M"],       farben: ["Grau","Navy","Schwarz"],      preis: 49.90, beschreibung: "Ohne Logos — unsichtbar im positiven Sinne." },
+      { name: "Unauffällig-Set Basic", badge: "Bestseller", icon: EyeOff,       material: "Bio-Baumwolle",      groessen: ["116","128","140","152","164","S","M"],       farben: ["Grau","Navy","Schwarz"],      preis: 49.90, beschreibung: "Ohne Logos - unsichtbar im positiven Sinne." },
       { name: "Kapuzenpulli Rückzug",                       icon: Umbrella,     material: "Baumwolle French Terry", groessen: ["128","140","152","164","S","M","L"],     farben: ["Dunkelgrau","Schwarz","Navy"], preis: 44.90, beschreibung: "Große Kapuze als Rückzugsraum, weich und warm." },
       { name: "Leggings Allrounder",   badge: "Beliebt",    icon: AlignJustify, material: "Baumwolle-Stretch",  groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Schwarz","Dunkelgrau","Navy"], preis: 24.90, beschreibung: "Bequem, dehnbar, unauffällig." },
-      { name: "Layering-Shirt",                             icon: Layers,       material: "Jersey Bio",         groessen: ["116","128","140","152","164","S","M","L"],   farben: ["Weiß","Grau","Beige"],       preis: 19.90, beschreibung: "Zum Layern — gibt zusätzliche Sicherheit." },
+      { name: "Layering-Shirt",                             icon: Layers,       material: "Jersey Bio",         groessen: ["116","128","140","152","164","S","M","L"],   farben: ["Weiß","Grau","Beige"],       preis: 19.90, beschreibung: "Zum Layern - gibt zusätzliche Sicherheit." },
     ],
   },
   {
     slug: "bindungsstoerungen", titel: "Bindungsstörungen", akzent: "#FEC274", bg: "rgba(254,194,116,0.08)",
     beschreibung: "Erkennbar, persönlich, verbindend.",
     produkte: [
-      { name: "Personalisiertes Shirt", badge: "Neu",       icon: Tag,    material: "Bio-Baumwolle",    groessen: ["104","116","128","140","152","164"],      farben: ["Hellblau","Rosa","Grün","Gelb"], preis: 29.90, beschreibung: "Mit individuellem Namen — Identität und Zugehörigkeit." },
-      { name: "Lieblings-Hoodie",       badge: "Bestseller",icon: Heart,  material: "Fleece",           groessen: ["116","128","140","152","164","S","M","L"], farben: ["Frei wählbar"],                 preis: 54.90, beschreibung: "In der Lieblingsfarbe — stärkt das Selbstgefühl." },
-      { name: "Matching-Set Betreuer",                      icon: Link2,  material: "Bio-Baumwolle",    groessen: ["Kind + Erwachsen"],                      farben: ["Gemeinsam wählbar"],            preis: 39.90, beschreibung: "Set für Kind und Bezugsbetreuer — visueller Beziehungsanker." },
+      { name: "Personalisiertes Shirt", badge: "Neu",       icon: Tag,    material: "Bio-Baumwolle",    groessen: ["104","116","128","140","152","164"],      farben: ["Hellblau","Rosa","Grün","Gelb"], preis: 29.90, beschreibung: "Mit individuellem Namen - Identität und Zugehörigkeit." },
+      { name: "Lieblings-Hoodie",       badge: "Bestseller",icon: Heart,  material: "Fleece",           groessen: ["116","128","140","152","164","S","M","L"], farben: ["Frei wählbar"],                 preis: 54.90, beschreibung: "In der Lieblingsfarbe - stärkt das Selbstgefühl." },
+      { name: "Matching-Set Betreuer",                      icon: Link2,  material: "Bio-Baumwolle",    groessen: ["Kind + Erwachsen"],                      farben: ["Gemeinsam wählbar"],            preis: 39.90, beschreibung: "Set für Kind und Bezugsbetreuer - visueller Beziehungsanker." },
       { name: "Übergangs-Schal",                            icon: Anchor, material: "Merino-Mix weich", groessen: ["Universal"],                             farben: ["Warm, weich"],                  preis: 24.90, beschreibung: "Weicher Schal als Übergangsobjekt." },
     ],
   },
   {
     slug: "erstbekleidung", titel: "Erstbekleidungspakete", akzent: "#22c55e", bg: "rgba(34,197,94,0.07)",
-    beschreibung: "Komplettausstattung für den ersten Tag — würdevoll und vollständig.",
+    beschreibung: "Komplettausstattung für den ersten Tag - würdevoll und vollständig.",
     produkte: [
-      { name: "Erstpaket Klein",      badge: "Bestseller", icon: Package,     material: "Gemischte Materialien", groessen: ["80–104","104–116"],         farben: ["Neutral"],       preis: 119.90, beschreibung: "5 Oberteile, 3 Hosen, Unterwäsche, Socken, Jacke — alles für den Start." },
-      { name: "Erstpaket Mittel",     badge: "Empfohlen",  icon: Box,         material: "Gemischte Materialien", groessen: ["116–128","128–140"],         farben: ["Neutral"],       preis: 139.90, beschreibung: "Vollständige Ausstattung für Schulkinder — altersgerecht und praktisch." },
-      { name: "Erstpaket Groß",                            icon: ShoppingBag, material: "Gemischte Materialien", groessen: ["140–152","152–164","S/M"],   farben: ["Frei wählbar"],  preis: 159.90, beschreibung: "Komplettset für Jugendliche — inkl. Freizeitkleidung und Schuloutfit." },
+      { name: "Erstpaket Klein",      badge: "Bestseller", icon: Package,     material: "Gemischte Materialien", groessen: ["80–104","104–116"],         farben: ["Neutral"],       preis: 119.90, beschreibung: "5 Oberteile, 3 Hosen, Unterwäsche, Socken, Jacke - alles für den Start." },
+      { name: "Erstpaket Mittel",     badge: "Empfohlen",  icon: Box,         material: "Gemischte Materialien", groessen: ["116–128","128–140"],         farben: ["Neutral"],       preis: 139.90, beschreibung: "Vollständige Ausstattung für Schulkinder - altersgerecht und praktisch." },
+      { name: "Erstpaket Groß",                            icon: ShoppingBag, material: "Gemischte Materialien", groessen: ["140–152","152–164","S/M"],   farben: ["Frei wählbar"],  preis: 159.90, beschreibung: "Komplettset für Jugendliche - inkl. Freizeitkleidung und Schuloutfit." },
       { name: "Erstpaket Premium",    badge: "Neu",        icon: Star,        material: "Premium Bio-Baumwolle", groessen: ["Alle Größen wählbar"],       farben: ["Frei wählbar"],  preis: 199.90, beschreibung: "Premium-Ausstattung mit individueller Beratung und Größenanpassung." },
     ],
   },
@@ -113,7 +113,7 @@ const kategorien: {
       { name: "Winterpaket Kleinkind",  badge: "Bestseller", icon: Snowflake,   material: "Fleece + Außenmaterial", groessen: ["80–104","104–116"],       farben: ["Navy","Dunkelgrau","Schwarz"], preis: 149.90, beschreibung: "Winterjacke, Thermohose, Mütze, Handschuhe, Schal, Thermosocken." },
       { name: "Winterpaket Kind",       badge: "Empfohlen",  icon: Thermometer, material: "Softshell + Fleece",     groessen: ["116–128","128–140"],       farben: ["Navy","Dunkelgrau","Anthrazit"], preis: 169.90, beschreibung: "Komplettes Winteroutfit inkl. wasserabweisender Jacke und Thermobase." },
       { name: "Winterpaket Jugend",                          icon: Wind,        material: "Funktionsmaterial",      groessen: ["140–152","152–164","S/M"], farben: ["Schwarz","Navy","Dunkelgrau"],  preis: 189.90, beschreibung: "Jugend-Winterset mit wärmender Funktionsjacke und Outdoorhose." },
-      { name: "Winterjacke Einzeln",    badge: "Neu",        icon: Shield,      material: "Softshell wasserdicht",  groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Navy","Schwarz","Anthrazit"], preis: 79.90, beschreibung: "Hochwertige Winterjacke — wasserdicht, winddicht, warm." },
+      { name: "Winterjacke Einzeln",    badge: "Neu",        icon: Shield,      material: "Softshell wasserdicht",  groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Navy","Schwarz","Anthrazit"], preis: 79.90, beschreibung: "Hochwertige Winterjacke - wasserdicht, winddicht, warm." },
     ],
   },
   {
@@ -121,9 +121,9 @@ const kategorien: {
     beschreibung: "Leicht, atmungsaktiv und feriengerecht für warme Monate.",
     produkte: [
       { name: "Sommerpaket Kleinkind",  badge: "Bestseller", icon: Sun,       material: "100% Bio-Baumwolle leicht", groessen: ["80–104","104–116"],       farben: ["Hellblau","Hellgrau","Weiß"],  preis: 99.90,  beschreibung: "3 T-Shirts, 2 Shorts, Sonnenhut, Badesachen, leichte Sandalen." },
-      { name: "Sommerpaket Kind",       badge: "Beliebt",    icon: CloudSun,  material: "Leichtgewebe atmungsaktiv", groessen: ["116–128","128–140"],       farben: ["Hellblau","Weiß","Grün"],      preis: 119.90, beschreibung: "Sommeroutfit für den Schulalltag und Freizeit — UV-schützende Qualität." },
+      { name: "Sommerpaket Kind",       badge: "Beliebt",    icon: CloudSun,  material: "Leichtgewebe atmungsaktiv", groessen: ["116–128","128–140"],       farben: ["Hellblau","Weiß","Grün"],      preis: 119.90, beschreibung: "Sommeroutfit für den Schulalltag und Freizeit - UV-schützende Qualität." },
       { name: "Sommerpaket Jugend",                          icon: Feather,   material: "Jersey + Leinen-Mix",       groessen: ["140–152","152–164","S/M"], farben: ["Frei wählbar"],                preis: 139.90, beschreibung: "Komplettes Sommerpaket für Jugendliche inkl. Schwimmbekleidung." },
-      { name: "Sonnenschutz-Set",       badge: "Neu",        icon: Umbrella,  material: "UV 50+ Funktionsmaterial",  groessen: ["Universal"],               farben: ["Hellblau","Weiß"],             preis: 39.90,  beschreibung: "Sonnenhut, Schutzkragen und UV-Shirt — Ergänzung zu jedem Sommerpaket." },
+      { name: "Sonnenschutz-Set",       badge: "Neu",        icon: Umbrella,  material: "UV 50+ Funktionsmaterial",  groessen: ["Universal"],               farben: ["Hellblau","Weiß"],             preis: 39.90,  beschreibung: "Sonnenhut, Schutzkragen und UV-Shirt - Ergänzung zu jedem Sommerpaket." },
     ],
   },
 ];
@@ -255,7 +255,7 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
         <div style={{ display: "flex", gap: "0.35rem", marginBottom: "0.625rem", flexWrap: "wrap" }}>
           {produkt.farben.map(f => {
             const hex = farbenMap[f] ?? "#9ca3af";
-            const isLight = ["Weiß","Hellgrau","Neutral","—"].includes(f);
+            const isLight = ["Weiß","Hellgrau","Neutral","-"].includes(f);
             return (
               <button key={f} onClick={() => setSel("farbe", f)} title={f} style={{
                 width: "16px", height: "16px", borderRadius: "50%", background: hex,
@@ -606,7 +606,7 @@ export default function AnkerkleidungPage() {
     setSubmitting(true);
     const zahlungLabel = zahlungsarten.find(z => z.id === zahlung)?.label ?? zahlung;
     const items = cart.map(i => `• ${i.produkt} | ${i.groesse} | ${i.farbe} | ${i.menge}× | ${(i.preis * i.menge).toFixed(2)} €`).join("\n");
-    const text = `🛍 <b>Neue Bestellung — Ankerkleidung</b>\n\n<b>Name:</b> ${form.name}\n<b>Einrichtung:</b> ${form.einrichtung || "—"}\n<b>E-Mail:</b> ${form.email}\n<b>Telefon:</b> ${form.telefon || "—"}\n<b>Zahlungsart:</b> ${zahlungLabel}\n\n<b>Artikel:</b>\n${items}\n\n<b>Gesamt:</b> ${cartTotal.toFixed(2)} €${form.notizen ? `\n\n<b>Notizen:</b> ${form.notizen}` : ""}`;
+    const text = `🛍 <b>Neue Bestellung - Ankerkleidung</b>\n\n<b>Name:</b> ${form.name}\n<b>Einrichtung:</b> ${form.einrichtung || "-"}\n<b>E-Mail:</b> ${form.email}\n<b>Telefon:</b> ${form.telefon || "-"}\n<b>Zahlungsart:</b> ${zahlungLabel}\n\n<b>Artikel:</b>\n${items}\n\n<b>Gesamt:</b> ${cartTotal.toFixed(2)} €${form.notizen ? `\n\n<b>Notizen:</b> ${form.notizen}` : ""}`;
     try { await fetch("/api/order", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }) }); } catch { /**/ }
     setSubmitted(true); setSubmitting(false);
   }
@@ -626,7 +626,7 @@ export default function AnkerkleidungPage() {
         <div className="site-container">
           <p style={{ fontSize: "9px", color: "#6FA3FE", letterSpacing: "0.18em",
             textTransform: "uppercase", fontWeight: 700, marginBottom: "0.5rem" }}>
-            Ankernetz — Spezialisierte Kleidung
+            Ankernetz - Spezialisierte Kleidung
           </p>
           <h1 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#1a3f6f",
             letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: "0.5rem" }}>
@@ -634,7 +634,7 @@ export default function AnkerkleidungPage() {
             <span style={{ color: "#6FA3FE" }}>die versteht.</span>
           </h1>
           <p style={{ fontSize: "0.875rem", color: "rgba(26,63,111,0.55)", maxWidth: "52ch" }}>
-            Entwickelt mit Fachkräften der Kinder- und Jugendhilfe — für Kinder mit besonderen Bedürfnissen.
+            Entwickelt mit Fachkräften der Kinder- und Jugendhilfe - für Kinder mit besonderen Bedürfnissen.
           </p>
         </div>
       </div>
@@ -760,7 +760,7 @@ export default function AnkerkleidungPage() {
                   Nicht sicher, was passt?
                 </p>
                 <p style={{ fontSize: "0.8rem", color: "rgba(26,63,111,0.55)" }}>
-                  8 kurze Fragen — wir zeigen dir, welche Produkte dir im Alltag helfen können.
+                  8 kurze Fragen - wir zeigen dir, welche Produkte dir im Alltag helfen können.
                 </p>
               </div>
               <button

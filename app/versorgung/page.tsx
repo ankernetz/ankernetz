@@ -13,7 +13,7 @@ import {
 /* ─── Daten ──────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "individuell", label: "Jeder Bedarf wird persönlich ermittelt — keine Schablone", icon: Target },
+  { wert: "individuell", label: "Jeder Bedarf wird persönlich ermittelt - keine Schablone", icon: Target },
   { wert: "würdevoll", label: "Kleidung und Ausstattung, die Selbstwert stärken", icon: Heart },
   { wert: "schnell", label: "Bereitstellung bei akutem Bedarf innerhalb von 48h", icon: Zap },
   { wert: "vernetzt", label: "Eingebettet in den gesamten Hilfeprozess", icon: Layers },
@@ -23,21 +23,21 @@ const versorgungsBereiche = [
   {
     icon: Shirt,
     titel: "Kleidungsversorgung",
-    text: "Bedarfsorientierte, altersgerechte Kleidung — angepasst an Jahreszeit, Größe und die besonderen Anforderungen des Kindes. Kein Einheitslook, sondern Kleidung, die das Kind als Person stärkt.",
+    text: "Bedarfsorientierte, altersgerechte Kleidung - angepasst an Jahreszeit, Größe und die besonderen Anforderungen des Kindes. Kein Einheitslook, sondern Kleidung, die das Kind als Person stärkt.",
     details: ["Altersgerechte Auswahl", "Saisonale Vollausstattung", "Schulkleidung & Sportkleidung", "Sensibel für taktile Besonderheiten"],
     akzent: "#1a3f6f",
   },
   {
     icon: Backpack,
     titel: "Schul- & Lernausstattung",
-    text: "Schulranzen, Schreibwaren, Hefte, Bücher — alles, was ein Kind für einen erfolgreichen Schulstart braucht. Für Kinder in stationären Hilfen, die oft ohne eigene Schulsachen ankommen.",
+    text: "Schulranzen, Schreibwaren, Hefte, Bücher - alles, was ein Kind für einen erfolgreichen Schulstart braucht. Für Kinder in stationären Hilfen, die oft ohne eigene Schulsachen ankommen.",
     details: ["Vollständige Schulausstattung", "Schulfächer-spezifisches Material", "Ergonomische Schulranzen", "Nachhilfemittel bei Bedarf"],
     akzent: "#059669",
   },
   {
     icon: Star,
     titel: "Freizeitausstattung",
-    text: "Spielzeug, Sportausrüstung, Hobbymaterial — Kinder brauchen mehr als das Nötigste. Freizeit, Spiel und eigene Interessen sind Teil einer gesunden Entwicklung und dürfen nicht im Hilfesystem verloren gehen.",
+    text: "Spielzeug, Sportausrüstung, Hobbymaterial - Kinder brauchen mehr als das Nötigste. Freizeit, Spiel und eigene Interessen sind Teil einer gesunden Entwicklung und dürfen nicht im Hilfesystem verloren gehen.",
     details: ["Altersgerechtes Spielzeug", "Sportausrüstung für Vereinsmitgliedschaft", "Kreativmaterial & Bücher", "Persönliche Interessensförderung"],
     akzent: "#d97706",
   },
@@ -51,7 +51,7 @@ const versorgungsBereiche = [
   {
     icon: Home,
     titel: "Zimmerausstattung",
-    text: "Eigene vier Wände brauchen mehr als ein Bett. Bei Neuaufnahmen unterstützen wir bei der würdevollen Einrichtung des Kinderzimmers — persönlich, einladend, ankerstiftend.",
+    text: "Eigene vier Wände brauchen mehr als ein Bett. Bei Neuaufnahmen unterstützen wir bei der würdevollen Einrichtung des Kinderzimmers - persönlich, einladend, ankerstiftend.",
     details: ["Grundausstattung bei Neuaufnahme", "Persönliche Dekorationsgegenstände", "Bücher & Medienzugang", "Erinnerungsboxen & persönliche Gegenstände"],
     akzent: "#be185d",
   },
@@ -65,22 +65,22 @@ const versorgungsBereiche = [
 ];
 
 const leistungen = [
-  { icon: Target, titel: "Persönliche Bedarfsermittlung", text: "Kein standardisierter Warenkorb. Wir ermitteln gemeinsam mit dem Kind und dem Betreuungsteam, was tatsächlich gebraucht wird — nach Störungsbild, Alter, Interessen und Lebenssituation." },
-  { icon: Shirt, titel: "Vollständige Kleidungsausstattung", text: "Von Unterwäsche bis Winterjacke — alles, was ein Kind braucht, um sich wohl und würdevoll zu fühlen. Inklusive Anpassung bei Wachstumsschüben." },
-  { icon: Backpack, titel: "Schul- und Lernmittel", text: "Schulranzen, Hefte, Stifte, Bücher — vollständige Ausstattung für den Schulalltag. Bei Schulwechsel oder Neuaufnahme sofort verfügbar." },
-  { icon: Star, titel: "Freizeit und Hobby", text: "Sportverein, Musikschule, Kreativkurse — Kinder in stationären Hilfen haben dasselbe Recht auf Freizeitgestaltung wie andere. Wir stellen die Ausstattung sicher." },
-  { icon: Shield, titel: "Spezialmaterialien bei besonderen Bedarfen", text: "Trauma, sensorische Verarbeitungsstörungen, ADHS, Bindungsstörungen — wir kennen die klinischen Anforderungen und wählen entsprechend aus." },
+  { icon: Target, titel: "Persönliche Bedarfsermittlung", text: "Kein standardisierter Warenkorb. Wir ermitteln gemeinsam mit dem Kind und dem Betreuungsteam, was tatsächlich gebraucht wird - nach Störungsbild, Alter, Interessen und Lebenssituation." },
+  { icon: Shirt, titel: "Vollständige Kleidungsausstattung", text: "Von Unterwäsche bis Winterjacke - alles, was ein Kind braucht, um sich wohl und würdevoll zu fühlen. Inklusive Anpassung bei Wachstumsschüben." },
+  { icon: Backpack, titel: "Schul- und Lernmittel", text: "Schulranzen, Hefte, Stifte, Bücher - vollständige Ausstattung für den Schulalltag. Bei Schulwechsel oder Neuaufnahme sofort verfügbar." },
+  { icon: Star, titel: "Freizeit und Hobby", text: "Sportverein, Musikschule, Kreativkurse - Kinder in stationären Hilfen haben dasselbe Recht auf Freizeitgestaltung wie andere. Wir stellen die Ausstattung sicher." },
+  { icon: Shield, titel: "Spezialmaterialien bei besonderen Bedarfen", text: "Trauma, sensorische Verarbeitungsstörungen, ADHS, Bindungsstörungen - wir kennen die klinischen Anforderungen und wählen entsprechend aus." },
   { icon: Home, titel: "Zimmergestaltung bei Neuaufnahme", text: "Ein eigenes Zimmer ist mehr als ein Schlafplatz. Bei Neuaufnahmen begleiten wir die Gestaltung eines persönlichen, einladenden Rückzugsraums." },
-  { icon: FileText, titel: "Dokumentation für Kostenträger", text: "Vollständige Dokumentation aller Versorgungsleistungen — transparent, nachvollziehbar, jugendhilfe-konform. Für Jugendamt, Kostenträger und interne Qualitätssicherung." },
-  { icon: Truck, titel: "Schnelle Bereitstellung", text: "Bei akutem Bedarf — z.B. bei Notaufnahme ohne Gepäck — stellen wir eine Erstausstattung innerhalb von 48 Stunden bereit." },
-  { icon: Layers, titel: "Regelmäßige Anpassung", text: "Bedarfe verändern sich. Wir überprüfen regelmäßig, passen an und dokumentieren — damit kein Kind dauerhaft mit zu kleiner Kleidung oder veralteter Ausstattung zurechtkommen muss." },
+  { icon: FileText, titel: "Dokumentation für Kostenträger", text: "Vollständige Dokumentation aller Versorgungsleistungen - transparent, nachvollziehbar, jugendhilfe-konform. Für Jugendamt, Kostenträger und interne Qualitätssicherung." },
+  { icon: Truck, titel: "Schnelle Bereitstellung", text: "Bei akutem Bedarf - z.B. bei Notaufnahme ohne Gepäck - stellen wir eine Erstausstattung innerhalb von 48 Stunden bereit." },
+  { icon: Layers, titel: "Regelmäßige Anpassung", text: "Bedarfe verändern sich. Wir überprüfen regelmäßig, passen an und dokumentieren - damit kein Kind dauerhaft mit zu kleiner Kleidung oder veralteter Ausstattung zurechtkommen muss." },
 ];
 
 const warum = [
   {
     icon: Heart,
     titel: "Würde ist kein Luxus",
-    text: "Kinder, die mit geflickter, fremder oder zu kleiner Kleidung zur Schule gehen, erfahren täglich, dass sie weniger wert sind. Gute Ausstattung ist ein Akt der Würde — nicht eine Nebensache.",
+    text: "Kinder, die mit geflickter, fremder oder zu kleiner Kleidung zur Schule gehen, erfahren täglich, dass sie weniger wert sind. Gute Ausstattung ist ein Akt der Würde - nicht eine Nebensache.",
   },
   {
     icon: Brain,
@@ -90,7 +90,7 @@ const warum = [
   {
     icon: Users,
     titel: "Soziale Teilhabe sichern",
-    text: "Wer keine Sportausrüstung hat, geht nicht in den Verein. Wer kein Fahrrad hat, fährt nicht mit Freunden. Ausstattung ist die Voraussetzung für Teilhabe — und Teilhabe ist die Voraussetzung für Entwicklung.",
+    text: "Wer keine Sportausrüstung hat, geht nicht in den Verein. Wer kein Fahrrad hat, fährt nicht mit Freunden. Ausstattung ist die Voraussetzung für Teilhabe - und Teilhabe ist die Voraussetzung für Entwicklung.",
   },
   {
     icon: Shield,
@@ -100,12 +100,12 @@ const warum = [
 ];
 
 const besonderheiten = [
-  { icon: Target, titel: "Individuell statt Standard", text: "Wir lehnen Einheitsversorgung ab. Jedes Kind hat einen eigenen Bedarf — an Kleidungsgröße, Materialverträglichkeit, Interessen und Entwicklungsstand." },
-  { icon: Heart, titel: "Würde im Mittelpunkt", text: "Kleidung und Ausstattung sollen Selbstwert stärken — nicht beschämen. Wir wählen bewusst aus und erklären dem Kind, was es bekommt und warum." },
+  { icon: Target, titel: "Individuell statt Standard", text: "Wir lehnen Einheitsversorgung ab. Jedes Kind hat einen eigenen Bedarf - an Kleidungsgröße, Materialverträglichkeit, Interessen und Entwicklungsstand." },
+  { icon: Heart, titel: "Würde im Mittelpunkt", text: "Kleidung und Ausstattung sollen Selbstwert stärken - nicht beschämen. Wir wählen bewusst aus und erklären dem Kind, was es bekommt und warum." },
   { icon: Brain, titel: "Klinisch informiert", text: "Unser Team kennt die Hintergründe von Trauma, Vernachlässigung, ADHS und Bindungsstörungen. Das fließt in die Auswahl von Materialien und Ausstattung ein." },
   { icon: Layers, titel: "In den Hilfeprozess integriert", text: "Versorgung ist kein isoliertes Angebot. Wir arbeiten eng mit dem Betreuungsteam zusammen und stimmen alles auf den laufenden Hilfeprozess ab." },
-  { icon: Zap, titel: "Schnell bei akutem Bedarf", text: "Notaufnahmen, unvorhergesehene Situationen, Wachstumsschübe — wir reagieren schnell. Erstausstattung innerhalb von 48 Stunden ist für uns Standard." },
-  { icon: FileText, titel: "Transparent dokumentiert", text: "Alle Versorgungsleistungen werden sorgfältig dokumentiert — für Jugendamt, Kostenträger und interne Qualitätssicherung." },
+  { icon: Zap, titel: "Schnell bei akutem Bedarf", text: "Notaufnahmen, unvorhergesehene Situationen, Wachstumsschübe - wir reagieren schnell. Erstausstattung innerhalb von 48 Stunden ist für uns Standard." },
+  { icon: FileText, titel: "Transparent dokumentiert", text: "Alle Versorgungsleistungen werden sorgfältig dokumentiert - für Jugendamt, Kostenträger und interne Qualitätssicherung." },
 ];
 
 const prozessSchritte = [
@@ -118,19 +118,19 @@ const prozessSchritte = [
   {
     nr: "02",
     titel: "Planung & Auswahl",
-    text: "Auf Basis der Bedarfsermittlung wird eine passgenaue Auswahl getroffen — klinisch informiert, altersgerecht, würdevoll.",
+    text: "Auf Basis der Bedarfsermittlung wird eine passgenaue Auswahl getroffen - klinisch informiert, altersgerecht, würdevoll.",
     icon: ClipboardList,
   },
   {
     nr: "03",
     titel: "Bereitstellung",
-    text: "Schnelle Bereitstellung — direkte Lieferung oder Abholung. Bei Erstausstattung innerhalb von 48 Stunden.",
+    text: "Schnelle Bereitstellung - direkte Lieferung oder Abholung. Bei Erstausstattung innerhalb von 48 Stunden.",
     icon: Truck,
   },
   {
     nr: "04",
     titel: "Übergabe & Einführung",
-    text: "Die Ausstattung wird dem Kind würdevoll übergeben — nicht als Almosen, sondern als selbstverständlicher Teil seiner Versorgung.",
+    text: "Die Ausstattung wird dem Kind würdevoll übergeben - nicht als Almosen, sondern als selbstverständlicher Teil seiner Versorgung.",
     icon: Heart,
   },
   {
@@ -142,10 +142,10 @@ const prozessSchritte = [
 ];
 
 const fachkraefteInfos = [
-  { icon: FileText, titel: "Kostenträger-Dokumentation", text: "Vollständige, jugendhilfe-konforme Dokumentation aller Versorgungsleistungen — direkt verwendbar für Berichte und Abrechnungen." },
+  { icon: FileText, titel: "Kostenträger-Dokumentation", text: "Vollständige, jugendhilfe-konforme Dokumentation aller Versorgungsleistungen - direkt verwendbar für Berichte und Abrechnungen." },
   { icon: Zap, titel: "Notaufnahme-Erstausstattung", text: "Bei Notaufnahmen ohne Gepäck stellen wir eine vollständige Erstausstattung innerhalb von 48 Stunden bereit." },
-  { icon: Target, titel: "Bedarfsorientierte Beratung", text: "Fachliche Beratung des Betreuungsteams zu Ausstattungsfragen — insbesondere bei Kindern mit speziellen Störungsbildern." },
-  { icon: Layers, titel: "Systemintegration", text: "Enge Abstimmung mit Hilfeplan, Betreuungskonzept und therapeutischen Zielen — Versorgung als Teil des Gesamtkonzepts." },
+  { icon: Target, titel: "Bedarfsorientierte Beratung", text: "Fachliche Beratung des Betreuungsteams zu Ausstattungsfragen - insbesondere bei Kindern mit speziellen Störungsbildern." },
+  { icon: Layers, titel: "Systemintegration", text: "Enge Abstimmung mit Hilfeplan, Betreuungskonzept und therapeutischen Zielen - Versorgung als Teil des Gesamtkonzepts." },
   { icon: Calendar, titel: "Regelmäßige Bedarfsprüfung", text: "Geplante Überprüfungsintervalle sichern, dass die Ausstattung aktuell und bedarfsgerecht bleibt." },
   { icon: Handshake, titel: "Kooperation mit Jugendamt", text: "Direkte Koordination mit dem zuständigen Jugendamt zu Kostenübernahme und Bedarfsfeststellung." },
 ];
@@ -165,23 +165,23 @@ const faqItems = [
   },
   {
     frage: "Wie wird der Bedarf ermittelt?",
-    antwort: "Wir führen gemeinsam mit dem Betreuungsteam eine strukturierte Bedarfsermittlung durch. Wenn möglich, beziehen wir das Kind selbst ein — altersgerecht und unter Berücksichtigung seiner Vorlieben und Bedürfnisse. Das Störungsbild und der Entwicklungsstand fließen in die Auswahl ein.",
+    antwort: "Wir führen gemeinsam mit dem Betreuungsteam eine strukturierte Bedarfsermittlung durch. Wenn möglich, beziehen wir das Kind selbst ein - altersgerecht und unter Berücksichtigung seiner Vorlieben und Bedürfnisse. Das Störungsbild und der Entwicklungsstand fließen in die Auswahl ein.",
   },
   {
     frage: "Was ist mit speziellen Materialien bei Trauma oder ADHS?",
-    antwort: "Ja, wir berücksichtigen klinische Besonderheiten aktiv. Gewichtsdecken, sensorisch verträgliche Kleidungsmaterialien, strukturgebende Spielmaterialien — unser Team ist mit den klinischen Anforderungen vertraut und wählt entsprechend aus.",
+    antwort: "Ja, wir berücksichtigen klinische Besonderheiten aktiv. Gewichtsdecken, sensorisch verträgliche Kleidungsmaterialien, strukturgebende Spielmaterialien - unser Team ist mit den klinischen Anforderungen vertraut und wählt entsprechend aus.",
   },
   {
     frage: "Wird die Ausstattung regelmäßig überprüft?",
-    antwort: "Ja. Kinder wachsen, Bedarfe verändern sich, neue Interessen entstehen. Wir überprüfen in regelmäßigen Abständen und passen an — damit kein Kind dauerhaft mit veralteter oder zu kleiner Ausstattung zurechtkommen muss.",
+    antwort: "Ja. Kinder wachsen, Bedarfe verändern sich, neue Interessen entstehen. Wir überprüfen in regelmäßigen Abständen und passen an - damit kein Kind dauerhaft mit veralteter oder zu kleiner Ausstattung zurechtkommen muss.",
   },
   {
     frage: "Kann ein Kind bei der Auswahl mitreden?",
-    antwort: "Soweit möglich und sinnvoll: ja. Kinder sollten das Gefühl haben, dass ihre Ausstattung ihnen gehört und zu ihnen passt — nicht eine fremdbestimmte Zuweisung ist. Eigene Entscheidungen zu treffen stärkt Selbstwert und Eigenverantwortung.",
+    antwort: "Soweit möglich und sinnvoll: ja. Kinder sollten das Gefühl haben, dass ihre Ausstattung ihnen gehört und zu ihnen passt - nicht eine fremdbestimmte Zuweisung ist. Eigene Entscheidungen zu treffen stärkt Selbstwert und Eigenverantwortung.",
   },
   {
     frage: "Wie wird die Versorgung dokumentiert?",
-    antwort: "Alle Versorgungsleistungen werden vollständig und nachvollziehbar dokumentiert — mit Datum, Inhalt, Begründung und Kostenzuordnung. Diese Dokumentation ist direkt für Berichte an das Jugendamt und für die Abrechnung mit Kostenträgern verwendbar.",
+    antwort: "Alle Versorgungsleistungen werden vollständig und nachvollziehbar dokumentiert - mit Datum, Inhalt, Begründung und Kostenzuordnung. Diese Dokumentation ist direkt für Berichte an das Jugendamt und für die Abrechnung mit Kostenträgern verwendbar.",
   },
 ];
 
@@ -225,7 +225,7 @@ export default function VersorgungPage() {
             Mehr als das Nötigste. Würde im Alltag.
           </p>
           <p style={{ fontSize: "1.05rem", color: "rgba(216,228,240,0.85)", maxWidth: "680px", lineHeight: 1.8, marginBottom: "48px" }}>
-            Kinder und Jugendliche mit besonderen Bedarfen brauchen mehr als Standardversorgung. Ankernetz stellt sicher, dass jedes Kind die Ausstattung bekommt, die es braucht — angepasst an sein Störungsbild, seinen Alltag und seine Würde.
+            Kinder und Jugendliche mit besonderen Bedarfen brauchen mehr als Standardversorgung. Ankernetz stellt sicher, dass jedes Kind die Ausstattung bekommt, die es braucht - angepasst an sein Störungsbild, seinen Alltag und seine Würde.
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px", maxWidth: "780px" }}>
@@ -269,7 +269,7 @@ export default function VersorgungPage() {
       <section style={{ background: "#1a3f6f", color: "#fff", padding: "16px 24px", textAlign: "center" }}>
         <div className="site-container">
           <p style={{ margin: 0, fontSize: "0.95rem", fontWeight: 600, letterSpacing: "0.02em" }}>
-            Kein Kind in unserer Einrichtung geht ohne das aus, was es braucht. Versorgung ist ein Grundrecht — kein Bonus.
+            Kein Kind in unserer Einrichtung geht ohne das aus, was es braucht. Versorgung ist ein Grundrecht - kein Bonus.
           </p>
         </div>
       </section>
@@ -284,10 +284,10 @@ export default function VersorgungPage() {
                 Warum Versorgung mehr ist als Logistik
               </h2>
               <p style={{ color: "#4a5568", lineHeight: 1.8, marginBottom: "16px" }}>
-                Viele Kinder, die in stationäre Hilfen aufgenommen werden, kommen mit dem sprichwörtlichen Müllsack — zu klein, zerrissen, fremd. Das ist keine Ausnahme, das ist die Regel. Und es hinterlässt Spuren.
+                Viele Kinder, die in stationäre Hilfen aufgenommen werden, kommen mit dem sprichwörtlichen Müllsack - zu klein, zerrissen, fremd. Das ist keine Ausnahme, das ist die Regel. Und es hinterlässt Spuren.
               </p>
               <p style={{ color: "#4a5568", lineHeight: 1.8, marginBottom: "16px" }}>
-                Gute Kleidung, eigene Schulsachen, ein persönliches Zimmer — das sind keine Nebensächlichkeiten. Sie sind Träger von Botschaften: Du bist es wert. Du gehörst dazu. Du hast einen Platz.
+                Gute Kleidung, eigene Schulsachen, ein persönliches Zimmer - das sind keine Nebensächlichkeiten. Sie sind Träger von Botschaften: Du bist es wert. Du gehörst dazu. Du hast einen Platz.
               </p>
               <p style={{ color: "#4a5568", lineHeight: 1.8 }}>
                 Ankernetz behandelt Versorgung deshalb als professionellen Auftrag: strukturiert, klinisch informiert, würdevoll und eng eingebettet in den gesamten Hilfeprozess.
@@ -320,7 +320,7 @@ export default function VersorgungPage() {
             <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Versorgungsbereiche</div>
             <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>Was Ankernetz Versorgung abdeckt</h2>
             <p style={{ color: "#6b7280", marginTop: "12px", maxWidth: "560px", margin: "12px auto 0", lineHeight: 1.7 }}>
-              Von der Kleidung bis zum Zimmer — vollständig, individuell, würdevoll.
+              Von der Kleidung bis zum Zimmer - vollständig, individuell, würdevoll.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px" }}>
@@ -458,7 +458,7 @@ export default function VersorgungPage() {
                 Verlässlicher Versorgungspartner für Ihr Betreuungsteam
               </h2>
               <p style={{ color: "#4a5568", lineHeight: 1.8, marginBottom: "24px" }}>
-                Versorgungsfragen belasten Betreuungsteams oft mehr als nötig. Wir nehmen diese Aufgabe strukturiert ab — dokumentierbar, verlässlich und mit dem Wissen, das für besondere Bedarfe nötig ist.
+                Versorgungsfragen belasten Betreuungsteams oft mehr als nötig. Wir nehmen diese Aufgabe strukturiert ab - dokumentierbar, verlässlich und mit dem Wissen, das für besondere Bedarfe nötig ist.
               </p>
               <Link href="/platzanfrage" style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
@@ -495,7 +495,7 @@ export default function VersorgungPage() {
         <div className="site-container">
           <div style={{ textAlign: "center", marginBottom: "56px" }}>
             <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Häufige Fragen</div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>FAQ — Versorgung</h2>
+            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800 }}>FAQ - Versorgung</h2>
           </div>
           <div style={{ maxWidth: "820px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "12px" }}>
             {faqItems.map((f, i) => (
@@ -531,7 +531,7 @@ export default function VersorgungPage() {
             Versorgungsbedarf melden
           </h2>
           <p style={{ fontSize: "1.1rem", color: "rgba(216,228,240,0.85)", maxWidth: "580px", margin: "0 auto 40px", lineHeight: 1.7 }}>
-            Ob Erstausstattung, akuter Bedarf oder regelmäßige Begleitung — sprechen Sie uns an. Kein Kind soll ohne das sein, was es braucht.
+            Ob Erstausstattung, akuter Bedarf oder regelmäßige Begleitung - sprechen Sie uns an. Kein Kind soll ohne das sein, was es braucht.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/platzanfrage" style={{

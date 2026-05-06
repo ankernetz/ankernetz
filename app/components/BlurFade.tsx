@@ -1,7 +1,7 @@
 "use client";
 
-// Adapted from MagicUI BlurFade — uses framer-motion
-// github.com/magicuidesign/magicui — components/blur-fade.tsx
+// Adapted from MagicUI BlurFade - uses framer-motion
+// github.com/magicuidesign/magicui - components/blur-fade.tsx
 
 import { motion, useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";

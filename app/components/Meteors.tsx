@@ -1,7 +1,7 @@
 "use client";
 
 // Adapted from MagicUI Meteors
-// github.com/magicuidesign/magicui — components/meteors.tsx
+// github.com/magicuidesign/magicui - components/meteors.tsx
 
 import { useEffect, useState } from "react";
 

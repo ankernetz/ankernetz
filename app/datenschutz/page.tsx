@@ -33,7 +33,7 @@ export default function DatenschutzPage() {
           <div>
             <p style={{ fontWeight: 700, color: "#1a3f6f", marginBottom: "6px" }}>Wie erfassen wir Ihre Daten?</p>
             <p>
-              Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen —
+              Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen -
               z.B. durch das Ausfüllen eines Kontakt- oder Platzanfrageformulars. Andere
               Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme
               erfasst (technische Daten wie Browsertyp, Betriebssystem, IP-Adresse).
@@ -196,15 +196,15 @@ export default function DatenschutzPage() {
             {
               name: "Analyse",
               basis: "Art. 6 Abs. 1 lit. a DSGVO",
-              dauer: "—",
-              desc: "Analyse des Nutzerverhaltens zur Verbesserung der Website. Derzeit nicht aktiv — es werden keine Analyse-Tools eingesetzt.",
+              dauer: "-",
+              desc: "Analyse des Nutzerverhaltens zur Verbesserung der Website. Derzeit nicht aktiv - es werden keine Analyse-Tools eingesetzt.",
               required: false,
             },
             {
               name: "Marketing",
               basis: "Art. 6 Abs. 1 lit. a DSGVO",
-              dauer: "—",
-              desc: "Cookies für zielgerichtete Werbemaßnahmen. Derzeit nicht aktiv — es werden keine Marketing-Cookies eingesetzt.",
+              dauer: "-",
+              desc: "Cookies für zielgerichtete Werbemaßnahmen. Derzeit nicht aktiv - es werden keine Marketing-Cookies eingesetzt.",
               required: false,
             },
           ].map(cat => (

@@ -27,7 +27,7 @@ export default function KontaktPage() {
     e.preventDefault();
     if (!form.vorname || !form.email || !form.nachricht || !dsgvo) return;
     setSubmitting(true);
-    const text = `📬 <b>Neue Kontaktanfrage — Ankernetz</b>\n\n<b>Name:</b> ${form.vorname} ${form.nachname}\n<b>Organisation:</b> ${form.organisation || "—"}\n<b>E-Mail:</b> ${form.email}\n<b>Telefon:</b> ${form.telefon || "—"}\n<b>Anliegen:</b> ${form.anliegen || "—"}\n\n<b>Nachricht:</b>\n${form.nachricht}`;
+    const text = `📬 <b>Neue Kontaktanfrage - Ankernetz</b>\n\n<b>Name:</b> ${form.vorname} ${form.nachname}\n<b>Organisation:</b> ${form.organisation || "-"}\n<b>E-Mail:</b> ${form.email}\n<b>Telefon:</b> ${form.telefon || "-"}\n<b>Anliegen:</b> ${form.anliegen || "-"}\n\n<b>Nachricht:</b>\n${form.nachricht}`;
     try {
       await fetch("/api/order", {
         method: "POST",
@@ -59,7 +59,7 @@ export default function KontaktPage() {
         <div className="site-container" style={{ position: "relative", zIndex: 2, paddingBottom: "0", paddingTop: "10rem" }}>
           <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.22em",
             textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.5rem" }}>
-            Ankernetz — Kontakt
+            Ankernetz - Kontakt
           </p>
           <h1 style={{ fontSize: "clamp(2.5rem, 4.5vw, 4rem)", fontWeight: 800, color: "#ffffff",
             lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: "1rem", maxWidth: "22ch" }}>
@@ -68,7 +68,7 @@ export default function KontaktPage() {
           </h1>
           <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.85,
             maxWidth: "46ch", marginBottom: "0" }}>
-            Ob Platzanfrage, Krisenintervention, Beratung oder allgemeine Frage —
+            Ob Platzanfrage, Krisenintervention, Beratung oder allgemeine Frage -
             wir melden uns schnell und persönlich.
           </p>
         </div>
@@ -158,7 +158,7 @@ export default function KontaktPage() {
                 ] },
               { titel: "Kinder & Jugendliche", akzent: "#a78bfa",
                 punkte: [
-                  "Wir hören zu — ohne Druck",
+                  "Wir hören zu - ohne Druck",
                   "Unser Chat mit Lena ist täglich erreichbar",
                   "Krisenhilfe sofort: +49 30 22 45 43 22",
                   "Beratung auch anonym möglich",
@@ -325,7 +325,7 @@ export default function KontaktPage() {
                     style={{ ...inputStyle, appearance: "none", cursor: "pointer" }}>
                     <option value="">Bitte wählen…</option>
                     <option>Platzanfrage (Krisenwohngruppe / Jugendhilfe)</option>
-                    <option>Krisenintervention — dringend</option>
+                    <option>Krisenintervention - dringend</option>
                     <option>Psychotherapie-Anfrage</option>
                     <option>Diagnostik & Clearing</option>
                     <option>Frühe Hilfen (0–6 Jahre)</option>
@@ -415,9 +415,9 @@ export default function KontaktPage() {
               { frage: "Wer kann eine Platzanfrage stellen?",
                 antwort: "Platzanfragen können von Jugendämtern, Fachkräften der Sozialen Arbeit und direkt von Familien gestellt werden. Bei minderjährigen Kindern wird die Kostenübernahme mit dem zuständigen Jugendamt geklärt." },
               { frage: "Welche Altersgruppen nehmen Sie auf?",
-                antwort: "Unsere Angebote decken die gesamte Spanne von 0 bis 25 Jahren ab — von Frühe Hilfen für Kleinkinder bis zum Übergang in den Arbeitsmarkt für junge Erwachsene." },
+                antwort: "Unsere Angebote decken die gesamte Spanne von 0 bis 25 Jahren ab - von Frühe Hilfen für Kleinkinder bis zum Übergang in den Arbeitsmarkt für junge Erwachsene." },
               { frage: "Ist die Krisenhotline wirklich 24/7 erreichbar?",
-                antwort: "Ja. Unsere Krisenbereitschaft ist 365 Tage im Jahr, rund um die Uhr besetzt. Rufen Sie +49 (0) 30 22 45 43 22 an — auch mitten in der Nacht." },
+                antwort: "Ja. Unsere Krisenbereitschaft ist 365 Tage im Jahr, rund um die Uhr besetzt. Rufen Sie +49 (0) 30 22 45 43 22 an - auch mitten in der Nacht." },
               { frage: "Übernehmen Jugendämter die Kosten?",
                 antwort: "In der Regel ja. Alle unsere stationären und ambulanten Angebote sind nach SGB VIII anerkannt und werden von den zuständigen Jugendämtern als Kostenträger finanziert. Wir unterstützen bei der Antragstellung." },
               { frage: "Wie läuft eine Aufnahme ab?",
@@ -425,7 +425,7 @@ export default function KontaktPage() {
               { frage: "Arbeiten Sie auch mit Schulen und Kitas zusammen?",
                 antwort: "Ja. Wir haben ein spezielles Angebot für Kitas (Fachberatung vor Ort) und kooperieren regelmäßig mit Schulen im Rahmen unserer Beratungs- und Präventionsangebote." },
               { frage: "Kann ich mich auch anonym beraten lassen?",
-                antwort: "Für niedrigschwellige Beratung ist eine anonyme Kontaktaufnahme grundsätzlich möglich. Unser Chat mit Lena auf dieser Website ist jederzeit erreichbar — ohne Angabe persönlicher Daten." },
+                antwort: "Für niedrigschwellige Beratung ist eine anonyme Kontaktaufnahme grundsätzlich möglich. Unser Chat mit Lena auf dieser Website ist jederzeit erreichbar - ohne Angabe persönlicher Daten." },
             ].map((faq, i) => (
               <details key={i} style={{ background: "white" }}>
                 <summary style={{ padding: "1.25rem 1.5rem", cursor: "pointer",
@@ -470,7 +470,7 @@ export default function KontaktPage() {
             </h2>
             <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.85 }}>
               Für akute Kriseninterventionen, sofortige Aufnahmebedarfe oder Notfallsituationen
-              stehen wir rund um die Uhr zur Verfügung — ohne Wartezeiten, ohne Bürokratie.
+              stehen wir rund um die Uhr zur Verfügung - ohne Wartezeiten, ohne Bürokratie.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>

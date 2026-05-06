@@ -71,7 +71,7 @@ const leistungen = [
   {
     icon: Phone,
     titel: "Sofortaufnahme rund um die Uhr",
-    text: "Unser Bereitschaftsdienst ist täglich 24 Stunden erreichbar. Aufnahmen sind auch nachts, an Wochenenden und Feiertagen möglich — ohne bürokratische Hürden.",
+    text: "Unser Bereitschaftsdienst ist täglich 24 Stunden erreichbar. Aufnahmen sind auch nachts, an Wochenenden und Feiertagen möglich - ohne bürokratische Hürden.",
   },
   {
     icon: Stethoscope,
@@ -96,7 +96,7 @@ const leistungen = [
   {
     icon: Users,
     titel: "Familie & soziales Umfeld einbeziehen",
-    text: "Krise betrifft nicht nur das Kind. Wir beziehen Eltern, Geschwister und relevante Bezugspersonen von Anfang an ein — immer mit Blick auf Schutz und Ressourcen.",
+    text: "Krise betrifft nicht nur das Kind. Wir beziehen Eltern, Geschwister und relevante Bezugspersonen von Anfang an ein - immer mit Blick auf Schutz und Ressourcen.",
   },
   {
     icon: MessageSquare,
@@ -120,7 +120,7 @@ const prozessSchritte = [
     nr: "01",
     titel: "Kontaktaufnahme",
     icon: Phone,
-    text: "Das Jugendamt oder eine Fachkraft ruft unsere Krisenleitung an — zu jeder Tages- und Nachtzeit. Kein Anrufbeantworter, kein Wartesystem.",
+    text: "Das Jugendamt oder eine Fachkraft ruft unsere Krisenleitung an - zu jeder Tages- und Nachtzeit. Kein Anrufbeantworter, kein Wartesystem.",
     dauer: "Sofort",
   },
   {
@@ -157,7 +157,7 @@ const besonderheiten = [
   {
     icon: Clock,
     titel: "Rund-um-die-Uhr-Bereitschaft",
-    text: "An 365 Tagen im Jahr. Unser Krisentelefon wird von qualifizierten Fachkräften besetzt — kein Callcenter, kein Anrufbeantworter.",
+    text: "An 365 Tagen im Jahr. Unser Krisentelefon wird von qualifizierten Fachkräften besetzt - kein Callcenter, kein Anrufbeantworter.",
   },
   {
     icon: UserCheck,
@@ -167,7 +167,7 @@ const besonderheiten = [
   {
     icon: Zap,
     titel: "Aufnahme innerhalb von Stunden",
-    text: "Kein Wartezimmer, keine Warteliste. Wenn ein Platz frei ist, kann die Aufnahme noch am selben Tag erfolgen — auch mitten in der Nacht.",
+    text: "Kein Wartezimmer, keine Warteliste. Wenn ein Platz frei ist, kann die Aufnahme noch am selben Tag erfolgen - auch mitten in der Nacht.",
   },
   {
     icon: Lock,
@@ -182,14 +182,14 @@ const besonderheiten = [
   {
     icon: Heart,
     titel: "Traumasensible Haltung",
-    text: "Unser Ansatz basiert auf dem Grundsatz: Verhalten ist Kommunikation. Kein Jugendlicher wird pathologisiert — wir verstehen Krisen als Botschaften.",
+    text: "Unser Ansatz basiert auf dem Grundsatz: Verhalten ist Kommunikation. Kein Jugendlicher wird pathologisiert - wir verstehen Krisen als Botschaften.",
   },
 ];
 
 const faq = [
   {
     frage: "Wie schnell kann eine Aufnahme erfolgen?",
-    antwort: "Bei freiem Platz ist eine Aufnahme noch am selben Tag möglich — auch nachts oder am Wochenende. Unsere Bereitschaft ist an 365 Tagen aktiv. Nach dem ersten Anruf melden wir uns innerhalb von 30 Minuten mit einer konkreten Rückmeldung.",
+    antwort: "Bei freiem Platz ist eine Aufnahme noch am selben Tag möglich - auch nachts oder am Wochenende. Unsere Bereitschaft ist an 365 Tagen aktiv. Nach dem ersten Anruf melden wir uns innerhalb von 30 Minuten mit einer konkreten Rückmeldung.",
   },
   {
     frage: "Wer kann eine Krisenintervention beauftragen?",
@@ -217,7 +217,7 @@ const faq = [
   },
   {
     frage: "Können Eltern während der Krisenintervention Kontakt halten?",
-    antwort: "Ja — sofern dies dem Kindeswohl nicht entgegensteht. Wir regeln Besuchs- und Kontaktregelungen transparent mit dem Jugendamt und beziehen Eltern aktiv in den Stabilisierungsprozess ein.",
+    antwort: "Ja - sofern dies dem Kindeswohl nicht entgegensteht. Wir regeln Besuchs- und Kontaktregelungen transparent mit dem Jugendamt und beziehen Eltern aktiv in den Stabilisierungsprozess ein.",
   },
 ];
 
@@ -272,7 +272,7 @@ export default function KriseninterventionPage() {
               animation: "pulse 1.8s ease-in-out infinite",
             }} />
             <span style={{ fontSize: "11px", fontWeight: 700, color: "#fca5a5", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              Jetzt erreichbar — 24/7
+              Jetzt erreichbar - 24/7
             </span>
           </div>
 
@@ -441,7 +441,7 @@ export default function KriseninterventionPage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
             {[
-              { icon: CheckCircle, text: "Keine Warteliste — Aufnahme direkt bei freiem Platz" },
+              { icon: CheckCircle, text: "Keine Warteliste - Aufnahme direkt bei freiem Platz" },
               { icon: CheckCircle, text: "Bereitschaftsdienst mit echten Fachkräften" },
               { icon: CheckCircle, text: "Strukturiertes Aufnahmegespräch und Erstdiagnostik" },
               { icon: CheckCircle, text: "Enge Kooperation mit dem zuständigen Jugendamt" },
@@ -483,7 +483,7 @@ export default function KriseninterventionPage() {
               Indikationen für Krisenintervention
             </h2>
             <p style={{ fontSize: "15px", color: "#374151", maxWidth: "540px", margin: "0 auto", lineHeight: 1.75 }}>
-              Krisenintervention ist keine Pauschallösung — sie greift in klar definierten
+              Krisenintervention ist keine Pauschallösung - sie greift in klar definierten
               Situationen, in denen sofortiger Schutz und Stabilisierung notwendig sind.
             </p>
           </div>
@@ -706,7 +706,7 @@ export default function KriseninterventionPage() {
             </h2>
             <p style={{ fontSize: "14px", color: "#374151", lineHeight: 1.85, marginBottom: "2rem" }}>
               Als Jugendamt oder Fachkraft wissen Sie: In einer Krise zählt jede Stunde.
-              Wir verstehen Ihre Anforderungen — transparente Kommunikation,
+              Wir verstehen Ihre Anforderungen - transparente Kommunikation,
               schnelle Reaktion und klare Dokumentation.
             </p>
             <a
@@ -726,7 +726,7 @@ export default function KriseninterventionPage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {[
-              { icon: Phone, text: "Direkte Aufnahmenummer ohne Umwege — immer eine Fachkraft am Hörer" },
+              { icon: Phone, text: "Direkte Aufnahmenummer ohne Umwege - immer eine Fachkraft am Hörer" },
               { icon: FileText, text: "Aufnahmebericht innerhalb von 24h nach Einzug" },
               { icon: ClipboardList, text: "Wöchentliche Statusberichte per E-Mail oder Fax" },
               { icon: UserCheck, text: "Fester Ansprechpartner für die gesamte Hilfedauer" },
@@ -1088,7 +1088,7 @@ export default function KriseninterventionPage() {
             fontSize: "15px", color: "rgba(255,255,255,0.6)",
             marginBottom: "2.5rem", lineHeight: 1.75,
           }}>
-            Rufen Sie uns jetzt an — oder stellen Sie eine Platzanfrage. Unser Team
+            Rufen Sie uns jetzt an - oder stellen Sie eine Platzanfrage. Unser Team
             meldet sich sofort.
           </p>
 

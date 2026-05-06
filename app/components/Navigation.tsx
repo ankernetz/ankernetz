@@ -67,7 +67,7 @@ export default function Navigation() {
       {/* ── NAVBAR ── */}
       <nav style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1.5rem", height: "56px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
-        {/* Logo — unberührt */}
+        {/* Logo - unberührt */}
         <Link href="/" className="flex items-center gap-2 text-[#1D1D1F] flex-shrink-0">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
             <circle cx="14" cy="14" r="13" stroke="currentColor" strokeWidth="1.5" />
@@ -229,7 +229,7 @@ export default function Navigation() {
           <div className="px-6 py-5">
             <a href="tel:+4930224543220" className="btn btn-danger w-full mb-6 justify-center">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              Notfall 24/7 — Jetzt anrufen
+              Notfall 24/7 - Jetzt anrufen
             </a>
 
             {megaMenu.map((gruppe) => (

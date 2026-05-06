@@ -23,7 +23,7 @@ export default function UeberUnsPage() {
         <div className="site-container" style={{ position: "relative", zIndex: 2, paddingBottom: "5rem", paddingTop: "10rem" }}>
           <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.22em",
             textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.5rem" }}>
-            Ankernetz — Wer wir sind
+            Ankernetz - Wer wir sind
           </p>
           <h1 style={{ fontSize: "clamp(2.75rem, 5vw, 4.5rem)", fontWeight: 800, color: "#ffffff",
             lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: "1.5rem", maxWidth: "18ch" }}>
@@ -103,11 +103,11 @@ export default function UeberUnsPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
             {[
               { jahr: "2015", ereignis: "Gründung", detail: "Ankernetz startet mit Krisenintervention und erster Wohngruppe." },
-              { jahr: "2017", ereignis: "Diagnostik & Clearing", detail: "Aufbau des Diagnostikzentrums — erste umfassende Einschätzungsstelle in Berlin." },
+              { jahr: "2017", ereignis: "Diagnostik & Clearing", detail: "Aufbau des Diagnostikzentrums - erste umfassende Einschätzungsstelle in Berlin." },
               { jahr: "2018", ereignis: "Psychotherapie", detail: "Eröffnung der Psychotherapiepraxis mit Kassenzulassung für Kinder und Jugendliche." },
-              { jahr: "2020", ereignis: "Frühe Hilfen", detail: "Erweiterung auf das Kleinkindbereich — 0 bis 6 Jahre." },
+              { jahr: "2020", ereignis: "Frühe Hilfen", detail: "Erweiterung auf das Kleinkindbereich - 0 bis 6 Jahre." },
               { jahr: "2022", ereignis: "Ankerkleidung", detail: "Start des spezialisierten Kleidungsangebots nach Störungsbild." },
-              { jahr: "2024", ereignis: "11 Angebote", detail: "Das Netzwerk ist vollständig — alle Bereiche von 0 bis 25 Jahren abgedeckt." },
+              { jahr: "2024", ereignis: "11 Angebote", detail: "Das Netzwerk ist vollständig - alle Bereiche von 0 bis 25 Jahren abgedeckt." },
             ].map((e, i) => (
               <div key={e.jahr} style={{ display: "flex", gap: "1.5rem", paddingBottom: "1.75rem",
                 position: "relative" }}>
@@ -253,12 +253,12 @@ export default function UeberUnsPage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
             {[
-              { titel: "Menschlichkeit",  text: "Jedes Kind verdient echte Begegnung, Würde und Respekt. Das ist unser Fundament — nicht Protokoll, sondern Haltung.", akzent: "#6FA3FE" },
-              { titel: "Fachlichkeit",    text: "Wir handeln evidenzbasiert, reflektiert und mit hohem professionellen Anspruch. Gute Absicht reicht nicht — es braucht Kompetenz.", akzent: "#FEC274" },
-              { titel: "Verlässlichkeit", text: "Jugendämter, Familien und Kinder können sich auf uns verlassen — in der Krise um 3 Uhr nachts genauso wie im Alltag.", akzent: "#22c55e" },
-              { titel: "Vernetzung",      text: "Kein Angebot steht allein. Alle Bereiche greifen ineinander. Wir denken Hilfeketten — nicht Einzelmaßnahmen.", akzent: "#6FA3FE" },
+              { titel: "Menschlichkeit",  text: "Jedes Kind verdient echte Begegnung, Würde und Respekt. Das ist unser Fundament - nicht Protokoll, sondern Haltung.", akzent: "#6FA3FE" },
+              { titel: "Fachlichkeit",    text: "Wir handeln evidenzbasiert, reflektiert und mit hohem professionellen Anspruch. Gute Absicht reicht nicht - es braucht Kompetenz.", akzent: "#FEC274" },
+              { titel: "Verlässlichkeit", text: "Jugendämter, Familien und Kinder können sich auf uns verlassen - in der Krise um 3 Uhr nachts genauso wie im Alltag.", akzent: "#22c55e" },
+              { titel: "Vernetzung",      text: "Kein Angebot steht allein. Alle Bereiche greifen ineinander. Wir denken Hilfeketten - nicht Einzelmaßnahmen.", akzent: "#6FA3FE" },
               { titel: "Transparenz",     text: "Offene Kommunikation mit allen Beteiligten. Eltern, Jugendämter und Kinder wissen immer, was passiert und warum.", akzent: "#FEC274" },
-              { titel: "Entwicklung",     text: "Wir stehen nie still. Wir lernen aus jedem Fall, jedem Rückmeldung und jeder Forschung — und passen uns an.", akzent: "#22c55e" },
+              { titel: "Entwicklung",     text: "Wir stehen nie still. Wir lernen aus jedem Fall, jedem Rückmeldung und jeder Forschung - und passen uns an.", akzent: "#22c55e" },
             ].map(w => (
               <div key={w.titel} className="bento-card"
                 style={{ background: "#f0f4f8", padding: "2rem" }}>
@@ -288,12 +288,12 @@ export default function UeberUnsPage() {
               </h2>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85, marginBottom: "1.25rem" }}>
                 Die meisten Träger der Jugendhilfe arbeiten in Silos. Ein Heim hier, eine Therapiepraxis dort,
-                eine Beratungsstelle irgendwo anders — und dazwischen: das Kind, das niemand kennt.
+                eine Beratungsstelle irgendwo anders - und dazwischen: das Kind, das niemand kennt.
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85, marginBottom: "1.25rem" }}>
                 Bei Ankernetz kennen sich die Teams. Übergaben werden persönlich begleitet.
                 Diagnostik informiert die Pädagogik, die Pädagogik informiert die Therapie.
-                Und das Jugendamt hat immer einen verlässlichen Ansprechpartner — über alle Bereiche hinweg.
+                Und das Jugendamt hat immer einen verlässlichen Ansprechpartner - über alle Bereiche hinweg.
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
                 Unser Ansatz basiert auf traumasensibler Pädagogik, systemischer Begleitung und
@@ -303,10 +303,10 @@ export default function UeberUnsPage() {
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               {[
                 { nr: "01", titel: "Systemische Vernetzung", text: "Alle 11 Angebote sind organisatorisch und fachlich vernetzt. Keine Informationsverluste bei Übergaben." },
-                { nr: "02", titel: "Traumasensible Grundhaltung", text: "Alle Teams sind in traumasensibler Pädagogik ausgebildet. Das ist kein Zusatz — es ist die Basis." },
+                { nr: "02", titel: "Traumasensible Grundhaltung", text: "Alle Teams sind in traumasensibler Pädagogik ausgebildet. Das ist kein Zusatz - es ist die Basis." },
                 { nr: "03", titel: "Störungsbildspezifisch", text: "Jedes Angebot ist auf konkrete Diagnose- und Bedarfsprofile ausgerichtet. Kein One-size-fits-all." },
                 { nr: "04", titel: "Transparente Kommunikation", text: "Regelmäßige schriftliche Rückmeldungen, offene Falldiskussionen, klare Eskalationswege." },
-                { nr: "05", titel: "Qualitätsgesicherte Fachlichkeit", text: "Supervision, Fortbildung und interne Qualitätsprüfungen als Daueraufgabe — nicht als Ausnahme." },
+                { nr: "05", titel: "Qualitätsgesicherte Fachlichkeit", text: "Supervision, Fortbildung und interne Qualitätsprüfungen als Daueraufgabe - nicht als Ausnahme." },
                 { nr: "06", titel: "Zielorientierte Arbeit", text: "Hilfeplanung bedeutet bei uns: messbare Ziele, regelmäßige Überprüfung, ehrliche Rückmeldung." },
               ].map(a => (
                 <div key={a.nr} style={{ background: "white", padding: "1.25rem 1.5rem",
@@ -326,7 +326,7 @@ export default function UeberUnsPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          DAS NETZWERK — 11 ANGEBOTE
+          DAS NETZWERK - 11 ANGEBOTE
       ══════════════════════════════════════════════════ */}
       <section style={{ background: "#ffffff", padding: "6rem 0" }}>
         <div className="site-container">
@@ -395,7 +395,7 @@ export default function UeberUnsPage() {
               { rolle: "Pädagogische Teams", initialen: "PT", farbe: "#22c55e",
                 text: "Qualifizierte Fachkräfte der Sozialpädagogik, Sozialarbeit und Erziehungswissenschaft in allen Wohngruppen, Krisendiensten und Beratungsangeboten." },
               { rolle: "Verwaltung & Koordination", initialen: "VK", farbe: "#a78bfa",
-                text: "Belegungs- und Hilfeplankoordination, Finanzmanagement und Kommunikation mit Jugendämtern — Rückgrat der täglichen Betriebsführung." },
+                text: "Belegungs- und Hilfeplankoordination, Finanzmanagement und Kommunikation mit Jugendämtern - Rückgrat der täglichen Betriebsführung." },
               { rolle: "Qualitätsmanagement", initialen: "QM", farbe: "#6FA3FE",
                 text: "Interne Qualitätssicherung, Dokumentation und Beschwerdemanagement. Verantwortlich für Standards, Evaluationen und Weiterentwicklung der Konzepte." },
             ].map(t => (
@@ -501,14 +501,14 @@ export default function UeberUnsPage() {
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85, marginBottom: "2rem" }}>
                 Unsere Einrichtungen sind im gesamten Stadtgebiet erreichbar. Für Kinder aus anderen
-                Bundesländern bieten wir ebenfalls Aufnahmen an — in Absprache mit dem zuständigen
+                Bundesländern bieten wir ebenfalls Aufnahmen an - in Absprache mit dem zuständigen
                 Jugendamt und Kostenträger.
               </p>
               <a href="tel:+4930224543220" style={{ display: "inline-flex", alignItems: "center", gap: "0.625rem",
                 background: "#1a3f6f", color: "white", padding: "0.875rem 1.5rem",
                 fontWeight: 700, fontSize: "0.875rem", textDecoration: "none",
                 letterSpacing: "0.04em" }}>
-                +49 30 22 45 43 22 — Jetzt anrufen
+                +49 30 22 45 43 22 - Jetzt anrufen
               </a>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1px",
@@ -549,7 +549,7 @@ export default function UeberUnsPage() {
           </h2>
           <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.8,
             maxWidth: "44ch", margin: "0 auto 3rem" }}>
-            Ob Platzanfrage, Kooperation oder einfach ein erstes Gespräch —
+            Ob Platzanfrage, Kooperation oder einfach ein erstes Gespräch -
             wir sind erreichbar und freuen uns auf den Austausch.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>

@@ -13,7 +13,7 @@ import {
 
 const kennzahlen = [
   { wert: "0€", label: "Viele Angebote kostenlos oder kostengünstig", icon: Heart },
-  { wert: "sofort", label: "Kein langer Antrag — erster Kontakt reicht", icon: Zap },
+  { wert: "sofort", label: "Kein langer Antrag - erster Kontakt reicht", icon: Zap },
   { wert: "online", label: "Beratung auch per Telefon, Video und Chat", icon: Globe },
   { wert: "vernetzt", label: "Direkter Zugang zu allen Ankernetz-Angeboten", icon: Layers },
 ];
@@ -22,13 +22,13 @@ const zielgruppen = [
   {
     icon: Home,
     titel: "Familien in Belastungssituationen",
-    text: "Erziehungsprobleme, Trennungen, finanzielle Not, Überforderung — wenn der Alltag sich anfühlt, als ob man ihn alleine nicht schafft. Wir hören zu und helfen, Wege zu finden.",
+    text: "Erziehungsprobleme, Trennungen, finanzielle Not, Überforderung - wenn der Alltag sich anfühlt, als ob man ihn alleine nicht schafft. Wir hören zu und helfen, Wege zu finden.",
     akzent: "#1a3f6f",
   },
   {
     icon: Users,
     titel: "Jugendliche mit Beratungsbedarf",
-    text: "Schulstress, Probleme mit Eltern oder Freunden, Identitätsfragen, psychische Belastung — Jugendliche brauchen manchmal jemanden außerhalb des Systems.",
+    text: "Schulstress, Probleme mit Eltern oder Freunden, Identitätsfragen, psychische Belastung - Jugendliche brauchen manchmal jemanden außerhalb des Systems.",
     akzent: "#6FA3FE",
   },
   {
@@ -40,7 +40,7 @@ const zielgruppen = [
   {
     icon: Shield,
     titel: "Jugendämter & ASD-Fachkräfte",
-    text: "Fallberatung, kollegiale Beratung, Einschätzung zur Hilfeform — als Ergänzung zum eigenen Fachurteil oder als zweite Meinung.",
+    text: "Fallberatung, kollegiale Beratung, Einschätzung zur Hilfeform - als Ergänzung zum eigenen Fachurteil oder als zweite Meinung.",
     akzent: "#059669",
   },
   {
@@ -67,19 +67,19 @@ const angebote = [
   {
     icon: Brain,
     titel: "Psychologische Einzelberatung",
-    text: "Für Kinder, Jugendliche und Erwachsene mit persönlichem Beratungsbedarf. Keine Therapie — aber professionelle Begleitung in schwierigen Lebensphasen.",
+    text: "Für Kinder, Jugendliche und Erwachsene mit persönlichem Beratungsbedarf. Keine Therapie - aber professionelle Begleitung in schwierigen Lebensphasen.",
     format: "Vor Ort & Online",
   },
   {
     icon: Phone,
     titel: "Sorgentelefon",
-    text: "Direkter telefonischer Erstkontakt — anonym, kostenlos, ohne Voranmeldung. Für akute Belastungen, erste Orientierung oder das Gespräch, das sonst nirgendwo stattfindet.",
+    text: "Direkter telefonischer Erstkontakt - anonym, kostenlos, ohne Voranmeldung. Für akute Belastungen, erste Orientierung oder das Gespräch, das sonst nirgendwo stattfindet.",
     format: "Telefonisch",
   },
   {
     icon: Video,
     titel: "Online-Beratung & Chat",
-    text: "Beratung per Video oder Text — diskret, ortsunabhängig, flexibel. Besonders für Jugendliche, die lieber schreiben als sprechen.",
+    text: "Beratung per Video oder Text - diskret, ortsunabhängig, flexibel. Besonders für Jugendliche, die lieber schreiben als sprechen.",
     format: "Digital",
   },
   {
@@ -91,13 +91,13 @@ const angebote = [
   {
     icon: Globe,
     titel: "Präventionsprogramme für Schulen",
-    text: "Strukturierte Programme zu Themen wie Resilienz, Stress, Mobbing, Medienkonsum und emotionale Gesundheit — für Klassen, Jahrgänge oder ganze Schulen.",
+    text: "Strukturierte Programme zu Themen wie Resilienz, Stress, Mobbing, Medienkonsum und emotionale Gesundheit - für Klassen, Jahrgänge oder ganze Schulen.",
     format: "Vor Ort",
   },
   {
     icon: MessageSquare,
     titel: "Gruppenangebote & Workshops",
-    text: "Thematische Gruppen für Kinder, Jugendliche und Eltern. Peer-Learning, Erfahrungsaustausch und gemeinsames Stärken — in kleinen, sicheren Gruppen.",
+    text: "Thematische Gruppen für Kinder, Jugendliche und Eltern. Peer-Learning, Erfahrungsaustausch und gemeinsames Stärken - in kleinen, sicheren Gruppen.",
     format: "Vor Ort",
   },
   {
@@ -109,7 +109,7 @@ const angebote = [
   {
     icon: Lightbulb,
     titel: "Elterntraining & Erziehungsbegleitung",
-    text: "Praktische Programme zur Stärkung elterlicher Kompetenzen: Triple P, FAST, eigene Formate. Präventiv und begleitend — nicht erst wenn alles eskaliert ist.",
+    text: "Praktische Programme zur Stärkung elterlicher Kompetenzen: Triple P, FAST, eigene Formate. Präventiv und begleitend - nicht erst wenn alles eskaliert ist.",
     format: "Vor Ort",
   },
 ];
@@ -136,7 +136,7 @@ const praevention = [
   {
     icon: Globe,
     titel: "Medienkompetenz",
-    text: "Umgang mit Social Media, Cybermobbing, Suchtgefährdung durch digitale Medien — für Schulen, Eltern und Jugendliche.",
+    text: "Umgang mit Social Media, Cybermobbing, Suchtgefährdung durch digitale Medien - für Schulen, Eltern und Jugendliche.",
     schule: true,
   },
   {
@@ -148,7 +148,7 @@ const praevention = [
   {
     icon: Home,
     titel: "Elternkurse",
-    text: "Erziehungskompetenzen, Bindungsförderung, Umgang mit Krisen — präventive Elternkurse, die wirken bevor Hilfe nötig wird.",
+    text: "Erziehungskompetenzen, Bindungsförderung, Umgang mit Krisen - präventive Elternkurse, die wirken bevor Hilfe nötig wird.",
     schule: false,
   },
 ];
@@ -172,14 +172,14 @@ const prozessSchritte = [
     nr: "03",
     titel: "Beratung",
     icon: Lightbulb,
-    text: "Einmalig oder mehrfach, kurz oder länger — wir passen uns dem Bedarf an. Kein festes Therapieprogramm, sondern echte Begleitung.",
+    text: "Einmalig oder mehrfach, kurz oder länger - wir passen uns dem Bedarf an. Kein festes Therapieprogramm, sondern echte Begleitung.",
     dauer: "Flexibel",
   },
   {
     nr: "04",
     titel: "Weitervermittlung",
     icon: ArrowRight,
-    text: "Wenn mehr gebraucht wird als Beratung, vermitteln wir direkt in passende Angebote — im Ankernetz-Verbund oder extern.",
+    text: "Wenn mehr gebraucht wird als Beratung, vermitteln wir direkt in passende Angebote - im Ankernetz-Verbund oder extern.",
     dauer: "Bei Bedarf",
   },
 ];
@@ -187,35 +187,35 @@ const prozessSchritte = [
 const faq = [
   {
     frage: "Kostet die Beratung etwas?",
-    antwort: "Viele unserer Angebote sind kostenlos oder kostengünstig — insbesondere das Sorgentelefon, Erstgespräche und Krisenberatung. Bei umfangreicheren Angeboten klären wir die Finanzierung gemeinsam: SGB VIII, Krankenkasse, Jugendamt oder Selbstzahlung.",
+    antwort: "Viele unserer Angebote sind kostenlos oder kostengünstig - insbesondere das Sorgentelefon, Erstgespräche und Krisenberatung. Bei umfangreicheren Angeboten klären wir die Finanzierung gemeinsam: SGB VIII, Krankenkasse, Jugendamt oder Selbstzahlung.",
   },
   {
     frage: "Brauche ich einen Antrag oder eine Überweisung?",
-    antwort: "Nein. Unser Beratungsangebot ist bewusst niedrigschwellig. Sie können direkt Kontakt aufnehmen — ohne Antrag, ohne Überweisung, ohne Wartezeit. Der erste Schritt ist ein einfacher Anruf oder eine E-Mail.",
+    antwort: "Nein. Unser Beratungsangebot ist bewusst niedrigschwellig. Sie können direkt Kontakt aufnehmen - ohne Antrag, ohne Überweisung, ohne Wartezeit. Der erste Schritt ist ein einfacher Anruf oder eine E-Mail.",
   },
   {
     frage: "Ist die Beratung vertraulich?",
-    antwort: "Ja. Alle Gespräche unterliegen der Schweigepflicht. Informationen werden nur mit Ihrer ausdrücklichen Zustimmung weitergegeben — außer bei akuter Kindeswohlgefährdung. Das erklären wir Ihnen offen im Erstgespräch.",
+    antwort: "Ja. Alle Gespräche unterliegen der Schweigepflicht. Informationen werden nur mit Ihrer ausdrücklichen Zustimmung weitergegeben - außer bei akuter Kindeswohlgefährdung. Das erklären wir Ihnen offen im Erstgespräch.",
   },
   {
     frage: "Kann ich anonym bleiben?",
-    antwort: "Bei Telefonberatung und Chat ist Anonymität möglich. Für eine längerfristige Begleitung brauchen wir grundlegende Kontaktdaten — aber auch hier gilt: keine Weitergabe ohne Einwilligung.",
+    antwort: "Bei Telefonberatung und Chat ist Anonymität möglich. Für eine längerfristige Begleitung brauchen wir grundlegende Kontaktdaten - aber auch hier gilt: keine Weitergabe ohne Einwilligung.",
   },
   {
-    frage: "Für wen ist Beratung — nur für Familien in der Krise?",
+    frage: "Für wen ist Beratung - nur für Familien in der Krise?",
     antwort: "Nein. Beratung ist für alle, die eine schwierige Phase durchmachen, eine Entscheidung treffen müssen oder einfach jemanden brauchen, der zuhört. Es muss keine Krise sein. Prävention bedeutet: früher helfen, bevor es zur Krise wird.",
   },
   {
     frage: "Bieten Sie auch Fachberatung für Kita-Teams an?",
-    antwort: "Ja. Wir beraten Kita-Teams bei auffälligen Kindern, Verdacht auf Kindeswohlgefährdung, Elternkonflikten und Teamdynamiken. Auch Fortbildungen und Supervisionen sind möglich — unbürokratisch und praxisnah.",
+    antwort: "Ja. Wir beraten Kita-Teams bei auffälligen Kindern, Verdacht auf Kindeswohlgefährdung, Elternkonflikten und Teamdynamiken. Auch Fortbildungen und Supervisionen sind möglich - unbürokratisch und praxisnah.",
   },
   {
     frage: "Wie laufen Schulpräventionsprogramme ab?",
-    antwort: "Wir kommen in die Schule — in Klassen, Jahrgangsstufen oder ganze Teams. Programme dauern je nach Format 1 bis mehrere Tage. Die Themen reichen von Resilienz über Kinderschutz bis Mobbing-Prävention. Anfragen über unsere Kontaktseite oder telefonisch.",
+    antwort: "Wir kommen in die Schule - in Klassen, Jahrgangsstufen oder ganze Teams. Programme dauern je nach Format 1 bis mehrere Tage. Die Themen reichen von Resilienz über Kinderschutz bis Mobbing-Prävention. Anfragen über unsere Kontaktseite oder telefonisch.",
   },
   {
     frage: "Was passiert, wenn mehr Hilfe nötig ist als Beratung?",
-    antwort: "Wir erkennen frühzeitig, wann eine intensivere Unterstützung sinnvoll ist, und sprechen das offen an. Dann begleiten wir Sie Schritt für Schritt zur passenden Hilfeform — ob Psychotherapie, Jugendhilfe oder Krisenintervention — innerhalb des Ankernetz-Verbunds oder extern.",
+    antwort: "Wir erkennen frühzeitig, wann eine intensivere Unterstützung sinnvoll ist, und sprechen das offen an. Dann begleiten wir Sie Schritt für Schritt zur passenden Hilfeform - ob Psychotherapie, Jugendhilfe oder Krisenintervention - innerhalb des Ankernetz-Verbunds oder extern.",
   },
 ];
 
@@ -276,7 +276,7 @@ export default function BeratungPraeventionPage() {
             lineHeight: 1.75, maxWidth: "560px", marginBottom: "3rem",
           }}>
             Hilfe muss nicht immer stationär sein. Unsere Beratungsangebote sind
-            niedrigschwellig, zugänglich und wirksam — als erster Schritt, als
+            niedrigschwellig, zugänglich und wirksam - als erster Schritt, als
             Begleitung oder als Prävention, bevor etwas eskaliert.
           </p>
 
@@ -337,7 +337,7 @@ export default function BeratungPraeventionPage() {
               Kein Antrag. Keine Überweisung. Kein langes Warten.
             </p>
             <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "13px" }}>
-              Einfach anrufen — und der erste Schritt ist getan.
+              Einfach anrufen - und der erste Schritt ist getan.
             </p>
           </div>
           <a href="tel:+4930224543220" style={{
@@ -374,17 +374,17 @@ export default function BeratungPraeventionPage() {
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
               Nicht jede Schwierigkeit braucht sofort eine stationäre Maßnahme.
               Manchmal reicht ein Gespräch, eine Orientierung oder eine
-              fachkundige Einschätzung — und vieles löst sich, was sich sonst
+              fachkundige Einschätzung - und vieles löst sich, was sich sonst
               zu einer Krise entwickelt hätte.
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px", marginBottom: "1.25rem" }}>
               Prävention bedeutet nicht, auf Probleme zu warten. Es bedeutet,
-              früh genug hinzuschauen — und dann auch wirklich zu helfen.
+              früh genug hinzuschauen - und dann auch wirklich zu helfen.
               Unsere Beratungsangebote sind der Beweis, dass wirksame Unterstützung
               nicht kompliziert sein muss.
             </p>
             <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
-              Für Familien, Kinder, Jugendliche, Fachkräfte und Einrichtungen —
+              Für Familien, Kinder, Jugendliche, Fachkräfte und Einrichtungen -
               online, per Telefon oder vor Ort. Einfach. Schnell. Ohne Hürden.
             </p>
           </div>
@@ -434,7 +434,7 @@ export default function BeratungPraeventionPage() {
               Beratung für alle, die sie brauchen
             </h2>
             <p style={{ fontSize: "15px", color: "#374151", maxWidth: "520px", margin: "0 auto", lineHeight: 1.75 }}>
-              Unser Angebot richtet sich an jeden — ohne Schwelle, ohne
+              Unser Angebot richtet sich an jeden - ohne Schwelle, ohne
               Schubladendenken und ohne Voraussetzungen.
             </p>
           </div>
@@ -481,7 +481,7 @@ export default function BeratungPraeventionPage() {
               color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em",
               maxWidth: "520px",
             }}>
-              Beratung in jeder Form — für jeden Bedarf
+              Beratung in jeder Form - für jeden Bedarf
             </h2>
           </div>
 
@@ -540,13 +540,13 @@ export default function BeratungPraeventionPage() {
                 Stärken bevor etwas bricht
               </h2>
               <p style={{ fontSize: "14px", color: "#374151", lineHeight: 1.85, marginBottom: "1.25rem" }}>
-                Prävention wirkt — das zeigt die Forschung eindeutig. Jeder Euro,
+                Prävention wirkt - das zeigt die Forschung eindeutig. Jeder Euro,
                 der in präventive Maßnahmen investiert wird, spart mehrfach in
                 späteren Kriseninterventionen.
               </p>
               <p style={{ fontSize: "14px", color: "#374151", lineHeight: 1.85 }}>
                 Unsere Präventionsprogramme gehen in Schulen, Kitas und
-                Einrichtungen — und wirken dort, wo Kinder und Jugendliche
+                Einrichtungen - und wirken dort, wo Kinder und Jugendliche
                 täglich sind.
               </p>
             </div>
@@ -673,7 +673,7 @@ export default function BeratungPraeventionPage() {
             </h2>
             <p style={{ fontSize: "14px", color: "#374151", lineHeight: 1.85, marginBottom: "2rem" }}>
               Fachkräfte brauchen manchmal genau das, was sie anderen geben:
-              jemanden, der zuhört, einschätzt und Wege aufzeigt — ohne
+              jemanden, der zuhört, einschätzt und Wege aufzeigt - ohne
               bürokratischen Aufwand.
             </p>
             <a href="tel:+4930224543220" style={{
@@ -690,14 +690,14 @@ export default function BeratungPraeventionPage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {[
-              { icon: MessageSquare, text: "Fallberatung ohne formellen Auftrag — einfach anrufen" },
+              { icon: MessageSquare, text: "Fallberatung ohne formellen Auftrag - einfach anrufen" },
               { icon: GraduationCap, text: "Fachberatung für Schulen und Kitas bei auffälligen Kindern" },
               { icon: Shield, text: "Beratung bei Verdacht auf Kindeswohlgefährdung" },
               { icon: Users, text: "Kollegiale Beratung und Supervision auf Anfrage" },
               { icon: BookOpen, text: "Fortbildungen und Workshops für Teams" },
               { icon: Globe, text: "Präventionsprogramme und Projekttage vor Ort" },
               { icon: ClipboardList, text: "Konzeptentwicklung und Qualitätssicherung für Einrichtungen" },
-              { icon: Lock, text: "Vertraulich — keine Weitergabe ohne Einwilligung" },
+              { icon: Lock, text: "Vertraulich - keine Weitergabe ohne Einwilligung" },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -785,7 +785,7 @@ export default function BeratungPraeventionPage() {
             marginBottom: "2.5rem", lineHeight: 1.75,
           }}>
             Rufen Sie uns an, schreiben Sie uns oder kommen Sie einfach vorbei.
-            Wir sind da — ohne Schwelle, ohne Umweg.
+            Wir sind da - ohne Schwelle, ohne Umweg.
           </p>
 
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
