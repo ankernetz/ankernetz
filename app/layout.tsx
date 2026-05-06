@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ChatWidget from "./components/ChatWidget";
 import CookieBanner from "./components/CookieBanner";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import Link from "next/link";
 
 const inter = Inter({
@@ -30,11 +31,13 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${GeistSans.variable} ${inter.variable}`}>
       <body>
-        <Navigation />
-        {children}
-        <Footer />
-        <ChatWidget />
-        <CookieBanner />
+        <LanguageProvider>
+          <Navigation />
+          {children}
+          <Footer />
+          <ChatWidget />
+          <CookieBanner />
+        </LanguageProvider>
       </body>
     </html>
   );

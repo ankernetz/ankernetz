@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   AlertTriangle, Home, Brain, Baby, Search, Shirt,
@@ -5,45 +7,39 @@ import {
   Shield, Network, Star
 } from "lucide-react";
 import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
-import { ShineText } from "./components/ShineText";
 import { BlurFade } from "./components/BlurFade";
+import { useLang } from "./contexts/LanguageContext";
+import { tr } from "./i18n/translations";
 
-const angebote = [
-  { slug: "krisenintervention",   titel: "Krisenintervention",             claim: "Sofort da. Wenn es zählt.",            kurz: "24/7 Sofortaufnahme fuer Jugendliche in akuter Not - rund um die Uhr, an 365 Tagen.",                           icon: AlertTriangle, badge: "24/7",           iconColor: "#FEC274", stripe: "#c47a20" },
-  { slug: "psychotherapie",       titel: "Kinder- & Jugend­psychotherapie", claim: "Professionelle Therapie. Mit Kassensitz.", kurz: "Eingebunden in alle Hilfeprozesse - direkt dort, wo Kinder und Jugendliche leben.",               icon: Brain,         badge: "Kassensitz",   iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "fruehe-hilfen",        titel: "Frühe Hilfen",                   claim: "Schutz von Anfang an.",                kurz: "Bindung, Sicherheit und Entwicklung für die Kleinsten.",                                                    icon: Baby,          badge: "0-6 Jahre",    iconColor: "#FEC274", stripe: "#c47a20" },
-  { slug: "therapie-wohnen",      titel: "Therapie & Wohnen",              claim: "Raum zum Ankommen.",                   kurz: "Therapeutische Wohngruppen mit intensiver Begleitung und Traumaarbeit.",                                   icon: Home,          badge: "12-17 Jahre",  iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "jugendhilfe",          titel: "Jugendhilfe",                    claim: "Sicherheit im Alltag.",                kurz: "Kinderwohngruppen mit verlässlicher Struktur und Beziehungsarbeit.",                                        icon: Heart,         badge: "6-12 Jahre",   iconColor: "#FEC274", stripe: "#c47a20" },
-  { slug: "diagnostik-clearing",  titel: "Diagnostik & Clearing",          claim: "Klarheit schafft die richtige Hilfe.", icon: Search,        badge: "Gutachten",    iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "beratung-praevention", titel: "Beratung & Prävention",          claim: "Früh helfen. Gemeinsam stärken.",      icon: MessageCircle, badge: "Online & vor Ort", iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "kita-beratung",        titel: "Beratung in Kitas",              claim: "Früh erkennen.",                       icon: Building2,     badge: "Fachkräfte",   iconColor: "#FEC274", stripe: "#c47a20" },
-  { slug: "uebergang-arbeit",     titel: "Übergang Arbeit",                claim: "Der nächste Schritt.",                 icon: Rocket,        badge: "Übergang",     iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "ankerkleidung",        titel: "Ankerkleidung",                  claim: "Stabilität. Selbstwert. Alltag.",      kurz: "Spezialisierte Kleidung nach Störungsbild - Teil des Hilfesystems.",                                        icon: Shirt,         badge: "Shop",         iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "versorgung",           titel: "Versorgung",                     claim: "Würde im Alltag.",                     kurz: "Bedarfsorientierte Ausstattung für Kinder und Jugendliche im Hilfesystem.",                                  icon: Star,          badge: "Ausstattung",  iconColor: "#FEC274", stripe: "#c47a20" },
+const slugsMeta = [
+  { slug: "krisenintervention",   icon: AlertTriangle, iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "psychotherapie",       icon: Brain,         iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "fruehe-hilfen",        icon: Baby,          iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "therapie-wohnen",      icon: Home,          iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "jugendhilfe",          icon: Heart,         iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "diagnostik-clearing",  icon: Search,        iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "beratung-praevention", icon: MessageCircle, iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "kita-beratung",        icon: Building2,     iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "uebergang-arbeit",     icon: Rocket,        iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "ankerkleidung",        icon: Shirt,         iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "versorgung",           icon: Star,          iconColor: "#FEC274", stripe: "#c47a20" },
 ];
 
-const staerken = [
-  {
-    icon: Shield,
-    color: "#6FA3FE",
-    titel: "Verlässlich",
-    text: "Feste Ansprechpartner, klare Prozesse, transparente Kommunikation - immer.",
-  },
-  {
-    icon: Network,
-    color: "#FEC274",
-    titel: "Vernetzt",
-    text: "Alle 11 Angebote greifen ineinander. Kein Kind fällt zwischen die Stühle.",
-  },
-  {
-    icon: Brain,
-    color: "#6FA3FE",
-    titel: "Spezialisiert",
-    text: "Jedes Angebot ist auf eine spezifische Situation und Zielgruppe ausgelegt.",
-  },
-];
+const staerkenIcons = [Shield, Network, Brain];
+const staerkenColors = ["#6FA3FE", "#FEC274", "#6FA3FE"];
 
 export default function HomePage() {
+  const { lang } = useLang();
+  const T = tr[lang];
+
+  const angebote = slugsMeta.map((m, i) => ({
+    ...m,
+    titel: T.angeboteTitel[i],
+    claim: T.angebote[i].claim,
+    kurz:  T.angebote[i].kurz,
+    badge: T.angebote[i].badge,
+  }));
+
   return (
     <main className="overflow-x-hidden">
 
@@ -52,7 +48,6 @@ export default function HomePage() {
         className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
         style={{ background: "linear-gradient(155deg, #eef4ff 0%, #fafbff 45%, #fff8ee 100%)" }}
       >
-        {/* Soft color blobs */}
         <div className="absolute top-0 left-[10%] w-[600px] h-[600px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(111,163,254,0.14) 0%, transparent 65%)" }} />
         <div className="absolute bottom-0 right-[5%] w-[500px] h-[500px] rounded-full pointer-events-none"
@@ -60,7 +55,6 @@ export default function HomePage() {
         <div className="absolute top-1/3 right-[20%] w-[350px] h-[350px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(3,41,92,0.05) 0%, transparent 65%)" }} />
 
-        {/* Animated Grid Pattern - blaues Netz */}
         <AnimatedGridPattern
           numSquares={35}
           maxOpacity={0.04}
@@ -75,7 +69,7 @@ export default function HomePage() {
           <div className="fade-in-up" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: "100px", padding: "0.375rem 0.875rem", marginBottom: "2.5rem" }}>
             <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", background: "#ef4444", flexShrink: 0, animation: "pulse 2s infinite" }} />
             <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#b91c1c", letterSpacing: "0.01em" }}>
-              Krisendienst 24/7 verfügbar
+              {T.hero.badge}
             </span>
           </div>
 
@@ -91,91 +85,73 @@ export default function HomePage() {
 
           <div className="fade-in-up delay-2" style={{ marginBottom: "3rem" }}>
             <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#1a3f6f", fontWeight: 400, lineHeight: 1.7, marginBottom: "0.25rem" }}>
-              Stabilität in Krisen.
+              {T.hero.sub1}
             </p>
             <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "rgba(3,41,92,0.45)", fontWeight: 400, lineHeight: 1.7 }}>
-              Perspektiven für junge Menschen.
+              {T.hero.sub2}
             </p>
           </div>
 
           <div className="fade-in-up delay-3" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "0.75rem", marginBottom: "6rem" }}>
             <a href="#angebote" className="btn btn-primary btn-lg group">
-              Angebote entdecken
+              {T.hero.cta1}
               <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
             <Link href="/platzanfrage" className="btn btn-outline btn-lg">
-              Platzanfrage stellen
+              {T.hero.cta2}
             </Link>
           </div>
 
         </div>
 
-        {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
           style={{ background: "linear-gradient(to bottom, transparent, #fff8ee)" }} />
-
-        {/* Scroll indicator */}
         <div className="scroll-pulse absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
           <div className="w-px h-8" style={{ background: "rgba(15,23,42,0.15)" }} />
         </div>
       </section>
 
-      {/* ═══ EINLEITUNG ═══ - HELL */}
+      {/* ═══ EINLEITUNG ═══ */}
       <section className="relative overflow-hidden bg-[#F5F5F7]" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
-
         <div className="site-container">
           <BlurFade>
             <div style={{ maxWidth: "720px", margin: "0 auto" }}>
               <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1a3f6f] leading-[1.1]"
                 style={{ letterSpacing: "-0.03em", marginBottom: "2.5rem" }}>
-                Ein Netz, das trägt.
+                {T.einleitung.h2}
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "1.4rem" }}>
-                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">
-                  Ankernetz ist ein Zusammenschluss spezialisierter Hilfsangebote für Kinder und Jugendliche.
-                </p>
-                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">
-                  Wir sind da, wenn Situationen unübersichtlich werden, wenn schnelle Entscheidungen notwendig sind oder langfristige Unterstützung gebraucht wird.
-                </p>
-                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">
-                  Von der akuten Krisenintervention über therapeutische Begleitung bis hin zu frühen Hilfen und dem Übergang in ein selbstständiges Leben bieten wir verlässliche Strukturen und klare Zuständigkeiten.
-                </p>
-                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">
-                  Unsere Angebote greifen ineinander. Wege sind kurz, Absprachen verbindlich, Unterstützung kontinuierlich.
-                </p>
-                <p className="text-[1.0625rem] text-[#374151] font-semibold leading-[1.8]">
-                  So entsteht ein Rahmen, der Sicherheit gibt und Entwicklung möglich macht.
-                </p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p1}</p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p2}</p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p3}</p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p4}</p>
+                <p className="text-[1.0625rem] text-[#374151] font-semibold leading-[1.8]">{T.einleitung.p5}</p>
               </div>
             </div>
           </BlurFade>
         </div>
       </section>
 
-      {/* ═══ BENTO GRID - ANGEBOTE ═══ - DUNKEL */}
+      {/* ═══ BENTO GRID - ANGEBOTE ═══ */}
       <section id="angebote" style={{ background: "#d8e4f0", paddingTop: "4.5rem", paddingBottom: "5rem" }}>
         <div className="site-container">
-
-          {/* Abschnitts-Header */}
           <BlurFade>
             <div className="text-center" style={{ marginBottom: "2.5rem" }}>
               <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: "#1a3f6f" }}>
-                Unsere Angebote
+                {T.angeboteSection.label}
               </p>
               <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black" style={{ letterSpacing: "-0.028em", color: "#1a3f6f" }}>
-                Spezialisiert. Vernetzt. Haltgebend.
+                {T.angeboteSection.h2}
               </h2>
             </div>
           </BlurFade>
-
         </div>
         <div className="site-container" style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
 
-          {/* ── Reihe 1: Krisenintervention (Large) + Psychotherapie (Medium) ── */}
+          {/* Reihe 1: Krisenintervention (Large) + Psychotherapie */}
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
-
             <BlurFade className="md:col-span-2">
               <Link href="/krisenintervention" className="bento-card group relative flex flex-col overflow-hidden"
                 style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[0].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
@@ -189,7 +165,7 @@ export default function HomePage() {
                   <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.25rem" }}>{angebote[0].claim}</p>
                   <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "2rem", maxWidth: "38ch" }}>{angebote[0].kurz}</p>
                   <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
-                    Mehr erfahren <ArrowRight size={14} strokeWidth={1.5} />
+                    {T.angeboteSection.mehrErfahren} <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
@@ -208,14 +184,14 @@ export default function HomePage() {
                   <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[1].claim}</p>
                   <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[1].kurz}</p>
                   <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
-                    Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
+                    {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
             </BlurFade>
           </div>
 
-          {/* ── Reihe 2: 3 Medium ── */}
+          {/* Reihe 2: 3 Medium */}
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
             {[angebote[2], angebote[3], angebote[4]].map((a, i) => {
               const Icon = a.icon;
@@ -233,7 +209,7 @@ export default function HomePage() {
                       <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{a.claim}</p>
                       <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{a.kurz}</p>
                       <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
-                        Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
+                        {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={1.5} />
                       </span>
                     </div>
                   </Link>
@@ -242,7 +218,7 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* ── Reihe 3: 4 Compact ── */}
+          {/* Reihe 3: 4 Compact */}
           <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "1.5rem" }}>
             {[angebote[5], angebote[6], angebote[7], angebote[8]].map((a, i) => {
               const Icon = a.icon;
@@ -263,9 +239,8 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* ── Reihe 4: Ankerkleidung (Large) + Versorgung (Medium) ── */}
+          {/* Reihe 4: Ankerkleidung (Large) + Versorgung */}
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
-
             <BlurFade delay={0.08} className="md:col-span-2">
               <Link href="/ankerkleidung" className="bento-card group relative flex flex-col overflow-hidden"
                 style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[9].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
@@ -279,7 +254,7 @@ export default function HomePage() {
                   <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[9].claim}</p>
                   <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem", maxWidth: "40ch" }}>{angebote[9].kurz}</p>
                   <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
-                    Kollektion entdecken <ArrowRight size={14} strokeWidth={1.5} />
+                    {T.angeboteSection.kollektionEntdecken} <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
@@ -298,7 +273,7 @@ export default function HomePage() {
                   <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[10].claim}</p>
                   <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[10].kurz}</p>
                   <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
-                    Mehr erfahren <ArrowRight size={13} strokeWidth={1.5} />
+                    {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
@@ -308,26 +283,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ STÄRKEN ═══ */}
+      {/* ═══ STARKEN ═══ */}
       <section className="relative overflow-hidden bg-white" style={{ paddingTop: "7rem", paddingBottom: "7rem" }}>
         <div className="site-container">
           <BlurFade>
             <div style={{ marginBottom: "4.5rem" }}>
-              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem" }}>Was uns auszeichnet</p>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem" }}>{T.staerken.label}</p>
               <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.028em", lineHeight: 1.15 }}>
-                Stärke durch Verbindung.
+                {T.staerken.h2}
               </h2>
             </div>
           </BlurFade>
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
-            {staerken.map((s, i) => {
-              const Icon = s.icon;
+            {T.staerken.items.map((s, i) => {
+              const Icon = staerkenIcons[i];
+              const color = staerkenColors[i];
               return (
                 <BlurFade key={s.titel} delay={i * 0.1}>
                   <div className="bento-card group relative overflow-hidden" style={{ background: "#ffffff", borderRadius: "1.125rem", border: "1px solid rgba(0,0,0,0.07)", padding: "3rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 8px 28px rgba(0,0,0,0.05)", transition: "box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1)" }}>
-                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: s.color }} />
-                    <div style={{ width: "3.25rem", height: "3.25rem", borderRadius: "0.875rem", background: `${s.color}12`, border: `1px solid ${s.color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2.25rem" }}>
-                      <Icon size={22} strokeWidth={1.5} style={{ color: s.color }} />
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: color }} />
+                    <div style={{ width: "3.25rem", height: "3.25rem", borderRadius: "0.875rem", background: `${color}12`, border: `1px solid ${color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2.25rem" }}>
+                      <Icon size={22} strokeWidth={1.5} style={{ color }} />
                     </div>
                     <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.02em", marginBottom: "1rem" }}>{s.titel}</h3>
                     <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: "2", fontWeight: 400 }}>{s.text}</p>
@@ -339,57 +315,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ FÜR FACHKRÄFTE ═══ */}
+      {/* ═══ FUR FACHKRAFTE ═══ */}
       <section className="relative overflow-hidden"
         style={{ background: "#d8e4f0", paddingTop: "6rem", paddingBottom: "6rem" }}>
-
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-
-            {/* Text - 6 Spalten */}
             <div className="lg:col-span-6">
               <BlurFade>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: "#1a3f6f" }}>Für Jugendämter & Fachkräfte</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: "#1a3f6f" }}>{T.fachkraefte.label}</p>
                 <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-10 leading-[1.15]" style={{ letterSpacing: "-0.03em", color: "#1a3f6f" }}>
-                  Klare Prozesse.<br />Schnelle Reaktion.<br />Verlässliche Partner.
+                  {T.fachkraefte.h2[0]}<br />{T.fachkraefte.h2[1]}<br />{T.fachkraefte.h2[2]}
                 </h2>
                 <p className="text-[1.0625rem] font-normal leading-[2] mb-14 max-w-lg" style={{ color: "rgba(26,63,111,0.65)" }}>
-                  Ankernetz arbeitet eng mit Jugendämtern und Fachkräften zusammen.
-                  Schnelle Rückmeldungen, transparente Einschätzungen und passgenaue
-                  Hilfeformen - direkt und unkompliziert.
+                  {T.fachkraefte.p}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/platzanfrage" className="btn btn-primary btn-lg group">
-                    Platzanfrage stellen
+                    {T.fachkraefte.cta1}
                     <ArrowRight size={14} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                   <Link href="/kontakt" className="btn btn-outline btn-lg">
-                    Kontakt aufnehmen
+                    {T.fachkraefte.cta2}
                   </Link>
                 </div>
               </BlurFade>
             </div>
 
-            {/* Stat-Grid */}
             <div className="lg:col-span-5 lg:col-start-8">
               <BlurFade delay={0.12}>
                 <div className="grid grid-cols-2" style={{ gap: "1rem" }}>
                   {[
-                    { zahl: "< 24h", label: "Rückmeldung auf Anfragen", color: "#6FA3FE" },
-                    { zahl: "24/7",  label: "Krisenbereitschaft",       color: "#ef4444" },
-                    { zahl: "11",    label: "Spezialisierte Angebote",  color: "#FEC274" },
-                    { zahl: "100%",  label: "Fachlich qualifiziert",    color: "#6FA3FE" },
-                  ].map((stat) => (
+                    { zahl: "< 24h", color: "#6FA3FE" },
+                    { zahl: "24/7",  color: "#ef4444" },
+                    { zahl: "11",    color: "#FEC274" },
+                    { zahl: "100%",  color: "#6FA3FE" },
+                  ].map((stat, i) => (
                     <div key={stat.zahl} className="bento-card" style={{ background: "#f0f4f8", border: "1px solid rgba(26,63,111,0.1)", borderRadius: "0.875rem", padding: "2rem 1.75rem", position: "relative", overflow: "hidden" }}>
                       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: stat.color }} />
                       <p style={{ fontSize: "2.25rem", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{stat.zahl}</p>
-                      <p style={{ fontSize: "0.8125rem", color: "rgba(26,63,111,0.55)", lineHeight: 1.5, fontWeight: 400 }}>{stat.label}</p>
+                      <p style={{ fontSize: "0.8125rem", color: "rgba(26,63,111,0.55)", lineHeight: 1.5, fontWeight: 400 }}>{T.fachkraefte.stats[i]}</p>
                     </div>
                   ))}
                 </div>
               </BlurFade>
             </div>
-
           </div>
         </div>
       </section>
