@@ -50,73 +50,68 @@ export default function HomePage() {
       {/* ═══ HERO ═══ */}
       <section
         className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
-        style={{ background: "linear-gradient(155deg, #eef4ff 0%, #fafbff 45%, #fff8ee 100%)" }}
+        style={{ background: "linear-gradient(160deg, #070b14 0%, #0f172a 40%, #0d1f35 100%)" }}
       >
-        {/* Soft color blobs */}
-        <div className="absolute top-0 left-[10%] w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(111,163,254,0.14) 0%, transparent 65%)" }} />
-        <div className="absolute bottom-0 right-[5%] w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(254,194,116,0.12) 0%, transparent 65%)" }} />
-        <div className="absolute top-1/3 right-[20%] w-[350px] h-[350px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(3,41,92,0.05) 0%, transparent 65%)" }} />
-
-        {/* Animated Grid Pattern */}
+        {/* Animated Grid Pattern — Netz im Hintergrund */}
         <AnimatedGridPattern
           numSquares={35}
-          maxOpacity={0.04}
+          maxOpacity={0.08}
           duration={3}
-          strokeColor="rgba(111,163,254,0.15)"
+          strokeColor="rgba(255,255,255,0.08)"
           className="z-0"
         />
 
-        <div className="relative z-10 w-full" style={{ maxWidth: "780px", marginLeft: "auto", marginRight: "auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
+        {/* Glow blobs */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(74,127,165,0.12) 0%, transparent 60%)" }} />
+        <div className="absolute top-1/4 right-[15%] w-[380px] h-[380px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(239,68,68,0.08) 0%, transparent 70%)" }} />
+        <div className="absolute bottom-1/4 left-[10%] w-[320px] h-[320px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)" }} />
+
+        <div className="relative z-10 w-full" style={{ maxWidth: "760px", marginLeft: "auto", marginRight: "auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
 
           {/* Badge */}
-          <div className="fade-in-up" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: "100px", padding: "0.375rem 0.875rem", marginBottom: "2.5rem" }}>
-            <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", background: "#ef4444", flexShrink: 0, animation: "pulse 2s infinite" }} />
-            <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#b91c1c", letterSpacing: "0.01em" }}>
-              Krisendienst 24/7 verfügbar
-            </span>
+          <div className="fade-in-up inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-full px-4 py-1.5 mb-10 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse flex-shrink-0" />
+            <ShineText shimmerWidth={120} className="text-xs font-normal tracking-wide text-white/60">
+              Krisenintervention 24/7 verfügbar
+            </ShineText>
           </div>
 
-          <h1 className="fade-in-up delay-1 leading-none"
-            style={{ fontSize: "clamp(3.25rem,9vw,6rem)", fontWeight: 900, letterSpacing: "-0.035em", color: "#1a3f6f", marginBottom: "1.5rem" }}>
-            Anker<span style={{
-              backgroundImage: "linear-gradient(135deg, #6FA3FE 0%, #FEC274 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+          <h1 className="fade-in-up delay-1 text-[clamp(3.5rem,10vw,6.5rem)] font-black text-white leading-none mb-6"
+            style={{ letterSpacing: "-0.035em" }}>
+            Anker
+            <span className="animate-gradient" style={{
+              backgroundImage: "linear-gradient(90deg, #4A7FA5, #8b5cf6, #4A7FA5)",
+              backgroundSize: "300% 300%",
             }}>netz</span>
           </h1>
 
-          <div className="fade-in-up delay-2" style={{ marginBottom: "3rem" }}>
-            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#1a3f6f", fontWeight: 400, lineHeight: 1.7, marginBottom: "0.25rem" }}>
-              Stabilität in Krisen.
-            </p>
-            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "rgba(3,41,92,0.45)", fontWeight: 400, lineHeight: 1.7 }}>
-              Perspektiven für junge Menschen.
-            </p>
-          </div>
+          <p className="fade-in-up delay-2 text-[clamp(1rem,2.2vw,1.25rem)] text-white/55 font-light max-w-lg mx-auto mb-2 leading-relaxed">
+            Stabilität in Krisen.
+          </p>
+          <p className="fade-in-up delay-2 text-[clamp(1rem,2.2vw,1.25rem)] text-white/30 font-light max-w-lg mx-auto mb-16 leading-relaxed">
+            Perspektiven für junge Menschen.
+          </p>
 
-          <div className="fade-in-up delay-3" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "0.75rem", marginBottom: "6rem" }}>
-            <a href="#angebote" className="btn btn-primary btn-lg group">
+          <div className="fade-in-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#angebote"
+              className="group flex items-center gap-2 px-8 py-3.5 bg-white text-[#0f172a] font-bold rounded-full text-sm hover:bg-white/95 transition-all shadow-lg shadow-black/20">
               Angebote entdecken
-              <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <Link href="/platzanfrage" className="btn btn-outline btn-lg">
+            <Link href="/platzanfrage"
+              className="flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white/80 font-normal rounded-full text-sm hover:bg-white/8 hover:text-white transition-all backdrop-blur-sm">
               Platzanfrage stellen
             </Link>
           </div>
 
         </div>
 
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent, #fff8ee)" }} />
-
         {/* Scroll indicator */}
         <div className="scroll-pulse absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-px h-8" style={{ background: "rgba(15,23,42,0.15)" }} />
+          <div className="w-px h-8" style={{ background: "rgba(255,255,255,0.15)" }} />
         </div>
       </section>
 
