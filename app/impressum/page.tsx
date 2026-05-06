@@ -62,7 +62,7 @@ export default function ImpressumPage() {
         <p style={{ color: "#374151", lineHeight: 1.8 }}>
           Betriebserlaubnis gemäß § 45 SGB VIII erteilt durch:{" "}
           <strong style={{ color: "#1a3f6f" }}>
-            Landesjugendamt Berlin, Senatsverwaltung für Bildung, Jugend und Familie
+            Ministerium für Bildung, Jugend und Sport
           </strong>
         </p>
       ),
