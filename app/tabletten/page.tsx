@@ -78,7 +78,7 @@ const bewertungsDaten = [
 const faq = [
   { f: "Wie nehme ich die Tabletten ein?", a: "Einmal täglich eine Tablette mit einem großen Glas Wasser zu einer Mahlzeit einnehmen. Nicht auf leeren Magen." },
   { f: "Sind die Produkte vegan?", a: "VitalComplex Pro und MagnesiumActive sind 100 % vegan. OmegaForce 3 enthält Fischöl aus nachhaltigem Fang." },
-  { f: "Wie lange dauert die Lieferung?", a: "Standardlieferung 2–3 Werktage (kostenlos ab 30 €). Express-Lieferung am nächsten Tag verfügbar." },
+  { f: "Wie lange dauert die Lieferung?", a: "Standardlieferung 2-3 Werktage (kostenlos ab 30 €). Express-Lieferung am nächsten Tag verfügbar." },
   { f: "Kann ich die Tabletten mit anderen Medikamenten kombinieren?", a: "Bei regelmäßiger Medikamenteneinnahme bitte vorher einen Arzt konsultieren." },
 ];
 

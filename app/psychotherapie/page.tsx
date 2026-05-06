@@ -86,14 +86,14 @@ const therapeutischerProzess = [
     titel: "Anmeldung & Erstgespräch",
     icon: Phone,
     text: "Anmeldung über das Jugendamt, eine Einrichtung, die Familie oder direkt. Probatorische Sitzungen zur gegenseitigen Einschätzung - ohne Verpflichtung.",
-    dauer: "Woche 1–2",
+    dauer: "Woche 1-2",
   },
   {
     nr: "02",
     titel: "Diagnostik & Einschätzung",
     icon: ClipboardList,
     text: "Systematische Diagnostik mit validierten Verfahren. ICD-11-orientierte Einschätzung, Anamnese und Erstellung des therapeutischen Behandlungsplans.",
-    dauer: "Woche 2–4",
+    dauer: "Woche 2-4",
   },
   {
     nr: "03",
@@ -141,7 +141,7 @@ const unterschiede = [
   {
     merkmal: "Wartezeit",
     ankernetz: "Kurz durch eigene Kapazitäten",
-    andere: "6–18 Monate in externen Praxen",
+    andere: "6-18 Monate in externen Praxen",
     plus: true,
   },
   {
@@ -165,7 +165,7 @@ const faq = [
   },
   {
     frage: "Wie lange dauert eine Psychotherapie?",
-    antwort: "Das hängt von Störungsbild und Therapieziel ab. Kurztherapien umfassen 12–24 Stunden, Langzeittherapien bis zu 80 Stunden und mehr. Bei komplexen Traumatisierungen ist eine längere Therapiedauer in der Regel erforderlich. Die Kassenleistung sieht verschiedene Kontingente vor.",
+    antwort: "Das hängt von Störungsbild und Therapieziel ab. Kurztherapien umfassen 12-24 Stunden, Langzeittherapien bis zu 80 Stunden und mehr. Bei komplexen Traumatisierungen ist eine längere Therapiedauer in der Regel erforderlich. Die Kassenleistung sieht verschiedene Kontingente vor.",
   },
   {
     frage: "Ab welchem Alter können Kinder in Therapie?",

@@ -12,10 +12,10 @@ import {
 /* ─── Daten ─────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "12–17", label: "Jahre - Jugendliche in besonders kritischer Entwicklungsphase", icon: Users },
+  { wert: "12-17", label: "Jahre - Jugendliche in besonders kritischer Entwicklungsphase", icon: Users },
   { wert: "24/7", label: "Bezugsbetreuung und Krisenbegleitung im Alltag", icon: Clock },
   { wert: "Ø 18", label: "Monate therapeutische Begleitung pro Jugendlichem", icon: Target },
-  { wert: "klein", label: "Wohngruppen mit 4–6 Jugendlichen - Qualität vor Quantität", icon: Home },
+  { wert: "klein", label: "Wohngruppen mit 4-6 Jugendlichen - Qualität vor Quantität", icon: Home },
 ];
 
 const indikationen = [
@@ -61,7 +61,7 @@ const leistungen = [
   {
     icon: Home,
     titel: "Therapeutisch geleitete Wohngruppe",
-    text: "Kleine Gruppen mit 4–6 Jugendlichen. Klarer Strukturrahmen, verlässliche Bezugspersonen und ein therapeutisch gestalteter Alltag als Grundlage jeder Veränderung.",
+    text: "Kleine Gruppen mit 4-6 Jugendlichen. Klarer Strukturrahmen, verlässliche Bezugspersonen und ein therapeutisch gestalteter Alltag als Grundlage jeder Veränderung.",
   },
   {
     icon: Heart,
@@ -120,7 +120,7 @@ const prozessSchritte = [
     titel: "Platzanfrage",
     icon: ClipboardList,
     text: "Das Jugendamt stellt eine Anfrage mit relevanten Unterlagen. Wir prüfen die Passung und melden uns innerhalb von 48 Stunden zurück.",
-    dauer: "Tag 0–2",
+    dauer: "Tag 0-2",
   },
   {
     nr: "02",
@@ -134,14 +134,14 @@ const prozessSchritte = [
     titel: "Einzug & Eingewöhnung",
     icon: Heart,
     text: "Strukturierter Einzug mit individuellem Eingewöhnungsplan. Bezugsperson ab dem ersten Tag. Fokus auf Ankommen und Sicherheit.",
-    dauer: "Woche 1–4",
+    dauer: "Woche 1-4",
   },
   {
     nr: "04",
     titel: "Diagnostik & Hilfeplanung",
     icon: Brain,
     text: "Therapeutische Diagnostik, Erstellung eines individuellen Behandlungsplans und gemeinsame Zielformulierung im Hilfeplan mit Jugendamt und Familie.",
-    dauer: "Monat 1–2",
+    dauer: "Monat 1-2",
   },
   {
     nr: "05",
@@ -201,7 +201,7 @@ const ansatz = [
 const faq = [
   {
     frage: "Wie lange dauert ein Aufenthalt in einer therapeutischen Wohngruppe?",
-    antwort: "Im Durchschnitt 12–24 Monate. Die genaue Dauer richtet sich nach dem individuellen Hilfebedarf und wird gemeinsam mit dem Jugendamt im Hilfeplan festgelegt. Wir planen nicht auf Zeit - wir planen auf Ziele.",
+    antwort: "Im Durchschnitt 12-24 Monate. Die genaue Dauer richtet sich nach dem individuellen Hilfebedarf und wird gemeinsam mit dem Jugendamt im Hilfeplan festgelegt. Wir planen nicht auf Zeit - wir planen auf Ziele.",
   },
   {
     frage: "Was unterscheidet eine therapeutische Wohngruppe von einer regulären Heimgruppe?",
@@ -225,7 +225,7 @@ const faq = [
   },
   {
     frage: "Wie läuft das Schnupperwohnen ab?",
-    antwort: "Vor dem offiziellen Einzug verbringt der Jugendliche 1–3 Tage in der Gruppe: Kennenlernen des Teams, der Mitbewohner, der Räume und des Alltags. Kein Einzug ohne ein Gespräch mit dem Jugendlichen selbst. Seine Zustimmung ist für uns entscheidend.",
+    antwort: "Vor dem offiziellen Einzug verbringt der Jugendliche 1-3 Tage in der Gruppe: Kennenlernen des Teams, der Mitbewohner, der Räume und des Alltags. Kein Einzug ohne ein Gespräch mit dem Jugendlichen selbst. Seine Zustimmung ist für uns entscheidend.",
   },
   {
     frage: "Welche Schulmodelle gibt es?",
@@ -381,7 +381,7 @@ export default function TherapieWohnenPage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
             {[
-              { icon: CheckCircle, text: "Kleines Gruppenformat: 4–6 Jugendliche pro Gruppe" },
+              { icon: CheckCircle, text: "Kleines Gruppenformat: 4-6 Jugendliche pro Gruppe" },
               { icon: CheckCircle, text: "Approbierte Therapeuten als festes Teammitglied" },
               { icon: CheckCircle, text: "Wöchentliche Einzel- und Gruppentherapie" },
               { icon: CheckCircle, text: "24/7 Betreuung durch Bezugsfachkräfte" },

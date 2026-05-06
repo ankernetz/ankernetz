@@ -8,14 +8,14 @@ const megaMenu = [
     kategorie: "Krise & Schutz",
     items: [
       { label: "Krisenintervention",  href: "/krisenintervention",   sub: "24/7 Sofortaufnahme" },
-      { label: "Frühe Hilfen",        href: "/fruehe-hilfen",        sub: "Kleinkinder 0–6 Jahre" },
+      { label: "Frühe Hilfen",        href: "/fruehe-hilfen",        sub: "Kleinkinder 0-6 Jahre" },
     ],
   },
   {
     kategorie: "Wohnen & Therapie",
     items: [
       { label: "Therapie & Wohnen",   href: "/therapie-wohnen",      sub: "Therapeutische Wohngruppen" },
-      { label: "Jugendhilfe",         href: "/jugendhilfe",          sub: "Kinderwohngruppen 6–12 J." },
+      { label: "Jugendhilfe",         href: "/jugendhilfe",          sub: "Kinderwohngruppen 6-12 J." },
       { label: "Psychotherapie",      href: "/psychotherapie",       sub: "Mit Kassensitz" },
     ],
   },

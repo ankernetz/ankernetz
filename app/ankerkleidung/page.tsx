@@ -43,7 +43,7 @@ const kategorien: {
       { name: "Basishose Komfort",     badge: "Bestseller", icon: AlignJustify, material: "100% Bio-Baumwolle",   groessen: ["104","116","128","140","152","164"],             farben: ["Anthrazit","Navy","Grau"],   preis: 29.90, beschreibung: "Weicher Bund ohne Knöpfe, elastischer Schnitt, keine störenden Nähte." },
       { name: "Alltags-Shirt Reizarm", badge: "Beliebt",    icon: Shirt,        material: "Jersey Bio-Baumwolle",  groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Weiß","Hellgrau","Blau"],    preis: 19.90, beschreibung: "Ohne Aufdruck, nahtlos verarbeitet, angenehm auf der Haut." },
       { name: "Übergangsjacke Soft",                        icon: Wind,         material: "Fleece/Softshell",      groessen: ["116","128","140","152","164","S","M"],           farben: ["Navy","Grau"],              preis: 49.90, beschreibung: "Leicht, warm, einfach zu öffnen - kein Zipper-Stress." },
-      { name: "Socken Komfort-Set",    badge: "Neu",         icon: Footprints,   material: "Bambus/Baumwolle",      groessen: ["23–26","27–30","31–34","35–38","39–42"],         farben: ["Grau","Weiß","Schwarz"],    preis: 14.90, beschreibung: "Ohne störende Zehennaht, rutschfest, langlebig." },
+      { name: "Socken Komfort-Set",    badge: "Neu",         icon: Footprints,   material: "Bambus/Baumwolle",      groessen: ["23-26","27-30","31-34","35-38","39-42"],         farben: ["Grau","Weiß","Schwarz"],    preis: 14.90, beschreibung: "Ohne störende Zehennaht, rutschfest, langlebig." },
     ],
   },
   {
@@ -70,8 +70,8 @@ const kategorien: {
     slug: "vernachlaessigung", titel: "Erstausstattung", akzent: "#FEC274", bg: "rgba(254,194,116,0.08)",
     beschreibung: "Vollständig, würdevoll, passend.",
     produkte: [
-      { name: "Starter-Set Kind",        badge: "Empfohlen", icon: Package,  material: "Verschiedene", groessen: ["104–128","128–152"],   farben: ["Neutral"], preis: 129.90, beschreibung: "3 Shirts, 2 Hosen, Unterwäsche-Set, Socken, Jacke." },
-      { name: "Starter-Set Jugendliche",                     icon: Gift,     material: "Verschiedene", groessen: ["152–164","S/M","M/L"], farben: ["Neutral"], preis: 159.90, beschreibung: "Vollständige Erstausstattung - altersgerecht und würdevoll." },
+      { name: "Starter-Set Kind",        badge: "Empfohlen", icon: Package,  material: "Verschiedene", groessen: ["104-128","128-152"],   farben: ["Neutral"], preis: 129.90, beschreibung: "3 Shirts, 2 Hosen, Unterwäsche-Set, Socken, Jacke." },
+      { name: "Starter-Set Jugendliche",                     icon: Gift,     material: "Verschiedene", groessen: ["152-164","S/M","M/L"], farben: ["Neutral"], preis: 159.90, beschreibung: "Vollständige Erstausstattung - altersgerecht und würdevoll." },
       { name: "Schul-Paket",                                 icon: BookOpen, material: "Verschiedene", groessen: ["Universal"],           farben: ["Neutral"], preis: 89.90,  beschreibung: "Rucksack, Federmäppchen, Schulkleidung-Set." },
       { name: "Hygiene-Starter",          badge: "Neu",      icon: Droplets, material: "-",            groessen: ["Universal"],           farben: ["-"],       preis: 24.90,  beschreibung: "Grundlegende Hygieneartikel als Ergänzung." },
     ],
@@ -100,9 +100,9 @@ const kategorien: {
     slug: "erstbekleidung", titel: "Erstbekleidungspakete", akzent: "#22c55e", bg: "rgba(34,197,94,0.07)",
     beschreibung: "Komplettausstattung für den ersten Tag - würdevoll und vollständig.",
     produkte: [
-      { name: "Erstpaket Klein",      badge: "Bestseller", icon: Package,     material: "Gemischte Materialien", groessen: ["80–104","104–116"],         farben: ["Neutral"],       preis: 119.90, beschreibung: "5 Oberteile, 3 Hosen, Unterwäsche, Socken, Jacke - alles für den Start." },
-      { name: "Erstpaket Mittel",     badge: "Empfohlen",  icon: Box,         material: "Gemischte Materialien", groessen: ["116–128","128–140"],         farben: ["Neutral"],       preis: 139.90, beschreibung: "Vollständige Ausstattung für Schulkinder - altersgerecht und praktisch." },
-      { name: "Erstpaket Groß",                            icon: ShoppingBag, material: "Gemischte Materialien", groessen: ["140–152","152–164","S/M"],   farben: ["Frei wählbar"],  preis: 159.90, beschreibung: "Komplettset für Jugendliche - inkl. Freizeitkleidung und Schuloutfit." },
+      { name: "Erstpaket Klein",      badge: "Bestseller", icon: Package,     material: "Gemischte Materialien", groessen: ["80-104","104-116"],         farben: ["Neutral"],       preis: 119.90, beschreibung: "5 Oberteile, 3 Hosen, Unterwäsche, Socken, Jacke - alles für den Start." },
+      { name: "Erstpaket Mittel",     badge: "Empfohlen",  icon: Box,         material: "Gemischte Materialien", groessen: ["116-128","128-140"],         farben: ["Neutral"],       preis: 139.90, beschreibung: "Vollständige Ausstattung für Schulkinder - altersgerecht und praktisch." },
+      { name: "Erstpaket Groß",                            icon: ShoppingBag, material: "Gemischte Materialien", groessen: ["140-152","152-164","S/M"],   farben: ["Frei wählbar"],  preis: 159.90, beschreibung: "Komplettset für Jugendliche - inkl. Freizeitkleidung und Schuloutfit." },
       { name: "Erstpaket Premium",    badge: "Neu",        icon: Star,        material: "Premium Bio-Baumwolle", groessen: ["Alle Größen wählbar"],       farben: ["Frei wählbar"],  preis: 199.90, beschreibung: "Premium-Ausstattung mit individueller Beratung und Größenanpassung." },
     ],
   },
@@ -110,9 +110,9 @@ const kategorien: {
     slug: "winterpauschale", titel: "Winterpauschale", akzent: "#93c5fd", bg: "rgba(147,197,253,0.08)",
     beschreibung: "Warm, wetterfest und vollständig für die kalte Jahreszeit.",
     produkte: [
-      { name: "Winterpaket Kleinkind",  badge: "Bestseller", icon: Snowflake,   material: "Fleece + Außenmaterial", groessen: ["80–104","104–116"],       farben: ["Navy","Dunkelgrau","Schwarz"], preis: 149.90, beschreibung: "Winterjacke, Thermohose, Mütze, Handschuhe, Schal, Thermosocken." },
-      { name: "Winterpaket Kind",       badge: "Empfohlen",  icon: Thermometer, material: "Softshell + Fleece",     groessen: ["116–128","128–140"],       farben: ["Navy","Dunkelgrau","Anthrazit"], preis: 169.90, beschreibung: "Komplettes Winteroutfit inkl. wasserabweisender Jacke und Thermobase." },
-      { name: "Winterpaket Jugend",                          icon: Wind,        material: "Funktionsmaterial",      groessen: ["140–152","152–164","S/M"], farben: ["Schwarz","Navy","Dunkelgrau"],  preis: 189.90, beschreibung: "Jugend-Winterset mit wärmender Funktionsjacke und Outdoorhose." },
+      { name: "Winterpaket Kleinkind",  badge: "Bestseller", icon: Snowflake,   material: "Fleece + Außenmaterial", groessen: ["80-104","104-116"],       farben: ["Navy","Dunkelgrau","Schwarz"], preis: 149.90, beschreibung: "Winterjacke, Thermohose, Mütze, Handschuhe, Schal, Thermosocken." },
+      { name: "Winterpaket Kind",       badge: "Empfohlen",  icon: Thermometer, material: "Softshell + Fleece",     groessen: ["116-128","128-140"],       farben: ["Navy","Dunkelgrau","Anthrazit"], preis: 169.90, beschreibung: "Komplettes Winteroutfit inkl. wasserabweisender Jacke und Thermobase." },
+      { name: "Winterpaket Jugend",                          icon: Wind,        material: "Funktionsmaterial",      groessen: ["140-152","152-164","S/M"], farben: ["Schwarz","Navy","Dunkelgrau"],  preis: 189.90, beschreibung: "Jugend-Winterset mit wärmender Funktionsjacke und Outdoorhose." },
       { name: "Winterjacke Einzeln",    badge: "Neu",        icon: Shield,      material: "Softshell wasserdicht",  groessen: ["104","116","128","140","152","164","S","M","L"], farben: ["Navy","Schwarz","Anthrazit"], preis: 79.90, beschreibung: "Hochwertige Winterjacke - wasserdicht, winddicht, warm." },
     ],
   },
@@ -120,9 +120,9 @@ const kategorien: {
     slug: "sommerpauschale", titel: "Sommerpauschale", akzent: "#f97316", bg: "rgba(249,115,22,0.07)",
     beschreibung: "Leicht, atmungsaktiv und feriengerecht für warme Monate.",
     produkte: [
-      { name: "Sommerpaket Kleinkind",  badge: "Bestseller", icon: Sun,       material: "100% Bio-Baumwolle leicht", groessen: ["80–104","104–116"],       farben: ["Hellblau","Hellgrau","Weiß"],  preis: 99.90,  beschreibung: "3 T-Shirts, 2 Shorts, Sonnenhut, Badesachen, leichte Sandalen." },
-      { name: "Sommerpaket Kind",       badge: "Beliebt",    icon: CloudSun,  material: "Leichtgewebe atmungsaktiv", groessen: ["116–128","128–140"],       farben: ["Hellblau","Weiß","Grün"],      preis: 119.90, beschreibung: "Sommeroutfit für den Schulalltag und Freizeit - UV-schützende Qualität." },
-      { name: "Sommerpaket Jugend",                          icon: Feather,   material: "Jersey + Leinen-Mix",       groessen: ["140–152","152–164","S/M"], farben: ["Frei wählbar"],                preis: 139.90, beschreibung: "Komplettes Sommerpaket für Jugendliche inkl. Schwimmbekleidung." },
+      { name: "Sommerpaket Kleinkind",  badge: "Bestseller", icon: Sun,       material: "100% Bio-Baumwolle leicht", groessen: ["80-104","104-116"],       farben: ["Hellblau","Hellgrau","Weiß"],  preis: 99.90,  beschreibung: "3 T-Shirts, 2 Shorts, Sonnenhut, Badesachen, leichte Sandalen." },
+      { name: "Sommerpaket Kind",       badge: "Beliebt",    icon: CloudSun,  material: "Leichtgewebe atmungsaktiv", groessen: ["116-128","128-140"],       farben: ["Hellblau","Weiß","Grün"],      preis: 119.90, beschreibung: "Sommeroutfit für den Schulalltag und Freizeit - UV-schützende Qualität." },
+      { name: "Sommerpaket Jugend",                          icon: Feather,   material: "Jersey + Leinen-Mix",       groessen: ["140-152","152-164","S/M"], farben: ["Frei wählbar"],                preis: 139.90, beschreibung: "Komplettes Sommerpaket für Jugendliche inkl. Schwimmbekleidung." },
       { name: "Sonnenschutz-Set",       badge: "Neu",        icon: Umbrella,  material: "UV 50+ Funktionsmaterial",  groessen: ["Universal"],               farben: ["Hellblau","Weiß"],             preis: 39.90,  beschreibung: "Sonnenhut, Schutzkragen und UV-Shirt - Ergänzung zu jedem Sommerpaket." },
     ],
   },
@@ -320,15 +320,15 @@ function ProduktKarte({ produkt, kat, onAdd, sel, setSel, wished, onWish }:
                 </thead>
                 <tbody>
                   {[
-                    ["104","3–4 J.","98–104 cm","15–18 kg"],
-                    ["116","5–6 J.","110–116 cm","18–22 kg"],
-                    ["128","7–8 J.","122–128 cm","22–27 kg"],
-                    ["140","9–10 J.","134–140 cm","27–33 kg"],
-                    ["152","11–12 J.","146–152 cm","33–42 kg"],
-                    ["164","13–14 J.","158–164 cm","42–52 kg"],
-                    ["S","XS–S","160–168 cm","50–62 kg"],
-                    ["M","M","168–176 cm","62–74 kg"],
-                    ["L","L–XL","176–184 cm","74–90 kg"],
+                    ["104","3-4 J.","98-104 cm","15-18 kg"],
+                    ["116","5-6 J.","110-116 cm","18-22 kg"],
+                    ["128","7-8 J.","122-128 cm","22-27 kg"],
+                    ["140","9-10 J.","134-140 cm","27-33 kg"],
+                    ["152","11-12 J.","146-152 cm","33-42 kg"],
+                    ["164","13-14 J.","158-164 cm","42-52 kg"],
+                    ["S","XS-S","160-168 cm","50-62 kg"],
+                    ["M","M","168-176 cm","62-74 kg"],
+                    ["L","L-XL","176-184 cm","74-90 kg"],
                   ].map((row, i) => (
                     <tr key={i} style={{ borderBottom: "1px solid #f3f4f6",
                       background: i % 2 === 0 ? "white" : "#f9fafb" }}>
@@ -421,7 +421,7 @@ const beduerfnisse: { id: string; label: string; icon: LucideIcon; slugs: string
 /* ─── Selbstcheck-Daten ────────────────────────────────────────── */
 const selbstCheckFragen: { teil: string; frage: string; antworten: { key: string; text: string }[] }[] = [
   {
-    teil: "Teil 1 – Wie fühlst du dich im Alltag?",
+    teil: "Teil 1 - Wie fühlst du dich im Alltag?",
     frage: "Wie geht es dir die meiste Zeit?",
     antworten: [
       { key: "A", text: "Ich bin oft unruhig oder angespannt" },
@@ -431,7 +431,7 @@ const selbstCheckFragen: { teil: string; frage: string; antworten: { key: string
     ],
   },
   {
-    teil: "Teil 1 – Wie fühlst du dich im Alltag?",
+    teil: "Teil 1 - Wie fühlst du dich im Alltag?",
     frage: "Was passiert bei Stress?",
     antworten: [
       { key: "A", text: "Ich werde zappelig oder nervös" },
@@ -441,7 +441,7 @@ const selbstCheckFragen: { teil: string; frage: string; antworten: { key: string
     ],
   },
   {
-    teil: "Teil 2 – Körper & Verhalten",
+    teil: "Teil 2 - Körper & Verhalten",
     frage: "Hast du oft das Bedürfnis, etwas mit den Händen zu tun?",
     antworten: [
       { key: "A", text: "Ja, sehr oft" },
@@ -451,7 +451,7 @@ const selbstCheckFragen: { teil: string; frage: string; antworten: { key: string
     ],
   },
   {
-    teil: "Teil 2 – Körper & Verhalten",
+    teil: "Teil 2 - Körper & Verhalten",
     frage: "Was machst du unbewusst häufig?",
     antworten: [
       { key: "A", text: "Mit den Fingern spielen, klopfen, knibbeln" },
@@ -461,7 +461,7 @@ const selbstCheckFragen: { teil: string; frage: string; antworten: { key: string
     ],
   },
   {
-    teil: "Teil 3 – Reize & Umgebung",
+    teil: "Teil 3 - Reize & Umgebung",
     frage: "Wie reagierst du auf Lärm oder viele Eindrücke?",
     antworten: [
       { key: "A", text: "Ich werde unruhig" },
@@ -471,17 +471,17 @@ const selbstCheckFragen: { teil: string; frage: string; antworten: { key: string
     ],
   },
   {
-    teil: "Teil 3 – Reize & Umgebung",
+    teil: "Teil 3 - Reize & Umgebung",
     frage: "Wie wichtig ist dir Ruhe um dich herum?",
     antworten: [
       { key: "A", text: "Nicht so wichtig" },
-      { key: "B", text: "Sehr wichtig – ich brauche Rückzug" },
+      { key: "B", text: "Sehr wichtig - ich brauche Rückzug" },
       { key: "C", text: "Unterschiedlich" },
       { key: "D", text: "Meistens egal" },
     ],
   },
   {
-    teil: "Teil 4 – Was hilft dir?",
+    teil: "Teil 4 - Was hilft dir?",
     frage: "Was hilft dir am meisten, wenn du gestresst bist?",
     antworten: [
       { key: "A", text: "Bewegung oder etwas mit den Händen" },
@@ -491,7 +491,7 @@ const selbstCheckFragen: { teil: string; frage: string; antworten: { key: string
     ],
   },
   {
-    teil: "Teil 4 – Was hilft dir?",
+    teil: "Teil 4 - Was hilft dir?",
     frage: "Was brauchst du am ehesten in schwierigen Momenten?",
     antworten: [
       { key: "A", text: "Ein Ventil für meine Energie" },

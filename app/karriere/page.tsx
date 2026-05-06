@@ -27,7 +27,7 @@ const stellen = [
     eintrittsdatum: "Ab sofort",
     akzent: "#6FA3FE",
     aufgaben: [
-      "Alltagsbegleitung in der therapeutischen Wohngruppe (12–17 J.)",
+      "Alltagsbegleitung in der therapeutischen Wohngruppe (12-17 J.)",
       "Bezugsbetreuung und intensive Einzelbegleitung",
       "Mitgestaltung von Freizeit- und Erlebnispädagogik",
       "Familienarbeit und Kooperation mit Schulen",
@@ -42,11 +42,11 @@ const stellen = [
   {
     bereich: "Frühe Hilfen",
     titel: "Familienhebamme / Familiengesundheitspflegerin (m/w/d)",
-    umfang: "Teilzeit (20–30 Std.)",
+    umfang: "Teilzeit (20-30 Std.)",
     eintrittsdatum: "Ab sofort",
     akzent: "#22c55e",
     aufgaben: [
-      "Aufsuchende Arbeit mit Familien mit Kleinkindern (0–3 Jahre)",
+      "Aufsuchende Arbeit mit Familien mit Kleinkindern (0-3 Jahre)",
       "Unterstützung bei Bindungsaufbau und Entwicklungsförderung",
       "Vernetzung mit Kinderärzten, Kitas und Jugendamt",
       "Gruppenangebote für Mütter und Väter",
@@ -384,7 +384,7 @@ export default function KarrierePage() {
             {[
               { nr: "01", titel: "Bewerbung", text: "Unterlagen per E-Mail an karriere@ankernetz.com - Anschreiben, Lebenslauf, relevante Zeugnisse." },
               { nr: "02", titel: "Rückmeldung", text: "Innerhalb von 5 Werktagen erhalten Sie eine Eingangsbestätigung und einen ersten Überblick." },
-              { nr: "03", titel: "Erstgespräch", text: "Telefonisches Kennenlernen - 20–30 Minuten, offen und unverbindlich." },
+              { nr: "03", titel: "Erstgespräch", text: "Telefonisches Kennenlernen - 20-30 Minuten, offen und unverbindlich." },
               { nr: "04", titel: "Vorstellungsgespräch", text: "Persönliches Gespräch im Team - Sie lernen uns kennen, wir lernen Sie kennen." },
               { nr: "05", titel: "Angebot", text: "Bei gegenseitigem Interesse: Vertragsangebot mit klaren Konditionen - ohne lange Wartezeit." },
             ].map((s, i) => (

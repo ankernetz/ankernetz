@@ -79,7 +79,7 @@ export default function KontaktPage() {
             background: "rgba(255,255,255,0.1)" }}>
             {[
               { label: "Telefon", wert: "+49 (0) 30 22 45 43 22",
-                sub: "Mo–Fr 8–18 Uhr", note: "Krisennotfall: 24/7 erreichbar",
+                sub: "Mo-Fr 8-18 Uhr", note: "Krisennotfall: 24/7 erreichbar",
                 href: "tel:+4930224543220", noteColor: "#ef4444" },
               { label: "E-Mail", wert: "hilfe@ankernetz.com",
                 sub: "Antwort innerhalb von 24 Stunden", note: null,
@@ -136,7 +136,7 @@ export default function KontaktPage() {
                 punkte: [
                   "Beratung zu passenden Hilfeangeboten",
                   "Begleitung durch den Antragsprozess",
-                  "Informationen zu Frühe Hilfen (0–6 J.)",
+                  "Informationen zu Frühe Hilfen (0-6 J.)",
                   "Ansprechpartner bei akuter Not",
                   "Psychotherapie für Ihr Kind",
                 ] },
@@ -208,7 +208,7 @@ export default function KontaktPage() {
               {[
                 { label: "Reaktionszeit allgemein", wert: "Innerhalb von 24 Std." },
                 { label: "Krisenaufnahme",          wert: "Innerhalb von 30 Min." },
-                { label: "Telefonische Erreichbarkeit", wert: "Mo–Fr, 8–18 Uhr" },
+                { label: "Telefonische Erreichbarkeit", wert: "Mo-Fr, 8-18 Uhr" },
                 { label: "Krisentelefon",            wert: "24/7 erreichbar" },
                 { label: "Persönliche Termine",      wert: "Nach Vereinbarung" },
               ].map((r, i) => (
@@ -328,7 +328,7 @@ export default function KontaktPage() {
                     <option>Krisenintervention - dringend</option>
                     <option>Psychotherapie-Anfrage</option>
                     <option>Diagnostik & Clearing</option>
-                    <option>Frühe Hilfen (0–6 Jahre)</option>
+                    <option>Frühe Hilfen (0-6 Jahre)</option>
                     <option>Beratung & Prävention</option>
                     <option>Beratung in Kitas</option>
                     <option>Übergang Arbeit</option>

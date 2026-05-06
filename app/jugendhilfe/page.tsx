@@ -13,8 +13,8 @@ import {
 /* ─── Daten ─────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "6–12", label: "Jahre - Kinder in einer prägenden Entwicklungsphase", icon: Users },
-  { wert: "4–6", label: "Kinder pro Gruppe - Qualität durch Überschaubarkeit", icon: Home },
+  { wert: "6-12", label: "Jahre - Kinder in einer prägenden Entwicklungsphase", icon: Users },
+  { wert: "4-6", label: "Kinder pro Gruppe - Qualität durch Überschaubarkeit", icon: Home },
   { wert: "24/7", label: "Betreuung und Bereitschaft an allen Tagen", icon: Clock },
   { wert: "100%", label: "Bindungsorientierte Pädagogik als Grundprinzip", icon: Heart },
 ];
@@ -132,7 +132,7 @@ const prozessSchritte = [
     titel: "Platzanfrage",
     icon: ClipboardList,
     text: "Das Jugendamt stellt eine Anfrage. Wir prüfen die Passung anhand der vorhandenen Unterlagen und melden uns innerhalb von 48 Stunden.",
-    dauer: "Tag 0–2",
+    dauer: "Tag 0-2",
   },
   {
     nr: "02",
@@ -146,14 +146,14 @@ const prozessSchritte = [
     titel: "Gemeinsame Vorbereitung",
     icon: Users,
     text: "Vorbereitung des Einzugs mit Kind, Familie und Jugendamt. Zimmergestaltung, Alltagsplanung, Übergabegespräch.",
-    dauer: "Woche 1–2",
+    dauer: "Woche 1-2",
   },
   {
     nr: "04",
     titel: "Einzug & Eingewöhnung",
     icon: Home,
     text: "Behutsamer Einzug mit Bezugsperson von Tag eins. Eingewöhnungsplan, der dem Tempo des Kindes folgt - keine Schocktherapie.",
-    dauer: "Woche 2–6",
+    dauer: "Woche 2-6",
   },
   {
     nr: "05",
@@ -389,7 +389,7 @@ export default function JugendhilfePage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
             {[
-              { icon: CheckCircle, text: "Kleine Gruppen: 4–6 Kinder für intensive Beziehungsarbeit" },
+              { icon: CheckCircle, text: "Kleine Gruppen: 4-6 Kinder für intensive Beziehungsarbeit" },
               { icon: CheckCircle, text: "Feste Bezugsperson von Tag eins - über den gesamten Aufenthalt" },
               { icon: CheckCircle, text: "Tägliche Hausaufgabenbegleitung und Schulkooperation" },
               { icon: CheckCircle, text: "Bindungsorientierte Pädagogik als Teamstandard" },

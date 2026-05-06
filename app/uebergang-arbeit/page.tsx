@@ -175,7 +175,7 @@ const tagAblauf = [
 ];
 
 const fachkraefteLeistungen = [
-  { icon: FileText, titel: "Frühzeitige Übergangsplanung", text: "Gemeinsam mit dem Jugendamt bereiten wir den Übergang vor - idealerweise 12–18 Monate vor Hilfeende." },
+  { icon: FileText, titel: "Frühzeitige Übergangsplanung", text: "Gemeinsam mit dem Jugendamt bereiten wir den Übergang vor - idealerweise 12-18 Monate vor Hilfeende." },
   { icon: Building2, titel: "Abstimmung mit Agentur für Arbeit", text: "Direkte Koordination mit der Agentur für Arbeit für nahtlose Anschlussversorgung." },
   { icon: ClipboardList, titel: "Dokumentation für Kostenträger", text: "Vollständige Dokumentation, Berichte und Sachstandsmitteilungen für Jugendamt und Kostenträger." },
   { icon: Layers, titel: "Flexible Unterstützungsmodelle", text: "Von der Einzelfallbegleitung bis zum Rahmenvertrag - wir passen uns dem Bedarf des Jugendamts an." },
@@ -186,7 +186,7 @@ const fachkraefteLeistungen = [
 const faqItems = [
   {
     frage: "Ab welchem Alter kann die Begleitung starten?",
-    antwort: "Idealerweise beginnen wir die Übergangsplanung 12–18 Monate vor dem geplanten Ende der Jugendhilfe - also oft ab 16 oder 17 Jahren. Wir können aber auch in späteren Phasen einsteigen, wenn der Übergang bereits begonnen hat.",
+    antwort: "Idealerweise beginnen wir die Übergangsplanung 12-18 Monate vor dem geplanten Ende der Jugendhilfe - also oft ab 16 oder 17 Jahren. Wir können aber auch in späteren Phasen einsteigen, wenn der Übergang bereits begonnen hat.",
   },
   {
     frage: "Wie lange dauert die Begleitung?",

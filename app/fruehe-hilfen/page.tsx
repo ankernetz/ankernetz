@@ -11,7 +11,7 @@ import {
 /* ─── Daten ─────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "0–6", label: "Jahre - früheste und vulnerabelste Lebensphase", icon: Baby },
+  { wert: "0-6", label: "Jahre - früheste und vulnerabelste Lebensphase", icon: Baby },
   { wert: "24/7", label: "Notaufnahme bei akuter Kindeswohlgefährdung", icon: Shield },
   { wert: "100%", label: "Bindungsorientierter Ansatz in allen Bereichen", icon: Heart },
   { wert: "15+", label: "Jahre Erfahrung in der Kleinstkinderarbeit", icon: Star },
@@ -133,14 +133,14 @@ const prozessSchritte = [
     titel: "Eingewöhnung & Bindungsaufbau",
     icon: Heart,
     text: "Behutsame erste Wochen mit klarer Bezugsperson. Fokus auf Sicherheit, Orientierung und erste Vertrauensbildung.",
-    dauer: "Woche 1–4",
+    dauer: "Woche 1-4",
   },
   {
     nr: "04",
     titel: "Diagnostik & Förderplanung",
     icon: Brain,
     text: "Entwicklungspsychologische Einschätzung, Bindungsdiagnostik und Erstellung des individuellen Förderplans - in Abstimmung mit dem Jugendamt.",
-    dauer: "Monat 1–2",
+    dauer: "Monat 1-2",
   },
   {
     nr: "05",
@@ -152,7 +152,7 @@ const prozessSchritte = [
 ];
 
 const teamProfile = [
-  { icon: Baby, titel: "Kleinstkinderpädagoginnen", text: "Spezialisiert auf 0–3-Jährige. Ausgebildet in Bindungstheorie, Pikler-Pädagogik und Entwicklungsbegleitung." },
+  { icon: Baby, titel: "Kleinstkinderpädagoginnen", text: "Spezialisiert auf 0-3-Jährige. Ausgebildet in Bindungstheorie, Pikler-Pädagogik und Entwicklungsbegleitung." },
   { icon: Brain, titel: "Entwicklungspsychologinnen", text: "Diagnostik und Einschätzung mit validierten Verfahren. Individuelle Förderpläne auf wissenschaftlicher Grundlage." },
   { icon: Heart, titel: "Bindungstherapeutinnen", text: "Gezielte therapeutische Arbeit bei Bindungsstörungen und frühen Traumatisierungen." },
   { icon: Stethoscope, titel: "Medizinische Fachkräfte", text: "Kooperierendes Kinderarztteam, Hebammen und Fachärztinnen für lückenlose Gesundheitsversorgung." },
@@ -191,7 +191,7 @@ const faq = [
   },
   {
     frage: "Wie lange dauert ein Frühe-Hilfen-Aufenthalt in der Regel?",
-    antwort: "Das hängt stark vom Einzelfall ab. Kurzfristige Schutzmaßnahmen dauern wenige Wochen, längerfristige Begleitungen 6–18 Monate. Die Dauer wird gemeinsam mit dem Jugendamt und im Hilfeplan festgelegt - immer mit dem Ziel, eine nachhaltige Perspektive für das Kind zu entwickeln.",
+    antwort: "Das hängt stark vom Einzelfall ab. Kurzfristige Schutzmaßnahmen dauern wenige Wochen, längerfristige Begleitungen 6-18 Monate. Die Dauer wird gemeinsam mit dem Jugendamt und im Hilfeplan festgelegt - immer mit dem Ziel, eine nachhaltige Perspektive für das Kind zu entwickeln.",
   },
 ];
 
@@ -615,7 +615,7 @@ export default function FrueheHilfenPage() {
               <p style={{
                 fontSize: "3.5rem", fontWeight: 900, color: "#6FA3FE",
                 letterSpacing: "-0.03em", lineHeight: 1, marginBottom: "0.5rem",
-              }}>0–6</p>
+              }}>0-6</p>
               <p style={{ fontWeight: 700, fontSize: "18px", color: "white", marginBottom: "1rem" }}>Jahre</p>
               <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.8, fontSize: "14px" }}>
                 Die vulnerabelste Lebensphase. Alles, was in diesen Jahren passiert,
@@ -626,8 +626,8 @@ export default function FrueheHilfenPage() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               {[
-                { icon: Baby, label: "Säuglinge & Kleinkinder (0–3)", desc: "Höchster Schutzbedarf, speziell geschultes Pflegepersonal, 24/7-Betreuung" },
-                { icon: Smile, label: "Kindergartenkinder (3–6)", desc: "Entwicklungsförderung, Kita-Integration, Bindungsarbeit und Elternbegleitung" },
+                { icon: Baby, label: "Säuglinge & Kleinkinder (0-3)", desc: "Höchster Schutzbedarf, speziell geschultes Pflegepersonal, 24/7-Betreuung" },
+                { icon: Smile, label: "Kindergartenkinder (3-6)", desc: "Entwicklungsförderung, Kita-Integration, Bindungsarbeit und Elternbegleitung" },
                 { icon: Home, label: "Kinder aus hochbelasteten Familien", desc: "Sucht, psychische Erkrankung, Armut, häusliche Gewalt als Belastungsfaktoren" },
                 { icon: AlertTriangle, label: "Kinder bei akuter Kindeswohlgefährdung", desc: "Sofortschutz, Notaufnahme und strukturierte Diagnostik im Krisenkontext" },
               ].map((item) => {

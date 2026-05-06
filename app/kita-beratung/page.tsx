@@ -79,7 +79,7 @@ const kernleistungen = [
     icon: Baby,
     titel: "Frühkindliche Entwicklung",
     text: "Beratung bei Fragen zur frühkindlichen Entwicklung: Bindungsverhalten, Schlaf- und Essprobleme, Sprachentwicklung, sensorische Besonderheiten. Für Krippen und Kitas mit Kindern von 0 bis 6 Jahren.",
-    badge: "0–6 Jahre",
+    badge: "0-6 Jahre",
     badgeColor: "#be185d",
   },
 ];
@@ -156,7 +156,7 @@ const faqItems = [
   },
   {
     frage: "Wie schnell kann Ankernetz in unsere Kita kommen?",
-    antwort: "In dringenden Fällen sind wir innerhalb von 24–48 Stunden erreichbar. Für geplante Supervisionen oder Fortbildungen vereinbaren wir Termine nach Ihrem Rhythmus - in der Regel innerhalb einer Woche.",
+    antwort: "In dringenden Fällen sind wir innerhalb von 24-48 Stunden erreichbar. Für geplante Supervisionen oder Fortbildungen vereinbaren wir Termine nach Ihrem Rhythmus - in der Regel innerhalb einer Woche.",
   },
   {
     frage: "Wie gehe ich vor, wenn ich Verdacht auf Kindeswohlgefährdung habe?",
@@ -168,7 +168,7 @@ const faqItems = [
   },
   {
     frage: "Wie läuft eine Supervision ab?",
-    antwort: "Nach einer kurzen Orientierungsphase bringen Teammitglieder konkrete Situationen oder Fälle ein. Gemeinsam analysieren wir das Geschehen aus verschiedenen Blickwinkeln und entwickeln Handlungsoptionen. Die Sitzungen dauern in der Regel 90–120 Minuten.",
+    antwort: "Nach einer kurzen Orientierungsphase bringen Teammitglieder konkrete Situationen oder Fälle ein. Gemeinsam analysieren wir das Geschehen aus verschiedenen Blickwinkeln und entwickeln Handlungsoptionen. Die Sitzungen dauern in der Regel 90-120 Minuten.",
   },
   {
     frage: "Sind die Gespräche vertraulich?",

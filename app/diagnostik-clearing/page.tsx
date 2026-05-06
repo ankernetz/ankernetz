@@ -12,7 +12,7 @@ import {
 /* ─── Daten ─────────────────────────────────────────────────── */
 
 const kennzahlen = [
-  { wert: "0–21", label: "Jahre - alle Altersgruppen, von Säugling bis jungem Erwachsenen", icon: Users },
+  { wert: "0-21", label: "Jahre - alle Altersgruppen, von Säugling bis jungem Erwachsenen", icon: Users },
   { wert: "< 4 Wo", label: "Durchlaufzeit bei Standard-Clearing", icon: Clock },
   { wert: "ICD-11", label: "Diagnostik auf aktuellem internationalem Standard", icon: Brain },
   { wert: "neutral", label: "Unabhängige Facheinschätzung ohne Interessenkonflikt", icon: Shield },
@@ -80,19 +80,19 @@ const clearingPhasen = [
     icon: Users,
     titel: "Erhebungsphase",
     text: "Gespräche mit dem Kind/Jugendlichen, den Eltern, Betreuern und relevanten Bezugspersonen. Parallele Fremdanamnese und Aktensichtung.",
-    dauer: "Woche 1–2",
+    dauer: "Woche 1-2",
   },
   {
     icon: ScanSearch,
     titel: "Testdiagnostik",
     text: "Durchführung der vereinbarten psychologischen Testverfahren. Verhaltensbeobachtung, projektive Verfahren, strukturierte Interviews.",
-    dauer: "Woche 2–3",
+    dauer: "Woche 2-3",
   },
   {
     icon: BarChart2,
     titel: "Auswertung & Integration",
     text: "Systematische Auswertung aller erhobenen Daten. Integration zu einem konsistenten diagnostischen Bild. Einschätzung nach ICD-11.",
-    dauer: "Woche 3–4",
+    dauer: "Woche 3-4",
   },
   {
     icon: FileText,
@@ -132,10 +132,10 @@ const berichtsarten = [
 ];
 
 const unterschiede = [
-  { merkmal: "Wartezeit", ankernetz: "Unter 4 Wochen durch eigene Kapazitäten", andere: "3–12 Monate in externen Stellen" },
+  { merkmal: "Wartezeit", ankernetz: "Unter 4 Wochen durch eigene Kapazitäten", andere: "3-12 Monate in externen Stellen" },
   { merkmal: "Vernetzung", ankernetz: "Direkt mit allen Ankernetz-Angeboten", andere: "Isoliert, ohne Systemkenntnis" },
   { merkmal: "Bericht", ankernetz: "Handlungsorientiert, für ASD direkt verwertbar", andere: "Oft akademisch, kaum praxisnah" },
-  { merkmal: "Altersbreite", ankernetz: "0–21 Jahre, alle Entwicklungsphasen", andere: "Oft nur bestimmte Altersgruppen" },
+  { merkmal: "Altersbreite", ankernetz: "0-21 Jahre, alle Entwicklungsphasen", andere: "Oft nur bestimmte Altersgruppen" },
   { merkmal: "Transparenz", ankernetz: "Rückmeldegespräch mit allen Beteiligten", andere: "Bericht per Post, kein Gespräch" },
 ];
 
@@ -150,7 +150,7 @@ const faq = [
   },
   {
     frage: "Wie lange dauert ein vollständiges Clearing?",
-    antwort: "Ein Standardclearing dauert 3–4 Wochen von Auftragserteilung bis Berichtsfertigstellung. Bei dringenden Fällen ist ein diagnostischer Kurzbrief innerhalb von 2 Wochen möglich. Der genaue Zeitrahmen wird im Auftragsgespräch festgelegt.",
+    antwort: "Ein Standardclearing dauert 3-4 Wochen von Auftragserteilung bis Berichtsfertigstellung. Bei dringenden Fällen ist ein diagnostischer Kurzbrief innerhalb von 2 Wochen möglich. Der genaue Zeitrahmen wird im Auftragsgespräch festgelegt.",
   },
   {
     frage: "Sind die Berichte für Familiengerichte verwertbar?",
@@ -318,7 +318,7 @@ export default function DiagnostikClearingPage() {
               { icon: CheckCircle, text: "Validierte, normierte Diagnostikverfahren nach aktuellem Standard" },
               { icon: CheckCircle, text: "ICD-11-orientierte Einschätzung und Diagnosestellung" },
               { icon: CheckCircle, text: "Handlungsorientierte Berichte - direkt für den ASD verwertbar" },
-              { icon: CheckCircle, text: "Altersbreite 0–21 Jahre, alle Entwicklungsphasen" },
+              { icon: CheckCircle, text: "Altersbreite 0-21 Jahre, alle Entwicklungsphasen" },
               { icon: CheckCircle, text: "Gerichtsverwertbare Gutachten auf Anfrage" },
               { icon: CheckCircle, text: "Rückmeldegespräch mit Kind, Eltern und Jugendamt" },
               { icon: CheckCircle, text: "Kurze Wartezeiten durch eigene Diagnostikkapazitäten" },

@@ -79,7 +79,7 @@ export default function UeberUnsPage() {
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
-                Ankernetz wurde 2015 gegründet – von Fachkräften, die selbst viele Jahre in der Kinder- und Jugendhilfe gearbeitet haben.
+                Ankernetz wurde 2015 gegründet - von Fachkräften, die selbst viele Jahre in der Kinder- und Jugendhilfe gearbeitet haben.
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
                 Sie haben erlebt, wie herausfordernd es sein kann, passgenaue Hilfe zu organisieren: Übergänge, fehlende Abstimmung und unterbrochene Beziehungen.
@@ -88,13 +88,13 @@ export default function UeberUnsPage() {
                 Daraus entstand eine klare Idee: Hilfen so zu gestalten, dass sie aufeinander aufbauen, ineinandergreifen und für junge Menschen nachvollziehbar bleiben.
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
-                Heute verbindet Ankernetz verschiedene spezialisierte Angebote – von der Krisenaufnahme über Wohnen bis hin zu therapeutischer Begleitung.
+                Heute verbindet Ankernetz verschiedene spezialisierte Angebote - von der Krisenaufnahme über Wohnen bis hin zu therapeutischer Begleitung.
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
                 Wege sind kurz, Teams arbeiten eng zusammen und es gibt feste Ansprechpartner.
               </p>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.65)", lineHeight: 1.85 }}>
-                So entsteht Kontinuität – und ein Rahmen, in dem Kinder und Jugendliche Stabilität und Perspektive entwickeln können.
+                So entsteht Kontinuität - und ein Rahmen, in dem Kinder und Jugendliche Stabilität und Perspektive entwickeln können.
               </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function UeberUnsPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem",
                 position: "relative", zIndex: 1 }}>
                 <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.85 }}>
-                  Wir schaffen Zugänge zu passgenauer Unterstützung – unabhängig von Herkunft, Diagnose oder individuellem Bedarf.
+                  Wir schaffen Zugänge zu passgenauer Unterstützung - unabhängig von Herkunft, Diagnose oder individuellem Bedarf.
                 </p>
                 <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.85 }}>
                   Unser Anspruch ist es, Hilfe so zu organisieren, dass sie rechtzeitig ankommt, ineinandergreift und langfristig trägt.
@@ -173,7 +173,7 @@ export default function UeberUnsPage() {
               </h3>
               <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.6)", lineHeight: 1.85 }}>
                 Wir arbeiten daran, eine Kinder- und Jugendhilfe zu gestalten, in der Hilfen ineinandergreifen,
-                Zusammenarbeit selbstverständlich ist und junge Menschen im Mittelpunkt stehen –
+                Zusammenarbeit selbstverständlich ist und junge Menschen im Mittelpunkt stehen -
                 nicht Strukturen oder Zuständigkeiten.
               </p>
             </div>
@@ -214,7 +214,7 @@ export default function UeberUnsPage() {
             {[
               { zahl: "11",    einheit: "Angebotsbereiche",  text: "Vollständige Abdeckung aller Hilfebedarfe" },
               { zahl: "24/7",  einheit: "Krisenbereitschaft", text: "An 365 Tagen im Jahr erreichbar" },
-              { zahl: "0–25",  einheit: "Lebensjahre",        text: "Von Frühe Hilfen bis Übergang Arbeit" },
+              { zahl: "0-25",  einheit: "Lebensjahre",        text: "Von Frühe Hilfen bis Übergang Arbeit" },
               { zahl: "100 %", einheit: "Fachkräfte",         text: "Qualifiziertes Personal in allen Bereichen" },
               { zahl: "< 30",  einheit: "Min. Rückmeldung",   text: "Erste Antwort bei Krisenaufnahmen" },
               { zahl: "SGB VIII", einheit: "Rechtsbasis",     text: "Alle Angebote gesetzlich anerkannt" },
@@ -344,9 +344,9 @@ export default function UeberUnsPage() {
             {[
               { titel: "Krisenintervention",    sub: "24/7 Sofortaufnahme",             href: "/krisenintervention",    akzent: "#ef4444" },
               { titel: "Psychotherapie",         sub: "Kinder & Jugendliche, Kassensitz", href: "/psychotherapie",        akzent: "#6FA3FE" },
-              { titel: "Frühe Hilfen",            sub: "0–6 Jahre, Bindung & Entwicklung", href: "/fruehe-hilfen",         akzent: "#22c55e" },
-              { titel: "Therapie & Wohnen",      sub: "Therapeutische Wohngruppen 12–17", href: "/therapie-wohnen",       akzent: "#6FA3FE" },
-              { titel: "Jugendhilfe",             sub: "Kinderwohngruppen 6–12 Jahre",     href: "/jugendhilfe",           akzent: "#FEC274" },
+              { titel: "Frühe Hilfen",            sub: "0-6 Jahre, Bindung & Entwicklung", href: "/fruehe-hilfen",         akzent: "#22c55e" },
+              { titel: "Therapie & Wohnen",      sub: "Therapeutische Wohngruppen 12-17", href: "/therapie-wohnen",       akzent: "#6FA3FE" },
+              { titel: "Jugendhilfe",             sub: "Kinderwohngruppen 6-12 Jahre",     href: "/jugendhilfe",           akzent: "#FEC274" },
               { titel: "Diagnostik & Clearing",  sub: "Einschätzung & Gutachten",          href: "/diagnostik-clearing",   akzent: "#a78bfa" },
               { titel: "Beratung & Prävention",  sub: "Niedrigschwellig & online",         href: "/beratung-praevention",  akzent: "#6FA3FE" },
               { titel: "Beratung in Kitas",       sub: "Fachberatung vor Ort",              href: "/kita-beratung",         akzent: "#FEC274" },

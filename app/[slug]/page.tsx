@@ -19,7 +19,7 @@ const angeboteDaten: Record<string, {
     untertitel: "Ankernetz Krisenintervention",
     claim: "Sofort da. Wenn es zählt.",
     einleitung: "In akuten Krisensituationen brauchen Jugendliche sofortige, professionelle Unterstützung. Unser Kriseninterventionsteam ist rund um die Uhr erreichbar und kann kurzfristig reagieren - ohne bürokratische Verzögerungen.",
-    zielgruppe: "12–17 Jahre",
+    zielgruppe: "12-17 Jahre",
     zielgruppeDetail: "Jugendliche in akuten psychischen Krisen, bei Eigen- oder Fremdgefährdung, nach traumatischen Ereignissen oder bei akutem Schutzbedarfs.",
     leistungen: [
       "24/7 Krisenaufnahme ohne lange Wartezeiten",
@@ -60,7 +60,7 @@ const angeboteDaten: Record<string, {
     untertitel: "Ankernetz Therapie & Wohnen",
     claim: "Raum zum Ankommen. Begleitung zum Wachsen.",
     einleitung: "Unsere therapeutischen Wohngruppen bieten Jugendlichen einen stabilen Rahmen, in dem therapeutische Arbeit und gelebter Alltag Hand in Hand gehen. Hier entsteht Veränderung - nicht im Behandlungszimmer, sondern im echten Leben.",
-    zielgruppe: "12–17 Jahre",
+    zielgruppe: "12-17 Jahre",
     zielgruppeDetail: "Jugendliche mit komplexen Trauma-Folgestörungen, Verhaltensauffälligkeiten, psychischen Erkrankungen oder schwerwiegenden familiären Belastungen.",
     leistungen: [
       "Therapeutisch geleitete Wohngruppe mit Strukturrahmen",
@@ -101,7 +101,7 @@ const angeboteDaten: Record<string, {
     untertitel: "Ankernetz Jugendhilfe",
     claim: "Sicherheit im Alltag. Zukunft im Blick.",
     einleitung: "Kinder brauchen Sicherheit, Verlässlichkeit und Beziehungen, die tragen. Unsere Kinderwohngruppen bieten genau das: einen stabilen Ort, an dem Kinder wachsen, lernen und sich entwickeln können.",
-    zielgruppe: "6–12 Jahre",
+    zielgruppe: "6-12 Jahre",
     zielgruppeDetail: "Kinder mit Vernachlässigungs- und Misshandlungserfahrungen, Bindungsstörungen oder aus hochbelasteten Familiensystemen.",
     leistungen: [
       "Stabile Wohngruppe mit verlässlichem Alltagsrahmen",
@@ -224,7 +224,7 @@ const angeboteDaten: Record<string, {
     untertitel: "Ankernetz Frühe Hilfen",
     claim: "Schutz von Anfang an.",
     einleitung: "Die frühen Jahre sind entscheidend. Unser Frühes-Hilfen-Angebot schützt und begleitet Kleinkinder in besonders vulnerablen Situationen - mit einem Team, das Bindung, Sicherheit und Entwicklung in den Mittelpunkt stellt.",
-    zielgruppe: "0–6 Jahre",
+    zielgruppe: "0-6 Jahre",
     zielgruppeDetail: "Kleinkinder in Gefährdungssituationen, bei Vernachlässigung, mit Entwicklungsverzögerungen oder aus hochbelasteten Familiensystemen.",
     leistungen: [
       "Aufnahme von Kleinkindern in Schutzpflegestellen",
@@ -343,7 +343,7 @@ const angeboteDaten: Record<string, {
     claim: "Der nächste Schritt. Mit Begleitung.",
     einleitung: "Der Übergang von der Jugendhilfe in ein eigenständiges Leben ist eine der größten Herausforderungen. Wir begleiten Jugendliche und junge Erwachsene dabei - konkret, individuell und mit langem Atem.",
     zielgruppe: "Jugendliche & junge Erwachsene",
-    zielgruppeDetail: "Jugendliche und junge Erwachsene am Ende stationärer Hilfen oder im Übergang Schule–Beruf.",
+    zielgruppeDetail: "Jugendliche und junge Erwachsene am Ende stationärer Hilfen oder im Übergang Schule-Beruf.",
     leistungen: [
       "Berufsorientierung und Stärkenanalyse",
       "Bewerbungstraining und CV-Erstellung",

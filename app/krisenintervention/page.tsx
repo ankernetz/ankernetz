@@ -142,7 +142,7 @@ const prozessSchritte = [
     titel: "Stabilisierungsphase",
     icon: Activity,
     text: "Intensive Begleitung in den ersten Tagen: Diagnostik, Krisenplanarbeit, Bezugsbetreuung und erste therapeutische Gespräche. Enger Kontakt mit Jugendamt.",
-    dauer: "Tage 1–7",
+    dauer: "Tage 1-7",
   },
   {
     nr: "05",
@@ -197,7 +197,7 @@ const faq = [
   },
   {
     frage: "Wie lange dauert eine Krisenintervention in der Regel?",
-    antwort: "Die Stabilisierungsphase beträgt typischerweise 14–28 Tage. Nach ausreichender Stabilisierung wird gemeinsam mit Jugendamt und Familie ein Anschlussplan entwickelt. Eine Verlängerung ist bei Bedarf möglich.",
+    antwort: "Die Stabilisierungsphase beträgt typischerweise 14-28 Tage. Nach ausreichender Stabilisierung wird gemeinsam mit Jugendamt und Familie ein Anschlussplan entwickelt. Eine Verlängerung ist bei Bedarf möglich.",
   },
   {
     frage: "Was passiert, wenn kein Platz frei ist?",
@@ -425,7 +425,7 @@ export default function KriseninterventionPage() {
                 Sie kommt dann zum Einsatz, wenn bestehende Hilfen nicht mehr ausreichen und kurzfristig Stabilität geschaffen werden muss.
               </p>
               <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
-                In solchen Momenten geht es darum, Sicherheit herzustellen, Orientierung zu geben und gemeinsam erste tragfähige Schritte zu entwickeln – für den Jugendlichen und sein Umfeld.
+                In solchen Momenten geht es darum, Sicherheit herzustellen, Orientierung zu geben und gemeinsam erste tragfähige Schritte zu entwickeln - für den Jugendlichen und sein Umfeld.
               </p>
               <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "15px" }}>
                 Unser Team besteht aus erfahrenen Sozialpädagoginnen, Psychologinnen und Therapeut*innen mit besonderer Expertise in der Arbeit mit Krisensituationen.
@@ -787,7 +787,7 @@ export default function KriseninterventionPage() {
                 fontSize: "3rem", fontWeight: 900, color: "#6FA3FE",
                 letterSpacing: "-0.03em", marginBottom: "0.5rem",
               }}>
-                12–17
+                12-17
               </p>
               <p style={{ fontWeight: 700, fontSize: "18px", marginBottom: "1rem" }}>Jahre</p>
               <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.75, fontSize: "14px" }}>
@@ -836,7 +836,7 @@ export default function KriseninterventionPage() {
               color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em",
               marginBottom: "1.25rem",
             }}>
-              Lena ist Ihre erste Anlaufstelle – direkt und unkompliziert.
+              Lena ist Ihre erste Anlaufstelle - direkt und unkompliziert.
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
               <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.85 }}>
@@ -856,9 +856,9 @@ export default function KriseninterventionPage() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
               {[
-                "24/7 erreichbar – wann immer Sie Unterstützung brauchen",
+                "24/7 erreichbar - wann immer Sie Unterstützung brauchen",
                 "Ihr Anliegen kommt direkt bei uns an",
-                "Einfach schreiben – ohne Hürden oder komplizierte Schritte",
+                "Einfach schreiben - ohne Hürden oder komplizierte Schritte",
                 "Vertraulich und respektvoll im Umgang mit Ihren Daten",
               ].map((p, i) => (
                 <div key={i} style={{
