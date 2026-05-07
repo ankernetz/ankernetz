@@ -6,19 +6,79 @@ import { useLang } from "../contexts/LanguageContext";
 import { tr } from "../i18n/translations";
 
 export default function Navigation() {
-  const { lang, toggle } = useLang();
+  const { lang, setLang } = useLang();
   const n = tr[lang].nav;
 
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [megaOpen, setMegaOpen]   = useState(false);
-  const [megaTimer, setMegaTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const [scrolled,     setScrolled]     = useState(false);
+  const [menuOpen,     setMenuOpen]     = useState(false);
+  const [megaOpen,     setMegaOpen]     = useState(false);
+  const [megaTimer,    setMegaTimer]    = useState<ReturnType<typeof setTimeout> | null>(null);
+  const [langDropOpen, setLangDropOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!langDropOpen) return;
+    const close = () => setLangDropOpen(false);
+    document.addEventListener("click", close);
+    return () => document.removeEventListener("click", close);
+  }, [langDropOpen]);
+
+  const LangDropdown = ({ mobile }: { mobile?: boolean }) => (
+    <div style={{ position: "relative" }}>
+      <button
+        onClick={(e) => { e.stopPropagation(); setLangDropOpen(!langDropOpen); }}
+        style={{
+          display: "flex", alignItems: "center", gap: "0.2rem",
+          background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.10)",
+          borderRadius: "9999px", padding: mobile ? "0.25rem 0.5rem" : "0.3rem 0.55rem",
+          cursor: "pointer", flexShrink: 0,
+        }}
+      >
+        <span style={{ fontSize: mobile ? "14px" : "16px", lineHeight: 1 }}>
+          {lang === "de" ? "🇩🇪" : "🇬🇧"}
+        </span>
+        <svg width="8" height="5" viewBox="0 0 8 5" fill="currentColor"
+          style={{ opacity: 0.45, transition: "transform 0.2s", transform: langDropOpen ? "rotate(180deg)" : "rotate(0deg)", color: "#1D1D1F" }}>
+          <path d="M0 0l4 5 4-5z" />
+        </svg>
+      </button>
+
+      {langDropOpen && (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            position: "absolute", top: "calc(100% + 8px)", right: 0,
+            background: "white", borderRadius: "12px",
+            border: "1px solid rgba(0,0,0,0.08)",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+            overflow: "hidden", minWidth: "130px", zIndex: 100,
+          }}
+        >
+          {(["de", "en"] as const).map((l) => (
+            <button
+              key={l}
+              onClick={() => { setLang(l); setLangDropOpen(false); }}
+              style={{
+                display: "flex", alignItems: "center", gap: "0.625rem",
+                width: "100%", padding: "0.625rem 0.875rem",
+                fontSize: "13px", fontWeight: lang === l ? 600 : 400,
+                color: "#1D1D1F", background: lang === l ? "rgba(0,0,0,0.04)" : "white",
+                border: "none", cursor: "pointer", textAlign: "left",
+              }}
+            >
+              <span style={{ fontSize: "16px", lineHeight: 1 }}>{l === "de" ? "🇩🇪" : "🇬🇧"}</span>
+              <span>{l === "de" ? "Deutsch" : "English"}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 
   const openMega  = () => { if (megaTimer) clearTimeout(megaTimer); setMegaOpen(true); };
   const closeMega = () => { const t = setTimeout(() => setMegaOpen(false), 200); setMegaTimer(t); };
@@ -138,44 +198,13 @@ export default function Navigation() {
             {n.platzanfrage}
           </Link>
 
-          {/* Language toggle */}
-          <button
-            onClick={toggle}
-            title={lang === "de" ? "Switch to English" : "Zu Deutsch wechseln"}
-            style={{
-              display: "flex", alignItems: "center", gap: "0.3rem",
-              fontSize: "12px", fontWeight: 600, color: "#1D1D1F",
-              background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.10)",
-              borderRadius: "9999px", padding: "0.3rem 0.65rem",
-              cursor: "pointer", flexShrink: 0, whiteSpace: "nowrap",
-              transition: "background 0.2s",
-            }}
-          >
-            <span style={{ fontSize: "15px", lineHeight: 1 }}>
-              {lang === "de" ? "🇬🇧" : "🇩🇪"}
-            </span>
-            <span>{lang === "de" ? "EN" : "DE"}</span>
-          </button>
+          {/* Language dropdown */}
+          <LangDropdown />
         </div>
 
-        {/* Mobile right: language toggle + burger */}
+        {/* Mobile right: language dropdown + burger */}
         <div className="lg:hidden flex items-center gap-2">
-          <button
-            onClick={toggle}
-            title={lang === "de" ? "Switch to English" : "Zu Deutsch wechseln"}
-            style={{
-              display: "flex", alignItems: "center", gap: "0.25rem",
-              fontSize: "11px", fontWeight: 600, color: "#1D1D1F",
-              background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.10)",
-              borderRadius: "9999px", padding: "0.25rem 0.55rem",
-              cursor: "pointer",
-            }}
-          >
-            <span style={{ fontSize: "13px", lineHeight: 1 }}>
-              {lang === "de" ? "🇬🇧" : "🇩🇪"}
-            </span>
-            <span>{lang === "de" ? "EN" : "DE"}</span>
-          </button>
+          <LangDropdown mobile />
 
           <button
             className="text-[#1D1D1F] p-1"
