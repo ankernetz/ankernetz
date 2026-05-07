@@ -4,25 +4,24 @@ import Link from "next/link";
 import {
   AlertTriangle, Home, Brain, Baby, Search, Shirt,
   MessageCircle, Rocket, Building2, Heart, ArrowRight,
-  Shield, Network, Star
+  Shield, Network,
 } from "lucide-react";
-import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
 import { BlurFade } from "./components/BlurFade";
 import { useLang } from "./contexts/LanguageContext";
 import { tr } from "./i18n/translations";
 
 const slugsMeta = [
-  { slug: "krisenintervention",   icon: AlertTriangle, iconColor: "#FEC274", stripe: "#c47a20" },
-  { slug: "psychotherapie",       icon: Brain,         iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "fruehe-hilfen",        icon: Baby,          iconColor: "#FEC274", stripe: "#c47a20" },
-  { slug: "therapie-wohnen",      icon: Home,          iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "jugendhilfe",          icon: Heart,         iconColor: "#FEC274", stripe: "#c47a20" },
-  { slug: "diagnostik-clearing",  icon: Search,        iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "beratung-praevention", icon: MessageCircle, iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "kita-beratung",        icon: Building2,     iconColor: "#FEC274", stripe: "#c47a20" },
-  { slug: "uebergang-arbeit",     icon: Rocket,        iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "ankerkleidung",        icon: Shirt,         iconColor: "#6FA3FE", stripe: "#4d85e8" },
-  { slug: "versorgung",           icon: Star,          iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "krisenintervention",   icon: AlertTriangle, accent: "#ef4444" },
+  { slug: "psychotherapie",       icon: Brain,         accent: "#6FA3FE" },
+  { slug: "fruehe-hilfen",        icon: Baby,          accent: "#FEC274" },
+  { slug: "therapie-wohnen",      icon: Home,          accent: "#6FA3FE" },
+  { slug: "jugendhilfe",          icon: Heart,         accent: "#FEC274" },
+  { slug: "diagnostik-clearing",  icon: Search,        accent: "#6FA3FE" },
+  { slug: "beratung-praevention", icon: MessageCircle, accent: "#FEC274" },
+  { slug: "kita-beratung",        icon: Building2,     accent: "#6FA3FE" },
+  { slug: "uebergang-arbeit",     icon: Rocket,        accent: "#FEC274" },
+  { slug: "ankerkleidung",        icon: Shirt,         accent: "#a78bfa" },
+  { slug: "versorgung",           icon: Heart,         accent: "#FEC274" },
 ];
 
 const staerkenIcons = [Shield, Network, Brain];
@@ -40,273 +39,367 @@ export default function HomePage() {
     badge: T.angebote[i].badge,
   }));
 
+  const DARK = "#06101f";
+  const CARD = "#0d1b2a";
+  const CARD_BORDER = "rgba(255,255,255,0.07)";
+
   return (
     <main className="overflow-x-hidden">
 
       {/* ═══ HERO ═══ */}
-      <section
-        className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
-        style={{ background: "linear-gradient(155deg, #eef4ff 0%, #fafbff 45%, #fff8ee 100%)" }}
-      >
-        <div className="absolute top-0 left-[10%] w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(111,163,254,0.14) 0%, transparent 65%)" }} />
-        <div className="absolute bottom-0 right-[5%] w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(254,194,116,0.12) 0%, transparent 65%)" }} />
-        <div className="absolute top-1/3 right-[20%] w-[350px] h-[350px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(3,41,92,0.05) 0%, transparent 65%)" }} />
+      <section style={{
+        background: DARK,
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        padding: "7rem 1.5rem 5rem",
+      }}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: "radial-gradient(ellipse 75% 55% at 50% 0%, rgba(0,113,227,0.13) 0%, transparent 58%)",
+        }} />
+        <div style={{
+          position: "absolute", bottom: 0, right: 0, width: "500px", height: "400px",
+          background: "radial-gradient(ellipse at 80% 80%, rgba(254,194,116,0.06) 0%, transparent 65%)",
+          pointerEvents: "none",
+        }} />
 
-        <AnimatedGridPattern
-          numSquares={35}
-          maxOpacity={0.04}
-          duration={3}
-          strokeColor="rgba(111,163,254,0.15)"
-          className="z-0"
-        />
-
-        <div className="relative z-10 w-full" style={{ maxWidth: "780px", marginLeft: "auto", marginRight: "auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
+        <div style={{ position: "relative", zIndex: 10, maxWidth: "920px", width: "100%", textAlign: "center" }}>
 
           {/* Badge */}
-          <div className="fade-in-up" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: "100px", padding: "0.375rem 0.875rem", marginBottom: "2.5rem" }}>
-            <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", background: "#ef4444", flexShrink: 0, animation: "pulse 2s infinite" }} />
-            <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#b91c1c", letterSpacing: "0.01em" }}>
+          <div className="fade-in-up" style={{
+            display: "inline-flex", alignItems: "center", gap: "0.5rem",
+            background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.22)",
+            borderRadius: "100px", padding: "0.375rem 0.875rem", marginBottom: "3rem",
+          }}>
+            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#ef4444", flexShrink: 0, animation: "pulse 2s infinite" }} />
+            <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#fca5a5", letterSpacing: "0.01em" }}>
               {T.hero.badge}
             </span>
           </div>
 
-          <h1 className="fade-in-up delay-1 leading-none"
-            style={{ fontSize: "clamp(3.25rem,9vw,6rem)", fontWeight: 900, letterSpacing: "-0.035em", color: "#1a3f6f", marginBottom: "1.5rem" }}>
-            Anker<span style={{
+          {/* Headline */}
+          <h1 className="fade-in-up delay-1" style={{
+            fontSize: "clamp(3.5rem,10vw,7.5rem)",
+            fontWeight: 900,
+            letterSpacing: "-0.04em",
+            lineHeight: 1.0,
+            color: "#ffffff",
+            marginBottom: "2rem",
+          }}>
+            {T.hero.h1line1}
+            <br />
+            <span style={{
               backgroundImage: "linear-gradient(135deg, #6FA3FE 0%, #FEC274 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-            }}>netz</span>
+            }}>
+              {T.hero.h1line2}
+            </span>
           </h1>
 
-          <div className="fade-in-up delay-2" style={{ marginBottom: "3rem" }}>
-            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#1a3f6f", fontWeight: 400, lineHeight: 1.7, marginBottom: "0.25rem" }}>
-              {T.hero.sub1}
-            </p>
-            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "rgba(3,41,92,0.45)", fontWeight: 400, lineHeight: 1.7 }}>
-              {T.hero.sub2}
-            </p>
-          </div>
+          {/* Sub */}
+          <p className="fade-in-up delay-2" style={{
+            fontSize: "clamp(1rem,2vw,1.1875rem)",
+            color: "rgba(255,255,255,0.45)",
+            fontWeight: 400,
+            lineHeight: 1.75,
+            marginBottom: "3.5rem",
+            maxWidth: "520px",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}>
+            {T.hero.sub1}
+          </p>
 
-          <div className="fade-in-up delay-3" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "0.75rem", marginBottom: "6rem" }}>
-            <a href="#angebote" className="btn btn-primary btn-lg group">
-              {T.hero.cta1}
-              <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
+          {/* CTAs */}
+          <div className="fade-in-up delay-3" style={{
+            display: "flex", flexWrap: "wrap",
+            alignItems: "center", justifyContent: "center", gap: "0.75rem",
+          }}>
+            <a href="#angebote" style={{
+              display: "inline-flex", alignItems: "center", gap: "0.5rem",
+              background: "#0071e3", color: "#ffffff",
+              padding: "0.75rem 1.5rem", borderRadius: "9999px",
+              fontSize: "0.9375rem", fontWeight: 600,
+              textDecoration: "none", border: "1px solid #0071e3",
+            }}>
+              {T.hero.cta1} <ArrowRight size={15} strokeWidth={1.5} />
             </a>
-            <Link href="/platzanfrage" className="btn btn-outline btn-lg">
+            <Link href="/platzanfrage" style={{
+              display: "inline-flex", alignItems: "center",
+              background: "transparent", color: "rgba(255,255,255,0.85)",
+              padding: "0.75rem 1.5rem", borderRadius: "9999px",
+              fontSize: "0.9375rem", fontWeight: 500,
+              textDecoration: "none", border: "1px solid rgba(255,255,255,0.18)",
+            }}>
               {T.hero.cta2}
             </Link>
           </div>
 
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent, #fff8ee)" }} />
-        <div className="scroll-pulse absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-px h-8" style={{ background: "rgba(15,23,42,0.15)" }} />
-        </div>
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0, height: "5rem",
+          background: `linear-gradient(to bottom, transparent, ${DARK})`,
+          pointerEvents: "none",
+        }} />
+      </section>
+
+      {/* ═══ MANIFESTO STRIP ═══ */}
+      <section style={{
+        background: DARK,
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        padding: "1.75rem 1.5rem",
+      }}>
+        <p style={{
+          fontSize: "clamp(0.75rem,1.3vw,0.9375rem)",
+          fontWeight: 400,
+          color: "rgba(255,255,255,0.28)",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          textAlign: "center",
+        }}>
+          {T.manifesto}
+        </p>
       </section>
 
       {/* ═══ EINLEITUNG ═══ */}
-      <section className="relative overflow-hidden bg-[#F5F5F7]" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
-        <div className="site-container">
+      <section style={{ background: "#ffffff", padding: "6rem 1.5rem" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <BlurFade>
-            <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-              <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1a3f6f] leading-[1.1]"
-                style={{ letterSpacing: "-0.03em", marginBottom: "2.5rem" }}>
+            <div style={{ maxWidth: "680px" }}>
+              <h2 style={{
+                fontSize: "clamp(2.5rem,5vw,3.75rem)",
+                fontWeight: 900,
+                color: "#0a0a0a",
+                letterSpacing: "-0.04em",
+                lineHeight: 1.1,
+                marginBottom: "2.5rem",
+              }}>
                 {T.einleitung.h2}
               </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.4rem" }}>
-                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p1}</p>
-                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p2}</p>
-                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p3}</p>
-                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p4}</p>
-                <p className="text-[1.0625rem] text-[#374151] font-semibold leading-[1.8]">{T.einleitung.p5}</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.9 }}>{T.einleitung.p1}</p>
+                <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.9 }}>{T.einleitung.p2}</p>
+                <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.9 }}>{T.einleitung.p3}</p>
+                <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.9 }}>{T.einleitung.p4}</p>
+                <p style={{ fontSize: "1.0625rem", fontWeight: 700, color: "#0a0a0a", lineHeight: 1.9 }}>{T.einleitung.p5}</p>
               </div>
             </div>
           </BlurFade>
         </div>
       </section>
 
-      {/* ═══ BENTO GRID - ANGEBOTE ═══ */}
-      <section id="angebote" style={{ background: "#d8e4f0", paddingTop: "4.5rem", paddingBottom: "5rem" }}>
-        <div className="site-container">
+      {/* ═══ ANGEBOTE ═══ */}
+      <section id="angebote" style={{ background: DARK, padding: "5rem 1.5rem 6rem" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <BlurFade>
-            <div className="text-center" style={{ marginBottom: "2.5rem" }}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: "#1a3f6f" }}>
+            <div style={{ marginBottom: "3rem" }}>
+              <p style={{
+                fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.2em",
+                textTransform: "uppercase", color: "rgba(255,255,255,0.28)", marginBottom: "1rem",
+              }}>
                 {T.angeboteSection.label}
               </p>
-              <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black" style={{ letterSpacing: "-0.028em", color: "#1a3f6f" }}>
+              <h2 style={{
+                fontSize: "clamp(1.875rem,4vw,3rem)",
+                fontWeight: 900, color: "#ffffff",
+                letterSpacing: "-0.035em", lineHeight: 1.1,
+              }}>
                 {T.angeboteSection.h2}
               </h2>
             </div>
           </BlurFade>
-        </div>
-        <div className="site-container" style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
 
-          {/* Reihe 1: Krisenintervention (Large) + Psychotherapie */}
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
-            <BlurFade className="md:col-span-2">
-              <Link href="/krisenintervention" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[0].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[0].stripe }} />
-                <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
-                  <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[0].stripe, background: `${angebote[0].stripe}18`, border: `1px solid ${angebote[0].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[0].badge}</span>
-                </div>
-                <div style={{ position: "relative", zIndex: 10 }}>
-                  <AlertTriangle size={30} strokeWidth={1.5} style={{ color: angebote[0].iconColor, marginBottom: "1rem" }} />
-                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.875rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.625rem" }}>{angebote[0].titel}</h3>
-                  <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.25rem" }}>{angebote[0].claim}</p>
-                  <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "2rem", maxWidth: "38ch" }}>{angebote[0].kurz}</p>
-                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+
+            {/* Row 1: Krisenintervention wide + Psychotherapie */}
+            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1rem" }}>
+              <BlurFade className="md:col-span-2">
+                <Link href="/krisenintervention" className="bento-card"
+                  style={{ display: "flex", flexDirection: "column", background: CARD, border: `1px solid ${CARD_BORDER}`, borderRadius: "1.25rem", minHeight: "400px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "#ef4444" }} />
+                  <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                    <span style={{ fontSize: "0.625rem", fontWeight: 700, color: "#ef4444", background: "rgba(239,68,68,0.12)", border: "1px solid rgba(239,68,68,0.25)", padding: "0.2rem 0.625rem", borderRadius: "100px", letterSpacing: "0.06em" }}>{angebote[0].badge}</span>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <AlertTriangle size={28} strokeWidth={1.5} style={{ color: "#ef4444", marginBottom: "1.5rem" }} />
+                    <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "2rem", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "0.75rem" }}>{angebote[0].titel}</h3>
+                    <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.25rem" }}>{angebote[0].claim}</p>
+                    <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: 1.9, maxWidth: "44ch" }}>{angebote[0].kurz}</p>
+                  </div>
+                  <div style={{ marginTop: "2rem", display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#6FA3FE", fontSize: "0.875rem", fontWeight: 600 }}>
                     {T.angeboteSection.mehrErfahren} <ArrowRight size={14} strokeWidth={1.5} />
-                  </span>
-                </div>
-              </Link>
-            </BlurFade>
+                  </div>
+                </Link>
+              </BlurFade>
 
-            <BlurFade delay={0.1}>
-              <Link href="/psychotherapie" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[1].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[1].stripe }} />
-                <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
-                  <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[1].stripe, background: `${angebote[1].stripe}18`, border: `1px solid ${angebote[1].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[1].badge}</span>
-                </div>
-                <div style={{ position: "relative", zIndex: 10 }}>
-                  <Brain size={26} strokeWidth={1.5} style={{ color: angebote[1].iconColor, marginBottom: "1rem" }} />
-                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[1].titel}</h3>
-                  <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[1].claim}</p>
-                  <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[1].kurz}</p>
-                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+              <BlurFade delay={0.08}>
+                <Link href="/psychotherapie" className="bento-card"
+                  style={{ display: "flex", flexDirection: "column", background: CARD, border: `1px solid ${CARD_BORDER}`, borderRadius: "1.25rem", minHeight: "400px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "#6FA3FE" }} />
+                  <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                    <span style={{ fontSize: "0.625rem", fontWeight: 700, color: "#6FA3FE", background: "rgba(111,163,254,0.12)", border: "1px solid rgba(111,163,254,0.25)", padding: "0.2rem 0.625rem", borderRadius: "100px", letterSpacing: "0.06em" }}>{angebote[1].badge}</span>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <Brain size={26} strokeWidth={1.5} style={{ color: "#6FA3FE", marginBottom: "1.5rem" }} />
+                    <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.625rem" }}>{angebote[1].titel}</h3>
+                    <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[1].claim}</p>
+                    <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: 1.9 }}>{angebote[1].kurz}</p>
+                  </div>
+                  <div style={{ marginTop: "1.75rem", display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#6FA3FE", fontSize: "0.875rem", fontWeight: 600 }}>
                     {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={1.5} />
-                  </span>
-                </div>
-              </Link>
-            </BlurFade>
-          </div>
+                  </div>
+                </Link>
+              </BlurFade>
+            </div>
 
-          {/* Reihe 2: 3 Medium */}
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
-            {[angebote[2], angebote[3], angebote[4]].map((a, i) => {
-              const Icon = a.icon;
-              return (
-                <BlurFade key={a.slug} delay={i * 0.08}>
-                  <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
-                    style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${a.stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "380px", padding: "2.5rem 3rem" }}>
-                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
-                    <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
-                      <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: a.stripe, background: `${a.stripe}18`, border: `1px solid ${a.stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{a.badge}</span>
-                    </div>
-                    <div style={{ position: "relative", zIndex: 10 }}>
-                      <Icon size={24} strokeWidth={1.5} style={{ color: a.iconColor, marginBottom: "1rem" }} />
-                      <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.25rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{a.titel}</h3>
-                      <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{a.claim}</p>
-                      <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{a.kurz}</p>
-                      <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+            {/* Row 2: 3 medium */}
+            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1rem" }}>
+              {[angebote[2], angebote[3], angebote[4]].map((a, i) => {
+                const Icon = a.icon;
+                return (
+                  <BlurFade key={a.slug} delay={i * 0.07}>
+                    <Link href={`/${a.slug}`} className="bento-card"
+                      style={{ display: "flex", flexDirection: "column", background: CARD, border: `1px solid ${CARD_BORDER}`, borderRadius: "1.25rem", minHeight: "320px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
+                      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.accent }} />
+                      <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                        <span style={{ fontSize: "0.625rem", fontWeight: 700, color: a.accent, background: `${a.accent}18`, border: `1px solid ${a.accent}35`, padding: "0.2rem 0.625rem", borderRadius: "100px" }}>{a.badge}</span>
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <Icon size={24} strokeWidth={1.5} style={{ color: a.accent, marginBottom: "1.25rem" }} />
+                        <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.25rem", letterSpacing: "-0.022em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{a.titel}</h3>
+                        <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1rem" }}>{a.claim}</p>
+                        <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: 1.9 }}>{a.kurz}</p>
+                      </div>
+                      <div style={{ marginTop: "1.5rem", display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#6FA3FE", fontSize: "0.875rem", fontWeight: 600 }}>
                         {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={1.5} />
-                      </span>
-                    </div>
-                  </Link>
-                </BlurFade>
-              );
-            })}
-          </div>
+                      </div>
+                    </Link>
+                  </BlurFade>
+                );
+              })}
+            </div>
 
-          {/* Reihe 3: 4 Compact */}
-          <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "1.5rem" }}>
-            {[angebote[5], angebote[6], angebote[7], angebote[8]].map((a, i) => {
-              const Icon = a.icon;
-              return (
-                <BlurFade key={a.slug} delay={i * 0.06}>
-                  <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
-                    style={{ background: `radial-gradient(ellipse 70% 55% at 90% 5%, ${a.stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "260px", padding: "2rem 2.25rem" }}>
-                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
-                    <div style={{ position: "relative", zIndex: 10 }}>
-                      <Icon size={22} strokeWidth={1.5} style={{ color: a.iconColor, marginBottom: "0.875rem" }} />
-                      <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.0625rem", letterSpacing: "-0.018em", lineHeight: 1.2, marginBottom: "0.375rem" }}>{a.titel}</h3>
-                      <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.8125rem", fontStyle: "italic", marginBottom: "1.25rem" }}>{a.claim}</p>
-                      <span style={{ display: "inline-block", fontSize: "0.6875rem", fontWeight: 600, color: a.stripe, background: `${a.stripe}15`, border: `1px solid ${a.stripe}30`, padding: "0.2rem 0.6rem", borderRadius: "100px" }}>{a.badge}</span>
-                    </div>
-                  </Link>
-                </BlurFade>
-              );
-            })}
-          </div>
+            {/* Row 3: 4 compact */}
+            <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "1rem" }}>
+              {[angebote[5], angebote[6], angebote[7], angebote[8]].map((a, i) => {
+                const Icon = a.icon;
+                return (
+                  <BlurFade key={a.slug} delay={i * 0.05}>
+                    <Link href={`/${a.slug}`} className="bento-card"
+                      style={{ display: "flex", flexDirection: "column", background: CARD, border: `1px solid ${CARD_BORDER}`, borderRadius: "1.25rem", minHeight: "200px", padding: "2rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
+                      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.accent }} />
+                      <Icon size={20} strokeWidth={1.5} style={{ color: a.accent, marginBottom: "1rem" }} />
+                      <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1rem", letterSpacing: "-0.018em", lineHeight: 1.25, marginBottom: "0.375rem" }}>{a.titel}</h3>
+                      <p style={{ color: "rgba(255,255,255,0.38)", fontSize: "0.8125rem", fontStyle: "italic", marginBottom: "auto", paddingBottom: "1rem" }}>{a.claim}</p>
+                      <span style={{ display: "inline-block", fontSize: "0.5625rem", fontWeight: 700, color: a.accent, background: `${a.accent}18`, border: `1px solid ${a.accent}35`, padding: "0.175rem 0.5rem", borderRadius: "100px", letterSpacing: "0.06em" }}>{a.badge}</span>
+                    </Link>
+                  </BlurFade>
+                );
+              })}
+            </div>
 
-          {/* Reihe 4: Ankerkleidung (Large) + Versorgung */}
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
-            <BlurFade delay={0.08} className="md:col-span-2">
-              <Link href="/ankerkleidung" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[9].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[9].stripe }} />
-                <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
-                  <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[9].stripe, background: `${angebote[9].stripe}18`, border: `1px solid ${angebote[9].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[9].badge}</span>
-                </div>
-                <div style={{ position: "relative", zIndex: 10 }}>
-                  <Shirt size={26} strokeWidth={1.5} style={{ color: angebote[9].iconColor, marginBottom: "1rem" }} />
-                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.625rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.5rem" }}>{angebote[9].titel}</h3>
-                  <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[9].claim}</p>
-                  <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem", maxWidth: "40ch" }}>{angebote[9].kurz}</p>
-                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+            {/* Row 4: Ankerkleidung wide + Versorgung */}
+            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1rem" }}>
+              <BlurFade className="md:col-span-2" delay={0.07}>
+                <Link href="/ankerkleidung" className="bento-card"
+                  style={{ display: "flex", flexDirection: "column", background: CARD, border: `1px solid ${CARD_BORDER}`, borderRadius: "1.25rem", minHeight: "220px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "#a78bfa" }} />
+                  <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                    <span style={{ fontSize: "0.625rem", fontWeight: 700, color: "#a78bfa", background: "rgba(167,139,250,0.12)", border: "1px solid rgba(167,139,250,0.28)", padding: "0.2rem 0.625rem", borderRadius: "100px" }}>{angebote[9].badge}</span>
+                  </div>
+                  <Shirt size={26} strokeWidth={1.5} style={{ color: "#a78bfa", marginBottom: "1.25rem" }} />
+                  <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.625rem", letterSpacing: "-0.028em", lineHeight: 1.15, marginBottom: "0.5rem" }}>{angebote[9].titel}</h3>
+                  <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1rem" }}>{angebote[9].claim}</p>
+                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: 1.9, maxWidth: "46ch", marginBottom: "1.5rem" }}>{angebote[9].kurz}</p>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#a78bfa", fontSize: "0.875rem", fontWeight: 600 }}>
                     {T.angeboteSection.kollektionEntdecken} <ArrowRight size={14} strokeWidth={1.5} />
-                  </span>
-                </div>
-              </Link>
-            </BlurFade>
+                  </div>
+                </Link>
+              </BlurFade>
 
-            <BlurFade delay={0.15}>
-              <Link href="/versorgung" className="bento-card group relative flex flex-col overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[10].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[10].stripe }} />
-                <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
-                  <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[10].stripe, background: `${angebote[10].stripe}18`, border: `1px solid ${angebote[10].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[10].badge}</span>
-                </div>
-                <div style={{ position: "relative", zIndex: 10 }}>
-                  <Star size={24} strokeWidth={1.5} style={{ color: angebote[10].iconColor, marginBottom: "1rem" }} />
-                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[10].titel}</h3>
-                  <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[10].claim}</p>
-                  <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[10].kurz}</p>
-                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+              <BlurFade delay={0.12}>
+                <Link href="/versorgung" className="bento-card"
+                  style={{ display: "flex", flexDirection: "column", background: CARD, border: `1px solid ${CARD_BORDER}`, borderRadius: "1.25rem", minHeight: "220px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "#FEC274" }} />
+                  <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
+                    <span style={{ fontSize: "0.625rem", fontWeight: 700, color: "#FEC274", background: "rgba(254,194,116,0.12)", border: "1px solid rgba(254,194,116,0.28)", padding: "0.2rem 0.625rem", borderRadius: "100px" }}>{angebote[10].badge}</span>
+                  </div>
+                  <Heart size={24} strokeWidth={1.5} style={{ color: "#FEC274", marginBottom: "1.25rem" }} />
+                  <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.025em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[10].titel}</h3>
+                  <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1rem" }}>{angebote[10].claim}</p>
+                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: 1.9, marginBottom: "1.5rem" }}>{angebote[10].kurz}</p>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#6FA3FE", fontSize: "0.875rem", fontWeight: 600 }}>
                     {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={1.5} />
-                  </span>
-                </div>
-              </Link>
-            </BlurFade>
-          </div>
+                  </div>
+                </Link>
+              </BlurFade>
+            </div>
 
+          </div>
         </div>
       </section>
 
-      {/* ═══ STARKEN ═══ */}
-      <section className="relative overflow-hidden bg-white" style={{ paddingTop: "7rem", paddingBottom: "7rem" }}>
-        <div className="site-container">
+      {/* ═══ IMPACT STATS ═══ */}
+      <section style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "5rem 1.5rem" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "2.5rem" }}>
+            {([
+              { zahl: "< 24h", label: T.fachkraefte.stats[0], color: "#6FA3FE" },
+              { zahl: "24/7",  label: T.fachkraefte.stats[1], color: "#ef4444" },
+              { zahl: "11",    label: T.fachkraefte.stats[2], color: "#FEC274" },
+              { zahl: "100%",  label: T.fachkraefte.stats[3], color: "#6FA3FE" },
+            ] as const).map((stat) => (
+              <BlurFade key={stat.zahl}>
+                <div style={{ textAlign: "center" }}>
+                  <p style={{
+                    fontSize: "clamp(2.5rem,5vw,3.5rem)", fontWeight: 900, color: "#0a0a0a",
+                    letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.875rem",
+                    borderBottom: `3px solid ${stat.color}`, display: "inline-block", paddingBottom: "0.375rem",
+                  }}>
+                    {stat.zahl}
+                  </p>
+                  <p style={{ fontSize: "0.875rem", color: "#6E6E73", lineHeight: 1.5, marginTop: "0.25rem" }}>{stat.label}</p>
+                </div>
+              </BlurFade>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ STÄRKEN ═══ */}
+      <section style={{ background: "#F5F5F7", padding: "7rem 1.5rem" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <BlurFade>
-            <div style={{ marginBottom: "4.5rem" }}>
-              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem" }}>{T.staerken.label}</p>
-              <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.028em", lineHeight: 1.15 }}>
+            <div style={{ marginBottom: "4rem" }}>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>
+                {T.staerken.label}
+              </p>
+              <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#0a0a0a", letterSpacing: "-0.035em", lineHeight: 1.1 }}>
                 {T.staerken.h2}
               </h2>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
             {T.staerken.items.map((s, i) => {
               const Icon = staerkenIcons[i];
               const color = staerkenColors[i];
               return (
                 <BlurFade key={s.titel} delay={i * 0.1}>
-                  <div className="bento-card group relative overflow-hidden" style={{ background: "#ffffff", borderRadius: "1.125rem", border: "1px solid rgba(0,0,0,0.07)", padding: "3rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 8px 28px rgba(0,0,0,0.05)", transition: "box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1)" }}>
+                  <div style={{ background: "#ffffff", borderRadius: "1.125rem", border: "1px solid rgba(0,0,0,0.06)", padding: "2.5rem", position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: color }} />
-                    <div style={{ width: "3.25rem", height: "3.25rem", borderRadius: "0.875rem", background: `${color}12`, border: `1px solid ${color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2.25rem" }}>
-                      <Icon size={22} strokeWidth={1.5} style={{ color }} />
+                    <div style={{ width: "3rem", height: "3rem", borderRadius: "0.75rem", background: `${color}12`, border: `1px solid ${color}20`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2rem" }}>
+                      <Icon size={20} strokeWidth={1.5} style={{ color }} />
                     </div>
-                    <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.02em", marginBottom: "1rem" }}>{s.titel}</h3>
-                    <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: "2", fontWeight: 400 }}>{s.text}</p>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#0a0a0a", letterSpacing: "-0.02em", marginBottom: "0.875rem" }}>{s.titel}</h3>
+                    <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: 1.9 }}>{s.text}</p>
                   </div>
                 </BlurFade>
               );
@@ -315,26 +408,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ FUR FACHKRAFTE ═══ */}
-      <section className="relative overflow-hidden"
-        style={{ background: "#d8e4f0", paddingTop: "6rem", paddingBottom: "6rem" }}>
-        <div className="site-container">
+      {/* ═══ FÜR FACHKRÄFTE ═══ */}
+      <section style={{ background: DARK, padding: "7rem 1.5rem" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-6">
               <BlurFade>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: "#1a3f6f" }}>{T.fachkraefte.label}</p>
-                <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-10 leading-[1.15]" style={{ letterSpacing: "-0.03em", color: "#1a3f6f" }}>
+                <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.28)", marginBottom: "1.5rem" }}>
+                  {T.fachkraefte.label}
+                </p>
+                <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 900, color: "#ffffff", letterSpacing: "-0.035em", lineHeight: 1.1, marginBottom: "2rem" }}>
                   {T.fachkraefte.h2[0]}<br />{T.fachkraefte.h2[1]}<br />{T.fachkraefte.h2[2]}
                 </h2>
-                <p className="text-[1.0625rem] font-normal leading-[2] mb-14 max-w-lg" style={{ color: "rgba(26,63,111,0.65)" }}>
+                <p style={{ fontSize: "1.0625rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.9, marginBottom: "3rem", maxWidth: "480px" }}>
                   {T.fachkraefte.p}
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <Link href="/platzanfrage" className="btn btn-primary btn-lg group">
-                    {T.fachkraefte.cta1}
-                    <ArrowRight size={14} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+                  <Link href="/platzanfrage" style={{
+                    display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                    background: "#0071e3", color: "#ffffff",
+                    padding: "0.75rem 1.5rem", borderRadius: "9999px",
+                    fontSize: "0.9375rem", fontWeight: 600, textDecoration: "none",
+                    border: "1px solid #0071e3",
+                  }}>
+                    {T.fachkraefte.cta1} <ArrowRight size={14} strokeWidth={1.5} />
                   </Link>
-                  <Link href="/kontakt" className="btn btn-outline btn-lg">
+                  <Link href="/kontakt" style={{
+                    display: "inline-flex", alignItems: "center",
+                    background: "transparent", color: "rgba(255,255,255,0.85)",
+                    padding: "0.75rem 1.5rem", borderRadius: "9999px",
+                    fontSize: "0.9375rem", fontWeight: 500, textDecoration: "none",
+                    border: "1px solid rgba(255,255,255,0.18)",
+                  }}>
                     {T.fachkraefte.cta2}
                   </Link>
                 </div>
@@ -343,17 +448,17 @@ export default function HomePage() {
 
             <div className="lg:col-span-5 lg:col-start-8">
               <BlurFade delay={0.12}>
-                <div className="grid grid-cols-2" style={{ gap: "1rem" }}>
-                  {[
-                    { zahl: "< 24h", color: "#6FA3FE" },
-                    { zahl: "24/7",  color: "#ef4444" },
-                    { zahl: "11",    color: "#FEC274" },
-                    { zahl: "100%",  color: "#6FA3FE" },
-                  ].map((stat, i) => (
-                    <div key={stat.zahl} className="bento-card" style={{ background: "#f0f4f8", border: "1px solid rgba(26,63,111,0.1)", borderRadius: "0.875rem", padding: "2rem 1.75rem", position: "relative", overflow: "hidden" }}>
+                <div className="grid grid-cols-2" style={{ gap: "0.875rem" }}>
+                  {([
+                    { zahl: "< 24h", color: "#6FA3FE", label: T.fachkraefte.stats[0] },
+                    { zahl: "24/7",  color: "#ef4444", label: T.fachkraefte.stats[1] },
+                    { zahl: "11",    color: "#FEC274", label: T.fachkraefte.stats[2] },
+                    { zahl: "100%",  color: "#6FA3FE", label: T.fachkraefte.stats[3] },
+                  ] as const).map((stat) => (
+                    <div key={stat.zahl} style={{ background: CARD, border: `1px solid ${CARD_BORDER}`, borderRadius: "0.875rem", padding: "1.75rem", position: "relative", overflow: "hidden" }}>
                       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: stat.color }} />
-                      <p style={{ fontSize: "2.25rem", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{stat.zahl}</p>
-                      <p style={{ fontSize: "0.8125rem", color: "rgba(26,63,111,0.55)", lineHeight: 1.5, fontWeight: 400 }}>{T.fachkraefte.stats[i]}</p>
+                      <p style={{ fontSize: "2.25rem", fontWeight: 900, color: "#ffffff", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.5rem" }}>{stat.zahl}</p>
+                      <p style={{ fontSize: "0.8125rem", color: "rgba(255,255,255,0.38)", lineHeight: 1.5 }}>{stat.label}</p>
                     </div>
                   ))}
                 </div>
