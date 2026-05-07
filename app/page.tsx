@@ -246,8 +246,8 @@ export default function HomePage() {
           <div style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
             <p style={{ fontSize: "clamp(1.5rem,3.5vw,2.75rem)", fontWeight: 600, color: DARK, lineHeight: 1.5, letterSpacing: "-0.015em" }}>
               {lang === "de"
-                ? "„Kein Kind fällt durch unser Netz. Wir sind da — in der Nacht, in der Krise, im Alltag.""
-                : "\"No child falls through our net. We are there — at night, in crisis, in daily life.\""}
+                ? <>&#8222;Kein Kind fällt durch unser Netz. Wir sind da &#8212; in der Nacht, in der Krise, im Alltag.&#8220;</>
+                : <>&ldquo;No child falls through our net. We are there &#8212; at night, in crisis, in daily life.&rdquo;</>}
             </p>
             <div style={{ width: "40px", height: "3px", background: DARK, margin: "2.5rem auto 0", borderRadius: "2px", opacity: 0.25 }} />
           </div>
