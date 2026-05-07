@@ -83,7 +83,7 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop nav links */}
-        <div className="hidden lg:flex items-center" style={{ gap: "2rem" }}>
+        <div className="hidden lg:flex items-center" style={{ gap: "1.25rem" }}>
           {/* Angebote dropdown trigger */}
           <div onMouseEnter={openMega} onMouseLeave={closeMega}>
             <button
