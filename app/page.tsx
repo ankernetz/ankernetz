@@ -4,457 +4,361 @@ import Link from "next/link";
 import {
   AlertTriangle, Home, Brain, Baby, Search, Shirt,
   MessageCircle, Rocket, Building2, Heart, ArrowRight,
-  Phone,
+  Shield, Network, Star
 } from "lucide-react";
+import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
 import { BlurFade } from "./components/BlurFade";
 import { useLang } from "./contexts/LanguageContext";
 import { tr } from "./i18n/translations";
 
-/* ── Palette ── editorial, warm, Gucci-inspiriert ───────────── */
-const TERRA    = "#8B3A22";   // Terrakotta
-const FOREST   = "#1D3D2A";   // Waldgrün
-const WINE     = "#4A1A28";   // Weinrot
-const CHARCOAL = "#1A1614";   // warmes fast-Schwarz
-const IVORY    = "#F5EFE8";   // warmes Elfenbein
-const GOLD     = "#C8922A";   // warmes Gold
-const CREAM    = "#FAF6F1";   // sehr helles Creme
-const WHITE    = "#FFFFFF";
-const RUST_MID = "#6B2C18";   // mittlerer Rost
-
-/* ── Services ─────────────────────────────────────────────────── */
 const slugsMeta = [
-  { slug: "krisenintervention",   icon: AlertTriangle, color: TERRA,   bg: "#F9EDE9" },
-  { slug: "psychotherapie",       icon: Brain,         color: FOREST,  bg: "#E8F0EC" },
-  { slug: "fruehe-hilfen",        icon: Baby,          color: GOLD,    bg: "#F7F0E4" },
-  { slug: "therapie-wohnen",      icon: Home,          color: FOREST,  bg: "#E8F0EC" },
-  { slug: "jugendhilfe",          icon: Heart,         color: WINE,    bg: "#F2E6EA" },
-  { slug: "diagnostik-clearing",  icon: Search,        color: TERRA,   bg: "#F9EDE9" },
-  { slug: "beratung-praevention", icon: MessageCircle, color: GOLD,    bg: "#F7F0E4" },
-  { slug: "kita-beratung",        icon: Building2,     color: FOREST,  bg: "#E8F0EC" },
-  { slug: "uebergang-arbeit",     icon: Rocket,        color: FOREST,  bg: "#E8F0EC" },
-  { slug: "ankerkleidung",        icon: Shirt,         color: WINE,    bg: "#F2E6EA" },
-  { slug: "versorgung",           icon: Heart,         color: GOLD,    bg: "#F7F0E4" },
+  { slug: "krisenintervention",   icon: AlertTriangle, iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "psychotherapie",       icon: Brain,         iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "fruehe-hilfen",        icon: Baby,          iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "therapie-wohnen",      icon: Home,          iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "jugendhilfe",          icon: Heart,         iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "diagnostik-clearing",  icon: Search,        iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "beratung-praevention", icon: MessageCircle, iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "kita-beratung",        icon: Building2,     iconColor: "#FEC274", stripe: "#c47a20" },
+  { slug: "uebergang-arbeit",     icon: Rocket,        iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "ankerkleidung",        icon: Shirt,         iconColor: "#6FA3FE", stripe: "#4d85e8" },
+  { slug: "versorgung",           icon: Star,          iconColor: "#FEC274", stripe: "#c47a20" },
 ];
 
-/* ── Kategorien ────────────────────────────────────────────────── */
-const kategorien = [
-  {
-    label: { de: "Krise & Schutz",           en: "Crisis & Protection"    },
-    indices: [0, 2],
-    panelBg: TERRA,
-    panelGrad: `linear-gradient(160deg, ${TERRA} 0%, ${RUST_MID} 100%)`,
-  },
-  {
-    label: { de: "Wohnen & Therapie",        en: "Housing & Therapy"      },
-    indices: [1, 3, 4],
-    panelBg: FOREST,
-    panelGrad: `linear-gradient(160deg, #243E2F 0%, ${FOREST} 100%)`,
-  },
-  {
-    label: { de: "Diagnostik & Beratung",    en: "Diagnostics & Advice"   },
-    indices: [5, 6, 7],
-    panelBg: WINE,
-    panelGrad: `linear-gradient(160deg, #3A1220 0%, ${WINE} 100%)`,
-  },
-  {
-    label: { de: "Versorgung & Perspektive", en: "Care & Perspective"     },
-    indices: [8, 9, 10],
-    panelBg: CHARCOAL,
-    panelGrad: `linear-gradient(160deg, #0E0C0A 0%, #2A2220 100%)`,
-  },
-];
+const staerkenIcons = [Shield, Network, Brain];
+const staerkenColors = ["#6FA3FE", "#FEC274", "#6FA3FE"];
 
 export default function HomePage() {
   const { lang } = useLang();
   const T = tr[lang];
 
-  const services = slugsMeta.map((m, i) => ({
+  const angebote = slugsMeta.map((m, i) => ({
     ...m,
     titel: T.angeboteTitel[i],
     claim: T.angebote[i].claim,
-    badge: T.angebote[i].badge,
     kurz:  T.angebote[i].kurz,
+    badge: T.angebote[i].badge,
   }));
 
   return (
-    <main>
+    <main className="overflow-x-hidden">
 
-      {/* ════════════════════════════════════════════════════════
-          1 · VIDEO HERO
-      ════════════════════════════════════════════════════════ */}
-      <section style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
+      {/* ═══ HERO ═══ */}
+      <section
+        className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
+        style={{ background: "linear-gradient(155deg, #eef4ff 0%, #fafbff 45%, #fff8ee 100%)" }}
+      >
+        <div className="absolute top-0 left-[10%] w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(111,163,254,0.14) 0%, transparent 65%)" }} />
+        <div className="absolute bottom-0 right-[5%] w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(254,194,116,0.12) 0%, transparent 65%)" }} />
+        <div className="absolute top-1/3 right-[20%] w-[350px] h-[350px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(3,41,92,0.05) 0%, transparent 65%)" }} />
 
-        {/* Fallback-Gradient – Terrakotta-Verlauf */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 0,
-          background: `linear-gradient(150deg, #1A0804 0%, ${TERRA} 45%, ${RUST_MID} 75%, #2A0E06 100%)`,
-        }} />
+        <AnimatedGridPattern
+          numSquares={35}
+          maxOpacity={0.04}
+          duration={3}
+          strokeColor="rgba(111,163,254,0.15)"
+          className="z-0"
+        />
 
-        {/* Subtile Textur-Schicht */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 1, opacity: 0.08,
-          backgroundImage: "radial-gradient(circle at 25% 35%, rgba(255,255,255,0.15) 0%, transparent 55%), radial-gradient(circle at 75% 65%, rgba(255,200,120,0.2) 0%, transparent 50%)",
-        }} />
+        <div className="relative z-10 w-full" style={{ maxWidth: "780px", marginLeft: "auto", marginRight: "auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
 
-        {/* Video */}
-        <video autoPlay muted loop playsInline
-          style={{ position: "absolute", inset: 0, zIndex: 2, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}>
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
-
-        {/* Dunkel-Overlay */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 3,
-          background: "linear-gradient(to bottom, rgba(15,5,2,0.35) 0%, rgba(15,5,2,0.4) 55%, rgba(15,5,2,0.80) 100%)",
-        }} />
-
-        {/* Content */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 4,
-          display: "flex", flexDirection: "column", justifyContent: "flex-end",
-          padding: "0 2rem 6rem", maxWidth: "1280px", margin: "0 auto", left: 0, right: 0,
-        }}>
           {/* Badge */}
-          <div className="fade-in-up" style={{
-            display: "inline-flex", alignItems: "center", gap: "0.5rem",
-            background: "rgba(139,58,34,0.85)", borderRadius: "4px",
-            padding: "0.4rem 0.875rem", marginBottom: "2rem", width: "fit-content",
-            border: "1px solid rgba(200,146,42,0.4)",
-          }}>
-            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: GOLD, animation: "pulse 2s infinite" }} />
-            <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: "rgba(255,255,255,0.9)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{T.hero.badge}</span>
+          <div className="fade-in-up" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: "100px", padding: "0.375rem 0.875rem", marginBottom: "2.5rem" }}>
+            <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", background: "#ef4444", flexShrink: 0, animation: "pulse 2s infinite" }} />
+            <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#b91c1c", letterSpacing: "0.01em" }}>
+              {T.hero.badge}
+            </span>
           </div>
 
-          {/* Headline */}
-          <h1 className="fade-in-up delay-1" style={{
-            fontSize: "clamp(2.75rem,7vw,5.5rem)", fontWeight: 700,
-            color: WHITE, lineHeight: 1.1, letterSpacing: "-0.025em",
-            marginBottom: "1.5rem", maxWidth: "680px",
-          }}>
-            {T.hero.h1line1}
-            <br />
-            <span style={{ color: GOLD }}>{T.hero.h1line2}</span>
+          <h1 className="fade-in-up delay-1 leading-none"
+            style={{ fontSize: "clamp(3.25rem,9vw,6rem)", fontWeight: 900, letterSpacing: "-0.035em", color: "#1a3f6f", marginBottom: "1.5rem" }}>
+            Anker<span style={{
+              backgroundImage: "linear-gradient(135deg, #6FA3FE 0%, #FEC274 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>netz</span>
           </h1>
 
-          {/* Sub */}
-          <p className="fade-in-up delay-2" style={{
-            fontSize: "clamp(0.9375rem,1.5vw,1.0625rem)", color: "rgba(245,239,232,0.7)",
-            fontWeight: 300, lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: "480px",
-          }}>
-            {T.hero.sub1}
-          </p>
-
-          {/* CTAs */}
-          <div className="fade-in-up delay-3" style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-            <a href="tel:+4930224543220" style={{
-              display: "inline-flex", alignItems: "center", gap: "0.5rem",
-              background: TERRA, color: WHITE,
-              padding: "0.75rem 1.5rem", borderRadius: "3px",
-              fontSize: "0.875rem", fontWeight: 600, textDecoration: "none",
-              border: "1px solid rgba(200,146,42,0.3)", letterSpacing: "0.04em",
-            }}>
-              <Phone size={15} strokeWidth={2} />
-              {T.nav.notfall}
-            </a>
-            <a href="#angebote" style={{
-              display: "inline-flex", alignItems: "center", gap: "0.5rem",
-              background: "rgba(245,239,232,0.10)", color: "rgba(245,239,232,0.9)",
-              padding: "0.75rem 1.5rem", borderRadius: "3px",
-              fontSize: "0.875rem", fontWeight: 400, textDecoration: "none",
-              backdropFilter: "blur(8px)", border: "1px solid rgba(245,239,232,0.22)",
-              letterSpacing: "0.04em",
-            }}>
-              {T.hero.cta1} <ArrowRight size={14} strokeWidth={1.5} />
-            </a>
+          <div className="fade-in-up delay-2" style={{ marginBottom: "3rem" }}>
+            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "#1a3f6f", fontWeight: 400, lineHeight: 1.7, marginBottom: "0.25rem" }}>
+              {T.hero.sub1}
+            </p>
+            <p style={{ fontSize: "clamp(1.0625rem,2.2vw,1.25rem)", color: "rgba(3,41,92,0.45)", fontWeight: 400, lineHeight: 1.7 }}>
+              {T.hero.sub2}
+            </p>
           </div>
+
+          <div className="fade-in-up delay-3" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "0.75rem", marginBottom: "6rem" }}>
+            <a href="#angebote" className="btn btn-primary btn-lg group">
+              {T.hero.cta1}
+              <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
+            </a>
+            <Link href="/platzanfrage" className="btn btn-outline btn-lg">
+              {T.hero.cta2}
+            </Link>
+          </div>
+
         </div>
 
-        {/* Scroll fade */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "120px", background: "linear-gradient(to bottom, transparent, rgba(15,5,2,0.4))", zIndex: 3 }} />
+        <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, transparent, #fff8ee)" }} />
+        <div className="scroll-pulse absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+          <div className="w-px h-8" style={{ background: "rgba(15,23,42,0.15)" }} />
+        </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════
-          2 · MISSION — 2-Spalter auf Elfenbein
-      ════════════════════════════════════════════════════════ */}
-      <section style={{ background: IVORY, padding: "7rem 1.5rem" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-            <BlurFade>
-              <span style={{
-                display: "inline-block", fontSize: "0.625rem", fontWeight: 600,
-                letterSpacing: "0.2em", textTransform: "uppercase", color: TERRA, marginBottom: "1.25rem",
-              }}>
-                {lang === "de" ? "Unser Auftrag" : "Our Mission"}
-              </span>
-              <h2 style={{
-                fontSize: "clamp(2rem,4vw,3.25rem)", fontWeight: 700, color: CHARCOAL,
-                letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: "1.75rem",
-              }}>
+      {/* ═══ EINLEITUNG ═══ */}
+      <section className="relative overflow-hidden bg-[#F5F5F7]" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)" }} />
+        <div className="site-container">
+          <BlurFade>
+            <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+              <h2 className="text-[clamp(2rem,5vw,3.25rem)] font-black text-[#1a3f6f] leading-[1.1]"
+                style={{ letterSpacing: "-0.03em", marginBottom: "2.5rem" }}>
                 {T.einleitung.h2}
               </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2.5rem" }}>
-                <p style={{ fontSize: "1rem", color: "#4A3E38", lineHeight: 1.9 }}>{T.einleitung.p1}</p>
-                <p style={{ fontSize: "1rem", color: "#4A3E38", lineHeight: 1.9 }}>{T.einleitung.p2}</p>
-                <p style={{ fontSize: "1rem", fontWeight: 600, color: FOREST, lineHeight: 1.9 }}>{T.einleitung.p5}</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.4rem" }}>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p1}</p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p2}</p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p3}</p>
+                <p className="text-[1.0625rem] text-[#6E6E73] font-normal leading-[1.8]">{T.einleitung.p4}</p>
+                <p className="text-[1.0625rem] text-[#374151] font-semibold leading-[1.8]">{T.einleitung.p5}</p>
               </div>
-              <Link href="/ueber-uns" style={{
-                display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                color: CHARCOAL, fontWeight: 600, fontSize: "0.875rem",
-                textDecoration: "none", letterSpacing: "0.06em", textTransform: "uppercase",
-                borderBottom: `1px solid ${CHARCOAL}`,
-              }}>
-                {lang === "de" ? "Mehr über uns" : "More about us"} <ArrowRight size={13} strokeWidth={2} />
+            </div>
+          </BlurFade>
+        </div>
+      </section>
+
+      {/* ═══ BENTO GRID - ANGEBOTE ═══ */}
+      <section id="angebote" style={{ background: "#d8e4f0", paddingTop: "4.5rem", paddingBottom: "5rem" }}>
+        <div className="site-container">
+          <BlurFade>
+            <div className="text-center" style={{ marginBottom: "2.5rem" }}>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: "#1a3f6f" }}>
+                {T.angeboteSection.label}
+              </p>
+              <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black" style={{ letterSpacing: "-0.028em", color: "#1a3f6f" }}>
+                {T.angeboteSection.h2}
+              </h2>
+            </div>
+          </BlurFade>
+        </div>
+        <div className="site-container" style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+
+          {/* Reihe 1: Krisenintervention (Large) + Psychotherapie */}
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
+            <BlurFade className="md:col-span-2">
+              <Link href="/krisenintervention" className="bento-card group relative flex flex-col overflow-hidden"
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[0].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[0].stripe }} />
+                <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
+                  <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[0].stripe, background: `${angebote[0].stripe}18`, border: `1px solid ${angebote[0].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[0].badge}</span>
+                </div>
+                <div style={{ position: "relative", zIndex: 10 }}>
+                  <AlertTriangle size={30} strokeWidth={1.5} style={{ color: angebote[0].iconColor, marginBottom: "1rem" }} />
+                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.875rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.625rem" }}>{angebote[0].titel}</h3>
+                  <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.25rem" }}>{angebote[0].claim}</p>
+                  <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "2rem", maxWidth: "38ch" }}>{angebote[0].kurz}</p>
+                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+                    {T.angeboteSection.mehrErfahren} <ArrowRight size={14} strokeWidth={1.5} />
+                  </span>
+                </div>
               </Link>
             </BlurFade>
 
-            {/* Werte-Karten — warm gestapelt */}
             <BlurFade delay={0.1}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-                {[
-                  { icon: "⚓", titel: T.staerken.items[0].titel, text: T.staerken.items[0].text, bg: WHITE,         border: "rgba(139,58,34,0.12)" },
-                  { icon: "🔗", titel: T.staerken.items[1].titel, text: T.staerken.items[1].text, bg: "#F2EBE4",     border: "rgba(139,58,34,0.08)" },
-                  { icon: "✦",  titel: T.staerken.items[2].titel, text: T.staerken.items[2].text, bg: WHITE,         border: "rgba(139,58,34,0.12)" },
-                ].map((v, i) => (
-                  <div key={v.titel} style={{
-                    background: v.bg, padding: "2rem 2.25rem",
-                    display: "flex", gap: "1.25rem", alignItems: "flex-start",
-                    borderTop: i === 0 ? `1px solid ${v.border}` : "none",
-                    borderBottom: `1px solid ${v.border}`,
-                    borderLeft: `3px solid ${i === 0 ? TERRA : i === 1 ? FOREST : GOLD}`,
-                  }}>
-                    <span style={{ fontSize: "1.25rem", lineHeight: 1, flexShrink: 0, marginTop: "0.1rem" }}>{v.icon}</span>
-                    <div>
-                      <p style={{ fontSize: "0.9375rem", fontWeight: 700, color: CHARCOAL, marginBottom: "0.35rem" }}>{v.titel}</p>
-                      <p style={{ fontSize: "0.8125rem", color: "#6A5A52", lineHeight: 1.8 }}>{v.text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </BlurFade>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════
-          3 · STATS — Waldgrün mit Gold-Akzenten
-      ════════════════════════════════════════════════════════ */}
-      <section style={{ background: `linear-gradient(120deg, #182E20 0%, ${FOREST} 60%, #243824 100%)`, padding: "4.5rem 1.5rem" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "2rem" }}>
-            {([
-              { n: "< 24h", l: T.fachkraefte.stats[0], c: GOLD           },
-              { n: "24/7",  l: T.fachkraefte.stats[1], c: "#F5C5B0"      },
-              { n: "11",    l: T.fachkraefte.stats[2], c: "rgba(245,239,232,0.85)" },
-              { n: "100%",  l: T.fachkraefte.stats[3], c: WHITE           },
-            ] as const).map(s => (
-              <BlurFade key={s.n}>
-                <div style={{ textAlign: "center" }}>
-                  <p style={{
-                    fontSize: "clamp(2.25rem,4.5vw,3.5rem)", fontWeight: 700,
-                    color: s.c, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem",
-                  }}>{s.n}</p>
-                  <p style={{ fontSize: "0.75rem", color: "rgba(245,239,232,0.45)", lineHeight: 1.5, fontWeight: 300, letterSpacing: "0.04em" }}>{s.l}</p>
+              <Link href="/psychotherapie" className="bento-card group relative flex flex-col overflow-hidden"
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[1].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "460px", padding: "2.5rem 3rem" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[1].stripe }} />
+                <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
+                  <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[1].stripe, background: `${angebote[1].stripe}18`, border: `1px solid ${angebote[1].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[1].badge}</span>
                 </div>
-              </BlurFade>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════
-          4 · ANGEBOTE — Gucci-Editorial-Grid (4 farbige Panels)
-      ════════════════════════════════════════════════════════ */}
-      <section id="angebote" style={{ background: CREAM, padding: "0" }}>
-
-        {/* Label + Heading */}
-        <div style={{ padding: "6rem 1.5rem 4rem", maxWidth: "1280px", margin: "0 auto" }}>
-          <BlurFade>
-            <span style={{
-              fontSize: "0.625rem", fontWeight: 600, letterSpacing: "0.2em",
-              textTransform: "uppercase", color: TERRA, display: "block", marginBottom: "0.875rem",
-            }}>
-              {T.angeboteSection.label}
-            </span>
-            <h2 style={{
-              fontSize: "clamp(1.875rem,3.5vw,2.75rem)", fontWeight: 700, color: CHARCOAL,
-              letterSpacing: "-0.025em", lineHeight: 1.2, maxWidth: "600px",
-            }}>
-              {T.angeboteSection.h2}
-            </h2>
-          </BlurFade>
-        </div>
-
-        {/* 4-Spalten Editorial Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }} className="grid-editorial">
-          {kategorien.map((kat, ki) => (
-            <BlurFade key={ki} delay={ki * 0.07}>
-              <div style={{ background: kat.panelGrad, minHeight: "520px", display: "flex", flexDirection: "column", padding: "2.5rem 2rem 3rem" }}>
-
-                {/* Kategorie-Label */}
-                <div style={{ marginBottom: "2.5rem" }}>
-                  <span style={{
-                    fontSize: "0.5625rem", fontWeight: 600, letterSpacing: "0.2em",
-                    textTransform: "uppercase", color: "rgba(245,239,232,0.45)",
-                    display: "block", marginBottom: "0.5rem",
-                  }}>0{ki + 1}</span>
-                  <h3 style={{ fontSize: "1.0625rem", fontWeight: 600, color: IVORY, letterSpacing: "-0.01em" }}>
-                    {kat.label[lang]}
-                  </h3>
-                  <div style={{ width: "24px", height: "1px", background: GOLD, marginTop: "1rem", opacity: 0.6 }} />
-                </div>
-
-                {/* Service-Einträge */}
-                <div style={{ display: "flex", flexDirection: "column", gap: "0", flex: 1 }}>
-                  {kat.indices.map((idx, j) => {
-                    const s = services[idx];
-                    const Icon = s.icon;
-                    return (
-                      <Link key={s.slug} href={`/${s.slug}`}
-                        style={{ textDecoration: "none", borderTop: "1px solid rgba(245,239,232,0.08)", padding: "1.25rem 0", display: "block", transition: "background 0.2s" }}
-                        className="editorial-item">
-                        <div style={{ display: "flex", alignItems: "flex-start", gap: "0.875rem" }}>
-                          <div style={{
-                            width: "2rem", height: "2rem", borderRadius: "6px",
-                            background: "rgba(245,239,232,0.10)", display: "flex",
-                            alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "0.1rem",
-                          }}>
-                            <Icon size={13} strokeWidth={1.75} style={{ color: "rgba(245,239,232,0.7)" }} />
-                          </div>
-                          <div style={{ flex: 1 }}>
-                            <p style={{ fontSize: "0.875rem", fontWeight: 600, color: IVORY, lineHeight: 1.3, marginBottom: "0.25rem" }}>{s.titel}</p>
-                            <p style={{ fontSize: "0.6875rem", color: "rgba(245,239,232,0.45)", lineHeight: 1.5 }}>{s.badge}</p>
-                          </div>
-                          <ArrowRight size={12} strokeWidth={1.5} style={{ color: "rgba(245,239,232,0.25)", flexShrink: 0, marginTop: "0.3rem" }} />
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-
-                {/* Mehr erfahren */}
-                <div style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(245,239,232,0.1)" }}>
-                  <span style={{
-                    fontSize: "0.625rem", fontWeight: 600, letterSpacing: "0.15em",
-                    textTransform: "uppercase", color: GOLD, opacity: 0.8,
-                  }}>
-                    {T.angeboteSection.mehrErfahren} →
+                <div style={{ position: "relative", zIndex: 10 }}>
+                  <Brain size={26} strokeWidth={1.5} style={{ color: angebote[1].iconColor, marginBottom: "1rem" }} />
+                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[1].titel}</h3>
+                  <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[1].claim}</p>
+                  <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[1].kurz}</p>
+                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+                    {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={1.5} />
                   </span>
                 </div>
-              </div>
+              </Link>
             </BlurFade>
-          ))}
+          </div>
+
+          {/* Reihe 2: 3 Medium */}
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
+            {[angebote[2], angebote[3], angebote[4]].map((a, i) => {
+              const Icon = a.icon;
+              return (
+                <BlurFade key={a.slug} delay={i * 0.08}>
+                  <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
+                    style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${a.stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "380px", padding: "2.5rem 3rem" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
+                    <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
+                      <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: a.stripe, background: `${a.stripe}18`, border: `1px solid ${a.stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{a.badge}</span>
+                    </div>
+                    <div style={{ position: "relative", zIndex: 10 }}>
+                      <Icon size={24} strokeWidth={1.5} style={{ color: a.iconColor, marginBottom: "1rem" }} />
+                      <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.25rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{a.titel}</h3>
+                      <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{a.claim}</p>
+                      <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{a.kurz}</p>
+                      <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+                        {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={1.5} />
+                      </span>
+                    </div>
+                  </Link>
+                </BlurFade>
+              );
+            })}
+          </div>
+
+          {/* Reihe 3: 4 Compact */}
+          <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "1.5rem" }}>
+            {[angebote[5], angebote[6], angebote[7], angebote[8]].map((a, i) => {
+              const Icon = a.icon;
+              return (
+                <BlurFade key={a.slug} delay={i * 0.06}>
+                  <Link href={`/${a.slug}`} className="bento-card group relative flex flex-col overflow-hidden"
+                    style={{ background: `radial-gradient(ellipse 70% 55% at 90% 5%, ${a.stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "260px", padding: "2rem 2.25rem" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: a.stripe }} />
+                    <div style={{ position: "relative", zIndex: 10 }}>
+                      <Icon size={22} strokeWidth={1.5} style={{ color: a.iconColor, marginBottom: "0.875rem" }} />
+                      <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.0625rem", letterSpacing: "-0.018em", lineHeight: 1.2, marginBottom: "0.375rem" }}>{a.titel}</h3>
+                      <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.8125rem", fontStyle: "italic", marginBottom: "1.25rem" }}>{a.claim}</p>
+                      <span style={{ display: "inline-block", fontSize: "0.6875rem", fontWeight: 600, color: a.stripe, background: `${a.stripe}15`, border: `1px solid ${a.stripe}30`, padding: "0.2rem 0.6rem", borderRadius: "100px" }}>{a.badge}</span>
+                    </div>
+                  </Link>
+                </BlurFade>
+              );
+            })}
+          </div>
+
+          {/* Reihe 4: Ankerkleidung (Large) + Versorgung */}
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
+            <BlurFade delay={0.08} className="md:col-span-2">
+              <Link href="/ankerkleidung" className="bento-card group relative flex flex-col overflow-hidden"
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[9].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[9].stripe }} />
+                <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
+                  <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[9].stripe, background: `${angebote[9].stripe}18`, border: `1px solid ${angebote[9].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[9].badge}</span>
+                </div>
+                <div style={{ position: "relative", zIndex: 10 }}>
+                  <Shirt size={26} strokeWidth={1.5} style={{ color: angebote[9].iconColor, marginBottom: "1rem" }} />
+                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.625rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.5rem" }}>{angebote[9].titel}</h3>
+                  <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.9375rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[9].claim}</p>
+                  <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem", maxWidth: "40ch" }}>{angebote[9].kurz}</p>
+                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+                    {T.angeboteSection.kollektionEntdecken} <ArrowRight size={14} strokeWidth={1.5} />
+                  </span>
+                </div>
+              </Link>
+            </BlurFade>
+
+            <BlurFade delay={0.15}>
+              <Link href="/versorgung" className="bento-card group relative flex flex-col overflow-hidden"
+                style={{ background: `radial-gradient(ellipse 65% 50% at 95% 5%, ${angebote[10].stripe}22 0%, transparent 55%), #f0f4f8`, border: "1px solid rgba(26,63,111,0.1)", borderRadius: "1.5rem", minHeight: "260px", padding: "2.5rem 3rem" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: angebote[10].stripe }} />
+                <div style={{ position: "absolute", top: "1.5rem", right: "1.75rem" }}>
+                  <span style={{ fontSize: "0.6875rem", fontWeight: 600, color: angebote[10].stripe, background: `${angebote[10].stripe}18`, border: `1px solid ${angebote[10].stripe}35`, padding: "0.2rem 0.65rem", borderRadius: "100px" }}>{angebote[10].badge}</span>
+                </div>
+                <div style={{ position: "relative", zIndex: 10 }}>
+                  <Star size={24} strokeWidth={1.5} style={{ color: angebote[10].iconColor, marginBottom: "1rem" }} />
+                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[10].titel}</h3>
+                  <p style={{ color: "rgba(26,63,111,0.55)", fontSize: "0.875rem", fontStyle: "italic", marginBottom: "1.125rem" }}>{angebote[10].claim}</p>
+                  <p style={{ color: "#4a5568", fontSize: "0.875rem", lineHeight: "2.1", marginBottom: "1.75rem" }}>{angebote[10].kurz}</p>
+                  <span className="group-hover:gap-3 transition-all" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#1a3f6f", fontSize: "0.875rem", fontWeight: 600 }}>
+                    {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={1.5} />
+                  </span>
+                </div>
+              </Link>
+            </BlurFade>
+          </div>
+
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════
-          5 · ZITAT — Weinrot / dunkel mit Goldtext
-      ════════════════════════════════════════════════════════ */}
-      <section style={{
-        background: `linear-gradient(135deg, #1A0C10 0%, ${WINE} 50%, #200A14 100%)`,
-        padding: "7rem 2rem",
-      }}>
-        <BlurFade>
-          <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
-            <div style={{ width: "1px", height: "48px", background: GOLD, margin: "0 auto 3rem", opacity: 0.4 }} />
-            <p style={{
-              fontSize: "clamp(1.375rem,3vw,2.375rem)", fontWeight: 300, color: IVORY,
-              lineHeight: 1.6, letterSpacing: "-0.01em", fontStyle: "italic",
-            }}>
-              {lang === "de"
-                ? <>&#8222;Kein Kind fällt durch unser Netz. Wir sind da &#8212; in der Nacht, in der Krise, im Alltag.&#8220;</>
-                : <>&ldquo;No child falls through our net. We are there &#8212; at night, in crisis, in daily life.&rdquo;</>}
-            </p>
-            <div style={{ width: "1px", height: "48px", background: GOLD, margin: "3rem auto 0", opacity: 0.4 }} />
+      {/* ═══ STARKEN ═══ */}
+      <section className="relative overflow-hidden bg-white" style={{ paddingTop: "7rem", paddingBottom: "7rem" }}>
+        <div className="site-container">
+          <BlurFade>
+            <div style={{ marginBottom: "4.5rem" }}>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem" }}>{T.staerken.label}</p>
+              <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.028em", lineHeight: 1.15 }}>
+                {T.staerken.h2}
+              </h2>
+            </div>
+          </BlurFade>
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2rem" }}>
+            {T.staerken.items.map((s, i) => {
+              const Icon = staerkenIcons[i];
+              const color = staerkenColors[i];
+              return (
+                <BlurFade key={s.titel} delay={i * 0.1}>
+                  <div className="bento-card group relative overflow-hidden" style={{ background: "#ffffff", borderRadius: "1.125rem", border: "1px solid rgba(0,0,0,0.07)", padding: "3rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 8px 28px rgba(0,0,0,0.05)", transition: "box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1)" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: color }} />
+                    <div style={{ width: "3.25rem", height: "3.25rem", borderRadius: "0.875rem", background: `${color}12`, border: `1px solid ${color}22`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2.25rem" }}>
+                      <Icon size={22} strokeWidth={1.5} style={{ color }} />
+                    </div>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.02em", marginBottom: "1rem" }}>{s.titel}</h3>
+                    <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: "2", fontWeight: 400 }}>{s.text}</p>
+                  </div>
+                </BlurFade>
+              );
+            })}
           </div>
-        </BlurFade>
+        </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════
-          6 · FÜR FACHKRÄFTE — warmes fast-Schwarz
-      ════════════════════════════════════════════════════════ */}
-      <section style={{ background: `linear-gradient(160deg, #0A0806 0%, ${CHARCOAL} 50%, #120E0C 100%)`, padding: "7rem 1.5rem" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
-            <BlurFade>
-              <span style={{
-                fontSize: "0.625rem", fontWeight: 600, letterSpacing: "0.2em",
-                textTransform: "uppercase", color: GOLD, display: "block", marginBottom: "1.25rem",
-              }}>
-                {T.fachkraefte.label}
-              </span>
-              <h2 style={{
-                fontSize: "clamp(2rem,3.5vw,3rem)", fontWeight: 700, color: IVORY,
-                letterSpacing: "-0.025em", lineHeight: 1.2, marginBottom: "1.75rem",
-              }}>
-                {T.fachkraefte.h2[0]}<br />
-                <span style={{ color: GOLD }}>{T.fachkraefte.h2[1]}</span><br />
-                {T.fachkraefte.h2[2]}
-              </h2>
-              <p style={{ fontSize: "1rem", color: "rgba(245,239,232,0.5)", lineHeight: 1.9, marginBottom: "2.5rem", maxWidth: "440px" }}>
-                {T.fachkraefte.p}
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-                <Link href="/platzanfrage" style={{
-                  display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                  background: TERRA, color: WHITE,
-                  padding: "0.75rem 1.75rem", borderRadius: "3px",
-                  fontSize: "0.875rem", fontWeight: 600, textDecoration: "none",
-                  letterSpacing: "0.04em",
-                }}>
-                  {T.fachkraefte.cta1} <ArrowRight size={14} strokeWidth={2} />
-                </Link>
-                <Link href="/kontakt" style={{
-                  display: "inline-flex", alignItems: "center",
-                  background: "transparent", color: "rgba(245,239,232,0.6)",
-                  padding: "0.75rem 1.75rem", borderRadius: "3px",
-                  fontSize: "0.875rem", fontWeight: 400, textDecoration: "none",
-                  border: "1px solid rgba(245,239,232,0.15)", letterSpacing: "0.04em",
-                }}>
-                  {T.fachkraefte.cta2}
-                </Link>
-              </div>
-            </BlurFade>
-
-            {/* Stats-Grid */}
-            <BlurFade delay={0.1}>
-              <div className="grid grid-cols-2" style={{ gap: "1px", background: "rgba(245,239,232,0.08)", borderRadius: "4px", overflow: "hidden" }}>
-                {([
-                  { n: "< 24h", l: T.fachkraefte.stats[0], accent: GOLD           },
-                  { n: "24/7",  l: T.fachkraefte.stats[1], accent: "#E8B4A0"      },
-                  { n: "11",    l: T.fachkraefte.stats[2], accent: "rgba(245,239,232,0.85)" },
-                  { n: "100%",  l: T.fachkraefte.stats[3], accent: GOLD            },
-                ] as const).map(s => (
-                  <div key={s.n} style={{ background: "rgba(15,10,8,0.9)", padding: "2.5rem 2rem" }}>
-                    <p style={{ fontSize: "2.5rem", fontWeight: 700, color: s.accent, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{s.n}</p>
-                    <p style={{ fontSize: "0.75rem", color: "rgba(245,239,232,0.35)", lineHeight: 1.5, fontWeight: 300, letterSpacing: "0.04em" }}>{s.l}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Notfall-Box */}
-              <div style={{
-                marginTop: "1px", background: TERRA,
-                borderRadius: "0 0 4px 4px", padding: "1.5rem 2rem",
-                display: "flex", alignItems: "center", gap: "1.25rem",
-              }}>
-                <div style={{
-                  width: "40px", height: "40px",
-                  background: "rgba(255,255,255,0.15)", borderRadius: "3px",
-                  display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-                }}>
-                  <Phone size={18} strokeWidth={2} style={{ color: WHITE }} />
+      {/* ═══ FUR FACHKRAFTE ═══ */}
+      <section className="relative overflow-hidden"
+        style={{ background: "#d8e4f0", paddingTop: "6rem", paddingBottom: "6rem" }}>
+        <div className="site-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-6">
+              <BlurFade>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-6" style={{ color: "#1a3f6f" }}>{T.fachkraefte.label}</p>
+                <h2 className="text-[clamp(2rem,4vw,3rem)] font-black mb-10 leading-[1.15]" style={{ letterSpacing: "-0.03em", color: "#1a3f6f" }}>
+                  {T.fachkraefte.h2[0]}<br />{T.fachkraefte.h2[1]}<br />{T.fachkraefte.h2[2]}
+                </h2>
+                <p className="text-[1.0625rem] font-normal leading-[2] mb-14 max-w-lg" style={{ color: "rgba(26,63,111,0.65)" }}>
+                  {T.fachkraefte.p}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/platzanfrage" className="btn btn-primary btn-lg group">
+                    {T.fachkraefte.cta1}
+                    <ArrowRight size={14} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                  <Link href="/kontakt" className="btn btn-outline btn-lg">
+                    {T.fachkraefte.cta2}
+                  </Link>
                 </div>
-                <div>
-                  <p style={{ fontSize: "0.625rem", color: "rgba(255,255,255,0.55)", marginBottom: "0.25rem", fontWeight: 400, letterSpacing: "0.12em", textTransform: "uppercase" }}>{T.nav.notfall}</p>
-                  <a href="tel:+4930224543220" style={{ fontSize: "1.125rem", fontWeight: 700, color: WHITE, textDecoration: "none", letterSpacing: "0.02em" }}>
-                    030 224 543 220
-                  </a>
-                </div>
-              </div>
-            </BlurFade>
+              </BlurFade>
+            </div>
 
+            <div className="lg:col-span-5 lg:col-start-8">
+              <BlurFade delay={0.12}>
+                <div className="grid grid-cols-2" style={{ gap: "1rem" }}>
+                  {[
+                    { zahl: "< 24h", color: "#6FA3FE" },
+                    { zahl: "24/7",  color: "#ef4444" },
+                    { zahl: "11",    color: "#FEC274" },
+                    { zahl: "100%",  color: "#6FA3FE" },
+                  ].map((stat, i) => (
+                    <div key={stat.zahl} className="bento-card" style={{ background: "#f0f4f8", border: "1px solid rgba(26,63,111,0.1)", borderRadius: "0.875rem", padding: "2rem 1.75rem", position: "relative", overflow: "hidden" }}>
+                      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: stat.color }} />
+                      <p style={{ fontSize: "2.25rem", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{stat.zahl}</p>
+                      <p style={{ fontSize: "0.8125rem", color: "rgba(26,63,111,0.55)", lineHeight: 1.5, fontWeight: 400 }}>{T.fachkraefte.stats[i]}</p>
+                    </div>
+                  ))}
+                </div>
+              </BlurFade>
+            </div>
           </div>
         </div>
       </section>

@@ -116,30 +116,23 @@ export default function Navigation() {
     },
   ];
 
-  const transparent = !scrolled && !megaOpen && !menuOpen;
-  const textCol     = transparent ? "rgba(255,255,255,0.9)"  : "#1D1D1F";
-  const textColHover= transparent ? "rgba(255,255,255,1)"    : "#000000";
-
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: transparent
-          ? "transparent"
-          : "rgba(255,255,255,0.92)",
-        backdropFilter: transparent ? "none" : "saturate(180%) blur(20px)",
-        WebkitBackdropFilter: transparent ? "none" : "saturate(180%) blur(20px)",
-        borderBottom: transparent
-          ? "1px solid rgba(255,255,255,0.08)"
-          : "1px solid rgba(0,0,0,0.08)",
+        background: "rgba(255,255,255,0.92)",
+        backdropFilter: "saturate(180%) blur(20px)",
+        WebkitBackdropFilter: "saturate(180%) blur(20px)",
+        borderBottom: scrolled || megaOpen || menuOpen
+          ? "1px solid rgba(0,0,0,0.08)"
+          : "1px solid rgba(0,0,0,0.06)",
       }}
     >
       {/* ── NAVBAR ── */}
       <nav style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1.5rem", height: "56px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 flex-shrink-0 transition-colors duration-500"
-          style={{ color: textCol }}>
+        <Link href="/" className="flex items-center gap-2 text-[#1D1D1F] flex-shrink-0">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
             <circle cx="14" cy="14" r="13" stroke="currentColor" strokeWidth="1.5" />
             <path d="M14 7v14M7 14h14M10 10.5l8 7M18 10.5l-8 7"
@@ -154,11 +147,11 @@ export default function Navigation() {
           <div onMouseEnter={openMega} onMouseLeave={closeMega}>
             <button
               className="transition-colors flex items-center"
-              style={{ fontSize: "13px", fontWeight: 400, color: textCol, gap: "0.25rem" }}
+              style={{ fontSize: "13px", fontWeight: 400, color: "#1D1D1F", gap: "0.25rem" }}
             >
               {n.angebote}
               <svg width="9" height="5" viewBox="0 0 9 5" fill="currentColor"
-                style={{ marginTop: "1px", opacity: 0.55, transition: "transform 0.2s", transform: megaOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
+                style={{ marginTop: "1px", opacity: 0.5, transition: "transform 0.2s", transform: megaOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
                 <path d="M0 0l4.5 5L9 0z" />
               </svg>
             </button>
@@ -171,10 +164,8 @@ export default function Navigation() {
             { label: n.kontakt,       href: "/kontakt"   },
           ].map((item) => (
             <Link key={item.href} href={item.href}
-              className="transition-colors"
-              style={{ fontSize: "13px", fontWeight: 400, color: textCol, textDecoration: "none" }}
-              onMouseEnter={e => (e.currentTarget.style.color = textColHover)}
-              onMouseLeave={e => (e.currentTarget.style.color = textCol)}>
+              className="transition-colors hover:text-black"
+              style={{ fontSize: "13px", fontWeight: 400, color: "#1D1D1F", textDecoration: "none" }}>
               {item.label}
             </Link>
           ))}
@@ -198,8 +189,7 @@ export default function Navigation() {
             className="transition-all nav-cta-primary"
             style={{
               fontSize: "13px", fontWeight: 500, color: "#ffffff",
-              background: transparent ? "rgba(255,255,255,0.15)" : "#0071e3",
-              border: transparent ? "1px solid rgba(255,255,255,0.35)" : "1px solid #3d6b8c",
+              background: "#0071e3", border: "1px solid #3d6b8c",
               borderRadius: "9999px", padding: "0.375rem 1rem",
               textDecoration: "none", whiteSpace: "nowrap",
             }}
@@ -216,8 +206,7 @@ export default function Navigation() {
           <LangDropdown mobile />
 
           <button
-            className="p-1 transition-colors duration-500"
-            style={{ color: textCol }}
+            className="text-[#1D1D1F] p-1"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menü"
           >

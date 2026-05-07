@@ -32,14 +32,11 @@ export const tr = {
     },
     hero: {
       badge: "Krisendienst 24/7 verfügbar",
-      h1line1: "Immer da.",
-      h1line2: "Mit Herz.",
-      sub1: "Wir begleiten Kinder und Jugendliche mit Leidenschaft und Fachkompetenz - von der ersten Krise bis zum selbstständigen Leben.",
+      sub1: "Stabilität in Krisen.",
       sub2: "Perspektiven für junge Menschen.",
       cta1: "Angebote entdecken",
       cta2: "Platzanfrage stellen",
     },
-    manifesto: "Jedes Kind. Jede Familie. Jeden Tag.",
     einleitung: {
       h2: "Ein Netz, das trägt.",
       p1: "Ankernetz ist ein Zusammenschluss spezialisierter Hilfsangebote für Kinder und Jugendliche.",
@@ -130,14 +127,11 @@ export const tr = {
     },
     hero: {
       badge: "Crisis service available 24/7",
-      h1line1: "Always here.",
-      h1line2: "With heart.",
-      sub1: "We support children and young people with passion and expertise - from the first crisis through to independent living.",
+      sub1: "Stability in crises.",
       sub2: "Perspectives for young people.",
       cta1: "Discover services",
       cta2: "Request a place",
     },
-    manifesto: "Every child. Every family. Every day.",
     einleitung: {
       h2: "A net that holds.",
       p1: "Ankernetz is a network of specialized support services for children and young people.",
