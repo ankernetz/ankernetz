@@ -12,6 +12,9 @@ const OFFWHITE = "#FDFCF9";
 const DARK     = "#1C1914";
 const CAMEL    = "#8B7355";
 const NAVY     = "#1a3f6f";
+const VELVET   = "#1B3D2B";   /* samtgrün */
+const VELVET2  = "#2D6A4F";   /* samtgrün — mittel */
+const VELVET_S = "#EAF2EC";   /* samtgrün — hell */
 
 /* ── service meta (slugs only – rest from translations) ───────── */
 const slugsMeta = [
@@ -103,7 +106,7 @@ export default function HomePage() {
       ══════════════════════════════════════════════════════════ */}
       <section style={{ background: CREAM, minHeight: "70vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "8rem 2rem" }}>
         <BlurFade>
-          <p style={{ fontSize: "0.625rem", fontWeight: 500, letterSpacing: "0.3em", textIndent: "0.3em", color: CAMEL, textTransform: "uppercase", textAlign: "center", marginBottom: "3rem" }}>
+          <p style={{ fontSize: "0.625rem", fontWeight: 500, letterSpacing: "0.3em", textIndent: "0.3em", color: VELVET2, textTransform: "uppercase", textAlign: "center", marginBottom: "3rem" }}>
             {lang === "de" ? "Seit Tag Eins" : "Since Day One"}
           </p>
           <h2 style={{ fontSize: "clamp(2.5rem,6vw,5.5rem)", fontWeight: 200, letterSpacing: "-0.025em", color: DARK, lineHeight: 1.15, textAlign: "center", maxWidth: "900px", marginBottom: "4rem" }}>
@@ -124,7 +127,7 @@ export default function HomePage() {
             ] as const).map(s => (
               <div key={s.n} style={{ textAlign: "center" }}>
                 <p style={{ fontSize: "clamp(2rem,3.5vw,3rem)", fontWeight: 200, color: DARK, letterSpacing: "-0.03em", lineHeight: 1, marginBottom: "0.5rem" }}>{s.n}</p>
-                <p style={{ fontSize: "0.6875rem", letterSpacing: "0.18em", color: CAMEL, textTransform: "uppercase" }}>{s.l}</p>
+                <p style={{ fontSize: "0.6875rem", letterSpacing: "0.18em", color: VELVET2, textTransform: "uppercase" }}>{s.l}</p>
               </div>
             ))}
           </div>
@@ -134,7 +137,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════
           3 · TICKER
       ══════════════════════════════════════════════════════════ */}
-      <div style={{ background: DARK, height: "52px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+      <div style={{ background: VELVET, height: "52px", overflow: "hidden", display: "flex", alignItems: "center" }}>
         <div className="animate-marquee" style={{ display: "flex", gap: 0, whiteSpace: "nowrap", flexShrink: 0 }}>
           <span style={{ fontSize: "0.6875rem", fontWeight: 400, letterSpacing: "0.16em", color: "rgba(255,255,255,0.45)", textTransform: "uppercase", paddingRight: "0" }}>
             {ticker}
@@ -188,7 +191,7 @@ export default function HomePage() {
                     <span style={{ fontSize: "0.5625rem", fontWeight: 500, letterSpacing: "0.1em", color: s.accent, background: `${s.accent}14`, border: `1px solid ${s.accent}28`, padding: "0.2rem 0.6rem", borderRadius: "100px" }}>
                       {s.badge}
                     </span>
-                    <ArrowRight size={15} strokeWidth={1.5} style={{ color: NAVY }} className="service-item-arrow" />
+                    <ArrowRight size={15} strokeWidth={1.5} style={{ color: VELVET }} className="service-item-arrow" />
                   </div>
                 </Link>
               </BlurFade>
@@ -201,7 +204,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════
           5 · DARK QUOTE
       ══════════════════════════════════════════════════════════ */}
-      <section style={{ background: DARK, minHeight: "55vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "8rem 2rem" }}>
+      <section style={{ background: VELVET, minHeight: "55vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "8rem 2rem" }}>
         <BlurFade>
           <div style={{ maxWidth: "860px", textAlign: "center" }}>
             <p style={{ fontSize: "clamp(1.75rem,4vw,3.5rem)", fontWeight: 200, fontStyle: "italic", color: "rgba(255,255,255,0.88)", lineHeight: 1.45, letterSpacing: "-0.01em", marginBottom: "3rem" }}>
@@ -209,7 +212,7 @@ export default function HomePage() {
                 ? "„Kein Kind fällt durch unser Netz. Wir sind da — in der Nacht, in der Krise, im Alltag.“"
                 : "No child falls through our net. We are there — at night, in crisis, in everyday life."}
             </p>
-            <div style={{ width: "32px", height: "1px", background: `rgba(255,255,255,0.2)`, margin: "0 auto 2rem" }} />
+            <div style={{ width: "32px", height: "1px", background: `rgba(255,255,255,0.25)`, margin: "0 auto 2rem" }} />
             <p style={{ fontSize: "0.625rem", letterSpacing: "0.3em", color: "rgba(255,255,255,0.28)", textTransform: "uppercase" }}>
               {T.manifesto}
             </p>
@@ -223,13 +226,13 @@ export default function HomePage() {
       <section style={{ background: CREAM, padding: "8rem 1.5rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <BlurFade>
-            <p style={{ fontSize: "0.5625rem", fontWeight: 500, letterSpacing: "0.3em", color: CAMEL, textTransform: "uppercase", marginBottom: "1rem" }}>{T.staerken.label}</p>
+            <p style={{ fontSize: "0.5625rem", fontWeight: 500, letterSpacing: "0.3em", color: VELVET2, textTransform: "uppercase", marginBottom: "1rem" }}>{T.staerken.label}</p>
             <h2 style={{ fontSize: "clamp(2rem,3.5vw,3rem)", fontWeight: 200, color: DARK, letterSpacing: "-0.02em", lineHeight: 1.1, marginBottom: "5rem" }}>{T.staerken.h2}</h2>
           </BlurFade>
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "0", borderTop: "1px solid rgba(0,0,0,0.1)" }}>
             {T.staerken.items.map((s, i) => {
               const Icon = [Shield, Network, Brain][i];
-              const color = ["#3B82F6", "#10B981", "#8B5CF6"][i];
+              const color = [VELVET2, "#C4A35A", VELVET][i];
               return (
                 <BlurFade key={s.titel} delay={i * 0.1}>
                   <div style={{ padding: "3.5rem 2.5rem 3.5rem 0", borderRight: i < 2 ? "1px solid rgba(0,0,0,0.08)" : "none", paddingLeft: i > 0 ? "2.5rem" : 0 }}>
@@ -249,7 +252,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════
           7 · PROFESSIONALS
       ══════════════════════════════════════════════════════════ */}
-      <section style={{ background: NAVY, padding: "8rem 1.5rem" }}>
+      <section style={{ background: VELVET, padding: "8rem 1.5rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end">
 
@@ -264,7 +267,7 @@ export default function HomePage() {
                 {T.fachkraefte.p}
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-                <Link href="/platzanfrage" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "white", color: NAVY, padding: "0.75rem 1.75rem", borderRadius: "0", fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.08em", textDecoration: "none", textTransform: "uppercase" }}>
+                <Link href="/platzanfrage" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "white", color: VELVET, padding: "0.75rem 1.75rem", borderRadius: "0", fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.08em", textDecoration: "none", textTransform: "uppercase" }}>
                   {T.fachkraefte.cta1} <ArrowRight size={13} strokeWidth={1.5} />
                 </Link>
                 <Link href="/kontakt" style={{ display: "inline-flex", alignItems: "center", background: "transparent", color: "rgba(255,255,255,0.7)", padding: "0.75rem 1.75rem", borderRadius: "0", fontSize: "0.8125rem", fontWeight: 400, letterSpacing: "0.08em", textDecoration: "none", textTransform: "uppercase", border: "1px solid rgba(255,255,255,0.2)" }}>
@@ -278,10 +281,10 @@ export default function HomePage() {
                 {([
                   { n: "< 24h", l: T.fachkraefte.stats[0], c: "#93C5FD" },
                   { n: "24/7",  l: T.fachkraefte.stats[1], c: "#FCA5A5" },
-                  { n: "11",    l: T.fachkraefte.stats[2], c: "#FDE68A" },
-                  { n: "100%",  l: T.fachkraefte.stats[3], c: "#6EE7B7" },
+                  { n: "11",    l: T.fachkraefte.stats[2], c: "#A7F3C6" },
+                  { n: "100%",  l: T.fachkraefte.stats[3], c: "#FDE68A" },
                 ] as const).map(s => (
-                  <div key={s.n} style={{ background: NAVY, padding: "2.5rem 2rem" }}>
+                  <div key={s.n} style={{ background: VELVET, padding: "2.5rem 2rem" }}>
                     <p style={{ fontSize: "2.75rem", fontWeight: 200, color: s.c, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{s.n}</p>
                     <p style={{ fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.4)", letterSpacing: "0.06em", lineHeight: 1.5 }}>{s.l}</p>
                   </div>

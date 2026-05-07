@@ -371,7 +371,7 @@ section {
 .service-item:hover { background: rgba(26,63,111,0.04); }
 .service-item-bar {
   width: 0; height: 100%;
-  background: #1a3f6f;
+  background: #1B3D2B;
   transition: width 0.35s cubic-bezier(0.4,0,0.2,1);
   position: absolute; top: 0; left: 0;
 }
