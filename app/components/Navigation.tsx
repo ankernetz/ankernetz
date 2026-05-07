@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLang } from "../contexts/LanguageContext";
 import { tr } from "../i18n/translations";
+import { FlagDE, FlagGB } from "./Flags";
 
 export default function Navigation() {
   const { lang, setLang } = useLang();
@@ -39,9 +40,7 @@ export default function Navigation() {
           cursor: "pointer", flexShrink: 0,
         }}
       >
-        <span style={{ fontSize: mobile ? "14px" : "16px", lineHeight: 1 }}>
-          {lang === "de" ? "🇩🇪" : "🇬🇧"}
-        </span>
+                {lang === "de" ? <FlagDE size={mobile ? 18 : 20} /> : <FlagGB size={mobile ? 18 : 20} />}
         <svg width="8" height="5" viewBox="0 0 8 5" fill="currentColor"
           style={{ opacity: 0.45, transition: "transform 0.2s", transform: langDropOpen ? "rotate(180deg)" : "rotate(0deg)", color: "#1D1D1F" }}>
           <path d="M0 0l4 5 4-5z" />
@@ -71,7 +70,7 @@ export default function Navigation() {
                 border: "none", cursor: "pointer", textAlign: "left",
               }}
             >
-              <span style={{ fontSize: "16px", lineHeight: 1 }}>{l === "de" ? "🇩🇪" : "🇬🇧"}</span>
+              {l === "de" ? <FlagDE size={18} /> : <FlagGB size={18} />}
               <span>{l === "de" ? "Deutsch" : "English"}</span>
             </button>
           ))}
