@@ -1,415 +1,243 @@
 "use client";
 
 import Link from "next/link";
-import {
-  AlertTriangle, Home, Brain, Baby, Search, Shirt,
-  MessageCircle, Rocket, Building2, Heart, ArrowRight,
-  Shield, Network,
-} from "lucide-react";
+import { ArrowRight, Shield, Network, Brain } from "lucide-react";
 import { BlurFade } from "./components/BlurFade";
 import { useLang } from "./contexts/LanguageContext";
 import { tr } from "./i18n/translations";
 
+/* ── palette ─────────────────────────────────────────────────── */
+const CREAM    = "#F5F0E8";
+const OFFWHITE = "#FDFCF9";
+const DARK     = "#1C1914";
+const CAMEL    = "#8B7355";
+const NAVY     = "#1a3f6f";
+
+/* ── service meta (slugs only – rest from translations) ───────── */
 const slugsMeta = [
-  { slug: "krisenintervention",   icon: AlertTriangle, accent: "#ef4444", soft: "#FFF1F1" },
-  { slug: "psychotherapie",       icon: Brain,         accent: "#3B82F6", soft: "#EFF6FF" },
-  { slug: "fruehe-hilfen",        icon: Baby,          accent: "#F59E0B", soft: "#FFFBEB" },
-  { slug: "therapie-wohnen",      icon: Home,          accent: "#06B6D4", soft: "#ECFEFF" },
-  { slug: "jugendhilfe",          icon: Heart,         accent: "#10B981", soft: "#ECFDF5" },
-  { slug: "diagnostik-clearing",  icon: Search,        accent: "#6366F1", soft: "#EEF2FF" },
-  { slug: "beratung-praevention", icon: MessageCircle, accent: "#F97316", soft: "#FFF7ED" },
-  { slug: "kita-beratung",        icon: Building2,     accent: "#EC4899", soft: "#FDF2F8" },
-  { slug: "uebergang-arbeit",     icon: Rocket,        accent: "#84CC16", soft: "#F7FEE7" },
-  { slug: "ankerkleidung",        icon: Shirt,         accent: "#8B5CF6", soft: "#F5F3FF" },
-  { slug: "versorgung",           icon: Heart,         accent: "#F59E0B", soft: "#FFFBEB" },
+  { slug: "krisenintervention",   badge: "24/7",           accent: "#ef4444" },
+  { slug: "psychotherapie",       badge: "Kassensitz",     accent: "#3B82F6" },
+  { slug: "fruehe-hilfen",        badge: "0–6 Jahre",      accent: "#F59E0B" },
+  { slug: "therapie-wohnen",      badge: "12–17 Jahre",    accent: "#06B6D4" },
+  { slug: "jugendhilfe",          badge: "6–12 Jahre",     accent: "#10B981" },
+  { slug: "diagnostik-clearing",  badge: "Gutachten",      accent: "#6366F1" },
+  { slug: "beratung-praevention", badge: "Online & vor Ort", accent: "#F97316" },
+  { slug: "kita-beratung",        badge: "Fachkräfte",     accent: "#EC4899" },
+  { slug: "uebergang-arbeit",     badge: "Übergang",       accent: "#84CC16" },
+  { slug: "ankerkleidung",        badge: "Shop",           accent: "#8B5CF6" },
+  { slug: "versorgung",           badge: "Ausstattung",    accent: "#F59E0B" },
 ];
 
-const staerkenIcons = [Shield, Network, Brain];
-const staerkenColors = ["#3B82F6", "#10B981", "#8B5CF6"];
+/* ── ticker text ─────────────────────────────────────────────── */
+const tickerDE = "Krisenintervention · Psychotherapie · Frühe Hilfen · Therapie & Wohnen · Jugendhilfe · Diagnostik · Beratung & Prävention · Kita-Beratung · Übergang Arbeit · Ankerkleidung · Versorgung · ";
+const tickerEN = "Crisis Intervention · Psychotherapy · Early Help · Therapy & Housing · Youth Welfare · Diagnostics · Counselling & Prevention · Daycare Counselling · Transition to Work · Anchor Clothing · Care & Supplies · ";
 
 export default function HomePage() {
   const { lang } = useLang();
   const T = tr[lang];
 
-  const angebote = slugsMeta.map((m, i) => ({
+  const services = slugsMeta.map((m, i) => ({
     ...m,
+    num:   String(i + 1).padStart(2, "0"),
     titel: T.angeboteTitel[i],
     claim: T.angebote[i].claim,
-    kurz:  T.angebote[i].kurz,
-    badge: T.angebote[i].badge,
   }));
 
-  return (
-    <main className="overflow-x-hidden">
+  const ticker = (lang === "de" ? tickerDE : tickerEN).repeat(2);
 
-      {/* ═══ VIDEO HERO ═══ */}
+  return (
+    <main>
+
+      {/* ══════════════════════════════════════════════════════════
+          1 · VIDEO HERO — fullscreen cinematic
+      ══════════════════════════════════════════════════════════ */}
       <section style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
 
-        {/* CSS fallback — cinematic dark ocean (shows before / if video fails) */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 0,
-          background: "linear-gradient(180deg, #04111f 0%, #071830 35%, #0a2040 60%, #051018 100%)",
-        }} />
-        {/* Animated subtle shimmer on fallback */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 0,
-          background: "radial-gradient(ellipse 80% 50% at 50% 80%, rgba(30,100,180,0.25) 0%, transparent 65%)",
-          animation: "pulse 6s ease-in-out infinite",
-        }} />
+        {/* Fallback */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0, background: `linear-gradient(175deg, #04111f 0%, ${NAVY} 55%, #051018 100%)` }} />
+        <div style={{ position: "absolute", inset: 0, zIndex: 0, background: "radial-gradient(ellipse 80% 50% at 50% 80%, rgba(30,100,180,0.2) 0%, transparent 65%)", animation: "pulse 7s ease-in-out infinite" }} />
 
-        {/* Real video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{
-            position: "absolute", inset: 0, zIndex: 1,
-            width: "100%", height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        >
+        {/* Video */}
+        <video autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, zIndex: 1, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}>
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
 
-        {/* Cinematic overlay — bottom-heavy darken */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 2,
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.28) 40%, rgba(0,0,0,0.62) 80%, rgba(0,0,0,0.78) 100%)",
-        }} />
-        {/* Side vignette */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 2,
-          background: "radial-gradient(ellipse 90% 100% at 50% 50%, transparent 45%, rgba(0,0,0,0.35) 100%)",
-        }} />
+        {/* Overlays */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 2, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.68) 85%, rgba(0,0,0,0.82) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, zIndex: 2, background: "radial-gradient(ellipse 88% 100% at 50% 50%, transparent 42%, rgba(0,0,0,0.32) 100%)" }} />
 
-        {/* ── Centered brand content ── */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 3,
-          display: "flex", flexDirection: "column",
-          alignItems: "center", justifyContent: "center",
-          textAlign: "center", padding: "0 2rem",
-        }}>
-          {/* Logo mark */}
-          <div className="fade-in-up" style={{ marginBottom: "2rem" }}>
-            <svg width="52" height="52" viewBox="0 0 28 28" fill="none">
-              <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="0.8" opacity="0.75" />
-              <path d="M14 7v14M7 14h14M10 10.5l8 7M18 10.5l-8 7"
-                stroke="white" strokeWidth="0.8" strokeLinecap="round" opacity="0.75" />
+        {/* Brand */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 2rem" }}>
+
+          <div className="fade-in-up" style={{ marginBottom: "2.25rem" }}>
+            <svg width="50" height="50" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="0.75" opacity="0.7" />
+              <path d="M14 7v14M7 14h14M10 10.5l8 7M18 10.5l-8 7" stroke="white" strokeWidth="0.75" strokeLinecap="round" opacity="0.7" />
             </svg>
           </div>
 
-          {/* Brand name */}
-          <h1 className="fade-in-up delay-1" style={{
-            fontSize: "clamp(2.75rem,8vw,7rem)",
-            fontWeight: 200,
-            letterSpacing: "0.38em",
-            textIndent: "0.38em",
-            color: "white",
-            textTransform: "uppercase",
-            lineHeight: 1,
-            marginBottom: "1.5rem",
-          }}>
+          <h1 className="fade-in-up delay-1" style={{ fontSize: "clamp(2.75rem,8vw,7.5rem)", fontWeight: 200, letterSpacing: "0.4em", textIndent: "0.4em", color: "white", textTransform: "uppercase", lineHeight: 1, marginBottom: "1.5rem" }}>
             Ankernetz
           </h1>
 
-          {/* Thin divider */}
-          <div className="fade-in-up delay-2" style={{
-            width: "36px", height: "1px",
-            background: "rgba(255,255,255,0.4)",
-            marginBottom: "1.5rem",
-          }} />
+          <div className="fade-in-up delay-2" style={{ width: "32px", height: "1px", background: "rgba(255,255,255,0.38)", marginBottom: "1.5rem" }} />
 
-          {/* Tagline */}
-          <p className="fade-in-up delay-2" style={{
-            fontSize: "clamp(0.625rem,1.1vw,0.75rem)",
-            fontWeight: 300,
-            letterSpacing: "0.32em",
-            textIndent: "0.32em",
-            color: "rgba(255,255,255,0.6)",
-            textTransform: "uppercase",
-            marginBottom: "3.5rem",
-          }}>
+          <p className="fade-in-up delay-2" style={{ fontSize: "clamp(0.5625rem,1vw,0.6875rem)", fontWeight: 300, letterSpacing: "0.35em", textIndent: "0.35em", color: "rgba(255,255,255,0.55)", textTransform: "uppercase", marginBottom: "4rem" }}>
             {lang === "de" ? "Kinder- & Jugendhilfe" : "Child & Youth Welfare"}
           </p>
 
-          {/* Minimal CTA */}
-          <a className="fade-in-up delay-3" href="#angebote" style={{
-            fontSize: "0.6875rem",
-            fontWeight: 400,
-            letterSpacing: "0.22em",
-            textIndent: "0.22em",
-            color: "rgba(255,255,255,0.7)",
-            textDecoration: "none",
-            textTransform: "uppercase",
-            borderBottom: "1px solid rgba(255,255,255,0.3)",
-            paddingBottom: "0.3rem",
-            transition: "color 0.25s, border-color 0.25s",
-          }}>
-            {T.hero.cta1}
+          <a className="fade-in-up delay-3" href="#angebote" style={{ fontSize: "0.625rem", fontWeight: 400, letterSpacing: "0.26em", textIndent: "0.26em", color: "rgba(255,255,255,0.65)", textDecoration: "none", textTransform: "uppercase", borderBottom: "1px solid rgba(255,255,255,0.28)", paddingBottom: "0.3rem" }}>
+            {lang === "de" ? "Entdecken" : "Discover"}
           </a>
         </div>
 
         {/* Scroll indicator */}
-        <div style={{
-          position: "absolute", bottom: "2.5rem", left: "50%",
-          transform: "translateX(-50%)", zIndex: 3,
-          display: "flex", flexDirection: "column", alignItems: "center", gap: "0.625rem",
-        }}>
-          <span style={{
-            fontSize: "0.5625rem", letterSpacing: "0.22em", textIndent: "0.22em",
-            color: "rgba(255,255,255,0.35)", textTransform: "uppercase",
-          }}>Scroll</span>
-          <div className="scroll-pulse" style={{ width: "1px", height: "40px", background: "rgba(255,255,255,0.25)" }} />
-        </div>
-
-      </section>
-
-      {/* ═══ MANIFESTO STRIP ═══ */}
-      <section style={{
-        background: "linear-gradient(90deg, #3B82F6 0%, #6366F1 40%, #8B5CF6 70%, #EC4899 100%)",
-        padding: "1.5rem",
-      }}>
-        <p style={{
-          fontSize: "clamp(0.875rem,1.5vw,1.0625rem)",
-          fontWeight: 700,
-          color: "rgba(255,255,255,0.95)",
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          textAlign: "center",
-        }}>
-          {T.manifesto}
-        </p>
-      </section>
-
-      {/* ═══ EINLEITUNG ═══ */}
-      <section style={{ background: "#ffffff", padding: "6rem 1.5rem" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <BlurFade>
-            <div style={{ maxWidth: "700px" }}>
-              <h2 style={{
-                fontSize: "clamp(2.5rem,5vw,3.75rem)",
-                fontWeight: 900,
-                color: "#1a3f6f",
-                letterSpacing: "-0.04em",
-                lineHeight: 1.1,
-                marginBottom: "2.5rem",
-              }}>
-                {T.einleitung.h2}
-              </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                <p style={{ fontSize: "1.0625rem", color: "#4B5563", lineHeight: 1.9 }}>{T.einleitung.p1}</p>
-                <p style={{ fontSize: "1.0625rem", color: "#4B5563", lineHeight: 1.9 }}>{T.einleitung.p2}</p>
-                <p style={{ fontSize: "1.0625rem", color: "#4B5563", lineHeight: 1.9 }}>{T.einleitung.p3}</p>
-                <p style={{ fontSize: "1.0625rem", color: "#4B5563", lineHeight: 1.9 }}>{T.einleitung.p4}</p>
-                <p style={{ fontSize: "1.0625rem", fontWeight: 700, color: "#1a3f6f", lineHeight: 1.9 }}>{T.einleitung.p5}</p>
-              </div>
-            </div>
-          </BlurFade>
+        <div style={{ position: "absolute", bottom: "2.5rem", left: "50%", transform: "translateX(-50%)", zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
+          <span style={{ fontSize: "0.5rem", letterSpacing: "0.2em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase" }}>Scroll</span>
+          <div className="scroll-pulse" style={{ width: "1px", height: "38px", background: "rgba(255,255,255,0.22)" }} />
         </div>
       </section>
 
-      {/* ═══ ANGEBOTE ═══ */}
-      <section id="angebote" style={{ background: "#F0F4F8", padding: "5rem 1.5rem 6rem" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <BlurFade>
-            <div style={{ marginBottom: "3rem" }}>
-              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#3B82F6", marginBottom: "1rem" }}>
-                {T.angeboteSection.label}
-              </p>
-              <h2 style={{ fontSize: "clamp(1.875rem,4vw,3rem)", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.035em", lineHeight: 1.1 }}>
-                {T.angeboteSection.h2}
-              </h2>
-            </div>
-          </BlurFade>
+      {/* ══════════════════════════════════════════════════════════
+          2 · BRAND STATEMENT
+      ══════════════════════════════════════════════════════════ */}
+      <section style={{ background: CREAM, minHeight: "70vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "8rem 2rem" }}>
+        <BlurFade>
+          <p style={{ fontSize: "0.625rem", fontWeight: 500, letterSpacing: "0.3em", textIndent: "0.3em", color: CAMEL, textTransform: "uppercase", textAlign: "center", marginBottom: "3rem" }}>
+            {lang === "de" ? "Seit Tag Eins" : "Since Day One"}
+          </p>
+          <h2 style={{ fontSize: "clamp(2.5rem,6vw,5.5rem)", fontWeight: 200, letterSpacing: "-0.025em", color: DARK, lineHeight: 1.15, textAlign: "center", maxWidth: "900px", marginBottom: "4rem" }}>
+            {T.einleitung.h2}
+          </h2>
+          <p style={{ fontSize: "clamp(1rem,1.6vw,1.125rem)", fontWeight: 300, color: "#5C564E", lineHeight: 1.95, textAlign: "center", maxWidth: "600px", margin: "0 auto 5rem" }}>
+            {T.einleitung.p2}
+          </p>
+        </BlurFade>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-
-            {/* Row 1: Krisenintervention wide + Psychotherapie */}
-            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1rem" }}>
-              <BlurFade className="md:col-span-2">
-                <Link href="/krisenintervention" className="bento-card"
-                  style={{ display: "flex", flexDirection: "column", background: `linear-gradient(160deg, ${angebote[0].soft} 0%, #ffffff 50%)`, border: `1.5px solid ${angebote[0].accent}20`, borderRadius: "1.25rem", minHeight: "400px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[0].accent }} />
-                  <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
-                    <span style={{ fontSize: "0.625rem", fontWeight: 700, color: angebote[0].accent, background: `${angebote[0].accent}15`, border: `1px solid ${angebote[0].accent}30`, padding: "0.2rem 0.65rem", borderRadius: "100px", letterSpacing: "0.06em" }}>{angebote[0].badge}</span>
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <AlertTriangle size={30} strokeWidth={1.5} style={{ color: angebote[0].accent, marginBottom: "1.5rem" }} />
-                    <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "2rem", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "0.75rem" }}>{angebote[0].titel}</h3>
-                    <p style={{ color: angebote[0].accent, fontSize: "0.9375rem", fontWeight: 600, marginBottom: "1.25rem" }}>{angebote[0].claim}</p>
-                    <p style={{ color: "#4B5563", fontSize: "0.875rem", lineHeight: 1.9, maxWidth: "44ch" }}>{angebote[0].kurz}</p>
-                  </div>
-                  <div style={{ marginTop: "2rem", display: "inline-flex", alignItems: "center", gap: "0.5rem", color: angebote[0].accent, fontSize: "0.875rem", fontWeight: 700 }}>
-                    {T.angeboteSection.mehrErfahren} <ArrowRight size={14} strokeWidth={2} />
-                  </div>
-                </Link>
-              </BlurFade>
-
-              <BlurFade delay={0.08}>
-                <Link href="/psychotherapie" className="bento-card"
-                  style={{ display: "flex", flexDirection: "column", background: `linear-gradient(160deg, ${angebote[1].soft} 0%, #ffffff 50%)`, border: `1.5px solid ${angebote[1].accent}20`, borderRadius: "1.25rem", minHeight: "400px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[1].accent }} />
-                  <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
-                    <span style={{ fontSize: "0.625rem", fontWeight: 700, color: angebote[1].accent, background: `${angebote[1].accent}15`, border: `1px solid ${angebote[1].accent}30`, padding: "0.2rem 0.65rem", borderRadius: "100px", letterSpacing: "0.06em" }}>{angebote[1].badge}</span>
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <Brain size={28} strokeWidth={1.5} style={{ color: angebote[1].accent, marginBottom: "1.5rem" }} />
-                    <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "0.625rem" }}>{angebote[1].titel}</h3>
-                    <p style={{ color: angebote[1].accent, fontSize: "0.875rem", fontWeight: 600, marginBottom: "1.125rem" }}>{angebote[1].claim}</p>
-                    <p style={{ color: "#4B5563", fontSize: "0.875rem", lineHeight: 1.9 }}>{angebote[1].kurz}</p>
-                  </div>
-                  <div style={{ marginTop: "1.75rem", display: "inline-flex", alignItems: "center", gap: "0.5rem", color: angebote[1].accent, fontSize: "0.875rem", fontWeight: 700 }}>
-                    {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={2} />
-                  </div>
-                </Link>
-              </BlurFade>
-            </div>
-
-            {/* Row 2: 3 medium */}
-            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1rem" }}>
-              {[angebote[2], angebote[3], angebote[4]].map((a, i) => {
-                const Icon = a.icon;
-                return (
-                  <BlurFade key={a.slug} delay={i * 0.07}>
-                    <Link href={`/${a.slug}`} className="bento-card"
-                      style={{ display: "flex", flexDirection: "column", background: `linear-gradient(160deg, ${a.soft} 0%, #ffffff 50%)`, border: `1.5px solid ${a.accent}20`, borderRadius: "1.25rem", minHeight: "320px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
-                      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: a.accent }} />
-                      <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
-                        <span style={{ fontSize: "0.625rem", fontWeight: 700, color: a.accent, background: `${a.accent}15`, border: `1px solid ${a.accent}30`, padding: "0.2rem 0.625rem", borderRadius: "100px" }}>{a.badge}</span>
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <Icon size={26} strokeWidth={1.5} style={{ color: a.accent, marginBottom: "1.25rem" }} />
-                        <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.25rem", letterSpacing: "-0.022em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{a.titel}</h3>
-                        <p style={{ color: a.accent, fontSize: "0.875rem", fontWeight: 600, marginBottom: "1rem" }}>{a.claim}</p>
-                        <p style={{ color: "#4B5563", fontSize: "0.875rem", lineHeight: 1.9 }}>{a.kurz}</p>
-                      </div>
-                      <div style={{ marginTop: "1.5rem", display: "inline-flex", alignItems: "center", gap: "0.5rem", color: a.accent, fontSize: "0.875rem", fontWeight: 700 }}>
-                        {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={2} />
-                      </div>
-                    </Link>
-                  </BlurFade>
-                );
-              })}
-            </div>
-
-            {/* Row 3: 4 compact */}
-            <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "1rem" }}>
-              {[angebote[5], angebote[6], angebote[7], angebote[8]].map((a, i) => {
-                const Icon = a.icon;
-                return (
-                  <BlurFade key={a.slug} delay={i * 0.05}>
-                    <Link href={`/${a.slug}`} className="bento-card"
-                      style={{ display: "flex", flexDirection: "column", background: `linear-gradient(160deg, ${a.soft} 0%, #ffffff 60%)`, border: `1.5px solid ${a.accent}20`, borderRadius: "1.25rem", minHeight: "200px", padding: "2rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
-                      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: a.accent }} />
-                      <Icon size={22} strokeWidth={1.5} style={{ color: a.accent, marginBottom: "1rem" }} />
-                      <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1rem", letterSpacing: "-0.018em", lineHeight: 1.25, marginBottom: "0.375rem" }}>{a.titel}</h3>
-                      <p style={{ color: a.accent, fontSize: "0.8125rem", fontWeight: 600, marginBottom: "auto", paddingBottom: "1rem" }}>{a.claim}</p>
-                      <span style={{ display: "inline-block", fontSize: "0.5625rem", fontWeight: 700, color: a.accent, background: `${a.accent}15`, border: `1px solid ${a.accent}30`, padding: "0.175rem 0.5rem", borderRadius: "100px", letterSpacing: "0.06em" }}>{a.badge}</span>
-                    </Link>
-                  </BlurFade>
-                );
-              })}
-            </div>
-
-            {/* Row 4: Ankerkleidung wide + Versorgung */}
-            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1rem" }}>
-              <BlurFade className="md:col-span-2" delay={0.07}>
-                <Link href="/ankerkleidung" className="bento-card"
-                  style={{ display: "flex", flexDirection: "column", background: `linear-gradient(160deg, ${angebote[9].soft} 0%, #ffffff 50%)`, border: `1.5px solid ${angebote[9].accent}20`, borderRadius: "1.25rem", minHeight: "220px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[9].accent }} />
-                  <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
-                    <span style={{ fontSize: "0.625rem", fontWeight: 700, color: angebote[9].accent, background: `${angebote[9].accent}15`, border: `1px solid ${angebote[9].accent}30`, padding: "0.2rem 0.625rem", borderRadius: "100px" }}>{angebote[9].badge}</span>
-                  </div>
-                  <Shirt size={26} strokeWidth={1.5} style={{ color: angebote[9].accent, marginBottom: "1.25rem" }} />
-                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.625rem", letterSpacing: "-0.028em", lineHeight: 1.15, marginBottom: "0.5rem" }}>{angebote[9].titel}</h3>
-                  <p style={{ color: angebote[9].accent, fontSize: "0.9375rem", fontWeight: 600, marginBottom: "1rem" }}>{angebote[9].claim}</p>
-                  <p style={{ color: "#4B5563", fontSize: "0.875rem", lineHeight: 1.9, maxWidth: "46ch", marginBottom: "1.5rem" }}>{angebote[9].kurz}</p>
-                  <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: angebote[9].accent, fontSize: "0.875rem", fontWeight: 700 }}>
-                    {T.angeboteSection.kollektionEntdecken} <ArrowRight size={14} strokeWidth={2} />
-                  </div>
-                </Link>
-              </BlurFade>
-
-              <BlurFade delay={0.12}>
-                <Link href="/versorgung" className="bento-card"
-                  style={{ display: "flex", flexDirection: "column", background: `linear-gradient(160deg, ${angebote[10].soft} 0%, #ffffff 50%)`, border: `1.5px solid ${angebote[10].accent}20`, borderRadius: "1.25rem", minHeight: "220px", padding: "2.5rem", textDecoration: "none", position: "relative", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: angebote[10].accent }} />
-                  <div style={{ position: "absolute", top: "1.5rem", right: "1.5rem" }}>
-                    <span style={{ fontSize: "0.625rem", fontWeight: 700, color: angebote[10].accent, background: `${angebote[10].accent}15`, border: `1px solid ${angebote[10].accent}30`, padding: "0.2rem 0.625rem", borderRadius: "100px" }}>{angebote[10].badge}</span>
-                  </div>
-                  <Heart size={24} strokeWidth={1.5} style={{ color: angebote[10].accent, marginBottom: "1.25rem" }} />
-                  <h3 style={{ color: "#1a3f6f", fontWeight: 900, fontSize: "1.375rem", letterSpacing: "-0.025em", lineHeight: 1.2, marginBottom: "0.5rem" }}>{angebote[10].titel}</h3>
-                  <p style={{ color: angebote[10].accent, fontSize: "0.875rem", fontWeight: 600, marginBottom: "1rem" }}>{angebote[10].claim}</p>
-                  <p style={{ color: "#4B5563", fontSize: "0.875rem", lineHeight: 1.9, marginBottom: "1.5rem" }}>{angebote[10].kurz}</p>
-                  <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: angebote[10].accent, fontSize: "0.875rem", fontWeight: 700 }}>
-                    {T.angeboteSection.mehrErfahren} <ArrowRight size={13} strokeWidth={2} />
-                  </div>
-                </Link>
-              </BlurFade>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ IMPACT STATS ═══ */}
-      <section style={{ background: "#ffffff", borderTop: "1px solid rgba(0,0,0,0.06)" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "5rem 1.5rem" }}>
-          <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "2.5rem" }}>
+        {/* 3 mini stats */}
+        <BlurFade delay={0.15}>
+          <div style={{ display: "flex", gap: "5rem", flexWrap: "wrap", justifyContent: "center" }}>
             {([
-              { zahl: "< 24h", label: T.fachkraefte.stats[0], color: "#3B82F6" },
-              { zahl: "24/7",  label: T.fachkraefte.stats[1], color: "#ef4444" },
-              { zahl: "11",    label: T.fachkraefte.stats[2], color: "#F59E0B" },
-              { zahl: "100%",  label: T.fachkraefte.stats[3], color: "#10B981" },
-            ] as const).map((stat) => (
-              <BlurFade key={stat.zahl}>
-                <div style={{ textAlign: "center" }}>
-                  <p style={{
-                    fontSize: "clamp(2.5rem,5vw,3.5rem)", fontWeight: 900, color: "#1a3f6f",
-                    letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.875rem",
-                    display: "inline-block",
-                    borderBottom: `4px solid ${stat.color}`,
-                    paddingBottom: "0.375rem",
-                  }}>
-                    {stat.zahl}
-                  </p>
-                  <p style={{ fontSize: "0.875rem", color: "#6E6E73", lineHeight: 1.5, marginTop: "0.25rem" }}>{stat.label}</p>
-                </div>
+              { n: "< 24h", l: T.fachkraefte.stats[0] },
+              { n: "24 / 7", l: T.fachkraefte.stats[1] },
+              { n: "11",     l: T.fachkraefte.stats[2] },
+            ] as const).map(s => (
+              <div key={s.n} style={{ textAlign: "center" }}>
+                <p style={{ fontSize: "clamp(2rem,3.5vw,3rem)", fontWeight: 200, color: DARK, letterSpacing: "-0.03em", lineHeight: 1, marginBottom: "0.5rem" }}>{s.n}</p>
+                <p style={{ fontSize: "0.6875rem", letterSpacing: "0.18em", color: CAMEL, textTransform: "uppercase" }}>{s.l}</p>
+              </div>
+            ))}
+          </div>
+        </BlurFade>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════
+          3 · TICKER
+      ══════════════════════════════════════════════════════════ */}
+      <div style={{ background: DARK, height: "52px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+        <div className="animate-marquee" style={{ display: "flex", gap: 0, whiteSpace: "nowrap", flexShrink: 0 }}>
+          <span style={{ fontSize: "0.6875rem", fontWeight: 400, letterSpacing: "0.16em", color: "rgba(255,255,255,0.45)", textTransform: "uppercase", paddingRight: "0" }}>
+            {ticker}
+          </span>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════════════════════════
+          4 · SERVICES LIST
+      ══════════════════════════════════════════════════════════ */}
+      <section id="angebote" style={{ background: OFFWHITE, padding: "7rem 0" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1.5rem" }}>
+
+          {/* Header */}
+          <BlurFade>
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "5rem", borderBottom: `1px solid rgba(0,0,0,0.1)`, paddingBottom: "2rem" }}>
+              <div>
+                <p style={{ fontSize: "0.5625rem", fontWeight: 500, letterSpacing: "0.3em", color: CAMEL, textTransform: "uppercase", marginBottom: "0.875rem" }}>{T.angeboteSection.label}</p>
+                <h2 style={{ fontSize: "clamp(1.75rem,3.5vw,3rem)", fontWeight: 200, color: DARK, letterSpacing: "-0.02em", lineHeight: 1.1 }}>{T.angeboteSection.h2}</h2>
+              </div>
+              <span style={{ fontSize: "0.5625rem", letterSpacing: "0.2em", color: "rgba(0,0,0,0.3)", textTransform: "uppercase" }}>01 — 11</span>
+            </div>
+          </BlurFade>
+
+          {/* 2-col numbered list */}
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ columnGap: "4rem" }}>
+            {services.map((s, i) => (
+              <BlurFade key={s.slug} delay={i * 0.04}>
+                <Link
+                  href={`/${s.slug}`}
+                  className="service-item"
+                  style={{ display: "flex", alignItems: "center", padding: "2rem 0 2rem 1rem", textDecoration: "none", position: "relative", gap: "2rem" }}
+                >
+                  <div className="service-item-bar" />
+
+                  {/* Number */}
+                  <span style={{ fontSize: "0.6875rem", fontWeight: 400, letterSpacing: "0.12em", color: "rgba(0,0,0,0.25)", minWidth: "2rem", flexShrink: 0 }}>
+                    {s.num}
+                  </span>
+
+                  {/* Text */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <h3 style={{ fontSize: "clamp(1.125rem,1.8vw,1.5rem)", fontWeight: 300, color: DARK, letterSpacing: "-0.01em", lineHeight: 1.2, marginBottom: "0.375rem" }}>
+                      {s.titel}
+                    </h3>
+                    <p style={{ fontSize: "0.8125rem", color: CAMEL, fontStyle: "italic", fontWeight: 300 }}>{s.claim}</p>
+                  </div>
+
+                  {/* Badge + arrow */}
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.875rem", flexShrink: 0 }}>
+                    <span style={{ fontSize: "0.5625rem", fontWeight: 500, letterSpacing: "0.1em", color: s.accent, background: `${s.accent}14`, border: `1px solid ${s.accent}28`, padding: "0.2rem 0.6rem", borderRadius: "100px" }}>
+                      {s.badge}
+                    </span>
+                    <ArrowRight size={15} strokeWidth={1.5} style={{ color: NAVY }} className="service-item-arrow" />
+                  </div>
+                </Link>
               </BlurFade>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* ═══ STÄRKEN ═══ */}
-      <section style={{ background: "#F5F5F7", padding: "7rem 1.5rem" }}>
+      {/* ══════════════════════════════════════════════════════════
+          5 · DARK QUOTE
+      ══════════════════════════════════════════════════════════ */}
+      <section style={{ background: DARK, minHeight: "55vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "8rem 2rem" }}>
+        <BlurFade>
+          <div style={{ maxWidth: "860px", textAlign: "center" }}>
+            <p style={{ fontSize: "clamp(1.75rem,4vw,3.5rem)", fontWeight: 200, fontStyle: "italic", color: "rgba(255,255,255,0.88)", lineHeight: 1.45, letterSpacing: "-0.01em", marginBottom: "3rem" }}>
+              {lang === "de"
+                ? "„Kein Kind fällt durch unser Netz. Wir sind da — in der Nacht, in der Krise, im Alltag.“"
+                : "No child falls through our net. We are there — at night, in crisis, in everyday life."}
+            </p>
+            <div style={{ width: "32px", height: "1px", background: `rgba(255,255,255,0.2)`, margin: "0 auto 2rem" }} />
+            <p style={{ fontSize: "0.625rem", letterSpacing: "0.3em", color: "rgba(255,255,255,0.28)", textTransform: "uppercase" }}>
+              {T.manifesto}
+            </p>
+          </div>
+        </BlurFade>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════
+          6 · STRENGTHS
+      ══════════════════════════════════════════════════════════ */}
+      <section style={{ background: CREAM, padding: "8rem 1.5rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <BlurFade>
-            <div style={{ marginBottom: "4rem" }}>
-              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#3B82F6", marginBottom: "1rem" }}>
-                {T.staerken.label}
-              </p>
-              <h2 style={{ fontSize: "clamp(2rem,4vw,2.75rem)", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.035em", lineHeight: 1.1 }}>
-                {T.staerken.h2}
-              </h2>
-            </div>
+            <p style={{ fontSize: "0.5625rem", fontWeight: 500, letterSpacing: "0.3em", color: CAMEL, textTransform: "uppercase", marginBottom: "1rem" }}>{T.staerken.label}</p>
+            <h2 style={{ fontSize: "clamp(2rem,3.5vw,3rem)", fontWeight: 200, color: DARK, letterSpacing: "-0.02em", lineHeight: 1.1, marginBottom: "5rem" }}>{T.staerken.h2}</h2>
           </BlurFade>
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "1.5rem" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "0", borderTop: "1px solid rgba(0,0,0,0.1)" }}>
             {T.staerken.items.map((s, i) => {
-              const Icon = staerkenIcons[i];
-              const color = staerkenColors[i];
-              const soft = ["#EFF6FF", "#ECFDF5", "#F5F3FF"][i];
+              const Icon = [Shield, Network, Brain][i];
+              const color = ["#3B82F6", "#10B981", "#8B5CF6"][i];
               return (
                 <BlurFade key={s.titel} delay={i * 0.1}>
-                  <div style={{ background: "#ffffff", borderRadius: "1.125rem", border: `1.5px solid ${color}20`, padding: "2.5rem", position: "relative", overflow: "hidden" }}>
-                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: color }} />
-                    <div style={{ width: "3rem", height: "3rem", borderRadius: "0.75rem", background: soft, border: `1px solid ${color}25`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2rem" }}>
-                      <Icon size={20} strokeWidth={1.5} style={{ color }} />
+                  <div style={{ padding: "3.5rem 2.5rem 3.5rem 0", borderRight: i < 2 ? "1px solid rgba(0,0,0,0.08)" : "none", paddingLeft: i > 0 ? "2.5rem" : 0 }}>
+                    <div style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%", background: `${color}14`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "2rem" }}>
+                      <Icon size={16} strokeWidth={1.5} style={{ color }} />
                     </div>
-                    <h3 style={{ fontSize: "1.25rem", fontWeight: 900, color: "#1a3f6f", letterSpacing: "-0.02em", marginBottom: "0.875rem" }}>{s.titel}</h3>
-                    <p style={{ fontSize: "0.9375rem", color: "#6E6E73", lineHeight: 1.9 }}>{s.text}</p>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 300, color: DARK, letterSpacing: "-0.01em", marginBottom: "1rem" }}>{s.titel}</h3>
+                    <p style={{ fontSize: "0.9375rem", fontWeight: 300, color: "#5C564E", lineHeight: 1.85 }}>{s.text}</p>
                   </div>
                 </BlurFade>
               );
@@ -418,63 +246,49 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ FÜR FACHKRÄFTE ═══ */}
-      <section style={{
-        background: "linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3B82F6 100%)",
-        padding: "7rem 1.5rem",
-      }}>
+      {/* ══════════════════════════════════════════════════════════
+          7 · PROFESSIONALS
+      ══════════════════════════════════════════════════════════ */}
+      <section style={{ background: NAVY, padding: "8rem 1.5rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-6">
-              <BlurFade>
-                <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)", marginBottom: "1.5rem" }}>
-                  {T.fachkraefte.label}
-                </p>
-                <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 900, color: "#ffffff", letterSpacing: "-0.035em", lineHeight: 1.1, marginBottom: "2rem" }}>
-                  {T.fachkraefte.h2[0]}<br />{T.fachkraefte.h2[1]}<br />{T.fachkraefte.h2[2]}
-                </h2>
-                <p style={{ fontSize: "1.0625rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.9, marginBottom: "3rem", maxWidth: "480px" }}>
-                  {T.fachkraefte.p}
-                </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-                  <Link href="/platzanfrage" style={{
-                    display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                    background: "#ffffff", color: "#1e40af",
-                    padding: "0.75rem 1.5rem", borderRadius: "9999px",
-                    fontSize: "0.9375rem", fontWeight: 700, textDecoration: "none",
-                  }}>
-                    {T.fachkraefte.cta1} <ArrowRight size={14} strokeWidth={2} />
-                  </Link>
-                  <Link href="/kontakt" style={{
-                    display: "inline-flex", alignItems: "center",
-                    background: "transparent", color: "#ffffff",
-                    padding: "0.75rem 1.5rem", borderRadius: "9999px",
-                    fontSize: "0.9375rem", fontWeight: 500, textDecoration: "none",
-                    border: "1px solid rgba(255,255,255,0.4)",
-                  }}>
-                    {T.fachkraefte.cta2}
-                  </Link>
-                </div>
-              </BlurFade>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end">
 
-            <div className="lg:col-span-5 lg:col-start-8">
-              <BlurFade delay={0.12}>
-                <div className="grid grid-cols-2" style={{ gap: "0.875rem" }}>
-                  {([
-                    { zahl: "< 24h", color: "#93C5FD", label: T.fachkraefte.stats[0] },
-                    { zahl: "24/7",  color: "#FCA5A5", label: T.fachkraefte.stats[1] },
-                    { zahl: "11",    color: "#FDE68A", label: T.fachkraefte.stats[2] },
-                    { zahl: "100%",  color: "#6EE7B7", label: T.fachkraefte.stats[3] },
-                  ] as const).map((stat) => (
-                    <div key={stat.zahl} style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "0.875rem", padding: "1.75rem", backdropFilter: "blur(8px)" }}>
-                      <p style={{ fontSize: "2.25rem", fontWeight: 900, color: stat.color, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.5rem" }}>{stat.zahl}</p>
-                      <p style={{ fontSize: "0.8125rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </BlurFade>
-            </div>
+            <BlurFade>
+              <p style={{ fontSize: "0.5625rem", fontWeight: 500, letterSpacing: "0.3em", color: "rgba(255,255,255,0.38)", textTransform: "uppercase", marginBottom: "2rem" }}>{T.fachkraefte.label}</p>
+              <h2 style={{ fontSize: "clamp(2.25rem,4vw,3.5rem)", fontWeight: 200, color: "white", letterSpacing: "-0.025em", lineHeight: 1.2, marginBottom: "2.5rem" }}>
+                {T.fachkraefte.h2[0]}<br />
+                {T.fachkraefte.h2[1]}<br />
+                {T.fachkraefte.h2[2]}
+              </h2>
+              <p style={{ fontSize: "1rem", fontWeight: 300, color: "rgba(255,255,255,0.55)", lineHeight: 1.9, maxWidth: "460px", marginBottom: "3.5rem" }}>
+                {T.fachkraefte.p}
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+                <Link href="/platzanfrage" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "white", color: NAVY, padding: "0.75rem 1.75rem", borderRadius: "0", fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.08em", textDecoration: "none", textTransform: "uppercase" }}>
+                  {T.fachkraefte.cta1} <ArrowRight size={13} strokeWidth={1.5} />
+                </Link>
+                <Link href="/kontakt" style={{ display: "inline-flex", alignItems: "center", background: "transparent", color: "rgba(255,255,255,0.7)", padding: "0.75rem 1.75rem", borderRadius: "0", fontSize: "0.8125rem", fontWeight: 400, letterSpacing: "0.08em", textDecoration: "none", textTransform: "uppercase", border: "1px solid rgba(255,255,255,0.2)" }}>
+                  {T.fachkraefte.cta2}
+                </Link>
+              </div>
+            </BlurFade>
+
+            <BlurFade delay={0.12}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", background: "rgba(255,255,255,0.08)" }}>
+                {([
+                  { n: "< 24h", l: T.fachkraefte.stats[0], c: "#93C5FD" },
+                  { n: "24/7",  l: T.fachkraefte.stats[1], c: "#FCA5A5" },
+                  { n: "11",    l: T.fachkraefte.stats[2], c: "#FDE68A" },
+                  { n: "100%",  l: T.fachkraefte.stats[3], c: "#6EE7B7" },
+                ] as const).map(s => (
+                  <div key={s.n} style={{ background: NAVY, padding: "2.5rem 2rem" }}>
+                    <p style={{ fontSize: "2.75rem", fontWeight: 200, color: s.c, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: "0.625rem" }}>{s.n}</p>
+                    <p style={{ fontSize: "0.75rem", fontWeight: 300, color: "rgba(255,255,255,0.4)", letterSpacing: "0.06em", lineHeight: 1.5 }}>{s.l}</p>
+                  </div>
+                ))}
+              </div>
+            </BlurFade>
+
           </div>
         </div>
       </section>
