@@ -6,7 +6,6 @@ import {
   MessageCircle, Rocket, Building2, Heart, ArrowRight,
   Shield, Network,
 } from "lucide-react";
-import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
 import { BlurFade } from "./components/BlurFade";
 import { useLang } from "./contexts/LanguageContext";
 import { tr } from "./i18n/translations";
@@ -43,90 +42,128 @@ export default function HomePage() {
   return (
     <main className="overflow-x-hidden">
 
-      {/* ═══ HERO ═══ */}
-      <section
-        className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
-        style={{ background: "linear-gradient(155deg, #eef4ff 0%, #fafbff 45%, #fff8ee 100%)" }}
-      >
-        {/* Colorful orbs */}
-        <div className="absolute pointer-events-none" style={{ top: "-60px", left: "5%", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 65%)" }} />
-        <div className="absolute pointer-events-none" style={{ bottom: "-40px", right: "5%", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(245,158,11,0.16) 0%, transparent 65%)" }} />
-        <div className="absolute pointer-events-none" style={{ top: "30%", right: "15%", width: "350px", height: "350px", borderRadius: "50%", background: "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 65%)" }} />
-        <div className="absolute pointer-events-none" style={{ top: "20%", left: "25%", width: "250px", height: "250px", borderRadius: "50%", background: "radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 65%)" }} />
+      {/* ═══ VIDEO HERO ═══ */}
+      <section style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
 
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.04}
-          duration={3}
-          strokeColor="rgba(59,130,246,0.12)"
-          className="z-0"
-        />
+        {/* CSS fallback — cinematic dark ocean (shows before / if video fails) */}
+        <div style={{
+          position: "absolute", inset: 0, zIndex: 0,
+          background: "linear-gradient(180deg, #04111f 0%, #071830 35%, #0a2040 60%, #051018 100%)",
+        }} />
+        {/* Animated subtle shimmer on fallback */}
+        <div style={{
+          position: "absolute", inset: 0, zIndex: 0,
+          background: "radial-gradient(ellipse 80% 50% at 50% 80%, rgba(30,100,180,0.25) 0%, transparent 65%)",
+          animation: "pulse 6s ease-in-out infinite",
+        }} />
 
-        <div className="relative z-10 w-full" style={{ maxWidth: "820px", margin: "0 auto", padding: "0 1.5rem" }}>
+        {/* Real video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: "absolute", inset: 0, zIndex: 1,
+            width: "100%", height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
 
-          {/* Badge */}
-          <div className="fade-in-up" style={{
-            display: "inline-flex", alignItems: "center", gap: "0.5rem",
-            background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)",
-            borderRadius: "100px", padding: "0.375rem 0.875rem", marginBottom: "2.5rem",
-          }}>
-            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#ef4444", flexShrink: 0, animation: "pulse 2s infinite" }} />
-            <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#b91c1c", letterSpacing: "0.01em" }}>{T.hero.badge}</span>
+        {/* Cinematic overlay — bottom-heavy darken */}
+        <div style={{
+          position: "absolute", inset: 0, zIndex: 2,
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.28) 40%, rgba(0,0,0,0.62) 80%, rgba(0,0,0,0.78) 100%)",
+        }} />
+        {/* Side vignette */}
+        <div style={{
+          position: "absolute", inset: 0, zIndex: 2,
+          background: "radial-gradient(ellipse 90% 100% at 50% 50%, transparent 45%, rgba(0,0,0,0.35) 100%)",
+        }} />
+
+        {/* ── Centered brand content ── */}
+        <div style={{
+          position: "absolute", inset: 0, zIndex: 3,
+          display: "flex", flexDirection: "column",
+          alignItems: "center", justifyContent: "center",
+          textAlign: "center", padding: "0 2rem",
+        }}>
+          {/* Logo mark */}
+          <div className="fade-in-up" style={{ marginBottom: "2rem" }}>
+            <svg width="52" height="52" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="0.8" opacity="0.75" />
+              <path d="M14 7v14M7 14h14M10 10.5l8 7M18 10.5l-8 7"
+                stroke="white" strokeWidth="0.8" strokeLinecap="round" opacity="0.75" />
+            </svg>
           </div>
 
-          {/* Headline */}
+          {/* Brand name */}
           <h1 className="fade-in-up delay-1" style={{
-            fontSize: "clamp(3.5rem,10vw,7rem)",
-            fontWeight: 900,
-            letterSpacing: "-0.04em",
-            lineHeight: 1.0,
-            color: "#1a3f6f",
-            marginBottom: "2rem",
+            fontSize: "clamp(2.75rem,8vw,7rem)",
+            fontWeight: 200,
+            letterSpacing: "0.38em",
+            textIndent: "0.38em",
+            color: "white",
+            textTransform: "uppercase",
+            lineHeight: 1,
+            marginBottom: "1.5rem",
           }}>
-            {T.hero.h1line1}
-            <br />
-            <span style={{
-              backgroundImage: "linear-gradient(135deg, #3B82F6 0%, #10B981 50%, #F59E0B 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>
-              {T.hero.h1line2}
-            </span>
+            Ankernetz
           </h1>
 
-          {/* Sub */}
+          {/* Thin divider */}
+          <div className="fade-in-up delay-2" style={{
+            width: "36px", height: "1px",
+            background: "rgba(255,255,255,0.4)",
+            marginBottom: "1.5rem",
+          }} />
+
+          {/* Tagline */}
           <p className="fade-in-up delay-2" style={{
-            fontSize: "clamp(1rem,2vw,1.1875rem)",
-            color: "#4B5563",
-            fontWeight: 400,
-            lineHeight: 1.75,
-            marginBottom: "3rem",
-            maxWidth: "560px",
-            marginLeft: "auto",
-            marginRight: "auto",
+            fontSize: "clamp(0.625rem,1.1vw,0.75rem)",
+            fontWeight: 300,
+            letterSpacing: "0.32em",
+            textIndent: "0.32em",
+            color: "rgba(255,255,255,0.6)",
+            textTransform: "uppercase",
+            marginBottom: "3.5rem",
           }}>
-            {T.hero.sub1}
+            {lang === "de" ? "Kinder- & Jugendhilfe" : "Child & Youth Welfare"}
           </p>
 
-          {/* CTAs */}
-          <div className="fade-in-up delay-3" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "0.75rem", marginBottom: "5rem" }}>
-            <a href="#angebote" className="btn btn-primary btn-lg group">
-              {T.hero.cta1}
-              <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
-            </a>
-            <Link href="/platzanfrage" className="btn btn-outline btn-lg">
-              {T.hero.cta2}
-            </Link>
-          </div>
-
+          {/* Minimal CTA */}
+          <a className="fade-in-up delay-3" href="#angebote" style={{
+            fontSize: "0.6875rem",
+            fontWeight: 400,
+            letterSpacing: "0.22em",
+            textIndent: "0.22em",
+            color: "rgba(255,255,255,0.7)",
+            textDecoration: "none",
+            textTransform: "uppercase",
+            borderBottom: "1px solid rgba(255,255,255,0.3)",
+            paddingBottom: "0.3rem",
+            transition: "color 0.25s, border-color 0.25s",
+          }}>
+            {T.hero.cta1}
+          </a>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent, #fafbff)" }} />
-        <div className="scroll-pulse absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-px h-8" style={{ background: "rgba(15,23,42,0.15)" }} />
+        {/* Scroll indicator */}
+        <div style={{
+          position: "absolute", bottom: "2.5rem", left: "50%",
+          transform: "translateX(-50%)", zIndex: 3,
+          display: "flex", flexDirection: "column", alignItems: "center", gap: "0.625rem",
+        }}>
+          <span style={{
+            fontSize: "0.5625rem", letterSpacing: "0.22em", textIndent: "0.22em",
+            color: "rgba(255,255,255,0.35)", textTransform: "uppercase",
+          }}>Scroll</span>
+          <div className="scroll-pulse" style={{ width: "1px", height: "40px", background: "rgba(255,255,255,0.25)" }} />
         </div>
+
       </section>
 
       {/* ═══ MANIFESTO STRIP ═══ */}
