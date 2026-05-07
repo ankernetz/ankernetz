@@ -384,3 +384,22 @@ section {
   transform: translateX(6px);
   opacity: 1;
 }
+
+/* ── Editorial Grid (Gucci-Style 4-Spalten) ──────────────────── */
+.grid-editorial {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1024px) {
+  .grid-editorial { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid-editorial { grid-template-columns: 1fr; }
+}
+
+.editorial-item {
+  transition: padding-left 0.25s ease;
+}
+.editorial-item:hover {
+  padding-left: 0.5rem !important;
+  background: rgba(245,239,232,0.04);
+}
