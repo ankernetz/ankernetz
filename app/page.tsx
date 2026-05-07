@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
 import { BlurFade } from "./components/BlurFade";
+import { ShipAnchorIllustration } from "./components/ShipAnchorIllustration";
 import { useLang } from "./contexts/LanguageContext";
 import { tr } from "./i18n/translations";
 
@@ -45,14 +46,13 @@ export default function HomePage() {
 
       {/* ═══ HERO ═══ */}
       <section
-        className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
-        style={{ background: "linear-gradient(155deg, #eef4ff 0%, #fafbff 45%, #fff8ee 100%)" }}
+        className="relative overflow-hidden"
+        style={{ background: "linear-gradient(155deg, #eef4ff 0%, #fafbff 50%, #fff8ee 100%)", minHeight: "100vh", display: "flex", alignItems: "center" }}
       >
-        {/* Colorful orbs */}
-        <div className="absolute pointer-events-none" style={{ top: "-60px", left: "5%", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 65%)" }} />
-        <div className="absolute pointer-events-none" style={{ bottom: "-40px", right: "5%", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(245,158,11,0.16) 0%, transparent 65%)" }} />
-        <div className="absolute pointer-events-none" style={{ top: "30%", right: "15%", width: "350px", height: "350px", borderRadius: "50%", background: "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 65%)" }} />
-        <div className="absolute pointer-events-none" style={{ top: "20%", left: "25%", width: "250px", height: "250px", borderRadius: "50%", background: "radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 65%)" }} />
+        {/* Orbs */}
+        <div className="absolute pointer-events-none" style={{ top: "-80px", left: "0%", width: "700px", height: "700px", borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 65%)" }} />
+        <div className="absolute pointer-events-none" style={{ bottom: "-60px", right: "0%", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(245,158,11,0.14) 0%, transparent 65%)" }} />
+        <div className="absolute pointer-events-none" style={{ top: "25%", right: "38%", width: "320px", height: "320px", borderRadius: "50%", background: "radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 65%)" }} />
 
         <AnimatedGridPattern
           numSquares={30}
@@ -62,71 +62,79 @@ export default function HomePage() {
           className="z-0"
         />
 
-        <div className="relative z-10 w-full" style={{ maxWidth: "820px", margin: "0 auto", padding: "0 1.5rem" }}>
+        <div className="relative z-10 w-full" style={{ maxWidth: "1280px", margin: "0 auto", padding: "7rem 1.5rem 5rem" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: "3rem" }}>
 
-          {/* Badge */}
-          <div className="fade-in-up" style={{
-            display: "inline-flex", alignItems: "center", gap: "0.5rem",
-            background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)",
-            borderRadius: "100px", padding: "0.375rem 0.875rem", marginBottom: "2.5rem",
-          }}>
-            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#ef4444", flexShrink: 0, animation: "pulse 2s infinite" }} />
-            <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#b91c1c", letterSpacing: "0.01em" }}>{T.hero.badge}</span>
+            {/* ── Left: text ── */}
+            <div>
+              {/* Badge */}
+              <div className="fade-in-up" style={{
+                display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)",
+                borderRadius: "100px", padding: "0.375rem 0.875rem", marginBottom: "2.25rem",
+              }}>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#ef4444", flexShrink: 0, animation: "pulse 2s infinite" }} />
+                <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "#b91c1c", letterSpacing: "0.01em" }}>{T.hero.badge}</span>
+              </div>
+
+              {/* Headline */}
+              <h1 className="fade-in-up delay-1" style={{
+                fontSize: "clamp(3rem,7vw,5.5rem)",
+                fontWeight: 900,
+                letterSpacing: "-0.04em",
+                lineHeight: 1.0,
+                color: "#1a3f6f",
+                marginBottom: "1.75rem",
+              }}>
+                {T.hero.h1line1}
+                <br />
+                <span style={{
+                  backgroundImage: "linear-gradient(135deg, #3B82F6 0%, #10B981 50%, #F59E0B 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}>
+                  {T.hero.h1line2}
+                </span>
+              </h1>
+
+              {/* Sub */}
+              <p className="fade-in-up delay-2" style={{
+                fontSize: "clamp(1rem,1.8vw,1.125rem)",
+                color: "#4B5563",
+                fontWeight: 400,
+                lineHeight: 1.8,
+                marginBottom: "2.5rem",
+                maxWidth: "480px",
+              }}>
+                {T.hero.sub1}
+              </p>
+
+              {/* CTAs */}
+              <div className="fade-in-up delay-3" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.75rem" }}>
+                <a href="#angebote" className="btn btn-primary btn-lg group">
+                  {T.hero.cta1}
+                  <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <Link href="/platzanfrage" className="btn btn-outline btn-lg">
+                  {T.hero.cta2}
+                </Link>
+              </div>
+            </div>
+
+            {/* ── Right: ship illustration ── */}
+            <div className="fade-in-up delay-2 flex justify-center items-center">
+              <ShipAnchorIllustration
+                className="w-full"
+                style={{ maxWidth: "560px", filter: "drop-shadow(0 20px 40px rgba(37,99,235,0.18))" }}
+              />
+            </div>
+
           </div>
-
-          {/* Headline */}
-          <h1 className="fade-in-up delay-1" style={{
-            fontSize: "clamp(3.5rem,10vw,7rem)",
-            fontWeight: 900,
-            letterSpacing: "-0.04em",
-            lineHeight: 1.0,
-            color: "#1a3f6f",
-            marginBottom: "2rem",
-          }}>
-            {T.hero.h1line1}
-            <br />
-            <span style={{
-              backgroundImage: "linear-gradient(135deg, #3B82F6 0%, #10B981 50%, #F59E0B 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>
-              {T.hero.h1line2}
-            </span>
-          </h1>
-
-          {/* Sub */}
-          <p className="fade-in-up delay-2" style={{
-            fontSize: "clamp(1rem,2vw,1.1875rem)",
-            color: "#4B5563",
-            fontWeight: 400,
-            lineHeight: 1.75,
-            marginBottom: "3rem",
-            maxWidth: "560px",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}>
-            {T.hero.sub1}
-          </p>
-
-          {/* CTAs */}
-          <div className="fade-in-up delay-3" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "0.75rem", marginBottom: "5rem" }}>
-            <a href="#angebote" className="btn btn-primary btn-lg group">
-              {T.hero.cta1}
-              <ArrowRight size={15} strokeWidth={1.5} className="group-hover:translate-x-0.5 transition-transform" />
-            </a>
-            <Link href="/platzanfrage" className="btn btn-outline btn-lg">
-              {T.hero.cta2}
-            </Link>
-          </div>
-
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
           style={{ background: "linear-gradient(to bottom, transparent, #fafbff)" }} />
-        <div className="scroll-pulse absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-px h-8" style={{ background: "rgba(15,23,42,0.15)" }} />
-        </div>
       </section>
 
       {/* ═══ MANIFESTO STRIP ═══ */}
