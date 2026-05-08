@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Phone, Heart, Shield, Brain, Star, Clock,
@@ -9,6 +10,19 @@ import {
   Pencil, Gamepad2, Utensils, TreePine,
   Bus, Music, GraduationCap, Compass,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Jugendhilfe Berlin | Kinderwohngruppen 6–12 Jahre – Ankernetz",
+  description:
+    "Stationäre Jugendhilfe für Kinder von 6 bis 12 Jahren in Berlin. Verlässliche Struktur, intensive Beziehungsarbeit, enge Zusammenarbeit mit Jugendämtern und Familien.",
+  keywords: ["Jugendhilfe Berlin", "Kinderwohngruppe Berlin", "stationäre Jugendhilfe Berlin", "Wohngruppe Kinder 6-12 Berlin", "Jugendhilfe Tempelhof Berlin"],
+  alternates: { canonical: "https://www.ankernetz.com/jugendhilfe" },
+  openGraph: {
+    title: "Jugendhilfe Berlin | Kinderwohngruppen – Ankernetz",
+    description: "Stationäre Kinderwohngruppen für 6- bis 12-Jährige in Berlin. Verlässlich, fachlich, nah.",
+    url: "https://www.ankernetz.com/jugendhilfe",
+  },
+};
 
 /* ─── Daten ─────────────────────────────────────────────────── */
 

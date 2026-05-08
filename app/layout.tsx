@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 import ChatWidget from "./components/ChatWidget";
 import CookieBanner from "./components/CookieBanner";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import Link from "next/link";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,13 +14,110 @@ const inter = Inter({
   display: "swap",
 });
 
+const BASE_URL = "https://www.ankernetz.com";
+
 export const metadata: Metadata = {
-  title: "Ankernetz - Stabilität in Krisen. Perspektiven für junge Menschen.",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "Ankernetz Berlin | Jugendhilfe · Krisenintervention · Therapeutisches Wohnen",
+    template: "%s | Ankernetz Berlin",
+  },
   description:
-    "Ankernetz ist ein Netzwerk aus spezialisierten Hilfen für Kinder und Jugendliche - Krisenintervention, Therapie, Wohnen, Diagnostik, Beratung und Übergang in Arbeit.",
+    "Ankernetz bietet spezialisierte Hilfen für Kinder und Jugendliche in Berlin: 24/7 Krisenintervention, Psychotherapie mit Kassensitz, Frühe Hilfen, therapeutische Wohngruppen, Diagnostik & Beratung.",
   keywords: [
-    "Jugendhilfe", "Krisenintervention", "Therapeutisches Wohnen",
-    "Diagnostik", "Jugendamt", "Kinder", "Jugendliche",
+    "Jugendhilfe Berlin",
+    "Krisenintervention Berlin 24/7",
+    "Therapeutisches Wohnen Jugendliche Berlin",
+    "Kinderpsychotherapie Berlin Kassensitz",
+    "Frühe Hilfen Berlin",
+    "Kinder- und Jugendhilfe Berlin",
+    "Jugendamt Berlin Hilfen",
+    "Wohngruppe Jugendliche Berlin",
+    "Diagnostik Kinder Berlin",
+    "Erziehungsberatung Berlin",
+    "Ankernetz",
+    "stationäre Jugendhilfe",
+  ],
+  authors: [{ name: "Ankernetz", url: BASE_URL }],
+  creator: "Ankernetz",
+  publisher: "Ankernetz",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
+  },
+  alternates: {
+    canonical: BASE_URL,
+    languages: { "de-DE": BASE_URL, "en": `${BASE_URL}?lang=en` },
+  },
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    url: BASE_URL,
+    siteName: "Ankernetz",
+    title: "Ankernetz Berlin | Jugendhilfe · Krisenintervention · Therapeutisches Wohnen",
+    description:
+      "Spezialisierte Hilfen für Kinder und Jugendliche in Berlin. 24/7 Krisenintervention, Psychotherapie, Frühe Hilfen, therapeutische Wohngruppen, Diagnostik & Beratung.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Ankernetz – Hilfen für Kinder und Jugendliche in Berlin" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ankernetz Berlin | Kinder- und Jugendhilfe",
+    description: "24/7 Krisenintervention, Psychotherapie, Frühe Hilfen und mehr für Kinder und Jugendliche in Berlin.",
+    images: ["/og-image.png"],
+  },
+  verification: {
+    google: "ankernetz-google-verify",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
+      name: "Ankernetz",
+      alternateName: "Ankernetz Kinder- und Jugendhilfe Berlin",
+      url: BASE_URL,
+      description:
+        "Ankernetz ist ein Netzwerk spezialisierter Hilfen für Kinder und Jugendliche in Berlin – von der Krisenintervention über Psychotherapie und therapeutisches Wohnen bis zu Frühen Hilfen, Diagnostik und Beratung.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Friedrich-Franz-Str. 13",
+        addressLocality: "Berlin",
+        postalCode: "12103",
+        addressCountry: "DE",
+      },
+      telephone: "+49-30-224543220",
+      areaServed: { "@type": "City", name: "Berlin" },
+      knowsAbout: [
+        "Jugendhilfe", "Krisenintervention", "Kinder- und Jugendpsychotherapie",
+        "Frühe Hilfen", "Therapeutisches Wohnen", "Diagnostik", "Erziehungsberatung",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Hilfsangebote Ankernetz",
+        itemListElement: [
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Krisenintervention 24/7", url: `${BASE_URL}/krisenintervention` } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Kinder- und Jugendpsychotherapie", url: `${BASE_URL}/psychotherapie` } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Frühe Hilfen", url: `${BASE_URL}/fruehe-hilfen` } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Therapie & Wohnen", url: `${BASE_URL}/therapie-wohnen` } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Jugendhilfe", url: `${BASE_URL}/jugendhilfe` } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Diagnostik & Clearing", url: `${BASE_URL}/diagnostik-clearing` } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Beratung & Prävention", url: `${BASE_URL}/beratung-praevention` } },
+        ],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      url: BASE_URL,
+      name: "Ankernetz",
+      description: "Spezialisierte Hilfen für Kinder und Jugendliche in Berlin",
+      publisher: { "@id": `${BASE_URL}/#organization` },
+      inLanguage: "de-DE",
+    },
   ],
 };
 
@@ -31,6 +127,10 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${GeistSans.variable} ${inter.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <LanguageProvider>
           <Navigation />
           {children}

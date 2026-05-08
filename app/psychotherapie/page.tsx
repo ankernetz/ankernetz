@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Phone, Heart, Shield, Brain, Star, Clock,
@@ -8,6 +9,19 @@ import {
   AlertTriangle, Eye, Smile, GraduationCap,
   RefreshCw, Sparkles, ThumbsUp,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Kinderpsychotherapie Berlin mit Kassensitz – Ankernetz",
+  description:
+    "Kinder- und Jugendpsychotherapie in Berlin mit Kassensitz. Direkt eingebunden in alle Hilfeprozesse, dort wo Kinder und Jugendliche leben. Ankernetz Berlin.",
+  keywords: ["Kinderpsychotherapie Berlin", "Jugendpsychotherapie Berlin Kassensitz", "Psychotherapeut Kind Berlin Kassenplatz", "KJP Berlin", "Psychotherapie Kinder Berlin gesetzliche Krankenkasse"],
+  alternates: { canonical: "https://www.ankernetz.com/psychotherapie" },
+  openGraph: {
+    title: "Kinderpsychotherapie Berlin mit Kassensitz – Ankernetz",
+    description: "Kinder- und Jugendpsychotherapie mit Kassensitz, direkt eingebunden in Jugendhilfe-Prozesse. Berlin.",
+    url: "https://www.ankernetz.com/psychotherapie",
+  },
+};
 
 /* ─── Daten ─────────────────────────────────────────────────── */
 

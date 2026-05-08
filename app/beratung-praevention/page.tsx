@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Phone, Heart, Shield, Brain, Star, Clock,
@@ -8,6 +9,19 @@ import {
   Globe, Video, Smile, GraduationCap,
   TreePine, Sun, Coffee, Compass,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Erziehungsberatung Berlin | Prävention & Familienberatung – Ankernetz",
+  description:
+    "Niedrigschwellige Beratung und Prävention für Familien, Kinder und Jugendliche in Berlin. Online und vor Ort. Kostenlos oder kostengünstig. Ankernetz Berlin.",
+  keywords: ["Erziehungsberatung Berlin", "Familienberatung Berlin kostenlos", "Prävention Jugendhilfe Berlin", "Beratung Eltern Berlin", "Familienberatung kostenlos Berlin"],
+  alternates: { canonical: "https://www.ankernetz.com/beratung-praevention" },
+  openGraph: {
+    title: "Erziehungsberatung & Prävention Berlin – Ankernetz",
+    description: "Niedrigschwellige Beratung für Familien in Berlin. Online und vor Ort. Ankernetz.",
+    url: "https://www.ankernetz.com/beratung-praevention",
+  },
+};
 
 /* ─── Daten ──────────────────────────────────────────────────── */
 

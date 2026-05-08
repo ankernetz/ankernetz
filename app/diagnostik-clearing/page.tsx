@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Phone, Brain, Shield, Star, Clock,
@@ -8,6 +9,19 @@ import {
   AlertTriangle, UserCheck, Microscope,
   ScanSearch, ListChecks, Lightbulb,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Diagnostik & Clearing Berlin | Gutachten Kinder und Jugendliche – Ankernetz",
+  description:
+    "Diagnostik und Clearing für Kinder und Jugendliche in Berlin. Fachliche Einschätzungen, Gutachten und Hilfeplanung. Enge Zusammenarbeit mit Jugendämtern und Fachkräften.",
+  keywords: ["Kinderdiagnostik Berlin", "Clearing Jugendliche Berlin", "Gutachten Kinder Berlin", "Hilfeplanung Berlin Jugendhilfe", "Diagnostik Kinder Jugendliche Berlin"],
+  alternates: { canonical: "https://www.ankernetz.com/diagnostik-clearing" },
+  openGraph: {
+    title: "Diagnostik & Clearing Berlin – Ankernetz",
+    description: "Fachliche Einschätzungen und Gutachten für Kinder und Jugendliche in Berlin.",
+    url: "https://www.ankernetz.com/diagnostik-clearing",
+  },
+};
 
 /* ─── Daten ─────────────────────────────────────────────────── */
 
