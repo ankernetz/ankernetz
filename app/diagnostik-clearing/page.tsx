@@ -10,6 +10,36 @@ import {
   ScanSearch, ListChecks, Lightbulb,
 } from "lucide-react";
 
+import { SeoFaq } from "../components/SeoFaq";
+import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+
+const faqItems = [
+  {
+    q: "Was ist ein Clearing-Verfahren für Kinder und Jugendliche?",
+    a: "Clearing ist eine strukturierte Einschätzung der Situation eines Kindes oder Jugendlichen, um die geeignete Hilfe zu bestimmen. Ankernetz führt in Berlin intensive Clearing-Verfahren durch – mit standardisierten diagnostischen Instrumenten, Beobachtung im Alltag und Gesprächen mit allen Beteiligten.",
+  },
+  {
+    q: "Wie lange dauert eine Diagnostik bei Ankernetz?",
+    a: "Ein Standard-Clearing dauert 4 bis 6 Wochen. In dieser Zeit leben Kinder und Jugendliche bei Ankernetz und werden von einem multiprofessionellen Team beobachtet und eingeschätzt. Am Ende steht ein detaillierter Bericht mit konkreten Hilfeempfehlungen.",
+  },
+  {
+    q: "Was wird bei der Diagnostik untersucht?",
+    a: "Kognitive Fähigkeiten, emotionale Entwicklung, Bindungsverhalten, psychische Gesundheit, Schulleistungen, Familienanamnese und das soziale Umfeld. Ankernetz setzt dabei standardisierte psychologische Testverfahren ein und arbeitet mit kinder- und jugendpsychiatrischen Kooperationspartnern in Berlin zusammen.",
+  },
+  {
+    q: "Wer kann eine Diagnostik oder ein Clearing in Auftrag geben?",
+    a: "Jugendämter, Familiengerichte, Vormünder, Kliniken und unter Umständen direkt Eltern können eine Diagnostik bei Ankernetz in Berlin beauftragen. Die Kosten werden in der Regel vom Jugendamt oder der Krankenkasse übernommen.",
+  },
+  {
+    q: "Welche Gutachten stellt Ankernetz aus?",
+    a: "Ankernetz erstellt Entwicklungsberichte, Hilfeempfehlungen, Stellungnahmen für Hilfeplankonferenzen und – in Zusammenarbeit mit Kooperationspartnern – klinisch-psychologische Gutachten. Unsere Berichte sind auf die Anforderungen der Berliner Jugendämter und Familiengerichte abgestimmt.",
+  },
+  {
+    q: "Was passiert nach dem Clearing?",
+    a: "Nach Abschluss des Clearings präsentiert Ankernetz die Ergebnisse in einem Hilfeplangesprä ch mit dem Jugendamt und der Familie. Wir empfehlen die geeignete Anschlussmaßnahme und können – dank unseres Netzwerks – häufig direkt eine passende Folgemaßnahme in Berlin anbieten.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Diagnostik & Clearing Berlin | Gutachten Kinder und Jugendliche – Ankernetz",
   description:
@@ -737,6 +767,11 @@ export default function DiagnostikClearingPage() {
         </div>
       </section>
 
+      <SeoFaq
+        items={faqItems}
+        intro="Ankernetz führt in Berlin Diagnostik- und Clearing-Verfahren für Kinder und Jugendliche durch. Multiprofessionell, standardisiert und mit klaren Hilfeempfehlungen. Fragen von Jugendämtern, Familiengerichten und Eltern zu Diagnostik und Clearing in Berlin."
+      />
+      <SeoBreadcrumb crumbs={[{ name: "Diagnostik & Clearing", slug: "diagnostik-clearing" }]} />
     </main>
   );
 }

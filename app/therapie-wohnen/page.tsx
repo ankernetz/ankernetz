@@ -10,6 +10,36 @@ import {
   Coffee, Music, Compass, GraduationCap,
 } from "lucide-react";
 
+import { SeoFaq } from "../components/SeoFaq";
+import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+
+const faqItems = [
+  {
+    q: "Was ist ein therapeutisches Wohnheim für Jugendliche?",
+    a: "Eine therapeutische Wohngruppe verbindet stationäre Jugendhilfe mit intensiver therapeutischer Begleitung. Jugendliche von 12 bis 17 Jahren, die aufgrund von Traumata, psychischen Erkrankungen oder komplexen Lebenssituationen besondere Unterstützung brauchen, leben in kleinen Gruppen mit einem interdisziplinären Team aus Pädagogen, Therapeuten und Psychologen.",
+  },
+  {
+    q: "Für welche Jugendlichen ist das Therapie-Wohnen bei Ankernetz geeignet?",
+    a: "Jugendliche mit Traumafolgestörungen, Bindungsstörungen, Persönlichkeitsentwicklungsstörungen, psychischen Erkrankungen, komplexen familiären Belastungen oder nach stationären psychiatrischen Aufenthalten. Ankernetz bietet in Berlin spezialisierte Plätze für diese Zielgruppe.",
+  },
+  {
+    q: "Was bedeutet Traumaarbeit in der therapeutischen Wohngruppe?",
+    a: "Traumaarbeit bei Ankernetz bedeutet: traumasensible Alltagsgestaltung, stabilisierende Einzel- und Gruppenangebote, therapeutische Gespräche und – wo nötig – spezifische Traumatherapie mit unserem Kassensitz-Psychotherapeuten. Alle Mitarbeitenden sind traumapädagogisch geschult.",
+  },
+  {
+    q: "Wie lange dauert der Aufenthalt im Therapie-Wohnen?",
+    a: "Die Aufenthaltsdauer richtet sich nach dem individuellen Hilfeplan und wird mit dem Jugendamt, dem Jugendlichen und der Familie festgelegt. Typischerweise 12 bis 36 Monate. Ziel ist die Stabilisierung und der Übergang in eine weniger intensive Hilfeform oder ein selbstständiges Leben.",
+  },
+  {
+    q: "Wie wird der Schulbesuch während des Aufenthalts geregelt?",
+    a: "Ankernetz unterstützt Jugendliche aktiv dabei, die Schule zu besuchen und Abschlüsse zu erreichen. Wir koordinieren mit Berliner Schulen und Förderschulen, bieten Hausaufgabenhilfe und schulische Unterstützung an und begleiten den Übergang in Ausbildung oder Beruf.",
+  },
+  {
+    q: "Wie beantrage ich einen Platz im Therapie-Wohnen?",
+    a: "Anfragen erfolgen über das zuständige Jugendamt oder direkt über unsere Platzanfrage auf ankernetz.com. Wir melden uns in der Regel innerhalb von 24 Stunden. Das Aufnahmegespräch findet mit Jugendlichem, Eltern und Jugendamt gemeinsam statt.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Therapeutische Wohngruppe Berlin | Jugendliche 12–17 Jahre – Ankernetz",
   description:
@@ -861,6 +891,11 @@ export default function TherapieWohnenPage() {
         </div>
       </section>
 
+      <SeoFaq
+        items={faqItems}
+        intro="Ankernetz betreibt in Berlin therapeutische Wohngruppen für Jugendliche von 12 bis 17 Jahren mit besonderem Unterstützungsbedarf. Intensiv, traumasensibel, mit eigenem Kassensitz-Psychotherapeuten. Antworten auf häufige Fragen von Jugendämtern und Eltern."
+      />
+      <SeoBreadcrumb crumbs={[{ name: "Therapie & Wohnen", slug: "therapie-wohnen" }]} />
     </main>
   );
 }

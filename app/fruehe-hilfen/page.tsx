@@ -9,6 +9,36 @@ import {
   TreePine, Sun, Smile,
 } from "lucide-react";
 
+import { SeoFaq } from "../components/SeoFaq";
+import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+
+const faqItems = [
+  {
+    q: "Was sind Frühe Hilfen und für wen sind sie gedacht?",
+    a: "Frühe Hilfen sind präventive Unterstützungsangebote für Familien mit Kindern von 0 bis 6 Jahren. Sie richten sich an Eltern, die Orientierung, Entlastung oder Unterstützung in der frühen Kindheit brauchen – bevor sich Probleme verfestigen. Ankernetz bietet Frühe Hilfen in Berlin an, niedrigschwellig und ohne bürokratische Hürden.",
+  },
+  {
+    q: "Ab welchem Alter können Frühe Hilfen bei Ankernetz beginnen?",
+    a: "Bereits ab der Schwangerschaft oder direkt nach der Geburt. Die frühzeitige Unterstützung ist besonders wirksam, da Bindungsmuster und Entwicklungsgrundlagen in den ersten Lebensjahren gelegt werden. Ankernetz begleitet Familien von der Geburt bis zum Schuleintritt.",
+  },
+  {
+    q: "Was kostet das Angebot Frühe Hilfen bei Ankernetz?",
+    a: "Viele Angebote sind für Familien kostenlos oder kostengünstig. Die Finanzierung erfolgt über das Jugendamt, die Krankenkasse oder Förderprogramme des Landes Berlin. Ankernetz klärt mit jeder Familie individuell, welche Finanzierungsmöglichkeiten bestehen.",
+  },
+  {
+    q: "Wie unterscheiden sich Frühe Hilfen von der regulären Jugendhilfe?",
+    a: "Frühe Hilfen sind freiwillig und präventiv – Familien müssen keine Schwelle überschreiten und bekommen Unterstützung, bevor eine formale Jugendhilfemaßnahme notwendig wird. Die reguläre Jugendhilfe nach SGB VIII wird erst eingesetzt, wenn der Kinderschutz gefährdet ist. Ankernetz verbindet beide Systeme nahtlos.",
+  },
+  {
+    q: "Wer kann Frühe Hilfen für mein Kind oder meine Familie beantragen?",
+    a: "Eltern können sich direkt an Ankernetz wenden – auch ohne Jugendamtsbeteiligung. Alternativ können Kinderärzte, Hebammen, Kitas, Beratungsstellen und Jugendämter in Berlin die Frühen Hilfen von Ankernetz empfehlen oder beantragen.",
+  },
+  {
+    q: "Was umfasst die Unterstützung durch Frühe Hilfen konkret?",
+    a: "Elternberatung, aufsuchende Familienbegleitung, Hilfe bei Alltagsstruktur und Erziehungsfragen, Unterstützung in Entwicklungskrisen, Vernetzung mit anderen Hilfsangeboten in Berlin sowie die Förderung einer sicheren Eltern-Kind-Bindung.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Frühe Hilfen Berlin | Unterstützung für Kleinkinder 0–6 Jahre – Ankernetz",
   description:
@@ -897,6 +927,11 @@ export default function FrueheHilfenPage() {
         </div>
       </section>
 
+      <SeoFaq
+        items={faqItems}
+        intro="Ankernetz bietet in Berlin Frühe Hilfen für Familien mit Kleinkindern von 0 bis 6 Jahren. Präventiv, niedrigschwellig und ohne Warteliste. Hier finden Eltern, Hebammen und Kitas Antworten auf die wichtigsten Fragen zu Frühen Hilfen in Berlin."
+      />
+      <SeoBreadcrumb crumbs={[{ name: "Frühe Hilfen", slug: "fruehe-hilfen" }]} />
     </main>
   );
 }

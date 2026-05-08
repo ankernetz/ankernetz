@@ -11,6 +11,36 @@ import {
   Bus, Music, GraduationCap, Compass,
 } from "lucide-react";
 
+import { SeoFaq } from "../components/SeoFaq";
+import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+
+const faqItems = [
+  {
+    q: "Was ist stationäre Jugendhilfe für Kinder von 6 bis 12 Jahren?",
+    a: "Stationäre Jugendhilfe nach § 34 SGB VIII bietet Kindern, die vorübergehend oder dauerhaft nicht in ihrer Herkunftsfamilie leben können, einen sicheren Lebensort. In den Ankernetz-Kinderwohngruppen in Berlin leben 4 bis 6 Kinder zusammen und werden von einem festen pädagogischen Team betreut.",
+  },
+  {
+    q: "Wie lange bleibt ein Kind in der Ankernetz-Kinderwohngruppe?",
+    a: "Die Aufenthaltsdauer richtet sich nach dem individuellen Hilfeplan und wird gemeinsam mit dem Jugendamt, der Familie und dem Kind festgelegt. Sie kann von einigen Monaten bis zu mehreren Jahren reichen. Ziel ist immer die Rückkehr in die Familie oder der Übergang in eine geeignete Folgehilfe.",
+  },
+  {
+    q: "Wie beantrage ich einen Platz in einer Ankernetz-Kinderwohngruppe?",
+    a: "Plätze werden ausschließlich über das zuständige Jugendamt vermittelt. Das Jugendamt stellt eine Hilfe zur Erziehung (HzE) nach SGB VIII fest und kontaktiert Ankernetz für eine Platzanfrage. Eltern können ihren zuständigen Sozialarbeiter beim Jugendamt ansprechen.",
+  },
+  {
+    q: "Was passiert in den Ankernetz-Kinderwohngruppen im Alltag?",
+    a: "Die Kinder leben in kleinen, familienähnlichen Gruppen mit geregeltem Tagesablauf: Schule, Hausaufgaben, gemeinsame Mahlzeiten, Freizeitaktivitäten und therapeutische Angebote. Das pädagogische Team ist 24 Stunden präsent. Ankernetz legt besonderen Wert auf Bindungsarbeit und traumasensible Pädagogik.",
+  },
+  {
+    q: "Wie arbeitet Ankernetz mit Jugendämtern in Berlin zusammen?",
+    a: "Ankernetz arbeitet eng mit allen Berliner Bezirksjugendämtern zusammen – von Tempelhof-Schöneberg über Neukölln bis Mitte. Wir bieten schnelle Rückmeldungen auf Platzanfragen, regelmäßige Hilfeplangespräche und transparente Entwicklungsberichte. Fachkräfte können uns direkt unter 030 224 543 220 erreichen.",
+  },
+  {
+    q: "Welche Kosten entstehen für die stationäre Jugendhilfe?",
+    a: "Die Kosten werden vom zuständigen Jugendamt nach SGB VIII übernommen. Die Tagessätze sind mit dem Land Berlin verhandelt. Für Familien entstehen keine direkten Kosten – allenfalls ein einkommensabhängiger Kostenbeitrag, der vom Jugendamt geregelt wird.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Jugendhilfe Berlin | Kinderwohngruppen 6–12 Jahre – Ankernetz",
   description:
@@ -891,6 +921,11 @@ export default function JugendhilfePage() {
         </div>
       </section>
 
+      <SeoFaq
+        items={faqItems}
+        intro="Ankernetz betreibt in Berlin stationäre Kinderwohngruppen für Kinder von 6 bis 12 Jahren. Hier beantworten wir die häufigsten Fragen von Eltern, Jugendämtern und Fachkräften zur stationären Jugendhilfe in Berlin."
+      />
+      <SeoBreadcrumb crumbs={[{ name: "Jugendhilfe", slug: "jugendhilfe" }]} />
     </main>
   );
 }

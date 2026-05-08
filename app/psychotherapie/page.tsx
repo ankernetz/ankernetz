@@ -10,6 +10,36 @@ import {
   RefreshCw, Sparkles, ThumbsUp,
 } from "lucide-react";
 
+import { SeoFaq } from "../components/SeoFaq";
+import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+
+const faqItems = [
+  {
+    q: "Was bedeutet Kassensitz bei der Kinderpsychotherapie?",
+    a: "Ein Kassensitz bedeutet, dass die Psychotherapie vollständig von der gesetzlichen Krankenversicherung bezahlt wird – ohne Eigenanteil. Ankernetz verfügt über zugelassene Kassensitze für Kinder- und Jugendlichenpsychotherapie in Berlin, sodass Familien keine Kosten entstehen.",
+  },
+  {
+    q: "Für welche psychischen Erkrankungen bietet Ankernetz Therapie an?",
+    a: "Ankernetz behandelt in Berlin unter anderem: Traumafolgestörungen (PTBS), Depressionen, Angststörungen, ADHS, Störungen des Sozialverhaltens, emotionale Störungen, Bindungsstörungen sowie reaktive Störungen nach belastenden Lebensereignissen. Die Therapie wird individuell auf jedes Kind abgestimmt.",
+  },
+  {
+    q: "Wie ist die Psychotherapie in die Jugendhilfe bei Ankernetz eingebunden?",
+    a: "Das ist das Alleinstellungsmerkmal von Ankernetz: Die Psychotherapie findet dort statt, wo Kinder und Jugendliche leben – in der Wohngruppe, in der Familie oder ambulant. Therapeuten und Pädagogen arbeiten im engen Austausch. Kein Kind muss zwischen verschiedenen Systemen wechseln.",
+  },
+  {
+    q: "Brauche ich eine Überweisung für die Kinderpsychotherapie?",
+    a: "Ja, für eine kassenfinanzierte Psychotherapie wird eine Überweisung vom Kinderarzt oder Kinder- und Jugendpsychiater benötigt. Ankernetz unterstützt Familien dabei, die notwendigen Schritte einzuleiten. In vielen Fällen übernimmt das Jugendamt die Koordination.",
+  },
+  {
+    q: "Wie lange dauert eine Kinder- und Jugendlichenpsychotherapie?",
+    a: "Das hängt von der Diagnose und dem individuellen Bedarf ab. Eine Kurzzeittherapie umfasst 12 bis 24 Sitzungen, eine Langzeittherapie bis zu 60 Sitzungen. Die Kassenärztliche Vereinigung Berlin genehmigt die Stundenzahl nach einer Begutachtung. Ankernetz begleitet den gesamten Antragsprozess.",
+  },
+  {
+    q: "Kann die Therapie auch online oder im Elternhaus stattfinden?",
+    a: "Ankernetz bietet flexible Therapieformate an – ambulant in Berlin, in der Wohngruppe oder unter bestimmten Voraussetzungen auch aufsuchend. Das Ziel ist immer, die Therapie nahe am Lebensort des Kindes zu verankern und so den Therapieerfolg zu maximieren.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Kinderpsychotherapie Berlin mit Kassensitz – Ankernetz",
   description:
@@ -798,6 +828,11 @@ export default function PsychotherapiePage() {
         </div>
       </section>
 
+      <SeoFaq
+        items={faqItems}
+        intro="Ankernetz bietet Kinder- und Jugendlichenpsychotherapie in Berlin mit Kassensitz – eingebunden in das Jugendhilfesystem. Hier finden Eltern, Jugendliche und Fachkräfte Antworten zu Therapeutensuche, Kassenzulassung und Therapieablauf in Berlin."
+      />
+      <SeoBreadcrumb crumbs={[{ name: "Psychotherapie", slug: "psychotherapie" }]} />
     </main>
   );
 }
