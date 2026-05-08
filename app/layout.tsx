@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   description:
     "Ankernetz bietet spezialisierte Hilfen für Kinder und Jugendliche in Berlin: 24/7 Krisenintervention, Psychotherapie mit Kassensitz, Frühe Hilfen, therapeutische Wohngruppen, Diagnostik & Beratung.",
   keywords: [
+    "Ankernetz",
+    "Ankernetz Berlin",
+    "ankernetz.com",
     "Jugendhilfe Berlin",
     "Krisenintervention Berlin 24/7",
     "Therapeutisches Wohnen Jugendliche Berlin",
@@ -35,7 +38,6 @@ export const metadata: Metadata = {
     "Wohngruppe Jugendliche Berlin",
     "Diagnostik Kinder Berlin",
     "Erziehungsberatung Berlin",
-    "Ankernetz",
     "stationäre Jugendhilfe",
   ],
   authors: [{ name: "Ankernetz", url: BASE_URL }],
@@ -95,6 +97,12 @@ const jsonLd = {
         "Jugendhilfe", "Krisenintervention", "Kinder- und Jugendpsychotherapie",
         "Frühe Hilfen", "Therapeutisches Wohnen", "Diagnostik", "Erziehungsberatung",
       ],
+      sameAs: [
+        "https://www.ankernetz.com",
+        "https://github.com/ankernetz/ankernetz",
+      ],
+      foundingLocation: { "@type": "Place", name: "Berlin, Deutschland" },
+      legalName: "Ankernetz",
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Hilfsangebote Ankernetz",
