@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { SeoFaq } from "../components/SeoFaq";
+import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
 import {
   ShoppingCart, X, Plus, Minus, Check,
   Shirt, Wind, Feather, Footprints,
@@ -1384,6 +1386,40 @@ export default function AnkerkleidungPage() {
         </>
       )}
 
+      <SeoFaq
+        items={[
+          {
+            q: "Was ist Ankerkleidung und wie unterscheidet sie sich von normaler Kleidung?",
+            a: "Ankerkleidung ist speziell für Kinder und Jugendliche mit psychischen Störungsbildern entwickelt. Jedes Kleidungsstück wird nach dem individuellen Störungsbild ausgewählt – nicht nach Größe oder Mode. Für ein Kind mit ADHS bedeutet das: Kleidung mit Bewegungselementen. Für Kinder mit Autismus: nahtlose, sensorisch angepasste Materialien. Für traumatisierte Kinder: beruhigende Druckelemente.",
+          },
+          {
+            q: "Welche Störungsbilder berücksichtigt Ankerkleidung?",
+            a: "Ankerkleidung bietet spezialisierte Kollektionen für: ADHS & Hyperaktivität (Bewegungs- und Entladungselemente), Autismus-Spektrum (sensorische Reizreduktion, keine störenden Nähte), Trauma & PTBS (Druck, Wärme, Erdung), Angststörungen (Geborgenheit, Beruhigung), Bindungsstörungen (körpernahe, strukturgebende Kleidung) sowie vollständige Erstausstattungspakete für Kinder in Wohngruppen.",
+          },
+          {
+            q: "Was ist sensorische Kleidung für Kinder mit Autismus oder ADHS?",
+            a: "Sensorische Kleidung berücksichtigt die besondere Wahrnehmung von Kindern mit Autismus oder ADHS. Das bedeutet: keine kratzenden Nähte, weiche Materialien ohne synthetische Reize, eng anliegende Schnitte die propriozeptive Sicherheit geben, oder bewusst platzierte Druckelemente, die das Nervensystem regulieren. Ankerkleidung arbeitet mit Therapeuten und Sozialpädagogen zusammen, um die richtigen Eigenschaften für jedes Störungsbild zu bestimmen.",
+          },
+          {
+            q: "Was ist der Calm Hoodie und für wen ist er geeignet?",
+            a: "Der Calm Hoodie ist Ankerkleidungs bekanntestes Produkt. Er ist speziell für Kinder mit Angststörungen, Bindungsstörungen und Traumafolgestörungen entwickelt. Weiche, körpernahe Materialien und ein beruhigendes Design geben dem Kind das Gefühl von Sicherheit und Geborgenheit – ähnlich einer Umarmung. Wird in Wohngruppen und therapeutischen Einrichtungen in Deutschland eingesetzt.",
+          },
+          {
+            q: "Wer bezahlt die Ankerkleidung – Jugendamt, Krankenkasse oder Eltern?",
+            a: "Die Kostenübernahme hängt vom Kontext ab: Kinder in stationärer Jugendhilfe erhalten Kleidung über das Bekleidungsgeld des Jugendamts nach SGB VIII. Bei medizinischer Indikation kann die Krankenkasse anteilig übernehmen. Eltern können direkt im Ankerkleidung-Shop bestellen. Wohngruppen und Träger erhalten Mengenrabatte.",
+          },
+          {
+            q: "Kann ich als Fachkraft oder Wohngruppe Ankerkleidung bestellen?",
+            a: "Ja. Ankerkleidung richtet sich ausdrücklich auch an Fachkräfte in der Jugendhilfe, Wohngruppen, Pflegefamilien, Kitas und therapeutische Einrichtungen. Wir bieten Beratung nach Störungsbild, Mengenbestellungen und Erstausstattungspakete für Kinder, die neu in eine Wohngruppe kommen.",
+          },
+          {
+            q: "Wie wähle ich die richtige Ankerkleidung für mein Kind aus?",
+            a: "Auf der Ankerkleidung-Seite gibt es einen interaktiven Produktfinder: Sie wählen das Störungsbild des Kindes aus und erhalten passende Kollektionen. Zusätzlich gibt es einen kurzen Fragebogen, der individuelle Wahrnehmungspräferenzen ermittelt und gezielt Produkte empfiehlt. Bei Unsicherheit können Sie uns direkt anrufen: 030 224 543 220.",
+          },
+        ]}
+        intro="Ankerkleidung ist ein einzigartiges Konzept: Kleidung nach Störungsbild. Speziell für Kinder und Jugendliche mit ADHS, Autismus, Trauma, Angststörungen oder Bindungsstörungen. Hier finden Eltern, Fachkräfte und Jugendämter Antworten auf die häufigsten Fragen."
+      />
+      <SeoBreadcrumb crumbs={[{ name: "Ankerkleidung", slug: "ankerkleidung" }]} />
     </main>
   );
 }
