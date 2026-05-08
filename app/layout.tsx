@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   verification: {
-    google: "ankernetz-google-verify",
+    google: "WKVeYSRzufixO36O97rk8m9cbUZFQ4-dCibeQKqSEKw",
   },
 };
 
