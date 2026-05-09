@@ -159,9 +159,11 @@ export default function Navigation() {
 
           {[
             { label: n.ankerkleidung, href: "/ankerkleidung" },
-            { label: n.ueberUns,      href: "/ueber-uns" },
-            { label: n.karriere,      href: "/karriere"  },
-            { label: n.kontakt,       href: "/kontakt"   },
+            { label: n.ueberUns,      href: "/ueber-uns"     },
+            { label: n.karriere,      href: "/karriere"      },
+            { label: n.aktuelles,     href: "/aktuelles"     },
+            { label: n.regionen,      href: "/regionen/berlin-mitte" },
+            { label: n.kontakt,       href: "/kontakt"       },
           ].map((item) => (
             <Link key={item.href} href={item.href}
               className="transition-colors hover:text-black"
@@ -292,9 +294,11 @@ export default function Navigation() {
 
             <div className="pt-4 border-t border-[#F0F0F0] space-y-1 mb-4">
               {[
-                { label: n.ueberUns, href: "/ueber-uns" },
-                { label: n.karriere, href: "/karriere"  },
-                { label: n.kontakt,  href: "/kontakt"   },
+                { label: n.ueberUns,  href: "/ueber-uns"          },
+                { label: n.karriere,  href: "/karriere"            },
+                { label: n.aktuelles, href: "/aktuelles"           },
+                { label: n.regionen,  href: "/regionen/berlin-mitte" },
+                { label: n.kontakt,   href: "/kontakt"             },
               ].map((item) => (
                 <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}
                   className="block py-3 text-[15px] font-medium text-[#1D1D1F]">
