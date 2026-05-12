@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aktuelles & Ratgeber | Ankernetz Berlin Brandenburg",
     description:
-      "Fachbeiträge zu Jugendhilfe, Krisenintervention und Ankerkleidung — von Ankernetz Berlin Brandenburg.",
+      "Fachbeiträge zu Jugendhilfe, Krisenintervention und Ankerkleidung - von Ankernetz Berlin Brandenburg.",
     url: "https://www.ankernetz.com/aktuelles",
   },
 };

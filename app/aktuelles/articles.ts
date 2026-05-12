@@ -42,12 +42,12 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "ADHS — Aufmerksamkeitsdefizit-Hyperaktivitätsstörung — ist eine neurobiologische Entwicklungsstörung, die sich auf Konzentration, Impulskontrolle und Aktivitätsniveau auswirkt. Was viele nicht wissen: Das Gehirn von Kindern mit ADHS verarbeitet sensorische Reize anders. Was für andere Kinder ein harmloser Stofffaden oder eine leicht einschnürende Manschette ist, kann für ein Kind mit ADHS eine konstante Ablenkungsquelle darstellen — und damit das ohnehin anstrengende Aufrechterhalten von Konzentration zusätzlich erschweren.",
+          "ADHS - Aufmerksamkeitsdefizit-Hyperaktivitätsstörung - ist eine neurobiologische Entwicklungsstörung, die sich auf Konzentration, Impulskontrolle und Aktivitätsniveau auswirkt. Was viele nicht wissen: Das Gehirn von Kindern mit ADHS verarbeitet sensorische Reize anders. Was für andere Kinder ein harmloser Stofffaden oder eine leicht einschnürende Manschette ist, kann für ein Kind mit ADHS eine konstante Ablenkungsquelle darstellen - und damit das ohnehin anstrengende Aufrechterhalten von Konzentration zusätzlich erschweren.",
       },
       {
         type: "p",
         content:
-          "Studien zur sensorischen Verarbeitung bei ADHS zeigen, dass eine erhöhte taktile Sensitivität häufig mit den Kernsymptomen der Störung korreliert. Kleidung ist dabei ein Faktor, der im Alltag — in der Schule, beim Mittagessen, im Unterricht — permanent präsent ist. Die gute Nachricht: Mit der richtigen Kleidungsauswahl lässt sich dieser Stressfaktor deutlich reduzieren.",
+          "Studien zur sensorischen Verarbeitung bei ADHS zeigen, dass eine erhöhte taktile Sensitivität häufig mit den Kernsymptomen der Störung korreliert. Kleidung ist dabei ein Faktor, der im Alltag - in der Schule, beim Mittagessen, im Unterricht - permanent präsent ist. Die gute Nachricht: Mit der richtigen Kleidungsauswahl lässt sich dieser Stressfaktor deutlich reduzieren.",
       },
       {
         type: "h2",
@@ -63,7 +63,7 @@ export const articles: Article[] = [
           "Knöpfe, Reißverschlüsse und andere Verschlüsse, die Feinmotorik erfordern",
           "Polyester und synthetische Materialien, die statisch aufladen",
           "Zu enge Schnitte, die das Körpergefühl einengen",
-          "Ungewohnte Neukäufe — Kinder mit ADHS bevorzugen oft vertraute Kleidung",
+          "Ungewohnte Neukäufe - Kinder mit ADHS bevorzugen oft vertraute Kleidung",
         ],
       },
       {
@@ -73,12 +73,12 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Der Begriff sensorische Kleidung bezeichnet Kleidungsstücke, die gezielt auf die Bedürfnisse von Menschen mit sensorischen Verarbeitungsbesonderheiten ausgelegt sind. Das bedeutet nicht, dass die Kleidung medizinisch zertifiziert sein muss — aber sie wird mit einem anderen Bewusstsein für Material, Schnitt und Verarbeitung entwickelt.",
+          "Der Begriff sensorische Kleidung bezeichnet Kleidungsstücke, die gezielt auf die Bedürfnisse von Menschen mit sensorischen Verarbeitungsbesonderheiten ausgelegt sind. Das bedeutet nicht, dass die Kleidung medizinisch zertifiziert sein muss - aber sie wird mit einem anderen Bewusstsein für Material, Schnitt und Verarbeitung entwickelt.",
       },
       {
         type: "highlight",
         content:
-          "Sensorische Kleidung für Kinder mit ADHS hat ein Ziel: Sie soll vom Körper wahrgenommen, aber nicht als störend empfunden werden. Das klingt einfach — ist in der Herstellung aber eine handwerkliche Herausforderung.",
+          "Sensorische Kleidung für Kinder mit ADHS hat ein Ziel: Sie soll vom Körper wahrgenommen, aber nicht als störend empfunden werden. Das klingt einfach - ist in der Herstellung aber eine handwerkliche Herausforderung.",
       },
       {
         type: "h2",
@@ -91,7 +91,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Kinder mit ADHS sind in Bewegung — das ist keine Unart, das ist Neurobiologie. Kleidung muss diese Bewegung mitmachen. Elastische Schnitte, dehnbare Stoffe (z.B. Bio-Baumwolle mit Elasthan-Anteil) und weite Passformen geben dem Körper den Raum, den er braucht. Enge Jeans oder starre Hosen können das Wohlbefinden erheblich beeinträchtigen.",
+          "Kinder mit ADHS sind in Bewegung - das ist keine Unart, das ist Neurobiologie. Kleidung muss diese Bewegung mitmachen. Elastische Schnitte, dehnbare Stoffe (z.B. Bio-Baumwolle mit Elasthan-Anteil) und weite Passformen geben dem Körper den Raum, den er braucht. Enge Jeans oder starre Hosen können das Wohlbefinden erheblich beeinträchtigen.",
       },
       {
         type: "h3",
@@ -100,7 +100,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Interessanterweise reagieren viele Kinder mit ADHS positiv auf leichten, gleichmäßigen Druck auf den Körper — ähnlich wie bei einer Umarmung. Dieses Prinzip nennt sich propriozeptive Stimulation. Kompressionsshirts oder eng anliegende Unterhemden können dazu beitragen, die Körperwahrnehmung zu verbessern und Unruhe zu reduzieren. Wichtig: Der Druck muss gleichmäßig und angenehm sein — nie einschnürend.",
+          "Interessanterweise reagieren viele Kinder mit ADHS positiv auf leichten, gleichmäßigen Druck auf den Körper - ähnlich wie bei einer Umarmung. Dieses Prinzip nennt sich propriozeptive Stimulation. Kompressionsshirts oder eng anliegende Unterhemden können dazu beitragen, die Körperwahrnehmung zu verbessern und Unruhe zu reduzieren. Wichtig: Der Druck muss gleichmäßig und angenehm sein - nie einschnürend.",
       },
       {
         type: "h3",
@@ -109,7 +109,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Die Verarbeitung ist entscheidend. Innennähte sollten flach und weich sein, idealerweise als Flatlock-Naht gefertigt, die keine erhabenen Kanten hinterlässt. Zehennähte in Socken sind ein klassischer Auslöser — achten Sie auf nahtlose oder seitlich verlegte Nähte. Etiketten sollten grundsätzlich nicht eingenäht, sondern aufgedruckt oder bereits ab Werk entfernt sein.",
+          "Die Verarbeitung ist entscheidend. Innennähte sollten flach und weich sein, idealerweise als Flatlock-Naht gefertigt, die keine erhabenen Kanten hinterlässt. Zehennähte in Socken sind ein klassischer Auslöser - achten Sie auf nahtlose oder seitlich verlegte Nähte. Etiketten sollten grundsätzlich nicht eingenäht, sondern aufgedruckt oder bereits ab Werk entfernt sein.",
       },
       {
         type: "h2",
@@ -123,7 +123,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Was Ankerkleidung von normaler Kinderkleidung unterscheidet: Jedes Stück wird im Kontext des Störungsbildes entwickelt. Die ADHS-Linie ist nicht für den Massenmarkt konzipiert, sondern für die spezifische Realität von Kindern, die Unterstützung brauchen — und Kleidung, die nicht zur Belastung wird.",
+          "Was Ankerkleidung von normaler Kinderkleidung unterscheidet: Jedes Stück wird im Kontext des Störungsbildes entwickelt. Die ADHS-Linie ist nicht für den Massenmarkt konzipiert, sondern für die spezifische Realität von Kindern, die Unterstützung brauchen - und Kleidung, die nicht zur Belastung wird.",
       },
       {
         type: "h2",
@@ -133,9 +133,9 @@ export const articles: Article[] = [
         type: "ul",
         content: [
           "Etiketten immer herausschneiden oder von vornherein auf Aufdrucke achten",
-          "Kinder beim Kauf mitnehmen und selbst testen lassen — jedes Kind ist anders",
+          "Kinder beim Kauf mitnehmen und selbst testen lassen - jedes Kind ist anders",
           "Bekannte, vertraute Kleidungsstücke in mehrfacher Ausführung kaufen",
-          "Legen Sie morgens die Kleidung bereit — reduziert Entscheidungsstress",
+          "Legen Sie morgens die Kleidung bereit - reduziert Entscheidungsstress",
           "Auf Gummibänder ohne Plastik-Beschichtung achten (weniger Wärme und Kratzen)",
           "Socken immer ohne Zehennaht wählen oder mit der Naht nach außen tragen",
           "Synthetische Materialien bei taktil empfindlichen Kindern möglichst meiden",
@@ -148,7 +148,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "In der Schule verbringen Kinder sechs bis acht Stunden täglich — in ihrer Kleidung. Eine Hose, die drückt, oder ein T-Shirt, das kratzt, ist in dieser Zeit ein permanenter Stressfaktor, der kognitive Ressourcen bindet. Fachkräfte und Lehrerinnen in der Jugendhilfe berichten immer wieder, dass einfache Änderungen in der Kleidungsauswahl Auswirkungen auf das Verhalten im Unterricht hatten. Das ist kein Zufall — es ist Sensorik.",
+          "In der Schule verbringen Kinder sechs bis acht Stunden täglich - in ihrer Kleidung. Eine Hose, die drückt, oder ein T-Shirt, das kratzt, ist in dieser Zeit ein permanenter Stressfaktor, der kognitive Ressourcen bindet. Fachkräfte und Lehrerinnen in der Jugendhilfe berichten immer wieder, dass einfache Änderungen in der Kleidungsauswahl Auswirkungen auf das Verhalten im Unterricht hatten. Das ist kein Zufall - es ist Sensorik.",
       },
       {
         type: "h2",
@@ -157,7 +157,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Bei Kindern mit ADHS ist Kleidung kein oberflächliches Thema. Sie ist Teil der Umweltgestaltung, die entweder zur Regulation beiträgt — oder sie erschwert. Die richtige Kleidung schafft keine Therapie, aber sie nimmt eine unnötige Belastungsquelle aus dem Alltag heraus. Das gibt Kindern Raum, sich auf das zu konzentrieren, was wirklich zählt.",
+          "Bei Kindern mit ADHS ist Kleidung kein oberflächliches Thema. Sie ist Teil der Umweltgestaltung, die entweder zur Regulation beiträgt - oder sie erschwert. Die richtige Kleidung schafft keine Therapie, aber sie nimmt eine unnötige Belastungsquelle aus dem Alltag heraus. Das gibt Kindern Raum, sich auf das zu konzentrieren, was wirklich zählt.",
       },
     ],
     relatedPages: [
@@ -173,7 +173,7 @@ export const articles: Article[] = [
     date: "2026-05-09",
     readTime: "10 Min. Lesezeit",
     excerpt:
-      "Wenn ein Kind oder Jugendlicher in eine akute Notlage gerät, müssen Entscheidungen schnell und richtig getroffen werden. Dieser Leitfaden erklärt, was Krisenintervention bedeutet, wer sie beantragen kann und was danach passiert — verständlich für Eltern und Fachkräfte.",
+      "Wenn ein Kind oder Jugendlicher in eine akute Notlage gerät, müssen Entscheidungen schnell und richtig getroffen werden. Dieser Leitfaden erklärt, was Krisenintervention bedeutet, wer sie beantragen kann und was danach passiert - verständlich für Eltern und Fachkräfte.",
     keywords: [
       "Krisenintervention Kinder Berlin",
       "Krisenintervention Jugendliche",
@@ -193,7 +193,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Krisenintervention wird in der Regel für einen begrenzten Zeitraum von wenigen Tagen bis einigen Wochen gewährt. Ziel ist zunächst die Stabilisierung — danach wird gemeinsam mit dem Jugendamt, der Familie und dem Jugendlichen ein Hilfeplan für die Zeit danach entwickelt.",
+          "Krisenintervention wird in der Regel für einen begrenzten Zeitraum von wenigen Tagen bis einigen Wochen gewährt. Ziel ist zunächst die Stabilisierung - danach wird gemeinsam mit dem Jugendamt, der Familie und dem Jugendlichen ein Hilfeplan für die Zeit danach entwickelt.",
       },
       {
         type: "h2",
@@ -208,7 +208,7 @@ export const articles: Article[] = [
         type: "ul",
         content: [
           "Akute Suizidalität oder Selbstverletzung ohne ambulante Absicherung",
-          "Häusliche Gewalt — körperlich, psychisch oder sexuell",
+          "Häusliche Gewalt - körperlich, psychisch oder sexuell",
           "Plötzliche Obdachlosigkeit (z.B. nach Konflikt mit Erziehungsberechtigten)",
           "Akute psychische Dekompensation ohne Klinikindikation",
           "Vernachlässigung oder Verwahrlosung mit unmittelbarer Gefährdung",
@@ -223,7 +223,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Der Ablauf einer Krisenintervention lässt sich grob in vier Phasen unterteilen — von der ersten Kontaktaufnahme bis zur Anschlussplanung:",
+          "Der Ablauf einer Krisenintervention lässt sich grob in vier Phasen unterteilen - von der ersten Kontaktaufnahme bis zur Anschlussplanung:",
       },
       {
         type: "h3",
@@ -232,7 +232,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Sobald eine Krise gemeldet wird, nimmt der Bereitschaftsdienst des Kriseninterventionsträgers Kontakt auf. Bei Ankernetz erfolgt dieser erste Kontakt rund um die Uhr — auch nachts, an Wochenenden und Feiertagen. In diesem ersten Gespräch wird die Situation eingeschätzt: Liegt tatsächlich eine Krisenindikation vor? Ist eine sofortige Aufnahme notwendig, oder reicht zunächst telefonische Krisenbegleitung?",
+          "Sobald eine Krise gemeldet wird, nimmt der Bereitschaftsdienst des Kriseninterventionsträgers Kontakt auf. Bei Ankernetz erfolgt dieser erste Kontakt rund um die Uhr - auch nachts, an Wochenenden und Feiertagen. In diesem ersten Gespräch wird die Situation eingeschätzt: Liegt tatsächlich eine Krisenindikation vor? Ist eine sofortige Aufnahme notwendig, oder reicht zunächst telefonische Krisenbegleitung?",
       },
       {
         type: "h3",
@@ -259,7 +259,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Am Ende der Krisenintervention steht ein Hilfeplangespräch. Alle Beteiligten — Jugendamt, Eltern (sofern es dem Wohl des Kindes dient), der Jugendliche selbst und der Kriseninterventionsträger — entwickeln gemeinsam eine Perspektive. Das kann die Rückkehr nach Hause sein (mit ambulanter Unterstützung), die Aufnahme in eine therapeutische Wohngruppe oder eine andere Hilfeform nach SGB VIII.",
+          "Am Ende der Krisenintervention steht ein Hilfeplangespräch. Alle Beteiligten - Jugendamt, Eltern (sofern es dem Wohl des Kindes dient), der Jugendliche selbst und der Kriseninterventionsträger - entwickeln gemeinsam eine Perspektive. Das kann die Rückkehr nach Hause sein (mit ambulanter Unterstützung), die Aufnahme in eine therapeutische Wohngruppe oder eine andere Hilfeform nach SGB VIII.",
       },
       {
         type: "h2",
@@ -268,7 +268,7 @@ export const articles: Article[] = [
       {
         type: "ul",
         content: [
-          "Jugendämter in Berlin und Brandenburg (§ 42 SGB VIII — Inobhutnahme)",
+          "Jugendämter in Berlin und Brandenburg (§ 42 SGB VIII - Inobhutnahme)",
           "Sorgeberechtigte, wenn sie selbst Hilfe anfordern",
           "Kliniken bei Entlassung ohne gesicherte Anschlussversorgung",
           "Polizei bei Ingewahrsamnahmen oder Kindeswohlgefährdungen",
@@ -283,17 +283,17 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Ein häufiges Missverständnis: Krisenintervention und Kinder- und Jugendpsychiatrie (KJP) sind zwei unterschiedliche Hilfesysteme, die sich gegenseitig ergänzen — aber nicht ersetzen.",
+          "Ein häufiges Missverständnis: Krisenintervention und Kinder- und Jugendpsychiatrie (KJP) sind zwei unterschiedliche Hilfesysteme, die sich gegenseitig ergänzen - aber nicht ersetzen.",
       },
       {
         type: "highlight",
         content:
-          "Die Psychiatrie behandelt psychiatrische Erkrankungen mit medizinischen Mitteln. Krisenintervention schafft sozialen Schutzraum und pädagogische Begleitung. Beides kann gleichzeitig notwendig sein — oder sequenziell: zuerst Psychiatrie, dann Krisenintervention oder umgekehrt.",
+          "Die Psychiatrie behandelt psychiatrische Erkrankungen mit medizinischen Mitteln. Krisenintervention schafft sozialen Schutzraum und pädagogische Begleitung. Beides kann gleichzeitig notwendig sein - oder sequenziell: zuerst Psychiatrie, dann Krisenintervention oder umgekehrt.",
       },
       {
         type: "p",
         content:
-          "Eine KJP-Aufnahme ist indiziert, wenn medizinische oder psychiatrische Behandlung notwendig ist — zum Beispiel bei akuter Suizidalität mit konkretem Plan, bei psychotischen Zuständen oder wenn eine medikamentöse Einstellung erforderlich ist. Krisenintervention kann hingegen angeboten werden, wenn die Situation pädagogisch-sozialpädagogisch beherrschbar ist.",
+          "Eine KJP-Aufnahme ist indiziert, wenn medizinische oder psychiatrische Behandlung notwendig ist - zum Beispiel bei akuter Suizidalität mit konkretem Plan, bei psychotischen Zuständen oder wenn eine medikamentöse Einstellung erforderlich ist. Krisenintervention kann hingegen angeboten werden, wenn die Situation pädagogisch-sozialpädagogisch beherrschbar ist.",
       },
       {
         type: "h2",
@@ -302,7 +302,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Das Ziel der Krisenintervention ist nicht, dauerhafter Ersatz für andere Hilfen zu sein — sondern Brücke. Nach der Stabilisierung gibt es verschiedene Wege:",
+          "Das Ziel der Krisenintervention ist nicht, dauerhafter Ersatz für andere Hilfen zu sein - sondern Brücke. Nach der Stabilisierung gibt es verschiedene Wege:",
       },
       {
         type: "ul",
@@ -321,12 +321,12 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Ankernetz bietet Krisenintervention für Kinder und Jugendliche von 12 bis 17 Jahren rund um die Uhr an. Unser Bereitschaftsdienst ist an 365 Tagen im Jahr erreichbar — auch über die Feiertage. Wir arbeiten eng mit den Berliner Jugendämtern in allen Bezirken sowie mit Jugendämtern in Brandenburg zusammen.",
+          "Ankernetz bietet Krisenintervention für Kinder und Jugendliche von 12 bis 17 Jahren rund um die Uhr an. Unser Bereitschaftsdienst ist an 365 Tagen im Jahr erreichbar - auch über die Feiertage. Wir arbeiten eng mit den Berliner Jugendämtern in allen Bezirken sowie mit Jugendämtern in Brandenburg zusammen.",
       },
       {
         type: "p",
         content:
-          "Was Ankernetz von anderen Trägern unterscheidet: Die Krisenintervention ist eingebettet in ein vollständiges Hilfenetz. Nach der Krise müssen Jugendliche nicht in ein anderes System wechseln — wir begleiten sie in die nächste Hilfeform. Therapeutische Wohngruppen, Psychotherapie mit Kassensitz, Diagnostik und Beratung sind alle unter einem Dach verfügbar.",
+          "Was Ankernetz von anderen Trägern unterscheidet: Die Krisenintervention ist eingebettet in ein vollständiges Hilfenetz. Nach der Krise müssen Jugendliche nicht in ein anderes System wechseln - wir begleiten sie in die nächste Hilfeform. Therapeutische Wohngruppen, Psychotherapie mit Kassensitz, Diagnostik und Beratung sind alle unter einem Dach verfügbar.",
       },
     ],
     relatedPages: [
@@ -359,12 +359,12 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Sensorische Verarbeitung beschreibt, wie das Nervensystem Reize aus der Umwelt aufnimmt, filtert und bewertet. Bei neurotypischen Menschen geschieht dieser Prozess weitgehend automatisch und unbewusst — das Gehirn entscheidet, welche Signale relevant sind und welche ignoriert werden können. Bei Menschen im Autismus-Spektrum ist dieser Filter anders eingestellt.",
+          "Sensorische Verarbeitung beschreibt, wie das Nervensystem Reize aus der Umwelt aufnimmt, filtert und bewertet. Bei neurotypischen Menschen geschieht dieser Prozess weitgehend automatisch und unbewusst - das Gehirn entscheidet, welche Signale relevant sind und welche ignoriert werden können. Bei Menschen im Autismus-Spektrum ist dieser Filter anders eingestellt.",
       },
       {
         type: "p",
         content:
-          "Das bedeutet nicht, dass autistische Menschen mehr oder weniger empfinden — aber die Art, wie Reize verarbeitet und gewichtet werden, unterscheidet sich. Manche Reize, die für andere kaum wahrnehmbar sind, werden als intensiv oder überwältigend erlebt. Andere Reize, die eigentlich wichtig wären, werden kaum registriert. Diese sensorische Besonderheit ist ein zentraler Aspekt der Autismus-Spektrum-Störung (ASS).",
+          "Das bedeutet nicht, dass autistische Menschen mehr oder weniger empfinden - aber die Art, wie Reize verarbeitet und gewichtet werden, unterscheidet sich. Manche Reize, die für andere kaum wahrnehmbar sind, werden als intensiv oder überwältigend erlebt. Andere Reize, die eigentlich wichtig wären, werden kaum registriert. Diese sensorische Besonderheit ist ein zentraler Aspekt der Autismus-Spektrum-Störung (ASS).",
       },
       {
         type: "h2",
@@ -373,7 +373,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Kleidung ist ein dauerhafter sensorischer Reiz. Sie liegt auf der Haut, sie bewegt sich beim Gehen, sie hat Nähte, Etiketten, Bündchen und Verschlüsse. Für viele autistische Kinder ist das Anziehen eine echte Herausforderung — nicht aus Sturheit oder Verweigerung, sondern weil der sensorische Input der Kleidung für sie schlicht unangenehm oder sogar schmerzhaft ist.",
+          "Kleidung ist ein dauerhafter sensorischer Reiz. Sie liegt auf der Haut, sie bewegt sich beim Gehen, sie hat Nähte, Etiketten, Bündchen und Verschlüsse. Für viele autistische Kinder ist das Anziehen eine echte Herausforderung - nicht aus Sturheit oder Verweigerung, sondern weil der sensorische Input der Kleidung für sie schlicht unangenehm oder sogar schmerzhaft ist.",
       },
       {
         type: "highlight",
@@ -387,7 +387,7 @@ export const articles: Article[] = [
       {
         type: "ul",
         content: [
-          "Nähte — insbesondere Zehennähte in Socken und Schulternähte in Shirts",
+          "Nähte - insbesondere Zehennähte in Socken und Schulternähte in Shirts",
           "Etiketten aus Papier oder Stoff, die am Nacken oder an den Seiten kratzen",
           "Stoffe, die sich kratzig, rau oder unangenehm anfühlen (z.B. Wolle, raue Baumwolle)",
           "Enge oder einschneidende Bündchen an Hosen, Ärmeln oder Halskragen",
@@ -404,7 +404,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Sensorische Kleidung für autistische Kinder ist nicht eine bestimmte Marke oder ein zertifiziertes Produkt — es ist ein Designprinzip. Es geht darum, alle bekannten sensorischen Auslöser zu eliminieren und gleichzeitig Materialien zu verwenden, die angenehme oder neutral empfundene Reize geben.",
+          "Sensorische Kleidung für autistische Kinder ist nicht eine bestimmte Marke oder ein zertifiziertes Produkt - es ist ein Designprinzip. Es geht darum, alle bekannten sensorischen Auslöser zu eliminieren und gleichzeitig Materialien zu verwenden, die angenehme oder neutral empfundene Reize geben.",
       },
       {
         type: "h3",
@@ -413,7 +413,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Die wichtigste Eigenschaft sensorischer Kleidung: keine erhabenen Innennähte. Flatlock-Nähte oder nahtlos gestrickte Kleidung eliminieren den häufigsten Auslöser vollständig. Besonders kritisch sind Zehennähte in Socken — hier haben sich seitenverlegte oder vollständig nahtlose Optionen bewährt.",
+          "Die wichtigste Eigenschaft sensorischer Kleidung: keine erhabenen Innennähte. Flatlock-Nähte oder nahtlos gestrickte Kleidung eliminieren den häufigsten Auslöser vollständig. Besonders kritisch sind Zehennähte in Socken - hier haben sich seitenverlegte oder vollständig nahtlose Optionen bewährt.",
       },
       {
         type: "h3",
@@ -431,7 +431,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Viele autistische Kinder reagieren positiv auf gleichmäßigen, leichten Druck auf den Körper — ein Phänomen, das Temple Grandin mit ihrer bekannten Druckmaschine beschrieben hat. Kompressionsshirts und eng anliegende Basisschichten können diesen Effekt erzeugen und helfen, die Körperwahrnehmung zu stabilisieren und Überreizung zu reduzieren.",
+          "Viele autistische Kinder reagieren positiv auf gleichmäßigen, leichten Druck auf den Körper - ein Phänomen, das Temple Grandin mit ihrer bekannten Druckmaschine beschrieben hat. Kompressionsshirts und eng anliegende Basisschichten können diesen Effekt erzeugen und helfen, die Körperwahrnehmung zu stabilisieren und Überreizung zu reduzieren.",
       },
       {
         type: "h2",
@@ -440,7 +440,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Die Autismus-Kollektion von Ankerkleidung wurde speziell für die sensorischen Bedürfnisse von Kindern und Jugendlichen im Spektrum entwickelt. Sensory-Shirts werden nahtlos gestrickt, Hosen haben elastische Bündchen ohne Gummidruck-Abdrücke, und alle Etiketten sind aufgedruckt statt eingenäht. Das Kompressionsshirt aus der Kollektion kombiniert leichten Druck mit einem weichen Außenstoff — dezent und alltagstauglich.",
+          "Die Autismus-Kollektion von Ankerkleidung wurde speziell für die sensorischen Bedürfnisse von Kindern und Jugendlichen im Spektrum entwickelt. Sensory-Shirts werden nahtlos gestrickt, Hosen haben elastische Bündchen ohne Gummidruck-Abdrücke, und alle Etiketten sind aufgedruckt statt eingenäht. Das Kompressionsshirt aus der Kollektion kombiniert leichten Druck mit einem weichen Außenstoff - dezent und alltagstauglich.",
       },
       {
         type: "h2",
@@ -449,12 +449,12 @@ export const articles: Article[] = [
       {
         type: "ul",
         content: [
-          "Kaufen Sie bewusst: Prüfen Sie jedes Stück auf Nähte, Etiketten und Material — bevor Sie kaufen",
-          "Tragen Sie neue Kleidung zunächst probeweise an — lassen Sie das Kind entscheiden",
+          "Kaufen Sie bewusst: Prüfen Sie jedes Stück auf Nähte, Etiketten und Material - bevor Sie kaufen",
+          "Tragen Sie neue Kleidung zunächst probeweise an - lassen Sie das Kind entscheiden",
           "Waschen Sie neue Kleidung mehrfach, bevor das Kind sie trägt (weicht Appretur aus dem Stoff)",
-          "Bewährte Stücke mehrfach kaufen — Konsistenz ist für autistische Kinder wertvoll",
+          "Bewährte Stücke mehrfach kaufen - Konsistenz ist für autistische Kinder wertvoll",
           "Kommunizieren Sie mit Schulen: manche Schuluniformen sind sensorisch schwierig",
-          "Nutzen Sie Fachberatung — Autismus-Ambulanzen und Sozialpädagogen kennen lokale Angebote",
+          "Nutzen Sie Fachberatung - Autismus-Ambulanzen und Sozialpädagogen kennen lokale Angebote",
         ],
       },
       {
@@ -464,7 +464,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Für viele autistische Kinder ist das Anziehen am Morgen eine stressige Transition. Die richtige Kleidung reduziert diesen Stress erheblich — und damit auch die Energie, die in einen guten Start in den Tag investiert werden muss. Das ist kein Luxus. Es ist eine praktische, wirksame Maßnahme zur Alltagsentlastung.",
+          "Für viele autistische Kinder ist das Anziehen am Morgen eine stressige Transition. Die richtige Kleidung reduziert diesen Stress erheblich - und damit auch die Energie, die in einen guten Start in den Tag investiert werden muss. Das ist kein Luxus. Es ist eine praktische, wirksame Maßnahme zur Alltagsentlastung.",
       },
     ],
     relatedPages: [
@@ -480,7 +480,7 @@ export const articles: Article[] = [
     date: "2026-05-09",
     readTime: "12 Min. Lesezeit",
     excerpt:
-      "Jugendhilfe ist ein Recht, kein Gnadenakt. Dieser Überblick erklärt, welche Hilfeformen es gibt, wie man sie beantragt, was sie kosten und wie das System in Berlin und Brandenburg konkret funktioniert — für Eltern, Jugendliche und Fachkräfte.",
+      "Jugendhilfe ist ein Recht, kein Gnadenakt. Dieser Überblick erklärt, welche Hilfeformen es gibt, wie man sie beantragt, was sie kosten und wie das System in Berlin und Brandenburg konkret funktioniert - für Eltern, Jugendliche und Fachkräfte.",
     keywords: [
       "Jugendhilfe Berlin Brandenburg",
       "stationäre Jugendhilfe Berlin",
@@ -496,12 +496,12 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Jugendhilfe ist ein Oberbegriff für alle staatlich finanzierten Unterstützungsleistungen für Kinder, Jugendliche und ihre Familien, die durch das Kinder- und Jugendhilfegesetz (SGB VIII — Achtes Sozialgesetzbuch) geregelt sind. Jugendhilfe ist ein gesetzlicher Anspruch — kein Almosen und keine Strafe. Wer die Voraussetzungen erfüllt, hat Anspruch auf Unterstützung.",
+          "Jugendhilfe ist ein Oberbegriff für alle staatlich finanzierten Unterstützungsleistungen für Kinder, Jugendliche und ihre Familien, die durch das Kinder- und Jugendhilfegesetz (SGB VIII - Achtes Sozialgesetzbuch) geregelt sind. Jugendhilfe ist ein gesetzlicher Anspruch - kein Almosen und keine Strafe. Wer die Voraussetzungen erfüllt, hat Anspruch auf Unterstützung.",
       },
       {
         type: "p",
         content:
-          "In Deutschland liegt die Verantwortung für die Jugendhilfe bei den kommunalen Jugendämtern. In Berlin sind das die Jugendämter der zwölf Bezirke — von Mitte bis Reinickendorf. In Brandenburg sind die Landkreise und kreisfreien Städte zuständig: Potsdam-Mittelmark, Dahme-Spreewald, Havelland und alle weiteren Landkreise haben eigene Jugendämter.",
+          "In Deutschland liegt die Verantwortung für die Jugendhilfe bei den kommunalen Jugendämtern. In Berlin sind das die Jugendämter der zwölf Bezirke - von Mitte bis Reinickendorf. In Brandenburg sind die Landkreise und kreisfreien Städte zuständig: Potsdam-Mittelmark, Dahme-Spreewald, Havelland und alle weiteren Landkreise haben eigene Jugendämter.",
       },
       {
         type: "h2",
@@ -514,7 +514,7 @@ export const articles: Article[] = [
       },
       {
         type: "h3",
-        content: "§ 27 SGB VIII — Ambulante Hilfen zur Erziehung",
+        content: "§ 27 SGB VIII - Ambulante Hilfen zur Erziehung",
       },
       {
         type: "p",
@@ -523,7 +523,7 @@ export const articles: Article[] = [
       },
       {
         type: "h3",
-        content: "§ 34 SGB VIII — Stationäre Heimerziehung",
+        content: "§ 34 SGB VIII - Stationäre Heimerziehung",
       },
       {
         type: "p",
@@ -532,12 +532,12 @@ export const articles: Article[] = [
       },
       {
         type: "h3",
-        content: "§ 35 SGB VIII — Intensive sozialpädagogische Einzelbetreuung",
+        content: "§ 35 SGB VIII - Intensive sozialpädagogische Einzelbetreuung",
       },
       {
         type: "p",
         content:
-          "Die intensivste Form der stationären Hilfe ist die Einzelbetreuung — ein Jugendlicher wird von einer Fachkraft in einer 1:1-Betreuung begleitet. Diese Hilfeform ist für Jugendliche gedacht, die in Gruppen nicht stabilisiert werden können oder besonders intensive Unterstützung benötigen. Sie ist die kostenintensivste Form und wird nur in klar indizierten Fällen bewilligt.",
+          "Die intensivste Form der stationären Hilfe ist die Einzelbetreuung - ein Jugendlicher wird von einer Fachkraft in einer 1:1-Betreuung begleitet. Diese Hilfeform ist für Jugendliche gedacht, die in Gruppen nicht stabilisiert werden können oder besonders intensive Unterstützung benötigen. Sie ist die kostenintensivste Form und wird nur in klar indizierten Fällen bewilligt.",
       },
       {
         type: "h2",
@@ -552,7 +552,7 @@ export const articles: Article[] = [
         type: "ul",
         content: [
           "Eltern oder Sorgeberechtigte wenden sich an den Allgemeinen Sozialen Dienst (ASD) des Jugendamts",
-          "Ein Erstgespräch findet statt — meist innerhalb weniger Tage",
+          "Ein Erstgespräch findet statt - meist innerhalb weniger Tage",
           "Bei Zustimmung erfolgt eine Hilfeplanung nach § 36 SGB VIII",
           "Im Hilfeplangespräch werden alle Beteiligten einbezogen: Familie, Kind und Fachkräfte",
           "Das Jugendamt entscheidet über Art und Umfang der Hilfe",
@@ -566,7 +566,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Berlin ist ein Stadtstaat mit zwölf Bezirken und zwölf Bezirksjugendämtern. Jeder Berliner Bezirk — Mitte, Pankow, Friedrichshain-Kreuzberg, Charlottenburg-Wilmersdorf, Spandau, Steglitz-Zehlendorf, Tempelhof-Schöneberg, Neukölln, Treptow-Köpenick, Marzahn-Hellersdorf, Lichtenberg und Reinickendorf — hat ein eigenes Jugendamt mit eigenen Zuständigkeiten und eigener Verwaltungsstruktur.",
+          "Berlin ist ein Stadtstaat mit zwölf Bezirken und zwölf Bezirksjugendämtern. Jeder Berliner Bezirk - Mitte, Pankow, Friedrichshain-Kreuzberg, Charlottenburg-Wilmersdorf, Spandau, Steglitz-Zehlendorf, Tempelhof-Schöneberg, Neukölln, Treptow-Köpenick, Marzahn-Hellersdorf, Lichtenberg und Reinickendorf - hat ein eigenes Jugendamt mit eigenen Zuständigkeiten und eigener Verwaltungsstruktur.",
       },
       {
         type: "p",
@@ -576,7 +576,7 @@ export const articles: Article[] = [
       {
         type: "highlight",
         content:
-          "Wichtig für die Praxis: Bei einem Umzug über eine Bezirks- oder Landkreisgrenze wechselt die Zuständigkeit. Das zuständige Jugendamt am neuen Wohnort übernimmt dann die Hilfeplanung — in Absprache mit dem abgebenden Amt.",
+          "Wichtig für die Praxis: Bei einem Umzug über eine Bezirks- oder Landkreisgrenze wechselt die Zuständigkeit. Das zuständige Jugendamt am neuen Wohnort übernimmt dann die Hilfeplanung - in Absprache mit dem abgebenden Amt.",
       },
       {
         type: "h2",
@@ -585,7 +585,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Jugendhilfe wird nicht ausschließlich vom Jugendamt selbst erbracht — in der Praxis führen freie Träger der Jugendhilfe (anerkannte gemeinnützige Organisationen) den größten Teil der Leistungen durch. Die Jugendämter finanzieren und steuern, die freien Träger setzen um. Bekannte freie Träger in Berlin und Brandenburg sind große Verbände wie Diakonie, Caritas, AWO oder Volkssolidarität — aber auch spezialisierte kleinere Träger wie Ankernetz.",
+          "Jugendhilfe wird nicht ausschließlich vom Jugendamt selbst erbracht - in der Praxis führen freie Träger der Jugendhilfe (anerkannte gemeinnützige Organisationen) den größten Teil der Leistungen durch. Die Jugendämter finanzieren und steuern, die freien Träger setzen um. Bekannte freie Träger in Berlin und Brandenburg sind große Verbände wie Diakonie, Caritas, AWO oder Volkssolidarität - aber auch spezialisierte kleinere Träger wie Ankernetz.",
       },
       {
         type: "h2",
@@ -594,7 +594,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Ankernetz ist ein anerkannter freier Träger der Kinder- und Jugendhilfe mit Sitz in Berlin und Einzugsgebiet in Berlin und Brandenburg. Wir sind auf komplexe Hilfebedarfe spezialisiert: Krisenintervention, therapeutische Wohngruppen, Diagnostik und Clearing, Psychotherapie mit Kassensitz und Frühe Hilfen. Alle Leistungen werden über das zuständige Jugendamt finanziert — für Familien entstehen keine Kosten.",
+          "Ankernetz ist ein anerkannter freier Träger der Kinder- und Jugendhilfe mit Sitz in Berlin und Einzugsgebiet in Berlin und Brandenburg. Wir sind auf komplexe Hilfebedarfe spezialisiert: Krisenintervention, therapeutische Wohngruppen, Diagnostik und Clearing, Psychotherapie mit Kassensitz und Frühe Hilfen. Alle Leistungen werden über das zuständige Jugendamt finanziert - für Familien entstehen keine Kosten.",
       },
       {
         type: "h2",
@@ -603,7 +603,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Für Familien und Jugendliche entstehen bei der Jugendhilfe grundsätzlich keine direkten Kosten. Die Leistungen werden vollständig durch das Jugendamt finanziert. Bei stationären Hilfen gibt es eine gesetzlich geregelte Kostenbeteiligung der Eltern, die sich am Einkommen orientiert — diese ist jedoch in der Praxis oft gering oder wird vollständig erlassen.",
+          "Für Familien und Jugendliche entstehen bei der Jugendhilfe grundsätzlich keine direkten Kosten. Die Leistungen werden vollständig durch das Jugendamt finanziert. Bei stationären Hilfen gibt es eine gesetzlich geregelte Kostenbeteiligung der Eltern, die sich am Einkommen orientiert - diese ist jedoch in der Praxis oft gering oder wird vollständig erlassen.",
       },
       {
         type: "h2",
@@ -612,11 +612,11 @@ export const articles: Article[] = [
       {
         type: "ul",
         content: [
-          "\"Jugendhilfe bedeutet, dass das Kind weggegeben wird.\" — Falsch: Die meisten Hilfen sind ambulant und finden zuhause statt.",
-          "\"Das Jugendamt ist der Feind.\" — Falsch: Das Jugendamt ist gesetzlich verpflichtet, Familien zu unterstützen, nicht zu bestrafen.",
-          "\"Nur bei Verwahrlosung gibt es Jugendhilfe.\" — Falsch: Auch bei Erziehungsschwierigkeiten, psychischen Erkrankungen eines Elternteils oder Armut kann Jugendhilfe beantragt werden.",
-          "\"Kinder werden nie wieder zurückgegeben.\" — Falsch: Stationäre Hilfe ist immer zeitlich begrenzt und auf Rückkehr oder Selbstständigkeit ausgerichtet.",
-          "\"Ich darf als Elternteil nicht mitbestimmen.\" — Falsch: Eltern haben gesetzlich garantierte Mitwirkungsrechte im Hilfeplangespräch.",
+          "\"Jugendhilfe bedeutet, dass das Kind weggegeben wird.\" - Falsch: Die meisten Hilfen sind ambulant und finden zuhause statt.",
+          "\"Das Jugendamt ist der Feind.\" - Falsch: Das Jugendamt ist gesetzlich verpflichtet, Familien zu unterstützen, nicht zu bestrafen.",
+          "\"Nur bei Verwahrlosung gibt es Jugendhilfe.\" - Falsch: Auch bei Erziehungsschwierigkeiten, psychischen Erkrankungen eines Elternteils oder Armut kann Jugendhilfe beantragt werden.",
+          "\"Kinder werden nie wieder zurückgegeben.\" - Falsch: Stationäre Hilfe ist immer zeitlich begrenzt und auf Rückkehr oder Selbstständigkeit ausgerichtet.",
+          "\"Ich darf als Elternteil nicht mitbestimmen.\" - Falsch: Eltern haben gesetzlich garantierte Mitwirkungsrechte im Hilfeplangespräch.",
         ],
       },
       {
@@ -626,7 +626,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Ankernetz begleitet Familien und Jugendliche in Berlin und Brandenburg durch alle Phasen der Jugendhilfe. Ob es um eine erste Einschätzung geht, eine akute Krisenintervention, eine langfristige stationäre Unterbringung oder den Übergang in ein selbstständiges Leben — wir sind als vollständiges Netz an Ihrer Seite.",
+          "Ankernetz begleitet Familien und Jugendliche in Berlin und Brandenburg durch alle Phasen der Jugendhilfe. Ob es um eine erste Einschätzung geht, eine akute Krisenintervention, eine langfristige stationäre Unterbringung oder den Übergang in ein selbstständiges Leben - wir sind als vollständiges Netz an Ihrer Seite.",
       },
     ],
     relatedPages: [
@@ -667,12 +667,12 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Eine reguläre Wohngruppe bietet Schutz, Struktur, Beziehungsangebote und pädagogische Begleitung — das ist wertvoll und für viele Jugendliche ausreichend. Aber für Jugendliche mit schweren Traumafolgestörungen, psychischen Erkrankungen oder komplexen Diagnosen reicht das oft nicht aus. Sie brauchen Fachkräfte, die nicht nur pädagogisch reagieren, sondern auch therapeutisch denken und handeln.",
+          "Eine reguläre Wohngruppe bietet Schutz, Struktur, Beziehungsangebote und pädagogische Begleitung - das ist wertvoll und für viele Jugendliche ausreichend. Aber für Jugendliche mit schweren Traumafolgestörungen, psychischen Erkrankungen oder komplexen Diagnosen reicht das oft nicht aus. Sie brauchen Fachkräfte, die nicht nur pädagogisch reagieren, sondern auch therapeutisch denken und handeln.",
       },
       {
         type: "highlight",
         content:
-          "Der Unterschied liegt im konzeptionellen Unterbau: In einer therapeutischen Wohngruppe ist Therapie nicht zusätzlich — sie ist eingewoben in Alltagssituationen, Mahlzeiten, Konflikte und Freizeitgestaltung.",
+          "Der Unterschied liegt im konzeptionellen Unterbau: In einer therapeutischen Wohngruppe ist Therapie nicht zusätzlich - sie ist eingewoben in Alltagssituationen, Mahlzeiten, Konflikte und Freizeitgestaltung.",
       },
       {
         type: "h2",
@@ -701,7 +701,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Der Alltag in einer therapeutischen Wohngruppe ist bewusst strukturiert — nicht als Kontrollinstrument, sondern als therapeutisches Mittel. Struktur gibt Sicherheit, und Sicherheit ist die Voraussetzung für jede tiefere Arbeit. Ein typischer Tag umfasst gemeinsame Mahlzeiten, Schule oder Ausbildung, freie Zeit, Einzelgespräche mit Bezugsbetreuern und Gruppenangebote.",
+          "Der Alltag in einer therapeutischen Wohngruppe ist bewusst strukturiert - nicht als Kontrollinstrument, sondern als therapeutisches Mittel. Struktur gibt Sicherheit, und Sicherheit ist die Voraussetzung für jede tiefere Arbeit. Ein typischer Tag umfasst gemeinsame Mahlzeiten, Schule oder Ausbildung, freie Zeit, Einzelgespräche mit Bezugsbetreuern und Gruppenangebote.",
       },
       {
         type: "h2",
@@ -710,7 +710,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Traumaarbeit in der therapeutischen Wohngruppe beginnt nicht mit Traumakonfrontation. Sie beginnt mit Sicherheit. Erst wenn ein Jugendlicher sich sicher fühlt — in der Einrichtung, in Beziehungen, im eigenen Körper — kann tiefere Arbeit beginnen. Das kann Monate dauern. Dieser Prozess ist individuell und wird nicht erzwungen.",
+          "Traumaarbeit in der therapeutischen Wohngruppe beginnt nicht mit Traumakonfrontation. Sie beginnt mit Sicherheit. Erst wenn ein Jugendlicher sich sicher fühlt - in der Einrichtung, in Beziehungen, im eigenen Körper - kann tiefere Arbeit beginnen. Das kann Monate dauern. Dieser Prozess ist individuell und wird nicht erzwungen.",
       },
       {
         type: "p",
@@ -724,7 +724,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Bei Ankernetz ist Psychotherapie in die therapeutische Wohngruppe eingebettet: Wir verfügen über einen eigenen kassenärztlichen Sitz. Jugendliche müssen nicht zu externen Praxen pendeln und auf Wartelisten warten — die Therapie findet dort statt, wo der Jugendliche lebt. Das ist ein entscheidender Unterschied: Therapeutische Kontinuität ist gewährleistet.",
+          "Bei Ankernetz ist Psychotherapie in die therapeutische Wohngruppe eingebettet: Wir verfügen über einen eigenen kassenärztlichen Sitz. Jugendliche müssen nicht zu externen Praxen pendeln und auf Wartelisten warten - die Therapie findet dort statt, wo der Jugendliche lebt. Das ist ein entscheidender Unterschied: Therapeutische Kontinuität ist gewährleistet.",
       },
       {
         type: "h2",
@@ -733,7 +733,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Therapeutisches Wohnen bedeutet nicht, dass die Familie aus dem Leben des Jugendlichen verschwindet. Im Gegenteil: Elternarbeit ist integraler Bestandteil des Konzepts. Eltern werden in die Hilfeplanung einbezogen, zu Familiengesprächen eingeladen und bei Besuchen begleitet. Das Ziel ist, die Beziehung zwischen Kind und Familie zu klären — nicht zu ersetzen.",
+          "Therapeutisches Wohnen bedeutet nicht, dass die Familie aus dem Leben des Jugendlichen verschwindet. Im Gegenteil: Elternarbeit ist integraler Bestandteil des Konzepts. Eltern werden in die Hilfeplanung einbezogen, zu Familiengesprächen eingeladen und bei Besuchen begleitet. Das Ziel ist, die Beziehung zwischen Kind und Familie zu klären - nicht zu ersetzen.",
       },
       {
         type: "h2",
@@ -742,7 +742,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Therapeutisches Wohnen ist keine Dauerlösung. Es ist eine Phase — oft eine der wichtigsten im Leben eines Jugendlichen. Am Ende steht der Übergang: in eine ambulant betreute Wohnform, zurück in die Familie, in eine eigene Wohnung oder in eine Ausbildung. Dieser Übergang wird bei Ankernetz frühzeitig geplant und aktiv begleitet. Unser Angebot \"Übergang Arbeit\" setzt genau hier an.",
+          "Therapeutisches Wohnen ist keine Dauerlösung. Es ist eine Phase - oft eine der wichtigsten im Leben eines Jugendlichen. Am Ende steht der Übergang: in eine ambulant betreute Wohnform, zurück in die Familie, in eine eigene Wohnung oder in eine Ausbildung. Dieser Übergang wird bei Ankernetz frühzeitig geplant und aktiv begleitet. Unser Angebot \"Übergang Arbeit\" setzt genau hier an.",
       },
       {
         type: "h2",
