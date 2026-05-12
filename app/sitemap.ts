@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { articles } from "./aktuelles/articles";
-import { regionen } from "./regionen/regionen";
 
 const BASE = "https://www.ankernetz.com";
 
@@ -12,13 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(a.date),
     changeFrequency: "monthly",
     priority: 0.8,
-  }));
-
-  const regionUrls: MetadataRoute.Sitemap = regionen.map((r) => ({
-    url: `${BASE}/regionen/${r.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.7,
   }));
 
   return [
@@ -43,7 +35,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Blog / Aktuelles
     { url: `${BASE}/aktuelles`,                   lastModified: now, changeFrequency: "weekly",  priority: 0.8 },
     ...artikelUrls,
-    // Regionsseiten
-    ...regionUrls,
   ];
 }

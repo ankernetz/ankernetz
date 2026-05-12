@@ -162,7 +162,6 @@ export default function Navigation() {
             { label: n.ueberUns,      href: "/ueber-uns"     },
             { label: n.karriere,      href: "/karriere"      },
             { label: n.aktuelles,     href: "/aktuelles"     },
-            { label: n.regionen,      href: "/regionen/berlin-mitte" },
             { label: n.kontakt,       href: "/kontakt"       },
           ].map((item) => (
             <Link key={item.href} href={item.href}
@@ -297,7 +296,6 @@ export default function Navigation() {
                 { label: n.ueberUns,  href: "/ueber-uns"          },
                 { label: n.karriere,  href: "/karriere"            },
                 { label: n.aktuelles, href: "/aktuelles"           },
-                { label: n.regionen,  href: "/regionen/berlin-mitte" },
                 { label: n.kontakt,   href: "/kontakt"             },
               ].map((item) => (
                 <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}
