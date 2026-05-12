@@ -1414,7 +1414,7 @@ export default function AnkerkleidungPage() {
           },
           {
             q: "Wie wähle ich die richtige Ankerkleidung für mein Kind aus?",
-            a: "Auf der Ankerkleidung-Seite gibt es einen interaktiven Produktfinder: Sie wählen das Störungsbild des Kindes aus und erhalten passende Kollektionen. Zusätzlich gibt es einen kurzen Fragebogen, der individuelle Wahrnehmungspräferenzen ermittelt und gezielt Produkte empfiehlt. Bei Unsicherheit können Sie uns direkt anrufen: 030 224 543 220.",
+            a: "Auf der Ankerkleidung-Seite gibt es einen interaktiven Produktfinder: Sie wählen das Störungsbild des Kindes aus und erhalten passende Kollektionen. Zusätzlich gibt es einen kurzen Fragebogen, der individuelle Wahrnehmungspräferenzen ermittelt und gezielt Produkte empfiehlt. Bei Unsicherheit können Sie uns direkt anrufen: 030 22 45 43 22.",
           },
         ]}
         intro="Ankerkleidung ist ein einzigartiges Konzept: Kleidung nach Störungsbild. Speziell für Kinder und Jugendliche mit ADHS, Autismus, Trauma, Angststörungen oder Bindungsstörungen. Hier finden Eltern, Fachkräfte und Jugendämter Antworten auf die häufigsten Fragen."

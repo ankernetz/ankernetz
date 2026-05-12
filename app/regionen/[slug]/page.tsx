@@ -90,7 +90,7 @@ export default async function RegionPage({
     "@type": "LocalBusiness",
     name: "Ankernetz",
     url: BASE,
-    telephone: "+4930224543220",
+    telephone: "+493022454322",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Berlin",
@@ -294,14 +294,14 @@ export default async function RegionPage({
                 Ankernetz kontaktieren
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-                <a href="tel:+4930224543220" style={{
+                <a href="tel:+493022454322" style={{
                   display: "flex", alignItems: "center", gap: "0.5rem",
                   fontSize: "0.9375rem", color: "#1A1614", textDecoration: "none", fontWeight: 500,
                 }}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M13.5 10.5v2a1 1 0 01-1.09 1A9.98 9.98 0 017.8 12a9.83 9.83 0 01-3-3 9.98 9.98 0 01-1.5-4.58A1 1 0 014.29 3.5h2a1 1 0 011 .86c.06.49.17.97.33 1.43a1 1 0 01-.23 1.05l-.85.85A8 8 0 008.5 10.5l.85-.85a1 1 0 011.05-.23c.46.16.94.27 1.43.33a1 1 0 01.67 1.25z" stroke="#8B3A22" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
-                  030 224 543 220
+                  030 22 45 43 22
                 </a>
                 <Link href="/platzanfrage" style={{
                   display: "inline-flex", alignItems: "center", gap: "0.375rem",
@@ -388,7 +388,7 @@ export default async function RegionPage({
             }}>
               Platzanfrage stellen
             </Link>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               display: "inline-flex", alignItems: "center", gap: "0.375rem",
               padding: "0.875rem 2rem",
               background: "#ffffff", color: "#1A1614",
@@ -397,7 +397,7 @@ export default async function RegionPage({
               fontSize: "1rem", fontWeight: 600,
               textDecoration: "none",
             }}>
-              030 224 543 220
+              030 22 45 43 22
             </a>
           </div>
         </div>

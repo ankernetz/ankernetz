@@ -355,7 +355,7 @@ export default function KarrierePage() {
                         letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none" }}>
                       Jetzt bewerben
                     </a>
-                    <a href="tel:+4930224543220"
+                    <a href="tel:+493022454322"
                       style={{ border: "1px solid #dde4ee", color: "rgba(26,63,111,0.6)",
                         padding: "0.625rem 1.25rem", fontWeight: 500, fontSize: "0.8rem",
                         textDecoration: "none" }}>
@@ -488,7 +488,7 @@ export default function KarrierePage() {
               <span>Jetzt bewerben</span>
               <span>karriere@ankernetz.com →</span>
             </a>
-            <a href="tel:+4930224543220"
+            <a href="tel:+493022454322"
               style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)",
                 padding: "1rem 1.5rem", fontWeight: 500, fontSize: "0.875rem",
                 textDecoration: "none", display: "flex", alignItems: "center",

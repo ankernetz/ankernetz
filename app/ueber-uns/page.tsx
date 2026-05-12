@@ -518,7 +518,7 @@ export default function UeberUnsPage() {
                 Bundesländern bieten wir ebenfalls Aufnahmen an - in Absprache mit dem zuständigen
                 Jugendamt und Kostenträger.
               </p>
-              <a href="tel:+4930224543220" style={{ display: "inline-flex", alignItems: "center", gap: "0.625rem",
+              <a href="tel:+493022454322" style={{ display: "inline-flex", alignItems: "center", gap: "0.625rem",
                 background: "#1a3f6f", color: "white", padding: "0.875rem 1.5rem",
                 fontWeight: 700, fontSize: "0.875rem", textDecoration: "none",
                 letterSpacing: "0.04em" }}>
@@ -577,7 +577,7 @@ export default function UeberUnsPage() {
               fontWeight: 500, fontSize: "0.875rem", textDecoration: "none" }}>
               Platzanfrage stellen
             </Link>
-            <a href="tel:+4930224543220" style={{ border: "1px solid rgba(255,255,255,0.2)",
+            <a href="tel:+493022454322" style={{ border: "1px solid rgba(255,255,255,0.2)",
               color: "rgba(255,255,255,0.7)", padding: "0.875rem 2rem",
               fontWeight: 500, fontSize: "0.875rem", textDecoration: "none" }}>
               +49 30 22 45 43 22

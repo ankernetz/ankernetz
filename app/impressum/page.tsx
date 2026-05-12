@@ -23,7 +23,7 @@ export default function ImpressumPage() {
       title: "Kontakt",
       content: (
         <div style={{ lineHeight: 2, color: "#374151" }}>
-          <p>Telefon: <a href="tel:+4930224543220" style={{ color: "#1a3f6f", fontWeight: 600, textDecoration: "none" }}>+49 (0) 30 22 45 43 22</a></p>
+          <p>Telefon: <a href="tel:+493022454322" style={{ color: "#1a3f6f", fontWeight: 600, textDecoration: "none" }}>+49 (0) 30 22 45 43 22</a></p>
           <p>E-Mail: <a href="mailto:hilfe@ankernetz.com" style={{ color: "#1a3f6f", fontWeight: 600, textDecoration: "none" }}>hilfe@ankernetz.com</a></p>
         </div>
       ),

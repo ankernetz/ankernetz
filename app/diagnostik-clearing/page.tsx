@@ -280,7 +280,7 @@ export default function DiagnostikClearingPage() {
           </p>
 
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "4rem" }}>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               display: "inline-flex", alignItems: "center", gap: "10px",
               background: "#6FA3FE", color: "white",
               fontWeight: 700, fontSize: "15px",
@@ -622,7 +622,7 @@ export default function DiagnostikClearingPage() {
               Unsere Berichte sind so geschrieben, dass sie Ihnen die Entscheidung
               erleichtern - nicht erschweren. Klar, begründet, verwertbar.
             </p>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
               background: "#1a3f6f", color: "white",
               fontWeight: 700, fontSize: "14px",
@@ -735,7 +735,7 @@ export default function DiagnostikClearingPage() {
           </p>
 
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               display: "inline-flex", alignItems: "center", gap: "10px",
               background: "#6FA3FE", color: "white",
               fontWeight: 700, fontSize: "15px",

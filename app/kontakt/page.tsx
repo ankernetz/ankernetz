@@ -80,7 +80,7 @@ export default function KontaktPage() {
             {[
               { label: "Telefon", wert: "+49 (0) 30 22 45 43 22",
                 sub: "Mo-Fr 8-18 Uhr", note: "Krisennotfall: 24/7 erreichbar",
-                href: "tel:+4930224543220", noteColor: "#ef4444" },
+                href: "tel:+493022454322", noteColor: "#ef4444" },
               { label: "E-Mail", wert: "hilfe@ankernetz.com",
                 sub: "Antwort innerhalb von 24 Stunden", note: null,
                 href: "mailto:hilfe@ankernetz.com", noteColor: null },
@@ -225,7 +225,7 @@ export default function KontaktPage() {
               background: "#1a3f6f", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "rgba(255,255,255,0.5)",
                 letterSpacing: "0.1em", textTransform: "uppercase" }}>Krisennotfall</p>
-              <a href="tel:+4930224543220" style={{ fontSize: "1.125rem", fontWeight: 800,
+              <a href="tel:+493022454322" style={{ fontSize: "1.125rem", fontWeight: 800,
                 color: "white", textDecoration: "none" }}>+49 (0) 30 22 45 43 22</a>
               <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.4)" }}>
                 24 Stunden täglich, 365 Tage im Jahr
@@ -400,7 +400,7 @@ export default function KontaktPage() {
             <p style={{ fontSize: "0.875rem", color: "rgba(26,63,111,0.55)", lineHeight: 1.75 }}>
               Nicht gefunden, was Sie suchen? Rufen Sie uns direkt an oder schreiben Sie uns.
             </p>
-            <a href="tel:+4930224543220" style={{ display: "inline-block", marginTop: "1.5rem",
+            <a href="tel:+493022454322" style={{ display: "inline-block", marginTop: "1.5rem",
               background: "#1a3f6f", color: "white", padding: "0.75rem 1.25rem",
               fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.06em",
               textTransform: "uppercase", textDecoration: "none" }}>
@@ -474,7 +474,7 @@ export default function KontaktPage() {
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               background: "#ef4444", color: "white",
               padding: "1.125rem 1.5rem", fontWeight: 800, fontSize: "1.0625rem",
               textDecoration: "none", display: "flex", alignItems: "center",

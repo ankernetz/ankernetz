@@ -132,7 +132,7 @@ export default function PlatzanfragePage() {
             </p>
             <p style={{ marginTop: "1.5rem", fontSize: "14px", color: "#6b7280" }}>
               Bei dringenden Krisenaufnahmen:{" "}
-              <a href="tel:+4930224543220" style={{ color: "#1a3f6f", fontWeight: 700, textDecoration: "none" }}>
+              <a href="tel:+493022454322" style={{ color: "#1a3f6f", fontWeight: 700, textDecoration: "none" }}>
                 +49 (0) 30 22 45 43 22
               </a>
             </p>
@@ -326,7 +326,7 @@ export default function PlatzanfragePage() {
 
               <p style={{ fontSize: "12px", color: "#9ca3af", textAlign: "center", marginTop: "1rem" }}>
                 Bei dringenden Krisenaufnahmen rufen Sie uns bitte direkt an:{" "}
-                <a href="tel:+4930224543220" style={{ color: "#1a3f6f", fontWeight: 700, textDecoration: "none" }}>
+                <a href="tel:+493022454322" style={{ color: "#1a3f6f", fontWeight: 700, textDecoration: "none" }}>
                   +49 (0) 30 22 45 43 22
                 </a>
               </p>

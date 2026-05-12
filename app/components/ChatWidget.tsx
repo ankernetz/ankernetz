@@ -39,13 +39,13 @@ const chipPresets: Record<string, { content: string; cta: { label: string; href:
     content: "Kein Problem - dafür gibt es unsere Platzanfrage. Das ist der schnellste Weg zu uns. Du kannst das kurze Formular ausfüllen oder uns direkt anrufen.",
     cta: [
       { label: "Zur Platzanfrage →", href: "/platzanfrage" },
-      { label: "030 22 45 43 22", href: "tel:+4930224543220" },
+      { label: "030 22 45 43 22", href: "tel:+493022454322" },
     ],
   },
   "Krisenintervention": {
     content: "Wenn es gerade akut ist: Wir haben 24/7 eine Sofortaufnahme. Ruf uns bitte sofort an - da ist jemand. Hier findest du auch alle Infos zu unserem Krisendienst.",
     cta: [
-      { label: "030 22 45 43 22", href: "tel:+4930224543220" },
+      { label: "030 22 45 43 22", href: "tel:+493022454322" },
       { label: "Krisenintervention →", href: "/krisenintervention" },
     ],
     crisis: true,
@@ -54,7 +54,7 @@ const chipPresets: Record<string, { content: string; cta: { label: string; href:
     content: "Unsere Beratung ist kostenlos, niedrigschwellig und ohne Antrag. Kein langer Weg - einfach melden. Hier siehst du alle Beratungsangebote.",
     cta: [
       { label: "Beratung & Prävention →", href: "/beratung-praevention" },
-      { label: "030 22 45 43 22", href: "tel:+4930224543220" },
+      { label: "030 22 45 43 22", href: "tel:+493022454322" },
     ],
   },
 };
@@ -321,7 +321,7 @@ export default function ChatWidget() {
           <p style={{ fontSize: "12px", color: "#dc2626", fontWeight: 600, lineHeight: 1.4 }}>
             🚨 Akute Gefahr? Sofort anrufen
           </p>
-          <a href="tel:+4930224543220" style={{ fontSize: "12px", fontWeight: 700, color: "white",
+          <a href="tel:+493022454322" style={{ fontSize: "12px", fontWeight: 700, color: "white",
             background: "linear-gradient(135deg, #dc2626, #ef4444)", padding: "5px 12px", borderRadius: "100px",
             textDecoration: "none", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "5px",
             boxShadow: "0 2px 8px rgba(220,38,38,0.4)" }}>

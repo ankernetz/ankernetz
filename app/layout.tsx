@@ -95,7 +95,7 @@ const jsonLd = {
         postalCode: "12103",
         addressCountry: "DE",
       },
-      telephone: "+49-30-224543220",
+      telephone: "+49-30-22454322",
       areaServed: { "@type": "City", name: "Berlin" },
       knowsAbout: [
         "Jugendhilfe", "Krisenintervention", "Kinder- und Jugendpsychotherapie",

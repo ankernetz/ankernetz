@@ -58,7 +58,7 @@ export default function Footer() {
               Krisenintervention - 24 Stunden, 7 Tage die Woche erreichbar
             </p>
           </div>
-          <a href="tel:+4930224543220" style={{ fontSize: "0.75rem", fontWeight: 700, color: "white", background: "#9f1239", padding: "0.35rem 0.875rem", borderRadius: "0.3rem", textDecoration: "none", whiteSpace: "nowrap" }}>
+          <a href="tel:+493022454322" style={{ fontSize: "0.75rem", fontWeight: 700, color: "white", background: "#9f1239", padding: "0.35rem 0.875rem", borderRadius: "0.3rem", textDecoration: "none", whiteSpace: "nowrap" }}>
             +49 (0) 30 22 45 43 22 - Jetzt anrufen
           </a>
         </div>
@@ -86,12 +86,12 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
               <div>
                 <p style={{ ...label, marginBottom: "0.4rem" }}>Allgemein</p>
-                <a href="tel:+4930224543220" style={link} className="footer-link">+49 (0) 30 22 45 43 22</a><br />
+                <a href="tel:+493022454322" style={link} className="footer-link">+49 (0) 30 22 45 43 22</a><br />
                 <a href="mailto:hilfe@ankernetz.com" style={{ ...link, marginTop: "0.25rem", display: "inline-block" }} className="footer-link">hilfe@ankernetz.com</a>
               </div>
               <div>
                 <p style={{ ...label, marginBottom: "0.4rem", color: "#ffffff" }}>Notfall 24/7</p>
-                <a href="tel:+4930224543220" style={{ ...link, color: "rgba(255,255,255,0.75)", fontWeight: 600 }} className="footer-link">+49 (0) 30 22 45 43 22</a>
+                <a href="tel:+493022454322" style={{ ...link, color: "rgba(255,255,255,0.75)", fontWeight: 600 }} className="footer-link">+49 (0) 30 22 45 43 22</a>
               </div>
               <div>
                 <p style={{ ...label, marginBottom: "0.4rem" }}>Adresse</p>

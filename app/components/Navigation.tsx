@@ -174,7 +174,7 @@ export default function Navigation() {
 
           {/* CTAs */}
           <a
-            href="tel:+4930224543220"
+            href="tel:+493022454322"
             className="flex items-center transition-all"
             style={{
               fontSize: "13px", fontWeight: 500, color: "#ffffff",
@@ -268,7 +268,7 @@ export default function Navigation() {
       {menuOpen && (
         <div className="lg:hidden bg-white border-t border-[#F0F0F0] max-h-[85vh] overflow-y-auto">
           <div className="px-6 py-5">
-            <a href="tel:+4930224543220" className="btn btn-danger w-full mb-6 justify-center">
+            <a href="tel:+493022454322" className="btn btn-danger w-full mb-6 justify-center">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
               {n.notfall}
             </a>

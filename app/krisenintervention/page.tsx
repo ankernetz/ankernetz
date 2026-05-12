@@ -356,7 +356,7 @@ export default function KriseninterventionPage() {
 
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
             <a
-              href="tel:+4930224543220"
+              href="tel:+493022454322"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "10px",
                 background: "#ef4444", color: "white",
@@ -430,7 +430,7 @@ export default function KriseninterventionPage() {
             </div>
           </div>
           <a
-            href="tel:+4930224543220"
+            href="tel:+493022454322"
             style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
               background: "#ef4444", color: "white",
@@ -754,7 +754,7 @@ export default function KriseninterventionPage() {
               schnelle Reaktion und klare Dokumentation.
             </p>
             <a
-              href="tel:+4930224543220"
+              href="tel:+493022454322"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
                 background: "#1a3f6f", color: "white",
@@ -1138,7 +1138,7 @@ export default function KriseninterventionPage() {
 
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <a
-              href="tel:+4930224543220"
+              href="tel:+493022454322"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "10px",
                 background: "#ef4444", color: "white",

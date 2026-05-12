@@ -325,7 +325,7 @@ export default function BeratungPraeventionPage() {
           </p>
 
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "4rem" }}>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               display: "inline-flex", alignItems: "center", gap: "10px",
               background: "#6FA3FE", color: "white",
               fontWeight: 700, fontSize: "15px",
@@ -384,7 +384,7 @@ export default function BeratungPraeventionPage() {
               Einfach anrufen - und der erste Schritt ist getan.
             </p>
           </div>
-          <a href="tel:+4930224543220" style={{
+          <a href="tel:+493022454322" style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
             background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)",
             color: "white", fontWeight: 700, fontSize: "13px",
@@ -720,7 +720,7 @@ export default function BeratungPraeventionPage() {
               jemanden, der zuhört, einschätzt und Wege aufzeigt - ohne
               bürokratischen Aufwand.
             </p>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
               background: "#1a3f6f", color: "white",
               fontWeight: 700, fontSize: "14px",
@@ -833,7 +833,7 @@ export default function BeratungPraeventionPage() {
           </p>
 
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               display: "inline-flex", alignItems: "center", gap: "10px",
               background: "#6FA3FE", color: "white",
               fontWeight: 700, fontSize: "15px",

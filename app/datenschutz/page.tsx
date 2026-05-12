@@ -67,7 +67,7 @@ export default function DatenschutzPage() {
             <p>12103 Berlin</p>
             <p style={{ marginTop: "8px" }}>
               Telefon:{" "}
-              <a href="tel:+4930224543220" style={{ color: "#1a3f6f", fontWeight: 600, textDecoration: "none" }}>
+              <a href="tel:+493022454322" style={{ color: "#1a3f6f", fontWeight: 600, textDecoration: "none" }}>
                 +49 (0) 30 22 45 43 22
               </a>
             </p>

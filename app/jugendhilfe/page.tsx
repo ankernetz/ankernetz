@@ -33,7 +33,7 @@ const faqItems = [
   },
   {
     q: "Wie arbeitet Ankernetz mit Jugendämtern in Berlin zusammen?",
-    a: "Ankernetz arbeitet eng mit allen Berliner Bezirksjugendämtern zusammen – von Tempelhof-Schöneberg über Neukölln bis Mitte. Wir bieten schnelle Rückmeldungen auf Platzanfragen, regelmäßige Hilfeplangespräche und transparente Entwicklungsberichte. Fachkräfte können uns direkt unter 030 224 543 220 erreichen.",
+    a: "Ankernetz arbeitet eng mit allen Berliner Bezirksjugendämtern zusammen – von Tempelhof-Schöneberg über Neukölln bis Mitte. Wir bieten schnelle Rückmeldungen auf Platzanfragen, regelmäßige Hilfeplangespräche und transparente Entwicklungsberichte. Fachkräfte können uns direkt unter 030 22 45 43 22 erreichen.",
   },
   {
     q: "Welche Kosten entstehen für die stationäre Jugendhilfe?",
@@ -362,7 +362,7 @@ export default function JugendhilfePage() {
               <ClipboardList size={18} />
               Platzanfrage stellen
             </Link>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
               background: "rgba(255,255,255,0.08)",
               border: "1px solid rgba(255,255,255,0.2)",
@@ -899,7 +899,7 @@ export default function JugendhilfePage() {
               <ClipboardList size={18} />
               Platzanfrage stellen
             </Link>
-            <a href="tel:+4930224543220" style={{
+            <a href="tel:+493022454322" style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
               background: "rgba(255,255,255,0.08)",
               border: "1px solid rgba(255,255,255,0.2)",
