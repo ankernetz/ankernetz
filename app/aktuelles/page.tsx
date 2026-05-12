@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "./articles";
+import ExternalLinks from "../components/ExternalLinks";
 
 export const metadata: Metadata = {
   title: "Aktuelles & Ratgeber | Ankernetz Berlin Brandenburg",
@@ -128,47 +129,7 @@ export default function AktuellesPage() {
         </div>
       </section>
 
-      {/* Externe Hilfestellen */}
-      <section style={{ padding: "0 1.5rem 4rem" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <p style={{
-            fontSize: "0.625rem", fontWeight: 600, letterSpacing: "0.2em",
-            textTransform: "uppercase", color: "#8B3A22", marginBottom: "0.25rem",
-          }}>
-            Weitere Anlaufstellen in Deutschland
-          </p>
-          <p style={{ fontSize: "0.9375rem", color: "#5A4E48", lineHeight: 1.7, marginBottom: "1.25rem", marginTop: "0.5rem" }}>
-            Kostenlose Krisentelefone und Beratungsstellen - für Kinder, Jugendliche und Eltern.
-          </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "0.875rem" }}>
-            {[
-              { name: "Telefonseelsorge", number: "0800 111 0 111", desc: "Kostenlos, anonym, 24/7. Für Erwachsene in Krisen.", url: "https://www.telefonseelsorge.de" },
-              { name: "Nummer gegen Kummer", number: "116 111", desc: "Kinder- und Jugendtelefon. Mo–Sa 14–20 Uhr.", url: "https://www.nummergegenkummer.de" },
-              { name: "Elterntelefon", number: "0800 111 0 550", desc: "Für Eltern in schwierigen Situationen. Kostenlos.", url: "https://www.nummergegenkummer.de/elterntelefon" },
-              { name: "Kinderschutz-Hotline", number: "0800 192 10 80", desc: "Deutsche Kinderschutzzentren. Kostenlos.", url: "https://www.kinderschutzzentren.org" },
-              { name: "Jugendamt Berlin", number: "030 9028-0", desc: "Jugendämter aller Berliner Bezirke. Hilfe nach SGB VIII.", url: "https://www.berlin.de/sen/jugend/" },
-              { name: "BKE Online-Beratung", number: "bke-beratung.de", desc: "Erziehungsberatung online. Kostenlos.", url: "https://www.bke-beratung.de" },
-            ].map((item) => (
-              <a key={item.name} href={item.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }} className="ext-card">
-                <div style={{
-                  background: "#ffffff", border: "1px solid rgba(0,0,0,0.07)",
-                  borderRadius: "12px", padding: "1.25rem",
-                  transition: "border-color 0.15s, box-shadow 0.15s",
-                }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.25rem" }}>
-                    <p style={{ fontSize: "0.9375rem", fontWeight: 700, color: "#1A1614", margin: 0 }}>{item.name}</p>
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0, marginTop: "2px", opacity: 0.35 }}>
-                      <path d="M3.5 1.5H10.5V8.5M10.5 1.5L1.5 10.5" stroke="#1A1614" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "#8B3A22", margin: "0 0 0.25rem" }}>{item.number}</p>
-                  <p style={{ fontSize: "0.8125rem", color: "#7A6E6A", margin: 0, lineHeight: 1.5 }}>{item.desc}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ExternalLinks />
 
       {/* Hilfe-CTA Block */}
       <section style={{ padding: "0 1.5rem 4rem" }}>
@@ -317,7 +278,6 @@ export default function AktuellesPage() {
           transform: translateY(-2px);
         }
         .offer-card div:hover { border-color: rgba(139,58,34,0.3); box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
-        .ext-card div:hover { border-color: rgba(139,58,34,0.3); box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
       `}</style>
     </main>
   );
