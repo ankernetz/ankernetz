@@ -1,6 +1,6 @@
 const SECTIONS: { label: string; cols: number; items: { name: string; detail: string; desc: string; url: string }[] }[] = [
   {
-    label: "Krisentelefone — kostenlos & 24/7",
+    label: "Krisentelefone - kostenlos & 24/7",
     cols: 4,
     items: [
       { name: "Telefonseelsorge", detail: "0800 111 0 111", desc: "Kostenlos, anonym, rund um die Uhr.", url: "https://www.telefonseelsorge.de" },
@@ -14,7 +14,7 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
     ],
   },
   {
-    label: "Berlin — Krisendienste & Notfallnummern",
+    label: "Berlin - Krisendienste & Notfallnummern",
     cols: 4,
     items: [
       { name: "Berliner Krisendienst Region West", detail: "030 390 63-10", desc: "Charlottenburg-Wilmersdorf, Spandau. 24/7.", url: "https://www.berliner-krisendienst.de" },
@@ -28,7 +28,7 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
     ],
   },
   {
-    label: "Berlin — Senat, Behörden & Ämter",
+    label: "Berlin - Senat, Behörden & Ämter",
     cols: 4,
     items: [
       { name: "Senatsverwaltung Jugend & Bildung", detail: "berlin.de/sen/jugend", desc: "Übergeordnete Jugendhilfebehörde des Landes Berlin.", url: "https://www.berlin.de/sen/jugend/" },
@@ -42,7 +42,7 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
     ],
   },
   {
-    label: "Berlin — Alle 12 Bezirks-Jugendämter",
+    label: "Berlin - Alle 12 Bezirks-Jugendämter",
     cols: 4,
     items: [
       { name: "Jugendamt Mitte", detail: "berlin.de/ba-mitte", desc: "Jugendhilfe im Bezirk Mitte.", url: "https://www.berlin.de/ba-mitte/politik-und-verwaltung/aemter/jugendamt/" },
@@ -60,7 +60,7 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
     ],
   },
   {
-    label: "Berlin — Freie Träger & Wohlfahrtsverbände",
+    label: "Berlin - Freie Träger & Wohlfahrtsverbände",
     cols: 4,
     items: [
       { name: "Caritas Berlin", detail: "caritas-berlin.de", desc: "Soziale Beratung, Familienberatung, Jugendhilfe.", url: "https://www.caritas-berlin.de" },
@@ -78,21 +78,21 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
     ],
   },
   {
-    label: "Berlin — Kliniken & Psychiatrie für Kinder & Jugendliche",
+    label: "Berlin - Kliniken & Psychiatrie für Kinder & Jugendliche",
     cols: 4,
     items: [
-      { name: "Charité KJP — Campus Virchow", detail: "charite.de/kjp", desc: "Universitätsklinik KJP, Campus Virchow-Klinikum.", url: "https://psychiatrie.charite.de/kinder_und_jugendpsychiatrie/" },
-      { name: "Charité KJP — Campus Benjamin Franklin", detail: "charite.de/kjp-cbf", desc: "KJP Steglitz, stationär und ambulant.", url: "https://psychiatrie.charite.de/kinder_und_jugendpsychiatrie/" },
-      { name: "Vivantes — KJP Humboldt-Klinikum", detail: "vivantes.de", desc: "Kinder- und Jugendpsychiatrie Reinickendorf.", url: "https://www.vivantes.de/kinder-jugendpsychiatrie" },
-      { name: "Vivantes — KJP Klinikum Neukölln", detail: "vivantes.de/neukoelln", desc: "Kinder- und Jugendpsychiatrie Neukölln.", url: "https://www.vivantes.de/kinder-jugendpsychiatrie" },
-      { name: "DRK Kliniken Berlin — KJP Westend", detail: "drk-kliniken-berlin.de", desc: "Kinder- und Jugendpsychiatrie Charlottenburg.", url: "https://www.drk-kliniken-berlin.de" },
+      { name: "Charité KJP - Campus Virchow", detail: "charite.de/kjp", desc: "Universitätsklinik KJP, Campus Virchow-Klinikum.", url: "https://psychiatrie.charite.de/kinder_und_jugendpsychiatrie/" },
+      { name: "Charité KJP - Campus Benjamin Franklin", detail: "charite.de/kjp-cbf", desc: "KJP Steglitz, stationär und ambulant.", url: "https://psychiatrie.charite.de/kinder_und_jugendpsychiatrie/" },
+      { name: "Vivantes - KJP Humboldt-Klinikum", detail: "vivantes.de", desc: "Kinder- und Jugendpsychiatrie Reinickendorf.", url: "https://www.vivantes.de/kinder-jugendpsychiatrie" },
+      { name: "Vivantes - KJP Klinikum Neukölln", detail: "vivantes.de/neukoelln", desc: "Kinder- und Jugendpsychiatrie Neukölln.", url: "https://www.vivantes.de/kinder-jugendpsychiatrie" },
+      { name: "DRK Kliniken Berlin - KJP Westend", detail: "drk-kliniken-berlin.de", desc: "Kinder- und Jugendpsychiatrie Charlottenburg.", url: "https://www.drk-kliniken-berlin.de" },
       { name: "Ev. KH Königin Elisabeth Herzberge", detail: "ekh-berlin.de", desc: "KJP im Nordosten Berlins, Lichtenberg.", url: "https://www.ekh-berlin.de" },
-      { name: "KJPD Berlin — Übersicht alle Bezirke", detail: "berlin.de/kjpd", desc: "Kinder- und Jugendpsychiatrische Dienste aller Bezirke.", url: "https://www.berlin.de/sen/jugend/gesundheit-und-psychiatrie/kinder-und-jugendpsychiatrische-dienste/" },
-      { name: "Helios Klinikum Berlin-Buch — KJP", detail: "helios-gesundheit.de/buch", desc: "Kinder- und Jugendpsychiatrie im Norden Berlins.", url: "https://www.helios-gesundheit.de/kliniken/berlin-buch/" },
+      { name: "KJPD Berlin - Übersicht alle Bezirke", detail: "berlin.de/kjpd", desc: "Kinder- und Jugendpsychiatrische Dienste aller Bezirke.", url: "https://www.berlin.de/sen/jugend/gesundheit-und-psychiatrie/kinder-und-jugendpsychiatrische-dienste/" },
+      { name: "Helios Klinikum Berlin-Buch - KJP", detail: "helios-gesundheit.de/buch", desc: "Kinder- und Jugendpsychiatrie im Norden Berlins.", url: "https://www.helios-gesundheit.de/kliniken/berlin-buch/" },
     ],
   },
   {
-    label: "Brandenburg — Behörden, Jugendämter & Träger",
+    label: "Brandenburg - Behörden, Jugendämter & Träger",
     cols: 4,
     items: [
       { name: "MBJS Brandenburg", detail: "mbjs.brandenburg.de", desc: "Ministerium für Bildung, Jugend und Sport Brandenburg.", url: "https://www.mbjs.brandenburg.de" },
@@ -110,7 +110,7 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
     ],
   },
   {
-    label: "Bundesebene — Ministerien, Institute & Verbände",
+    label: "Bundesebene - Ministerien, Institute & Verbände",
     cols: 4,
     items: [
       { name: "BMFSFJ", detail: "bmfsfj.de", desc: "Bundesministerium für Familie, Senioren, Frauen und Jugend.", url: "https://www.bmfsfj.de" },
@@ -118,7 +118,7 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
       { name: "Deutsches Jugendinstitut (DJI)", detail: "dji.de", desc: "Forschung zu Kinder-, Jugend- und Familienpolitik.", url: "https://www.dji.de" },
       { name: "UNICEF Deutschland", detail: "unicef.de", desc: "Kinderrechte und Schutzprogramme.", url: "https://www.unicef.de" },
       { name: "Kinderschutzbund Deutschland", detail: "kinderschutzbund.de", desc: "Bundesverband Kinderschutz.", url: "https://www.kinderschutzbund.de" },
-      { name: "AGJ — Kinder- und Jugendhilfe", detail: "agj.de", desc: "Fachverband für Jugendhilfe auf Bundesebene.", url: "https://www.agj.de" },
+      { name: "AGJ - Kinder- und Jugendhilfe", detail: "agj.de", desc: "Fachverband für Jugendhilfe auf Bundesebene.", url: "https://www.agj.de" },
       { name: "BAG Jugendsozialarbeit", detail: "bagjaw.de", desc: "Bundesarbeitsgemeinschaft Jugendsozialarbeit.", url: "https://www.bagjaw.de" },
       { name: "Deutsches Kinderhilfswerk (DKHW)", detail: "dkhw.de", desc: "Anwaltschaft und Lobbying für Kinderrechte.", url: "https://www.dkhw.de" },
       { name: "Bundesjugendkuratorium", detail: "bundesjugendkuratorium.de", desc: "Beratungsgremium der Bundesregierung.", url: "https://www.bundesjugendkuratorium.de" },
@@ -128,7 +128,7 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
     ],
   },
   {
-    label: "Weitere Bundesländer — Jugend- & Familienministerien",
+    label: "Weitere Bundesländer - Jugend- & Familienministerien",
     cols: 4,
     items: [
       { name: "Baden-Württemberg", detail: "sozialministerium.de", desc: "Ministerium für Soziales, Gesundheit und Integration.", url: "https://www.sozialministerium.de" },
@@ -148,14 +148,14 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
     ],
   },
   {
-    label: "Europäische Ebene — EU & internationale Organisationen",
+    label: "Europäische Ebene - EU & internationale Organisationen",
     cols: 3,
     items: [
       { name: "Europäisches Jugendportal", detail: "youth.europa.eu", desc: "EU-Informationsportal für Jugendliche, Erasmus+, Rechte.", url: "https://youth.europa.eu/home_de" },
-      { name: "Europäische Kommission — Jugend", detail: "ec.europa.eu/youth", desc: "EU-Jugendpolitik, Förderungen, Solidaritätskorps.", url: "https://commission.europa.eu/education/education-and-training-policies/youth_de" },
-      { name: "Europarat — Jugend", detail: "coe.int/youth", desc: "Jugendpolitik und Menschenrechte im Europarat.", url: "https://www.coe.int/de/web/youth" },
-      { name: "UNICEF — Kinderrechte Europa", detail: "unicef.org/eca", desc: "Kinderrechtskonvention, Schutzstandards Europa.", url: "https://www.unicef.org/eca" },
-      { name: "WHO Europa — Kinder & Jugendgesundheit", detail: "euro.who.int", desc: "Gesundheitsstandards und Prävention für Kinder.", url: "https://www.euro.who.int/de/health-topics/Life-stages/child-and-adolescent-health" },
+      { name: "Europäische Kommission - Jugend", detail: "ec.europa.eu/youth", desc: "EU-Jugendpolitik, Förderungen, Solidaritätskorps.", url: "https://commission.europa.eu/education/education-and-training-policies/youth_de" },
+      { name: "Europarat - Jugend", detail: "coe.int/youth", desc: "Jugendpolitik und Menschenrechte im Europarat.", url: "https://www.coe.int/de/web/youth" },
+      { name: "UNICEF - Kinderrechte Europa", detail: "unicef.org/eca", desc: "Kinderrechtskonvention, Schutzstandards Europa.", url: "https://www.unicef.org/eca" },
+      { name: "WHO Europa - Kinder & Jugendgesundheit", detail: "euro.who.int", desc: "Gesundheitsstandards und Prävention für Kinder.", url: "https://www.euro.who.int/de/health-topics/Life-stages/child-and-adolescent-health" },
       { name: "IPPF Europa", detail: "ippfen.org", desc: "Internationale Familienplanung und Sexualaufklärung.", url: "https://www.ippfen.org" },
     ],
   },
