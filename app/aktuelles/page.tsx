@@ -128,10 +128,155 @@ export default function AktuellesPage() {
         </div>
       </section>
 
+      {/* Hilfe-CTA Block */}
+      <section style={{ padding: "0 1.5rem 4rem" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+          <div style={{
+            background: "linear-gradient(135deg, #1A1614 0%, #2D1810 100%)",
+            borderRadius: "20px",
+            padding: "clamp(2rem, 4vw, 3rem)",
+            display: "grid",
+            gridTemplateColumns: "1fr auto",
+            gap: "2rem",
+            alignItems: "center",
+          }}>
+            <div>
+              <p style={{
+                fontSize: "0.625rem", fontWeight: 600, letterSpacing: "0.2em",
+                textTransform: "uppercase", color: "#C4916F", marginBottom: "0.5rem",
+              }}>
+                Ankernetz Berlin · 24/7 Krisentelefon
+              </p>
+              <h2 style={{
+                fontSize: "clamp(1.375rem, 3vw, 2rem)", fontWeight: 700,
+                color: "#FFFFFF", letterSpacing: "-0.02em", lineHeight: 1.2,
+                marginBottom: "0.75rem", marginTop: 0,
+              }}>
+                Sie brauchen Hilfe? Melden Sie sich.
+              </h2>
+              <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.7, margin: "0 0 1.5rem" }}>
+                Unser Team ist rund um die Uhr erreichbar - für Familien, Jugendliche und Fachkräfte.
+                Krisenintervention, Platzanfragen, Beratung.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+                <a
+                  href="tel:+493022454322"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: "0.625rem",
+                    background: "#8B3A22", color: "#FFFFFF",
+                    padding: "0.875rem 1.5rem", borderRadius: "12px",
+                    fontSize: "1rem", fontWeight: 700, textDecoration: "none",
+                  }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M3.5 2h3l1.5 4-1.75 1.25c.9 1.8 2.25 3.15 4.05 4.05L11.5 9.5l4 1.5v3c0 .83-.67 1.5-1.5 1.5C6.33 15.5 2.5 11.67 2.5 7A1.5 1.5 0 0 1 3.5 2z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  030 22 45 43 22
+                </a>
+                <Link
+                  href="/platzanfrage"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                    background: "rgba(255,255,255,0.1)", color: "#FFFFFF",
+                    padding: "0.875rem 1.5rem", borderRadius: "12px",
+                    fontSize: "0.9375rem", fontWeight: 600, textDecoration: "none",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                  }}
+                >
+                  Platzanfrage stellen
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </Link>
+                <Link
+                  href="/kontakt"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                    background: "rgba(255,255,255,0.1)", color: "#FFFFFF",
+                    padding: "0.875rem 1.5rem", borderRadius: "12px",
+                    fontSize: "0.9375rem", fontWeight: 600, textDecoration: "none",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                  }}
+                >
+                  Kontakt
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </Link>
+              </div>
+            </div>
+            <div style={{
+              display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "0.5rem",
+            }}>
+              <p style={{ fontSize: "2rem", fontWeight: 800, color: "#FFFFFF", margin: 0, letterSpacing: "-0.03em", whiteSpace: "nowrap" }}>
+                030 22 45 43 22
+              </p>
+              <p style={{ fontSize: "0.8125rem", color: "rgba(255,255,255,0.4)", margin: 0, whiteSpace: "nowrap" }}>
+                24 Stunden · 7 Tage · 365 Tage
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Alle Angebote - Interne Verlinkung */}
+      <section style={{ padding: "0 1.5rem 6rem" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+          <p style={{
+            fontSize: "0.625rem", fontWeight: 600, letterSpacing: "0.2em",
+            textTransform: "uppercase", color: "#8B3A22", marginBottom: "1.5rem",
+          }}>
+            Alle Angebote von Ankernetz Berlin Brandenburg
+          </p>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+            gap: "1rem",
+          }}>
+            {[
+              { href: "/krisenintervention",   label: "Krisenintervention 24/7",        desc: "Sofortiger Schutzraum in akuten Notlagen. Tag und Nacht." },
+              { href: "/psychotherapie",        label: "Psychotherapie mit Kassensitz",  desc: "Kinder- und Jugendpsychotherapie. Keine Privatkosten." },
+              { href: "/fruehe-hilfen",         label: "Frühe Hilfen",                  desc: "Unterstützung für Familien ab der Geburt." },
+              { href: "/therapie-wohnen",       label: "Therapeutisches Wohnen",         desc: "Stationäre therapeutische Wohngruppen." },
+              { href: "/jugendhilfe",           label: "Jugendhilfe",                   desc: "Ambulante und stationäre Jugendhilfeleistungen." },
+              { href: "/diagnostik-clearing",   label: "Diagnostik & Clearing",          desc: "Fachdiagnostik und Hilfeplanung nach SGB VIII." },
+              { href: "/beratung-praevention",  label: "Beratung & Prävention",          desc: "Erziehungsberatung, Fachberatung, Prävention." },
+              { href: "/kita-beratung",         label: "Kita-Beratung",                 desc: "Beratung und Begleitung für Kindertagesstätten." },
+              { href: "/ankerkleidung",         label: "Ankerkleidung",                 desc: "Spezialisierte Kleidung nach Störungsbild." },
+              { href: "/versorgung",            label: "Versorgung",                    desc: "Medizinische und pflegerische Grundversorgung." },
+              { href: "/platzanfrage",          label: "Platzanfrage stellen",           desc: "Direkt und unkompliziert einen Platz anfragen." },
+              { href: "/kontakt",               label: "Kontakt & Anfahrt",             desc: "Adresse, Telefon, E-Mail und Anfahrtsbeschreibung." },
+            ].map((item) => (
+              <Link key={item.href} href={item.href} style={{ textDecoration: "none" }} className="offer-card">
+                <div style={{
+                  background: "#ffffff",
+                  border: "1px solid rgba(0,0,0,0.07)",
+                  borderRadius: "14px",
+                  padding: "1.5rem",
+                  height: "100%",
+                  transition: "border-color 0.15s, box-shadow 0.15s",
+                }}>
+                  <p style={{ fontSize: "0.9375rem", fontWeight: 700, color: "#1A1614", margin: "0 0 0.375rem", letterSpacing: "-0.01em" }}>
+                    {item.label}
+                  </p>
+                  <p style={{ fontSize: "0.8125rem", color: "#7A6E6A", margin: 0, lineHeight: 1.6 }}>
+                    {item.desc}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <style>{`
         .article-card article:hover {
           box-shadow: 0 8px 32px rgba(0,0,0,0.10);
           transform: translateY(-2px);
+        }
+        .offer-card div:hover {
+          border-color: rgba(139,58,34,0.3);
+          box-shadow: 0 4px 16px rgba(0,0,0,0.07);
         }
       `}</style>
     </main>
