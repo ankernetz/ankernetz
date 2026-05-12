@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { X, Send, Phone, ChevronDown, GripVertical, Zap, Home, HelpCircle, Heart, MessageCircle } from "lucide-react";
+import { useT } from "../i18n/useT";
 
 interface Message {
   role: "user" | "assistant";
@@ -14,56 +15,118 @@ const CRISIS_KEYWORDS = [
   "suizid", "selbstmord", "umbringen", "sterben", "nicht mehr leben",
   "aufgeben", "kein ausweg", "niemanden", "alles beenden",
   "ritzen", "selbstverletzung", "verletzen", "missbrauch", "gewalt",
-  "notruf", "notfall", "hilfe sofort"
+  "notruf", "notfall", "hilfe sofort",
+  "suicide", "kill myself", "end it all", "no way out", "self-harm",
+  "cutting", "hurt myself", "abuse", "violence", "emergency help",
 ];
 
 function isCrisisMessage(text: string): boolean {
   return CRISIS_KEYWORDS.some(kw => text.toLowerCase().includes(kw));
 }
 
-
 function generateSessionId(): string {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   return Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
 }
 
-const quickChips = [
-  { label: "Ich brauche einen Platz", icon: Home,        color: "#3b82f6" },
-  { label: "Krisenintervention",       icon: Zap,         color: "#ef4444" },
-  { label: "Ich habe eine Frage",      icon: HelpCircle,  color: "#8b5cf6" },
-  { label: "Beratung anfragen",        icon: Heart,       color: "#10b981" },
-];
+const CHIP_ICONS = [Home, Zap, HelpCircle, Heart];
+const CHIP_COLORS = ["#3b82f6", "#ef4444", "#8b5cf6", "#10b981"];
 
-const chipPresets: Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }> = {
-  "Ich brauche einen Platz": {
-    content: "Kein Problem - dafür gibt es unsere Platzanfrage. Das ist der schnellste Weg zu uns. Du kannst das kurze Formular ausfüllen oder uns direkt anrufen.",
-    cta: [
-      { label: "Zur Platzanfrage →", href: "/platzanfrage" },
-      { label: "030 22 45 43 22", href: "tel:+493022454322" },
+const TRANS = {
+  de: {
+    bubbleTitle: "Wie kann ich helfen?",
+    bubbleSub: "Lena · Ankernetz",
+    ariaOpen: "Chat öffnen",
+    headerOnline: "Ankernetz Berlin · Online",
+    headerTyping: "● schreibt…",
+    crisisBanner: "🚨 Akute Gefahr? Sofort anrufen",
+    chips: [
+      { id: "platz",    label: "Ich brauche einen Platz" },
+      { id: "krise",    label: "Krisenintervention" },
+      { id: "frage",    label: "Ich habe eine Frage" },
+      { id: "beratung", label: "Beratung anfragen" },
     ],
+    presets: {
+      platz: {
+        content: "Kein Problem - dafür gibt es unsere Platzanfrage. Das ist der schnellste Weg zu uns. Du kannst das kurze Formular ausfüllen oder uns direkt anrufen.",
+        cta: [
+          { label: "Zur Platzanfrage →", href: "/platzanfrage" },
+          { label: "030 22 45 43 22",    href: "tel:+493022454322" },
+        ],
+      },
+      krise: {
+        content: "Wenn es gerade akut ist: Wir haben 24/7 eine Sofortaufnahme. Ruf uns bitte sofort an - da ist jemand. Hier findest du auch alle Infos zu unserem Krisendienst.",
+        cta: [
+          { label: "030 22 45 43 22",      href: "tel:+493022454322" },
+          { label: "Krisenintervention →", href: "/krisenintervention" },
+        ],
+        crisis: true,
+      },
+      beratung: {
+        content: "Unsere Beratung ist kostenlos, niedrigschwellig und ohne Antrag. Kein langer Weg - einfach melden. Hier siehst du alle Beratungsangebote.",
+        cta: [
+          { label: "Beratung & Prävention →", href: "/beratung-praevention" },
+          { label: "030 22 45 43 22",         href: "tel:+493022454322" },
+        ],
+      },
+    } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
+    initialMessage: "Hallo! Ich bin Lena vom Ankernetz-Team. Ich bin hier, um dir zu helfen - egal ob du eine schnelle Frage hast oder gerade etwas Schwieriges durchmachst.",
+    errorMessage: "Ich bin gerade kurz nicht erreichbar. Ruf uns direkt an: +49 (0) 30 22 45 43 22",
+    inputPlaceholder: "Schreib eine Nachricht…",
+    footerText: "Ankernetz Berlin · Vertraulich · Kostenlos",
   },
-  "Krisenintervention": {
-    content: "Wenn es gerade akut ist: Wir haben 24/7 eine Sofortaufnahme. Ruf uns bitte sofort an - da ist jemand. Hier findest du auch alle Infos zu unserem Krisendienst.",
-    cta: [
-      { label: "030 22 45 43 22", href: "tel:+493022454322" },
-      { label: "Krisenintervention →", href: "/krisenintervention" },
+  en: {
+    bubbleTitle: "How can I help?",
+    bubbleSub: "Lena · Ankernetz",
+    ariaOpen: "Open chat",
+    headerOnline: "Ankernetz Berlin · Online",
+    headerTyping: "● typing…",
+    crisisBanner: "🚨 Acute danger? Call immediately",
+    chips: [
+      { id: "platz",    label: "I need a place" },
+      { id: "krise",    label: "Crisis Intervention" },
+      { id: "frage",    label: "I have a question" },
+      { id: "beratung", label: "Request Counselling" },
     ],
-    crisis: true,
-  },
-  "Beratung anfragen": {
-    content: "Unsere Beratung ist kostenlos, niedrigschwellig und ohne Antrag. Kein langer Weg - einfach melden. Hier siehst du alle Beratungsangebote.",
-    cta: [
-      { label: "Beratung & Prävention →", href: "/beratung-praevention" },
-      { label: "030 22 45 43 22", href: "tel:+493022454322" },
-    ],
+    presets: {
+      platz: {
+        content: "No problem - that's what our place request form is for. It's the fastest way to reach us. You can fill in the short form or call us directly.",
+        cta: [
+          { label: "Place Request →",  href: "/platzanfrage" },
+          { label: "030 22 45 43 22", href: "tel:+493022454322" },
+        ],
+      },
+      krise: {
+        content: "If it's urgent right now: We have 24/7 emergency admission. Please call us immediately - someone is there. You'll also find all info about our crisis service here.",
+        cta: [
+          { label: "030 22 45 43 22",        href: "tel:+493022454322" },
+          { label: "Crisis Intervention →",  href: "/krisenintervention" },
+        ],
+        crisis: true,
+      },
+      beratung: {
+        content: "Our counselling is free, low-threshold and requires no application. No long process - just get in touch. Here you can see all our counselling services.",
+        cta: [
+          { label: "Counselling & Prevention →", href: "/beratung-praevention" },
+          { label: "030 22 45 43 22",            href: "tel:+493022454322" },
+        ],
+      },
+    } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
+    initialMessage: "Hello! I'm Lena from the Ankernetz team. I'm here to help you - whether you have a quick question or are going through something difficult.",
+    errorMessage: "I'm currently unavailable. Please call us directly: +49 (0) 30 22 45 43 22",
+    inputPlaceholder: "Write a message…",
+    footerText: "Ankernetz Berlin · Confidential · Free",
   },
 };
 
 export default function ChatWidget() {
+  const t = useT(TRANS);
+  const quickChips = t.chips.map((chip, i) => ({ ...chip, icon: CHIP_ICONS[i], color: CHIP_COLORS[i] }));
+
   const [open, setOpen]               = useState(false);
   const [minimized, setMinimized]     = useState(false);
-  const [messages, setMessages]       = useState<Message[]>([
-    { role: "assistant", content: "Hallo! Ich bin Lena vom Ankernetz-Team. Ich bin hier, um dir zu helfen - egal ob du eine schnelle Frage hast oder gerade etwas Schwieriges durchmachst." },
+  const [messages, setMessages]       = useState<Message[]>(() => [
+    { role: "assistant", content: TRANS.de.initialMessage },
   ]);
   const [input, setInput]             = useState("");
   const [loading, setLoading]         = useState(false);
@@ -159,28 +222,26 @@ export default function ChatWidget() {
         }
       }
     } catch {
-      setMessages(prev => [...prev, { role: "assistant", content: "Ich bin gerade kurz nicht erreichbar. Ruf uns direkt an: +49 (0) 30 22 45 43 22" }]);
+      setMessages(prev => [...prev, { role: "assistant", content: t.errorMessage }]);
     } finally {
       setLoading(false);
     }
   }
 
   function sendMessage() { sendMessageWithText(input.trim()); }
-  function sendChip(l: string) {
+  function sendChip(chip: { id: string; label: string }) {
     setChipsUsed(true);
-    const preset = chipPresets[l];
+    const preset = t.presets[chip.id];
     if (preset?.crisis) {
-      // Krise: immer durch API → Telegram-Benachrichtigung + echte Lena-Antwort
-      sendMessageWithText(l);
+      sendMessageWithText(chip.label);
     } else if (preset) {
-      // Nicht-Krise: statische Preset-Antwort, kein API-Call nötig
       setMessages(prev => [
         ...prev,
-        { role: "user", content: l },
+        { role: "user", content: chip.label },
         { role: "assistant", content: preset.content, cta: preset.cta },
       ]);
     } else {
-      sendMessageWithText(l);
+      sendMessageWithText(chip.label);
     }
   }
   function handleKey(e: React.KeyboardEvent) {
@@ -205,13 +266,13 @@ export default function ChatWidget() {
             animation: "floatIn 0.4s ease both",
           }}
         >
-          <p style={{ fontSize: "13px", fontWeight: 700, color: "#0f172a", whiteSpace: "nowrap", lineHeight: 1.3 }}>Wie kann ich helfen?</p>
-          <p style={{ fontSize: "11px", color: "#64748b", lineHeight: 1.3, marginTop: "2px" }}>Lena · Ankernetz</p>
+          <p style={{ fontSize: "13px", fontWeight: 700, color: "#0f172a", whiteSpace: "nowrap", lineHeight: 1.3 }}>{t.bubbleTitle}</p>
+          <p style={{ fontSize: "11px", color: "#64748b", lineHeight: 1.3, marginTop: "2px" }}>{t.bubbleSub}</p>
         </div>
 
         {/* Button */}
         <button
-          aria-label="Chat öffnen"
+          aria-label={t.ariaOpen}
           onClick={() => { if (!wasDragged.current) setOpen(true); }}
           style={{
             width: "62px", height: "62px", borderRadius: "50%",
@@ -293,7 +354,7 @@ export default function ChatWidget() {
           <div>
             <p style={{ fontSize: "14px", fontWeight: 800, color: "white", lineHeight: 1.2, letterSpacing: "-0.02em" }}>Lena</p>
             <p style={{ fontSize: "11px", color: loading ? "#86efac" : "rgba(255,255,255,0.5)", lineHeight: 1.3, marginTop: "1px", transition: "color 0.3s" }}>
-              {loading ? "● schreibt…" : "Ankernetz Berlin · Online"}
+              {loading ? t.headerTyping : t.headerOnline}
             </p>
           </div>
         </div>
@@ -319,7 +380,7 @@ export default function ChatWidget() {
         <div style={{ background: "linear-gradient(135deg, #fef2f2, #fff5f5)", borderBottom: "1px solid #fecaca",
           padding: "10px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", flexShrink: 0 }}>
           <p style={{ fontSize: "12px", color: "#dc2626", fontWeight: 600, lineHeight: 1.4 }}>
-            🚨 Akute Gefahr? Sofort anrufen
+            {t.crisisBanner}
           </p>
           <a href="tel:+493022454322" style={{ fontSize: "12px", fontWeight: 700, color: "white",
             background: "linear-gradient(135deg, #dc2626, #ef4444)", padding: "5px 12px", borderRadius: "100px",
@@ -416,7 +477,7 @@ export default function ChatWidget() {
               {quickChips.map((chip, i) => {
                 const Icon = chip.icon;
                 return (
-                  <button key={chip.label} onClick={() => sendChip(chip.label)} style={{
+                  <button key={chip.id} onClick={() => sendChip(chip)} style={{
                     display: "flex", alignItems: "center", gap: "6px",
                     padding: "7px 13px",
                     background: "white",
@@ -467,7 +528,7 @@ export default function ChatWidget() {
               onKeyDown={handleKey}
               onFocus={() => setInputFocused(true)}
               onBlur={() => setInputFocused(false)}
-              placeholder="Schreib eine Nachricht…"
+              placeholder={t.inputPlaceholder}
               rows={1}
               style={{
                 flex: 1, border: `1.5px solid ${inputFocused ? "#93c5fd" : "#e2e8f0"}`,
@@ -502,7 +563,7 @@ export default function ChatWidget() {
             </button>
           </div>
           <p style={{ fontSize: "10px", color: "#94a3b8", textAlign: "center", marginTop: "8px", letterSpacing: "0.02em" }}>
-            Ankernetz Berlin · Vertraulich · Kostenlos
+            {t.footerText}
           </p>
         </div>
       )}

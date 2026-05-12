@@ -1,6 +1,30 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useT } from "../i18n/useT";
+
+const TRANS = {
+  de: {
+    title: "Ihre Cookie-Einstellungen",
+    body: `Neben technisch notwendigen Cookies verwenden wir und unsere hier aufgelisteten Empfänger auch Einwilligungs-bedürftige Cookies und ähnliche Technologien. Indem Sie auf die Schaltfläche "Alle optionalen Cookies zulassen" klicken, stimmen Sie dem Setzen der optionalen Cookies selbst sowie der weiteren Verarbeitung - inklusive Übermittlung - Ihrer personenbezogenen Daten zu Zwecken der Verbesserung Ihres Komforts und der Berücksichtigung von Präferenzen durch Personalisierung, Analyse des Nutzerverhaltens sowie der Durchführung und Überprüfung von Werbemaßnahmen zu. Alternativ können Sie auch einzelne Kategorien von Cookies auswählen und deren Verwendung zustimmen, indem Sie auf die Schaltfläche "Auswahl speichern" klicken. Ihre Einwilligung umfasst dabei stets die Verarbeitung in unsicheren Drittländern. Wir weisen auf ein nicht mit der EU vergleichbares Datenschutzniveau bei solchen Ländern hin. Es besteht u.a. das Risiko, dass dortige Behörden auf die verarbeiteten Daten zugreifen können und Ihre Datenschutzrechte eingeschränkt sind. Weitere Erklärungen zu den verwendeten Cookies können Sie durch Aufrufen unserer Datenschutzerklärung finden. Sie können Ihre Einwilligung jederzeit widerrufen.`,
+    detailsShow: "Details zeigen",
+    detailsHide: "Details ausblenden",
+    toggles: ["Notwendig", "Komfort und Personalisierung", "Analyse", "Marketing"],
+    btnAll: "Alle optionalen Cookies zulassen",
+    btnSave: "Auswahl speichern",
+    btnNone: "Alle optionalen Cookies ablehnen",
+  },
+  en: {
+    title: "Your Cookie Settings",
+    body: `In addition to technically necessary cookies, we and the recipients listed here also use cookies and similar technologies that require your consent. By clicking "Allow all optional cookies", you consent to the setting of optional cookies as well as the further processing — including transfer — of your personal data for the purposes of improving your comfort, personalisation, behavioural analysis, and advertising. Alternatively, you may select individual categories of cookies by clicking "Save selection". Your consent always includes processing in non-EU countries. We point out that data protection standards in such countries may not be equivalent to EU standards; authorities in those countries may access the processed data and your rights may be limited. Further details can be found in our Privacy Policy. You may withdraw your consent at any time.`,
+    detailsShow: "Show details",
+    detailsHide: "Hide details",
+    toggles: ["Necessary", "Comfort & Personalisation", "Analytics", "Marketing"],
+    btnAll: "Allow all optional cookies",
+    btnSave: "Save selection",
+    btnNone: "Reject all optional cookies",
+  },
+};
 
 const STORAGE_KEY  = "ankernetz_consent_v4";
 const LOCATION_KEY = "ankernetz_location";
@@ -17,6 +41,7 @@ function requestLocation() {
 }
 
 export default function CookieBanner() {
+  const t = useT(TRANS);
   const [visible,   setVisible]   = useState(false);
   const [komfort,   setKomfort]   = useState(false);
   const [analyse,   setAnalyse]   = useState(false);
@@ -148,7 +173,7 @@ export default function CookieBanner() {
               color: "#000000",
               marginBottom: "10px",
             }}>
-              Ihre Cookie-Einstellungen
+              {t.title}
             </p>
 
             {/* Fließtext mit Ausblend-Effekt nach unten */}
@@ -160,22 +185,7 @@ export default function CookieBanner() {
                 lineHeight: "1.6",
                 color: "#333333",
               }}>
-                Neben technisch notwendigen Cookies verwenden wir und unsere hier aufgelisteten
-                Empfänger auch Einwilligungs-bedürftige Cookies und ähnliche Technologien. Indem
-                Sie auf die Schaltfläche "Alle optionalen Cookies zulassen" klicken, stimmen Sie
-                dem Setzen der optionalen Cookies selbst sowie der weiteren Verarbeitung -
-                inklusive Übermittlung - Ihrer personenbezogenen Daten zu Zwecken der
-                Verbesserung Ihres Komforts und der Berücksichtigung von Präferenzen durch
-                Personalisierung, Analyse des Nutzerverhaltens sowie der Durchführung und
-                Überprüfung von Werbemaßnahmen zu. Alternativ können Sie auch einzelne Kategorien
-                von Cookies auswählen und deren Verwendung zustimmen, indem Sie auf die
-                Schaltfläche "Auswahl speichern" klicken. Ihre Einwilligung umfasst dabei stets
-                die Verarbeitung in unsicheren Drittländern. Wir weisen auf ein nicht mit der EU
-                vergleichbares Datenschutzniveau bei solchen Ländern hin. Es besteht u.a. das
-                Risiko, dass dortige Behörden auf die verarbeiteten Daten zugreifen können und
-                Ihre Datenschutzrechte eingeschränkt sind. Weitere Erklärungen zu den verwendeten
-                Cookies können Sie durch Aufrufen unserer Datenschutzerklärung finden. Sie können
-                Ihre Einwilligung jederzeit widerrufen.
+                {t.body}
               </div>
               {/* Gradient-Ausblendung wenn eingeklappt */}
               {!details && (
@@ -200,10 +210,10 @@ export default function CookieBanner() {
             }}>
               {/* 4 Toggles */}
               {([
-                { label: "Notwendig",                   on: true,     fn: undefined as (() => void) | undefined, disabled: true  },
-                { label: "Komfort und Personalisierung", on: komfort,  fn: () => setKomfort(v => !v),            disabled: false },
-                { label: "Analyse",                     on: analyse,  fn: () => setAnalyse(v => !v),             disabled: false },
-                { label: "Marketing",                   on: marketing, fn: () => setMarketing(v => !v),          disabled: false },
+                { label: t.toggles[0], on: true,      fn: undefined as (() => void) | undefined, disabled: true  },
+                { label: t.toggles[1], on: komfort,   fn: () => setKomfort(v => !v),            disabled: false },
+                { label: t.toggles[2], on: analyse,   fn: () => setAnalyse(v => !v),             disabled: false },
+                { label: t.toggles[3], on: marketing, fn: () => setMarketing(v => !v),           disabled: false },
               ]).map(t => (
                 <div key={t.label} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <span style={{ fontSize: "12px", color: "#333333", whiteSpace: "nowrap" }}>{t.label}</span>
@@ -222,7 +232,7 @@ export default function CookieBanner() {
                   display: "flex", alignItems: "center", gap: "2px",
                 }}
               >
-                {details ? "Details ausblenden" : "Details zeigen"} &gt;
+                {details ? t.detailsHide : t.detailsShow} &gt;
               </button>
             </div>
           </div>
@@ -246,7 +256,7 @@ export default function CookieBanner() {
               onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
               onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
             >
-              Alle optionalen Cookies zulassen
+              {t.btnAll}
             </button>
             <button
               onClick={() => save(komfort)}
@@ -259,7 +269,7 @@ export default function CookieBanner() {
               onMouseEnter={e => (e.currentTarget.style.background = "#f0f0f0")}
               onMouseLeave={e => (e.currentTarget.style.background = "white")}
             >
-              Auswahl speichern
+              {t.btnSave}
             </button>
             <button
               onClick={() => save(false)}
@@ -272,7 +282,7 @@ export default function CookieBanner() {
               onMouseEnter={e => (e.currentTarget.style.background = "#f0f0f0")}
               onMouseLeave={e => (e.currentTarget.style.background = "white")}
             >
-              Alle optionalen Cookies ablehnen
+              {t.btnNone}
             </button>
           </div>
 
