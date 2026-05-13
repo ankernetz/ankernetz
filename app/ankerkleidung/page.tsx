@@ -8,7 +8,7 @@ export default function AnkerkleidungPage() {
     <main
       style={{
         minHeight: "100vh",
-        backgroundColor: "#0c1220",
+        backgroundColor: "#f0f4f8",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -29,7 +29,7 @@ export default function AnkerkleidungPage() {
           height: "600px",
           borderRadius: "50%",
           background:
-            "radial-gradient(ellipse at center, rgba(111,163,254,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(26,63,111,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -48,7 +48,7 @@ export default function AnkerkleidungPage() {
             display: "inline-flex",
             alignItems: "center",
             gap: "0.5rem",
-            color: "rgba(255,255,255,0.4)",
+            color: "rgba(26,63,111,0.45)",
             fontSize: "0.875rem",
             textDecoration: "none",
           }}
@@ -65,8 +65,8 @@ export default function AnkerkleidungPage() {
           maxWidth: "640px",
           width: "100%",
           background:
-            "radial-gradient(ellipse 65% 50% at 95% 5%, #6FA3FE22 0%, transparent 60%), #0c1220",
-          border: "1px solid rgba(255,255,255,0.07)",
+            "radial-gradient(ellipse 65% 50% at 95% 5%, #6FA3FE18 0%, transparent 60%), #ffffff",
+          border: "1px solid rgba(26,63,111,0.1)",
           borderRadius: "1.25rem",
           overflow: "hidden",
           padding: "3.5rem 3rem",
@@ -138,7 +138,7 @@ export default function AnkerkleidungPage() {
             fontSize: "2.25rem",
             fontWeight: 900,
             letterSpacing: "-0.025em",
-            color: "#ffffff",
+            color: "#1a3f6f",
             lineHeight: 1.15,
             marginBottom: "0.75rem",
           }}
@@ -150,7 +150,7 @@ export default function AnkerkleidungPage() {
         <p
           style={{
             fontSize: "1rem",
-            color: "rgba(255,255,255,0.45)",
+            color: "rgba(26,63,111,0.5)",
             fontStyle: "italic",
             marginBottom: "1.75rem",
             lineHeight: 1.6,
@@ -163,7 +163,7 @@ export default function AnkerkleidungPage() {
         <p
           style={{
             fontSize: "1rem",
-            color: "rgba(255,255,255,0.55)",
+            color: "rgba(26,63,111,0.6)",
             lineHeight: 2.0,
             marginBottom: "2.5rem",
             maxWidth: "480px",
@@ -180,7 +180,7 @@ export default function AnkerkleidungPage() {
         <div
           style={{
             height: "1px",
-            background: "rgba(255,255,255,0.06)",
+            background: "rgba(26,63,111,0.08)",
             marginBottom: "2rem",
           }}
         />
@@ -192,7 +192,7 @@ export default function AnkerkleidungPage() {
             alignItems: "center",
             justifyContent: "center",
             gap: "0.6rem",
-            color: "rgba(255,255,255,0.3)",
+            color: "rgba(26,63,111,0.4)",
             fontSize: "0.8125rem",
           }}
         >
