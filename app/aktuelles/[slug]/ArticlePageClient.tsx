@@ -5,6 +5,7 @@ import { type Article, type ArticleSection } from "../articles";
 import { SeoFaq } from "../../components/SeoFaq";
 import ExternalLinks from "../../components/ExternalLinks";
 import { useT } from "../../i18n/useT";
+import { useLang } from "../../contexts/LanguageContext";
 
 const TRANS = {
   de: {
@@ -127,6 +128,8 @@ function renderSection(section: ArticleSection, index: number) {
 
 export function ArticlePageClient({ article }: { article: Article }) {
   const t = useT(TRANS);
+  const { lang } = useLang();
+  const al = <T,>(field: { de: T; en: T }): T => field[lang];
 
   return (
     <main style={{ background: "#FAF6F1", minHeight: "100vh", paddingTop: "5rem" }}>
@@ -139,7 +142,7 @@ export function ArticlePageClient({ article }: { article: Article }) {
               {t.breadcrumbParent}
             </Link>
             <span style={{ color: "rgba(0,0,0,0.3)", fontSize: "0.875rem" }}>/</span>
-            <span style={{ fontSize: "0.875rem", color: "#7A6E6A" }}>{article.title}</span>
+            <span style={{ fontSize: "0.875rem", color: "#7A6E6A" }}>{al(article.title)}</span>
           </nav>
 
           {/* Meta */}
@@ -148,17 +151,17 @@ export function ArticlePageClient({ article }: { article: Article }) {
               {new Date(article.date).toLocaleDateString(t.dateLocale, { day: "2-digit", month: "long", year: "numeric" })}
             </time>
             <span style={{ color: "rgba(0,0,0,0.25)" }}>·</span>
-            <span style={{ fontSize: "0.8125rem", color: "#7A6E6A" }}>{article.readTime}</span>
+            <span style={{ fontSize: "0.8125rem", color: "#7A6E6A" }}>{al(article.readTime)}</span>
           </div>
 
           {/* Titel */}
           <h1 style={{ fontSize: "clamp(1.875rem, 4vw, 2.875rem)", fontWeight: 800, color: "#1A1614", letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: "1.5rem" }}>
-            {article.title}
+            {al(article.title)}
           </h1>
 
           {/* Excerpt */}
           <p style={{ fontSize: "1.125rem", color: "#5A4E48", lineHeight: 1.75, marginBottom: "3rem", paddingBottom: "2.5rem", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
-            {article.excerpt}
+            {al(article.excerpt)}
           </p>
         </div>
       </header>
@@ -166,12 +169,12 @@ export function ArticlePageClient({ article }: { article: Article }) {
       {/* Artikel-Inhalt */}
       <article style={{ padding: "0 1.5rem" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          {article.sections.map((section, i) => renderSection(section, i))}
+          {al(article.sections).map((section, i) => renderSection(section, i))}
         </div>
       </article>
 
       {/* Verwandte Seiten */}
-      {article.relatedPages.length > 0 && (
+      {al(article.relatedPages).length > 0 && (
         <section style={{ padding: "4rem 1.5rem 0" }}>
           <div style={{ maxWidth: "860px", margin: "0 auto" }}>
             <div style={{ borderTop: "1px solid rgba(0,0,0,0.08)", paddingTop: "3rem" }}>
@@ -179,7 +182,7 @@ export function ArticlePageClient({ article }: { article: Article }) {
                 {t.relatedEyebrow}
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-                {article.relatedPages.map((page) => (
+                {al(article.relatedPages).map((page) => (
                   <Link key={page.href} href={page.href} style={{ display: "inline-flex", alignItems: "center", gap: "0.375rem", padding: "0.625rem 1.125rem", background: "#ffffff", border: "1px solid rgba(0,0,0,0.10)", borderRadius: "9999px", fontSize: "0.9375rem", fontWeight: 500, color: "#1A1614", textDecoration: "none", transition: "border-color 0.15s, color 0.15s" }} className="related-link">
                     {page.label}
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -195,7 +198,7 @@ export function ArticlePageClient({ article }: { article: Article }) {
       <section style={{ padding: "2rem 1.5rem" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-            {article.keywords.map((kw) => (
+            {al(article.keywords).map((kw) => (
               <span key={kw} style={{ fontSize: "0.75rem", color: "#7A6E6A", background: "rgba(0,0,0,0.04)", borderRadius: "9999px", padding: "0.25rem 0.625rem" }}>
                 {kw}
               </span>

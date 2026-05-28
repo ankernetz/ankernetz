@@ -20,13 +20,13 @@ export async function generateMetadata({
   if (!article) return {};
 
   return {
-    title: `${article.title} | Ankernetz`,
-    description: article.excerpt,
-    keywords: article.keywords,
+    title: `${article.title.de} | Ankernetz`,
+    description: article.excerpt.de,
+    keywords: article.keywords.de,
     alternates: { canonical: `${BASE}/aktuelles/${article.slug}` },
     openGraph: {
-      title: article.title,
-      description: article.excerpt,
+      title: article.title.de,
+      description: article.excerpt.de,
       url: `${BASE}/aktuelles/${article.slug}`,
       type: "article",
       publishedTime: article.date,
@@ -46,12 +46,12 @@ export default async function ArticlePage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: article.title,
+    headline: article.title.de,
     datePublished: article.date,
     author: { "@type": "Organization", name: "Ankernetz", url: BASE },
     publisher: { "@type": "Organization", name: "Ankernetz", url: BASE },
-    description: article.excerpt,
-    keywords: article.keywords.join(", "),
+    description: article.excerpt.de,
+    keywords: article.keywords.de.join(", "),
     url: `${BASE}/aktuelles/${article.slug}`,
   };
 
@@ -64,7 +64,7 @@ export default async function ArticlePage({
       <SeoBreadcrumb
         crumbs={[
           { name: "Aktuelles", slug: "aktuelles" },
-          { name: article.title, slug: `aktuelles/${article.slug}` },
+          { name: article.title.de, slug: `aktuelles/${article.slug}` },
         ]}
       />
       <ArticlePageClient article={article} />

@@ -10,756 +10,461 @@ export interface RelatedPage {
 
 export interface Article {
   slug: string;
-  title: string;
   date: string;
-  readTime: string;
-  excerpt: string;
-  keywords: string[];
-  sections: ArticleSection[];
-  relatedPages: RelatedPage[];
+  title: { de: string; en: string };
+  readTime: { de: string; en: string };
+  excerpt: { de: string; en: string };
+  keywords: { de: string[]; en: string[] };
+  sections: { de: ArticleSection[]; en: ArticleSection[] };
+  relatedPages: { de: RelatedPage[]; en: RelatedPage[] };
 }
 
 export const articles: Article[] = [
   {
     slug: "kleidung-kinder-adhs-was-wirklich-hilft",
-    title: "Kleidung für Kinder mit ADHS: Was wirklich hilft",
     date: "2026-05-09",
-    readTime: "8 Min. Lesezeit",
-    excerpt:
-      "Kinder mit ADHS erleben Kleidung oft als Reizquelle statt als Selbstverständlichkeit. Etiketten, enge Bündchen und raue Stoffe können Konzentration und Verhalten erheblich beeinflussen. Dieser Artikel erklärt, was sensorische Kleidung leistet und worauf Eltern beim Kauf achten sollten.",
-    keywords: [
-      "Kleidung ADHS Kinder",
-      "ADHS Kleidung",
-      "sensorische Kleidung ADHS",
-      "ADHS Kleidung Berlin Brandenburg",
-      "Kleidung Hyperaktivität Kinder",
-    ],
-    sections: [
-      {
-        type: "h2",
-        content: "Was ist ADHS und wie beeinflusst es das Kleidungserleben?",
-      },
-      {
-        type: "p",
-        content:
-          "ADHS - Aufmerksamkeitsdefizit-Hyperaktivitätsstörung - ist eine neurobiologische Entwicklungsstörung, die sich auf Konzentration, Impulskontrolle und Aktivitätsniveau auswirkt. Was viele nicht wissen: Das Gehirn von Kindern mit ADHS verarbeitet sensorische Reize anders. Was für andere Kinder ein harmloser Stofffaden oder eine leicht einschnürende Manschette ist, kann für ein Kind mit ADHS eine konstante Ablenkungsquelle darstellen - und damit das ohnehin anstrengende Aufrechterhalten von Konzentration zusätzlich erschweren.",
-      },
-      {
-        type: "p",
-        content:
-          "Studien zur sensorischen Verarbeitung bei ADHS zeigen, dass eine erhöhte taktile Sensitivität häufig mit den Kernsymptomen der Störung korreliert. Kleidung ist dabei ein Faktor, der im Alltag - in der Schule, beim Mittagessen, im Unterricht - permanent präsent ist. Die gute Nachricht: Mit der richtigen Kleidungsauswahl lässt sich dieser Stressfaktor deutlich reduzieren.",
-      },
-      {
-        type: "h2",
-        content: "Typische Probleme: Was Kinder mit ADHS an Kleidung stört",
-      },
-      {
-        type: "ul",
-        content: [
-          "Etiketten im Nacken oder an den Seiten, die jucken oder kratzen",
-          "Enge Bündchen an Hosen oder Ärmeln, die als Druck wahrgenommen werden",
-          "Raue Nähte, insbesondere an Zehen oder Achseln",
-          "Schwere oder steife Stoffe, die Bewegungsfreiheit einschränken",
-          "Knöpfe, Reißverschlüsse und andere Verschlüsse, die Feinmotorik erfordern",
-          "Polyester und synthetische Materialien, die statisch aufladen",
-          "Zu enge Schnitte, die das Körpergefühl einengen",
-          "Ungewohnte Neukäufe - Kinder mit ADHS bevorzugen oft vertraute Kleidung",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Was bedeutet sensorische Kleidung?",
-      },
-      {
-        type: "p",
-        content:
-          "Der Begriff sensorische Kleidung bezeichnet Kleidungsstücke, die gezielt auf die Bedürfnisse von Menschen mit sensorischen Verarbeitungsbesonderheiten ausgelegt sind. Das bedeutet nicht, dass die Kleidung medizinisch zertifiziert sein muss - aber sie wird mit einem anderen Bewusstsein für Material, Schnitt und Verarbeitung entwickelt.",
-      },
-      {
-        type: "highlight",
-        content:
-          "Sensorische Kleidung für Kinder mit ADHS hat ein Ziel: Sie soll vom Körper wahrgenommen, aber nicht als störend empfunden werden. Das klingt einfach - ist in der Herstellung aber eine handwerkliche Herausforderung.",
-      },
-      {
-        type: "h2",
-        content: "Konkrete Merkmale guter ADHS-Kleidung",
-      },
-      {
-        type: "h3",
-        content: "1. Maximale Bewegungsfreiheit",
-      },
-      {
-        type: "p",
-        content:
-          "Kinder mit ADHS sind in Bewegung - das ist keine Unart, das ist Neurobiologie. Kleidung muss diese Bewegung mitmachen. Elastische Schnitte, dehnbare Stoffe (z.B. Bio-Baumwolle mit Elasthan-Anteil) und weite Passformen geben dem Körper den Raum, den er braucht. Enge Jeans oder starre Hosen können das Wohlbefinden erheblich beeinträchtigen.",
-      },
-      {
-        type: "h3",
-        content: "2. Druckelemente gezielt einsetzen",
-      },
-      {
-        type: "p",
-        content:
-          "Interessanterweise reagieren viele Kinder mit ADHS positiv auf leichten, gleichmäßigen Druck auf den Körper - ähnlich wie bei einer Umarmung. Dieses Prinzip nennt sich propriozeptive Stimulation. Kompressionsshirts oder eng anliegende Unterhemden können dazu beitragen, die Körperwahrnehmung zu verbessern und Unruhe zu reduzieren. Wichtig: Der Druck muss gleichmäßig und angenehm sein - nie einschnürend.",
-      },
-      {
-        type: "h3",
-        content: "3. Robuste Nähte ohne Kratzen",
-      },
-      {
-        type: "p",
-        content:
-          "Die Verarbeitung ist entscheidend. Innennähte sollten flach und weich sein, idealerweise als Flatlock-Naht gefertigt, die keine erhabenen Kanten hinterlässt. Zehennähte in Socken sind ein klassischer Auslöser - achten Sie auf nahtlose oder seitlich verlegte Nähte. Etiketten sollten grundsätzlich nicht eingenäht, sondern aufgedruckt oder bereits ab Werk entfernt sein.",
-      },
-      {
-        type: "h2",
-        content: "Wie Ankerkleidung das Problem löst",
-      },
-      {
-        type: "p",
-        content:
-          "Ankerkleidung ist die spezialisierte Kleidungskollektion von Ankernetz, entwickelt für Kinder und Jugendliche im Hilfesystem. Die ADHS-Kollektion greift alle genannten Punkte systematisch auf: reizarme Verarbeitung, weiche Bio-Baumwolle, elastische Schnitte, aufgedruckte statt eingenähte Etiketten und robuste Materialien, die echten Kinderalltag standhalten.",
-      },
-      {
-        type: "p",
-        content:
-          "Was Ankerkleidung von normaler Kinderkleidung unterscheidet: Jedes Stück wird im Kontext des Störungsbildes entwickelt. Die ADHS-Linie ist nicht für den Massenmarkt konzipiert, sondern für die spezifische Realität von Kindern, die Unterstützung brauchen - und Kleidung, die nicht zur Belastung wird.",
-      },
-      {
-        type: "h2",
-        content: "Tipps für den Alltag: Kleidung stressfreier machen",
-      },
-      {
-        type: "ul",
-        content: [
-          "Etiketten immer herausschneiden oder von vornherein auf Aufdrucke achten",
-          "Kinder beim Kauf mitnehmen und selbst testen lassen - jedes Kind ist anders",
-          "Bekannte, vertraute Kleidungsstücke in mehrfacher Ausführung kaufen",
-          "Legen Sie morgens die Kleidung bereit - reduziert Entscheidungsstress",
-          "Auf Gummibänder ohne Plastik-Beschichtung achten (weniger Wärme und Kratzen)",
-          "Socken immer ohne Zehennaht wählen oder mit der Naht nach außen tragen",
-          "Synthetische Materialien bei taktil empfindlichen Kindern möglichst meiden",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Schule und Kleidung: Ein unterschätztes Thema",
-      },
-      {
-        type: "p",
-        content:
-          "In der Schule verbringen Kinder sechs bis acht Stunden täglich - in ihrer Kleidung. Eine Hose, die drückt, oder ein T-Shirt, das kratzt, ist in dieser Zeit ein permanenter Stressfaktor, der kognitive Ressourcen bindet. Fachkräfte und Lehrerinnen in der Jugendhilfe berichten immer wieder, dass einfache Änderungen in der Kleidungsauswahl Auswirkungen auf das Verhalten im Unterricht hatten. Das ist kein Zufall - es ist Sensorik.",
-      },
-      {
-        type: "h2",
-        content: "Fazit: Kleidung ist kein Luxusproblem",
-      },
-      {
-        type: "p",
-        content:
-          "Bei Kindern mit ADHS ist Kleidung kein oberflächliches Thema. Sie ist Teil der Umweltgestaltung, die entweder zur Regulation beiträgt - oder sie erschwert. Die richtige Kleidung schafft keine Therapie, aber sie nimmt eine unnötige Belastungsquelle aus dem Alltag heraus. Das gibt Kindern Raum, sich auf das zu konzentrieren, was wirklich zählt.",
-      },
-    ],
-    relatedPages: [
-      { label: "Ankerkleidung ADHS-Kollektion", href: "/ankerkleidung" },
-      { label: "Diagnostik & Clearing", href: "/diagnostik-clearing" },
-      { label: "Beratung & Prävention", href: "/beratung-praevention" },
-    ],
+    title: {
+      de: "Kleidung für Kinder mit ADHS: Was wirklich hilft",
+      en: "Clothing for Children with ADHD: What Really Works",
+    },
+    readTime: {
+      de: "8 Min. Lesezeit",
+      en: "8 min. read",
+    },
+    excerpt: {
+      de: "Kinder mit ADHS erleben Kleidung oft als Reizquelle statt als Selbstverständlichkeit. Etiketten, enge Bündchen und raue Stoffe können Konzentration und Verhalten erheblich beeinflussen. Dieser Artikel erklärt, was sensorische Kleidung leistet und worauf Eltern beim Kauf achten sollten.",
+      en: "Children with ADHD often experience clothing as a source of sensory stress rather than something unremarkable. Labels, tight cuffs and rough fabrics can significantly affect concentration and behaviour. This article explains what sensory clothing offers and what parents should look for when buying.",
+    },
+    keywords: {
+      de: ["Kleidung ADHS Kinder", "ADHS Kleidung", "sensorische Kleidung ADHS", "ADHS Kleidung Berlin Brandenburg", "Kleidung Hyperaktivität Kinder"],
+      en: ["clothing ADHD children", "ADHD clothing", "sensory clothing ADHD", "ADHD clothing Berlin Brandenburg", "clothing hyperactivity children"],
+    },
+    sections: {
+      de: [
+        { type: "h2", content: "Was ist ADHS und wie beeinflusst es das Kleidungserleben?" },
+        { type: "p", content: "ADHS - Aufmerksamkeitsdefizit-Hyperaktivitätsstörung - ist eine neurobiologische Entwicklungsstörung, die sich auf Konzentration, Impulskontrolle und Aktivitätsniveau auswirkt. Was viele nicht wissen: Das Gehirn von Kindern mit ADHS verarbeitet sensorische Reize anders. Was für andere Kinder ein harmloser Stofffaden oder eine leicht einschnürende Manschette ist, kann für ein Kind mit ADHS eine konstante Ablenkungsquelle darstellen - und damit das ohnehin anstrengende Aufrechterhalten von Konzentration zusätzlich erschweren." },
+        { type: "p", content: "Studien zur sensorischen Verarbeitung bei ADHS zeigen, dass eine erhöhte taktile Sensitivität häufig mit den Kernsymptomen der Störung korreliert. Kleidung ist dabei ein Faktor, der im Alltag - in der Schule, beim Mittagessen, im Unterricht - permanent präsent ist. Die gute Nachricht: Mit der richtigen Kleidungsauswahl lässt sich dieser Stressfaktor deutlich reduzieren." },
+        { type: "h2", content: "Typische Probleme: Was Kinder mit ADHS an Kleidung stört" },
+        { type: "ul", content: ["Etiketten im Nacken oder an den Seiten, die jucken oder kratzen", "Enge Bündchen an Hosen oder Ärmeln, die als Druck wahrgenommen werden", "Raue Nähte, insbesondere an Zehen oder Achseln", "Schwere oder steife Stoffe, die Bewegungsfreiheit einschränken", "Knöpfe, Reißverschlüsse und andere Verschlüsse, die Feinmotorik erfordern", "Polyester und synthetische Materialien, die statisch aufladen", "Zu enge Schnitte, die das Körpergefühl einengen", "Ungewohnte Neukäufe - Kinder mit ADHS bevorzugen oft vertraute Kleidung"] },
+        { type: "h2", content: "Was bedeutet sensorische Kleidung?" },
+        { type: "p", content: "Der Begriff sensorische Kleidung bezeichnet Kleidungsstücke, die gezielt auf die Bedürfnisse von Menschen mit sensorischen Verarbeitungsbesonderheiten ausgelegt sind. Das bedeutet nicht, dass die Kleidung medizinisch zertifiziert sein muss - aber sie wird mit einem anderen Bewusstsein für Material, Schnitt und Verarbeitung entwickelt." },
+        { type: "highlight", content: "Sensorische Kleidung für Kinder mit ADHS hat ein Ziel: Sie soll vom Körper wahrgenommen, aber nicht als störend empfunden werden. Das klingt einfach - ist in der Herstellung aber eine handwerkliche Herausforderung." },
+        { type: "h2", content: "Konkrete Merkmale guter ADHS-Kleidung" },
+        { type: "h3", content: "1. Maximale Bewegungsfreiheit" },
+        { type: "p", content: "Kinder mit ADHS sind in Bewegung - das ist keine Unart, das ist Neurobiologie. Kleidung muss diese Bewegung mitmachen. Elastische Schnitte, dehnbare Stoffe (z.B. Bio-Baumwolle mit Elasthan-Anteil) und weite Passformen geben dem Körper den Raum, den er braucht. Enge Jeans oder starre Hosen können das Wohlbefinden erheblich beeinträchtigen." },
+        { type: "h3", content: "2. Druckelemente gezielt einsetzen" },
+        { type: "p", content: "Interessanterweise reagieren viele Kinder mit ADHS positiv auf leichten, gleichmäßigen Druck auf den Körper - ähnlich wie bei einer Umarmung. Dieses Prinzip nennt sich propriozeptive Stimulation. Kompressionsshirts oder eng anliegende Unterhemden können dazu beitragen, die Körperwahrnehmung zu verbessern und Unruhe zu reduzieren. Wichtig: Der Druck muss gleichmäßig und angenehm sein - nie einschnürend." },
+        { type: "h3", content: "3. Robuste Nähte ohne Kratzen" },
+        { type: "p", content: "Die Verarbeitung ist entscheidend. Innennähte sollten flach und weich sein, idealerweise als Flatlock-Naht gefertigt, die keine erhabenen Kanten hinterlässt. Zehennähte in Socken sind ein klassischer Auslöser - achten Sie auf nahtlose oder seitlich verlegte Nähte. Etiketten sollten grundsätzlich nicht eingenäht, sondern aufgedruckt oder bereits ab Werk entfernt sein." },
+        { type: "h2", content: "Wie Ankerkleidung das Problem löst" },
+        { type: "p", content: "Ankerkleidung ist die spezialisierte Kleidungskollektion von Ankernetz, entwickelt für Kinder und Jugendliche im Hilfesystem. Die ADHS-Kollektion greift alle genannten Punkte systematisch auf: reizarme Verarbeitung, weiche Bio-Baumwolle, elastische Schnitte, aufgedruckte statt eingenähte Etiketten und robuste Materialien, die echten Kinderalltag standhalten." },
+        { type: "p", content: "Was Ankerkleidung von normaler Kinderkleidung unterscheidet: Jedes Stück wird im Kontext des Störungsbildes entwickelt. Die ADHS-Linie ist nicht für den Massenmarkt konzipiert, sondern für die spezifische Realität von Kindern, die Unterstützung brauchen - und Kleidung, die nicht zur Belastung wird." },
+        { type: "h2", content: "Tipps für den Alltag: Kleidung stressfreier machen" },
+        { type: "ul", content: ["Etiketten immer herausschneiden oder von vornherein auf Aufdrucke achten", "Kinder beim Kauf mitnehmen und selbst testen lassen - jedes Kind ist anders", "Bekannte, vertraute Kleidungsstücke in mehrfacher Ausführung kaufen", "Legen Sie morgens die Kleidung bereit - reduziert Entscheidungsstress", "Auf Gummibänder ohne Plastik-Beschichtung achten (weniger Wärme und Kratzen)", "Socken immer ohne Zehennaht wählen oder mit der Naht nach außen tragen", "Synthetische Materialien bei taktil empfindlichen Kindern möglichst meiden"] },
+        { type: "h2", content: "Schule und Kleidung: Ein unterschätztes Thema" },
+        { type: "p", content: "In der Schule verbringen Kinder sechs bis acht Stunden täglich - in ihrer Kleidung. Eine Hose, die drückt, oder ein T-Shirt, das kratzt, ist in dieser Zeit ein permanenter Stressfaktor, der kognitive Ressourcen bindet. Fachkräfte und Lehrerinnen in der Jugendhilfe berichten immer wieder, dass einfache Änderungen in der Kleidungsauswahl Auswirkungen auf das Verhalten im Unterricht hatten. Das ist kein Zufall - es ist Sensorik." },
+        { type: "h2", content: "Fazit: Kleidung ist kein Luxusproblem" },
+        { type: "p", content: "Bei Kindern mit ADHS ist Kleidung kein oberflächliches Thema. Sie ist Teil der Umweltgestaltung, die entweder zur Regulation beiträgt - oder sie erschwert. Die richtige Kleidung schafft keine Therapie, aber sie nimmt eine unnötige Belastungsquelle aus dem Alltag heraus. Das gibt Kindern Raum, sich auf das zu konzentrieren, was wirklich zählt." },
+      ],
+      en: [
+        { type: "h2", content: "What is ADHD and how does it affect the clothing experience?" },
+        { type: "p", content: "ADHD – Attention Deficit Hyperactivity Disorder – is a neurodevelopmental condition that affects concentration, impulse control and activity level. What many people don't know: the brains of children with ADHD process sensory stimuli differently. What is a harmless thread or a slightly tight cuff for another child can be a constant source of distraction for a child with ADHD – making the already demanding task of maintaining concentration even harder." },
+        { type: "p", content: "Research into sensory processing in ADHD shows that heightened tactile sensitivity frequently correlates with the core symptoms of the condition. Clothing is a factor that is constantly present in everyday life – at school, at lunch, during lessons. The good news: with the right clothing choices, this stressor can be significantly reduced." },
+        { type: "h2", content: "Common problems: what children with ADHD find uncomfortable about clothing" },
+        { type: "ul", content: ["Labels at the back of the neck or on the sides that itch or scratch", "Tight cuffs on trousers or sleeves felt as pressure", "Rough seams, especially at the toes or underarms", "Heavy or stiff fabrics that restrict freedom of movement", "Buttons, zips and other fastenings requiring fine motor skills", "Polyester and synthetic materials that generate static", "Cuts that are too tight and constrict the sense of the body", "Unfamiliar new purchases – children with ADHD often prefer familiar clothing"] },
+        { type: "h2", content: "What does sensory clothing mean?" },
+        { type: "p", content: "The term sensory clothing refers to garments specifically designed for the needs of people with sensory processing differences. This does not mean the clothing has to be medically certified – but it is developed with a different awareness of materials, cut and construction." },
+        { type: "highlight", content: "Sensory clothing for children with ADHD has one goal: it should be perceived by the body but not experienced as disruptive. That sounds simple – but in manufacturing it is a genuine craft challenge." },
+        { type: "h2", content: "Concrete features of good ADHD clothing" },
+        { type: "h3", content: "1. Maximum freedom of movement" },
+        { type: "p", content: "Children with ADHD are in constant motion – that is not a behavioural problem, it is neurobiology. Clothing must move with them. Elastic cuts, stretchy fabrics (e.g. organic cotton with an elastane component) and roomy fits give the body the space it needs. Tight jeans or rigid trousers can significantly impair wellbeing." },
+        { type: "h3", content: "2. Using pressure elements deliberately" },
+        { type: "p", content: "Interestingly, many children with ADHD respond positively to gentle, even pressure on the body – similar to the feeling of a hug. This principle is called proprioceptive stimulation. Compression shirts or close-fitting undershirts can help improve body awareness and reduce restlessness. Important: the pressure must be even and comfortable – never constricting." },
+        { type: "h3", content: "3. Robust seams without scratching" },
+        { type: "p", content: "Construction is crucial. Internal seams should be flat and soft, ideally made as flatlock seams that leave no raised edges. Toe seams in socks are a classic trigger – look for side-sewn or fully seamless options. Labels should not be sewn in as standard; they should be printed or removed by the manufacturer." },
+        { type: "h2", content: "How Anchor Clothing solves the problem" },
+        { type: "p", content: "Anchor Clothing is the specialised clothing collection from Ankernetz, developed for children and young people in the welfare system. The ADHD collection addresses all the points mentioned systematically: low-stimulation construction, soft organic cotton, elastic cuts, printed rather than sewn-in labels, and durable materials that stand up to real children's everyday life." },
+        { type: "p", content: "What distinguishes Anchor Clothing from regular children's clothing: every piece is developed in the context of the clinical profile. The ADHD range is not designed for the mass market but for the specific reality of children who need support – and clothing that does not become a burden." },
+        { type: "h2", content: "Everyday tips: making clothing less stressful" },
+        { type: "ul", content: ["Always cut out labels or look for printed ones from the start", "Take children shopping and let them try things on – every child is different", "Buy familiar, well-tried pieces in multiple copies", "Lay out clothes the night before – reduces decision stress in the morning", "Look for elastic waistbands without a plastic coating (less heat and scratching)", "Always choose socks without a toe seam or wear them inside out", "Avoid synthetic materials where possible for tactilely sensitive children"] },
+        { type: "h2", content: "School and clothing: an underestimated issue" },
+        { type: "p", content: "At school children spend six to eight hours a day in their clothing. Trousers that dig in or a T-shirt that scratches are a constant stressor in that time, binding cognitive resources. Professionals and teachers in youth welfare repeatedly report that simple changes in clothing choices had effects on classroom behaviour. That is not a coincidence – it is sensory science." },
+        { type: "h2", content: "Conclusion: clothing is not a trivial problem" },
+        { type: "p", content: "For children with ADHD, clothing is not a superficial issue. It is part of the environmental design that either contributes to regulation – or makes it harder. The right clothing does not create therapy, but it removes an unnecessary source of stress from everyday life. That gives children space to focus on what really counts." },
+      ],
+    },
+    relatedPages: {
+      de: [
+        { label: "Ankerkleidung ADHS-Kollektion", href: "/ankerkleidung" },
+        { label: "Diagnostik & Clearing", href: "/diagnostik-clearing" },
+        { label: "Beratung & Prävention", href: "/beratung-praevention" },
+      ],
+      en: [
+        { label: "Anchor Clothing ADHD Collection", href: "/ankerkleidung" },
+        { label: "Diagnostics & Clearing", href: "/diagnostik-clearing" },
+        { label: "Counselling & Prevention", href: "/beratung-praevention" },
+      ],
+    },
   },
 
   {
     slug: "was-ist-krisenintervention-leitfaden-eltern",
-    title: "Was ist Krisenintervention? Ein Leitfaden für Eltern und Fachkräfte",
     date: "2026-05-09",
-    readTime: "10 Min. Lesezeit",
-    excerpt:
-      "Wenn ein Kind oder Jugendlicher in eine akute Notlage gerät, müssen Entscheidungen schnell und richtig getroffen werden. Dieser Leitfaden erklärt, was Krisenintervention bedeutet, wer sie beantragen kann und was danach passiert - verständlich für Eltern und Fachkräfte.",
-    keywords: [
-      "Krisenintervention Kinder Berlin",
-      "Krisenintervention Jugendliche",
-      "Krisenintervention 24/7 Berlin Brandenburg",
-      "Jugendliche in Not Berlin",
-    ],
-    sections: [
-      {
-        type: "h2",
-        content: "Was ist Krisenintervention bei Kindern und Jugendlichen?",
-      },
-      {
-        type: "p",
-        content:
-          "Krisenintervention ist eine Form der sozialpädagogischen und psychologischen Notfallhilfe für Kinder und Jugendliche, die sich in einer akuten, nicht mehr selbst beherrschbaren Krisensituation befinden. Sie unterscheidet sich von regulärer Jugendhilfe durch ihren unmittelbaren Charakter: Es geht nicht um langfristige Planung, sondern um Sicherheit hier und jetzt.",
-      },
-      {
-        type: "p",
-        content:
-          "Krisenintervention wird in der Regel für einen begrenzten Zeitraum von wenigen Tagen bis einigen Wochen gewährt. Ziel ist zunächst die Stabilisierung - danach wird gemeinsam mit dem Jugendamt, der Familie und dem Jugendlichen ein Hilfeplan für die Zeit danach entwickelt.",
-      },
-      {
-        type: "h2",
-        content: "Wann ist Krisenintervention notwendig?",
-      },
-      {
-        type: "p",
-        content:
-          "Eine Krisenintervention wird notwendig, wenn ein Kind oder Jugendlicher sich in einer Situation befindet, die eine sofortige Herausnahme aus dem bisherigen Umfeld erfordert oder die akute Gefahr für Leib und Seele darstellt.",
-      },
-      {
-        type: "ul",
-        content: [
-          "Akute Suizidalität oder Selbstverletzung ohne ambulante Absicherung",
-          "Häusliche Gewalt - körperlich, psychisch oder sexuell",
-          "Plötzliche Obdachlosigkeit (z.B. nach Konflikt mit Erziehungsberechtigten)",
-          "Akute psychische Dekompensation ohne Klinikindikation",
-          "Vernachlässigung oder Verwahrlosung mit unmittelbarer Gefährdung",
-          "Wegfall der Betreuungsperson durch Inhaftierung, Klinikaufnahme oder Tod",
-          "Eskalation in der Herkunftsfamilie mit konkreter Kindeswohlgefährdung",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Wie läuft eine Krisenintervention ab?",
-      },
-      {
-        type: "p",
-        content:
-          "Der Ablauf einer Krisenintervention lässt sich grob in vier Phasen unterteilen - von der ersten Kontaktaufnahme bis zur Anschlussplanung:",
-      },
-      {
-        type: "h3",
-        content: "Phase 1: Erster Kontakt und Einschätzung",
-      },
-      {
-        type: "p",
-        content:
-          "Sobald eine Krise gemeldet wird, nimmt der Bereitschaftsdienst des Kriseninterventionsträgers Kontakt auf. Bei Ankernetz erfolgt dieser erste Kontakt rund um die Uhr - auch nachts, an Wochenenden und Feiertagen. In diesem ersten Gespräch wird die Situation eingeschätzt: Liegt tatsächlich eine Krisenindikation vor? Ist eine sofortige Aufnahme notwendig, oder reicht zunächst telefonische Krisenbegleitung?",
-      },
-      {
-        type: "h3",
-        content: "Phase 2: Aufnahme und Sicherung",
-      },
-      {
-        type: "p",
-        content:
-          "Bei bestätigter Krisenindikation erfolgt die Aufnahme in eine Kriseninterventionsstelle. Bei Ankernetz geschieht das in der Regel innerhalb von 2 bis 4 Stunden nach dem ersten Kontakt. Der Jugendliche bekommt ein sicheres Zimmer, Mahlzeiten und einen ersten Ansprechpartner. Ziel dieser Phase ist zunächst nur eines: Sicherheit herstellen.",
-      },
-      {
-        type: "h3",
-        content: "Phase 3: Stabilisierung",
-      },
-      {
-        type: "p",
-        content:
-          "In den folgenden Tagen arbeiten Sozialpädagoginnen und Sozialpädagogen intensiv mit dem Jugendlichen. Es werden Gespräche geführt, die Lebenssituation wird beleuchtet, und erste Hypothesen zur Weiterversorgung entstehen. Parallel dazu wird das zuständige Jugendamt kontaktiert und über die Situation informiert.",
-      },
-      {
-        type: "h3",
-        content: "Phase 4: Hilfeplangespräch und Übergang",
-      },
-      {
-        type: "p",
-        content:
-          "Am Ende der Krisenintervention steht ein Hilfeplangespräch. Alle Beteiligten - Jugendamt, Eltern (sofern es dem Wohl des Kindes dient), der Jugendliche selbst und der Kriseninterventionsträger - entwickeln gemeinsam eine Perspektive. Das kann die Rückkehr nach Hause sein (mit ambulanter Unterstützung), die Aufnahme in eine therapeutische Wohngruppe oder eine andere Hilfeform nach SGB VIII.",
-      },
-      {
-        type: "h2",
-        content: "Wer kann Krisenintervention beantragen?",
-      },
-      {
-        type: "ul",
-        content: [
-          "Jugendämter in Berlin und Brandenburg (§ 42 SGB VIII - Inobhutnahme)",
-          "Sorgeberechtigte, wenn sie selbst Hilfe anfordern",
-          "Kliniken bei Entlassung ohne gesicherte Anschlussversorgung",
-          "Polizei bei Ingewahrsamnahmen oder Kindeswohlgefährdungen",
-          "Schulen über Schulsozialdienst bei akuten Krisensituationen",
-          "In Ausnahmefällen auch Jugendliche selbst (Selbstmelder)",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Krisenintervention vs. Psychiatrie: Was ist der Unterschied?",
-      },
-      {
-        type: "p",
-        content:
-          "Ein häufiges Missverständnis: Krisenintervention und Kinder- und Jugendpsychiatrie (KJP) sind zwei unterschiedliche Hilfesysteme, die sich gegenseitig ergänzen - aber nicht ersetzen.",
-      },
-      {
-        type: "highlight",
-        content:
-          "Die Psychiatrie behandelt psychiatrische Erkrankungen mit medizinischen Mitteln. Krisenintervention schafft sozialen Schutzraum und pädagogische Begleitung. Beides kann gleichzeitig notwendig sein - oder sequenziell: zuerst Psychiatrie, dann Krisenintervention oder umgekehrt.",
-      },
-      {
-        type: "p",
-        content:
-          "Eine KJP-Aufnahme ist indiziert, wenn medizinische oder psychiatrische Behandlung notwendig ist - zum Beispiel bei akuter Suizidalität mit konkretem Plan, bei psychotischen Zuständen oder wenn eine medikamentöse Einstellung erforderlich ist. Krisenintervention kann hingegen angeboten werden, wenn die Situation pädagogisch-sozialpädagogisch beherrschbar ist.",
-      },
-      {
-        type: "h2",
-        content: "Was passiert nach der Krisenintervention?",
-      },
-      {
-        type: "p",
-        content:
-          "Das Ziel der Krisenintervention ist nicht, dauerhafter Ersatz für andere Hilfen zu sein - sondern Brücke. Nach der Stabilisierung gibt es verschiedene Wege:",
-      },
-      {
-        type: "ul",
-        content: [
-          "Rückkehr nach Hause mit ambulanter sozialpädagogischer Begleitung (§ 27 SGB VIII)",
-          "Aufnahme in eine therapeutische Wohngruppe (§ 34 SGB VIII)",
-          "Aufnahme in eine intensive Einzelbetreuung (§ 35 SGB VIII)",
-          "Beginn einer ambulanten Psychotherapie mit Kassensitz",
-          "Diagnostik und Clearing zur Einschätzung des weiteren Hilfebedarfs",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Ankernetz: 24/7 Krisenintervention in Berlin und Brandenburg",
-      },
-      {
-        type: "p",
-        content:
-          "Ankernetz bietet Krisenintervention für Kinder und Jugendliche von 12 bis 17 Jahren rund um die Uhr an. Unser Bereitschaftsdienst ist an 365 Tagen im Jahr erreichbar - auch über die Feiertage. Wir arbeiten eng mit den Berliner Jugendämtern in allen Bezirken sowie mit Jugendämtern in Brandenburg zusammen.",
-      },
-      {
-        type: "p",
-        content:
-          "Was Ankernetz von anderen Trägern unterscheidet: Die Krisenintervention ist eingebettet in ein vollständiges Hilfenetz. Nach der Krise müssen Jugendliche nicht in ein anderes System wechseln - wir begleiten sie in die nächste Hilfeform. Therapeutische Wohngruppen, Psychotherapie mit Kassensitz, Diagnostik und Beratung sind alle unter einem Dach verfügbar.",
-      },
-    ],
-    relatedPages: [
-      { label: "Krisenintervention", href: "/krisenintervention" },
-      { label: "Therapie & Wohnen", href: "/therapie-wohnen" },
-      { label: "Jugendhilfe", href: "/jugendhilfe" },
-      { label: "Platzanfrage stellen", href: "/platzanfrage" },
-    ],
+    title: {
+      de: "Was ist Krisenintervention? Ein Leitfaden für Eltern und Fachkräfte",
+      en: "What Is Crisis Intervention? A Guide for Parents and Professionals",
+    },
+    readTime: {
+      de: "10 Min. Lesezeit",
+      en: "10 min. read",
+    },
+    excerpt: {
+      de: "Wenn ein Kind oder Jugendlicher in eine akute Notlage gerät, müssen Entscheidungen schnell und richtig getroffen werden. Dieser Leitfaden erklärt, was Krisenintervention bedeutet, wer sie beantragen kann und was danach passiert - verständlich für Eltern und Fachkräfte.",
+      en: "When a child or young person faces an acute emergency, decisions need to be made quickly and correctly. This guide explains what crisis intervention means, who can request it and what happens afterwards – in plain language for parents and professionals.",
+    },
+    keywords: {
+      de: ["Krisenintervention Kinder Berlin", "Krisenintervention Jugendliche", "Krisenintervention 24/7 Berlin Brandenburg", "Jugendliche in Not Berlin"],
+      en: ["crisis intervention children Berlin", "crisis intervention young people", "crisis intervention 24/7 Berlin Brandenburg", "young people in need Berlin"],
+    },
+    sections: {
+      de: [
+        { type: "h2", content: "Was ist Krisenintervention bei Kindern und Jugendlichen?" },
+        { type: "p", content: "Krisenintervention ist eine Form der sozialpädagogischen und psychologischen Notfallhilfe für Kinder und Jugendliche, die sich in einer akuten, nicht mehr selbst beherrschbaren Krisensituation befinden. Sie unterscheidet sich von regulärer Jugendhilfe durch ihren unmittelbaren Charakter: Es geht nicht um langfristige Planung, sondern um Sicherheit hier und jetzt." },
+        { type: "p", content: "Krisenintervention wird in der Regel für einen begrenzten Zeitraum von wenigen Tagen bis einigen Wochen gewährt. Ziel ist zunächst die Stabilisierung - danach wird gemeinsam mit dem Jugendamt, der Familie und dem Jugendlichen ein Hilfeplan für die Zeit danach entwickelt." },
+        { type: "h2", content: "Wann ist Krisenintervention notwendig?" },
+        { type: "p", content: "Eine Krisenintervention wird notwendig, wenn ein Kind oder Jugendlicher sich in einer Situation befindet, die eine sofortige Herausnahme aus dem bisherigen Umfeld erfordert oder die akute Gefahr für Leib und Seele darstellt." },
+        { type: "ul", content: ["Akute Suizidalität oder Selbstverletzung ohne ambulante Absicherung", "Häusliche Gewalt - körperlich, psychisch oder sexuell", "Plötzliche Obdachlosigkeit (z.B. nach Konflikt mit Erziehungsberechtigten)", "Akute psychische Dekompensation ohne Klinikindikation", "Vernachlässigung oder Verwahrlosung mit unmittelbarer Gefährdung", "Wegfall der Betreuungsperson durch Inhaftierung, Klinikaufnahme oder Tod", "Eskalation in der Herkunftsfamilie mit konkreter Kindeswohlgefährdung"] },
+        { type: "h2", content: "Wie läuft eine Krisenintervention ab?" },
+        { type: "p", content: "Der Ablauf einer Krisenintervention lässt sich grob in vier Phasen unterteilen - von der ersten Kontaktaufnahme bis zur Anschlussplanung:" },
+        { type: "h3", content: "Phase 1: Erster Kontakt und Einschätzung" },
+        { type: "p", content: "Sobald eine Krise gemeldet wird, nimmt der Bereitschaftsdienst des Kriseninterventionsträgers Kontakt auf. Bei Ankernetz erfolgt dieser erste Kontakt rund um die Uhr - auch nachts, an Wochenenden und Feiertagen. In diesem ersten Gespräch wird die Situation eingeschätzt: Liegt tatsächlich eine Krisenindikation vor? Ist eine sofortige Aufnahme notwendig, oder reicht zunächst telefonische Krisenbegleitung?" },
+        { type: "h3", content: "Phase 2: Aufnahme und Sicherung" },
+        { type: "p", content: "Bei bestätigter Krisenindikation erfolgt die Aufnahme in eine Kriseninterventionsstelle. Bei Ankernetz geschieht das in der Regel innerhalb von 2 bis 4 Stunden nach dem ersten Kontakt. Der Jugendliche bekommt ein sicheres Zimmer, Mahlzeiten und einen ersten Ansprechpartner. Ziel dieser Phase ist zunächst nur eines: Sicherheit herstellen." },
+        { type: "h3", content: "Phase 3: Stabilisierung" },
+        { type: "p", content: "In den folgenden Tagen arbeiten Sozialpädagoginnen und Sozialpädagogen intensiv mit dem Jugendlichen. Es werden Gespräche geführt, die Lebenssituation wird beleuchtet, und erste Hypothesen zur Weiterversorgung entstehen. Parallel dazu wird das zuständige Jugendamt kontaktiert und über die Situation informiert." },
+        { type: "h3", content: "Phase 4: Hilfeplangespräch und Übergang" },
+        { type: "p", content: "Am Ende der Krisenintervention steht ein Hilfeplangespräch. Alle Beteiligten - Jugendamt, Eltern (sofern es dem Wohl des Kindes dient), der Jugendliche selbst und der Kriseninterventionsträger - entwickeln gemeinsam eine Perspektive. Das kann die Rückkehr nach Hause sein (mit ambulanter Unterstützung), die Aufnahme in eine therapeutische Wohngruppe oder eine andere Hilfeform nach SGB VIII." },
+        { type: "h2", content: "Wer kann Krisenintervention beantragen?" },
+        { type: "ul", content: ["Jugendämter in Berlin und Brandenburg (§ 42 SGB VIII - Inobhutnahme)", "Sorgeberechtigte, wenn sie selbst Hilfe anfordern", "Kliniken bei Entlassung ohne gesicherte Anschlussversorgung", "Polizei bei Ingewahrsamnahmen oder Kindeswohlgefährdungen", "Schulen über Schulsozialdienst bei akuten Krisensituationen", "In Ausnahmefällen auch Jugendliche selbst (Selbstmelder)"] },
+        { type: "h2", content: "Krisenintervention vs. Psychiatrie: Was ist der Unterschied?" },
+        { type: "p", content: "Ein häufiges Missverständnis: Krisenintervention und Kinder- und Jugendpsychiatrie (KJP) sind zwei unterschiedliche Hilfesysteme, die sich gegenseitig ergänzen - aber nicht ersetzen." },
+        { type: "highlight", content: "Die Psychiatrie behandelt psychiatrische Erkrankungen mit medizinischen Mitteln. Krisenintervention schafft sozialen Schutzraum und pädagogische Begleitung. Beides kann gleichzeitig notwendig sein - oder sequenziell: zuerst Psychiatrie, dann Krisenintervention oder umgekehrt." },
+        { type: "p", content: "Eine KJP-Aufnahme ist indiziert, wenn medizinische oder psychiatrische Behandlung notwendig ist - zum Beispiel bei akuter Suizidalität mit konkretem Plan, bei psychotischen Zuständen oder wenn eine medikamentöse Einstellung erforderlich ist. Krisenintervention kann hingegen angeboten werden, wenn die Situation pädagogisch-sozialpädagogisch beherrschbar ist." },
+        { type: "h2", content: "Was passiert nach der Krisenintervention?" },
+        { type: "p", content: "Das Ziel der Krisenintervention ist nicht, dauerhafter Ersatz für andere Hilfen zu sein - sondern Brücke. Nach der Stabilisierung gibt es verschiedene Wege:" },
+        { type: "ul", content: ["Rückkehr nach Hause mit ambulanter sozialpädagogischer Begleitung (§ 27 SGB VIII)", "Aufnahme in eine therapeutische Wohngruppe (§ 34 SGB VIII)", "Aufnahme in eine intensive Einzelbetreuung (§ 35 SGB VIII)", "Beginn einer ambulanten Psychotherapie mit Kassensitz", "Diagnostik und Clearing zur Einschätzung des weiteren Hilfebedarfs"] },
+        { type: "h2", content: "Ankernetz: 24/7 Krisenintervention in Berlin und Brandenburg" },
+        { type: "p", content: "Ankernetz bietet Krisenintervention für Kinder und Jugendliche von 12 bis 17 Jahren rund um die Uhr an. Unser Bereitschaftsdienst ist an 365 Tagen im Jahr erreichbar - auch über die Feiertage. Wir arbeiten eng mit den Berliner Jugendämtern in allen Bezirken sowie mit Jugendämtern in Brandenburg zusammen." },
+        { type: "p", content: "Was Ankernetz von anderen Trägern unterscheidet: Die Krisenintervention ist eingebettet in ein vollständiges Hilfenetz. Nach der Krise müssen Jugendliche nicht in ein anderes System wechseln - wir begleiten sie in die nächste Hilfeform. Therapeutische Wohngruppen, Psychotherapie mit Kassensitz, Diagnostik und Beratung sind alle unter einem Dach verfügbar." },
+      ],
+      en: [
+        { type: "h2", content: "What is crisis intervention for children and young people?" },
+        { type: "p", content: "Crisis intervention is a form of social-pedagogical and psychological emergency support for children and young people who find themselves in an acute crisis situation they can no longer manage on their own. It differs from regular youth welfare through its immediate character: the focus is not on long-term planning but on safety here and now." },
+        { type: "p", content: "Crisis intervention is generally provided for a limited period of a few days to several weeks. The initial goal is stabilisation – after which a care plan for the period ahead is developed together with the youth welfare office, the family and the young person." },
+        { type: "h2", content: "When is crisis intervention necessary?" },
+        { type: "p", content: "Crisis intervention is needed when a child or young person is in a situation that requires immediate removal from their current environment, or when there is an acute risk to physical or mental wellbeing." },
+        { type: "ul", content: ["Acute suicidality or self-harm without outpatient safety net", "Domestic violence – physical, psychological or sexual", "Sudden homelessness (e.g. after conflict with legal guardians)", "Acute psychiatric decompensation without grounds for hospitalisation", "Neglect or deprivation with immediate endangerment", "Loss of primary carer through imprisonment, hospitalisation or death", "Escalation in the family of origin with concrete risk to the child's welfare"] },
+        { type: "h2", content: "How does crisis intervention work?" },
+        { type: "p", content: "The process of a crisis intervention can be broadly divided into four phases – from first contact to follow-up planning:" },
+        { type: "h3", content: "Phase 1: First contact and assessment" },
+        { type: "p", content: "As soon as a crisis is reported, the on-call service of the crisis intervention provider makes contact. At Ankernetz this first contact happens around the clock – including at night, at weekends and on public holidays. In this first conversation the situation is assessed: Is there in fact a crisis indication? Is immediate admission necessary, or is telephone crisis support sufficient for now?" },
+        { type: "h3", content: "Phase 2: Admission and securing safety" },
+        { type: "p", content: "If a crisis indication is confirmed, the young person is admitted to a crisis intervention unit. At Ankernetz this normally happens within 2 to 4 hours of the first contact. The young person receives a safe room, meals and a first point of contact. The goal of this phase is initially just one thing: to establish safety." },
+        { type: "h3", content: "Phase 3: Stabilisation" },
+        { type: "p", content: "In the days that follow, social pedagogues work intensively with the young person. Conversations take place, the life situation is explored, and initial hypotheses about ongoing support emerge. In parallel, the responsible youth welfare office is contacted and informed of the situation." },
+        { type: "h3", content: "Phase 4: Care planning meeting and transition" },
+        { type: "p", content: "At the end of crisis intervention comes a care planning meeting. All parties involved – the youth welfare office, parents (insofar as this serves the child's welfare), the young person themselves and the crisis intervention provider – together develop a perspective. This could be a return home (with outpatient support), admission to a therapeutic residential group, or another form of support under SGB VIII." },
+        { type: "h2", content: "Who can request crisis intervention?" },
+        { type: "ul", content: ["Youth welfare offices in Berlin and Brandenburg (§ 42 SGB VIII – taking into care)", "Legal guardians when they themselves request help", "Hospitals when discharging without secure follow-up care", "Police in cases of protective custody or risk to the child's welfare", "Schools via school social services in acute crisis situations", "In exceptional cases, young people themselves (self-referrals)"] },
+        { type: "h2", content: "Crisis intervention vs psychiatry: what is the difference?" },
+        { type: "p", content: "A common misconception: crisis intervention and child and adolescent psychiatry (CAP) are two different support systems that complement – but do not replace – each other." },
+        { type: "highlight", content: "Psychiatry treats psychiatric conditions using medical means. Crisis intervention creates social safe space and pedagogical support. Both can be necessary simultaneously – or sequentially: first psychiatry, then crisis intervention, or the other way round." },
+        { type: "p", content: "Hospital admission to a CAP unit is indicated when medical or psychiatric treatment is necessary – for example in cases of acute suicidality with a concrete plan, in psychotic states, or when medication adjustment is required. Crisis intervention, on the other hand, can be offered when the situation is manageable through social-pedagogical means." },
+        { type: "h2", content: "What happens after crisis intervention?" },
+        { type: "p", content: "The goal of crisis intervention is not to be a permanent substitute for other forms of support – but a bridge. After stabilisation there are various paths:" },
+        { type: "ul", content: ["Return home with outpatient social-pedagogical support (§ 27 SGB VIII)", "Admission to a therapeutic residential group (§ 34 SGB VIII)", "Admission to intensive individual support (§ 35 SGB VIII)", "Starting outpatient insured psychotherapy", "Diagnostics and clearing to assess ongoing support needs"] },
+        { type: "h2", content: "Ankernetz: 24/7 crisis intervention in Berlin and Brandenburg" },
+        { type: "p", content: "Ankernetz offers crisis intervention for children and young people aged 12 to 17 around the clock. Our on-call service is available 365 days a year – including public holidays. We work closely with the youth welfare offices of all Berlin districts as well as with youth welfare offices in Brandenburg." },
+        { type: "p", content: "What sets Ankernetz apart from other providers: the crisis intervention is embedded in a complete support network. After the crisis, young people do not need to move to a different system – we accompany them into the next form of support. Therapeutic residential groups, insured psychotherapy, diagnostics and counselling are all available under one roof." },
+      ],
+    },
+    relatedPages: {
+      de: [
+        { label: "Krisenintervention", href: "/krisenintervention" },
+        { label: "Therapie & Wohnen", href: "/therapie-wohnen" },
+        { label: "Jugendhilfe", href: "/jugendhilfe" },
+        { label: "Platzanfrage stellen", href: "/platzanfrage" },
+      ],
+      en: [
+        { label: "Crisis Intervention", href: "/krisenintervention" },
+        { label: "Therapy & Housing", href: "/therapie-wohnen" },
+        { label: "Youth Welfare", href: "/jugendhilfe" },
+        { label: "Request a place", href: "/platzanfrage" },
+      ],
+    },
   },
 
   {
     slug: "sensorische-kleidung-autismus-so-funktioniert-es",
-    title: "Sensorische Kleidung bei Autismus: So funktioniert es",
     date: "2026-05-09",
-    readTime: "8 Min. Lesezeit",
-    excerpt:
-      "Für Kinder im Autismus-Spektrum kann Kleidung eine täglich wiederkehrende Stressquelle sein. Nähte, Stoffe und Schnitte, die anderen kaum auffallen, können für autistische Kinder überwältigend wirken. Dieser Artikel erklärt, was sensorische Verarbeitung bedeutet und wie die richtige Kleidung helfen kann.",
-    keywords: [
-      "sensorische Kleidung Autismus",
-      "Kleidung Autismus Kinder",
-      "taktile Kleidung Autismus-Spektrum",
-      "Kleidung Autismus Spektrum Störung",
-      "sensorische Verarbeitung Kleidung",
-    ],
-    sections: [
-      {
-        type: "h2",
-        content: "Was ist sensorische Verarbeitung?",
-      },
-      {
-        type: "p",
-        content:
-          "Sensorische Verarbeitung beschreibt, wie das Nervensystem Reize aus der Umwelt aufnimmt, filtert und bewertet. Bei neurotypischen Menschen geschieht dieser Prozess weitgehend automatisch und unbewusst - das Gehirn entscheidet, welche Signale relevant sind und welche ignoriert werden können. Bei Menschen im Autismus-Spektrum ist dieser Filter anders eingestellt.",
-      },
-      {
-        type: "p",
-        content:
-          "Das bedeutet nicht, dass autistische Menschen mehr oder weniger empfinden - aber die Art, wie Reize verarbeitet und gewichtet werden, unterscheidet sich. Manche Reize, die für andere kaum wahrnehmbar sind, werden als intensiv oder überwältigend erlebt. Andere Reize, die eigentlich wichtig wären, werden kaum registriert. Diese sensorische Besonderheit ist ein zentraler Aspekt der Autismus-Spektrum-Störung (ASS).",
-      },
-      {
-        type: "h2",
-        content: "Warum ist Kleidung für autistische Kinder ein Problem?",
-      },
-      {
-        type: "p",
-        content:
-          "Kleidung ist ein dauerhafter sensorischer Reiz. Sie liegt auf der Haut, sie bewegt sich beim Gehen, sie hat Nähte, Etiketten, Bündchen und Verschlüsse. Für viele autistische Kinder ist das Anziehen eine echte Herausforderung - nicht aus Sturheit oder Verweigerung, sondern weil der sensorische Input der Kleidung für sie schlicht unangenehm oder sogar schmerzhaft ist.",
-      },
-      {
-        type: "highlight",
-        content:
-          "Schätzungsweise 90 Prozent aller Menschen im Autismus-Spektrum zeigen sensorische Besonderheiten. Kleidungsbezogene sensorische Probleme gehören zu den häufigsten Alltagsthemen, die Familien in der Autismus-Beratung beschäftigen.",
-      },
-      {
-        type: "h2",
-        content: "Typische Auslöser: Was autistischen Kindern an Kleidung schwerfällt",
-      },
-      {
-        type: "ul",
-        content: [
-          "Nähte - insbesondere Zehennähte in Socken und Schulternähte in Shirts",
-          "Etiketten aus Papier oder Stoff, die am Nacken oder an den Seiten kratzen",
-          "Stoffe, die sich kratzig, rau oder unangenehm anfühlen (z.B. Wolle, raue Baumwolle)",
-          "Enge oder einschneidende Bündchen an Hosen, Ärmeln oder Halskragen",
-          "Neue Kleidung, die anders riecht oder sich anders anfühlt als bekannte Stücke",
-          "Knöpfe, die Druck auf den Bauch ausüben",
-          "Reißverschlüsse, die unbehaglich am Hals enden",
-          "Kleidung, die sich beim Tragen verschiebt und Körpergefühl verändert",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Was bedeutet sensorische Kleidung für Autismus-Kinder?",
-      },
-      {
-        type: "p",
-        content:
-          "Sensorische Kleidung für autistische Kinder ist nicht eine bestimmte Marke oder ein zertifiziertes Produkt - es ist ein Designprinzip. Es geht darum, alle bekannten sensorischen Auslöser zu eliminieren und gleichzeitig Materialien zu verwenden, die angenehme oder neutral empfundene Reize geben.",
-      },
-      {
-        type: "h3",
-        content: "Keine störenden Nähte",
-      },
-      {
-        type: "p",
-        content:
-          "Die wichtigste Eigenschaft sensorischer Kleidung: keine erhabenen Innennähte. Flatlock-Nähte oder nahtlos gestrickte Kleidung eliminieren den häufigsten Auslöser vollständig. Besonders kritisch sind Zehennähte in Socken - hier haben sich seitenverlegte oder vollständig nahtlose Optionen bewährt.",
-      },
-      {
-        type: "h3",
-        content: "Weiche Materialien",
-      },
-      {
-        type: "p",
-        content:
-          "Bio-Baumwolle, Bambusfasern oder Modal sind Materialien, die von den meisten Menschen im Autismus-Spektrum als angenehm empfunden werden. Sie sind weich, atmen gut und verursachen keine statische Aufladung. Synthetische Fasern, Polyester und Mischgewebe mit hohem Kunststoffanteil sind dagegen häufig problematisch.",
-      },
-      {
-        type: "h3",
-        content: "Propriozeptive Eingaben: Leichter Druck als Stabilisierung",
-      },
-      {
-        type: "p",
-        content:
-          "Viele autistische Kinder reagieren positiv auf gleichmäßigen, leichten Druck auf den Körper - ein Phänomen, das Temple Grandin mit ihrer bekannten Druckmaschine beschrieben hat. Kompressionsshirts und eng anliegende Basisschichten können diesen Effekt erzeugen und helfen, die Körperwahrnehmung zu stabilisieren und Überreizung zu reduzieren.",
-      },
-      {
-        type: "h2",
-        content: "Ankerkleidung: Die Autismus-Kollektion",
-      },
-      {
-        type: "p",
-        content:
-          "Die Autismus-Kollektion von Ankerkleidung wurde speziell für die sensorischen Bedürfnisse von Kindern und Jugendlichen im Spektrum entwickelt. Sensory-Shirts werden nahtlos gestrickt, Hosen haben elastische Bündchen ohne Gummidruck-Abdrücke, und alle Etiketten sind aufgedruckt statt eingenäht. Das Kompressionsshirt aus der Kollektion kombiniert leichten Druck mit einem weichen Außenstoff - dezent und alltagstauglich.",
-      },
-      {
-        type: "h2",
-        content: "Tipps für Eltern und Fachkräfte",
-      },
-      {
-        type: "ul",
-        content: [
-          "Kaufen Sie bewusst: Prüfen Sie jedes Stück auf Nähte, Etiketten und Material - bevor Sie kaufen",
-          "Tragen Sie neue Kleidung zunächst probeweise an - lassen Sie das Kind entscheiden",
-          "Waschen Sie neue Kleidung mehrfach, bevor das Kind sie trägt (weicht Appretur aus dem Stoff)",
-          "Bewährte Stücke mehrfach kaufen - Konsistenz ist für autistische Kinder wertvoll",
-          "Kommunizieren Sie mit Schulen: manche Schuluniformen sind sensorisch schwierig",
-          "Nutzen Sie Fachberatung - Autismus-Ambulanzen und Sozialpädagogen kennen lokale Angebote",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Kleidung als Teil der Alltagsstruktur",
-      },
-      {
-        type: "p",
-        content:
-          "Für viele autistische Kinder ist das Anziehen am Morgen eine stressige Transition. Die richtige Kleidung reduziert diesen Stress erheblich - und damit auch die Energie, die in einen guten Start in den Tag investiert werden muss. Das ist kein Luxus. Es ist eine praktische, wirksame Maßnahme zur Alltagsentlastung.",
-      },
-    ],
-    relatedPages: [
-      { label: "Ankerkleidung Autismus-Kollektion", href: "/ankerkleidung" },
-      { label: "Diagnostik & Clearing", href: "/diagnostik-clearing" },
-      { label: "Psychotherapie", href: "/psychotherapie" },
-    ],
+    title: {
+      de: "Sensorische Kleidung bei Autismus: So funktioniert es",
+      en: "Sensory Clothing for Autism: How It Works",
+    },
+    readTime: {
+      de: "8 Min. Lesezeit",
+      en: "8 min. read",
+    },
+    excerpt: {
+      de: "Für Kinder im Autismus-Spektrum kann Kleidung eine täglich wiederkehrende Stressquelle sein. Nähte, Stoffe und Schnitte, die anderen kaum auffallen, können für autistische Kinder überwältigend wirken. Dieser Artikel erklärt, was sensorische Verarbeitung bedeutet und wie die richtige Kleidung helfen kann.",
+      en: "For children on the autism spectrum, clothing can be a daily source of stress. Seams, fabrics and cuts that barely register for others can feel overwhelming to autistic children. This article explains what sensory processing means and how the right clothing can help.",
+    },
+    keywords: {
+      de: ["sensorische Kleidung Autismus", "Kleidung Autismus Kinder", "taktile Kleidung Autismus-Spektrum", "Kleidung Autismus Spektrum Störung", "sensorische Verarbeitung Kleidung"],
+      en: ["sensory clothing autism", "clothing autism children", "tactile clothing autism spectrum", "clothing autism spectrum disorder", "sensory processing clothing"],
+    },
+    sections: {
+      de: [
+        { type: "h2", content: "Was ist sensorische Verarbeitung?" },
+        { type: "p", content: "Sensorische Verarbeitung beschreibt, wie das Nervensystem Reize aus der Umwelt aufnimmt, filtert und bewertet. Bei neurotypischen Menschen geschieht dieser Prozess weitgehend automatisch und unbewusst - das Gehirn entscheidet, welche Signale relevant sind und welche ignoriert werden können. Bei Menschen im Autismus-Spektrum ist dieser Filter anders eingestellt." },
+        { type: "p", content: "Das bedeutet nicht, dass autistische Menschen mehr oder weniger empfinden - aber die Art, wie Reize verarbeitet und gewichtet werden, unterscheidet sich. Manche Reize, die für andere kaum wahrnehmbar sind, werden als intensiv oder überwältigend erlebt. Diese sensorische Besonderheit ist ein zentraler Aspekt der Autismus-Spektrum-Störung (ASS)." },
+        { type: "h2", content: "Warum ist Kleidung für autistische Kinder ein Problem?" },
+        { type: "p", content: "Kleidung ist ein dauerhafter sensorischer Reiz. Sie liegt auf der Haut, sie bewegt sich beim Gehen, sie hat Nähte, Etiketten, Bündchen und Verschlüsse. Für viele autistische Kinder ist das Anziehen eine echte Herausforderung - nicht aus Sturheit oder Verweigerung, sondern weil der sensorische Input der Kleidung für sie schlicht unangenehm oder sogar schmerzhaft ist." },
+        { type: "highlight", content: "Schätzungsweise 90 Prozent aller Menschen im Autismus-Spektrum zeigen sensorische Besonderheiten. Kleidungsbezogene sensorische Probleme gehören zu den häufigsten Alltagsthemen, die Familien in der Autismus-Beratung beschäftigen." },
+        { type: "h2", content: "Typische Auslöser: Was autistischen Kindern an Kleidung schwerfällt" },
+        { type: "ul", content: ["Nähte - insbesondere Zehennähte in Socken und Schulternähte in Shirts", "Etiketten aus Papier oder Stoff, die am Nacken oder an den Seiten kratzen", "Stoffe, die sich kratzig, rau oder unangenehm anfühlen (z.B. Wolle, raue Baumwolle)", "Enge oder einschneidende Bündchen an Hosen, Ärmeln oder Halskragen", "Neue Kleidung, die anders riecht oder sich anders anfühlt als bekannte Stücke", "Knöpfe, die Druck auf den Bauch ausüben", "Reißverschlüsse, die unbehaglich am Hals enden", "Kleidung, die sich beim Tragen verschiebt und Körpergefühl verändert"] },
+        { type: "h2", content: "Was bedeutet sensorische Kleidung für Autismus-Kinder?" },
+        { type: "p", content: "Sensorische Kleidung für autistische Kinder ist nicht eine bestimmte Marke oder ein zertifiziertes Produkt - es ist ein Designprinzip. Es geht darum, alle bekannten sensorischen Auslöser zu eliminieren und gleichzeitig Materialien zu verwenden, die angenehme oder neutral empfundene Reize geben." },
+        { type: "h3", content: "Keine störenden Nähte" },
+        { type: "p", content: "Die wichtigste Eigenschaft sensorischer Kleidung: keine erhabenen Innennähte. Flatlock-Nähte oder nahtlos gestrickte Kleidung eliminieren den häufigsten Auslöser vollständig. Besonders kritisch sind Zehennähte in Socken - hier haben sich seitenverlegte oder vollständig nahtlose Optionen bewährt." },
+        { type: "h3", content: "Weiche Materialien" },
+        { type: "p", content: "Bio-Baumwolle, Bambusfasern oder Modal sind Materialien, die von den meisten Menschen im Autismus-Spektrum als angenehm empfunden werden. Sie sind weich, atmen gut und verursachen keine statische Aufladung. Synthetische Fasern, Polyester und Mischgewebe mit hohem Kunststoffanteil sind dagegen häufig problematisch." },
+        { type: "h3", content: "Propriozeptive Eingaben: Leichter Druck als Stabilisierung" },
+        { type: "p", content: "Viele autistische Kinder reagieren positiv auf gleichmäßigen, leichten Druck auf den Körper - ein Phänomen, das Temple Grandin mit ihrer bekannten Druckmaschine beschrieben hat. Kompressionsshirts und eng anliegende Basisschichten können diesen Effekt erzeugen und helfen, die Körperwahrnehmung zu stabilisieren und Überreizung zu reduzieren." },
+        { type: "h2", content: "Ankerkleidung: Die Autismus-Kollektion" },
+        { type: "p", content: "Die Autismus-Kollektion von Ankerkleidung wurde speziell für die sensorischen Bedürfnisse von Kindern und Jugendlichen im Spektrum entwickelt. Sensory-Shirts werden nahtlos gestrickt, Hosen haben elastische Bündchen ohne Gummidruck-Abdrücke, und alle Etiketten sind aufgedruckt statt eingenäht. Das Kompressionsshirt aus der Kollektion kombiniert leichten Druck mit einem weichen Außenstoff - dezent und alltagstauglich." },
+        { type: "h2", content: "Tipps für Eltern und Fachkräfte" },
+        { type: "ul", content: ["Kaufen Sie bewusst: Prüfen Sie jedes Stück auf Nähte, Etiketten und Material - bevor Sie kaufen", "Tragen Sie neue Kleidung zunächst probeweise an - lassen Sie das Kind entscheiden", "Waschen Sie neue Kleidung mehrfach, bevor das Kind sie trägt (weicht Appretur aus dem Stoff)", "Bewährte Stücke mehrfach kaufen - Konsistenz ist für autistische Kinder wertvoll", "Kommunizieren Sie mit Schulen: manche Schuluniformen sind sensorisch schwierig", "Nutzen Sie Fachberatung - Autismus-Ambulanzen und Sozialpädagogen kennen lokale Angebote"] },
+        { type: "h2", content: "Kleidung als Teil der Alltagsstruktur" },
+        { type: "p", content: "Für viele autistische Kinder ist das Anziehen am Morgen eine stressige Transition. Die richtige Kleidung reduziert diesen Stress erheblich - und damit auch die Energie, die in einen guten Start in den Tag investiert werden muss. Das ist kein Luxus. Es ist eine praktische, wirksame Maßnahme zur Alltagsentlastung." },
+      ],
+      en: [
+        { type: "h2", content: "What is sensory processing?" },
+        { type: "p", content: "Sensory processing describes how the nervous system takes in, filters and evaluates stimuli from the environment. In neurotypical people this process happens largely automatically and unconsciously – the brain decides which signals are relevant and which can be ignored. In people on the autism spectrum this filter works differently." },
+        { type: "p", content: "This does not mean that autistic people feel more or less – but the way stimuli are processed and weighted differs. Some stimuli that are barely perceptible to others are experienced as intense or overwhelming. This sensory difference is a central aspect of autism spectrum disorder (ASD)." },
+        { type: "h2", content: "Why is clothing a problem for autistic children?" },
+        { type: "p", content: "Clothing is a constant sensory stimulus. It lies on the skin, it moves when walking, it has seams, labels, cuffs and fastenings. For many autistic children, getting dressed is a real challenge – not from stubbornness or defiance, but because the sensory input from clothing is simply uncomfortable or even painful for them." },
+        { type: "highlight", content: "It is estimated that approximately 90 per cent of all people on the autism spectrum show sensory differences. Clothing-related sensory problems are among the most common everyday issues that families raise in autism counselling." },
+        { type: "h2", content: "Common triggers: what autistic children find difficult about clothing" },
+        { type: "ul", content: ["Seams – particularly toe seams in socks and shoulder seams in shirts", "Labels made of paper or fabric that scratch at the back of the neck or on the sides", "Fabrics that feel scratchy, rough or uncomfortable (e.g. wool, rough cotton)", "Tight or constricting cuffs on trousers, sleeves or necklines", "New clothing that smells different or feels different from familiar pieces", "Buttons that press against the stomach", "Zips that end uncomfortably at the neck", "Clothing that shifts during wear and changes the sense of the body"] },
+        { type: "h2", content: "What does sensory clothing mean for autistic children?" },
+        { type: "p", content: "Sensory clothing for autistic children is not a specific brand or a certified product – it is a design principle. The aim is to eliminate all known sensory triggers while using materials that provide pleasant or neutral stimuli." },
+        { type: "h3", content: "No disruptive seams" },
+        { type: "p", content: "The most important feature of sensory clothing: no raised internal seams. Flatlock seams or seamlessly knitted clothing eliminate the most common trigger entirely. Toe seams in socks are particularly critical – side-positioned or fully seamless options have proven effective here." },
+        { type: "h3", content: "Soft materials" },
+        { type: "p", content: "Organic cotton, bamboo fibres or modal are materials that most people on the autism spectrum find pleasant. They are soft, breathe well and cause no static. Synthetic fibres, polyester and blended fabrics with a high plastic content are often problematic." },
+        { type: "h3", content: "Proprioceptive input: gentle pressure as stabilisation" },
+        { type: "p", content: "Many autistic children respond positively to even, gentle pressure on the body – a phenomenon that Temple Grandin described with her famous squeeze machine. Compression shirts and close-fitting base layers can create this effect and help stabilise body awareness and reduce overstimulation." },
+        { type: "h2", content: "Anchor Clothing: the autism collection" },
+        { type: "p", content: "The autism collection from Anchor Clothing was developed specifically for the sensory needs of children and young people on the spectrum. Sensory shirts are seamlessly knitted, trousers have elastic waistbands without rubber-pressure marks, and all labels are printed rather than sewn in. The compression shirt from the collection combines gentle pressure with a soft outer fabric – discreet and practical for everyday wear." },
+        { type: "h2", content: "Tips for parents and professionals" },
+        { type: "ul", content: ["Buy consciously: check every item for seams, labels and material – before buying", "Try new clothing briefly first – let the child decide", "Wash new clothing several times before the child wears it (removes sizing from the fabric)", "Buy tried-and-tested pieces in multiple copies – consistency is valuable for autistic children", "Communicate with schools: some school uniforms are sensorially challenging", "Use specialist advice – autism outpatient services and social pedagogues know local options"] },
+        { type: "h2", content: "Clothing as part of daily structure" },
+        { type: "p", content: "For many autistic children, getting dressed in the morning is a stressful transition. The right clothing significantly reduces this stress – and thereby also the energy that needs to be invested in getting the day off to a good start. This is not a luxury. It is a practical, effective measure to ease the demands of everyday life." },
+      ],
+    },
+    relatedPages: {
+      de: [
+        { label: "Ankerkleidung Autismus-Kollektion", href: "/ankerkleidung" },
+        { label: "Diagnostik & Clearing", href: "/diagnostik-clearing" },
+        { label: "Psychotherapie", href: "/psychotherapie" },
+      ],
+      en: [
+        { label: "Anchor Clothing Autism Collection", href: "/ankerkleidung" },
+        { label: "Diagnostics & Clearing", href: "/diagnostik-clearing" },
+        { label: "Psychotherapy", href: "/psychotherapie" },
+      ],
+    },
   },
 
   {
     slug: "jugendhilfe-berlin-brandenburg-ueberblick",
-    title: "Jugendhilfe in Berlin und Brandenburg: Der vollständige Überblick 2026",
     date: "2026-05-09",
-    readTime: "12 Min. Lesezeit",
-    excerpt:
-      "Jugendhilfe ist ein Recht, kein Gnadenakt. Dieser Überblick erklärt, welche Hilfeformen es gibt, wie man sie beantragt, was sie kosten und wie das System in Berlin und Brandenburg konkret funktioniert - für Eltern, Jugendliche und Fachkräfte.",
-    keywords: [
-      "Jugendhilfe Berlin Brandenburg",
-      "stationäre Jugendhilfe Berlin",
-      "Jugendhilfe beantragen Berlin",
-      "Hilfen zur Erziehung Brandenburg",
-      "SGB VIII Berlin Brandenburg",
-    ],
-    sections: [
-      {
-        type: "h2",
-        content: "Was ist Jugendhilfe?",
-      },
-      {
-        type: "p",
-        content:
-          "Jugendhilfe ist ein Oberbegriff für alle staatlich finanzierten Unterstützungsleistungen für Kinder, Jugendliche und ihre Familien, die durch das Kinder- und Jugendhilfegesetz (SGB VIII - Achtes Sozialgesetzbuch) geregelt sind. Jugendhilfe ist ein gesetzlicher Anspruch - kein Almosen und keine Strafe. Wer die Voraussetzungen erfüllt, hat Anspruch auf Unterstützung.",
-      },
-      {
-        type: "p",
-        content:
-          "In Deutschland liegt die Verantwortung für die Jugendhilfe bei den kommunalen Jugendämtern. In Berlin sind das die Jugendämter der zwölf Bezirke - von Mitte bis Reinickendorf. In Brandenburg sind die Landkreise und kreisfreien Städte zuständig: Potsdam-Mittelmark, Dahme-Spreewald, Havelland und alle weiteren Landkreise haben eigene Jugendämter.",
-      },
-      {
-        type: "h2",
-        content: "Welche Hilfeformen gibt es?",
-      },
-      {
-        type: "p",
-        content:
-          "Das SGB VIII kennt verschiedene Hilfeformen, die je nach Bedarf und Situation eingesetzt werden. Die wichtigsten sind:",
-      },
-      {
-        type: "h3",
-        content: "§ 27 SGB VIII - Ambulante Hilfen zur Erziehung",
-      },
-      {
-        type: "p",
-        content:
-          "Ambulante Hilfen finden im Lebensumfeld der Familie statt. Sie umfassen sozialpädagogische Familienhilfe (SPFH), Erziehungsbeistandschaft, soziale Gruppenarbeit und andere niedrigschwellige Angebote. Die Familie bleibt zusammen, erhält aber professionelle Unterstützung. Das ist die häufigste und in der Regel erste Hilfeform.",
-      },
-      {
-        type: "h3",
-        content: "§ 34 SGB VIII - Stationäre Heimerziehung",
-      },
-      {
-        type: "p",
-        content:
-          "Wenn ein Kind oder Jugendlicher nicht mehr im Elternhaus leben kann oder soll, kommt die stationäre Unterbringung in Betracht. Das Kind lebt in einer Wohngruppe oder Einrichtung und besucht von dort aus Schule, Ausbildung oder Therapie. Der Kontakt zur Familie bleibt in der Regel bestehen und wird sozialpädagogisch begleitet.",
-      },
-      {
-        type: "h3",
-        content: "§ 35 SGB VIII - Intensive sozialpädagogische Einzelbetreuung",
-      },
-      {
-        type: "p",
-        content:
-          "Die intensivste Form der stationären Hilfe ist die Einzelbetreuung - ein Jugendlicher wird von einer Fachkraft in einer 1:1-Betreuung begleitet. Diese Hilfeform ist für Jugendliche gedacht, die in Gruppen nicht stabilisiert werden können oder besonders intensive Unterstützung benötigen. Sie ist die kostenintensivste Form und wird nur in klar indizierten Fällen bewilligt.",
-      },
-      {
-        type: "h2",
-        content: "Wie beantrage ich Jugendhilfe in Berlin oder Brandenburg?",
-      },
-      {
-        type: "p",
-        content:
-          "Der erste Schritt ist immer der Kontakt zum zuständigen Jugendamt. Zuständig ist das Jugendamt des Wohnbezirks bzw. des Landkreises, in dem das Kind seinen gewöhnlichen Aufenthalt hat.",
-      },
-      {
-        type: "ul",
-        content: [
-          "Eltern oder Sorgeberechtigte wenden sich an den Allgemeinen Sozialen Dienst (ASD) des Jugendamts",
-          "Ein Erstgespräch findet statt - meist innerhalb weniger Tage",
-          "Bei Zustimmung erfolgt eine Hilfeplanung nach § 36 SGB VIII",
-          "Im Hilfeplangespräch werden alle Beteiligten einbezogen: Familie, Kind und Fachkräfte",
-          "Das Jugendamt entscheidet über Art und Umfang der Hilfe",
-          "Bei Einigung wird ein Hilfeplan erstellt und die Hilfe beginnt",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Unterschiede zwischen Berlin und Brandenburg",
-      },
-      {
-        type: "p",
-        content:
-          "Berlin ist ein Stadtstaat mit zwölf Bezirken und zwölf Bezirksjugendämtern. Jeder Berliner Bezirk - Mitte, Pankow, Friedrichshain-Kreuzberg, Charlottenburg-Wilmersdorf, Spandau, Steglitz-Zehlendorf, Tempelhof-Schöneberg, Neukölln, Treptow-Köpenick, Marzahn-Hellersdorf, Lichtenberg und Reinickendorf - hat ein eigenes Jugendamt mit eigenen Zuständigkeiten und eigener Verwaltungsstruktur.",
-      },
-      {
-        type: "p",
-        content:
-          "Brandenburg hingegen ist ein Flächenland mit 14 Landkreisen und vier kreisfreien Städten. Die Landkreise Potsdam-Mittelmark, Dahme-Spreewald, Teltow-Fläming, Havelland, Oberhavel, Märkisch-Oderland, Oder-Spree, Barnim (Verwaltungssitz Eberswalde), Prignitz, Ostprignitz-Ruppin und Uckermark haben jeweils eigene Jugendämter. Die kreisfreien Städte Potsdam, Cottbus, Frankfurt (Oder) und Brandenburg an der Havel sind ebenfalls eigenständige Jugendamtsbezirke.",
-      },
-      {
-        type: "highlight",
-        content:
-          "Wichtig für die Praxis: Bei einem Umzug über eine Bezirks- oder Landkreisgrenze wechselt die Zuständigkeit. Das zuständige Jugendamt am neuen Wohnort übernimmt dann die Hilfeplanung - in Absprache mit dem abgebenden Amt.",
-      },
-      {
-        type: "h2",
-        content: "Welche Träger gibt es?",
-      },
-      {
-        type: "p",
-        content:
-          "Jugendhilfe wird nicht ausschließlich vom Jugendamt selbst erbracht - in der Praxis führen freie Träger der Jugendhilfe (anerkannte gemeinnützige Organisationen) den größten Teil der Leistungen durch. Die Jugendämter finanzieren und steuern, die freien Träger setzen um. Bekannte freie Träger in Berlin und Brandenburg sind große Verbände wie Diakonie, Caritas, AWO oder Volkssolidarität - aber auch spezialisierte kleinere Träger wie Ankernetz.",
-      },
-      {
-        type: "h2",
-        content: "Ankernetz als spezialisierter Träger in Berlin und Brandenburg",
-      },
-      {
-        type: "p",
-        content:
-          "Ankernetz ist ein anerkannter freier Träger der Kinder- und Jugendhilfe mit Sitz in Berlin und Einzugsgebiet in Berlin und Brandenburg. Wir sind auf komplexe Hilfebedarfe spezialisiert: Krisenintervention, therapeutische Wohngruppen, Diagnostik und Clearing, Psychotherapie mit Kassensitz und Frühe Hilfen. Alle Leistungen werden über das zuständige Jugendamt finanziert - für Familien entstehen keine Kosten.",
-      },
-      {
-        type: "h2",
-        content: "Was kostet Jugendhilfe?",
-      },
-      {
-        type: "p",
-        content:
-          "Für Familien und Jugendliche entstehen bei der Jugendhilfe grundsätzlich keine direkten Kosten. Die Leistungen werden vollständig durch das Jugendamt finanziert. Bei stationären Hilfen gibt es eine gesetzlich geregelte Kostenbeteiligung der Eltern, die sich am Einkommen orientiert - diese ist jedoch in der Praxis oft gering oder wird vollständig erlassen.",
-      },
-      {
-        type: "h2",
-        content: "Häufige Missverständnisse zur Jugendhilfe",
-      },
-      {
-        type: "ul",
-        content: [
-          "\"Jugendhilfe bedeutet, dass das Kind weggegeben wird.\" - Falsch: Die meisten Hilfen sind ambulant und finden zuhause statt.",
-          "\"Das Jugendamt ist der Feind.\" - Falsch: Das Jugendamt ist gesetzlich verpflichtet, Familien zu unterstützen, nicht zu bestrafen.",
-          "\"Nur bei Verwahrlosung gibt es Jugendhilfe.\" - Falsch: Auch bei Erziehungsschwierigkeiten, psychischen Erkrankungen eines Elternteils oder Armut kann Jugendhilfe beantragt werden.",
-          "\"Kinder werden nie wieder zurückgegeben.\" - Falsch: Stationäre Hilfe ist immer zeitlich begrenzt und auf Rückkehr oder Selbstständigkeit ausgerichtet.",
-          "\"Ich darf als Elternteil nicht mitbestimmen.\" - Falsch: Eltern haben gesetzlich garantierte Mitwirkungsrechte im Hilfeplangespräch.",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Weiterführende Unterstützung durch Ankernetz",
-      },
-      {
-        type: "p",
-        content:
-          "Ankernetz begleitet Familien und Jugendliche in Berlin und Brandenburg durch alle Phasen der Jugendhilfe. Ob es um eine erste Einschätzung geht, eine akute Krisenintervention, eine langfristige stationäre Unterbringung oder den Übergang in ein selbstständiges Leben - wir sind als vollständiges Netz an Ihrer Seite.",
-      },
-    ],
-    relatedPages: [
-      { label: "Jugendhilfe", href: "/jugendhilfe" },
-      { label: "Krisenintervention", href: "/krisenintervention" },
-      { label: "Diagnostik & Clearing", href: "/diagnostik-clearing" },
-      { label: "Platzanfrage stellen", href: "/platzanfrage" },
-    ],
+    title: {
+      de: "Jugendhilfe in Berlin und Brandenburg: Der vollständige Überblick 2026",
+      en: "Youth Welfare in Berlin and Brandenburg: The Complete Overview 2026",
+    },
+    readTime: {
+      de: "12 Min. Lesezeit",
+      en: "12 min. read",
+    },
+    excerpt: {
+      de: "Jugendhilfe ist ein Recht, kein Gnadenakt. Dieser Überblick erklärt, welche Hilfeformen es gibt, wie man sie beantragt, was sie kosten und wie das System in Berlin und Brandenburg konkret funktioniert - für Eltern, Jugendliche und Fachkräfte.",
+      en: "Youth welfare is a right, not charity. This overview explains what forms of support exist, how to apply, what they cost and how the system works in Berlin and Brandenburg – for parents, young people and professionals.",
+    },
+    keywords: {
+      de: ["Jugendhilfe Berlin Brandenburg", "stationäre Jugendhilfe Berlin", "Jugendhilfe beantragen Berlin", "Hilfen zur Erziehung Brandenburg", "SGB VIII Berlin Brandenburg"],
+      en: ["youth welfare Berlin Brandenburg", "inpatient youth welfare Berlin", "apply for youth welfare Berlin", "educational support Brandenburg", "SGB VIII Berlin Brandenburg"],
+    },
+    sections: {
+      de: [
+        { type: "h2", content: "Was ist Jugendhilfe?" },
+        { type: "p", content: "Jugendhilfe ist ein Oberbegriff für alle staatlich finanzierten Unterstützungsleistungen für Kinder, Jugendliche und ihre Familien, die durch das Kinder- und Jugendhilfegesetz (SGB VIII - Achtes Sozialgesetzbuch) geregelt sind. Jugendhilfe ist ein gesetzlicher Anspruch - kein Almosen und keine Strafe. Wer die Voraussetzungen erfüllt, hat Anspruch auf Unterstützung." },
+        { type: "p", content: "In Deutschland liegt die Verantwortung für die Jugendhilfe bei den kommunalen Jugendämtern. In Berlin sind das die Jugendämter der zwölf Bezirke - von Mitte bis Reinickendorf. In Brandenburg sind die Landkreise und kreisfreien Städte zuständig: Potsdam-Mittelmark, Dahme-Spreewald, Havelland und alle weiteren Landkreise haben eigene Jugendämter." },
+        { type: "h2", content: "Welche Hilfeformen gibt es?" },
+        { type: "p", content: "Das SGB VIII kennt verschiedene Hilfeformen, die je nach Bedarf und Situation eingesetzt werden. Die wichtigsten sind:" },
+        { type: "h3", content: "§ 27 SGB VIII - Ambulante Hilfen zur Erziehung" },
+        { type: "p", content: "Ambulante Hilfen finden im Lebensumfeld der Familie statt. Sie umfassen sozialpädagogische Familienhilfe (SPFH), Erziehungsbeistandschaft, soziale Gruppenarbeit und andere niedrigschwellige Angebote. Die Familie bleibt zusammen, erhält aber professionelle Unterstützung. Das ist die häufigste und in der Regel erste Hilfeform." },
+        { type: "h3", content: "§ 34 SGB VIII - Stationäre Heimerziehung" },
+        { type: "p", content: "Wenn ein Kind oder Jugendlicher nicht mehr im Elternhaus leben kann oder soll, kommt die stationäre Unterbringung in Betracht. Das Kind lebt in einer Wohngruppe oder Einrichtung und besucht von dort aus Schule, Ausbildung oder Therapie. Der Kontakt zur Familie bleibt in der Regel bestehen und wird sozialpädagogisch begleitet." },
+        { type: "h3", content: "§ 35 SGB VIII - Intensive sozialpädagogische Einzelbetreuung" },
+        { type: "p", content: "Die intensivste Form der stationären Hilfe ist die Einzelbetreuung - ein Jugendlicher wird von einer Fachkraft in einer 1:1-Betreuung begleitet. Diese Hilfeform ist für Jugendliche gedacht, die in Gruppen nicht stabilisiert werden können oder besonders intensive Unterstützung benötigen. Sie ist die kostenintensivste Form und wird nur in klar indizierten Fällen bewilligt." },
+        { type: "h2", content: "Wie beantrage ich Jugendhilfe in Berlin oder Brandenburg?" },
+        { type: "p", content: "Der erste Schritt ist immer der Kontakt zum zuständigen Jugendamt. Zuständig ist das Jugendamt des Wohnbezirks bzw. des Landkreises, in dem das Kind seinen gewöhnlichen Aufenthalt hat." },
+        { type: "ul", content: ["Eltern oder Sorgeberechtigte wenden sich an den Allgemeinen Sozialen Dienst (ASD) des Jugendamts", "Ein Erstgespräch findet statt - meist innerhalb weniger Tage", "Bei Zustimmung erfolgt eine Hilfeplanung nach § 36 SGB VIII", "Im Hilfeplangespräch werden alle Beteiligten einbezogen: Familie, Kind und Fachkräfte", "Das Jugendamt entscheidet über Art und Umfang der Hilfe", "Bei Einigung wird ein Hilfeplan erstellt und die Hilfe beginnt"] },
+        { type: "h2", content: "Unterschiede zwischen Berlin und Brandenburg" },
+        { type: "p", content: "Berlin ist ein Stadtstaat mit zwölf Bezirken und zwölf Bezirksjugendämtern. Jeder Berliner Bezirk - Mitte, Pankow, Friedrichshain-Kreuzberg, Charlottenburg-Wilmersdorf, Spandau, Steglitz-Zehlendorf, Tempelhof-Schöneberg, Neukölln, Treptow-Köpenick, Marzahn-Hellersdorf, Lichtenberg und Reinickendorf - hat ein eigenes Jugendamt mit eigenen Zuständigkeiten und eigener Verwaltungsstruktur." },
+        { type: "p", content: "Brandenburg hingegen ist ein Flächenland mit 14 Landkreisen und vier kreisfreien Städten. Die Landkreise Potsdam-Mittelmark, Dahme-Spreewald, Teltow-Fläming, Havelland, Oberhavel, Märkisch-Oderland, Oder-Spree, Barnim, Prignitz, Ostprignitz-Ruppin und Uckermark haben jeweils eigene Jugendämter. Die kreisfreien Städte Potsdam, Cottbus, Frankfurt (Oder) und Brandenburg an der Havel sind ebenfalls eigenständige Jugendamtsbezirke." },
+        { type: "highlight", content: "Wichtig für die Praxis: Bei einem Umzug über eine Bezirks- oder Landkreisgrenze wechselt die Zuständigkeit. Das zuständige Jugendamt am neuen Wohnort übernimmt dann die Hilfeplanung - in Absprache mit dem abgebenden Amt." },
+        { type: "h2", content: "Welche Träger gibt es?" },
+        { type: "p", content: "Jugendhilfe wird nicht ausschließlich vom Jugendamt selbst erbracht - in der Praxis führen freie Träger der Jugendhilfe (anerkannte gemeinnützige Organisationen) den größten Teil der Leistungen durch. Die Jugendämter finanzieren und steuern, die freien Träger setzen um. Bekannte freie Träger in Berlin und Brandenburg sind große Verbände wie Diakonie, Caritas, AWO oder Volkssolidarität - aber auch spezialisierte kleinere Träger wie Ankernetz." },
+        { type: "h2", content: "Ankernetz als spezialisierter Träger in Berlin und Brandenburg" },
+        { type: "p", content: "Ankernetz ist ein anerkannter freier Träger der Kinder- und Jugendhilfe mit Sitz in Berlin und Einzugsgebiet in Berlin und Brandenburg. Wir sind auf komplexe Hilfebedarfe spezialisiert: Krisenintervention, therapeutische Wohngruppen, Diagnostik und Clearing, Psychotherapie mit Kassensitz und Frühe Hilfen. Alle Leistungen werden über das zuständige Jugendamt finanziert - für Familien entstehen keine Kosten." },
+        { type: "h2", content: "Was kostet Jugendhilfe?" },
+        { type: "p", content: "Für Familien und Jugendliche entstehen bei der Jugendhilfe grundsätzlich keine direkten Kosten. Die Leistungen werden vollständig durch das Jugendamt finanziert. Bei stationären Hilfen gibt es eine gesetzlich geregelte Kostenbeteiligung der Eltern, die sich am Einkommen orientiert - diese ist jedoch in der Praxis oft gering oder wird vollständig erlassen." },
+        { type: "h2", content: "Häufige Missverständnisse zur Jugendhilfe" },
+        { type: "ul", content: ["\"Jugendhilfe bedeutet, dass das Kind weggegeben wird.\" - Falsch: Die meisten Hilfen sind ambulant und finden zuhause statt.", "\"Das Jugendamt ist der Feind.\" - Falsch: Das Jugendamt ist gesetzlich verpflichtet, Familien zu unterstützen, nicht zu bestrafen.", "\"Nur bei Verwahrlosung gibt es Jugendhilfe.\" - Falsch: Auch bei Erziehungsschwierigkeiten, psychischen Erkrankungen eines Elternteils oder Armut kann Jugendhilfe beantragt werden.", "\"Kinder werden nie wieder zurückgegeben.\" - Falsch: Stationäre Hilfe ist immer zeitlich begrenzt und auf Rückkehr oder Selbstständigkeit ausgerichtet.", "\"Ich darf als Elternteil nicht mitbestimmen.\" - Falsch: Eltern haben gesetzlich garantierte Mitwirkungsrechte im Hilfeplangespräch."] },
+        { type: "h2", content: "Weiterführende Unterstützung durch Ankernetz" },
+        { type: "p", content: "Ankernetz begleitet Familien und Jugendliche in Berlin und Brandenburg durch alle Phasen der Jugendhilfe. Ob es um eine erste Einschätzung geht, eine akute Krisenintervention, eine langfristige stationäre Unterbringung oder den Übergang in ein selbstständiges Leben - wir sind als vollständiges Netz an Ihrer Seite." },
+      ],
+      en: [
+        { type: "h2", content: "What is youth welfare?" },
+        { type: "p", content: "Youth welfare is a collective term for all state-funded support services for children, young people and their families, regulated by the Child and Youth Welfare Act (SGB VIII – the Eighth Social Code). Youth welfare is a legal entitlement – not charity and not a punishment. Anyone who meets the requirements has a right to support." },
+        { type: "p", content: "In Germany, responsibility for youth welfare lies with the municipal youth welfare offices. In Berlin these are the youth welfare offices of the twelve districts – from Mitte to Reinickendorf. In Brandenburg the districts and independent cities are responsible: Potsdam-Mittelmark, Dahme-Spreewald, Havelland and all other districts have their own youth welfare offices." },
+        { type: "h2", content: "What forms of support are available?" },
+        { type: "p", content: "SGB VIII provides for various forms of support that are deployed depending on need and situation. The most important are:" },
+        { type: "h3", content: "§ 27 SGB VIII – Outpatient educational support" },
+        { type: "p", content: "Outpatient support takes place in the family's own environment. It includes social-pedagogical family support, educational mentoring, social group work and other low-threshold services. The family stays together but receives professional support. This is the most common and usually the first form of support." },
+        { type: "h3", content: "§ 34 SGB VIII – Inpatient residential care" },
+        { type: "p", content: "When a child or young person can no longer or should no longer live in the parental home, inpatient placement is considered. The child lives in a residential group or facility and attends school, training or therapy from there. Contact with the family is maintained as a rule and supported by social pedagogues." },
+        { type: "h3", content: "§ 35 SGB VIII – Intensive individual social-pedagogical support" },
+        { type: "p", content: "The most intensive form of inpatient support is individual care – a young person is supported by a professional in 1:1 supervision. This form is designed for young people who cannot be stabilised in group settings or who need particularly intensive support. It is the most cost-intensive form and is approved only in clearly indicated cases." },
+        { type: "h2", content: "How do I apply for youth welfare in Berlin or Brandenburg?" },
+        { type: "p", content: "The first step is always to contact the responsible youth welfare office. The responsible office is the youth welfare office of the district or county in which the child has their habitual residence." },
+        { type: "ul", content: ["Parents or legal guardians contact the General Social Services (ASD) of the youth welfare office", "An initial meeting takes place – usually within a few days", "If agreed, care planning takes place under § 36 SGB VIII", "At the care planning meeting all parties are involved: family, child and professionals", "The youth welfare office decides on the type and scope of support", "Once agreed, a care plan is drawn up and support begins"] },
+        { type: "h2", content: "Differences between Berlin and Brandenburg" },
+        { type: "p", content: "Berlin is a city-state with twelve districts and twelve district youth welfare offices. Each Berlin district – Mitte, Pankow, Friedrichshain-Kreuzberg, Charlottenburg-Wilmersdorf, Spandau, Steglitz-Zehlendorf, Tempelhof-Schöneberg, Neukölln, Treptow-Köpenick, Marzahn-Hellersdorf, Lichtenberg and Reinickendorf – has its own youth welfare office with its own responsibilities and administrative structure." },
+        { type: "p", content: "Brandenburg, on the other hand, is a state covering a large area with 14 districts and four independent cities. The districts of Potsdam-Mittelmark, Dahme-Spreewald, Teltow-Fläming, Havelland, Oberhavel, Märkisch-Oderland, Oder-Spree, Barnim, Prignitz, Ostprignitz-Ruppin and Uckermark each have their own youth welfare offices. The independent cities of Potsdam, Cottbus, Frankfurt (Oder) and Brandenburg an der Havel are also separate youth welfare districts." },
+        { type: "highlight", content: "Important in practice: when moving across a district or county boundary, responsibility changes. The responsible youth welfare office at the new place of residence then takes over care planning – in consultation with the transferring office." },
+        { type: "h2", content: "Which providers are there?" },
+        { type: "p", content: "Youth welfare is not provided exclusively by the youth welfare office itself – in practice, independent youth welfare providers (recognised non-profit organisations) carry out the majority of services. The youth welfare offices finance and coordinate; the independent providers implement. Well-known independent providers in Berlin and Brandenburg include large organisations such as Diakonie, Caritas, AWO or Volkssolidarität – as well as specialised smaller providers like Ankernetz." },
+        { type: "h2", content: "Ankernetz as a specialised provider in Berlin and Brandenburg" },
+        { type: "p", content: "Ankernetz is a recognised independent provider of child and youth welfare services based in Berlin, with a catchment area covering Berlin and Brandenburg. We specialise in complex support needs: crisis intervention, therapeutic residential groups, diagnostics and clearing, insured psychotherapy and early help. All services are funded through the responsible youth welfare office – no costs arise for families." },
+        { type: "h2", content: "What does youth welfare cost?" },
+        { type: "p", content: "For families and young people, youth welfare generally incurs no direct costs. The services are fully funded by the youth welfare office. For inpatient support there is a legally regulated parental contribution based on income – but in practice this is often minimal or waived entirely." },
+        { type: "h2", content: "Common misconceptions about youth welfare" },
+        { type: "ul", content: ["\"Youth welfare means the child is taken away.\" – Wrong: most support is outpatient and takes place in the home.", "\"The youth welfare office is the enemy.\" – Wrong: the youth welfare office is legally obliged to support families, not to punish them.", "\"Youth welfare is only for cases of neglect.\" – Wrong: support can also be requested in cases of educational difficulties, mental illness of a parent or poverty.", "\"Children are never returned.\" – Wrong: inpatient support is always time-limited and aimed at return home or independence.", "\"As a parent I have no say.\" – Wrong: parents have legally guaranteed rights of participation in care planning meetings."] },
+        { type: "h2", content: "Further support from Ankernetz" },
+        { type: "p", content: "Ankernetz accompanies families and young people in Berlin and Brandenburg through all phases of youth welfare. Whether it is an initial assessment, acute crisis intervention, long-term inpatient placement or the transition to independent living – as a complete network, we are by your side." },
+      ],
+    },
+    relatedPages: {
+      de: [
+        { label: "Jugendhilfe", href: "/jugendhilfe" },
+        { label: "Krisenintervention", href: "/krisenintervention" },
+        { label: "Diagnostik & Clearing", href: "/diagnostik-clearing" },
+        { label: "Platzanfrage stellen", href: "/platzanfrage" },
+      ],
+      en: [
+        { label: "Youth Welfare", href: "/jugendhilfe" },
+        { label: "Crisis Intervention", href: "/krisenintervention" },
+        { label: "Diagnostics & Clearing", href: "/diagnostik-clearing" },
+        { label: "Request a place", href: "/platzanfrage" },
+      ],
+    },
   },
 
   {
     slug: "therapeutisches-wohnen-jugendliche-was-es-bedeutet",
-    title: "Therapeutisches Wohnen für Jugendliche: Was es bedeutet und wie es hilft",
     date: "2026-05-09",
-    readTime: "8 Min. Lesezeit",
-    excerpt:
-      "Eine therapeutische Wohngruppe ist mehr als ein Heim. Sie ist ein strukturierter Lebensraum, in dem Jugendliche mit schwerwiegenden psychischen Belastungen stabilisiert, begleitet und in Richtung Selbstständigkeit geführt werden. Dieser Artikel erklärt, wie das konkret aussieht.",
-    keywords: [
-      "therapeutische Wohngruppe Berlin Brandenburg",
-      "Therapie Wohnen Jugendliche",
-      "therapeutisches Wohnen PTBS Trauma",
-      "Wohngruppe Therapie Berlin",
-    ],
-    sections: [
-      {
-        type: "h2",
-        content: "Was ist therapeutisches Wohnen?",
-      },
-      {
-        type: "p",
-        content:
-          "Therapeutisches Wohnen bezeichnet eine besondere Form der stationären Jugendhilfe nach § 34 SGB VIII, bei der die pädagogische Begleitung durch eine systematisch integrierte therapeutische Arbeit ergänzt wird. Im Unterschied zu regulären Wohngruppen, die primär sozialpädagogisch ausgerichtet sind, verfügt eine therapeutische Wohngruppe über ein Team, das psychologisches und psychotherapeutisches Know-how direkt in den Alltag integriert.",
-      },
-      {
-        type: "h2",
-        content: "Unterschied zur normalen Wohngruppe",
-      },
-      {
-        type: "p",
-        content:
-          "Eine reguläre Wohngruppe bietet Schutz, Struktur, Beziehungsangebote und pädagogische Begleitung - das ist wertvoll und für viele Jugendliche ausreichend. Aber für Jugendliche mit schweren Traumafolgestörungen, psychischen Erkrankungen oder komplexen Diagnosen reicht das oft nicht aus. Sie brauchen Fachkräfte, die nicht nur pädagogisch reagieren, sondern auch therapeutisch denken und handeln.",
-      },
-      {
-        type: "highlight",
-        content:
-          "Der Unterschied liegt im konzeptionellen Unterbau: In einer therapeutischen Wohngruppe ist Therapie nicht zusätzlich - sie ist eingewoben in Alltagssituationen, Mahlzeiten, Konflikte und Freizeitgestaltung.",
-      },
-      {
-        type: "h2",
-        content: "Wer profitiert von therapeutischem Wohnen?",
-      },
-      {
-        type: "p",
-        content:
-          "Therapeutisches Wohnen ist indiziert für Jugendliche, bei denen reguläre Jugendhilfe oder ambulante Therapie nicht ausreicht. Typische Zielgruppen sind:",
-      },
-      {
-        type: "ul",
-        content: [
-          "Jugendliche mit Traumafolgestörungen (PTBS, komplexe Traumatisierung)",
-          "Jugendliche nach psychiatrischen Krisen oder Klinikaufenthalten",
-          "Jugendliche mit Persönlichkeitsstörungen im Entwicklungsalter",
-          "Jugendliche mit Sucht- und psychischen Erkrankungen (Doppeldiagnosen)",
-          "Jugendliche nach lang anhaltender Vernachlässigung oder Misshandlung",
-          "Jugendliche, die in regulären Wohngruppen nicht stabilisiert werden konnten",
-        ],
-      },
-      {
-        type: "h2",
-        content: "Ablauf und Alltag in einer therapeutischen Wohngruppe",
-      },
-      {
-        type: "p",
-        content:
-          "Der Alltag in einer therapeutischen Wohngruppe ist bewusst strukturiert - nicht als Kontrollinstrument, sondern als therapeutisches Mittel. Struktur gibt Sicherheit, und Sicherheit ist die Voraussetzung für jede tiefere Arbeit. Ein typischer Tag umfasst gemeinsame Mahlzeiten, Schule oder Ausbildung, freie Zeit, Einzelgespräche mit Bezugsbetreuern und Gruppenangebote.",
-      },
-      {
-        type: "h2",
-        content: "Traumaarbeit: Was konkret passiert",
-      },
-      {
-        type: "p",
-        content:
-          "Traumaarbeit in der therapeutischen Wohngruppe beginnt nicht mit Traumakonfrontation. Sie beginnt mit Sicherheit. Erst wenn ein Jugendlicher sich sicher fühlt - in der Einrichtung, in Beziehungen, im eigenen Körper - kann tiefere Arbeit beginnen. Das kann Monate dauern. Dieser Prozess ist individuell und wird nicht erzwungen.",
-      },
-      {
-        type: "p",
-        content:
-          "Methoden der Traumaarbeit in der therapeutischen Wohngruppe umfassen traumasensitive Gesprächsführung im Alltag, Psychoedukation (Jugendliche lernen, was Trauma ist und wie es ihr Verhalten beeinflusst), körperbezogene Ansätze sowie strukturierte Einzelarbeit mit Psychologen oder Psychotherapeuten.",
-      },
-      {
-        type: "h2",
-        content: "Wie Therapie integriert wird",
-      },
-      {
-        type: "p",
-        content:
-          "Bei Ankernetz ist Psychotherapie in die therapeutische Wohngruppe eingebettet: Wir verfügen über einen eigenen kassenärztlichen Sitz. Jugendliche müssen nicht zu externen Praxen pendeln und auf Wartelisten warten - die Therapie findet dort statt, wo der Jugendliche lebt. Das ist ein entscheidender Unterschied: Therapeutische Kontinuität ist gewährleistet.",
-      },
-      {
-        type: "h2",
-        content: "Elternarbeit: Die Familie ist nicht außen vor",
-      },
-      {
-        type: "p",
-        content:
-          "Therapeutisches Wohnen bedeutet nicht, dass die Familie aus dem Leben des Jugendlichen verschwindet. Im Gegenteil: Elternarbeit ist integraler Bestandteil des Konzepts. Eltern werden in die Hilfeplanung einbezogen, zu Familiengesprächen eingeladen und bei Besuchen begleitet. Das Ziel ist, die Beziehung zwischen Kind und Familie zu klären - nicht zu ersetzen.",
-      },
-      {
-        type: "h2",
-        content: "Übergang nach dem Aufenthalt",
-      },
-      {
-        type: "p",
-        content:
-          "Therapeutisches Wohnen ist keine Dauerlösung. Es ist eine Phase - oft eine der wichtigsten im Leben eines Jugendlichen. Am Ende steht der Übergang: in eine ambulant betreute Wohnform, zurück in die Familie, in eine eigene Wohnung oder in eine Ausbildung. Dieser Übergang wird bei Ankernetz frühzeitig geplant und aktiv begleitet. Unser Angebot \"Übergang Arbeit\" setzt genau hier an.",
-      },
-      {
-        type: "h2",
-        content: "Ankernetz: Therapeutische Wohngruppen in Berlin und Brandenburg",
-      },
-      {
-        type: "p",
-        content:
-          "Ankernetz betreibt therapeutische Wohngruppen für Jugendliche von 12 bis 17 Jahren in Berlin und im angrenzenden Brandenburg. Unser Konzept verbindet sozialpädagogische Begleitung, integrierte Psychotherapie mit Kassensitz, Traumaarbeit und einen klaren Fokus auf Selbstwirksamkeit und Zukunft. Platzanfragen können direkt über das Jugendamt oder unsere Website gestellt werden.",
-      },
-    ],
-    relatedPages: [
-      { label: "Therapie & Wohnen", href: "/therapie-wohnen" },
-      { label: "Psychotherapie", href: "/psychotherapie" },
-      { label: "Krisenintervention", href: "/krisenintervention" },
-      { label: "Platzanfrage stellen", href: "/platzanfrage" },
-    ],
+    title: {
+      de: "Therapeutisches Wohnen für Jugendliche: Was es bedeutet und wie es hilft",
+      en: "Therapeutic Housing for Young People: What It Means and How It Helps",
+    },
+    readTime: {
+      de: "8 Min. Lesezeit",
+      en: "8 min. read",
+    },
+    excerpt: {
+      de: "Eine therapeutische Wohngruppe ist mehr als ein Heim. Sie ist ein strukturierter Lebensraum, in dem Jugendliche mit schwerwiegenden psychischen Belastungen stabilisiert, begleitet und in Richtung Selbstständigkeit geführt werden. Dieser Artikel erklärt, wie das konkret aussieht.",
+      en: "A therapeutic residential group is more than a home. It is a structured living space where young people with serious psychological difficulties are stabilised, supported and guided towards independence. This article explains what that looks like in practice.",
+    },
+    keywords: {
+      de: ["therapeutische Wohngruppe Berlin Brandenburg", "Therapie Wohnen Jugendliche", "therapeutisches Wohnen PTBS Trauma", "Wohngruppe Therapie Berlin"],
+      en: ["therapeutic residential group Berlin Brandenburg", "therapy housing young people", "therapeutic housing PTSD trauma", "residential group therapy Berlin"],
+    },
+    sections: {
+      de: [
+        { type: "h2", content: "Was ist therapeutisches Wohnen?" },
+        { type: "p", content: "Therapeutisches Wohnen bezeichnet eine besondere Form der stationären Jugendhilfe nach § 34 SGB VIII, bei der die pädagogische Begleitung durch eine systematisch integrierte therapeutische Arbeit ergänzt wird. Im Unterschied zu regulären Wohngruppen, die primär sozialpädagogisch ausgerichtet sind, verfügt eine therapeutische Wohngruppe über ein Team, das psychologisches und psychotherapeutisches Know-how direkt in den Alltag integriert." },
+        { type: "h2", content: "Unterschied zur normalen Wohngruppe" },
+        { type: "p", content: "Eine reguläre Wohngruppe bietet Schutz, Struktur, Beziehungsangebote und pädagogische Begleitung - das ist wertvoll und für viele Jugendliche ausreichend. Aber für Jugendliche mit schweren Traumafolgestörungen, psychischen Erkrankungen oder komplexen Diagnosen reicht das oft nicht aus. Sie brauchen Fachkräfte, die nicht nur pädagogisch reagieren, sondern auch therapeutisch denken und handeln." },
+        { type: "highlight", content: "Der Unterschied liegt im konzeptionellen Unterbau: In einer therapeutischen Wohngruppe ist Therapie nicht zusätzlich - sie ist eingewoben in Alltagssituationen, Mahlzeiten, Konflikte und Freizeitgestaltung." },
+        { type: "h2", content: "Wer profitiert von therapeutischem Wohnen?" },
+        { type: "p", content: "Therapeutisches Wohnen ist indiziert für Jugendliche, bei denen reguläre Jugendhilfe oder ambulante Therapie nicht ausreicht. Typische Zielgruppen sind:" },
+        { type: "ul", content: ["Jugendliche mit Traumafolgestörungen (PTBS, komplexe Traumatisierung)", "Jugendliche nach psychiatrischen Krisen oder Klinikaufenthalten", "Jugendliche mit Persönlichkeitsstörungen im Entwicklungsalter", "Jugendliche mit Sucht- und psychischen Erkrankungen (Doppeldiagnosen)", "Jugendliche nach lang anhaltender Vernachlässigung oder Misshandlung", "Jugendliche, die in regulären Wohngruppen nicht stabilisiert werden konnten"] },
+        { type: "h2", content: "Ablauf und Alltag in einer therapeutischen Wohngruppe" },
+        { type: "p", content: "Der Alltag in einer therapeutischen Wohngruppe ist bewusst strukturiert - nicht als Kontrollinstrument, sondern als therapeutisches Mittel. Struktur gibt Sicherheit, und Sicherheit ist die Voraussetzung für jede tiefere Arbeit. Ein typischer Tag umfasst gemeinsame Mahlzeiten, Schule oder Ausbildung, freie Zeit, Einzelgespräche mit Bezugsbetreuern und Gruppenangebote." },
+        { type: "h2", content: "Traumaarbeit: Was konkret passiert" },
+        { type: "p", content: "Traumaarbeit in der therapeutischen Wohngruppe beginnt nicht mit Traumakonfrontation. Sie beginnt mit Sicherheit. Erst wenn ein Jugendlicher sich sicher fühlt - in der Einrichtung, in Beziehungen, im eigenen Körper - kann tiefere Arbeit beginnen. Das kann Monate dauern. Dieser Prozess ist individuell und wird nicht erzwungen." },
+        { type: "p", content: "Methoden der Traumaarbeit umfassen traumasensitive Gesprächsführung im Alltag, Psychoedukation (Jugendliche lernen, was Trauma ist und wie es ihr Verhalten beeinflusst), körperbezogene Ansätze sowie strukturierte Einzelarbeit mit Psychologen oder Psychotherapeuten." },
+        { type: "h2", content: "Wie Therapie integriert wird" },
+        { type: "p", content: "Bei Ankernetz ist Psychotherapie in die therapeutische Wohngruppe eingebettet: Wir verfügen über einen eigenen kassenärztlichen Sitz. Jugendliche müssen nicht zu externen Praxen pendeln und auf Wartelisten warten - die Therapie findet dort statt, wo der Jugendliche lebt. Das ist ein entscheidender Unterschied: Therapeutische Kontinuität ist gewährleistet." },
+        { type: "h2", content: "Elternarbeit: Die Familie ist nicht außen vor" },
+        { type: "p", content: "Therapeutisches Wohnen bedeutet nicht, dass die Familie aus dem Leben des Jugendlichen verschwindet. Im Gegenteil: Elternarbeit ist integraler Bestandteil des Konzepts. Eltern werden in die Hilfeplanung einbezogen, zu Familiengesprächen eingeladen und bei Besuchen begleitet. Das Ziel ist, die Beziehung zwischen Kind und Familie zu klären - nicht zu ersetzen." },
+        { type: "h2", content: "Übergang nach dem Aufenthalt" },
+        { type: "p", content: "Therapeutisches Wohnen ist keine Dauerlösung. Es ist eine Phase - oft eine der wichtigsten im Leben eines Jugendlichen. Am Ende steht der Übergang: in eine ambulant betreute Wohnform, zurück in die Familie, in eine eigene Wohnung oder in eine Ausbildung. Dieser Übergang wird bei Ankernetz frühzeitig geplant und aktiv begleitet." },
+        { type: "h2", content: "Ankernetz: Therapeutische Wohngruppen in Berlin und Brandenburg" },
+        { type: "p", content: "Ankernetz betreibt therapeutische Wohngruppen für Jugendliche von 12 bis 17 Jahren in Berlin und im angrenzenden Brandenburg. Unser Konzept verbindet sozialpädagogische Begleitung, integrierte Psychotherapie mit Kassensitz, Traumaarbeit und einen klaren Fokus auf Selbstwirksamkeit und Zukunft. Platzanfragen können direkt über das Jugendamt oder unsere Website gestellt werden." },
+      ],
+      en: [
+        { type: "h2", content: "What is therapeutic housing?" },
+        { type: "p", content: "Therapeutic housing is a special form of inpatient youth welfare under § 34 SGB VIII, in which pedagogical support is supplemented by systematically integrated therapeutic work. Unlike regular residential groups, which are primarily social-pedagogical in orientation, a therapeutic residential group has a team that integrates psychological and psychotherapeutic expertise directly into daily life." },
+        { type: "h2", content: "Difference from a regular residential group" },
+        { type: "p", content: "A regular residential group offers protection, structure, relationship support and pedagogical guidance – that is valuable and sufficient for many young people. But for young people with serious trauma-related conditions, mental illnesses or complex diagnoses, that often does not suffice. They need professionals who not only respond pedagogically but also think and act therapeutically." },
+        { type: "highlight", content: "The difference lies in the conceptual framework: in a therapeutic residential group, therapy is not an add-on – it is woven into everyday situations, meals, conflicts and leisure activities." },
+        { type: "h2", content: "Who benefits from therapeutic housing?" },
+        { type: "p", content: "Therapeutic housing is indicated for young people for whom regular youth welfare or outpatient therapy is insufficient. Typical target groups include:" },
+        { type: "ul", content: ["Young people with trauma-related conditions (PTSD, complex trauma)", "Young people after psychiatric crises or hospital stays", "Young people with personality disorders in the developmental phase", "Young people with co-occurring addiction and mental health conditions (dual diagnoses)", "Young people after prolonged neglect or abuse", "Young people who could not be stabilised in regular residential groups"] },
+        { type: "h2", content: "Process and daily life in a therapeutic residential group" },
+        { type: "p", content: "Daily life in a therapeutic residential group is deliberately structured – not as a means of control, but as a therapeutic tool. Structure provides safety, and safety is the precondition for any deeper work. A typical day includes shared meals, school or vocational training, free time, individual conversations with keyworkers and group activities." },
+        { type: "h2", content: "Trauma work: what actually happens" },
+        { type: "p", content: "Trauma work in a therapeutic residential group does not begin with trauma confrontation. It begins with safety. Only when a young person feels safe – in the facility, in relationships, in their own body – can deeper work begin. This can take months. The process is individual and is never forced." },
+        { type: "p", content: "Methods of trauma work include trauma-sensitive communication in everyday situations, psychoeducation (young people learn what trauma is and how it influences their behaviour), body-based approaches, and structured individual work with psychologists or psychotherapists." },
+        { type: "h2", content: "How therapy is integrated" },
+        { type: "p", content: "At Ankernetz, psychotherapy is embedded in the therapeutic residential group: we hold our own statutory health insurance approval. Young people do not need to travel to external practices and wait on waiting lists – therapy takes place where the young person lives. This is a decisive difference: therapeutic continuity is guaranteed." },
+        { type: "h2", content: "Family work: the family is not excluded" },
+        { type: "p", content: "Therapeutic housing does not mean that the family disappears from the young person's life. On the contrary: family work is an integral part of the concept. Parents are involved in care planning, invited to family meetings and supported during visits. The goal is to clarify – not replace – the relationship between child and family." },
+        { type: "h2", content: "The transition after the stay" },
+        { type: "p", content: "Therapeutic housing is not a permanent solution. It is a phase – often one of the most important in a young person's life. At the end comes the transition: to a supported independent living arrangement, back to the family, into their own flat or into vocational training. At Ankernetz this transition is planned well in advance and actively supported." },
+        { type: "h2", content: "Ankernetz: therapeutic residential groups in Berlin and Brandenburg" },
+        { type: "p", content: "Ankernetz runs therapeutic residential groups for young people aged 12 to 17 in Berlin and the adjacent Brandenburg region. Our concept combines social-pedagogical support, integrated insured psychotherapy, trauma work and a clear focus on self-efficacy and the future. Place requests can be made directly through the youth welfare office or our website." },
+      ],
+    },
+    relatedPages: {
+      de: [
+        { label: "Therapie & Wohnen", href: "/therapie-wohnen" },
+        { label: "Psychotherapie", href: "/psychotherapie" },
+        { label: "Krisenintervention", href: "/krisenintervention" },
+        { label: "Platzanfrage stellen", href: "/platzanfrage" },
+      ],
+      en: [
+        { label: "Therapy & Housing", href: "/therapie-wohnen" },
+        { label: "Psychotherapy", href: "/psychotherapie" },
+        { label: "Crisis Intervention", href: "/krisenintervention" },
+        { label: "Request a place", href: "/platzanfrage" },
+      ],
+    },
   },
 ];
 

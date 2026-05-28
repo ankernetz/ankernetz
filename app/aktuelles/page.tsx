@@ -4,6 +4,7 @@ import Link from "next/link";
 import { articles } from "./articles";
 import ExternalLinks from "../components/ExternalLinks";
 import { useT } from "../i18n/useT";
+import { useLang } from "../contexts/LanguageContext";
 
 const TRANS = {
   de: {
@@ -68,6 +69,8 @@ const TRANS = {
 
 export default function AktuellesPage() {
   const t = useT(TRANS);
+  const { lang } = useLang();
+  const al = <T,>(field: { de: T; en: T }): T => field[lang];
   return (
     <main style={{ background: "#FAF6F1", minHeight: "100vh", paddingTop: "5rem" }}>
       {/* Hero */}
@@ -135,7 +138,7 @@ export default function AktuellesPage() {
                     </time>
                     <span style={{ color: "rgba(0,0,0,0.2)", fontSize: "0.75rem" }}>·</span>
                     <span style={{ fontSize: "0.75rem", color: "#7A6E6A" }}>
-                      {article.readTime}
+                      {al(article.readTime)}
                     </span>
                   </div>
 
@@ -144,7 +147,7 @@ export default function AktuellesPage() {
                     fontSize: "1.125rem", fontWeight: 700, color: "#1A1614",
                     lineHeight: 1.35, marginBottom: "1rem", letterSpacing: "-0.015em",
                   }}>
-                    {article.title}
+                    {al(article.title)}
                   </h2>
 
                   {/* Excerpt */}
@@ -152,7 +155,7 @@ export default function AktuellesPage() {
                     fontSize: "0.9375rem", color: "#5A4E48", lineHeight: 1.7,
                     marginBottom: "1.75rem", flexGrow: 1,
                   }}>
-                    {article.excerpt}
+                    {al(article.excerpt)}
                   </p>
 
                   {/* CTA */}
