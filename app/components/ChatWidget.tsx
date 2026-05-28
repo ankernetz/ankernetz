@@ -193,17 +193,26 @@ export default function ChatWidget() {
     if (!text.trim() || loading) return;
     const crisis = isCrisisMessage(text);
     if (crisis) setCrisisBanner(true);
+    const pageContext = typeof window !== "undefined" ? window.location.pathname : "";
+    const enrichedText = pageContext && pageContext !== "/"
+      ? `[SEITE:${pageContext}] ${text}`
+      : text;
     const newMessages: Message[] = [...messages, { role: "user", content: text, crisis }];
     setMessages(newMessages);
     setInput("");
     setLoading(true);
     const location = locationRef.current;
+    const apiMessages = newMessages.map((m, i) =>
+      i === newMessages.length - 1 && m.role === "user"
+        ? { role: m.role, content: enrichedText }
+        : { role: m.role, content: m.content }
+    );
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: newMessages.map(m => ({ role: m.role, content: m.content })),
+          messages: apiMessages,
           sessionId: sessionId.current,
           userMessageCount: messages.filter(m => m.role === "user").length + 1,
           location,
@@ -226,6 +235,13 @@ export default function ChatWidget() {
     } finally {
       setLoading(false);
     }
+  }
+
+  function resetChat() {
+    setMessages([{ role: "assistant", content: t.initialMessage }]);
+    setChipsUsed(false);
+    setCrisisBanner(false);
+    setInput("");
   }
 
   function sendMessage() { sendMessageWithText(input.trim()); }
@@ -470,6 +486,34 @@ export default function ChatWidget() {
               </div>
             </div>
           ))}
+
+          {/* Zurück zu den Themen */}
+          {chipsUsed && !loading && (
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "4px", animation: "msgIn 0.25s ease both" }}>
+              <button
+                onClick={resetChat}
+                style={{
+                  display: "flex", alignItems: "center", gap: "5px",
+                  background: "none", border: "1.5px solid rgba(26,63,111,0.15)",
+                  borderRadius: "100px", padding: "5px 14px",
+                  fontSize: "11.5px", fontWeight: 600, color: "#64748b",
+                  cursor: "pointer", transition: "all 0.18s ease",
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(26,63,111,0.4)";
+                  (e.currentTarget as HTMLElement).style.color = "#1a3f6f";
+                  (e.currentTarget as HTMLElement).style.background = "rgba(26,63,111,0.04)";
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(26,63,111,0.15)";
+                  (e.currentTarget as HTMLElement).style.color = "#64748b";
+                  (e.currentTarget as HTMLElement).style.background = "none";
+                }}
+              >
+                ← Anderes Thema
+              </button>
+            </div>
+          )}
 
           {/* Quick-Reply Chips */}
           {!userHasWritten && !chipsUsed && !loading && (
