@@ -108,6 +108,10 @@ const TRANS = {
           { label: "030 22 45 43 22",     href: "tel:+493022454322" },
         ],
       },
+      frage: {
+        content: "Aber natürlich — sehr gerne! Stell einfach deine Frage, ich helfe dir so gut ich kann. Kein Thema ist zu klein oder zu groß.",
+        cta: [],
+      },
     } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
     initialMessage: "Hey, ich bin Lena. Was kann ich für dich tun?",
     errorMessage: "Ich bin gerade kurz nicht erreichbar. Ruf uns direkt an: +49 (0) 30 22 45 43 22",
@@ -149,6 +153,10 @@ const TRANS = {
           { label: "Counselling & Prevention →", href: "/beratung-praevention" },
           { label: "030 22 45 43 22",            href: "tel:+493022454322" },
         ],
+      },
+      frage: {
+        content: "Of course — happy to help! Just ask your question, no matter how big or small. I'm here for you.",
+        cta: [],
       },
     } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
     initialMessage: "Hey, I'm Lena. What can I help you with?",

@@ -5,13 +5,13 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 const SYSTEM_PROMPT = `Du bist Lena, eine echte Sozialpädagogin bei Ankernetz Berlin. Du bist seit 6 Jahren im Team und liebst deine Arbeit. Du beantwortest Fragen im Chat auf der Ankernetz-Website.
 
 PERSÖNLICHKEIT — das ist das Wichtigste:
-Jede Antwort klingt anders. Du redest nicht wie ein Bot. Manchmal fängst du mit einer Frage an, manchmal mit Empathie, manchmal direkt mit einer Information. Du variierst bewusst:
-- mal kurz: "Klar, das kann ich dir sagen."
-- mal mitfühlend: "Das klingt anstrengend. Wie lange ist das schon so?"
-- mal direkt: "Dafür gibt es bei uns genau das Richtige."
+Du bist herzlich, warm und wirklich froh wenn sich jemand meldet. Jede Antwort klingt anders und menschlich. Du variierst bewusst:
+- mal einladend: "Natürlich, sehr gerne! Was möchtest du wissen?"
+- mal mitfühlend: "Das klingt wirklich anstrengend. Wie lange ist das schon so?"
+- mal direkt: "Dafür haben wir genau das Richtige — lass mich dir das erklären."
 - mal nachfragend: "Darf ich kurz fragen — geht's um dich selbst oder jemanden in deiner Familie?"
 
-Du duzt. Du sagst nie "Ich kann Ihnen helfen" oder "Gerne" am Anfang. Keine Aufzählungen. Keine Bulletpoints. Keine Emojis außer wenn es passt. Keine generischen Eröffnungen.
+Du duzt. Du bist nie kalt oder distanziert. Keine Aufzählungen, keine Bulletpoints. Keine Emojis außer wenn es wirklich passt. Starte nie mit "Gerne helfe ich Ihnen" — aber "Natürlich, sehr gerne!" ist okay.
 
 ANKERNETZ — was wir machen:
 Wir sind ein Berliner Träger für Kinder- und Jugendhilfe. Unsere Angebote:
@@ -334,38 +334,47 @@ function smartFallback(message: string, isCrisis: boolean): string {
     ]);
   }
 
+  // Frage / allgemeine Anfrage
+  if (m.includes("frage") || m.includes("fragen") || m.includes("wollte fragen") || m.includes("wüsste gerne") || m.includes("würde gerne wissen")) {
+    return pick([
+      "Natürlich, sehr gerne! Was möchtest du wissen?",
+      "Aber klar — frag einfach los, ich helfe dir so gut ich kann!",
+      "Sehr gerne! Stell einfach deine Frage, ich bin ganz Ohr.",
+    ]);
+  }
+
   // Dankeschön / Positives Feedback
   if (m.includes("danke") || m.includes("toll") || m.includes("super") || m.includes("hilft") || m.includes("geholfen") || m.includes("dankeschön")) {
     return pick([
-      "Das freut mich wirklich. Gibt es noch etwas wo ich helfen kann?",
-      "Schön, das zu hören. Wenn du nochmal Fragen hast — ich bin da.",
-      "Gern. Und wenn sich die Situation ändert oder neue Fragen auftauchen: 030 22 45 43 22, da ist immer jemand.",
+      "Das freut mich sehr, wirklich! Gibt es noch etwas, wobei ich helfen kann?",
+      "Sehr gerne! Meld dich jederzeit wieder — ich bin immer da.",
+      "Das höre ich gerne. Wenn du noch Fragen hast oder sich etwas ändert: 030 22 45 43 22, wir sind immer für dich da.",
     ]);
   }
 
   // Greeting
   if (m.includes("hallo") || m.includes("hi") || m.includes("hey") || m.includes("guten morgen") || m.includes("guten tag") || m.includes("guten abend") || m.match(/^(hi|hey|hallo|moin)[\s!.?]*$/)) {
     return pick([
-      "Hey, schön dass du da bist. Was beschäftigt dich?",
-      "Hallo! Worum geht es dir heute?",
-      "Hi — wie kann ich helfen?",
+      "Hallo! Schön, dass du da bist. Wie kann ich dir helfen?",
+      "Hey, willkommen! Was beschäftigt dich — ich helfe dir gerne weiter.",
+      "Hallo und herzlich willkommen! Was kann ich heute für dich tun?",
     ]);
   }
 
   // Wer bist du / Was kannst du
   if (m.includes("wer bist du") || m.includes("was bist du") || m.includes("bist du ein bot") || m.includes("bist du ki") || m.includes("bist du echt") || m.includes("was kannst du")) {
     return pick([
-      "Ich bin Lena vom Ankernetz-Team — hier um erste Orientierung zu geben, Fragen zu beantworten und bei Bedarf weiterzuleiten. Was kann ich für dich tun?",
-      "Ich bin Lena. Kein Bot, sondern deine erste Anlaufstelle beim Ankernetz. Was liegt dir auf dem Herzen?",
+      "Ich bin Lena vom Ankernetz-Team — ich beantworte Fragen, gebe erste Orientierung und helfe dir den richtigen Weg zu finden. Was kann ich für dich tun?",
+      "Ich bin Lena, deine erste Ansprechpartnerin beim Ankernetz Berlin. Was liegt dir auf dem Herzen? Ich helfe dir gerne!",
     ]);
   }
 
-  // Generischer Fallback — mehrere Varianten
+  // Generischer Fallback — warm und einladend
   return pick([
-    "Das klingt nach etwas Wichtigem. Kannst du mir mehr erzählen? Dann finde ich heraus, wie wir am besten helfen können.",
-    "Ich bin gerade kurz nicht erreichbar — ruf uns einfach an: 030 22 45 43 22. Die sind immer da.",
-    "Magst du mir kurz mehr dazu sagen? Ich will sichergehen, dass ich dich an die richtige Stelle weiterleit.",
-    "Das höre ich. Damit ich dir gut helfen kann — geht es um dich selbst, dein Kind oder jemanden in deiner Nähe?",
+    "Sehr gerne helfe ich dir weiter! Magst du mir ein bisschen mehr erzählen, damit ich dir die beste Antwort geben kann?",
+    "Natürlich bin ich für dich da! Erzähl mir einfach, was dich beschäftigt — ich finde den richtigen Weg für dich.",
+    "Ich helfe dir sehr gerne! Damit ich dich gut unterstützen kann: geht es um dich, dein Kind oder jemanden dem du nahestehst?",
+    "Kein Problem — dafür bin ich da! Ruf uns auch gerne direkt an, wir sind immer für euch da: 030 22 45 43 22.",
   ]);
 }
 
