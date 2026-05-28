@@ -48,14 +48,14 @@ const TRANS = {
     ],
     presets: {
       platz: {
-        content: "Kein Problem - dafür gibt es unsere Platzanfrage. Das ist der schnellste Weg zu uns. Du kannst das kurze Formular ausfüllen oder uns direkt anrufen.",
+        content: "Das geht schneller als du denkst. Füll kurz die Platzanfrage aus — dauert 2 Minuten — oder ruf direkt an. Wir schauen sofort was frei ist und was zu der Situation passt.",
         cta: [
-          { label: "Zur Platzanfrage →", href: "/platzanfrage" },
-          { label: "030 22 45 43 22",    href: "tel:+493022454322" },
+          { label: "Platzanfrage ausfüllen →", href: "/platzanfrage" },
+          { label: "030 22 45 43 22",          href: "tel:+493022454322" },
         ],
       },
       krise: {
-        content: "Wenn es gerade akut ist: Wir haben 24/7 eine Sofortaufnahme. Ruf uns bitte sofort an - da ist jemand. Hier findest du auch alle Infos zu unserem Krisendienst.",
+        content: "Ich bin froh, dass du dich meldest. Wenn es gerade akut ist: Ruf uns jetzt an — da ist wirklich jemand, auch mitten in der Nacht. Du musst das nicht alleine durchstehen.",
         cta: [
           { label: "030 22 45 43 22",      href: "tel:+493022454322" },
           { label: "Krisenintervention →", href: "/krisenintervention" },
@@ -63,14 +63,14 @@ const TRANS = {
         crisis: true,
       },
       beratung: {
-        content: "Unsere Beratung ist kostenlos, niedrigschwellig und ohne Antrag. Kein langer Weg - einfach melden. Hier siehst du alle Beratungsangebote.",
+        content: "Unsere Beratung kostet nichts, braucht keinen Antrag und kein langes Vorgespräch. Einfach melden — per Telefon, online oder persönlich. Wir schauen gemeinsam was sinnvoll ist.",
         cta: [
-          { label: "Beratung & Prävention →", href: "/beratung-praevention" },
-          { label: "030 22 45 43 22",         href: "tel:+493022454322" },
+          { label: "Beratungsangebote →", href: "/beratung-praevention" },
+          { label: "030 22 45 43 22",     href: "tel:+493022454322" },
         ],
       },
     } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
-    initialMessage: "Hallo! Ich bin Lena vom Ankernetz-Team. Ich bin hier, um dir zu helfen - egal ob du eine schnelle Frage hast oder gerade etwas Schwieriges durchmachst.",
+    initialMessage: "Hey, ich bin Lena. Was kann ich für dich tun?",
     errorMessage: "Ich bin gerade kurz nicht erreichbar. Ruf uns direkt an: +49 (0) 30 22 45 43 22",
     inputPlaceholder: "Schreib eine Nachricht…",
     footerText: "Ankernetz Berlin · Vertraulich · Kostenlos",
@@ -90,14 +90,14 @@ const TRANS = {
     ],
     presets: {
       platz: {
-        content: "No problem - that's what our place request form is for. It's the fastest way to reach us. You can fill in the short form or call us directly.",
+        content: "Quicker than you think. Fill out the short place request form — takes 2 minutes — or just call us. We'll check what's available right away.",
         cta: [
           { label: "Place Request →",  href: "/platzanfrage" },
           { label: "030 22 45 43 22", href: "tel:+493022454322" },
         ],
       },
       krise: {
-        content: "If it's urgent right now: We have 24/7 emergency admission. Please call us immediately - someone is there. You'll also find all info about our crisis service here.",
+        content: "I'm glad you reached out. If it's urgent right now: call us — someone will answer, even in the middle of the night. You don't have to go through this alone.",
         cta: [
           { label: "030 22 45 43 22",        href: "tel:+493022454322" },
           { label: "Crisis Intervention →",  href: "/krisenintervention" },
@@ -105,14 +105,14 @@ const TRANS = {
         crisis: true,
       },
       beratung: {
-        content: "Our counselling is free, low-threshold and requires no application. No long process - just get in touch. Here you can see all our counselling services.",
+        content: "Our counselling is free, no application needed, no long process. Just reach out — by phone, online, or in person. We'll figure out together what makes sense.",
         cta: [
           { label: "Counselling & Prevention →", href: "/beratung-praevention" },
           { label: "030 22 45 43 22",            href: "tel:+493022454322" },
         ],
       },
     } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
-    initialMessage: "Hello! I'm Lena from the Ankernetz team. I'm here to help you - whether you have a quick question or are going through something difficult.",
+    initialMessage: "Hey, I'm Lena. What can I help you with?",
     errorMessage: "I'm currently unavailable. Please call us directly: +49 (0) 30 22 45 43 22",
     inputPlaceholder: "Write a message…",
     footerText: "Ankernetz Berlin · Confidential · Free",
