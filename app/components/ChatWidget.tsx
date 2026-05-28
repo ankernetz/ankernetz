@@ -12,7 +12,7 @@ interface Message {
 }
 
 const CRISIS_KEYWORDS = [
-  // Suizidabsicht — direkt
+  // Suizidabsicht -direkt
   "suizid", "selbstmord", "umbringen", "will sterben", "will tot",
   "möchte sterben", "wünsche mir zu sterben", "nicht mehr leben",
   "aufhören zu leben", "leben beenden", "alles beenden", "alles zu beenden",
@@ -87,14 +87,14 @@ const TRANS = {
     ],
     presets: {
       platz: {
-        content: "Das geht schneller als du denkst. Füll kurz die Platzanfrage aus — dauert 2 Minuten — oder ruf direkt an. Wir schauen sofort was frei ist und was zu der Situation passt.",
+        content: "Das geht schneller als du denkst. Füll kurz die Platzanfrage aus -dauert 2 Minuten -oder ruf direkt an. Wir schauen sofort was frei ist und was zu der Situation passt.",
         cta: [
           { label: "Platzanfrage ausfüllen →", href: "/platzanfrage" },
           { label: "030 22 45 43 22",          href: "tel:+493022454322" },
         ],
       },
       krise: {
-        content: "Ich bin froh, dass du dich meldest. Wenn es gerade akut ist: Ruf uns jetzt an — da ist wirklich jemand, auch mitten in der Nacht. Du musst das nicht alleine durchstehen.",
+        content: "Ich bin froh, dass du dich meldest. Wenn es gerade akut ist: Ruf uns jetzt an -da ist wirklich jemand, auch mitten in der Nacht. Du musst das nicht alleine durchstehen.",
         cta: [
           { label: "030 22 45 43 22",      href: "tel:+493022454322" },
           { label: "Krisenintervention →", href: "/krisenintervention" },
@@ -102,14 +102,14 @@ const TRANS = {
         crisis: true,
       },
       beratung: {
-        content: "Unsere Beratung kostet nichts, braucht keinen Antrag und kein langes Vorgespräch. Einfach melden — per Telefon, online oder persönlich. Wir schauen gemeinsam was sinnvoll ist.",
+        content: "Unsere Beratung kostet nichts, braucht keinen Antrag und kein langes Vorgespräch. Einfach melden -per Telefon, online oder persönlich. Wir schauen gemeinsam was sinnvoll ist.",
         cta: [
           { label: "Beratungsangebote →", href: "/beratung-praevention" },
           { label: "030 22 45 43 22",     href: "tel:+493022454322" },
         ],
       },
       frage: {
-        content: "Aber natürlich — sehr gerne! Stell einfach deine Frage, ich helfe dir so gut ich kann. Kein Thema ist zu klein oder zu groß.",
+        content: "Aber natürlich -sehr gerne! Stell einfach deine Frage, ich helfe dir so gut ich kann. Kein Thema ist zu klein oder zu groß.",
         cta: [],
       },
     } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
@@ -133,14 +133,14 @@ const TRANS = {
     ],
     presets: {
       platz: {
-        content: "Quicker than you think. Fill out the short place request form — takes 2 minutes — or just call us. We'll check what's available right away.",
+        content: "Quicker than you think. Fill out the short place request form -takes 2 minutes -or just call us. We'll check what's available right away.",
         cta: [
           { label: "Place Request →",  href: "/platzanfrage" },
           { label: "030 22 45 43 22", href: "tel:+493022454322" },
         ],
       },
       krise: {
-        content: "I'm glad you reached out. If it's urgent right now: call us — someone will answer, even in the middle of the night. You don't have to go through this alone.",
+        content: "I'm glad you reached out. If it's urgent right now: call us -someone will answer, even in the middle of the night. You don't have to go through this alone.",
         cta: [
           { label: "030 22 45 43 22",        href: "tel:+493022454322" },
           { label: "Crisis Intervention →",  href: "/krisenintervention" },
@@ -148,14 +148,14 @@ const TRANS = {
         crisis: true,
       },
       beratung: {
-        content: "Our counselling is free, no application needed, no long process. Just reach out — by phone, online, or in person. We'll figure out together what makes sense.",
+        content: "Our counselling is free, no application needed, no long process. Just reach out -by phone, online, or in person. We'll figure out together what makes sense.",
         cta: [
           { label: "Counselling & Prevention →", href: "/beratung-praevention" },
           { label: "030 22 45 43 22",            href: "tel:+493022454322" },
         ],
       },
       frage: {
-        content: "Of course — happy to help! Just ask your question, no matter how big or small. I'm here for you.",
+        content: "Of course -happy to help! Just ask your question, no matter how big or small. I'm here for you.",
         cta: [],
       },
     } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
