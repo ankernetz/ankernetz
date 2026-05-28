@@ -86,6 +86,13 @@ const jsonLd = {
       name: "Ankernetz",
       alternateName: "Ankernetz Kinder- und Jugendhilfe Berlin",
       url: BASE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE_URL}/logo.svg`,
+        width: 512,
+        height: 512,
+      },
+      image: `${BASE_URL}/logo.svg`,
       description:
         "Ankernetz ist ein Netzwerk spezialisierter Hilfen für Kinder und Jugendliche in Berlin – von der Krisenintervention über Psychotherapie und therapeutisches Wohnen bis zu Frühen Hilfen, Diagnostik und Beratung.",
       address: {
