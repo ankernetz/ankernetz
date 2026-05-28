@@ -8,7 +8,7 @@ import {
   ChevronDown, Siren,
 } from "lucide-react";
 
-import { SeoFaq } from "../components/SeoFaq";
+import { SeoFaqSchema } from "../components/SeoFaqSchema";
 import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
 import { useT } from "../i18n/useT";
 
@@ -687,14 +687,7 @@ export default function KriseninterventionPage() {
         details[open] summary svg { transform: rotate(180deg); }
         details summary svg { transition: transform 0.2s; }
       `}</style>
-      <SeoFaq items={[
-        { q: "Was ist die Krisenintervention bei Ankernetz Berlin?", a: "Ankernetz bietet in Berlin eine professionelle 24/7-Krisenintervention für Kinder und Jugendliche von 12 bis 17 Jahren. Wir nehmen Jugendliche in akuten Notsituationen innerhalb weniger Stunden auf – auch nachts, an Wochenenden und Feiertagen. Unser Team aus erfahrenen Sozialpädagogen und Psychologen ist rund um die Uhr im Einsatz." },
-        { q: "Wie schnell kann ein Jugendlicher aufgenommen werden?", a: "Sofort – 24 Stunden am Tag, 7 Tage die Woche, 365 Tage im Jahr. Unser Bereitschaftsdienst ist jederzeit erreichbar. Die Aufnahme erfolgt in der Regel innerhalb von 2 bis 4 Stunden nach dem ersten Kontakt. Bei echten Notfällen auch schneller." },
-        { q: "Wer kann eine Krisenintervention beantragen?", a: "Jugendämter (z.B. Jugendamt Berlin Tempelhof-Schöneberg, Neukölln, Mitte), Sorgeberechtigte, Kliniken, die Polizei, Schulen und in dringenden Fällen auch betroffene Jugendliche selbst können eine Krisenintervention beantragen. Die Kostenübernahme erfolgt durch das zuständige Jugendamt." },
-        { q: "Für welche Krisensituationen ist das Angebot geeignet?", a: "Für Jugendliche mit akuten psychischen Krisen, Suizidalität, häuslicher Gewalt, Obdachlosigkeit, akuten Misshandlungs- oder Vernachlässigungssituationen sowie anderen Notlagen, die eine sofortige Herausnahme aus dem bisherigen Umfeld erfordern." },
-        { q: "Was kostet die Krisenintervention?", a: "Die Kosten werden vollständig vom zuständigen Jugendamt nach §34 SGB VIII übernommen. Für Familien und Jugendliche entstehen keine Kosten. Ankernetz arbeitet als anerkannter Träger der freien Jugendhilfe in Berlin." },
-        { q: "Was passiert nach der Krisenintervention?", a: "Nach der Stabilisierung erarbeiten wir gemeinsam mit dem Jugendamt, der Familie und dem Jugendlichen eine Perspektive. Ankernetz verfügt über ein breites Netzwerk anschließender Hilfsangebote: therapeutische Wohngruppen, Psychotherapie mit Kassensitz, Jugendhilfe und Diagnostik – alles aus einer Hand." },
-      ]} intro={t.seoFaqIntro} />
+      <SeoFaqSchema items={TRANS.de.faq.map(f => ({ q: f.frage, a: f.antwort }))} />
       <SeoBreadcrumb crumbs={[{ name: "Krisenintervention", slug: "krisenintervention" }]} />
     </main>
   );
