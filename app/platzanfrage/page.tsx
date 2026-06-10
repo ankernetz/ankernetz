@@ -1,7 +1,132 @@
 "use client";
 import { useState } from "react";
+import { useT } from "../i18n/useT";
+
+const TRANS = {
+  de: {
+    heroEyebrow: "Für Jugendämter & Fachkräfte",
+    heroH1: "Platzanfrage",
+    heroSub: "Wir prüfen Ihren Bedarf und melden uns innerhalb von 24 Stunden.",
+    kenn: [
+      { zahl: "< 24h", text: "Rückmeldung auf Ihre Anfrage" },
+      { zahl: "24/7", text: "Erreichbar bei Krisenaufnahmen" },
+    ],
+    successTitle: "Anfrage eingegangen",
+    successText: "Vielen Dank. Wir haben Ihre Platzanfrage erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.",
+    successCrisis: "Bei dringenden Krisenaufnahmen:",
+    formTitle: "Anfrage stellen",
+    formRequired: "Alle mit * markierten Felder sind Pflichtfelder.",
+    sec1: "Ihre Daten",
+    labelVorname: "Vorname *",
+    labelNachname: "Nachname *",
+    labelInstitution: "Jugendamt / Institution *",
+    placeholderInstitution: "z.B. Jugendamt Berlin Mitte",
+    labelEmail: "E-Mail *",
+    labelTelefon: "Telefon *",
+    sec2: "Gewünschtes Angebot",
+    labelBereich: "Bereich *",
+    selectBereich: "Bitte wählen …",
+    bereichOptions: [
+      "Krisenintervention (24/7)",
+      "Therapie & Wohnen",
+      "Jugendhilfe (Kinder)",
+      "Frühe Hilfen (Kleinkinder)",
+      "Diagnostik & Clearing",
+      "Kinder- und Jugendpsychotherapie",
+      "Beratung & Prävention",
+      "Übergang Arbeit",
+      "Versorgung / Ankerkleidung",
+      "Noch unklar - Beratungsbedarf",
+    ],
+    sec3: "Angaben zum Kind / Jugendlichen",
+    labelAlter: "Alter *",
+    placeholderAlter: "z.B. 14",
+    labelGeschlecht: "Geschlecht",
+    selectGeschlecht: "Bitte wählen",
+    geschlechtOptions: ["Männlich", "Weiblich", "Divers", "Keine Angabe"],
+    labelDringlichkeit: "Dringlichkeit *",
+    selectDringlichkeit: "Bitte wählen",
+    dringlichkeitOptions: [
+      "Sofort (Krisenaufnahme)",
+      "Innerhalb von 1 Woche",
+      "Innerhalb von 1 Monat",
+      "Planbar (über 1 Monat)",
+    ],
+    labelSituation: "Kurzbeschreibung der Situation *",
+    placeholderSituation: "Bitte beschreiben Sie kurz die aktuelle Situation und den Hilfebedarf …",
+    labelBisherige: "Bisherige Hilfen (optional)",
+    placeholderBisherige: "Welche Hilfen wurden bisher gewährt?",
+    dsgvoText1: "Ich stimme der Verarbeitung der übermittelten Daten gemäß der",
+    dsgvoLink: "Datenschutzerklärung",
+    dsgvoText2: "zu. Die Daten werden ausschließlich zur Bearbeitung dieser Anfrage genutzt. *",
+    submitSending: "Wird gesendet …",
+    submitBtn: "Platzanfrage absenden",
+    footerCrisis: "Bei dringenden Krisenaufnahmen rufen Sie uns bitte direkt an:",
+  },
+  en: {
+    heroEyebrow: "For Youth Welfare Offices & professionals",
+    heroH1: "Placement request",
+    heroSub: "We will review your needs and get back to you within 24 hours.",
+    kenn: [
+      { zahl: "< 24 h", text: "Response to your request" },
+      { zahl: "24/7", text: "Available for emergency admissions" },
+    ],
+    successTitle: "Request received",
+    successText: "Thank you. We have received your placement request and will get back to you within 24 hours.",
+    successCrisis: "For urgent crisis admissions:",
+    formTitle: "Submit a request",
+    formRequired: "All fields marked with * are required.",
+    sec1: "Your details",
+    labelVorname: "First name *",
+    labelNachname: "Last name *",
+    labelInstitution: "Youth Welfare Office / Institution *",
+    placeholderInstitution: "e.g. Youth Welfare Office Berlin Mitte",
+    labelEmail: "E-mail *",
+    labelTelefon: "Phone *",
+    sec2: "Requested service",
+    labelBereich: "Service area *",
+    selectBereich: "Please select …",
+    bereichOptions: [
+      "Crisis intervention (24/7)",
+      "Therapy & residential care",
+      "Youth welfare (children)",
+      "Early support (infants/toddlers)",
+      "Diagnostics & clearing",
+      "Child and adolescent psychotherapy",
+      "Counselling & prevention",
+      "Transition to employment",
+      "Care & supply services",
+      "Not yet clear — need advice",
+    ],
+    sec3: "Information about the child / young person",
+    labelAlter: "Age *",
+    placeholderAlter: "e.g. 14",
+    labelGeschlecht: "Gender",
+    selectGeschlecht: "Please select",
+    geschlechtOptions: ["Male", "Female", "Non-binary / other", "Prefer not to say"],
+    labelDringlichkeit: "Urgency *",
+    selectDringlichkeit: "Please select",
+    dringlichkeitOptions: [
+      "Immediate (crisis admission)",
+      "Within 1 week",
+      "Within 1 month",
+      "Plannable (more than 1 month)",
+    ],
+    labelSituation: "Brief description of the situation *",
+    placeholderSituation: "Please briefly describe the current situation and the need for support …",
+    labelBisherige: "Previous support services (optional)",
+    placeholderBisherige: "Which services have been provided previously?",
+    dsgvoText1: "I consent to the processing of the submitted data in accordance with the",
+    dsgvoLink: "Privacy Policy",
+    dsgvoText2: "The data will be used exclusively to process this request. *",
+    submitSending: "Sending …",
+    submitBtn: "Submit placement request",
+    footerCrisis: "For urgent crisis admissions please call us directly:",
+  },
+};
 
 export default function PlatzanfragePage() {
+  const t = useT(TRANS);
   const [form, setForm] = useState({
     vorname: "", nachname: "", institution: "",
     email: "", telefon: "", bereich: "",
@@ -76,26 +201,23 @@ export default function PlatzanfragePage() {
             fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em",
             textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: "14px",
           }}>
-            Für Jugendämter & Fachkräfte
+            {t.heroEyebrow}
           </p>
           <h1 style={{
             fontSize: "clamp(2.4rem, 5vw, 3.8rem)", fontWeight: 800,
             color: "white", lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "18px",
           }}>
-            Platzanfrage
+            {t.heroH1}
           </h1>
           <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, maxWidth: "480px" }}>
-            Wir prüfen Ihren Bedarf und melden uns innerhalb von 24 Stunden.
+            {t.heroSub}
           </p>
 
           {/* Kennzahlen */}
           <div style={{
             display: "flex", gap: "2rem", marginTop: "2.5rem", flexWrap: "wrap",
           }}>
-            {[
-              { zahl: "< 24h", text: "Rückmeldung auf Ihre Anfrage" },
-              { zahl: "24/7", text: "Erreichbar bei Krisenaufnahmen" },
-            ].map((k) => (
+            {t.kenn.map((k) => (
               <div key={k.zahl} style={{
                 borderLeft: "2px solid rgba(255,255,255,0.25)",
                 paddingLeft: "1rem",
@@ -124,14 +246,13 @@ export default function PlatzanfragePage() {
               fontSize: "32px",
             }}>✓</div>
             <h2 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#1a3f6f", marginBottom: "12px" }}>
-              Anfrage eingegangen
+              {t.successTitle}
             </h2>
             <p style={{ color: "#374151", lineHeight: 1.7, maxWidth: "420px", margin: "0 auto" }}>
-              Vielen Dank. Wir haben Ihre Platzanfrage erhalten und melden uns
-              innerhalb von 24 Stunden bei Ihnen.
+              {t.successText}
             </p>
             <p style={{ marginTop: "1.5rem", fontSize: "14px", color: "#6b7280" }}>
-              Bei dringenden Krisenaufnahmen:{" "}
+              {t.successCrisis}{" "}
               <a href="tel:+493022454322" style={{ color: "#1a3f6f", fontWeight: 700, textDecoration: "none" }}>
                 +49 (0) 30 22 45 43 22
               </a>
@@ -148,10 +269,10 @@ export default function PlatzanfragePage() {
               borderBottom: "1px solid #eef2f8",
             }}>
               <h2 style={{ fontSize: "1.375rem", fontWeight: 800, color: "#1a3f6f" }}>
-                Anfrage stellen
+                {t.formTitle}
               </h2>
               <p style={{ fontSize: "13px", color: "#6b7280", marginTop: "4px" }}>
-                Alle mit * markierten Felder sind Pflichtfelder.
+                {t.formRequired}
               </p>
             </div>
 
@@ -162,37 +283,37 @@ export default function PlatzanfragePage() {
                 fontSize: "10px", fontWeight: 800, letterSpacing: "0.1em",
                 textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem",
               }}>
-                Ihre Daten
+                {t.sec1}
               </p>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                 <div>
-                  <label style={labelStyle}>Vorname *</label>
+                  <label style={labelStyle}>{t.labelVorname}</label>
                   <input type="text" required style={inputStyle} value={form.vorname}
                     onChange={(e) => set("vorname", e.target.value)} />
                 </div>
                 <div>
-                  <label style={labelStyle}>Nachname *</label>
+                  <label style={labelStyle}>{t.labelNachname}</label>
                   <input type="text" required style={inputStyle} value={form.nachname}
                     onChange={(e) => set("nachname", e.target.value)} />
                 </div>
               </div>
 
               <div style={{ marginBottom: "1rem" }}>
-                <label style={labelStyle}>Jugendamt / Institution *</label>
+                <label style={labelStyle}>{t.labelInstitution}</label>
                 <input type="text" required style={inputStyle} value={form.institution}
                   onChange={(e) => set("institution", e.target.value)}
-                  placeholder="z.B. Jugendamt Berlin Mitte" />
+                  placeholder={t.placeholderInstitution} />
               </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "2rem" }}>
                 <div>
-                  <label style={labelStyle}>E-Mail *</label>
+                  <label style={labelStyle}>{t.labelEmail}</label>
                   <input type="email" required style={inputStyle} value={form.email}
                     onChange={(e) => set("email", e.target.value)} />
                 </div>
                 <div>
-                  <label style={labelStyle}>Telefon *</label>
+                  <label style={labelStyle}>{t.labelTelefon}</label>
                   <input type="tel" required style={inputStyle} value={form.telefon}
                     onChange={(e) => set("telefon", e.target.value)} />
                 </div>
@@ -204,22 +325,13 @@ export default function PlatzanfragePage() {
                   fontSize: "10px", fontWeight: 800, letterSpacing: "0.1em",
                   textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem",
                 }}>
-                  Gewünschtes Angebot
+                  {t.sec2}
                 </p>
-                <label style={labelStyle}>Bereich *</label>
+                <label style={labelStyle}>{t.labelBereich}</label>
                 <select required style={inputStyle} value={form.bereich}
                   onChange={(e) => set("bereich", e.target.value)}>
-                  <option value="">Bitte wählen …</option>
-                  <option>Krisenintervention (24/7)</option>
-                  <option>Therapie & Wohnen</option>
-                  <option>Jugendhilfe (Kinder)</option>
-                  <option>Frühe Hilfen (Kleinkinder)</option>
-                  <option>Diagnostik & Clearing</option>
-                  <option>Kinder- und Jugendpsychotherapie</option>
-                  <option>Beratung & Prävention</option>
-                  <option>Übergang Arbeit</option>
-                  <option>Versorgung / Ankerkleidung</option>
-                  <option>Noch unklar - Beratungsbedarf</option>
+                  <option value="">{t.selectBereich}</option>
+                  {t.bereichOptions.map((o) => <option key={o}>{o}</option>)}
                 </select>
               </div>
 
@@ -229,60 +341,54 @@ export default function PlatzanfragePage() {
                   fontSize: "10px", fontWeight: 800, letterSpacing: "0.1em",
                   textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1.25rem",
                 }}>
-                  Angaben zum Kind / Jugendlichen
+                  {t.sec3}
                 </p>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                   <div>
-                    <label style={labelStyle}>Alter *</label>
+                    <label style={labelStyle}>{t.labelAlter}</label>
                     <input type="number" min={0} max={25} required style={inputStyle}
                       value={form.alter} onChange={(e) => set("alter", e.target.value)}
-                      placeholder="z.B. 14" />
+                      placeholder={t.placeholderAlter} />
                   </div>
                   <div>
-                    <label style={labelStyle}>Geschlecht</label>
+                    <label style={labelStyle}>{t.labelGeschlecht}</label>
                     <select style={inputStyle} value={form.geschlecht}
                       onChange={(e) => set("geschlecht", e.target.value)}>
-                      <option value="">Bitte wählen</option>
-                      <option>Männlich</option>
-                      <option>Weiblich</option>
-                      <option>Divers</option>
-                      <option>Keine Angabe</option>
+                      <option value="">{t.selectGeschlecht}</option>
+                      {t.geschlechtOptions.map((o) => <option key={o}>{o}</option>)}
                     </select>
                   </div>
                 </div>
 
                 <div style={{ marginBottom: "1rem" }}>
-                  <label style={labelStyle}>Dringlichkeit *</label>
+                  <label style={labelStyle}>{t.labelDringlichkeit}</label>
                   <select required style={inputStyle} value={form.dringlichkeit}
                     onChange={(e) => set("dringlichkeit", e.target.value)}>
-                    <option value="">Bitte wählen</option>
-                    <option>Sofort (Krisenaufnahme)</option>
-                    <option>Innerhalb von 1 Woche</option>
-                    <option>Innerhalb von 1 Monat</option>
-                    <option>Planbar (über 1 Monat)</option>
+                    <option value="">{t.selectDringlichkeit}</option>
+                    {t.dringlichkeitOptions.map((o) => <option key={o}>{o}</option>)}
                   </select>
                 </div>
 
                 <div style={{ marginBottom: "1rem" }}>
-                  <label style={labelStyle}>Kurzbeschreibung der Situation *</label>
+                  <label style={labelStyle}>{t.labelSituation}</label>
                   <textarea
                     required rows={5}
                     style={{ ...inputStyle, resize: "none", lineHeight: 1.6 }}
                     value={form.situation}
                     onChange={(e) => set("situation", e.target.value)}
-                    placeholder="Bitte beschreiben Sie kurz die aktuelle Situation und den Hilfebedarf …"
+                    placeholder={t.placeholderSituation}
                   />
                 </div>
 
                 <div>
-                  <label style={labelStyle}>Bisherige Hilfen (optional)</label>
+                  <label style={labelStyle}>{t.labelBisherige}</label>
                   <textarea
                     rows={3}
                     style={{ ...inputStyle, resize: "none", lineHeight: 1.6 }}
                     value={form.bisherige}
                     onChange={(e) => set("bisherige", e.target.value)}
-                    placeholder="Welche Hilfen wurden bisher gewährt?"
+                    placeholder={t.placeholderBisherige}
                   />
                 </div>
               </div>
@@ -299,11 +405,11 @@ export default function PlatzanfragePage() {
                   style={{ marginTop: "3px", flexShrink: 0, accentColor: "#1a3f6f" }}
                 />
                 <label htmlFor="dsgvo" style={{ fontSize: "13px", color: "#374151", lineHeight: 1.6 }}>
-                  Ich stimme der Verarbeitung der übermittelten Daten gemäß der{" "}
+                  {t.dsgvoText1}{" "}
                   <a href="/datenschutz" style={{ color: "#1a3f6f", fontWeight: 600, textDecoration: "underline" }}>
-                    Datenschutzerklärung
+                    {t.dsgvoLink}
                   </a>{" "}
-                  zu. Die Daten werden ausschließlich zur Bearbeitung dieser Anfrage genutzt. *
+                  {t.dsgvoText2}
                 </label>
               </div>
 
@@ -321,11 +427,11 @@ export default function PlatzanfragePage() {
                   letterSpacing: "0.02em",
                 }}
               >
-                {submitting ? "Wird gesendet …" : "Platzanfrage absenden"}
+                {submitting ? t.submitSending : t.submitBtn}
               </button>
 
               <p style={{ fontSize: "12px", color: "#9ca3af", textAlign: "center", marginTop: "1rem" }}>
-                Bei dringenden Krisenaufnahmen rufen Sie uns bitte direkt an:{" "}
+                {t.footerCrisis}{" "}
                 <a href="tel:+493022454322" style={{ color: "#1a3f6f", fontWeight: 700, textDecoration: "none" }}>
                   +49 (0) 30 22 45 43 22
                 </a>
