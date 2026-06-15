@@ -192,7 +192,7 @@ const TRANS = {
       "Counselling & prevention",
       "Daycare counselling",
       "Transition to employment",
-      "Anchor Clothing / order",
+      "Ankernetz Clothing / order",
       "Cooperation / partnership",
       "General information",
       "Other",

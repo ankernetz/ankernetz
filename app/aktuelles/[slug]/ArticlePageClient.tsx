@@ -62,13 +62,13 @@ const TRANS = {
       { href: "/jugendhilfe",           label: "Youth Welfare",                 desc: "Outpatient & inpatient services" },
       { href: "/diagnostik-clearing",   label: "Diagnostics & Clearing",        desc: "Expert diagnostics & care planning" },
       { href: "/beratung-praevention",  label: "Counselling & Prevention",      desc: "Parenting counselling & professional guidance" },
-      { href: "/ankerkleidung",         label: "Anchor Clothing",               desc: "Clothing by clinical profile" },
+      { href: "/ankerkleidung",         label: "Ankernetz Clothing",               desc: "Clothing by clinical profile" },
       { href: "/platzanfrage",          label: "Place Request",                 desc: "Apply directly now" },
     ],
     faq: [
       {
         q: "What does Ankernetz do in Berlin and Brandenburg?",
-        a: "Ankernetz is a specialised provider of child and youth welfare services in Berlin and Brandenburg. We offer 24/7 crisis intervention, therapeutic residential groups, insured psychotherapy, diagnostics, early help, and our specialised Anchor Clothing by clinical profile.",
+        a: "Ankernetz is a specialised provider of child and youth welfare services in Berlin and Brandenburg. We offer 24/7 crisis intervention, therapeutic residential groups, insured psychotherapy, diagnostics, early help, and our specialised Ankernetz Clothing by clinical profile.",
       },
       {
         q: "How do I request a place?",
@@ -76,7 +76,7 @@ const TRANS = {
       },
       {
         q: "Are there any costs for families?",
-        a: "Youth welfare services are fully funded by the responsible youth welfare office. There are no direct costs for families or young people. Anchor Clothing can be purchased through the shop or provided as part of a care package.",
+        a: "Youth welfare services are fully funded by the responsible youth welfare office. There are no direct costs for families or young people. Ankernetz Clothing can be purchased through the shop or provided as part of a care package.",
       },
     ],
   },

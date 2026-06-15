@@ -59,7 +59,7 @@ const TRANS = {
       { href: "/diagnostik-clearing",   label: "Diagnostics & Clearing",        desc: "Expert diagnostics and care planning (SGB VIII)." },
       { href: "/beratung-praevention",  label: "Counselling & Prevention",      desc: "Parenting counselling, professional guidance, prevention." },
       { href: "/kita-beratung",         label: "Daycare Counselling",           desc: "Counselling and support for childcare centres." },
-      { href: "/ankerkleidung",         label: "Anchor Clothing",               desc: "Specialised clothing by clinical profile." },
+      { href: "/ankerkleidung",         label: "Ankernetz Clothing",               desc: "Specialised clothing by clinical profile." },
       { href: "/versorgung",            label: "Care & Supplies",               desc: "Basic medical and nursing care." },
       { href: "/platzanfrage",          label: "Request a place",               desc: "Request a place directly and without hassle." },
       { href: "/kontakt",               label: "Contact & Directions",          desc: "Address, phone, e-mail and directions." },

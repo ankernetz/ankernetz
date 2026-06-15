@@ -69,7 +69,7 @@ const TRANS = {
       { label: "Counselling & Prevention", href: "/beratung-praevention" },
       { label: "Daycare Counselling",    href: "/kita-beratung" },
       { label: "Transition to Work",     href: "/uebergang-arbeit" },
-      { label: "Anchor Clothing",        href: "/ankerkleidung" },
+      { label: "Ankernetz Clothing",        href: "/ankerkleidung" },
       { label: "Care & Supplies",        href: "/versorgung" },
     ],
     organisationListe: [

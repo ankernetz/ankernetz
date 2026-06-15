@@ -101,7 +101,7 @@ export const tr = {
   en: {
     nav: {
       angebote: "Services",
-      ankerkleidung: "Anchor Clothing",
+      ankerkleidung: "Ankernetz Clothing",
       ueberUns: "About us",
       karriere: "Careers",
       aktuelles: "News",
@@ -125,7 +125,7 @@ export const tr = {
           kitaBeratung:       { label: "Counselling in Daycare",    sub: "Expert advice on-site" },
           uebergangArbeit:    { label: "Transition to Work",        sub: "School - Career" },
           versorgung:         { label: "Care & Supplies",           sub: "Equipment & needs" },
-          ankerkleidung:      { label: "Anchor Clothing",           sub: "Shop by disorder profile" },
+          ankerkleidung:      { label: "Ankernetz Clothing",           sub: "Shop by disorder profile" },
         },
       },
     },
@@ -173,7 +173,7 @@ export const tr = {
       "Counselling & Prevention",
       "Counselling in Daycare",
       "Transition to Work",
-      "Anchor Clothing",
+      "Ankernetz Clothing",
       "Care & Supplies",
     ],
     staerken: {
