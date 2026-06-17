@@ -200,7 +200,7 @@ function pick(arr: string[]): string {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function smartFallback(message: string, isCrisis: boolean): string {
+function smartFallback(message: string, isCrisis: boolean, lastBotMsg = ""): string {
   if (isCrisis) {
     return pick([
       "Ich höre dich. Bist du gerade in Sicherheit? Ruf uns jetzt an -da ist wirklich jemand: 030 22 45 43 22. Du musst das nicht alleine tragen.",
@@ -212,11 +212,19 @@ function smartFallback(message: string, isCrisis: boolean): string {
   const m = message.toLowerCase();
 
   // Platz / Aufnahme / Wohngruppe
-  if (m.includes("platz") || m.includes("aufnahme") || m.includes("wohngruppe") || m.includes("heim") || m.includes("unterkunft") || m.includes("unterbring")) {
+  if (
+    m.includes("platz") || m.includes("aufnahme") || m.includes("wohngruppe") ||
+    m.includes("heim") || m.includes("unterkunft") || m.includes("unterbring") ||
+    m.includes(" wg") || m.includes("in wg") || m.includes("eine wg") ||
+    m.includes("bei euch wohn") || m.includes("bei euch leben") || m.includes("bei euch bleib") ||
+    m.includes("zu euch zieh") || m.includes("einzieh") || m.includes("einzug") ||
+    m.includes("aufnehmen") || m.includes("aufgenommen") || m.includes("wohnen bei") ||
+    m.includes("wohnen bei euch") || m.includes("stationär")
+  ) {
     return pick([
-      "Für eine Platzanfrage ist unser Formular der schnellste Weg -oder direkt anrufen: 030 22 45 43 22. Geht es um ein Kind, einen Jugendlichen oder einen jungen Erwachsenen?",
-      "Wir haben Plätze für verschiedene Altersgruppen. Am einfachsten geht's über die Platzanfrage auf der Website oder kurz anrufen: 030 22 45 43 22. Was ist die Situation?",
-      "Platzanfragen bearbeiten wir schnell -kein langer Papierkram. Ruf kurz an: 030 22 45 43 22. Um wen geht es und wie dringend ist es?",
+      "Das klingt nach einer Platzanfrage. Wie alt ist die Person und wie dringend ist es? Du kannst uns auch direkt schreiben: hilfe@ankernetz.com - oder anrufen: 030 22 45 43 22.",
+      "Wir haben Plätze für Kinder 6-12 und Jugendliche 12-17 Jahre sowie Krisenintervention rund um die Uhr. Ruf kurz an: 030 22 45 43 22 oder schreib uns: hilfe@ankernetz.com - dann schauen wir sofort was passt.",
+      "Platzanfragen bearbeiten wir schnell. Am einfachsten: /platzanfrage ausfüllen, schreib uns unter hilfe@ankernetz.com oder ruf an: 030 22 45 43 22. Um wen geht es - Alter und Situation?",
     ]);
   }
 
@@ -437,13 +445,15 @@ function smartFallback(message: string, isCrisis: boolean): string {
     ]);
   }
 
-  // Generischer Fallback -warm und einladend
-  return pick([
-    "Sehr gerne helfe ich dir weiter! Magst du mir ein bisschen mehr erzählen, damit ich dir die beste Antwort geben kann?",
-    "Natürlich bin ich für dich da! Erzähl mir einfach, was dich beschäftigt -ich finde den richtigen Weg für dich.",
-    "Ich helfe dir sehr gerne! Damit ich dich gut unterstützen kann: geht es um dich, dein Kind oder jemanden dem du nahestehst?",
-    "Kein Problem -dafür bin ich da! Ruf uns auch gerne direkt an, wir sind immer für euch da: 030 22 45 43 22.",
-  ]);
+  // Generischer Fallback - kontextbewusst und nie zweimal gleich
+  const genericOptions = [
+    "Magst du mir kurz sagen, um wen es geht und wie alt die Person ist? Dann kann ich dir direkt sagen, welches Angebot am besten passt. Du kannst uns auch schreiben: hilfe@ankernetz.com",
+    "Das klingt nach etwas, wobei wir helfen können. Schreib uns dein Anliegen auch direkt an hilfe@ankernetz.com - dann melden wir uns bei dir. Oder wie alt ist die Person, um die es geht?",
+    "Ich bin ganz Ohr. Geht es um eine akute Situation oder eher um längerfristige Unterstützung? Du kannst auch direkt anrufen: 030 22 45 43 22 oder schreiben: hilfe@ankernetz.com",
+    "Damit wir dir am besten helfen können: Was ist gerade die Situation und wie alt ist die Person? Du kannst uns dein Anliegen auch per Mail schicken: hilfe@ankernetz.com",
+    "Ruf uns gerne direkt an: 030 22 45 43 22 - oder schreib an hilfe@ankernetz.com und wir melden uns bei dir. Was ist die Situation?",
+  ];
+  return genericOptions[Math.floor(Math.random() * genericOptions.length)];
 }
 
 export async function POST(req: Request) {
@@ -514,7 +524,8 @@ export async function POST(req: Request) {
         controller.close();
       } catch (err) {
         console.error("Chat API error:", err);
-        const fallback = smartFallback(lastMessage, isCrisis);
+        const lastBotMsg = messages.slice().reverse().find((m: { role: string }) => m.role === "assistant")?.content ?? "";
+        const fallback = smartFallback(lastMessage, isCrisis, lastBotMsg);
         controller.enqueue(encoder.encode(fallback));
         controller.close();
       }
