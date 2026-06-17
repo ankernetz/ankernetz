@@ -49,7 +49,7 @@ ANSATZ: Traumasensibel, systemisch, vernetzt - keine Silos. Diagnostik, Therapie
 
 WENN JEMAND FRAGT "was macht ankernetz" ODER "wer seid ihr" ODER "was bietet ihr an":
 Antworte kurz und klar, z.B.:
-"Ankernetz ist ein Berliner Traeger fuer Kinder- und Jugendhilfe - wir sind 2015 gegruendet worden und haben heute 11 spezialisierte Angebote fuer Kinder und Jugendliche von 0 bis 25 Jahren. Von der Krisenintervention rund um die Uhr ueber therapeutische Wohngruppen, Psychotherapie und Fruehe Hilfen bis hin zur Begleitung beim Einstieg ins Berufsleben. Alles unter einem Dach, alles miteinander vernetzt. Auf /ueber-uns erfaehrst du noch viel mehr darueber. Was konkret interessiert dich?"
+"Ankernetz ist ein gemeinnuetziger Berliner Traeger - aber mehr als nur Kinder- und Jugendhilfe. Wir haben 11 Angebote: Krisenintervention rund um die Uhr, Psychotherapie mit Kassensitz, therapeutische Wohngruppen, Fruehe Hilfen ab Geburt, Diagnostik, kostenlose Beratung, Kita-Fachberatung, Begleitung von Schule in den Beruf, materielle Versorgung - und Ankerkleidung, also spezialisierte Kleidung nach Stoerungsbild. Alles vernetzt, alles unter einem Dach. Auf /ueber-uns und /ankerkleidung gibt es mehr. Was interessiert dich konkret?"
 
 == VOLLSTÄNDIGES SEITENWISSEN ==
 
@@ -457,9 +457,9 @@ function smartFallback(message: string, isCrisis: boolean, lastBotMsg = ""): str
     m.includes("eigentlich") && (m.includes("macht") || m.includes("seid") || m.includes("bietet"))
   ) {
     return pick([
-      "Ankernetz ist ein Berliner Träger für Kinder- und Jugendhilfe - 2015 gegründet, heute mit 11 spezialisierten Angeboten für junge Menschen von 0 bis 25 Jahren. Von Krisenintervention über therapeutische Wohngruppen und Psychotherapie bis hin zum Übergang in den Beruf. Alles vernetzt, alles unter einem Dach. Auf /ueber-uns erfährst du mehr. Was interessiert dich konkret?",
-      "Wir sind ein gemeinnütziger Träger in Berlin - spezialisiert auf Kinder- und Jugendhilfe. Seit 2015. Unsere 11 Angebote reichen von 24/7-Krisenintervention über Frühe Hilfen für Babys bis hin zu Beratung, Therapie und Wohngruppen für Jugendliche. Was uns besonders macht: bei uns greifen alle Bereiche ineinander - kein Kind fällt zwischen die Stühle. Was genau möchtest du wissen?",
-      "Ankernetz steht für ein Netz, das trägt. Wir sind ein Berliner Jugendhilfeträger mit 11 Angeboten - von Krisenaufnahme rund um die Uhr, Psychotherapie mit Kassensitz, Wohngruppen für 6-17-Jährige bis hin zu Frühen Hilfen für Kleinkinder. Gegründet 2015, gemeinnützig, rein auf Kinder und Jugendliche ausgerichtet. Schau mal auf /ueber-uns - da steht alles. Was beschäftigt dich?",
+      "Ankernetz ist ein Berliner Träger für Kinder- und Jugendhilfe - aber ehrlich gesagt sind wir viel mehr als das. Wir haben 11 Bereiche: Krisenintervention rund um die Uhr, Psychotherapie für Kinder und Jugendliche mit Kassensitz, therapeutische Wohngruppen, Frühe Hilfen ab Geburt, Diagnostik, kostenlose Beratung, Kita-Beratung, Begleitung in den Beruf - und sogar Ankerkleidung, also spezialisierte Kleidung nach Störungsbild. Alles unter einem Dach, alles vernetzt. Auf /ueber-uns steht die ganze Geschichte. Was interessiert dich konkret?",
+      "Ankernetz ist schwer in einem Satz zu fassen. Wir begleiten Kinder und Jugendliche von 0 bis 25 Jahren - in Krisen, im Alltag, in der Therapie, beim Wohnen und beim Einstieg ins Berufsleben. Wir haben eigene Psychotherapeuten mit Kassensitz, Wohngruppen für 6- bis 17-Jährige, kostenlose Beratung für Familien, Frühe Hilfen für Säuglinge - und ein eigenes Kleidungsangebot namens Ankerkleidung, das auf Störungsbilder ausgerichtet ist. Gegründet 2015, gemeinnützig, in Berlin. Was genau möchtest du wissen?",
+      "Wir sind ein gemeinnütziger Träger in Berlin - gegründet 2015. Unsere 11 Angebote: Krisenintervention 24/7, Psychotherapie mit Kassensitz, Wohngruppen für Kinder ab 6 und Jugendliche bis 17, Frühe Hilfen für Babys und Kleinkinder, Diagnostik und Gutachten, kostenlose Familienberatung, Kita-Fachberatung, Begleitung von Schule in den Beruf, materielle Versorgung und Ankerkleidung - also Kleidung passend zum Störungsbild. Alles greift ineinander. Auf /ueber-uns und /ankerkleidung findest du mehr. Was beschäftigt dich?",
     ]);
   }
 
