@@ -33,6 +33,24 @@ Wenn ein Thema zu einer unserer Seiten passt, verweise immer darauf. Formuliere 
 "Auf unserer Seite /krisenintervention findest du alle Details dazu."
 "Mehr dazu steht auf /fruehe-hilfen - da erklären wir auch die häufigsten Fragen."
 
+== WAS IST ANKERNETZ - DIESEN ABSCHNITT AUSWENDIG KENNEN ==
+
+Ankernetz ist ein gemeinnuetziger Traumaeger der Kinder- und Jugendhilfe in Berlin. Wir wurden 2015 gegruendet - von Fachkraeften, die erlebt haben wie zerissen Hilfesysteme oft sind. Unser Ziel: Hilfen so gestalten, dass sie ineinandergreifen, Uebergaben ohne Informationsverlust funktionieren und kein Kind durchs Netz faellt.
+
+WIR BEGLEITEN: Kinder und Jugendliche von 0 bis 25 Jahren sowie Muetter und Vaeter mit ihren Kindern.
+STANDORT: Berlin
+GEGRÜNDET: 2015
+ANGEBOTE: 11 spezialisierte Bereiche - von Krisenintervention bis Uebergang in den Beruf
+ERREICHBARKEIT: 24/7, auch mitten in der Nacht, an 365 Tagen im Jahr
+RÜCKMELDUNG: Innerhalb von 30 Minuten bei Krisenaufnahmen
+RECHTSBASIS: SGB VIII (Sozialgesetzbuch Kinder- und Jugendhilfe)
+MISSION: "Kein Kind faellt durch das Netz."
+ANSATZ: Traumasensibel, systemisch, vernetzt - keine Silos. Diagnostik, Therapie und Paedagogik sprechen taeglich miteinander.
+
+WENN JEMAND FRAGT "was macht ankernetz" ODER "wer seid ihr" ODER "was bietet ihr an":
+Antworte kurz und klar, z.B.:
+"Ankernetz ist ein Berliner Traeger fuer Kinder- und Jugendhilfe - wir sind 2015 gegruendet worden und haben heute 11 spezialisierte Angebote fuer Kinder und Jugendliche von 0 bis 25 Jahren. Von der Krisenintervention rund um die Uhr ueber therapeutische Wohngruppen, Psychotherapie und Fruehe Hilfen bis hin zur Begleitung beim Einstieg ins Berufsleben. Alles unter einem Dach, alles miteinander vernetzt. Auf /ueber-uns erfaehrst du noch viel mehr darueber. Was konkret interessiert dich?"
+
 == VOLLSTÄNDIGES SEITENWISSEN ==
 
 SEITE /krisenintervention:
@@ -425,6 +443,23 @@ function smartFallback(message: string, isCrisis: boolean, lastBotMsg = ""): str
       "Das freut mich sehr, wirklich! Gibt es noch etwas, wobei ich helfen kann?",
       "Sehr gerne! Meld dich jederzeit wieder -ich bin immer da.",
       "Das höre ich gerne. Wenn du noch Fragen hast oder sich etwas ändert: 030 22 45 43 22, wir sind immer für dich da.",
+    ]);
+  }
+
+  // Was ist/macht Ankernetz
+  if (
+    m.includes("was macht ankernetz") || m.includes("was ist ankernetz") ||
+    m.includes("was bietet ankernetz") || m.includes("was bietet ihr") ||
+    m.includes("was macht ihr") || m.includes("wer seid ihr") ||
+    m.includes("was sind das fuer") || m.includes("was fuer eine") ||
+    m.includes("stellt euch vor") || m.includes("erzaehl") ||
+    (m.includes("ankernetz") && (m.includes("was") || m.includes("wer") || m.includes("wie"))) ||
+    m.includes("eigentlich") && (m.includes("macht") || m.includes("seid") || m.includes("bietet"))
+  ) {
+    return pick([
+      "Ankernetz ist ein Berliner Träger für Kinder- und Jugendhilfe - 2015 gegründet, heute mit 11 spezialisierten Angeboten für junge Menschen von 0 bis 25 Jahren. Von Krisenintervention über therapeutische Wohngruppen und Psychotherapie bis hin zum Übergang in den Beruf. Alles vernetzt, alles unter einem Dach. Auf /ueber-uns erfährst du mehr. Was interessiert dich konkret?",
+      "Wir sind ein gemeinnütziger Träger in Berlin - spezialisiert auf Kinder- und Jugendhilfe. Seit 2015. Unsere 11 Angebote reichen von 24/7-Krisenintervention über Frühe Hilfen für Babys bis hin zu Beratung, Therapie und Wohngruppen für Jugendliche. Was uns besonders macht: bei uns greifen alle Bereiche ineinander - kein Kind fällt zwischen die Stühle. Was genau möchtest du wissen?",
+      "Ankernetz steht für ein Netz, das trägt. Wir sind ein Berliner Jugendhilfeträger mit 11 Angeboten - von Krisenaufnahme rund um die Uhr, Psychotherapie mit Kassensitz, Wohngruppen für 6-17-Jährige bis hin zu Frühen Hilfen für Kleinkinder. Gegründet 2015, gemeinnützig, rein auf Kinder und Jugendliche ausgerichtet. Schau mal auf /ueber-uns - da steht alles. Was beschäftigt dich?",
     ]);
   }
 
