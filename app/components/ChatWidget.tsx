@@ -653,9 +653,21 @@ export default function ChatWidget() {
               <Send size={16} color={input.trim() && !loading ? "white" : "#94a3b8"} strokeWidth={2} />
             </button>
           </div>
-          <p style={{ fontSize: "10px", color: "#94a3b8", textAlign: "center", marginTop: "8px", letterSpacing: "0.02em" }}>
-            {t.footerText}
-          </p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", marginTop: "8px", flexWrap: "wrap" }}>
+            <p style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.02em", margin: 0 }}>
+              {t.footerText}
+            </p>
+            <span style={{ fontSize: "10px", color: "#cbd5e1" }}>·</span>
+            <a
+              href="mailto:hilfe@ankernetz.com"
+              onClick={e => e.stopPropagation()}
+              style={{ fontSize: "10px", color: "#1a3f6f", textDecoration: "none", fontWeight: 600, letterSpacing: "0.01em" }}
+              onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
+              onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
+            >
+              hilfe@ankernetz.com
+            </a>
+          </div>
         </div>
       )}
 
