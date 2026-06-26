@@ -144,24 +144,15 @@ export default function PlatzanfragePage() {
     if (!dsgvo) return;
     setSubmitting(true);
     try {
-      await fetch("/api/order", {
+      const res = await fetch("/api/platzanfrage", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: [{
-            name: "Platzanfrage",
-            quantity: 1,
-            price: 0,
-            size: form.bereich,
-          }],
-          total: 0,
-          customer: `${form.vorname} ${form.nachname}`,
-          note: `Institution: ${form.institution}\nE-Mail: ${form.email}\nTelefon: ${form.telefon}\nBereich: ${form.bereich}\nAlter: ${form.alter}\nGeschlecht: ${form.geschlecht}\nDringlichkeit: ${form.dringlichkeit}\nSituation: ${form.situation}\nBisherige Hilfen: ${form.bisherige}`,
-        }),
+        body: JSON.stringify(form),
       });
+      if (!res.ok) throw new Error("Fehler beim Senden");
       setSubmitted(true);
     } catch {
-      // submit silently
+      alert("Fehler beim Senden. Bitte rufen Sie uns direkt an: 030 22 45 43 22");
     } finally {
       setSubmitting(false);
     }
