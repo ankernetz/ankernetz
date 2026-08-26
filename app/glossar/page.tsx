@@ -284,6 +284,10 @@ const kategorien: FaqCategory[] = [
         q: "Was passiert nach dem Ende der Unterbringung - kehrt das Kind automatisch zurück?",
         a: "Das hängt vom Einzelfall und dem vereinbarten Ziel der Hilfe ab. In vielen Fällen ist eine Rückkehr in das Heimatland und die dortige Anschlussversorgung vorgesehen und wird gemeinsam mit der zuständigen österreichischen oder Schweizer Stelle geplant. Das genaue Vorgehen wird bereits bei der Aufnahme mit besprochen, nicht erst am Ende.",
       },
+      {
+        q: "Wie lernen sich das Kind und das Team vor der Aufnahme kennen, wenn die Anreise aus Österreich oder der Schweiz weit ist?",
+        a: "Das erste Kennenlernen muss nicht vor Ort in Berlin stattfinden. In der Regel geschieht es zunächst per Videocall, ein persönliches Treffen ist bei Bedarf zusätzlich möglich. Für die eigentliche Anreise zur Aufnahme holen wir das Kind auf Wunsch auch selbst ab, damit die Organisation nicht allein bei der Familie oder der Behörde liegt.",
+      },
     ],
   },
 ];
