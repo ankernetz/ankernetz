@@ -28,6 +28,7 @@ const FRAGEN: Question[] = [
     id: "wer",
     frage: "Um wen geht es gerade?",
     grund: "Betroffene Person",
+    hinweis: "Sie können den Kompass auch stellvertretend ausfüllen - für Ihr Kind, eine Schülerin oder eine Familie, die Sie begleiten.",
     options: [
       { label: "Um mich selbst", scores: { beratung: 2 } },
       { label: "Um mein Kind", scores: { beratung: 1, diagnostik: 1 } },
@@ -39,6 +40,7 @@ const FRAGEN: Question[] = [
     id: "alter",
     frage: "Wie alt ist die Person, um die es geht?",
     grund: "Alter",
+    hinweis: "Unsere Angebote sind altersgruppenspezifisch aufgebaut - vom Säuglingsalter bis zum jungen Erwachsenenalter.",
     options: [
       { label: "0 bis 6 Jahre", scores: { fruehehilfen: 3 } },
       { label: "6 bis 12 Jahre", scores: { jugendhilfe: 2, beratung: 1 } },
@@ -78,6 +80,7 @@ const FRAGEN: Question[] = [
     id: "diagnose",
     frage: "Gibt es bereits eine Diagnose oder einen konkreten Verdacht?",
     grund: "Diagnose/Verdacht",
+    hinweis: "Auch ohne Diagnose ist das kein Problem - viele melden sich genau deshalb, um Klarheit zu bekommen.",
     options: [
       { label: "Ja, ADHS", scores: { diagnostik: 1, psychotherapie: 1 } },
       { label: "Ja, Autismus-Spektrum", scores: { diagnostik: 1, psychotherapie: 1 } },
@@ -91,6 +94,7 @@ const FRAGEN: Question[] = [
     id: "wohnsituation",
     frage: "Wo lebt die Person aktuell?",
     grund: "Wohnsituation",
+    hinweis: "Das hilft uns einzuschätzen, ob eine Begleitung zuhause reicht oder mehr Struktur sinnvoll wäre.",
     options: [
       { label: "Zuhause bei der Familie", scores: { beratung: 1 } },
       { label: "Zuhause, aber ein Auszug/eine Unterbringung steht im Raum", scores: { wohnen: 2, jugendhilfe: 1 } },
@@ -102,6 +106,7 @@ const FRAGEN: Question[] = [
     id: "jugendamt",
     frage: "Ist das Jugendamt bereits eingebunden?",
     grund: "Jugendamt-Status",
+    hinweis: "Auch ohne Jugendamt können Sie sich direkt bei uns melden - die kostenlose Erstberatung braucht keine Behörde.",
     options: [
       { label: "Ja, es läuft schon eine Hilfeplanung", scores: { jugendhilfe: 1, wohnen: 1 } },
       { label: "Nein, aber Kontakt ist geplant", scores: { beratung: 1 } },
@@ -113,6 +118,7 @@ const FRAGEN: Question[] = [
     id: "dringlichkeit",
     frage: "Wie dringend ist die Situation?",
     grund: "Dringlichkeit",
+    hinweis: "Bei akuter Gefahr hätten Sie das schon zu Beginn angegeben - hier geht es um das allgemeine Tempo, mit dem etwas passieren sollte.",
     options: [
       { label: "Es eilt nicht, wir wollen uns erst orientieren", scores: { beratung: 2 } },
       { label: "Es sollte in den nächsten Wochen etwas passieren", scores: { diagnostik: 1, beratung: 1 } },
@@ -231,6 +237,10 @@ export default function Kompass() {
           <h2 style={{ fontSize: "1.375rem", fontWeight: 700, color: "#1A1614", marginBottom: "1rem", lineHeight: 1.35 }}>
             Besteht gerade eine akute Gefahr für Leib oder Leben - zum Beispiel Gewalt, Suizidgedanken oder eine Situation, die sofortiges Handeln braucht?
           </h2>
+          <p style={{ fontSize: "0.875rem", color: "#7A6E6A", lineHeight: 1.7, marginBottom: "1.75rem" }}>
+            Diese eine Frage stellen wir immer zuerst - noch bevor irgendetwas anderes abgefragt wird. So stellen wir sicher,
+            dass niemand in einer echten Notlage erst einen Fragebogen ausfüllen muss, bevor Hilfe kommt.
+          </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {SICHERHEITS_OPTIONEN.map((opt) => (
               <button key={opt} onClick={() => setSicherheit(opt)} style={{
@@ -242,6 +252,10 @@ export default function Kompass() {
               </button>
             ))}
           </div>
+          <p style={{ fontSize: "0.8125rem", color: "#9c9088", marginTop: "1.75rem", lineHeight: 1.65 }}>
+            Anonym, kostenlos, jederzeit abbrechbar. Danach folgen neun kurze Fragen zu Alter, Situation und Dringlichkeit -
+            am Ende steht eine erste Einschätzung, keine Diagnose.
+          </p>
         </div>
       </div>
     );
@@ -296,9 +310,13 @@ export default function Kompass() {
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2.5rem" }}>
           {sortiert.length === 0 && (
-            <p style={{ fontSize: "0.9375rem", color: "#7A6E6A" }}>
-              Basierend auf Ihren Antworten empfehlen wir ein offenes Erstgespräch in der Beratung.
-            </p>
+            <div style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)", borderRadius: "14px", padding: "1.5rem" }}>
+              <p style={{ fontSize: "0.9375rem", color: "#5A4E48", lineHeight: 1.75, margin: 0 }}>
+                Aus Ihren Antworten ergibt sich noch kein klares Bild - das ist kein Fehler, das passiert bei sehr offenen
+                Situationen. Der ehrlichste nächste Schritt ist dann ein offenes Erstgespräch in der kostenlosen Beratung,
+                ganz ohne Vorfestlegung.
+              </p>
+            </div>
           )}
           {sortiert.map(([key, val]) => {
             const s = SERVICES[key];
@@ -322,6 +340,10 @@ export default function Kompass() {
             );
           })}
         </div>
+        <p style={{ fontSize: "0.875rem", color: "#5A4E48", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+          Egal wofür Sie sich entscheiden: Ein Erstgespräch verpflichtet zu nichts. Wir schauen gemeinsam,
+          ob die Einschätzung passt - und wenn nicht, finden wir einen anderen Weg.
+        </p>
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           <Link href="/platzanfrage" style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
