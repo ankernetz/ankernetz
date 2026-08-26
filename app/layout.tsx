@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Ankernetz Berlin",
   },
   description:
-    "Ankernetz bietet spezialisierte Hilfen für Kinder und Jugendliche in Berlin: 24/7 Krisenintervention, Psychotherapie mit Kassensitz, Frühe Hilfen, therapeutische Wohngruppen, Diagnostik & Beratung.",
+    "Ankernetz bietet spezialisierte Hilfen für Kinder und Jugendliche mit Standort in Berlin: 24/7 Krisenintervention, Psychotherapie mit Kassensitz, Frühe Hilfen, therapeutische Wohngruppen, Diagnostik & Beratung. Aufnahmen aus ganz Deutschland, Österreich und der Schweiz möglich.",
   keywords: [
     "Ankernetz",
     "Ankernetz Berlin",
@@ -43,6 +43,12 @@ export const metadata: Metadata = {
     "Diagnostik Kinder Berlin",
     "Erziehungsberatung Berlin",
     "stationäre Jugendhilfe",
+    "freier Träger Jugendhilfe bundesweit",
+    "Jugendhilfe Träger Deutschland",
+    "Fachplatz Jugendhilfe deutschlandweit",
+    "Wohngruppe Aufnahme aus Österreich",
+    "Jugendhilfe Aufnahme Schweiz",
+    "überregionale Jugendhilfe Vermittlung",
   ],
   authors: [{ name: "Ankernetz", url: BASE_URL }],
   creator: "Ankernetz",
@@ -94,7 +100,7 @@ const jsonLd = {
       },
       image: `${BASE_URL}/logo.svg`,
       description:
-        "Ankernetz ist ein Netzwerk spezialisierter Hilfen für Kinder und Jugendliche in Berlin - von der Krisenintervention über Psychotherapie und therapeutisches Wohnen bis zu Frühen Hilfen, Diagnostik und Beratung.",
+        "Ankernetz ist ein Netzwerk spezialisierter Hilfen für Kinder und Jugendliche mit Standort in Berlin - von der Krisenintervention über Psychotherapie und therapeutisches Wohnen bis zu Frühen Hilfen, Diagnostik und Beratung. Aufnahmen aus Deutschland, Österreich und der Schweiz möglich.",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Friedrich-Franz-Str. 13",
@@ -103,7 +109,11 @@ const jsonLd = {
         addressCountry: "DE",
       },
       telephone: "+49-30-22454322",
-      areaServed: { "@type": "City", name: "Berlin" },
+      areaServed: [
+        { "@type": "Country", name: "Deutschland" },
+        { "@type": "Country", name: "Österreich" },
+        { "@type": "Country", name: "Schweiz" },
+      ],
       knowsAbout: [
         "Jugendhilfe", "Krisenintervention", "Kinder- und Jugendpsychotherapie",
         "Frühe Hilfen", "Therapeutisches Wohnen", "Diagnostik", "Erziehungsberatung",

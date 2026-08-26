@@ -242,6 +242,10 @@ const kategorien: FaqCategory[] = [
         q: "Ist Ankernetz ein staatlicher oder ein privater Anbieter?",
         a: "Ankernetz ist ein gemeinnütziger, freier Träger - also weder eine Behörde noch ein gewinnorientiertes privates Unternehmen. Wir arbeiten im Auftrag und mit Finanzierung der Jugendämter, sind aber organisatorisch eigenständig, ähnlich wie große Wohlfahrtsverbände, nur spezialisierter und kleiner.",
       },
+      {
+        q: "Nimmt Ankernetz auch Kinder aus Österreich oder der Schweiz auf?",
+        a: "Ja. Anfragen von österreichischen und Schweizer Jugendwohlfahrtsstellen, Behörden oder Familien sind willkommen. Die Unterbringung selbst findet in unserer Einrichtung in Berlin statt und richtet sich nach deutschem Recht (SGB VIII). Da österreichische und Schweizer Jugendhilfesysteme rechtlich anders aufgebaut sind, klären wir die Kostenübernahme bei internationalen Anfragen immer individuell im Vorfeld.",
+      },
     ],
   },
 ];

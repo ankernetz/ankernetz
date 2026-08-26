@@ -13,6 +13,8 @@ export const metadata: Metadata = {
     "Hilfeplan Jugendamt",
     "Jugendhilfe FAQ Berlin",
     "Unterschied Jugendhilfe Sozialhilfe",
+    "Jugendhilfe Träger Deutschland Österreich Schweiz",
+    "Wohngruppe Aufnahme Ausland",
   ],
   alternates: { canonical: "https://www.ankernetz.com/glossar" },
   openGraph: {

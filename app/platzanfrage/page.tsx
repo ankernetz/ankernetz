@@ -7,6 +7,7 @@ const TRANS = {
     heroEyebrow: "Für Jugendämter & Fachkräfte",
     heroH1: "Platzanfrage",
     heroSub: "Wir prüfen Ihren Bedarf und melden uns innerhalb von 24 Stunden.",
+    dachHinweis: "Anfragen aus ganz Deutschland sowie aus Österreich und der Schweiz sind willkommen. Die Unterbringung erfolgt in unserer Einrichtung in Berlin nach deutschem Recht (SGB VIII); die Kostenübernahme klären wir bei internationalen Anfragen im Einzelfall mit Ihnen.",
     kenn: [
       { zahl: "< 24h", text: "Rückmeldung auf Ihre Anfrage" },
       { zahl: "24/7", text: "Erreichbar bei Krisenaufnahmen" },
@@ -67,6 +68,7 @@ const TRANS = {
     heroEyebrow: "For Youth Welfare Offices & professionals",
     heroH1: "Placement request",
     heroSub: "We will review your needs and get back to you within 24 hours.",
+    dachHinweis: "Enquiries from anywhere in Germany, as well as from Austria and Switzerland, are welcome. Placement takes place at our facility in Berlin under German law (SGB VIII); for international enquiries we clarify cost coverage individually with you.",
     kenn: [
       { zahl: "< 24 h", text: "Response to your request" },
       { zahl: "24/7", text: "Available for emergency admissions" },
@@ -202,6 +204,14 @@ export default function PlatzanfragePage() {
           </h1>
           <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, maxWidth: "480px" }}>
             {t.heroSub}
+          </p>
+
+          <p style={{
+            fontSize: "13.5px", color: "rgba(255,255,255,0.55)", lineHeight: 1.65,
+            maxWidth: "560px", marginTop: "16px", paddingTop: "16px",
+            borderTop: "1px solid rgba(255,255,255,0.15)",
+          }}>
+            {t.dachHinweis}
           </p>
 
           {/* Kennzahlen */}
