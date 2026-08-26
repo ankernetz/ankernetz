@@ -724,7 +724,7 @@ const articlesUnsorted: Article[] = [
       en: "From now on, we accept placement requests not only from Germany, but also from Austria and Switzerland. What is changing - and what stays the same.",
     },
     keywords: {
-      de: ["Jugendhilfe Träger Österreich Schweiz", "Wohngruppe Aufnahme Ausland", "Auslandsplatzierung Jugendhilfe", "Jugendhilfe Deutschland Österreich Schweiz"],
+      de: ["Jugendhilfe Träger Österreich Schweiz", "Wohngruppe Aufnahme Ausland", "Auslandsplatzierung Jugendhilfe", "Jugendhilfe Deutschland Österreich Schweiz", "kein Platz frei Wohngruppe", "freie Plätze Jugendhilfe außerhalb Kanton Bundesland", "Träger gesucht Jugendlicher schwer vermittelbar"],
       en: ["youth welfare provider Austria Switzerland", "residential group international admission", "cross-border youth welfare placement", "youth welfare Germany Austria Switzerland"],
     },
     sections: {
@@ -785,8 +785,8 @@ const articlesUnsorted: Article[] = [
       en: "When no suitable specialist place is available at home, Austrian and Swiss youth welfare bodies increasingly look across the border. This article explains the legal framework, funding and the practical process of placement in Germany.",
     },
     keywords: {
-      de: ["Auslandsplatzierung Jugendhilfe Deutschland", "Wohngruppe Deutschland aus Österreich", "KESB Platzierung Deutschland", "Jugendwohlfahrt Österreich Träger Deutschland", "Jugendhilfe DACH"],
-      en: ["cross-border youth welfare placement Germany", "residential group Germany from Austria", "KESB placement Germany", "youth welfare Austria provider Germany", "youth welfare DACH"],
+      de: ["Auslandsplatzierung Jugendhilfe Deutschland", "Wohngruppe Deutschland aus Österreich", "KESB Platzierung Deutschland", "Jugendwohlfahrt Österreich Träger Deutschland", "Jugendhilfe DACH", "kein freier Platz Wohngruppe Kanton", "kein Platz frei Jugendhilfeeinrichtung Bundesland", "Wohngruppe freie Plätze außerhalb Kanton", "sozialpädagogische Einrichtung Aufnahme aus dem Ausland", "auswärtige Unterbringung Jugendliche", "Notfallplatz Jugendlicher Ausland", "Fachplatz Jugendhilfe überregional", "Träger gesucht komplexer Bedarf Jugendlicher"],
+      en: ["cross-border youth welfare placement Germany", "residential group Germany from Austria", "KESB placement Germany", "youth welfare Austria provider Germany", "youth welfare DACH", "no place available residential group canton", "specialist placement Germany from abroad"],
     },
     sections: {
       de: [
@@ -1031,6 +1031,71 @@ const articlesUnsorted: Article[] = [
         { label: "Transition to Work", href: "/uebergang-arbeit" },
         { label: "Therapy & Housing", href: "/therapie-wohnen" },
         { label: "Youth Welfare", href: "/jugendhilfe" },
+      ],
+    },
+  },
+
+  {
+    slug: "kein-freier-platz-wohngruppe-kanton-bundesland-was-tun",
+    date: "2026-08-26",
+    title: {
+      de: "Kein freier Platz? Was tun, wenn die Wohngruppe im eigenen Kanton oder Bundesland ausgebucht ist",
+      en: "No Place Available? What to Do When Residential Groups in Your Own Canton or State Are Full",
+    },
+    readTime: {
+      de: "8 Min. Lesezeit",
+      en: "8 min. read",
+    },
+    excerpt: {
+      de: "Wenn alle bekannten Einrichtungen in der eigenen Region ausgebucht sind, bleibt oft nur der Blick über die Grenze. Dieser Artikel erklärt, warum das eine legitime Option ist, worauf bei der Suche zu achten ist - und wie eine Anfrage bei einem Träger außerhalb des eigenen Landes konkret abläuft.",
+      en: "When every known facility in your own region is full, looking across the border is often the only option left. This article explains why that is a legitimate path, what to look out for when searching, and how an enquiry to a provider outside your own country actually works.",
+    },
+    keywords: {
+      de: ["kein Platz frei Wohngruppe", "Jugendhilfeeinrichtung ausgebucht", "kein freier Platz Kanton", "kein freier Platz Bundesland", "überregionale Trägersuche Jugendhilfe", "Fachplatz dringend gesucht"],
+      en: ["no place available residential group", "youth welfare facility fully booked", "cross-regional provider search youth welfare", "urgent specialist placement needed"],
+    },
+    sections: {
+      de: [
+        { type: "h2", content: "Ein bekanntes Problem: die Region ist ausgebucht" },
+        { type: "p", content: "Ein Jugendlicher braucht dringend einen Platz - aber jede Einrichtung, die eine Fachkraft anruft, ist ausgebucht, hat eine Warteliste oder passt fachlich nicht genau genug. Das ist kein Ausnahmefall, sondern in vielen Regionen Deutschlands, Österreichs und der Schweiz Alltag, besonders bei Jugendlichen mit komplexem Bedarf - schwerer Traumatisierung, mehrfachen gescheiterten Unterbringungen oder sehr spezifischen diagnostischen Voraussetzungen." },
+        { type: "h2", content: "Warum die Suche über die eigene Region hinaus sinnvoll ist" },
+        { type: "p", content: "Eine überregionale oder grenzüberschreitende Suche ist keine Notlösung zweiter Klasse - sie ist in der Fachpraxis ein anerkannter Schritt, sobald die naheliegenden Optionen erschöpft sind. Gerade bei sehr spezialisierten Angeboten ist die Wahrscheinlichkeit hoch, dass der passende Platz nicht im eigenen Kanton oder Bundesland liegt, sondern bei einem Träger, der genau auf diesen Bedarf spezialisiert ist." },
+        { type: "highlight", content: "Die Frage ist nicht 'muss die Einrichtung in meiner Nähe liegen', sondern 'passt das fachliche Angebot zum tatsächlichen Bedarf des Jugendlichen'. Entfernung ist ein Faktor unter mehreren - nicht das entscheidende Kriterium." },
+        { type: "h2", content: "Worauf sollte man bei der überregionalen Suche achten?" },
+        { type: "ul", content: ["Fachliche Spezialisierung: passt das Angebot wirklich zum konkreten Bedarf, nicht nur zur groben Kategorie 'Wohngruppe'?", "Aufnahmegeschwindigkeit: manche Träger haben eigene Kapazitäten und kurze Wartezeiten, andere lange Vorlaufzeiten", "Integrierte Angebote: liegt Therapie, Diagnostik oder Beratung im selben Haus, oder muss extern koordiniert werden?", "Erfahrung mit Anfragen von außerhalb: hat der Träger bereits Erfahrung mit Jugendlichen aus anderen Regionen oder Ländern?", "Klare Kommunikation zur Finanzierung: wird die Kostenfrage transparent und frühzeitig geklärt?"] },
+        { type: "h2", content: "Wie unterscheidet sich die Suche in Deutschland, Österreich und der Schweiz?" },
+        { type: "p", content: "In Deutschland ist der Wechsel der örtlichen Zuständigkeit bei einem überregionalen Platz ein bekannter, geregelter Vorgang zwischen Jugendämtern. In der Schweiz gibt es mit heiminfo.ch von CURAVIVA eine zentrale Suchplattform für Institutionen - allerdings primär für Schweizer Einrichtungen, sodass ein Träger außerhalb der Schweiz dort in der Regel nicht auftaucht und gezielt separat gesucht werden muss. In Österreich gibt es kein einzelnes Bundesverzeichnis - die Zuständigkeit liegt bei den Bundesländern, wodurch eine überregionale oder grenzüberschreitende Suche oft direkt über persönliche Kontakte oder gezielte Internetrecherche läuft." },
+        { type: "h2", content: "Wie läuft eine Anfrage bei einem Träger außerhalb des eigenen Landes praktisch ab?" },
+        { type: "p", content: "Der Ablauf unterscheidet sich weniger, als viele erwarten: Erstkontakt, fachliche Einschätzung, bei Passung ein Kennenlernen - oft zunächst per Videocall - und danach die Klärung der Finanzierung. Der einzige zusätzliche Schritt bei einer Anfrage aus Österreich oder der Schweiz nach Deutschland ist die frühzeitige Klärung, wie die Kosten übernommen werden, weil es dafür keinen automatischen Mechanismus zwischen den Ländern gibt." },
+        { type: "h2", content: "Ankernetz: Anlaufstelle, wenn die naheliegenden Optionen erschöpft sind" },
+        { type: "p", content: "Wir bekommen regelmäßig Anfragen genau in diesem Moment - wenn alle bekannten Einrichtungen in der Region bereits kontaktiert wurden und kein passender Platz gefunden war. Mit eigenen Kapazitäten für Krisenintervention, therapeutisches Wohnen und integrierter Psychotherapie mit Kassensitz prüfen wir jede Anfrage offen, auch aus Österreich und der Schweiz - und sagen ebenso offen, wenn etwas nicht passt." },
+      ],
+      en: [
+        { type: "h2", content: "A familiar problem: the region is fully booked" },
+        { type: "p", content: "A young person urgently needs a place - but every facility a professional calls is fully booked, has a waiting list, or is not quite the right professional fit. This is not an exception but everyday reality in many regions of Germany, Austria and Switzerland, especially for young people with complex needs - severe trauma, multiple failed placements, or very specific diagnostic requirements." },
+        { type: "h2", content: "Why looking beyond your own region makes sense" },
+        { type: "p", content: "A cross-regional or cross-border search is not a second-rate fallback - in professional practice it is a recognised step once the nearby options are exhausted. Especially for highly specialised services, the right place is often more likely to be found with a provider that specialises exactly in that need than with one that merely happens to be nearby." },
+        { type: "highlight", content: "The question is not 'does the facility have to be close to me', but 'does the professional offering actually match the young person's real need'. Distance is one factor among several - not the decisive criterion." },
+        { type: "h2", content: "What should you look out for in a cross-regional search?" },
+        { type: "ul", content: ["Professional specialisation: does the offering really match the specific need, not just the broad category of 'residential group'?", "Speed of admission: some providers have their own capacity and short waiting times, others long lead times", "Integrated services: are therapy, diagnostics or counselling under the same roof, or does that need external coordination?", "Experience with enquiries from outside the region: does the provider already have experience with young people from other regions or countries?", "Clear communication on funding: is the cost question addressed transparently and early on?"] },
+        { type: "h2", content: "How does the search differ in Germany, Austria and Switzerland?" },
+        { type: "p", content: "In Germany, a change of local responsibility for a cross-regional placement is a well-established, regulated process between youth welfare offices. In Switzerland, CURAVIVA's heiminfo.ch offers a central search platform for institutions - but it is primarily aimed at Swiss facilities, so a provider outside Switzerland typically does not appear there and must be searched for separately. In Austria there is no single national directory - responsibility lies with the individual states, so a cross-regional or cross-border search often runs through personal contacts or targeted online research." },
+        { type: "h2", content: "How does an enquiry to a provider outside your own country actually work?" },
+        { type: "p", content: "The process differs less than many expect: initial contact, professional assessment, if it's a good fit an introduction - often by video call first - and then clarifying funding. The only extra step for an enquiry from Austria or Switzerland to Germany is clarifying cost coverage early on, since there is no automatic mechanism between the countries for this." },
+        { type: "h2", content: "Ankernetz: a point of contact once nearby options are exhausted" },
+        { type: "p", content: "We regularly receive enquiries at exactly this moment - when every known facility in the region has already been contacted and no suitable place was found. With our own capacity for crisis intervention, therapeutic housing and integrated insured psychotherapy, we assess every enquiry openly, including from Austria and Switzerland - and are equally open when something is not the right fit." },
+      ],
+    },
+    relatedPages: {
+      de: [
+        { label: "Platzanfrage stellen", href: "/platzanfrage" },
+        { label: "Therapie & Wohnen", href: "/therapie-wohnen" },
+        { label: "Glossar & FAQ", href: "/aktuelles#glossar" },
+      ],
+      en: [
+        { label: "Request a place", href: "/platzanfrage" },
+        { label: "Therapy & Housing", href: "/therapie-wohnen" },
+        { label: "Glossary & FAQ", href: "/aktuelles#glossar" },
       ],
     },
   },

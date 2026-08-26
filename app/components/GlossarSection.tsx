@@ -286,6 +286,14 @@ const kategorien: FaqCategory[] = [
         q: "Wie lernen sich das Kind und das Team vor der Aufnahme kennen, wenn die Anreise aus Österreich oder der Schweiz weit ist?",
         a: "Das erste Kennenlernen muss nicht vor Ort in Berlin stattfinden. In der Regel geschieht es zunächst per Videocall, ein persönliches Treffen ist bei Bedarf zusätzlich möglich. Für die eigentliche Anreise zur Aufnahme holen wir das Kind auf Wunsch auch selbst ab, damit die Organisation nicht allein bei der Familie oder der Behörde liegt.",
       },
+      {
+        q: "Finde ich Ankernetz über heiminfo.ch, wenn ich als Schweizer KESB dort suche?",
+        a: "Nein, in der Regel nicht. Heiminfo.ch von CURAVIVA ist die zentrale Suchplattform für Institutionen in der Schweiz, listet aber primär Schweizer Einrichtungen. Als Träger mit Sitz in Berlin sind wir dort nicht automatisch auffindbar - eine Anfrage an uns läuft über unser Platzanfrage-Formular, Telefon oder E-Mail, unabhängig von schweizinternen Verzeichnissen.",
+      },
+      {
+        q: "Warum gibt es kein zentrales österreichisches Verzeichnis, über das man Ankernetz finden könnte?",
+        a: "Weil die Kinder- und Jugendhilfe in Österreich Landessache ist - es gibt kein einziges Bundesverzeichnis, sondern höchstens Listen einzelner Bundesländer. Eine Suche nach einem Träger außerhalb Österreichs läuft deshalb meist über gezielte Internetrecherche oder persönliche Kontakte, nicht über eine zentrale Datenbank.",
+      },
     ],
   },
 ];
