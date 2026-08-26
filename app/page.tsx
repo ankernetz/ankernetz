@@ -168,7 +168,7 @@ export default function HomePage() {
             background: "#6FA3FE", color: "white", fontWeight: 700, fontSize: "15px",
             padding: "14px 28px", borderRadius: "12px", textDecoration: "none",
           }}>
-            {lang === "de" ? "Jetzt Kompass starten" : "Start the Compass"} <ArrowRight size={16} />
+            {lang === "de" ? "Jetzt Ankernetz-Kompass starten" : "Start the Ankernetz Compass"} <ArrowRight size={16} />
           </Link>
         </div>
       </section>

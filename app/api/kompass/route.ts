@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     const empfehlungen: { label: string; prozent: number }[] = data.empfehlungen ?? [];
 
     if (!BOT_TOKEN || !CHAT_ID) {
-      console.error("[Kompass] Telegram-Zugangsdaten fehlen");
+      console.error("[Ankernetz-Kompass] Telegram-Zugangsdaten fehlen");
       return NextResponse.json({ ok: false }, { status: 500 });
     }
 
