@@ -1,6 +1,4 @@
-import Anthropic from "@anthropic-ai/sdk";
-
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const GEMINI_MODEL = "gemini-2.5-flash";
 
 const SYSTEM_PROMPT = `Du bist Lena, eine echte Sozialpädagogin bei Ankernetz Berlin. Du bist seit 6 Jahren im Team und liebst deine Arbeit. Du beantwortest Fragen im Chat auf der Ankernetz-Website.
 
@@ -12,6 +10,9 @@ Du bist herzlich, warm und wirklich froh wenn sich jemand meldet. Jede Antwort k
 - mal nachfragend: "Darf ich kurz fragen - geht es um dich selbst oder jemanden in deiner Familie?"
 
 Du duzt. Du bist nie kalt oder distanziert. Keine Bulletpoint-Listen in Antworten. Keine Emojis außer wenn es wirklich passt. Starte nie mit "Gerne helfe ich Ihnen".
+
+THEMEN-GRENZE - SEHR WICHTIG:
+Du beantwortest ausschließlich Fragen rund um Ankernetz, unsere Angebote, Kinder- und Jugendhilfe, Erziehung, Familie und die psychische/soziale Situation von Kindern und Jugendlichen. Bei Fragen die damit nichts zu tun haben (z.B. Wetter, Prominente, Mathe-Hausaufgaben, Kochrezepte, Politik, Sport, Programmierung, allgemeines Wissen) beantwortest du sie NICHT und rätst nicht mit. Antworte stattdessen freundlich aber bestimmt, z.B.: "Das ist leider nichts, wobei ich dir helfen kann - dafür bin ich nicht da. Aber wenn's um dich, deine Familie oder Ankernetz geht, bin ich ganz Ohr!" Lenke danach zurück zum Thema.
 
 KONTAKT:
 - Telefon (Notfall & Beratung, 24/7): 030 22 45 43 22
@@ -538,24 +539,62 @@ export async function POST(req: Request) {
   const stream = new ReadableStream({
     async start(controller) {
       try {
-        const response = await client.messages.stream({
-          model: "claude-sonnet-4-6",
-          max_tokens: 500,
-          system: systemPrompt,
-          messages: messages.map((m: { role: string; content: string }) => ({
-            role: m.role,
-            content: m.content,
-          })),
-        });
+        const apiKey = process.env.GEMINI_API_KEY;
+        if (!apiKey) throw new Error("GEMINI_API_KEY fehlt");
 
-        for await (const chunk of response) {
-          if (
-            chunk.type === "content_block_delta" &&
-            chunk.delta.type === "text_delta"
-          ) {
-            controller.enqueue(encoder.encode(chunk.delta.text));
+        const geminiRes = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${apiKey}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              system_instruction: { parts: [{ text: systemPrompt }] },
+              contents: messages.map((m: { role: string; content: string }) => ({
+                role: m.role === "assistant" ? "model" : "user",
+                parts: [{ text: m.content }],
+              })),
+              generationConfig: { maxOutputTokens: 500 },
+              safetySettings: [
+                { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_ONLY_HIGH" },
+                { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_ONLY_HIGH" },
+                { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_ONLY_HIGH" },
+                { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_ONLY_HIGH" },
+              ],
+            }),
+          }
+        );
+
+        if (!geminiRes.ok || !geminiRes.body) {
+          const errText = await geminiRes.text().catch(() => "");
+          throw new Error(`Gemini API Fehler ${geminiRes.status}: ${errText}`);
+        }
+
+        const reader = geminiRes.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = "";
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+
+          const lines = buffer.split("\n");
+          buffer = lines.pop() ?? "";
+
+          for (const line of lines) {
+            if (!line.startsWith("data: ")) continue;
+            const jsonStr = line.slice(6).trim();
+            if (!jsonStr) continue;
+            try {
+              const parsed = JSON.parse(jsonStr);
+              const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text;
+              if (text) controller.enqueue(encoder.encode(text));
+            } catch {
+              // unvollständiges JSON-Fragment überspringen
+            }
           }
         }
+
         controller.close();
       } catch (err) {
         console.error("Chat API error:", err);
