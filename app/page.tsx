@@ -4,7 +4,7 @@ import Link from "next/link";
 import {
   AlertTriangle, Home, Brain, Baby, Search, Shirt,
   MessageCircle, Rocket, Building2, Heart, ArrowRight,
-  Shield, Network, Star
+  Shield, Network, Star, Compass
 } from "lucide-react";
 import { AnimatedGridPattern } from "./components/AnimatedGridPattern";
 import { BlurFade } from "./components/BlurFade";
@@ -131,6 +131,45 @@ export default function HomePage() {
               </div>
             </div>
           </BlurFade>
+        </div>
+      </section>
+
+      {/* ═══ KOMPASS BANNER ═══ */}
+      <section style={{ background: "#0b1220", padding: "3.5rem 1.5rem" }}>
+        <div className="site-container" style={{
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          gap: "2rem", flexWrap: "wrap",
+        }}>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "1.25rem", maxWidth: "640px" }}>
+            <div style={{
+              width: "48px", height: "48px", borderRadius: "12px", flexShrink: 0,
+              background: "rgba(143,184,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+              <Compass size={24} color="#8fb8ff" />
+            </div>
+            <div>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8fb8ff", marginBottom: "0.5rem" }}>
+                {lang === "de" ? "Neu bei Ankernetz" : "New at Ankernetz"}
+              </p>
+              <h2 style={{ fontSize: "clamp(1.25rem,2.5vw,1.625rem)", fontWeight: 700, color: "#ffffff", lineHeight: 1.35, marginBottom: "0.5rem" }}>
+                {lang === "de"
+                  ? "Der Ankernetz-Kompass: welche Hilfe passt zu Ihrer Situation?"
+                  : "The Ankernetz Compass: which help fits your situation?"}
+              </h2>
+              <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.65, margin: 0 }}>
+                {lang === "de"
+                  ? "Einer der ersten interaktiven Orientierungs-Fragebögen seiner Art in der deutschsprachigen Jugendhilfe - kostenlos, anonym, in 3 Minuten."
+                  : "One of the first interactive orientation questionnaires of its kind in German-speaking youth welfare - free, anonymous, 3 minutes."}
+              </p>
+            </div>
+          </div>
+          <Link href="/kompass" style={{
+            display: "inline-flex", alignItems: "center", gap: "8px", flexShrink: 0,
+            background: "#6FA3FE", color: "white", fontWeight: 700, fontSize: "15px",
+            padding: "14px 28px", borderRadius: "12px", textDecoration: "none",
+          }}>
+            {lang === "de" ? "Jetzt Kompass starten" : "Start the Compass"} <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
 

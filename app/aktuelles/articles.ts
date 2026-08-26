@@ -1308,6 +1308,71 @@ const articlesUnsorted: Article[] = [
       ],
     },
   },
+
+  {
+    slug: "ankernetz-kompass-launch-orientierungshilfe-jugendhilfe",
+    date: "2026-08-27",
+    title: {
+      de: "Neu: Der Ankernetz-Kompass - eine der ersten Orientierungshilfen ihrer Art in der Jugendhilfe",
+      en: "New: The Ankernetz Compass - One of the First Orientation Tools of Its Kind in Youth Welfare",
+    },
+    readTime: {
+      de: "6 Min. Lesezeit",
+      en: "6 min. read",
+    },
+    excerpt: {
+      de: "Die meisten Menschen, die Hilfe brauchen, wissen zu Beginn nicht, welche. Mit dem Ankernetz-Kompass gehen wir das Problem direkt an - ein kurzer, anonymer Fragebogen, der zeigt, welches Angebot passen könnte, bevor das erste Gespräch überhaupt beginnt.",
+      en: "Most people who need help do not know at first what kind. With the Ankernetz Compass we tackle this directly - a short, anonymous questionnaire that shows which service could fit, before the first conversation even begins.",
+    },
+    keywords: {
+      de: ["Ankernetz Kompass", "Selbsttest welche Hilfe passt", "Jugendhilfe Orientierungshilfe online", "erster Fragebogen Jugendhilfe", "welche Jugendhilfe brauche ich Test"],
+      en: ["Ankernetz Compass", "self-test which help fits", "youth welfare orientation tool online", "first questionnaire youth welfare"],
+    },
+    sections: {
+      de: [
+        { type: "h2", content: "Das Problem, das vor jedem Erstgespräch steht" },
+        { type: "p", content: "Bevor eine Familie, ein Jugendlicher oder eine Fachkraft überhaupt anruft, steht meist eine unausgesprochene Frage im Weg: Wo fange ich an? Beratung, Therapie, Diagnostik, eine Wohngruppe - für Menschen ohne Fachwissen aus der Jugendhilfe klingt das alles ähnlich dringend und gleichzeitig unklar. Genau diese Unsicherheit hält viele davon ab, überhaupt den ersten Schritt zu machen." },
+        { type: "h2", content: "Was der Kompass ist - und was nicht" },
+        { type: "p", content: "Der Ankernetz-Kompass ist ein kurzer, anonymer Online-Fragebogen: keine Anmeldung, keine Diagnose, etwa drei Minuten. Er beginnt mit einer Sicherheitsfrage - besteht eine akute Gefahr, führt der Weg sofort zur Notfallnummer statt zu weiteren Fragen. Andernfalls folgen rund zehn Fragen zu Alter, Situation und Dringlichkeit. Am Ende steht eine Einschätzung, welche unserer elf Angebote am ehesten passen könnten, mit direktem Link zur jeweiligen Seite - ähnlich wie ein bekannter politischer Orientierungstest, nur für die Jugendhilfe." },
+        { type: "highlight", content: "Soweit wir das recherchieren konnten, gibt es in der deutschsprachigen Jugendhilfe bislang kein vergleichbares interaktives Orientierungstool bei einem einzelnen Träger. Der Kompass ist damit einer der ersten seiner Art." },
+        { type: "h2", content: "Warum wir ihn gebaut haben" },
+        { type: "p", content: "Die meisten Menschen kommen nicht mit der Frage \"Welches SGB-VIII-Angebot passt zu mir?\" zu uns - sie kommen mit einem diffusen Gefühl von Überforderung. Der Kompass übersetzt dieses Gefühl in konkrete Fragen und am Ende in eine konkrete erste Richtung. Das ersetzt kein fachliches Gespräch, aber es senkt die Hürde, überhaupt eines zu beginnen." },
+        { type: "h2", content: "Für wen ist der Kompass gedacht?" },
+        { type: "ul", content: ["Eltern, die unsicher sind, ob Beratung reicht oder mehr nötig ist", "Jugendliche, die selbst herausfinden wollen, wo sie ansetzen können", "Fachkräfte in Kitas und Schulen, die eine Familie weiterverweisen möchten", "Jugendämter und Fachstellen, auch aus Österreich und der Schweiz, die eine erste Einschätzung suchen"] },
+        { type: "h2", content: "Was danach passiert" },
+        { type: "p", content: "Am Ende des Kompass steht kein Zwang zu einem nächsten Schritt - nur ein klareres Bild und, wenn gewünscht, ein direkter Button zur Platzanfrage oder zum Kontakt. Die Antworten helfen intern außerdem dabei, schneller einzuschätzen, worum es geht, wenn sich jemand tatsächlich meldet." },
+        { type: "h2", content: "Selbst ausprobieren" },
+        { type: "p", content: "Der Kompass ist kostenlos, anonym und jederzeit erreichbar - auch direkt im Chat mit Lena auf unserer Website." },
+      ],
+      en: [
+        { type: "h2", content: "The problem that stands before every first conversation" },
+        { type: "p", content: "Before a family, a young person or a professional even picks up the phone, there is usually an unspoken question in the way: where do I even start? Counselling, therapy, diagnostics, a residential group - for people without expert knowledge of youth welfare, all of it sounds equally urgent and equally unclear at the same time. That uncertainty alone stops many people from taking the first step at all." },
+        { type: "h2", content: "What the Compass is - and what it is not" },
+        { type: "p", content: "The Ankernetz Compass is a short, anonymous online questionnaire: no sign-up, no diagnosis, about three minutes. It begins with a safety question - if there is acute danger, it leads straight to the emergency number instead of further questions. Otherwise, around ten questions follow about age, situation and urgency. At the end there is an assessment of which of our eleven services could fit best, with a direct link to the relevant page - similar to a well-known political orientation test, just for youth welfare." },
+        { type: "highlight", content: "As far as we have been able to research, there is currently no comparable interactive orientation tool offered by a single provider in German-speaking youth welfare. The Compass is therefore one of the first of its kind." },
+        { type: "h2", content: "Why we built it" },
+        { type: "p", content: "Most people do not come to us with the question \"which SGB VIII service fits me?\" - they come with a vague feeling of being overwhelmed. The Compass translates that feeling into concrete questions and, at the end, into a concrete first direction. It does not replace a professional conversation, but it lowers the barrier to starting one at all." },
+        { type: "h2", content: "Who is the Compass for?" },
+        { type: "p", content: "Parents unsure whether counselling is enough or more is needed. Young people who want to work out for themselves where to start. Professionals in daycare centres and schools who want to point a family in the right direction. Youth welfare offices and specialist bodies, including from Austria and Switzerland, looking for a first assessment." },
+        { type: "h2", content: "What happens afterwards" },
+        { type: "p", content: "At the end of the Compass there is no pressure to take a next step - just a clearer picture and, if wanted, a direct button to the place request form or to contact us. The answers also help us internally to assess more quickly what is going on when someone actually gets in touch." },
+        { type: "h2", content: "Try it yourself" },
+        { type: "p", content: "The Compass is free, anonymous and always available - including directly in the chat with Lena on our website." },
+      ],
+    },
+    relatedPages: {
+      de: [
+        { label: "Kompass: Welche Hilfe passt?", href: "/kompass" },
+        { label: "Platzanfrage stellen", href: "/platzanfrage" },
+        { label: "Glossar & FAQ", href: "/aktuelles#glossar" },
+      ],
+      en: [
+        { label: "Compass: Which Help Fits?", href: "/kompass" },
+        { label: "Request a place", href: "/platzanfrage" },
+        { label: "Glossary & FAQ", href: "/aktuelles#glossar" },
+      ],
+    },
+  },
 ];
 
 export const articles: Article[] = [...articlesUnsorted].sort((a, b) => b.date.localeCompare(a.date));
