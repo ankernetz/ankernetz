@@ -118,7 +118,7 @@ const SICHERHEITS_OPTIONEN = [
   "Nein, keine akute Gefahr",
 ];
 
-export default function Wegweiser() {
+export default function Kompass() {
   const [sicherheit, setSicherheit] = useState<string | null>(null);
   const [step, setStep] = useState(0);
   const [antworten, setAntworten] = useState<Record<string, string[]>>({});
@@ -186,7 +186,7 @@ export default function Wegweiser() {
       label: SERVICES[key].label,
       prozent: Math.round((val / maxScore) * 100),
     }));
-    fetch("/api/wegweiser", {
+    fetch("/api/kompass", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ antworten: antwortenListe, empfehlungen }),

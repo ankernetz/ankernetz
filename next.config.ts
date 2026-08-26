@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         destination: "/aktuelles#glossar",
         permanent: true,
       },
+      {
+        source: "/wegweiser",
+        destination: "/kompass",
+        permanent: true,
+      },
     ];
   },
 };

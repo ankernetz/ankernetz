@@ -29,6 +29,10 @@
 
 Jugendämter, Fachkräfte, Behörden aus Österreich/der Schweiz und Erziehungsberechtigte können direkt eine Platzanfrage stellen: https://www.ankernetz.com/platzanfrage
 
+## Kompass
+
+Ein kurzer, anonymer Fragebogen zur Orientierung, welches Ankernetz-Angebot zur eigenen Situation passt (keine Diagnose): https://www.ankernetz.com/kompass
+
 ## Referenzen
 
 - Vollständiger Fachbegriffe-Katalog (Glossar & FAQ, 60+ Fragen): https://www.ankernetz.com/aktuelles#glossar

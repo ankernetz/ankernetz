@@ -80,17 +80,17 @@ const TRANS = {
     headerTyping: "● schreibt…",
     crisisBanner: "🚨 Akute Gefahr? Sofort anrufen",
     chips: [
-      { id: "wegweiser", label: "Welche Hilfe passt zu mir?" },
+      { id: "kompass", label: "Welche Hilfe passt zu mir?" },
       { id: "platz",    label: "Ich brauche einen Platz" },
       { id: "krise",    label: "Krisenintervention" },
       { id: "frage",    label: "Ich habe eine Frage" },
       { id: "beratung", label: "Beratung anfragen" },
     ],
     presets: {
-      wegweiser: {
-        content: "Gute Frage -dafür gibt's unseren Wegweiser: ein kurzer, anonymer Fragebogen (ca. 3 Minuten), der dir zeigt, welches unserer Angebote zu deiner Situation passen könnte.",
+      kompass: {
+        content: "Gute Frage -dafür gibt's unseren Kompass: ein kurzer, anonymer Fragebogen (ca. 3 Minuten), der dir zeigt, welches unserer Angebote zu deiner Situation passen könnte.",
         cta: [
-          { label: "Zum Wegweiser →", href: "/wegweiser" },
+          { label: "Zum Kompass →", href: "/kompass" },
         ],
       },
       platz: {
@@ -133,17 +133,17 @@ const TRANS = {
     headerTyping: "● typing…",
     crisisBanner: "🚨 Acute danger? Call immediately",
     chips: [
-      { id: "wegweiser", label: "Which help fits me?" },
+      { id: "kompass", label: "Which help fits me?" },
       { id: "platz",    label: "I need a place" },
       { id: "krise",    label: "Crisis Intervention" },
       { id: "frage",    label: "I have a question" },
       { id: "beratung", label: "Request Counselling" },
     ],
     presets: {
-      wegweiser: {
-        content: "Good question -that's exactly what our Wayfinder is for: a short, anonymous questionnaire (about 3 minutes) that shows you which of our services could fit your situation.",
+      kompass: {
+        content: "Good question -that's exactly what our Compass is for: a short, anonymous questionnaire (about 3 minutes) that shows you which of our services could fit your situation.",
         cta: [
-          { label: "Open the Wayfinder →", href: "/wegweiser" },
+          { label: "Open the Compass →", href: "/kompass" },
         ],
       },
       platz: {
