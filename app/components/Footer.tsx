@@ -34,6 +34,7 @@ const TRANS = {
     organisationListe: [
       { label: "Über uns",    href: "/ueber-uns" },
       { label: "Karriere",    href: "/karriere" },
+      { label: "Wortlexikon", href: "/lexikon" },
       { label: "Glossar & FAQ", href: "/aktuelles#glossar" },
       { label: "Kontakt",     href: "/kontakt" },
       { label: "Impressum",   href: "/impressum" },
@@ -76,6 +77,7 @@ const TRANS = {
     organisationListe: [
       { label: "About us",    href: "/ueber-uns" },
       { label: "Careers",     href: "/karriere" },
+      { label: "Word Lexicon", href: "/lexikon" },
       { label: "Glossary & FAQ", href: "/aktuelles#glossar" },
       { label: "Contact",     href: "/kontakt" },
       { label: "Legal Notice", href: "/impressum" },
