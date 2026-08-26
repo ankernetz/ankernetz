@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { articles } from "./articles";
 import ExternalLinks from "../components/ExternalLinks";
+import GlossarSection from "../components/GlossarSection";
 import { useT } from "../i18n/useT";
 import { useLang } from "../contexts/LanguageContext";
 
@@ -13,6 +14,7 @@ const TRANS = {
     h1: "Aktuelles von Ankernetz",
     lead: "Fachbeiträge zu Jugendhilfe, Krisenintervention, sensorischer Kleidung und Unterstützungsangeboten für Kinder und Jugendliche in Berlin und Brandenburg.",
     readArticle: "Artikel lesen",
+    glossarLink: "Zum Glossar & den häufigen Fragen",
     ctaEyebrow: "Ankernetz Berlin · 24/7 Krisentelefon",
     ctaH2: "Sie brauchen Hilfe? Melden Sie sich.",
     ctaBody: "Unser Team ist rund um die Uhr erreichbar - für Familien, Jugendliche und Fachkräfte. Krisenintervention, Platzanfragen, Beratung.",
@@ -42,6 +44,7 @@ const TRANS = {
     h1: "Latest from Ankernetz",
     lead: "Expert articles on youth welfare, crisis intervention, sensory clothing and support services for children and young people in Berlin and Brandenburg.",
     readArticle: "Read article",
+    glossarLink: "Jump to the glossary & FAQ",
     ctaEyebrow: "Ankernetz Berlin · 24/7 Crisis Line",
     ctaH2: "Need help? Get in touch.",
     ctaBody: "Our team is available around the clock - for families, young people and professionals. Crisis intervention, place requests, counselling.",
@@ -91,10 +94,20 @@ export default function AktuellesPage() {
           </h1>
           <p style={{
             fontSize: "1.0625rem", color: "#4A3E38", lineHeight: 1.75,
-            maxWidth: "680px",
+            maxWidth: "680px", marginBottom: "1.5rem",
           }}>
             {t.lead}
           </p>
+          <a href="#glossar" style={{
+            display: "inline-flex", alignItems: "center", gap: "0.5rem",
+            fontSize: "0.875rem", fontWeight: 600, color: "#8B3A22",
+            textDecoration: "none",
+          }}>
+            {t.glossarLink}
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M7 3v8M3.5 7.5L7 11l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
         </div>
       </section>
 
@@ -174,6 +187,8 @@ export default function AktuellesPage() {
           </div>
         </div>
       </section>
+
+      <GlossarSection />
 
       <ExternalLinks />
 

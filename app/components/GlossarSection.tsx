@@ -1,8 +1,6 @@
-import Link from "next/link";
 import { BookOpen } from "lucide-react";
 
-import { SeoFaqSchema } from "../components/SeoFaqSchema";
-import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+import { SeoFaqSchema } from "./SeoFaqSchema";
 
 interface FaqItem { q: string; a: string; }
 interface FaqCategory { titel: string; intro: string; items: FaqItem[]; }
@@ -294,10 +292,10 @@ const kategorien: FaqCategory[] = [
 
 const alleItems: FaqItem[] = kategorien.flatMap((k) => k.items);
 
-export default function GlossarPage() {
+export default function GlossarSection() {
   return (
-    <main style={{ overflowX: "hidden", background: "#f4f7fb" }}>
-      <section style={{ background: "#0b1220", padding: "6rem 1.5rem 4rem" }}>
+    <div id="glossar" style={{ scrollMarginTop: "80px" }}>
+      <section style={{ background: "#0b1220", padding: "4.5rem 1.5rem 3rem" }}>
         <div className="site-container" style={{ maxWidth: "820px" }}>
           <div style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
@@ -307,24 +305,24 @@ export default function GlossarPage() {
             <BookOpen size={14} color="#8fb8ff" />
             <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "#8fb8ff", letterSpacing: "0.03em" }}>Glossar &amp; FAQ</span>
           </div>
-          <h1 style={{
-            fontSize: "clamp(2rem,4.5vw,3.25rem)", fontWeight: 700, color: "#ffffff",
+          <h2 style={{
+            fontSize: "clamp(1.75rem,4vw,2.75rem)", fontWeight: 700, color: "#ffffff",
             letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: "1.25rem",
           }}>
             Glossar & häufige Fragen zur Jugendhilfe
-          </h1>
+          </h2>
           <p style={{ fontSize: "1.0625rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.75, maxWidth: "680px" }}>
             Was bedeutet SGB VIII? Was unterscheidet Jugendhilfe von Sozialhilfe? Was ist eine Inobhutnahme?
-            Hier erklären wir die wichtigsten Begriffe und Fragen rund um Kinder- und Jugendhilfe in Berlin
-            und Brandenburg - verständlich, ohne Behördendeutsch, und immer mit Bezug zur Praxis.
+            Hier erklären wir die wichtigsten Begriffe und Fragen rund um Kinder- und Jugendhilfe -
+            verständlich, ohne Behördendeutsch, und immer mit Bezug zur Praxis.
           </p>
         </div>
       </section>
 
-      <nav aria-label="Kategorien" style={{ background: "#ffffff", borderBottom: "1px solid rgba(0,0,0,0.06)", padding: "1.5rem" }}>
+      <nav aria-label="Glossar-Kategorien" style={{ background: "#ffffff", borderBottom: "1px solid rgba(0,0,0,0.06)", padding: "1.5rem" }}>
         <div className="site-container" style={{ maxWidth: "820px", display: "flex", flexWrap: "wrap", gap: "0.625rem" }}>
           {kategorien.map((k, i) => (
-            <a key={i} href={`#kategorie-${i}`} style={{
+            <a key={i} href={`#glossar-kategorie-${i}`} style={{
               fontSize: "0.8125rem", fontWeight: 600, color: "#1a3f6f",
               background: "#eef3fb", padding: "0.5rem 0.875rem", borderRadius: "8px",
               textDecoration: "none",
@@ -336,17 +334,18 @@ export default function GlossarPage() {
       </nav>
 
       {kategorien.map((kategorie, ki) => (
-        <section key={ki} id={`kategorie-${ki}`} style={{
+        <section key={ki} id={`glossar-kategorie-${ki}`} style={{
           background: ki % 2 === 0 ? "#F5F0EA" : "#ffffff",
           padding: "4.5rem 1.5rem", borderTop: "1px solid rgba(0,0,0,0.06)",
+          scrollMarginTop: "80px",
         }}>
           <div className="site-container" style={{ maxWidth: "860px" }}>
-            <h2 style={{
-              fontSize: "clamp(1.5rem,3vw,2rem)", fontWeight: 700, color: "#1A1614",
+            <h3 style={{
+              fontSize: "clamp(1.375rem,2.75vw,1.875rem)", fontWeight: 700, color: "#1A1614",
               letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.75rem",
             }}>
               {kategorie.titel}
-            </h2>
+            </h3>
             <p style={{ fontSize: "1rem", color: "#5A4E48", lineHeight: 1.75, marginBottom: "2.5rem", maxWidth: "680px" }}>
               {kategorie.intro}
             </p>
@@ -373,41 +372,12 @@ export default function GlossarPage() {
         </section>
       ))}
 
-      <section style={{ background: "#0b1220", padding: "5rem 1.5rem", textAlign: "center" }}>
-        <div className="site-container" style={{ maxWidth: "620px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "clamp(1.5rem,3vw,2rem)", fontWeight: 700, color: "#ffffff", marginBottom: "1rem" }}>
-            Ihre Frage war nicht dabei?
-          </h2>
-          <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.75, marginBottom: "2rem" }}>
-            Melden Sie sich direkt - kostenlos, unverbindlich und ohne Antrag.
-          </p>
-          <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="tel:+493022454322" style={{
-              display: "inline-flex", alignItems: "center", gap: "10px",
-              background: "#6FA3FE", color: "white", fontWeight: 700, fontSize: "15px",
-              padding: "15px 30px", borderRadius: "12px", textDecoration: "none",
-            }}>
-              Jetzt anrufen
-            </a>
-            <Link href="/kontakt" style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)",
-              color: "white", fontWeight: 600, fontSize: "14px",
-              padding: "15px 26px", borderRadius: "12px", textDecoration: "none",
-            }}>
-              Kontakt aufnehmen
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <style>{`
         .seo-faq-item[open] .faq-icon { transform: rotate(45deg); }
         .seo-faq-item summary::-webkit-details-marker { display: none; }
       `}</style>
 
       <SeoFaqSchema items={alleItems} />
-      <SeoBreadcrumb crumbs={[{ name: "Glossar & FAQ", slug: "glossar" }]} />
-    </main>
+    </div>
   );
 }

@@ -30,7 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/ueber-uns`,                   lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/karriere`,                    lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/kontakt`,                     lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/glossar`,                     lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/impressum`,                   lastModified: now, changeFrequency: "yearly",  priority: 0.2 },
     { url: `${BASE}/datenschutz`,                 lastModified: now, changeFrequency: "yearly",  priority: 0.2 },
     // Blog / Aktuelles

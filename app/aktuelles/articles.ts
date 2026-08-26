@@ -758,12 +758,12 @@ const articlesUnsorted: Article[] = [
     relatedPages: {
       de: [
         { label: "Platzanfrage stellen", href: "/platzanfrage" },
-        { label: "Glossar & FAQ", href: "/glossar" },
+        { label: "Glossar & FAQ", href: "/aktuelles#glossar" },
         { label: "Therapie & Wohnen", href: "/therapie-wohnen" },
       ],
       en: [
         { label: "Request a place", href: "/platzanfrage" },
-        { label: "Glossary & FAQ", href: "/glossar" },
+        { label: "Glossary & FAQ", href: "/aktuelles#glossar" },
         { label: "Therapy & Housing", href: "/therapie-wohnen" },
       ],
     },
@@ -832,12 +832,12 @@ const articlesUnsorted: Article[] = [
       de: [
         { label: "Platzanfrage stellen", href: "/platzanfrage" },
         { label: "Therapie & Wohnen", href: "/therapie-wohnen" },
-        { label: "Glossar & FAQ", href: "/glossar" },
+        { label: "Glossar & FAQ", href: "/aktuelles#glossar" },
       ],
       en: [
         { label: "Request a place", href: "/platzanfrage" },
         { label: "Therapy & Housing", href: "/therapie-wohnen" },
-        { label: "Glossary & FAQ", href: "/glossar" },
+        { label: "Glossary & FAQ", href: "/aktuelles#glossar" },
       ],
     },
   },
