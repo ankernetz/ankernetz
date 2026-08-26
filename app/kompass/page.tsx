@@ -54,13 +54,13 @@ export default function KompassPage() {
             borderRadius: "999px", padding: "6px 14px", marginBottom: "1.5rem",
           }}>
             <Compass size={14} color="#8fb8ff" />
-            <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "#8fb8ff", letterSpacing: "0.03em" }}>Kompass</span>
+            <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "#8fb8ff", letterSpacing: "0.03em" }}>Ankernetz-Kompass</span>
           </div>
           <h1 style={{
             fontSize: "clamp(1.875rem,4vw,2.75rem)", fontWeight: 700, color: "#ffffff",
             letterSpacing: "-0.03em", lineHeight: 1.2, marginBottom: "1.25rem",
           }}>
-            Der Ankernetz-Kompass: Welche Hilfe passt zu Ihrer Situation?
+            Ankernetz-Kompass: Welche Hilfe passt zu Ihrer Situation in der Kinder- und Jugendhilfe?
           </h1>
           <p style={{ fontSize: "1.0625rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.75, marginBottom: "1.75rem" }}>
             Die meisten Menschen, die sich bei uns melden, wissen zu Beginn nicht genau, welche Unterstützung sie eigentlich brauchen -

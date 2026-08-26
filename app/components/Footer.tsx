@@ -19,7 +19,7 @@ const TRANS = {
     beschreibung: "Spezialisierte Hilfen für Kinder und Jugendliche. Vernetzt. Menschlich.",
     rechte: `© ${new Date().getFullYear()} Ankernetz - Hwerk GmbH. Alle Rechte vorbehalten.`,
     angeboteListe: [
-      { label: "Kompass: Welche Hilfe passt?", href: "/kompass" },
+      { label: "Ankernetz-Kompass: Welche Hilfe passt?", href: "/kompass" },
       { label: "Krisenintervention",    href: "/krisenintervention" },
       { label: "Psychotherapie",        href: "/psychotherapie" },
       { label: "Frühe Hilfen",          href: "/fruehe-hilfen" },
@@ -63,7 +63,7 @@ const TRANS = {
     beschreibung: "Specialised support for children and young people. Connected. Human.",
     rechte: `© ${new Date().getFullYear()} Ankernetz - Hwerk GmbH. All rights reserved.`,
     angeboteListe: [
-      { label: "Compass: Which Help Fits?", href: "/kompass" },
+      { label: "Ankernetz Compass: Which Help Fits?", href: "/kompass" },
       { label: "Crisis Intervention",    href: "/krisenintervention" },
       { label: "Psychotherapy",          href: "/psychotherapie" },
       { label: "Early Help",             href: "/fruehe-hilfen" },

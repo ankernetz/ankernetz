@@ -1155,12 +1155,12 @@ const articlesUnsorted: Article[] = [
     },
     relatedPages: {
       de: [
-        { label: "Kompass: Welche Hilfe passt?", href: "/kompass" },
+        { label: "Ankernetz-Kompass: Welche Hilfe passt?", href: "/kompass" },
         { label: "Beratung & Prävention", href: "/beratung-praevention" },
         { label: "Glossar & FAQ", href: "/aktuelles#glossar" },
       ],
       en: [
-        { label: "Compass: Which Help Fits?", href: "/kompass" },
+        { label: "Ankernetz Compass: Which Help Fits?", href: "/kompass" },
         { label: "Counselling & Prevention", href: "/beratung-praevention" },
         { label: "Glossary & FAQ", href: "/aktuelles#glossar" },
       ],
@@ -1226,12 +1226,12 @@ const articlesUnsorted: Article[] = [
     },
     relatedPages: {
       de: [
-        { label: "Kompass: Welche Hilfe passt?", href: "/kompass" },
+        { label: "Ankernetz-Kompass: Welche Hilfe passt?", href: "/kompass" },
         { label: "Therapie & Wohnen", href: "/therapie-wohnen" },
         { label: "Jugendhilfe", href: "/jugendhilfe" },
       ],
       en: [
-        { label: "Compass: Which Help Fits?", href: "/kompass" },
+        { label: "Ankernetz Compass: Which Help Fits?", href: "/kompass" },
         { label: "Therapy & Housing", href: "/therapie-wohnen" },
         { label: "Youth Welfare", href: "/jugendhilfe" },
       ],
@@ -1297,12 +1297,12 @@ const articlesUnsorted: Article[] = [
     },
     relatedPages: {
       de: [
-        { label: "Kompass: Welche Hilfe passt?", href: "/kompass" },
+        { label: "Ankernetz-Kompass: Welche Hilfe passt?", href: "/kompass" },
         { label: "Beratung & Prävention", href: "/beratung-praevention" },
         { label: "Psychotherapie", href: "/psychotherapie" },
       ],
       en: [
-        { label: "Compass: Which Help Fits?", href: "/kompass" },
+        { label: "Ankernetz Compass: Which Help Fits?", href: "/kompass" },
         { label: "Counselling & Prevention", href: "/beratung-praevention" },
         { label: "Psychotherapy", href: "/psychotherapie" },
       ],
@@ -1362,12 +1362,12 @@ const articlesUnsorted: Article[] = [
     },
     relatedPages: {
       de: [
-        { label: "Kompass: Welche Hilfe passt?", href: "/kompass" },
+        { label: "Ankernetz-Kompass: Welche Hilfe passt?", href: "/kompass" },
         { label: "Platzanfrage stellen", href: "/platzanfrage" },
         { label: "Glossar & FAQ", href: "/aktuelles#glossar" },
       ],
       en: [
-        { label: "Compass: Which Help Fits?", href: "/kompass" },
+        { label: "Ankernetz Compass: Which Help Fits?", href: "/kompass" },
         { label: "Request a place", href: "/platzanfrage" },
         { label: "Glossary & FAQ", href: "/aktuelles#glossar" },
       ],

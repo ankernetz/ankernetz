@@ -88,9 +88,9 @@ const TRANS = {
     ],
     presets: {
       kompass: {
-        content: "Gute Frage -dafür gibt's unseren Kompass: ein kurzer, anonymer Fragebogen (ca. 3 Minuten), der dir zeigt, welches unserer Angebote zu deiner Situation passen könnte.",
+        content: "Gute Frage -dafür gibt's unseren Ankernetz-Kompass: ein kurzer, anonymer Fragebogen (ca. 3 Minuten), der dir zeigt, welches unserer Angebote zu deiner Situation passen könnte.",
         cta: [
-          { label: "Zum Kompass →", href: "/kompass" },
+          { label: "Zum Ankernetz-Kompass →", href: "/kompass" },
         ],
       },
       platz: {
@@ -141,9 +141,9 @@ const TRANS = {
     ],
     presets: {
       kompass: {
-        content: "Good question -that's exactly what our Compass is for: a short, anonymous questionnaire (about 3 minutes) that shows you which of our services could fit your situation.",
+        content: "Good question -that's exactly what our Ankernetz Compass is for: a short, anonymous questionnaire (about 3 minutes) that shows you which of our services could fit your situation.",
         cta: [
-          { label: "Open the Compass →", href: "/kompass" },
+          { label: "Open the Ankernetz Compass →", href: "/kompass" },
         ],
       },
       platz: {

@@ -28,7 +28,7 @@ const FRAGEN: Question[] = [
     id: "wer",
     frage: "Um wen geht es gerade?",
     grund: "Betroffene Person",
-    hinweis: "Sie können den Kompass auch stellvertretend ausfüllen - für Ihr Kind, eine Schülerin oder eine Familie, die Sie begleiten.",
+    hinweis: "Sie können den Ankernetz-Kompass auch stellvertretend ausfüllen - für Ihr Kind, eine Schülerin oder eine Familie, die Sie begleiten.",
     options: [
       { label: "Um mich selbst", scores: { beratung: 2 } },
       { label: "Um mein Kind", scores: { beratung: 1, diagnostik: 1 } },
