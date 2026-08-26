@@ -16,7 +16,7 @@ import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
 const faqItems = [
   {
     q: "Was ist ein Clearing-Verfahren für Kinder und Jugendliche?",
-    a: "Clearing ist eine strukturierte Einschätzung der Situation eines Kindes oder Jugendlichen, um die geeignete Hilfe zu bestimmen. Ankernetz führt in Berlin intensive Clearing-Verfahren durch – mit standardisierten diagnostischen Instrumenten, Beobachtung im Alltag und Gesprächen mit allen Beteiligten.",
+    a: "Clearing ist eine strukturierte Einschätzung der Situation eines Kindes oder Jugendlichen, um die geeignete Hilfe zu bestimmen. Ankernetz führt in Berlin intensive Clearing-Verfahren durch - mit standardisierten diagnostischen Instrumenten, Beobachtung im Alltag und Gesprächen mit allen Beteiligten.",
   },
   {
     q: "Wie lange dauert eine Diagnostik bei Ankernetz?",
@@ -32,22 +32,22 @@ const faqItems = [
   },
   {
     q: "Welche Gutachten stellt Ankernetz aus?",
-    a: "Ankernetz erstellt Entwicklungsberichte, Hilfeempfehlungen, Stellungnahmen für Hilfeplankonferenzen und – in Zusammenarbeit mit Kooperationspartnern – klinisch-psychologische Gutachten. Unsere Berichte sind auf die Anforderungen der Berliner Jugendämter und Familiengerichte abgestimmt.",
+    a: "Ankernetz erstellt Entwicklungsberichte, Hilfeempfehlungen, Stellungnahmen für Hilfeplankonferenzen und - in Zusammenarbeit mit Kooperationspartnern - klinisch-psychologische Gutachten. Unsere Berichte sind auf die Anforderungen der Berliner Jugendämter und Familiengerichte abgestimmt.",
   },
   {
     q: "Was passiert nach dem Clearing?",
-    a: "Nach Abschluss des Clearings präsentiert Ankernetz die Ergebnisse in einem Hilfeplangesprä ch mit dem Jugendamt und der Familie. Wir empfehlen die geeignete Anschlussmaßnahme und können – dank unseres Netzwerks – häufig direkt eine passende Folgemaßnahme in Berlin anbieten.",
+    a: "Nach Abschluss des Clearings präsentiert Ankernetz die Ergebnisse in einem Hilfeplangesprä ch mit dem Jugendamt und der Familie. Wir empfehlen die geeignete Anschlussmaßnahme und können - dank unseres Netzwerks - häufig direkt eine passende Folgemaßnahme in Berlin anbieten.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Diagnostik & Clearing Berlin | Gutachten Kinder und Jugendliche – Ankernetz",
+  title: "Diagnostik & Clearing Berlin | Gutachten Kinder und Jugendliche",
   description:
     "Diagnostik und Clearing für Kinder und Jugendliche in Berlin. Fachliche Einschätzungen, Gutachten und Hilfeplanung. Enge Zusammenarbeit mit Jugendämtern und Fachkräften.",
   keywords: ["Kinderdiagnostik Berlin", "Clearing Jugendliche Berlin", "Gutachten Kinder Berlin", "Hilfeplanung Berlin Jugendhilfe", "Diagnostik Kinder Jugendliche Berlin"],
   alternates: { canonical: "https://www.ankernetz.com/diagnostik-clearing" },
   openGraph: {
-    title: "Diagnostik & Clearing Berlin – Ankernetz",
+    title: "Diagnostik & Clearing Berlin - Ankernetz",
     description: "Fachliche Einschätzungen und Gutachten für Kinder und Jugendliche in Berlin.",
     url: "https://www.ankernetz.com/diagnostik-clearing",
   },

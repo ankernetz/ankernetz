@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ankerkleidung | Bald verfügbar – Ankernetz",
+  title: "Ankerkleidung | Bald verfügbar",
   description:
-    "Ankerkleidung – spezialisierte Kleidung für Kinder und Jugendliche mit besonderen Bedürfnissen. Bald verfügbar. Teil des Ankernetz-Hilfesystems.",
+    "Ankerkleidung - spezialisierte Kleidung für Kinder und Jugendliche mit besonderen Bedürfnissen. Bald verfügbar. Teil des Ankernetz-Hilfesystems.",
   alternates: { canonical: "https://www.ankernetz.com/ankerkleidung" },
   openGraph: {
-    title: "Ankerkleidung – Bald verfügbar",
+    title: "Ankerkleidung - Bald verfügbar",
     description:
-      "Etwas Großes entsteht. Ankerkleidung – spezialisierte Kleidung für Kinder und Jugendliche mit besonderen Bedürfnissen.",
+      "Etwas Großes entsteht. Ankerkleidung - spezialisierte Kleidung für Kinder und Jugendliche mit besonderen Bedürfnissen.",
     url: "https://www.ankernetz.com/ankerkleidung",
     type: "website",
   },

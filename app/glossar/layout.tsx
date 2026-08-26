@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Glossar & Häufige Fragen zur Jugendhilfe | Ankernetz Berlin",
+  title: "Glossar & Häufige Fragen zur Jugendhilfe",
   description:
     "SGB VIII, Jugendamt, Inobhutnahme, Hilfeplan und mehr - alle wichtigen Begriffe und Fragen zur Kinder- und Jugendhilfe in Berlin und Brandenburg verständlich erklärt.",
   keywords: [

@@ -21,7 +21,7 @@ export function FlagGB({ size = 22 }: { size?: number }) {
       <line x1="0" y1="0" x2="22" y2="14" stroke="white" strokeWidth="5" />
       <line x1="22" y1="0" x2="0" y2="14" stroke="white" strokeWidth="5" />
 
-      {/* Red saltire (St Patrick – simplified, no counterchange) */}
+      {/* Red saltire (St Patrick - simplified, no counterchange) */}
       <line x1="0" y1="0" x2="22" y2="14" stroke="#CF142B" strokeWidth="2.5" />
       <line x1="22" y1="0" x2="0" y2="14" stroke="#CF142B" strokeWidth="2.5" />
 

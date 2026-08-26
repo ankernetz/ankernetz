@@ -171,7 +171,7 @@ export default function AnkerkleidungPage() {
           }}
         >
           Wir entwickeln spezialisierte Kleidung für Kinder und Jugendliche mit
-          besonderen Bedürfnissen — sensorisch abgestimmt, nach Störungsbild
+          besonderen Bedürfnissen - sensorisch abgestimmt, nach Störungsbild
           ausgewählt, mit Liebe zum Detail. Ankerkleidung wird bald Teil des
           Ankernetz-Hilfesystems.
         </p>

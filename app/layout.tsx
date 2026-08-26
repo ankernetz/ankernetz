@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: "Ankernetz Berlin | Jugendhilfe · Krisenintervention · Therapeutisches Wohnen",
     description:
       "Spezialisierte Hilfen für Kinder und Jugendliche in Berlin. 24/7 Krisenintervention, Psychotherapie, Frühe Hilfen, therapeutische Wohngruppen, Diagnostik & Beratung.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Ankernetz – Hilfen für Kinder und Jugendliche in Berlin" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Ankernetz - Hilfen für Kinder und Jugendliche in Berlin" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -94,7 +94,7 @@ const jsonLd = {
       },
       image: `${BASE_URL}/logo.svg`,
       description:
-        "Ankernetz ist ein Netzwerk spezialisierter Hilfen für Kinder und Jugendliche in Berlin – von der Krisenintervention über Psychotherapie und therapeutisches Wohnen bis zu Frühen Hilfen, Diagnostik und Beratung.",
+        "Ankernetz ist ein Netzwerk spezialisierter Hilfen für Kinder und Jugendliche in Berlin - von der Krisenintervention über Psychotherapie und therapeutisches Wohnen bis zu Frühen Hilfen, Diagnostik und Beratung.",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Friedrich-Franz-Str. 13",

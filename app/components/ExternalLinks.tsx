@@ -5,8 +5,8 @@ const SECTIONS: { label: string; cols: number; items: { name: string; detail: st
     items: [
       { name: "Telefonseelsorge", detail: "0800 111 0 111", desc: "Kostenlos, anonym, rund um die Uhr.", url: "https://www.telefonseelsorge.de" },
       { name: "Telefonseelsorge (2. Leitung)", detail: "0800 111 0 222", desc: "Zweite kostenlose Krisenleitung, 24/7.", url: "https://www.telefonseelsorge.de" },
-      { name: "Nummer gegen Kummer", detail: "116 111", desc: "Kinder- und Jugendtelefon, Mo–Sa 14–20 Uhr.", url: "https://www.nummergegenkummer.de" },
-      { name: "Elterntelefon", detail: "0800 111 0 550", desc: "Für Eltern, kostenlos, Mo–Fr 9–17 Uhr.", url: "https://www.nummergegenkummer.de/elterntelefon" },
+      { name: "Nummer gegen Kummer", detail: "116 111", desc: "Kinder- und Jugendtelefon, Mo-Sa 14-20 Uhr.", url: "https://www.nummergegenkummer.de" },
+      { name: "Elterntelefon", detail: "0800 111 0 550", desc: "Für Eltern, kostenlos, Mo-Fr 9-17 Uhr.", url: "https://www.nummergegenkummer.de/elterntelefon" },
       { name: "Kinderschutz-Hotline", detail: "0800 192 10 80", desc: "Deutsche Kinderschutzzentren, kostenlos.", url: "https://www.kinderschutzzentren.org" },
       { name: "Jugendnotmail", detail: "jugendnotmail.de", desc: "Online-Beratung für Jugendliche in Not.", url: "https://www.jugendnotmail.de" },
       { name: "BKE Online-Beratung", detail: "bke-beratung.de", desc: "Erziehungsberatung online, kostenlos.", url: "https://www.bke-beratung.de" },

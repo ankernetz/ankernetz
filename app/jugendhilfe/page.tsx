@@ -33,22 +33,22 @@ const faqItems = [
   },
   {
     q: "Wie arbeitet Ankernetz mit Jugendämtern in Berlin zusammen?",
-    a: "Ankernetz arbeitet eng mit allen Berliner Bezirksjugendämtern zusammen – von Tempelhof-Schöneberg über Neukölln bis Mitte. Wir bieten schnelle Rückmeldungen auf Platzanfragen, regelmäßige Hilfeplangespräche und transparente Entwicklungsberichte. Fachkräfte können uns direkt unter 030 22 45 43 22 erreichen.",
+    a: "Ankernetz arbeitet eng mit allen Berliner Bezirksjugendämtern zusammen - von Tempelhof-Schöneberg über Neukölln bis Mitte. Wir bieten schnelle Rückmeldungen auf Platzanfragen, regelmäßige Hilfeplangespräche und transparente Entwicklungsberichte. Fachkräfte können uns direkt unter 030 22 45 43 22 erreichen.",
   },
   {
     q: "Welche Kosten entstehen für die stationäre Jugendhilfe?",
-    a: "Die Kosten werden vom zuständigen Jugendamt nach SGB VIII übernommen. Die Tagessätze sind mit dem Land Berlin verhandelt. Für Familien entstehen keine direkten Kosten – allenfalls ein einkommensabhängiger Kostenbeitrag, der vom Jugendamt geregelt wird.",
+    a: "Die Kosten werden vom zuständigen Jugendamt nach SGB VIII übernommen. Die Tagessätze sind mit dem Land Berlin verhandelt. Für Familien entstehen keine direkten Kosten - allenfalls ein einkommensabhängiger Kostenbeitrag, der vom Jugendamt geregelt wird.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Jugendhilfe Berlin | Kinderwohngruppen 6–12 Jahre – Ankernetz",
+  title: "Jugendhilfe Berlin | Kinderwohngruppen 6-12 Jahre",
   description:
     "Stationäre Jugendhilfe für Kinder von 6 bis 12 Jahren in Berlin. Verlässliche Struktur, intensive Beziehungsarbeit, enge Zusammenarbeit mit Jugendämtern und Familien.",
   keywords: ["Jugendhilfe Berlin", "Kinderwohngruppe Berlin", "stationäre Jugendhilfe Berlin", "Wohngruppe Kinder 6-12 Berlin", "Jugendhilfe Tempelhof Berlin"],
   alternates: { canonical: "https://www.ankernetz.com/jugendhilfe" },
   openGraph: {
-    title: "Jugendhilfe Berlin | Kinderwohngruppen – Ankernetz",
+    title: "Jugendhilfe Berlin | Kinderwohngruppen - Ankernetz",
     description: "Stationäre Kinderwohngruppen für 6- bis 12-Jährige in Berlin. Verlässlich, fachlich, nah.",
     url: "https://www.ankernetz.com/jugendhilfe",
   },

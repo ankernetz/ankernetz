@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords: ["Krisenintervention Berlin", "24/7 Krisenintervention Jugendliche", "Sofortaufnahme Kinder Berlin", "Jugendliche in Not Berlin", "Krisendienst Berlin"],
   alternates: { canonical: "https://www.ankernetz.com/krisenintervention" },
   openGraph: {
-    title: "Krisenintervention Berlin | 24/7 Sofortaufnahme – Ankernetz",
+    title: "Krisenintervention Berlin | 24/7 Sofortaufnahme - Ankernetz",
     description: "Sofortaufnahme für Kinder und Jugendliche in akuter Not. 24 Stunden, 7 Tage, 365 Tage im Jahr. Ankernetz Berlin.",
     url: "https://www.ankernetz.com/krisenintervention",
   },

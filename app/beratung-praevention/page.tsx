@@ -16,11 +16,11 @@ import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
 const faqItems = [
   {
     q: "Was kostet die Erziehungsberatung bei Ankernetz?",
-    a: "Viele Beratungsangebote bei Ankernetz sind kostenlos oder sehr kostengünstig. Erziehungsberatung nach § 28 SGB VIII wird vom Jugendamt finanziert. Ankernetz bietet auch niedrigschwellige Beratung ohne formale Jugendhilfemaßnahme – direkt, unkompliziert und ohne Wartezeit.",
+    a: "Viele Beratungsangebote bei Ankernetz sind kostenlos oder sehr kostengünstig. Erziehungsberatung nach § 28 SGB VIII wird vom Jugendamt finanziert. Ankernetz bietet auch niedrigschwellige Beratung ohne formale Jugendhilfemaßnahme - direkt, unkompliziert und ohne Wartezeit.",
   },
   {
     q: "Kann ich die Beratung auch online in Anspruch nehmen?",
-    a: "Ja, Ankernetz bietet Beratung online per Videogespräch sowie per Telefon an. Besonders für Eltern mit kleinen Kindern oder eingeschränkter Mobilität ist das eine wichtige Erleichterung. Aufsuchende Beratung – direkt bei Familien zuhause in Berlin – ist ebenfalls möglich.",
+    a: "Ja, Ankernetz bietet Beratung online per Videogespräch sowie per Telefon an. Besonders für Eltern mit kleinen Kindern oder eingeschränkter Mobilität ist das eine wichtige Erleichterung. Aufsuchende Beratung - direkt bei Familien zuhause in Berlin - ist ebenfalls möglich.",
   },
   {
     q: "Für wen ist das Beratungsangebot von Ankernetz gedacht?",
@@ -28,7 +28,7 @@ const faqItems = [
   },
   {
     q: "Was ist der Unterschied zwischen Beratung und Psychotherapie?",
-    a: "Beratung ist kurz, lösungsorientiert und ohne Diagnose. Sie hilft in konkreten Lebenssituationen. Psychotherapie ist ein längerer, tieferer Prozess zur Behandlung psychischer Erkrankungen. Ankernetz bietet beides – und erkennt, wann welches Angebot das richtige ist.",
+    a: "Beratung ist kurz, lösungsorientiert und ohne Diagnose. Sie hilft in konkreten Lebenssituationen. Psychotherapie ist ein längerer, tieferer Prozess zur Behandlung psychischer Erkrankungen. Ankernetz bietet beides - und erkennt, wann welches Angebot das richtige ist.",
   },
   {
     q: "Wie schnell bekomme ich einen Beratungstermin bei Ankernetz?",
@@ -36,18 +36,18 @@ const faqItems = [
   },
   {
     q: "Was ist Prävention und warum ist sie wichtig?",
-    a: "Prävention bei Ankernetz bedeutet: früh eingreifen, bevor Probleme größer werden. Wir schulen Fachkräfte in Kitas und Schulen, beraten Eltern vor einer Krise und stärken Familien in ihrer Resilienz. Prävention spart Leid – und Kosten für das Jugendamt.",
+    a: "Prävention bei Ankernetz bedeutet: früh eingreifen, bevor Probleme größer werden. Wir schulen Fachkräfte in Kitas und Schulen, beraten Eltern vor einer Krise und stärken Familien in ihrer Resilienz. Prävention spart Leid - und Kosten für das Jugendamt.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Erziehungsberatung Berlin | Prävention & Familienberatung – Ankernetz",
+  title: "Erziehungsberatung Berlin | Prävention & Familienberatung",
   description:
     "Niedrigschwellige Beratung und Prävention für Familien, Kinder und Jugendliche in Berlin. Online und vor Ort. Kostenlos oder kostengünstig. Ankernetz Berlin.",
   keywords: ["Erziehungsberatung Berlin", "Familienberatung Berlin kostenlos", "Prävention Jugendhilfe Berlin", "Beratung Eltern Berlin", "Familienberatung kostenlos Berlin"],
   alternates: { canonical: "https://www.ankernetz.com/beratung-praevention" },
   openGraph: {
-    title: "Erziehungsberatung & Prävention Berlin – Ankernetz",
+    title: "Erziehungsberatung & Prävention Berlin - Ankernetz",
     description: "Niedrigschwellige Beratung für Familien in Berlin. Online und vor Ort. Ankernetz.",
     url: "https://www.ankernetz.com/beratung-praevention",
   },
@@ -867,7 +867,7 @@ export default function BeratungPraeventionPage() {
 
       <SeoFaq
         items={faqItems}
-        intro="Ankernetz bietet in Berlin niedrigschwellige Erziehungsberatung, Familienberatung und Präventionsangebote – für Eltern, Kinder, Jugendliche und Fachkräfte. Online und vor Ort. Häufige Fragen zu Beratung und Prävention bei Ankernetz Berlin."
+        intro="Ankernetz bietet in Berlin niedrigschwellige Erziehungsberatung, Familienberatung und Präventionsangebote - für Eltern, Kinder, Jugendliche und Fachkräfte. Online und vor Ort. Häufige Fragen zu Beratung und Prävention bei Ankernetz Berlin."
       />
       <SeoBreadcrumb crumbs={[{ name: "Beratung & Prävention", slug: "beratung-praevention" }]} />
     </main>

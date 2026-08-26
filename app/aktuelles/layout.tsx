@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Aktuelles & Ratgeber | Ankernetz Berlin Brandenburg",
+  title: "Aktuelles & Ratgeber zur Jugendhilfe",
   description:
     "Ratgeber und Fachbeiträge zu Jugendhilfe, Krisenintervention, sensorischer Kleidung und Unterstützungsangeboten für Kinder und Jugendliche in Berlin und Brandenburg.",
   keywords: [
