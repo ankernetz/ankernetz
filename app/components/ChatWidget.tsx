@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { X, Send, Phone, ChevronDown, GripVertical, Zap, Home, HelpCircle, Heart, MessageCircle } from "lucide-react";
+import { X, Send, Phone, ChevronDown, GripVertical, Zap, Home, HelpCircle, Heart, MessageCircle, Compass } from "lucide-react";
 import { useT } from "../i18n/useT";
 
 interface Message {
@@ -68,8 +68,8 @@ function generateSessionId(): string {
   return Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
 }
 
-const CHIP_ICONS = [Home, Zap, HelpCircle, Heart];
-const CHIP_COLORS = ["#3b82f6", "#ef4444", "#8b5cf6", "#10b981"];
+const CHIP_ICONS = [Compass, Home, Zap, HelpCircle, Heart];
+const CHIP_COLORS = ["#8B3A22", "#3b82f6", "#ef4444", "#8b5cf6", "#10b981"];
 
 const TRANS = {
   de: {
@@ -80,12 +80,19 @@ const TRANS = {
     headerTyping: "● schreibt…",
     crisisBanner: "🚨 Akute Gefahr? Sofort anrufen",
     chips: [
+      { id: "wegweiser", label: "Welche Hilfe passt zu mir?" },
       { id: "platz",    label: "Ich brauche einen Platz" },
       { id: "krise",    label: "Krisenintervention" },
       { id: "frage",    label: "Ich habe eine Frage" },
       { id: "beratung", label: "Beratung anfragen" },
     ],
     presets: {
+      wegweiser: {
+        content: "Gute Frage -dafür gibt's unseren Wegweiser: ein kurzer, anonymer Fragebogen (ca. 3 Minuten), der dir zeigt, welches unserer Angebote zu deiner Situation passen könnte.",
+        cta: [
+          { label: "Zum Wegweiser →", href: "/wegweiser" },
+        ],
+      },
       platz: {
         content: "Das geht schneller als du denkst. Füll kurz die Platzanfrage aus -dauert 2 Minuten -oder ruf direkt an. Wir schauen sofort was frei ist und was zu der Situation passt.",
         cta: [
@@ -126,12 +133,19 @@ const TRANS = {
     headerTyping: "● typing…",
     crisisBanner: "🚨 Acute danger? Call immediately",
     chips: [
+      { id: "wegweiser", label: "Which help fits me?" },
       { id: "platz",    label: "I need a place" },
       { id: "krise",    label: "Crisis Intervention" },
       { id: "frage",    label: "I have a question" },
       { id: "beratung", label: "Request Counselling" },
     ],
     presets: {
+      wegweiser: {
+        content: "Good question -that's exactly what our Wayfinder is for: a short, anonymous questionnaire (about 3 minutes) that shows you which of our services could fit your situation.",
+        cta: [
+          { label: "Open the Wayfinder →", href: "/wegweiser" },
+        ],
+      },
       platz: {
         content: "Quicker than you think. Fill out the short place request form -takes 2 minutes -or just call us. We'll check what's available right away.",
         cta: [

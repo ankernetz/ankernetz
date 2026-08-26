@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Phone, ArrowRight, ArrowLeft, RotateCcw } from "lucide-react";
 
@@ -123,6 +123,7 @@ export default function Wegweiser() {
   const [step, setStep] = useState(0);
   const [antworten, setAntworten] = useState<Record<string, string[]>>({});
   const [fertig, setFertig] = useState(false);
+  const gesendetRef = useRef(false);
 
   function waehlen(fragenId: string, label: string, multi?: boolean) {
     setAntworten((prev) => {
@@ -147,7 +148,51 @@ export default function Wegweiser() {
     setStep(0);
     setAntworten({});
     setFertig(false);
+    gesendetRef.current = false;
   }
+
+  function berechneErgebnis() {
+    const scores: Record<ServiceKey, number> = {
+      krisenintervention: 0, beratung: 0, fruehehilfen: 0, psychotherapie: 0,
+      diagnostik: 0, wohnen: 0, jugendhilfe: 0, kitaberatung: 0, uebergang: 0,
+    };
+    for (const frage of FRAGEN) {
+      const gewaehlt = antworten[frage.id] ?? [];
+      for (const label of gewaehlt) {
+        const option = frage.options.find((o) => o.label === label);
+        if (!option) continue;
+        for (const [key, wert] of Object.entries(option.scores)) {
+          scores[key as ServiceKey] += wert ?? 0;
+        }
+      }
+    }
+    const maxScore = Math.max(...Object.values(scores), 1);
+    const sortiert = (Object.entries(scores) as [ServiceKey, number][])
+      .filter(([, v]) => v > 0)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3);
+    return { sortiert, maxScore };
+  }
+
+  // Antworten per Telegram übermitteln, sobald das Ergebnis feststeht
+  useEffect(() => {
+    if (!fertig || gesendetRef.current) return;
+    gesendetRef.current = true;
+    const { sortiert, maxScore } = berechneErgebnis();
+    const antwortenListe = FRAGEN
+      .filter((f) => (antworten[f.id] ?? []).length > 0)
+      .map((f) => ({ frage: f.frage, antwort: (antworten[f.id] ?? []).join(", ") }));
+    const empfehlungen = sortiert.map(([key, val]) => ({
+      label: SERVICES[key].label,
+      prozent: Math.round((val / maxScore) * 100),
+    }));
+    fetch("/api/wegweiser", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ antworten: antwortenListe, empfehlungen }),
+    }).catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fertig]);
 
   // Krisen-Weiche: Sicherheitsfrage zuerst, kein Weiterklicken bei Gefahr
   if (sicherheit === null) {
@@ -207,27 +252,9 @@ export default function Wegweiser() {
     );
   }
 
-  // Ergebnis berechnen
+  // Ergebnis anzeigen
   if (fertig) {
-    const scores: Record<ServiceKey, number> = {
-      krisenintervention: 0, beratung: 0, fruehehilfen: 0, psychotherapie: 0,
-      diagnostik: 0, wohnen: 0, jugendhilfe: 0, kitaberatung: 0, uebergang: 0,
-    };
-    for (const frage of FRAGEN) {
-      const gewaehlt = antworten[frage.id] ?? [];
-      for (const label of gewaehlt) {
-        const option = frage.options.find((o) => o.label === label);
-        if (!option) continue;
-        for (const [key, wert] of Object.entries(option.scores)) {
-          scores[key as ServiceKey] += wert ?? 0;
-        }
-      }
-    }
-    const maxScore = Math.max(...Object.values(scores), 1);
-    const sortiert = (Object.entries(scores) as [ServiceKey, number][])
-      .filter(([, v]) => v > 0)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 3);
+    const { sortiert, maxScore } = berechneErgebnis();
 
     return (
       <div className="site-container" style={{ maxWidth: "680px", padding: "3rem 1.5rem 6rem" }}>

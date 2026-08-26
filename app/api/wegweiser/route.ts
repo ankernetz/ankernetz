@@ -6,29 +6,22 @@ const CHAT_ID   = process.env.TELEGRAM_CHAT_ID;
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
+    const antworten: { frage: string; antwort: string }[] = data.antworten ?? [];
+    const empfehlungen: { label: string; prozent: number }[] = data.empfehlungen ?? [];
+
+    if (!BOT_TOKEN || !CHAT_ID) {
+      console.error("[Wegweiser] Telegram-Zugangsdaten fehlen");
+      return NextResponse.json({ ok: false }, { status: 500 });
+    }
 
     const text = [
-      "🏥 *NEUE PLATZANFRAGE*",
+      "🧭 *WEGWEISER AUSGEFÜLLT*",
       "",
-      `*Von:* ${data.vorname} ${data.nachname}`,
-      `*Institution:* ${data.institution}`,
-      `*E-Mail:* ${data.email}`,
-      `*Telefon:* ${data.telefon}`,
+      ...antworten.map((a) => `*${a.frage}:*\n${a.antwort}`),
       "",
-      `*Bereich:* ${data.bereich}`,
-      `*Dringlichkeit:* ${data.dringlichkeit}`,
-      "",
-      `*Kind/Jugendliche/r:*`,
-      `Alter: ${data.alter} | Geschlecht: ${data.geschlecht || "Keine Angabe"}`,
-      "",
-      `*Situation:*`,
-      data.situation,
-      "",
-      data.bisherige ? `*Bisherige Hilfen:*\n${data.bisherige}` : "",
-      "",
-      `📧 Antworten an: ${data.email}`,
-      `📞 Rückruf: ${data.telefon}`,
-    ].filter(Boolean).join("\n");
+      "*Empfehlung:*",
+      ...empfehlungen.map((e) => `- ${e.label} (${e.prozent}%)`),
+    ].join("\n");
 
     const res = await fetch(
       `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
@@ -47,7 +40,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Platzanfrage error:", err);
+    console.error("Wegweiser error:", err);
     return NextResponse.json({ ok: false }, { status: 500 });
   }
 }
