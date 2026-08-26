@@ -248,6 +248,44 @@ const kategorien: FaqCategory[] = [
       },
     ],
   },
+  {
+    titel: "Aufnahme aus Österreich und der Schweiz",
+    intro: "Antworten für österreichische Jugendwohlfahrtsstellen, Schweizer KESB-Behörden und Familien, die eine Unterbringung in Deutschland prüfen.",
+    items: [
+      {
+        q: "Was ist der Unterschied zwischen dem deutschen Jugendamt und der österreichischen Jugendwohlfahrt?",
+        a: "Das deutsche Jugendamt ist eine kommunale Behörde und handelt bundeseinheitlich nach dem SGB VIII. In Österreich ist die Kinder- und Jugendhilfe Landessache - jedes Bundesland hat ein eigenes Jugendwohlfahrtsgesetz, zuständig sind die Kinder- und Jugendhilfeträger der Länder. Die grundsätzliche Aufgabe ist ähnlich, die rechtliche Grundlage und Zuständigkeit unterscheiden sich aber.",
+      },
+      {
+        q: "Was ist die KESB in der Schweiz, und was macht sie?",
+        a: "Die KESB (Kindes- und Erwachsenenschutzbehörde) ist die Schweizer Fachbehörde, die über Kindesschutzmaßnahmen entscheidet - vergleichbar in der Funktion mit einer Mischung aus Jugendamt und Familiengericht, aber kantonal organisiert. Es gibt keine bundesweit einheitliche Schweizer Jugendhilfebehörde, jeder Kanton regelt das über seine eigene KESB.",
+      },
+      {
+        q: "Wer trägt die Kosten, wenn ein Kind aus Österreich oder der Schweiz in Deutschland untergebracht wird?",
+        a: "Es gibt keinen automatischen Kostenübergang zwischen den Systemen. In der Praxis läuft die Finanzierung entweder über eine individuelle Vereinbarung zwischen der anfragenden österreichischen oder Schweizer Stelle und Ankernetz, oder als Selbstzahler durch die Familie - gegebenenfalls mit anteiliger Unterstützung durch die Heimatbehörde. Wir klären das immer vor der Aufnahme, nicht danach.",
+      },
+      {
+        q: "Bleibt die österreichische oder Schweizer Behörde für den Fall zuständig, auch wenn das Kind in Deutschland lebt?",
+        a: "Ja, in der Regel bleibt die rechtliche Fallzuständigkeit bei der Herkunftsbehörde. Die konkrete pädagogische und therapeutische Arbeit vor Ort erfolgt jedoch nach deutschen Standards und deutschem Recht, da die Einrichtung in Deutschland liegt. Während der gesamten Unterbringung stehen wir im laufenden Austausch mit der zuständigen Stelle im Heimatland.",
+      },
+      {
+        q: "Können sich auch Privatpersonen aus Österreich oder der Schweiz direkt melden, ohne dass eine Behörde beteiligt ist?",
+        a: "Ja, eine direkte Anfrage durch Eltern oder Erziehungsberechtigte ist möglich, insbesondere wenn die Finanzierung als Selbstzahler erfolgen soll. Bei akuter Kindeswohlgefährdung empfehlen wir zusätzlich, parallel die zuständige Behörde im Heimatland einzubeziehen.",
+      },
+      {
+        q: "Wie lange dauert die Klärung einer Anfrage aus Österreich oder der Schweiz, bevor eine Aufnahme möglich ist?",
+        a: "Die fachliche Ersteinschätzung läuft genauso schnell wie bei deutschen Anfragen - meist innerhalb weniger Tage. Zusätzliche Zeit braucht in der Regel die Klärung der Finanzierung, da hier keine standardisierten Abläufe wie innerhalb Deutschlands greifen. Bei akutem Bedarf priorisieren wir diese Klärung entsprechend.",
+      },
+      {
+        q: "Gilt für ein Kind aus Österreich oder der Schweiz während der Unterbringung deutsches Recht?",
+        a: "Ja. Solange sich das Kind in unserer Einrichtung in Berlin befindet, gelten die deutschen Standards der Kinder- und Jugendhilfe vollständig - inklusive Aufsicht, Betreuungsschlüssel und Schutzkonzept. Das gilt unabhängig davon, aus welchem Land das Kind kommt.",
+      },
+      {
+        q: "Was passiert nach dem Ende der Unterbringung - kehrt das Kind automatisch zurück?",
+        a: "Das hängt vom Einzelfall und dem vereinbarten Ziel der Hilfe ab. In vielen Fällen ist eine Rückkehr in das Heimatland und die dortige Anschlussversorgung vorgesehen und wird gemeinsam mit der zuständigen österreichischen oder Schweizer Stelle geplant. Das genaue Vorgehen wird bereits bei der Aufnahme mit besprochen, nicht erst am Ende.",
+      },
+    ],
+  },
 ];
 
 const alleItems: FaqItem[] = kategorien.flatMap((k) => k.items);
