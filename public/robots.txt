@@ -3,3 +3,4 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://www.ankernetz.com/sitemap.xml
+# https://www.ankernetz.com/llms.txt
