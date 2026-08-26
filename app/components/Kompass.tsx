@@ -21,12 +21,13 @@ const SERVICES: Record<ServiceKey, { label: string; text: string; href: string }
 };
 
 interface Option { label: string; scores: Partial<Record<ServiceKey, number>>; }
-interface Question { id: string; frage: string; hinweis?: string; multi?: boolean; options: Option[]; }
+interface Question { id: string; frage: string; grund: string; hinweis?: string; multi?: boolean; options: Option[]; }
 
 const FRAGEN: Question[] = [
   {
     id: "wer",
     frage: "Um wen geht es gerade?",
+    grund: "Betroffene Person",
     options: [
       { label: "Um mich selbst", scores: { beratung: 2 } },
       { label: "Um mein Kind", scores: { beratung: 1, diagnostik: 1 } },
@@ -37,6 +38,7 @@ const FRAGEN: Question[] = [
   {
     id: "alter",
     frage: "Wie alt ist die Person, um die es geht?",
+    grund: "Alter",
     options: [
       { label: "0 bis 6 Jahre", scores: { fruehehilfen: 3 } },
       { label: "6 bis 12 Jahre", scores: { jugendhilfe: 2, beratung: 1 } },
@@ -47,6 +49,7 @@ const FRAGEN: Question[] = [
   {
     id: "beschreibung",
     frage: "Was beschreibt die aktuelle Situation am ehesten?",
+    grund: "Situationsbeschreibung",
     hinweis: "Mehrfachauswahl möglich.",
     multi: true,
     options: [
@@ -60,8 +63,21 @@ const FRAGEN: Question[] = [
     ],
   },
   {
+    id: "beeintraechtigung",
+    frage: "Wie stark wirkt sich das auf den Alltag aus - Schule, Freundschaften, Familie?",
+    grund: "Alltagsbelastung",
+    hinweis: "Das hilft uns, zwischen einem klärenden Gespräch und einer intensiveren Behandlung zu unterscheiden.",
+    options: [
+      { label: "Kaum spürbar - es beschäftigt uns, aber der Alltag läuft", scores: { beratung: 2 } },
+      { label: "Spürbar - einzelne Bereiche sind schon betroffen", scores: { beratung: 1, diagnostik: 1 } },
+      { label: "Stark - Schule, Freundschaften oder Familienleben leiden deutlich", scores: { psychotherapie: 2, diagnostik: 1 } },
+      { label: "Sehr stark - der Alltag ist kaum noch zu bewältigen", scores: { psychotherapie: 2, wohnen: 1 } },
+    ],
+  },
+  {
     id: "diagnose",
     frage: "Gibt es bereits eine Diagnose oder einen konkreten Verdacht?",
+    grund: "Diagnose/Verdacht",
     options: [
       { label: "Ja, ADHS", scores: { diagnostik: 1, psychotherapie: 1 } },
       { label: "Ja, Autismus-Spektrum", scores: { diagnostik: 1, psychotherapie: 1 } },
@@ -74,6 +90,7 @@ const FRAGEN: Question[] = [
   {
     id: "wohnsituation",
     frage: "Wo lebt die Person aktuell?",
+    grund: "Wohnsituation",
     options: [
       { label: "Zuhause bei der Familie", scores: { beratung: 1 } },
       { label: "Zuhause, aber ein Auszug/eine Unterbringung steht im Raum", scores: { wohnen: 2, jugendhilfe: 1 } },
@@ -84,6 +101,7 @@ const FRAGEN: Question[] = [
   {
     id: "jugendamt",
     frage: "Ist das Jugendamt bereits eingebunden?",
+    grund: "Jugendamt-Status",
     options: [
       { label: "Ja, es läuft schon eine Hilfeplanung", scores: { jugendhilfe: 1, wohnen: 1 } },
       { label: "Nein, aber Kontakt ist geplant", scores: { beratung: 1 } },
@@ -94,6 +112,7 @@ const FRAGEN: Question[] = [
   {
     id: "dringlichkeit",
     frage: "Wie dringend ist die Situation?",
+    grund: "Dringlichkeit",
     options: [
       { label: "Es eilt nicht, wir wollen uns erst orientieren", scores: { beratung: 2 } },
       { label: "Es sollte in den nächsten Wochen etwas passieren", scores: { diagnostik: 1, beratung: 1 } },
@@ -103,6 +122,7 @@ const FRAGEN: Question[] = [
   {
     id: "herkunft",
     frage: "Aus welchem Land melden Sie sich?",
+    grund: "Herkunftsland",
     hinweis: "Anfragen aus Deutschland, Österreich und der Schweiz sind willkommen.",
     options: [
       { label: "Deutschland", scores: {} },
@@ -156,13 +176,19 @@ export default function Kompass() {
       krisenintervention: 0, beratung: 0, fruehehilfen: 0, psychotherapie: 0,
       diagnostik: 0, wohnen: 0, jugendhilfe: 0, kitaberatung: 0, uebergang: 0,
     };
+    const gruende: Record<ServiceKey, Set<string>> = {
+      krisenintervention: new Set(), beratung: new Set(), fruehehilfen: new Set(), psychotherapie: new Set(),
+      diagnostik: new Set(), wohnen: new Set(), jugendhilfe: new Set(), kitaberatung: new Set(), uebergang: new Set(),
+    };
     for (const frage of FRAGEN) {
       const gewaehlt = antworten[frage.id] ?? [];
       for (const label of gewaehlt) {
         const option = frage.options.find((o) => o.label === label);
         if (!option) continue;
         for (const [key, wert] of Object.entries(option.scores)) {
-          scores[key as ServiceKey] += wert ?? 0;
+          if (!wert) continue;
+          scores[key as ServiceKey] += wert;
+          gruende[key as ServiceKey].add(frage.grund);
         }
       }
     }
@@ -171,7 +197,7 @@ export default function Kompass() {
       .filter(([, v]) => v > 0)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 3);
-    return { sortiert, maxScore };
+    return { sortiert, maxScore, gruende };
   }
 
   // Antworten per Telegram übermitteln, sobald das Ergebnis feststeht
@@ -254,7 +280,7 @@ export default function Kompass() {
 
   // Ergebnis anzeigen
   if (fertig) {
-    const { sortiert, maxScore } = berechneErgebnis();
+    const { sortiert, maxScore, gruende } = berechneErgebnis();
 
     return (
       <div className="site-container" style={{ maxWidth: "680px", padding: "3rem 1.5rem 6rem" }}>
@@ -287,7 +313,10 @@ export default function Kompass() {
                   <div style={{ height: "6px", background: "#eef1f5", borderRadius: "999px", marginBottom: "0.75rem", overflow: "hidden" }}>
                     <div style={{ height: "100%", width: `${pct}%`, background: "#8B3A22", borderRadius: "999px" }} />
                   </div>
-                  <p style={{ fontSize: "0.875rem", color: "#5A4E48", margin: 0, lineHeight: 1.6 }}>{s.text}</p>
+                  <p style={{ fontSize: "0.875rem", color: "#5A4E48", margin: "0 0 0.625rem", lineHeight: 1.6 }}>{s.text}</p>
+                  <p style={{ fontSize: "0.75rem", color: "#9c9088", margin: 0 }}>
+                    Basiert auf Ihren Angaben zu: {Array.from(gruende[key]).join(", ")}
+                  </p>
                 </div>
               </Link>
             );
