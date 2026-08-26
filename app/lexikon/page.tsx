@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BookOpenText } from "lucide-react";
+import LexikonBrowser from "../components/LexikonBrowser";
 
 interface LexEntry { term: string; def: string; href?: string; }
 interface LexLetter { letter: string; entries: LexEntry[]; }
@@ -219,51 +220,7 @@ export default function LexikonPage() {
         </div>
       </section>
 
-      <nav aria-label="Alphabet" style={{ background: "#ffffff", borderBottom: "1px solid rgba(0,0,0,0.06)", padding: "1.25rem 1.5rem", position: "sticky", top: "56px", zIndex: 10 }}>
-        <div className="site-container" style={{ maxWidth: "820px", display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-          {lexikon.map((l) => (
-            <a key={l.letter} href={`#buchstabe-${l.letter}`} style={{
-              display: "flex", alignItems: "center", justifyContent: "center",
-              width: "32px", height: "32px", fontSize: "0.8125rem", fontWeight: 700,
-              color: "#1a3f6f", background: "#eef3fb", borderRadius: "8px", textDecoration: "none",
-            }}>
-              {l.letter}
-            </a>
-          ))}
-        </div>
-      </nav>
-
-      <section style={{ padding: "3rem 1.5rem 6rem" }}>
-        <div className="site-container" style={{ maxWidth: "820px" }}>
-          {lexikon.map((l) => (
-            <div key={l.letter} id={`buchstabe-${l.letter}`} style={{ scrollMarginTop: "120px", marginBottom: "3rem" }}>
-              <h2 style={{
-                fontSize: "1.75rem", fontWeight: 800, color: "#8B3A22",
-                marginBottom: "1.25rem", letterSpacing: "-0.02em",
-              }}>
-                {l.letter}
-              </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-                {l.entries.map((e, i) => (
-                  <div key={i} style={{
-                    background: "#ffffff", border: "1px solid rgba(0,0,0,0.07)",
-                    borderRadius: "12px", padding: "1.5rem",
-                  }}>
-                    <p style={{ fontSize: "1.0625rem", fontWeight: 700, color: "#1A1614", marginBottom: "0.5rem", letterSpacing: "-0.01em" }}>
-                      {e.href ? (
-                        <Link href={e.href} style={{ color: "#1A1614", textDecoration: "none" }}>{e.term}</Link>
-                      ) : e.term}
-                    </p>
-                    <p style={{ fontSize: "0.9375rem", color: "#5A4E48", lineHeight: 1.8, margin: 0 }}>
-                      {e.def}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <LexikonBrowser lexikon={lexikon} />
 
       <section style={{ background: "#0b1220", padding: "5rem 1.5rem", textAlign: "center" }}>
         <div className="site-container" style={{ maxWidth: "620px", margin: "0 auto" }}>
