@@ -19,7 +19,7 @@ export interface Article {
   relatedPages: { de: RelatedPage[]; en: RelatedPage[] };
 }
 
-export const articles: Article[] = [
+const articlesUnsorted: Article[] = [
   {
     slug: "kleidung-kinder-adhs-was-wirklich-hilft",
     date: "2026-05-09",
@@ -708,6 +708,8 @@ export const articles: Article[] = [
     },
   },
 ];
+
+export const articles: Article[] = [...articlesUnsorted].sort((a, b) => b.date.localeCompare(a.date));
 
 export function getArticleBySlug(slug: string): Article | undefined {
   return articles.find((a) => a.slug === slug);
