@@ -302,7 +302,7 @@ export default function DiagnostikClearingPage() {
             </Link>
           </div>
 
-          <div style={{
+          <div className="stack-mobile" style={{
             display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
             gap: "1px", background: "rgba(255,255,255,0.08)",
             borderRadius: "16px", overflow: "hidden",
@@ -323,7 +323,7 @@ export default function DiagnostikClearingPage() {
 
       {/* ══ EINLEITUNG ════════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{
+        <div className="site-container stack-mobile" style={{
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center",
         }}>
           <div>
@@ -494,7 +494,7 @@ export default function DiagnostikClearingPage() {
       {/* ══ BERICHTSARTEN ═════════════════════════════════════════ */}
       <section style={{ background: "#d8e4f0", padding: "5rem 0" }}>
         <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "5rem", alignItems: "start" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "5rem", alignItems: "start" }}>
             <div>
               <p style={{
                 fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em",
@@ -516,7 +516,7 @@ export default function DiagnostikClearingPage() {
               </p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
               {berichtsarten.map((b) => {
                 const Icon = b.icon;
                 return (
@@ -572,7 +572,7 @@ export default function DiagnostikClearingPage() {
             background: "rgba(255,255,255,0.05)", borderRadius: "20px", overflow: "hidden",
             border: "1px solid rgba(255,255,255,0.1)",
           }}>
-            <div style={{
+            <div className="stack-mobile" style={{
               display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr",
               background: "rgba(255,255,255,0.08)", padding: "1rem 1.5rem", gap: "1rem",
             }}>
@@ -581,7 +581,7 @@ export default function DiagnostikClearingPage() {
               <p style={{ fontWeight: 700, color: "rgba(255,255,255,0.4)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.08em" }}>Externe Stelle</p>
             </div>
             {unterschiede.map((u, i) => (
-              <div key={i} style={{
+              <div key={i} className="stack-mobile" style={{
                 display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr",
                 padding: "1rem 1.5rem", gap: "1rem",
                 borderTop: "1px solid rgba(255,255,255,0.06)",
@@ -601,7 +601,7 @@ export default function DiagnostikClearingPage() {
 
       {/* ══ FÜR FACHKRÄFTE ════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{
+        <div className="site-container stack-mobile" style={{
           display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "5rem", alignItems: "start",
         }}>
           <div>

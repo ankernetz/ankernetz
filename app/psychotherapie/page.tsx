@@ -275,7 +275,7 @@ export default function PsychotherapiePage() {
               {t.heroKontaktBtn}
             </Link>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px", background: "rgba(255,255,255,0.08)", borderRadius: "16px", overflow: "hidden" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px", background: "rgba(255,255,255,0.08)", borderRadius: "16px", overflow: "hidden" }}>
             {t.kennzahlen.map((k, idx) => {
               const Icon = KENN_ICONS[idx];
               return (
@@ -306,7 +306,7 @@ export default function PsychotherapiePage() {
 
       {/* ══ EINLEITUNG ════════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
           <div>
             <p style={{ fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.einlEyebrow}</p>
             <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: "1.5rem" }}>{t.einlH2}</h2>
@@ -387,7 +387,7 @@ export default function PsychotherapiePage() {
             <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.25rem)", fontWeight: 800, color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em" }}>{t.vorteilH2}</h2>
           </div>
           <div style={{ background: "white", borderRadius: "20px", overflow: "hidden", boxShadow: "0 2px 24px rgba(26,63,111,0.08)" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr", background: "#1a3f6f", padding: "1rem 1.5rem", gap: "1rem" }}>
+            <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr", background: "#1a3f6f", padding: "1rem 1.5rem", gap: "1rem" }}>
               <p style={{ fontWeight: 700, color: "rgba(255,255,255,0.5)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.08em" }}>{t.tabelleCol1}</p>
               <p style={{ fontWeight: 700, color: "#6FA3FE", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.08em" }}>{t.tabelleCol2}</p>
               <p style={{ fontWeight: 700, color: "rgba(255,255,255,0.5)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.08em" }}>{t.tabelleCol3}</p>
@@ -443,7 +443,7 @@ export default function PsychotherapiePage() {
 
       {/* ══ FÜR FACHKRÄFTE ════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "5rem", alignItems: "start" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "5rem", alignItems: "start" }}>
           <div>
             <p style={{ fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.fachEyebrow}</p>
             <h2 style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", fontWeight: 800, color: "#1a3f6f", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "1.25rem" }}>{t.fachH2}</h2>

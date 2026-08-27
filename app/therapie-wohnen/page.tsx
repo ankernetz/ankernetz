@@ -349,7 +349,7 @@ export default function TherapieWohnenPage() {
           </div>
 
           {/* Kennzahlen */}
-          <div style={{
+          <div className="stack-mobile" style={{
             display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
             gap: "1px", background: "rgba(255,255,255,0.08)",
             borderRadius: "16px", overflow: "hidden",
@@ -373,7 +373,7 @@ export default function TherapieWohnenPage() {
 
       {/* ══ EINLEITUNG ════════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{
+        <div className="site-container stack-mobile" style={{
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center",
         }}>
           <div>
@@ -545,7 +545,7 @@ export default function TherapieWohnenPage() {
             </p>
           </div>
 
-          <div style={{
+          <div className="stack-mobile" style={{
             display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem",
           }}>
             {t.therapeutischerAlltag.map((slot, i) => (
@@ -599,7 +599,7 @@ export default function TherapieWohnenPage() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
             {t.ansatz.map((a, i) => {
               const Icon = ANSATZ_ICONS[i];
               return (
@@ -685,7 +685,7 @@ export default function TherapieWohnenPage() {
 
       {/* ══ FÜR FACHKRÄFTE ════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{
+        <div className="site-container stack-mobile" style={{
           display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "5rem", alignItems: "start",
         }}>
           <div>

@@ -498,7 +498,7 @@ export default async function AngebotPage({
 
       {/* ═══ ZIELGRUPPE + LEISTUNGEN ═══ */}
       <section style={{ background: "#ffffff", padding: "5rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "4rem" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "4rem" }}>
 
           {/* Zielgruppe */}
           <div>

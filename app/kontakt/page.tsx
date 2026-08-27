@@ -317,7 +317,7 @@ export default function KontaktPage() {
         </div>
 
         <div className="site-container" style={{ position: "relative", zIndex: 2, marginTop: "3rem" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px",
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px",
             background: "rgba(255,255,255,0.1)" }}>
             {t.tiles.map((k, i) => (
               <div key={k.label} style={{ background: "rgba(255,255,255,0.06)",
@@ -357,7 +357,7 @@ export default function KontaktPage() {
             <h2 style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f",
               letterSpacing: "-0.025em" }}>{t.fuerWenH2}</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.25rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.25rem" }}>
             {t.gruppen.map(g => (
               <div key={g.titel} className="bento-card"
                 style={{ background: "#f0f4f8", padding: "2rem" }}>
@@ -381,7 +381,7 @@ export default function KontaktPage() {
 
       {/* FORMULAR + SEITENINFO */}
       <section style={{ background: "#d8e4f0", padding: "6rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "4rem", alignItems: "start" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "4rem", alignItems: "start" }}>
 
           <div>
             <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
@@ -445,7 +445,7 @@ export default function KontaktPage() {
                   {t.formH3}
                 </h3>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
+                <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
                   <div>
                     <label style={{ fontSize: "0.7rem", fontWeight: 700, color: "rgba(26,63,111,0.45)",
                       letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "0.375rem" }}>
@@ -473,7 +473,7 @@ export default function KontaktPage() {
                     onChange={set("organisation")} style={inputStyle} />
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
+                <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
                   <div>
                     <label style={{ fontSize: "0.7rem", fontWeight: 700, color: "rgba(26,63,111,0.45)",
                       letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "0.375rem" }}>
@@ -549,7 +549,7 @@ export default function KontaktPage() {
 
       {/* FAQ */}
       <section style={{ background: "#ffffff", padding: "6rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "5rem" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "5rem" }}>
           <div>
             <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
               textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.faqEyebrow}</p>
@@ -595,7 +595,7 @@ export default function KontaktPage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.04,
           backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
           backgroundSize: "32px 32px" }} />
-        <div className="site-container" style={{ position: "relative", zIndex: 1,
+        <div className="site-container stack-mobile" style={{ position: "relative", zIndex: 1,
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "1.5rem" }}>
@@ -621,7 +621,7 @@ export default function KontaktPage() {
               <span>{t.krisenBannerCall}</span>
               <span>+49 (0) 30 22 45 43 22</span>
             </a>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
               <Link href="/krisenintervention" style={{ border: "1px solid rgba(255,255,255,0.15)",
                 color: "rgba(255,255,255,0.6)", padding: "0.875rem 1rem",
                 fontWeight: 500, fontSize: "0.8125rem", textDecoration: "none", textAlign: "center" }}>

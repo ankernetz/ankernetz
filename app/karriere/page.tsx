@@ -436,7 +436,7 @@ export default function KarrierePage() {
       ══════════════════════════════════════════════════ */}
       <section style={{ background: "#ffffff", padding: "6rem 0" }}>
         <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
             <div>
               <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
                 textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.warum.eyebrow}</p>
@@ -452,7 +452,7 @@ export default function KarrierePage() {
             </div>
 
             {/* Kennzahlen */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px",
+            <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px",
               background: "#dde4ee", border: "1px solid #dde4ee" }}>
               {t.warum.kennzahlen.map(k => (
                 <div key={k.label} style={{ background: "white", padding: "1.5rem", textAlign: "center" }}>
@@ -479,7 +479,7 @@ export default function KarrierePage() {
             <h2 style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f",
               letterSpacing: "-0.025em" }}>{t.vorteile.h2}</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
             {t.vorteile.items.map((v, i) => (
               <div key={v.titel} className="bento-card"
                 style={{ background: "white", padding: "2rem" }}>
@@ -551,7 +551,7 @@ export default function KarrierePage() {
                 </summary>
 
                 <div style={{ padding: "0 2rem 2rem 4.25rem", borderTop: "1px solid #eef2f7" }}>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", paddingTop: "1.75rem" }}>
+                  <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", paddingTop: "1.75rem" }}>
                     <div>
                       <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.14em",
                         textTransform: "uppercase", color: "rgba(26,63,111,0.4)", marginBottom: "1rem" }}>
@@ -614,7 +614,7 @@ export default function KarrierePage() {
             <h2 style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f",
               letterSpacing: "-0.025em" }}>{t.prozess.h2}</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "0" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "0" }}>
             {t.prozess.schritte.map((s, i) => (
               <div key={s.nr} style={{ background: "white", padding: "2rem 1.5rem",
                 borderRight: i < 4 ? "1px solid #dde4ee" : "none",
@@ -651,7 +651,7 @@ export default function KarrierePage() {
             <h2 style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f",
               letterSpacing: "-0.025em" }}>{t.stimmen.h2}</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
             {t.stimmen.items.map(s => (
               <div key={s.name} className="bento-card"
                 style={{ background: "#f0f4f8", padding: "2rem" }}>
@@ -685,7 +685,7 @@ export default function KarrierePage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.04,
           backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
           backgroundSize: "32px 32px" }} />
-        <div className="site-container" style={{ position: "relative", zIndex: 1,
+        <div className="site-container stack-mobile" style={{ position: "relative", zIndex: 1,
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
           <div>
             <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em",

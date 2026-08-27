@@ -190,7 +190,7 @@ export default function ExternalLinks() {
               }}>
                 {section.label}
               </p>
-              <div style={{
+              <div className="stack-mobile" style={{
                 display: "grid",
                 gridTemplateColumns: `repeat(${section.cols}, 1fr)`,
                 gap: "0.5rem",

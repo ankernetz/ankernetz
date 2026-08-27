@@ -287,7 +287,7 @@ export default function PlatzanfragePage() {
                 {t.sec1}
               </p>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+              <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                 <div>
                   <label style={labelStyle}>{t.labelVorname}</label>
                   <input type="text" required style={inputStyle} value={form.vorname}
@@ -307,7 +307,7 @@ export default function PlatzanfragePage() {
                   placeholder={t.placeholderInstitution} />
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "2rem" }}>
+              <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "2rem" }}>
                 <div>
                   <label style={labelStyle}>{t.labelEmail}</label>
                   <input type="email" required style={inputStyle} value={form.email}
@@ -345,7 +345,7 @@ export default function PlatzanfragePage() {
                   {t.sec3}
                 </p>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                   <div>
                     <label style={labelStyle}>{t.labelAlter}</label>
                     <input type="number" min={0} max={25} required style={inputStyle}

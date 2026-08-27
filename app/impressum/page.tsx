@@ -258,8 +258,7 @@ export default function ImpressumPage() {
           boxShadow: "0 2px 24px rgba(26,63,111,0.07)",
         }}>
           {t.sections.map((s, i) => (
-            <div
-              key={i}
+            <div className="stack-mobile"              key={i}
               style={{
                 padding: "2rem 2.5rem",
                 borderBottom: i < t.sections.length - 1 ? "1px solid #eef2f8" : "none",

@@ -357,7 +357,7 @@ export default function KriseninterventionPage() {
             </Link>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px", background: "rgba(255,255,255,0.08)", borderRadius: "16px", overflow: "hidden", marginTop: "4rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px", background: "rgba(255,255,255,0.08)", borderRadius: "16px", overflow: "hidden", marginTop: "4rem" }}>
             {t.kennzahlen.map((k, idx) => {
               const Icon = KENN_ICONS[idx];
               return (
@@ -390,7 +390,7 @@ export default function KriseninterventionPage() {
 
       {/* ══ EINLEITUNG ════════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
           <div>
             <p style={{ fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.einleitungEyebrow}</p>
             <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: "1.5rem" }}>{t.einleitungH2}</h2>
@@ -472,7 +472,7 @@ export default function KriseninterventionPage() {
             <p style={{ fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)", marginBottom: "0.75rem" }}>{t.prozessEyebrow}</p>
             <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, color: "white", lineHeight: 1.2, letterSpacing: "-0.02em" }}>{t.prozessH2}</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "0", position: "relative" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "0", position: "relative" }}>
             <div style={{ position: "absolute", top: "2.25rem", left: "10%", right: "10%", height: "1px", background: "rgba(255,255,255,0.12)" }} />
             {t.prozessSchritte.map((s, i) => {
               const Icon = PROZESS_ICONS[i];
@@ -515,7 +515,7 @@ export default function KriseninterventionPage() {
 
       {/* ══ FÜR FACHKRÄFTE ════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "5rem", alignItems: "start" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "5rem", alignItems: "start" }}>
           <div>
             <p style={{ fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.fachEyebrow}</p>
             <h2 style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", fontWeight: 800, color: "#1a3f6f", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "1.25rem" }}>{t.fachH2}</h2>
@@ -547,7 +547,7 @@ export default function KriseninterventionPage() {
             <p style={{ fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1a3f6f", marginBottom: "0.75rem" }}>{t.zielEyebrow}</p>
             <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em" }}>{t.zielH2}</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
             <div style={{ background: "#1a3f6f", borderRadius: "20px", padding: "2.5rem", color: "white" }}>
               <p style={{ fontSize: "3rem", fontWeight: 900, color: "#6FA3FE", letterSpacing: "-0.03em", marginBottom: "0.5rem" }}>12-17</p>
               <p style={{ fontWeight: 700, fontSize: "18px", marginBottom: "1rem" }}>{t.zielAlterLabel}</p>
@@ -567,7 +567,7 @@ export default function KriseninterventionPage() {
 
       {/* ══ CHAT LENA ════════════════════════════════════════════ */}
       <section style={{ background: "#d8e4f0", padding: "5rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
           <div>
             <p style={{ fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1a3f6f", marginBottom: "1rem" }}>{t.chatEyebrow}</p>
             <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.25rem)", fontWeight: 800, color: "#1a3f6f", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: "1.25rem" }}>{t.chatH2}</h2>

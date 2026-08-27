@@ -277,7 +277,7 @@ export default function VersorgungPage() {
       {/* Warum */}
       <section style={{ padding: "80px 24px", background: "#fff" }}>
         <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
             <div>
               <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Hintergrund</div>
               <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 800, marginBottom: "20px", lineHeight: 1.2 }}>
@@ -293,7 +293,7 @@ export default function VersorgungPage() {
                 Ankernetz behandelt Versorgung deshalb als professionellen Auftrag: strukturiert, klinisch informiert, würdevoll und eng eingebettet in den gesamten Hilfeprozess.
               </p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+            <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
               {warum.map((w) => {
                 const Icon = w.icon;
                 return (
@@ -451,7 +451,7 @@ export default function VersorgungPage() {
       {/* Für Fachkräfte */}
       <section style={{ padding: "80px 24px", background: "#fff" }}>
         <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "64px", alignItems: "start" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "64px", alignItems: "start" }}>
             <div>
               <div style={{ fontSize: "0.8rem", color: "#6FA3FE", fontWeight: 700, letterSpacing: "0.1em", marginBottom: "12px", textTransform: "uppercase" }}>Für Fachkräfte & Teams</div>
               <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: 800, marginBottom: "20px", lineHeight: 1.2 }}>
@@ -469,7 +469,7 @@ export default function VersorgungPage() {
                 Versorgungsbedarf melden <ArrowRight size={16} />
               </Link>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+            <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
               {fachkraefteInfos.map((f) => {
                 const Icon = f.icon;
                 return (

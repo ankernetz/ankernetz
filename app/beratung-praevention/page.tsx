@@ -347,7 +347,7 @@ export default function BeratungPraeventionPage() {
             </Link>
           </div>
 
-          <div style={{
+          <div className="stack-mobile" style={{
             display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
             gap: "1px", background: "rgba(255,255,255,0.08)",
             borderRadius: "16px", overflow: "hidden",
@@ -398,7 +398,7 @@ export default function BeratungPraeventionPage() {
 
       {/* ══ EINLEITUNG ════════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{
+        <div className="site-container stack-mobile" style={{
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center",
         }}>
           <div>
@@ -568,7 +568,7 @@ export default function BeratungPraeventionPage() {
       {/* ══ PRÄVENTION ════════════════════════════════════════════ */}
       <section style={{ background: "#d8e4f0", padding: "5rem 0" }}>
         <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "5rem", alignItems: "start" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "5rem", alignItems: "start" }}>
             <div>
               <p style={{
                 fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em",
@@ -595,7 +595,7 @@ export default function BeratungPraeventionPage() {
               </p>
             </div>
 
-            <div style={{
+            <div className="stack-mobile" style={{
               display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem",
             }}>
               {praevention.map((p) => {
@@ -653,7 +653,7 @@ export default function BeratungPraeventionPage() {
             </h2>
           </div>
 
-          <div style={{
+          <div className="stack-mobile" style={{
             display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px",
             background: "rgba(255,255,255,0.08)", borderRadius: "16px", overflow: "hidden",
           }}>
@@ -698,7 +698,7 @@ export default function BeratungPraeventionPage() {
 
       {/* ══ FÜR FACHKRÄFTE ════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{
+        <div className="site-container stack-mobile" style={{
           display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "5rem", alignItems: "start",
         }}>
           <div>

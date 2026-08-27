@@ -59,6 +59,21 @@ p {
   margin-bottom: 1.25rem;
 }
 
+/* ─── Responsive grid stacking (Mobile & Tablet) ────────────────
+   Erzwingt eine Spalte für feste Grid-Layouts auf schmalen Bildschirmen.
+   !important ist hier bewusst nötig, weil die Grids per Inline-Style
+   gesetzt sind und Inline-Styles sonst jede Media Query überstimmen. */
+@media (max-width: 860px) {
+  .stack-mobile {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 640px) {
+  .stack-mobile-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
 /* ─── Container utility ──────────────────────────────────────── */
 .site-container {
   width: 100%;

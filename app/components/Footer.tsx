@@ -122,7 +122,7 @@ export default function Footer() {
 
       {/* Haupt-Footer */}
       <div className="site-container" style={{ paddingTop: "3.5rem", paddingBottom: "3.5rem" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.8fr 1.4fr 1fr 1.2fr", gap: "3.5rem" }}>
+        <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1.8fr 1.4fr 1fr 1.2fr", gap: "3.5rem" }}>
           {/* Spalte 1 */}
           <div style={col}>
             <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>

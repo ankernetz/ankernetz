@@ -351,7 +351,7 @@ export default function UeberUnsPage() {
 
       {/* GESCHICHTE */}
       <section style={{ background: "#ffffff", padding: "6rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
           <div>
             <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
               textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.geschichteEyebrow}</p>
@@ -395,7 +395,7 @@ export default function UeberUnsPage() {
       {/* MISSION & VISION */}
       <section style={{ background: "#d8e4f0", padding: "6rem 0" }}>
         <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem" }}>
             <div style={{ background: "#1a3f6f", padding: "3rem", position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", inset: 0, opacity: 0.04,
                 backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
@@ -423,7 +423,7 @@ export default function UeberUnsPage() {
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginTop: "1.5rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginTop: "1.5rem" }}>
             {t.saulen.map((s, i) => (
               <div key={s.titel} style={{ background: "white", padding: "2rem" }}>
                 <div style={{ width: "32px", height: "3px", background: saulenFarben[i],
@@ -446,7 +446,7 @@ export default function UeberUnsPage() {
             textTransform: "uppercase", color: "#6FA3FE", marginBottom: "3rem", textAlign: "center" }}>
             {t.zahlenEyebrow}
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2rem" }}>
             {t.zahlen.map(z => (
               <div key={z.zahl + z.einheit} style={{ textAlign: "center", padding: "1.5rem",
                 borderTop: "1px solid rgba(255,255,255,0.08)" }}>
@@ -470,7 +470,7 @@ export default function UeberUnsPage() {
             <h2 style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f",
               letterSpacing: "-0.025em" }}>{t.werteH2}</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
             {t.werte.map((w, i) => (
               <div key={w.titel} className="bento-card"
                 style={{ background: "#f0f4f8", padding: "2rem" }}>
@@ -487,7 +487,7 @@ export default function UeberUnsPage() {
       {/* ANSATZ */}
       <section style={{ background: "#d8e4f0", padding: "6rem 0" }}>
         <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}>
             <div>
               <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
                 textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.ansatzEyebrow}</p>
@@ -526,7 +526,7 @@ export default function UeberUnsPage() {
               letterSpacing: "-0.025em", marginBottom: "0.75rem" }}>{t.netzwerkH2}</h2>
             <p style={{ fontSize: "0.9375rem", color: "rgba(26,63,111,0.5)", maxWidth: "48ch", margin: "0 auto" }}>{t.netzwerkP}</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px",
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px",
             background: "#dde4ee", border: "1px solid #dde4ee" }}>
             {t.angebote.map((a, i) => (
               <Link key={a.href} href={a.href}
@@ -555,7 +555,7 @@ export default function UeberUnsPage() {
             <h2 style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.5rem)", fontWeight: 800, color: "#1a3f6f",
               letterSpacing: "-0.025em" }}>{t.teamH2}</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.25rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.25rem" }}>
             {t.teamRollen.map(r => (
               <div key={r.rolle} style={{ background: "white", padding: "1.75rem",
                 display: "flex", gap: "1.25rem", alignItems: "flex-start" }}>
@@ -590,7 +590,7 @@ export default function UeberUnsPage() {
 
       {/* QUALITÄT */}
       <section style={{ background: "#ffffff", padding: "6rem 0" }}>
-        <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}>
+        <div className="site-container stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}>
           <div>
             <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
               textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.qualEyebrow}</p>
@@ -619,7 +619,7 @@ export default function UeberUnsPage() {
       {/* STANDORT */}
       <section style={{ background: "#d8e4f0", padding: "6rem 0" }}>
         <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
             <div>
               <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
                 textTransform: "uppercase", color: "#6FA3FE", marginBottom: "1rem" }}>{t.standortEyebrow}</p>

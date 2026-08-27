@@ -236,7 +236,7 @@ export default function Navigation() {
           style={{ background: "#ffffff", borderBottom: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 8px 32px rgba(0,0,0,0.10)" }}
         >
           <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "3rem 2.5rem" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "3rem" }}>
+            <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "3rem" }}>
               {megaMenu.map((gruppe) => (
                 <div key={gruppe.kategorie}>
                   <p style={{ fontSize: "13px", fontWeight: 600, color: "#1D1D1F", marginBottom: "1.25rem" }}>

@@ -195,7 +195,7 @@ export default function AktuellesPage() {
       {/* Hilfe-CTA Block */}
       <section style={{ padding: "0 1.5rem 4rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div style={{
+          <div className="stack-mobile" style={{
             background: "linear-gradient(135deg, #1A1614 0%, #2D1810 100%)",
             borderRadius: "20px",
             padding: "clamp(2rem, 4vw, 3rem)",

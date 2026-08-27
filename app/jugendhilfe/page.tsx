@@ -375,7 +375,7 @@ export default function JugendhilfePage() {
             </a>
           </div>
 
-          <div style={{
+          <div className="stack-mobile" style={{
             display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
             gap: "1px", background: "rgba(255,255,255,0.08)",
             borderRadius: "16px", overflow: "hidden",
@@ -396,7 +396,7 @@ export default function JugendhilfePage() {
 
       {/* ══ EINLEITUNG ════════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{
+        <div className="site-container stack-mobile" style={{
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center",
         }}>
           <div>
@@ -575,7 +575,7 @@ export default function JugendhilfePage() {
             </p>
           </div>
 
-          <div style={{
+          <div className="stack-mobile" style={{
             display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem",
           }}>
             {alltagsRhythmus.map((t, i) => {
@@ -605,7 +605,7 @@ export default function JugendhilfePage() {
       {/* ══ FÖRDERUNG ═════════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
         <div className="site-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "5rem", alignItems: "start" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "5rem", alignItems: "start" }}>
             <div>
               <p style={{
                 fontSize: "10px", fontWeight: 800, letterSpacing: "0.12em",
@@ -627,7 +627,7 @@ export default function JugendhilfePage() {
               </p>
             </div>
 
-            <div style={{
+            <div className="stack-mobile" style={{
               display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem",
             }}>
               {foerderBereiche.map((f) => {
@@ -674,7 +674,7 @@ export default function JugendhilfePage() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
+          <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
             {ansatz.map((a) => {
               const Icon = a.icon;
               return (
@@ -755,7 +755,7 @@ export default function JugendhilfePage() {
 
       {/* ══ FÜR FACHKRÄFTE ════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
-        <div className="site-container" style={{
+        <div className="site-container stack-mobile" style={{
           display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "5rem", alignItems: "start",
         }}>
           <div>
