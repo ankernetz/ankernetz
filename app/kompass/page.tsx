@@ -129,6 +129,8 @@ export default function KompassPage() {
         </div>
       </section>
 
+      <Kompass />
+
       <section style={{ background: "#F5F0EA", padding: "4rem 1.5rem", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
         <div className="site-container" style={{ maxWidth: "960px" }}>
           <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8B3A22", marginBottom: "0.75rem", textAlign: "center" }}>
@@ -185,8 +187,6 @@ export default function KompassPage() {
           </div>
         </div>
       </section>
-
-      <Kompass />
 
       <section style={{ background: "#F5F0EA", padding: "4.5rem 1.5rem", borderTop: "1px solid rgba(0,0,0,0.06)" }}>
         <div className="site-container" style={{ maxWidth: "780px" }}>
