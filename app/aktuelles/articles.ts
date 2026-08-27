@@ -1373,6 +1373,83 @@ const articlesUnsorted: Article[] = [
       ],
     },
   },
+
+  {
+    slug: "was-ankernetz-jetzt-kann-ueberblick-neue-angebote",
+    date: "2026-08-27",
+    title: {
+      de: "Was Ankernetz jetzt kann: ein Überblick - und warum das für Familien und Fachkräfte gut ist",
+      en: "What Ankernetz Can Do Now: an Overview - and Why It Is Good for Families and Professionals",
+    },
+    readTime: {
+      de: "7 Min. Lesezeit",
+      en: "7 min. read",
+    },
+    excerpt: {
+      de: "In den letzten Wochen ist bei Ankernetz einiges dazugekommen - von der bundesländerübergreifenden Aufnahme bis zum Ankernetz-Kompass. Dieser Artikel fasst zusammen, was neu ist, und erklärt konkret, was es für Sie bedeutet.",
+      en: "In recent weeks, a number of things have been added at Ankernetz - from cross-border admissions to the Ankernetz Compass. This article summarises what is new and explains concretely what it means for you.",
+    },
+    keywords: {
+      de: ["Ankernetz Neuigkeiten", "was kann Ankernetz", "Ankernetz Angebote Überblick", "Ankernetz Kompass Glossar Lexikon", "Ankernetz Update"],
+      en: ["Ankernetz news", "what can Ankernetz do", "Ankernetz services overview", "Ankernetz update"],
+    },
+    sections: {
+      de: [
+        { type: "h2", content: "Mehr als nur elf Angebote" },
+        { type: "p", content: "Ankernetz war immer schon ein Netzwerk aus elf spezialisierten Hilfen unter einem Dach. Neu ist, wie leicht sich dieses Netzwerk inzwischen finden, verstehen und nutzen lässt - unabhängig davon, ob Sie Elternteil, Jugendlicher, Fachkraft oder Jugendamt sind. Hier der Überblick, was in den letzten Wochen dazugekommen ist." },
+        { type: "h2", content: "1. Aufnahme aus Deutschland, Österreich und der Schweiz" },
+        { type: "p", content: "Ankernetz nimmt jetzt nicht mehr nur Anfragen aus Berlin und Brandenburg entgegen, sondern aus dem gesamten deutschsprachigen Raum. Die Unterbringung findet weiterhin ausschließlich in Berlin statt, nach deutschem Recht - aber Jugendwohlfahrtsstellen, KESB-Behörden und Familien aus Österreich und der Schweiz können sich jetzt genauso melden wie deutsche Jugendämter." },
+        { type: "highlight", content: "Warum das gut ist: Wer im eigenen Kanton oder Bundesland keinen passenden Platz findet - gerade bei komplexem Bedarf - hat jetzt eine zusätzliche, seriöse Anlaufstelle, statt vor einer Sackgasse zu stehen." },
+        { type: "h2", content: "2. Der Ankernetz-Kompass" },
+        { type: "p", content: "Der Ankernetz-Kompass ist ein kurzer, anonymer Fragebogen, der in etwa drei Minuten zeigt, welches unserer Angebote zu einer konkreten Situation passen könnte. Er beginnt mit einer Sicherheitsfrage - bei akuter Gefahr führt der Weg sofort zur Notfallnummer. Danach folgen gezielte Fragen, unter anderem dazu, wie stark sich eine Situation auf den Alltag auswirkt - das genaue Kriterium, das in der fachlichen Praxis zwischen einem klärenden Beratungsgespräch und einer intensiveren Behandlung unterscheidet." },
+        { type: "highlight", content: "Warum das gut ist: Die größte Hürde vor dem ersten Anruf ist oft nicht die Situation selbst, sondern die Unsicherheit, wo man überhaupt anfangen soll. Der Kompass nimmt genau diese Unsicherheit vorweg." },
+        { type: "h2", content: "3. Glossar & FAQ mit über 60 Fragen" },
+        { type: "p", content: "Unter aktuelles/#glossar beantworten wir inzwischen mehr als 60 konkrete Fragen - von \"Was ist eine Inobhutnahme?\" bis \"Wer trägt die Kosten, wenn ein Kind aus Österreich in Deutschland untergebracht wird?\". Organisiert in sieben Themenbereichen, durchsuchbar, mit strukturierten Daten für Suchmaschinen hinterlegt." },
+        { type: "highlight", content: "Warum das gut ist: Viele Menschen recherchieren erst selbst, bevor sie anrufen. Ein gutes Glossar bedeutet, dass diese Recherche nicht bei einer verwirrenden Behördenseite endet, sondern bei verständlichen, verlässlichen Antworten." },
+        { type: "h2", content: "4. Ein alphabetisches Wortlexikon mit Suchfunktion" },
+        { type: "p", content: "Fast 100 Fachbegriffe - von ADHS über SGB VIII bis Verselbstständigung - jetzt mit Live-Suche durchsuchbar. Kein Behördendeutsch ohne Übersetzung, kein Fachbegriff ohne verständliche Erklärung." },
+        { type: "h2", content: "5. Lena kennt den Weg" },
+        { type: "p", content: "Unser Chat-Assistent Lena bietet den Ankernetz-Kompass jetzt direkt als ersten Vorschlag an, sobald jemand den Chat öffnet - noch bevor eine einzige Nachricht geschrieben wurde." },
+        { type: "h2", content: "Was das insgesamt bedeutet" },
+        { type: "p", content: "Keine dieser Neuerungen ersetzt das persönliche Gespräch - das bleibt der Kern unserer Arbeit. Aber der Weg dorthin ist jetzt kürzer, verständlicher und für mehr Menschen erreichbar, egal ob sie aus Berlin, Brandenburg, Österreich oder der Schweiz kommen und egal ob sie schon genau wissen, was sie brauchen, oder erst noch herausfinden müssen, wo sie anfangen sollen." },
+        { type: "h2", content: "Selbst ausprobieren" },
+        { type: "p", content: "Der Ankernetz-Kompass, das Glossar und das Wortlexikon sind alle kostenlos, anonym und ohne Anmeldung nutzbar." },
+      ],
+      en: [
+        { type: "h2", content: "More than just eleven services" },
+        { type: "p", content: "Ankernetz has always been a network of eleven specialised services under one roof. What is new is how easily this network can now be found, understood and used - whether you are a parent, a young person, a professional or a youth welfare office. Here is an overview of what has been added in recent weeks." },
+        { type: "h2", content: "1. Admissions from Germany, Austria and Switzerland" },
+        { type: "p", content: "Ankernetz no longer accepts enquiries only from Berlin and Brandenburg, but from across the German-speaking region. Placement continues to take place exclusively in Berlin, under German law - but youth welfare authorities, KESB bodies and families from Austria and Switzerland can now get in touch just as German youth welfare offices can." },
+        { type: "highlight", content: "Why this is good: anyone who cannot find a suitable place in their own canton or state - especially for complex needs - now has an additional, serious point of contact instead of hitting a dead end." },
+        { type: "h2", content: "2. The Ankernetz Compass" },
+        { type: "p", content: "The Ankernetz Compass is a short, anonymous questionnaire that shows in about three minutes which of our services could fit a specific situation. It begins with a safety question - in case of acute danger it leads straight to the emergency number. Targeted questions follow, including how strongly a situation affects daily life - the exact criterion that, in professional practice, distinguishes a clarifying counselling conversation from more intensive treatment." },
+        { type: "highlight", content: "Why this is good: the biggest hurdle before the first call is often not the situation itself but the uncertainty of where to even start. The Compass addresses exactly that uncertainty." },
+        { type: "h2", content: "3. Glossary & FAQ with over 60 questions" },
+        { type: "p", content: "Under aktuelles/#glossar we now answer more than 60 concrete questions - from \"What is emergency protective custody?\" to \"Who pays if a child from Austria is placed in Germany?\". Organised into seven topic areas, searchable, with structured data for search engines." },
+        { type: "highlight", content: "Why this is good: many people research on their own before calling. A good glossary means that research does not end on a confusing government page, but with clear, reliable answers." },
+        { type: "h2", content: "4. An alphabetical word lexicon with search" },
+        { type: "p", content: "Almost 100 technical terms - from ADHD to SGB VIII to becoming independent - now searchable live. No jargon without an explanation, no technical term left unclear." },
+        { type: "h2", content: "5. Lena knows the way" },
+        { type: "p", content: "Our chat assistant Lena now offers the Ankernetz Compass as the very first suggestion as soon as someone opens the chat - before a single message has been typed." },
+        { type: "h2", content: "What this all means" },
+        { type: "p", content: "None of these additions replace the personal conversation - that remains the core of our work. But the path to it is now shorter, clearer and reachable for more people, whether they come from Berlin, Brandenburg, Austria or Switzerland, and whether they already know exactly what they need or still have to work out where to start." },
+        { type: "h2", content: "Try it yourself" },
+        { type: "p", content: "The Ankernetz Compass, the glossary and the word lexicon are all free, anonymous and usable without sign-up." },
+      ],
+    },
+    relatedPages: {
+      de: [
+        { label: "Ankernetz-Kompass: Welche Hilfe passt?", href: "/kompass" },
+        { label: "Wortlexikon", href: "/lexikon" },
+        { label: "Glossar & FAQ", href: "/aktuelles#glossar" },
+      ],
+      en: [
+        { label: "Ankernetz Compass: Which Help Fits?", href: "/kompass" },
+        { label: "Word Lexicon", href: "/lexikon" },
+        { label: "Glossary & FAQ", href: "/aktuelles#glossar" },
+      ],
+    },
+  },
 ];
 
 export const articles: Article[] = [...articlesUnsorted].sort((a, b) => b.date.localeCompare(a.date));
