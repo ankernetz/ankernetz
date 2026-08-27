@@ -151,6 +151,15 @@ export default function Kompass() {
   const [fertig, setFertig] = useState(false);
   const gesendetRef = useRef(false);
 
+  const [kName, setKName] = useState("");
+  const [kEmail, setKEmail] = useState("");
+  const [kTelefon, setKTelefon] = useState("");
+  const [kNachricht, setKNachricht] = useState("");
+  const [kDsgvo, setKDsgvo] = useState(false);
+  const [kSenden, setKSenden] = useState(false);
+  const [kGesendet, setKGesendet] = useState(false);
+  const [kFehler, setKFehler] = useState("");
+
   function waehlen(fragenId: string, label: string, multi?: boolean) {
     setAntworten((prev) => {
       const bisher = prev[fragenId] ?? [];
@@ -175,6 +184,46 @@ export default function Kompass() {
     setAntworten({});
     setFertig(false);
     gesendetRef.current = false;
+    setKName(""); setKEmail(""); setKTelefon(""); setKNachricht("");
+    setKDsgvo(false); setKGesendet(false); setKFehler("");
+  }
+
+  async function kontaktSenden() {
+    setKFehler("");
+    if (!kEmail.trim() && !kTelefon.trim()) {
+      setKFehler("Bitte E-Mail oder Telefonnummer angeben, damit wir Sie erreichen können.");
+      return;
+    }
+    if (!kDsgvo) {
+      setKFehler("Bitte bestätigen Sie, dass wir Sie kontaktieren dürfen.");
+      return;
+    }
+    setKSenden(true);
+    const { sortiert, maxScore } = berechneErgebnis();
+    const antwortenListe = FRAGEN
+      .filter((f) => (antworten[f.id] ?? []).length > 0)
+      .map((f) => ({ frage: f.frage, antwort: (antworten[f.id] ?? []).join(", ") }));
+    const empfehlungen = sortiert.map(([key, val]) => ({
+      label: SERVICES[key].label,
+      prozent: Math.round((val / maxScore) * 100),
+    }));
+    try {
+      const res = await fetch("/api/kompass", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          antworten: antwortenListe,
+          empfehlungen,
+          kontakt: { name: kName, email: kEmail, telefon: kTelefon, nachricht: kNachricht },
+        }),
+      });
+      if (!res.ok) throw new Error("Senden fehlgeschlagen");
+      setKGesendet(true);
+    } catch {
+      setKFehler("Das hat gerade nicht geklappt. Rufen Sie uns gerne direkt an: 030 22 45 43 22.");
+    } finally {
+      setKSenden(false);
+    }
   }
 
   function berechneErgebnis() {
@@ -344,13 +393,75 @@ export default function Kompass() {
           Egal wofür Sie sich entscheiden: Ein Erstgespräch verpflichtet zu nichts. Wir schauen gemeinsam,
           ob die Einschätzung passt - und wenn nicht, finden wir einen anderen Weg.
         </p>
+
+        {kGesendet ? (
+          <div style={{ background: "#f0f9f4", border: "1.5px solid #bfe3cc", borderRadius: "14px", padding: "1.5rem", marginBottom: "2rem" }}>
+            <p style={{ fontSize: "0.9375rem", fontWeight: 700, color: "#1a5c33", marginBottom: "0.375rem" }}>
+              Danke, das kam bei uns an.
+            </p>
+            <p style={{ fontSize: "0.875rem", color: "#3a6b4a", lineHeight: 1.7, margin: 0 }}>
+              Wir melden uns bei Ihnen - meist innerhalb von 24 Stunden. Bei Eile rufen Sie gerne direkt an: 030 22 45 43 22.
+            </p>
+          </div>
+        ) : (
+          <div style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)", borderRadius: "14px", padding: "1.5rem", marginBottom: "2rem" }}>
+            <p style={{ fontSize: "1.0625rem", fontWeight: 700, color: "#1A1614", marginBottom: "0.375rem" }}>
+              Sollen wir uns bei Ihnen melden?
+            </p>
+            <p style={{ fontSize: "0.875rem", color: "#5A4E48", lineHeight: 1.65, marginBottom: "1.25rem" }}>
+              Dann übermitteln wir Ihre Angaben aus dem Kompass direkt an unser Team - Sie müssen nichts doppelt eintragen.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1rem" }}>
+              <input
+                type="text" value={kName} onChange={(e) => setKName(e.target.value)}
+                placeholder="Name (optional)"
+                style={{ padding: "0.75rem 1rem", borderRadius: "10px", border: "1.5px solid rgba(0,0,0,0.1)", fontSize: "0.9375rem", fontFamily: "inherit" }}
+              />
+              <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+                <input
+                  type="email" value={kEmail} onChange={(e) => setKEmail(e.target.value)}
+                  placeholder="E-Mail-Adresse"
+                  style={{ flex: "1 1 200px", padding: "0.75rem 1rem", borderRadius: "10px", border: "1.5px solid rgba(0,0,0,0.1)", fontSize: "0.9375rem", fontFamily: "inherit" }}
+                />
+                <input
+                  type="tel" value={kTelefon} onChange={(e) => setKTelefon(e.target.value)}
+                  placeholder="oder Telefonnummer"
+                  style={{ flex: "1 1 200px", padding: "0.75rem 1rem", borderRadius: "10px", border: "1.5px solid rgba(0,0,0,0.1)", fontSize: "0.9375rem", fontFamily: "inherit" }}
+                />
+              </div>
+              <textarea
+                value={kNachricht} onChange={(e) => setKNachricht(e.target.value)}
+                placeholder="Kurze Nachricht (optional)"
+                rows={3}
+                style={{ padding: "0.75rem 1rem", borderRadius: "10px", border: "1.5px solid rgba(0,0,0,0.1)", fontSize: "0.9375rem", fontFamily: "inherit", resize: "vertical" }}
+              />
+            </div>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", marginBottom: "1rem", cursor: "pointer" }}>
+              <input type="checkbox" checked={kDsgvo} onChange={(e) => setKDsgvo(e.target.checked)} style={{ marginTop: "0.2rem" }} />
+              <span style={{ fontSize: "0.8125rem", color: "#5A4E48", lineHeight: 1.6 }}>
+                Ich bin einverstanden, dass Ankernetz mich über die angegebenen Daten kontaktiert. Vertraulich, jederzeit widerrufbar.
+              </span>
+            </label>
+            {kFehler && (
+              <p style={{ fontSize: "0.8125rem", color: "#9f1239", marginBottom: "1rem" }}>{kFehler}</p>
+            )}
+            <button onClick={kontaktSenden} disabled={kSenden} style={{
+              display: "inline-flex", alignItems: "center", gap: "8px",
+              background: kSenden ? "#c4d9f5" : "#6FA3FE", color: "white", fontWeight: 700, fontSize: "15px",
+              padding: "13px 24px", borderRadius: "10px", border: "none", cursor: kSenden ? "default" : "pointer",
+            }}>
+              {kSenden ? "Wird gesendet..." : "Kontakt anfragen"} <ArrowRight size={16} />
+            </button>
+          </div>
+        )}
+
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           <Link href="/platzanfrage" style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
-            background: "#6FA3FE", color: "white", fontWeight: 700, fontSize: "15px",
-            padding: "15px 26px", borderRadius: "12px", textDecoration: "none",
+            background: "transparent", border: "1.5px solid rgba(0,0,0,0.15)", color: "#5A4E48",
+            fontWeight: 600, fontSize: "14px", padding: "15px 20px", borderRadius: "12px", textDecoration: "none",
           }}>
-            Direkt Kontakt aufnehmen <ArrowRight size={16} />
+            Lieber vollständige Platzanfrage stellen <ArrowRight size={15} />
           </Link>
           <button onClick={neuStart} style={{
             display: "inline-flex", alignItems: "center", gap: "8px",

@@ -8,6 +8,8 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
     const antworten: { frage: string; antwort: string }[] = data.antworten ?? [];
     const empfehlungen: { label: string; prozent: number }[] = data.empfehlungen ?? [];
+    const kontakt: { name?: string; email?: string; telefon?: string; nachricht?: string } | undefined = data.kontakt;
+    const hatKontakt = !!(kontakt && (kontakt.email?.trim() || kontakt.telefon?.trim()));
 
     if (!BOT_TOKEN || !CHAT_ID) {
       console.error("[Ankernetz-Kompass] Telegram-Zugangsdaten fehlen");
@@ -15,13 +17,20 @@ export async function POST(req: NextRequest) {
     }
 
     const text = [
-      "🧭 *WEGWEISER AUSGEFÜLLT*",
+      hatKontakt ? "🧭📞 *ANKERNETZ-KOMPASS - KONTAKTANFRAGE*" : "🧭 *ANKERNETZ-KOMPASS AUSGEFÜLLT*",
       "",
+      ...(hatKontakt ? [
+        `*Name:* ${kontakt?.name?.trim() || "nicht angegeben"}`,
+        `*E-Mail:* ${kontakt?.email?.trim() || "-"}`,
+        `*Telefon:* ${kontakt?.telefon?.trim() || "-"}`,
+        kontakt?.nachricht?.trim() ? `*Nachricht:*\n${kontakt.nachricht.trim()}` : "",
+        "",
+      ] : []),
       ...antworten.map((a) => `*${a.frage}:*\n${a.antwort}`),
       "",
       "*Empfehlung:*",
       ...empfehlungen.map((e) => `- ${e.label} (${e.prozent}%)`),
-    ].join("\n");
+    ].filter(Boolean).join("\n");
 
     const res = await fetch(
       `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
