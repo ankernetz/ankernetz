@@ -473,7 +473,7 @@ export default function KriseninterventionPage() {
             <h2 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, color: "white", lineHeight: 1.2, letterSpacing: "-0.02em" }}>{t.prozessH2}</h2>
           </div>
           <div className="stack-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "0", position: "relative" }}>
-            <div style={{ position: "absolute", top: "2.25rem", left: "10%", right: "10%", height: "1px", background: "rgba(255,255,255,0.12)" }} />
+            <div className="step-connector" style={{ position: "absolute", top: "2.25rem", left: "10%", right: "10%", height: "1px", background: "rgba(255,255,255,0.12)" }} />
             {t.prozessSchritte.map((s, i) => {
               const Icon = PROZESS_ICONS[i];
               return (

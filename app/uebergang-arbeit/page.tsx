@@ -476,7 +476,7 @@ export default function UebergangArbeitPage() {
               return (
                 <div key={s.nr} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", position: "relative", padding: "0 8px" }}>
                   {i < prozessSchritte.length - 1 && (
-                    <div style={{
+                    <div className="step-connector" style={{
                       position: "absolute", top: "28px", left: "calc(50% + 28px)",
                       height: "2px", background: "#d8e4f0", width: "calc(100% - 56px)", zIndex: 0,
                     }} />

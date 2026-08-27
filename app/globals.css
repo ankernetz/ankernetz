@@ -29,6 +29,8 @@
 /* ─── Reset ──────────────────────────────────────────────────── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+html, body { max-width: 100%; overflow-x: hidden; }
+img, video, svg { max-width: 100%; height: auto; }
 
 body {
   font-family: var(--font-sans);
@@ -71,6 +73,14 @@ p {
 @media (max-width: 640px) {
   .stack-mobile-2 {
     grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 860px) {
+  /* Verbindungslinien zwischen Prozessschritten ergeben nur Sinn, wenn die
+     Schritte in einer Reihe stehen - sobald sie auf Mobile umbrechen, würden
+     sie ins Leere zeigen. */
+  .step-connector {
+    display: none !important;
   }
 }
 
