@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { hatGueltigeDomain } from "../../lib/validateEmail";
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID   = process.env.TELEGRAM_CHAT_ID;
@@ -12,7 +13,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    if (!data.vorname || !data.email || !data.situation) {
+    if (!data.vorname || !data.situation || !(await hatGueltigeDomain(data.email ?? ""))) {
       return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
     }
 

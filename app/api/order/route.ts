@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { hatGueltigeDomain } from "../../lib/validateEmail";
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -28,8 +29,7 @@ export async function POST(req: NextRequest) {
     const telefon = typeof data.telefon === "string" ? data.telefon.trim() : "";
     const anliegen = typeof data.anliegen === "string" ? data.anliegen.trim() : "";
 
-    const emailValide = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!vorname || !emailValide || !nachricht) {
+    if (!vorname || !nachricht || !(await hatGueltigeDomain(email))) {
       return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
     }
     if ([vorname, nachname, organisation, telefon, anliegen, nachricht].some((v) => v.length > 2000)) {

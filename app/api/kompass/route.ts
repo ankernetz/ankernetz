@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { hatGueltigeDomain } from "../../lib/validateEmail";
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID   = process.env.TELEGRAM_CHAT_ID;
@@ -16,6 +17,10 @@ export async function POST(req: NextRequest) {
     const empfehlungen: { label: string; prozent: number }[] = data.empfehlungen ?? [];
     const kontakt: { name?: string; email?: string; telefon?: string; nachricht?: string } | undefined = data.kontakt;
     const hatKontakt = !!(kontakt && (kontakt.email?.trim() || kontakt.telefon?.trim()));
+
+    if (kontakt?.email?.trim() && !(await hatGueltigeDomain(kontakt.email.trim()))) {
+      return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
+    }
 
     if (!BOT_TOKEN || !CHAT_ID) {
       console.error("[Ankernetz-Kompass] Telegram-Zugangsdaten fehlen");
