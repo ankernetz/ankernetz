@@ -1,5 +1,6 @@
 import { holeAnfrageInfo } from "../../lib/requestInfo";
 import { istRateLimitiert } from "../../lib/rateLimit";
+import { sucheWissen } from "../../lib/wissensdatenbank";
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 
@@ -482,6 +483,21 @@ function smartFallback(message: string, isCrisis: boolean, lastBotMsg = ""): str
       "Ich bin Lena vom Ankernetz-Team -ich beantworte Fragen, gebe erste Orientierung und helfe dir den richtigen Weg zu finden. Was kann ich für dich tun?",
       "Ich bin Lena, deine erste Ansprechpartnerin beim Ankernetz Berlin. Was liegt dir auf dem Herzen? Ich helfe dir gerne!",
     ]);
+  }
+
+  // Lokale Wissensdatenbank (Glossar + Wortlexikon) durchsuchen, bevor wir
+  // auf die rein generische Antwort ausweichen - kein API-Aufruf nötig.
+  const { treffer, eindeutig } = sucheWissen(message);
+  if (treffer.length > 0) {
+    if (eindeutig) {
+      const beste = treffer[0];
+      const linkHinweis = beste.link ? ` Mehr dazu: ankernetz.com${beste.link}` : "";
+      return `${beste.antwort}${linkHinweis}`;
+    }
+    const optionen = treffer
+      .map((t, i) => `${String.fromCharCode(65 + i)}) ${t.frage.replace(/\?$/, "")}`)
+      .join("\n");
+    return `Dazu habe ich mehrere passende Themen gefunden - meinst du eher:\n${optionen}\n\nSchreib mir einfach den Buchstaben oder erzähl etwas genauer, worum es geht.`;
   }
 
   // Generischer Fallback - kontextbewusst und nie zweimal gleich
