@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { hatGueltigeDomain } from "../../lib/validateEmail";
 import { holeAnfrageInfo, formatiereAnfrageInfo } from "../../lib/requestInfo";
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
@@ -36,13 +35,6 @@ export async function POST(req: NextRequest) {
     const empfehlungen: { label: string; prozent: number }[] = data.empfehlungen ?? [];
     const kontakt: { name?: string; email?: string; telefon?: string; nachricht?: string } | undefined = data.kontakt;
     const hatKontakt = !!(kontakt && (kontakt.email?.trim() || kontakt.telefon?.trim()));
-
-    if (kontakt?.email?.trim() && !(await hatGueltigeDomain(kontakt.email.trim()))) {
-      await sendeTelegram(
-        `🚫 *Ungültige Anfrage abgelehnt - Ankernetz-Kompass*\n\nAngegebene E-Mail: ${kontakt.email.trim()}\n\n${formatiereAnfrageInfo(info)}`
-      );
-      return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
-    }
 
     const text = [
       hatKontakt ? "🧭📞 *ANKERNETZ-KOMPASS - KONTAKTANFRAGE*" : "🧭 *ANKERNETZ-KOMPASS AUSGEFÜLLT*",

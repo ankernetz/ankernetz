@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { hatGueltigeDomain } from "../../lib/validateEmail";
 import { holeAnfrageInfo, formatiereAnfrageInfo } from "../../lib/requestInfo";
+
+const EMAIL_FORMAT = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -49,7 +50,7 @@ export async function POST(req: NextRequest) {
     const telefon = typeof data.telefon === "string" ? data.telefon.trim() : "";
     const anliegen = typeof data.anliegen === "string" ? data.anliegen.trim() : "";
 
-    if (!vorname || !nachricht || !(await hatGueltigeDomain(email))) {
+    if (!vorname || !nachricht || !EMAIL_FORMAT.test(email)) {
       await sendeTelegram(
         `🚫 <b>Ungültige Anfrage abgelehnt - Kontaktformular</b>\n\n<b>Angegebene E-Mail:</b> ${escapeHtml(email) || "-"}\n\n${escapeHtml(formatiereAnfrageInfo(info))}`
       );

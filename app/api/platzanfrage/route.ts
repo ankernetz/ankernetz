@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { hatGueltigeDomain } from "../../lib/validateEmail";
 import { holeAnfrageInfo, formatiereAnfrageInfo } from "../../lib/requestInfo";
+
+const EMAIL_FORMAT = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID   = process.env.TELEGRAM_CHAT_ID;
@@ -32,7 +33,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    if (!data.vorname || !data.situation || !(await hatGueltigeDomain(data.email ?? ""))) {
+    if (!data.vorname || !data.situation || !EMAIL_FORMAT.test(data.email ?? "")) {
       await sendeTelegram(
         `🚫 *Ungültige Anfrage abgelehnt - Platzanfrage*\n\nAngegebene E-Mail: ${data.email || "-"}\n\n${formatiereAnfrageInfo(info)}`
       );
