@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { holeAnfrageInfo, formatiereAnfrageInfo } from "../../lib/requestInfo";
 import { istRateLimitiert } from "../../lib/rateLimit";
+import { escapeHtml } from "../../lib/escapeHtml";
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID   = process.env.TELEGRAM_CHAT_ID;
@@ -11,11 +12,14 @@ async function sendeTelegram(text: string) {
     return;
   }
   try {
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: "Markdown" }),
+      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: "HTML" }),
     });
+    if (!res.ok) {
+      console.error("[Ankernetz-Kompass] Telegram hat die Nachricht abgelehnt:", res.status, await res.text().catch(() => ""));
+    }
   } catch (e) {
     console.error("[Ankernetz-Kompass] Telegram-Fehler:", e);
   }
@@ -33,7 +37,7 @@ export async function POST(req: NextRequest) {
 
     // Honeypot: unsichtbares Feld, das nur Bots ausfüllen.
     if (typeof data.hp37 === "string" && data.hp37.trim() !== "") {
-      await sendeTelegram(`🤖 *Bot abgewehrt (Honeypot) - Ankernetz-Kompass*\n\n${formatiereAnfrageInfo(info)}`);
+      await sendeTelegram(`🤖 <b>Bot abgewehrt (Honeypot) - Ankernetz-Kompass</b>\n\n${escapeHtml(formatiereAnfrageInfo(info))}`);
       return NextResponse.json({ ok: true });
     }
 
@@ -43,21 +47,21 @@ export async function POST(req: NextRequest) {
     const hatKontakt = !!(kontakt && (kontakt.email?.trim() || kontakt.telefon?.trim()));
 
     const text = [
-      hatKontakt ? "🧭📞 *ANKERNETZ-KOMPASS - KONTAKTANFRAGE*" : "🧭 *ANKERNETZ-KOMPASS AUSGEFÜLLT*",
+      hatKontakt ? "🧭📞 <b>ANKERNETZ-KOMPASS - KONTAKTANFRAGE</b>" : "🧭 <b>ANKERNETZ-KOMPASS AUSGEFÜLLT</b>",
       "",
       ...(hatKontakt ? [
-        `*Name:* ${kontakt?.name?.trim() || "nicht angegeben"}`,
-        `*E-Mail:* ${kontakt?.email?.trim() || "-"}`,
-        `*Telefon:* ${kontakt?.telefon?.trim() || "-"}`,
-        kontakt?.nachricht?.trim() ? `*Nachricht:*\n${kontakt.nachricht.trim()}` : "",
+        `<b>Name:</b> ${escapeHtml(kontakt?.name?.trim() || "nicht angegeben")}`,
+        `<b>E-Mail:</b> ${escapeHtml(kontakt?.email?.trim() || "-")}`,
+        `<b>Telefon:</b> ${escapeHtml(kontakt?.telefon?.trim() || "-")}`,
+        kontakt?.nachricht?.trim() ? `<b>Nachricht:</b>\n${escapeHtml(kontakt.nachricht.trim())}` : "",
         "",
       ] : []),
-      ...antworten.map((a) => `*${a.frage}:*\n${a.antwort}`),
+      ...antworten.map((a) => `<b>${escapeHtml(a.frage)}:</b>\n${escapeHtml(a.antwort)}`),
       "",
-      "*Empfehlung:*",
-      ...empfehlungen.map((e) => `- ${e.label} (${e.prozent}%)`),
+      "<b>Empfehlung:</b>",
+      ...empfehlungen.map((e) => `- ${escapeHtml(e.label)} (${e.prozent}%)`),
       "",
-      `_${formatiereAnfrageInfo(info)}_`,
+      `<i>${escapeHtml(formatiereAnfrageInfo(info))}</i>`,
     ].filter(Boolean).join("\n");
 
     await sendeTelegram(text);

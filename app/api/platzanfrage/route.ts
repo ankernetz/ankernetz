@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { holeAnfrageInfo, formatiereAnfrageInfo } from "../../lib/requestInfo";
 import { istRateLimitiert } from "../../lib/rateLimit";
+import { escapeHtml } from "../../lib/escapeHtml";
 
 const EMAIL_FORMAT = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -13,11 +14,14 @@ async function sendeTelegram(text: string) {
     return;
   }
   try {
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: "Markdown" }),
+      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: "HTML" }),
     });
+    if (!res.ok) {
+      console.error("[Platzanfrage] Telegram hat die Nachricht abgelehnt:", res.status, await res.text().catch(() => ""));
+    }
   } catch (e) {
     console.error("[Platzanfrage] Telegram-Fehler:", e);
   }
@@ -35,40 +39,40 @@ export async function POST(req: NextRequest) {
 
     // Honeypot: unsichtbares Feld, das nur Bots ausfüllen.
     if (typeof data.hp37 === "string" && data.hp37.trim() !== "") {
-      await sendeTelegram(`🤖 *Bot abgewehrt (Honeypot) - Platzanfrage*\n\n${formatiereAnfrageInfo(info)}`);
+      await sendeTelegram(`🤖 <b>Bot abgewehrt (Honeypot) - Platzanfrage</b>\n\n${escapeHtml(formatiereAnfrageInfo(info))}`);
       return NextResponse.json({ ok: true });
     }
 
     if (!data.vorname || !data.situation || !EMAIL_FORMAT.test(data.email ?? "")) {
       await sendeTelegram(
-        `🚫 *Ungültige Anfrage abgelehnt - Platzanfrage*\n\nAngegebene E-Mail: ${data.email || "-"}\n\n${formatiereAnfrageInfo(info)}`
+        `🚫 <b>Ungültige Anfrage abgelehnt - Platzanfrage</b>\n\nAngegebene E-Mail: ${escapeHtml(data.email || "-")}\n\n${escapeHtml(formatiereAnfrageInfo(info))}`
       );
       return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
     }
 
     const text = [
-      "🏥 *NEUE PLATZANFRAGE*",
+      "🏥 <b>NEUE PLATZANFRAGE</b>",
       "",
-      `*Von:* ${data.vorname} ${data.nachname}`,
-      `*Institution:* ${data.institution}`,
-      `*E-Mail:* ${data.email}`,
-      `*Telefon:* ${data.telefon}`,
+      `<b>Von:</b> ${escapeHtml(data.vorname)} ${escapeHtml(data.nachname || "")}`,
+      `<b>Institution:</b> ${escapeHtml(data.institution || "-")}`,
+      `<b>E-Mail:</b> ${escapeHtml(data.email)}`,
+      `<b>Telefon:</b> ${escapeHtml(data.telefon || "-")}`,
       "",
-      `*Bereich:* ${data.bereich}`,
-      `*Dringlichkeit:* ${data.dringlichkeit}`,
+      `<b>Bereich:</b> ${escapeHtml(data.bereich || "-")}`,
+      `<b>Dringlichkeit:</b> ${escapeHtml(data.dringlichkeit || "-")}`,
       "",
-      `*Kind/Jugendliche/r:*`,
-      `Alter: ${data.alter} | Geschlecht: ${data.geschlecht || "Keine Angabe"}`,
+      `<b>Kind/Jugendliche/r:</b>`,
+      `Alter: ${escapeHtml(data.alter || "-")} | Geschlecht: ${escapeHtml(data.geschlecht || "Keine Angabe")}`,
       "",
-      `*Situation:*`,
-      data.situation,
+      `<b>Situation:</b>`,
+      escapeHtml(data.situation),
       "",
-      data.bisherige ? `*Bisherige Hilfen:*\n${data.bisherige}` : "",
+      data.bisherige ? `<b>Bisherige Hilfen:</b>\n${escapeHtml(data.bisherige)}` : "",
       "",
-      `📧 Antworten an: ${data.email}`,
-      `📞 Rückruf: ${data.telefon}`,
+      `📧 Antworten an: ${escapeHtml(data.email)}`,
+      `📞 Rückruf: ${escapeHtml(data.telefon || "-")}`,
       "",
-      `_${formatiereAnfrageInfo(info)}_`,
+      `<i>${escapeHtml(formatiereAnfrageInfo(info))}</i>`,
     ].filter(Boolean).join("\n");
 
     await sendeTelegram(text);

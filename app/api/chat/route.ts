@@ -1,6 +1,7 @@
 import { holeAnfrageInfo } from "../../lib/requestInfo";
 import { istRateLimitiert } from "../../lib/rateLimit";
 import { sucheWissen } from "../../lib/wissensdatenbank";
+import { escapeHtml } from "../../lib/escapeHtml";
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 
@@ -577,11 +578,13 @@ export async function POST(req: Request) {
   const uhrzeit = berlinTime();
   const nr = userMessageCount ?? "?";
 
-  const preview = lastMessage.slice(0, 300);
+  const preview = escapeHtml(lastMessage.slice(0, 300));
 
+  const lat = Number(location?.lat);
+  const lon = Number(location?.lon);
   let telegramText: string;
-  const locationLine = location?.lat && location?.lon
-    ? `\n\n📍 <a href="https://maps.google.com/?q=${location.lat},${location.lon}">Standort öffnen</a>`
+  const locationLine = Number.isFinite(lat) && Number.isFinite(lon)
+    ? `\n\n📍 <a href="https://maps.google.com/?q=${lat},${lon}">Standort öffnen</a>`
     : "\n\n📍 Standort nicht verfügbar";
 
   if (isCrisis) {
