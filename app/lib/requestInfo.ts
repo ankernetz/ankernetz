@@ -1,5 +1,3 @@
-import type { NextRequest } from "next/server";
-
 export interface AnfrageInfo {
   ip: string;
   land: string;
@@ -30,7 +28,7 @@ function erkenneGeraet(ua: string): string {
   return `${os} · ${browser}`;
 }
 
-export function holeAnfrageInfo(req: NextRequest): AnfrageInfo {
+export function holeAnfrageInfo(req: Request): AnfrageInfo {
   const h = req.headers;
   const ip = h.get("x-real-ip") || h.get("x-forwarded-for")?.split(",")[0]?.trim() || "unbekannt";
   const userAgent = h.get("user-agent") || "unbekannt";

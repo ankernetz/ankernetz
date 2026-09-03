@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { holeAnfrageInfo, formatiereAnfrageInfo } from "../../lib/requestInfo";
+import { istRateLimitiert } from "../../lib/rateLimit";
 
 const EMAIL_FORMAT = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -31,8 +32,13 @@ async function sendeTelegram(text: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const data = await req.json();
     const info = holeAnfrageInfo(req);
+
+    if (istRateLimitiert(info.ip, "order", 5, 10 * 60 * 1000)) {
+      return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429 });
+    }
+
+    const data = await req.json();
 
     // Honeypot: unsichtbares Feld, das nur Bots ausfüllen.
     if (typeof data.website === "string" && data.website.trim() !== "") {

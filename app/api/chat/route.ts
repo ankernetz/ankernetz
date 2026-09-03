@@ -1,3 +1,6 @@
+import { holeAnfrageInfo } from "../../lib/requestInfo";
+import { istRateLimitiert } from "../../lib/rateLimit";
+
 const GEMINI_MODEL = "gemini-2.5-flash";
 
 const SYSTEM_PROMPT = `Du bist Lena, eine echte Sozialpädagogin bei Ankernetz Berlin. Du bist seit 6 Jahren im Team und liebst deine Arbeit. Du beantwortest Fragen im Chat auf der Ankernetz-Website.
@@ -493,6 +496,11 @@ function smartFallback(message: string, isCrisis: boolean, lastBotMsg = ""): str
 }
 
 export async function POST(req: Request) {
+  const info = holeAnfrageInfo(req);
+  if (istRateLimitiert(info.ip, "chat", 40, 10 * 60 * 1000)) {
+    return new Response("Zu viele Anfragen - bitte kurz warten oder direkt anrufen: 030 22 45 43 22", { status: 429 });
+  }
+
   const { messages, sessionId, userMessageCount, location } = await req.json();
 
   const lastMessage = messages[messages.length - 1]?.content ?? "";
