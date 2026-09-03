@@ -134,6 +134,7 @@ export default function PlatzanfragePage() {
     email: "", telefon: "", bereich: "",
     alter: "", geschlecht: "", dringlichkeit: "",
     situation: "", bisherige: "",
+    website: "", // Honeypot - für Menschen unsichtbar, bleibt immer leer
   });
   const [dsgvo, setDsgvo] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -278,6 +279,11 @@ export default function PlatzanfragePage() {
             </div>
 
             <form onSubmit={handleSubmit} style={{ padding: "2.5rem" }}>
+              <input
+                type="text" name="website" value={form.website} onChange={(e) => set("website", e.target.value)}
+                tabIndex={-1} autoComplete="off" aria-hidden="true"
+                style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+              />
 
               {/* Abschnitt: Ihre Daten */}
               <p style={{

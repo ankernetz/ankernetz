@@ -7,6 +7,15 @@ export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
 
+    // Honeypot: unsichtbares Feld, das nur Bots ausfüllen.
+    if (typeof data.website === "string" && data.website.trim() !== "") {
+      return NextResponse.json({ ok: true });
+    }
+
+    if (!data.vorname || !data.email || !data.situation) {
+      return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
+    }
+
     const text = [
       "🏥 *NEUE PLATZANFRAGE*",
       "",

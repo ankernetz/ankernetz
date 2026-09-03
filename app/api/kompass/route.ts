@@ -6,6 +6,12 @@ const CHAT_ID   = process.env.TELEGRAM_CHAT_ID;
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
+
+    // Honeypot: unsichtbares Feld, das nur Bots ausfüllen.
+    if (typeof data.website === "string" && data.website.trim() !== "") {
+      return NextResponse.json({ ok: true });
+    }
+
     const antworten: { frage: string; antwort: string }[] = data.antworten ?? [];
     const empfehlungen: { label: string; prozent: number }[] = data.empfehlungen ?? [];
     const kontakt: { name?: string; email?: string; telefon?: string; nachricht?: string } | undefined = data.kontakt;

@@ -155,6 +155,7 @@ export default function Kompass() {
   const [kEmail, setKEmail] = useState("");
   const [kTelefon, setKTelefon] = useState("");
   const [kNachricht, setKNachricht] = useState("");
+  const [kWebsite, setKWebsite] = useState(""); // Honeypot - für Menschen unsichtbar, bleibt immer leer
   const [kDsgvo, setKDsgvo] = useState(false);
   const [kSenden, setKSenden] = useState(false);
   const [kGesendet, setKGesendet] = useState(false);
@@ -184,7 +185,7 @@ export default function Kompass() {
     setAntworten({});
     setFertig(false);
     gesendetRef.current = false;
-    setKName(""); setKEmail(""); setKTelefon(""); setKNachricht("");
+    setKName(""); setKEmail(""); setKTelefon(""); setKNachricht(""); setKWebsite("");
     setKDsgvo(false); setKGesendet(false); setKFehler("");
   }
 
@@ -215,6 +216,7 @@ export default function Kompass() {
           antworten: antwortenListe,
           empfehlungen,
           kontakt: { name: kName, email: kEmail, telefon: kTelefon, nachricht: kNachricht },
+          website: kWebsite,
         }),
       });
       if (!res.ok) throw new Error("Senden fehlgeschlagen");
@@ -412,6 +414,11 @@ export default function Kompass() {
               Dann übermitteln wir Ihre Angaben aus dem Kompass direkt an unser Team - Sie müssen nichts doppelt eintragen.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1rem" }}>
+              <input
+                type="text" value={kWebsite} onChange={(e) => setKWebsite(e.target.value)}
+                tabIndex={-1} autoComplete="off" aria-hidden="true"
+                style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+              />
               <input
                 type="text" value={kName} onChange={(e) => setKName(e.target.value)}
                 placeholder="Name (optional)"
