@@ -223,7 +223,261 @@ function pick(arr: string[]): string {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function smartFallback(message: string, isCrisis: boolean, lastBotMsg = ""): string {
+// Wörter, die eine unmittelbar folgende Kategorie-Zuordnung entkräften -
+// "ich hab KEINE Wut" darf nicht als Wut-Kategorie erkannt werden.
+const NEGATIONEN = ["keine", "kein", "keinen", "keiner", "keinem", "nicht", "ohne", "niemals", "nie"];
+
+interface Kategorie {
+  id: string;
+  // Wie eindeutig das Keyword-Set für dieses Thema ist - generische Wörter
+  // (familie, frage) wiegen weniger als eindeutige Fachbegriffe (adhs, pflegefamilie),
+  // damit bei Überschneidungen die spezifischere Kategorie gewinnt.
+  spezifitaet: number;
+  keywords: string[];
+  antworten: string[];
+}
+
+const KATEGORIEN: Kategorie[] = [
+  {
+    id: "platz", spezifitaet: 2,
+    keywords: ["platz", "aufnahme", "wohngruppe", "heim", "unterkunft", "unterbring", " wg", "in wg", "eine wg", "bei euch wohn", "bei euch leben", "bei euch bleib", "zu euch zieh", "einzieh", "einzug", "aufnehmen", "aufgenommen", "wohnen bei", "wohnen bei euch", "stationär"],
+    antworten: [
+      "Das klingt nach einer Platzanfrage. Wie alt ist die Person und wie dringend ist es? Du kannst uns auch direkt schreiben: hilfe@ankernetz.com - oder anrufen: 030 22 45 43 22.",
+      "Wir haben Plätze für Kinder 6-12 und Jugendliche 12-17 Jahre sowie Krisenintervention rund um die Uhr. Ruf kurz an: 030 22 45 43 22 oder schreib uns: hilfe@ankernetz.com - dann schauen wir sofort was passt.",
+      "Platzanfragen bearbeiten wir schnell. Am einfachsten: /platzanfrage ausfüllen, schreib uns unter hilfe@ankernetz.com oder ruf an: 030 22 45 43 22. Um wen geht es - Alter und Situation?",
+    ],
+  },
+  {
+    id: "therapie", spezifitaet: 2,
+    keywords: ["therapie", "therapeut", "psycholog", "psychiatr", "behandlung"],
+    antworten: [
+      "Wir haben eine eigene Psychotherapie für Kinder und Jugendliche -mit Kassensitz, also keine Privatpraxis. Keine endlose Warteliste wie woanders. Geht es um dich oder jemanden in deiner Familie?",
+      "Unsere Therapeutinnen und Therapeuten sind direkt bei uns im Haus. Das bedeutet: kurze Wege, kein Stress mit Anfahrt, und Pädagogik und Therapie sprechen täglich miteinander. Was genau suchst du?",
+      "Therapieplätze bei uns sind über die Kasse -du brauchst keine Privatversicherung. Darf ich fragen, worum es geht? Dann kann ich dir sagen, was am besten passt.",
+    ],
+  },
+  {
+    id: "krise-mild", spezifitaet: 1,
+    keywords: ["krise", "notfall", "sofort", "dringend", "akut"],
+    antworten: [
+      "Akute Situationen nehmen wir sehr ernst. Wir haben eine 24/7 Krisenhotline und Sofortaufnahme: 030 22 45 43 22. Was ist gerade los?",
+      "Ruf uns direkt an -030 22 45 43 22 -die Krisenintervention ist rund um die Uhr besetzt. Du musst nicht erst lange erklären, einfach durchklingeln.",
+      "Bei uns gibt es keine langen Antragswege bei Krisen. 030 22 45 43 22 -jetzt. Was ist die Situation?",
+    ],
+  },
+  {
+    id: "fruehe-hilfen", spezifitaet: 3,
+    keywords: ["baby", "kleinkind", "schwanger", "geburt", "frühe hilfen", "säugling", "0 bis", "0-6", "kita"],
+    antworten: [
+      "Die Frühen Hilfen sind für Familien mit Kindern bis 6 Jahre -Bindung, Entwicklung, und wenn der Alltag mit Baby gerade einfach zu viel ist. Das ist kein Versagen, das ist menschlich. Wie alt ist dein Kind?",
+      "Wir begleiten Familien von Anfang an -auch schon in der Schwangerschaft. Keine Bewertung, keine Bürokratie am Anfang. Einfach reden. Was beschäftigt dich?",
+      "Für die ersten Jahre haben wir ein eigenes Team. Die kommen auch nach Hause, wenn das leichter ist. Geht es um dein eigenes Kind oder um eine Familie, die du kennst?",
+    ],
+  },
+  {
+    id: "adhs", spezifitaet: 3,
+    keywords: ["adhs", "ads ", "autismus", "asd ", "diagnose", "störung", "förder", "sonderpädagog", "lrs", "legasthenie"],
+    antworten: [
+      "Diagnosen können sich erstmal überwältigend anfühlen -oder manchmal auch wie eine Erleichterung. Was genau beschäftigt dich gerade damit?",
+      "Wir haben ein eigenes Diagnostik-Team für Abklärungen und Gutachten. Und wir arbeiten täglich mit Kindern, bei denen ADHS, Autismus oder andere Diagnosen im Raum stehen. Was suchst du gerade?",
+      "Mit oder ohne Diagnose -was zählt ist, was das Kind braucht. Erzähl mir kurz die Situation, dann kann ich dir sagen was bei uns passen würde.",
+    ],
+  },
+  {
+    id: "trauma", spezifitaet: 3,
+    keywords: ["trauma", "ptbs", "ptsd", "angst", "missbrauch", "gewalt erlebt", "übergriff", "misshandl"],
+    antworten: [
+      "Das sind Erfahrungen, bei denen professionelle Begleitung wirklich einen Unterschied macht -und die Zeit, die man braucht, ist unterschiedlich. Geht es um dich selbst oder jemanden dem du nahe stehst?",
+      "Trauma braucht den richtigen Rahmen -kein Druck, kein Zeitplan von außen. Wir haben Erfahrung damit. Magst du kurz erzählen was passiert ist?",
+      "Ich hör dir zu. Was du erlebt hast, verdient echte Unterstützung. Darf ich fragen wie alt die Person ist, um die es geht -dann kann ich sagen, was wir konkret anbieten können.",
+    ],
+  },
+  {
+    id: "depression", spezifitaet: 2,
+    keywords: ["depressiv", "depression", "traurig", "hoffnungslos", "erschöpft", "kraft", "leer", "antriebslos", "freude"],
+    antworten: [
+      "Das klingt wirklich anstrengend. Wie lange fühlst du dich schon so? Manchmal hilft es sehr, einfach erstmal mit jemandem zu reden -ohne Druck.",
+      "Sich so zu fühlen ist ernst zu nehmen, auch wenn von außen vielleicht nicht immer alle verstehen wie schwer das ist. Geht es dir selbst so gerade?",
+      "Wir haben Therapeutinnen, die genau dafür ausgebildet sind -nicht nur Ratschläge geben, sondern wirklich begleiten. Möchtest du mal ein Erstgespräch machen, einfach zum Kennenlernen?",
+    ],
+  },
+  {
+    id: "wut", spezifitaet: 2,
+    keywords: ["wut", "aggressiv", "ausrast", "kontroll", "explodier", "schlägt", "schlagen", "gewaltbereit"],
+    antworten: [
+      "Starke Gefühle, die man nicht mehr steuern kann -das ist oft ein Zeichen, dass etwas Tieferes los ist. Geht es um dein eigenes Kind oder um dich selbst?",
+      "Wut ist oft ein Schutz. Wir arbeiten viel mit Kindern und Jugendlichen, bei denen Aggression das sichtbarste Symptom ist -dahinter steckt meist mehr. Was ist die Situation?",
+      "Das ist etwas, wo wir wirklich helfen können. Nicht mit erhobenem Zeigefinger, sondern mit echtem Verständnis was da gerade passiert. Erzähl mir mehr.",
+    ],
+  },
+  {
+    id: "schule", spezifitaet: 2,
+    keywords: ["schule", "lehrer", "mobbing", "klasse", "zeugnis", "noten", "schulangst", "schulverweiger"],
+    antworten: [
+      "Schule kann für manche Kinder ein richtiger Stressherd sein -mehr als Erwachsene manchmal ahnen. Worum geht es konkret? Leistung, soziale Probleme, oder eher so ein generelles Nicht-mehr-wollen?",
+      "Schulverweigerung, Mobbing, Überforderung -das sind Themen, mit denen viele Familien zu uns kommen. Kein Vorwurf, sondern echte Unterstützung. Was ist gerade los?",
+      "Wir begleiten Kinder und Jugendliche auch dabei, wieder einen Zugang zur Schule zu finden -ohne Druck. Was ist bei euch passiert?",
+    ],
+  },
+  {
+    id: "familie", spezifitaet: 1,
+    keywords: ["trennung", "scheidung", "überforder", "alleinerzieh", "mutter", "vater", "eltern", "familie"],
+    antworten: [
+      "Familie kann manchmal der schwerste Job der Welt sein -besonders wenn man das Gefühl hat, es alleine tragen zu müssen. Was ist gerade die größte Belastung?",
+      "Wir unterstützen nicht nur Kinder, sondern das ganze System drumherum. Eltern, die Entlastung suchen, sind bei uns genau richtig. Was bräuchtest du gerade?",
+      "Trennung oder Scheidung ist auch für Kinder oft mehr als nur eine Familienveränderung. Gibt es konkrete Situationen, wo du dir Unterstützung wünschst?",
+    ],
+  },
+  {
+    id: "jugendamt", spezifitaet: 2,
+    keywords: ["jugendamt", "asd", "hilfeplan", "antrag", "sozialarbeiter", "träger", "fachkraft", "pädagog", "kollege"],
+    antworten: [
+      "Bist du Fachkraft oder geht es um eine eigene Situation? Für Fachkräfte und ASD-Mitarbeitende haben wir direkte Wege -keine langen Wartezeiten, schnelle Kommunikation.",
+      "Wir arbeiten eng mit Jugendämtern zusammen und kennen die Abläufe gut. Geht es um eine Belegungsanfrage, einen Hilfeplan oder etwas anderes?",
+      "Als Träger legen wir viel Wert auf transparente Zusammenarbeit mit dem ASD. Womit kann ich dir weiterhelfen?",
+    ],
+  },
+  {
+    id: "kosten", spezifitaet: 2,
+    keywords: ["kostet", "kosten", "bezahl", "geld", "gratis", "kostenlos", "krankenkasse", "kasse", "versicherung"],
+    antworten: [
+      "Unsere Beratung ist komplett kostenlos -kein Antrag, keine Hürde. Bei den weitergehenden Hilfen übernimmt in der Regel das Jugendamt die Kosten. Du musst das nicht aus eigener Tasche zahlen.",
+      "Geld sollte keine Hürde sein, Hilfe zu bekommen. Unsere Beratungsangebote kosten nichts. Die Therapie läuft über die Krankenkasse. Was genau meinst du?",
+      "Kurze Antwort: die meisten unserer Angebote sind für dich kostenlos. Entweder über die Kasse, über das Jugendamt oder als kostenfreie Beratung. Soll ich das für dein konkretes Anliegen erklären?",
+    ],
+  },
+  {
+    id: "drogen", spezifitaet: 3,
+    keywords: ["drogen", "alkohol", "sucht", "cannabis", "kiffen", "substanz", "abhängig"],
+    antworten: [
+      "Sucht bei Jugendlichen ist oft mehr ein Symptom als das eigentliche Problem -meistens steckt da etwas dahinter. Geht es um dich selbst oder um jemanden in deiner Nähe?",
+      "Das ist ein Thema, mit dem wir regelmäßig arbeiten -ohne Verurteilung. Was ist gerade die Situation?",
+      "Zwischen 'manchmal kiffen' und echter Abhängigkeit gibt es viele Zwischenstufen. Wir schauen genau hin. Um wen geht es und wie alt ist die Person?",
+    ],
+  },
+  {
+    id: "ess", spezifitaet: 3,
+    keywords: ["ess", "magersucht", "bulimie", "anorexie", "gewicht", "abnehmen", "nicht essen"],
+    antworten: [
+      "Essstörungen sind ernstzunehmen -auch wenn von außen manchmal nicht alle die Schwere sehen. Geht es um dich oder jemanden dem du nahe stehst?",
+      "Das ist ein Bereich, wo Therapie wirklich helfen kann -aber der Zeitpunkt und die Person müssen passen. Was ist gerade die Situation?",
+    ],
+  },
+  {
+    id: "einsamkeit", spezifitaet: 2,
+    keywords: ["einsam", "allein", "keine freunde", "niemand versteht", "isolier", "ausgeschlossen"],
+    antworten: [
+      "Einsamkeit ist oft das, worüber man am wenigsten redet -aber was am meisten wehtut. Wie lange ist das schon so?",
+      "Das Gefühl, dass niemand wirklich versteht was los ist -das kennen viele Jugendliche, auch wenn man das von außen nicht sieht. Magst du mir mehr erzählen?",
+      "Du hast gerade den ersten Schritt gemacht indem du schreibst. Das ist mehr als viele schaffen. Was ist gerade los bei dir?",
+    ],
+  },
+  {
+    id: "uebergang-beruf", spezifitaet: 2,
+    keywords: ["ausbildung", "beruf", "arbeit", "praktikum", "bewerbung", "abschluss", "hauptschule", "realschule", "orientierung"],
+    antworten: [
+      "Der Übergang von Schule in den Beruf ist für viele Jugendliche kein gerader Weg -und das ist völlig okay. Wir haben ein eigenes Programm dafür. Wie alt ist die Person und was ist gerade das Problem?",
+      "Wir begleiten Jugendliche beim Schritt in die Arbeitswelt -Bewerbungen, Orientierung, Praktika, und auch wenn man einfach noch gar nicht weiß wohin. Was ist die Situation?",
+      "Manchmal braucht man jemanden der begleitet, nicht nur Ratschläge gibt. Unser Team für den Übergang Arbeit kennt die Stolpersteine. Worum geht es genau?",
+    ],
+  },
+  {
+    id: "pflegefamilie", spezifitaet: 3,
+    keywords: ["pflegefamilie", "pflegekind", "adoption", "inobhutnahme", "fremdunterbringu", "herausnahme", "weggenommen"],
+    antworten: [
+      "Das ist eine sehr einschneidende Situation -für das Kind und oft auch für die Familie. Was ist gerade der Stand und was suchst du?",
+      "Wir arbeiten mit Kindern und Jugendlichen, die aus ihrer Familie herausgenommen wurden -und wir wissen wie komplex das ist. Was brauchst du gerade?",
+    ],
+  },
+  {
+    id: "volljaehrig", spezifitaet: 2,
+    keywords: ["volljährig", "18 ", "18+", "erwachsen", "eigene wohnung", "selbstständig", "auszug"],
+    antworten: [
+      "Mit 18 ist man rechtlich erwachsen, aber das bedeutet nicht, dass man plötzlich allein klarkommt. Wir begleiten junge Erwachsene bis 21 -manchmal auch länger. Was ist die Situation?",
+      "Der Übergang in die Selbstständigkeit ist für viele Jugendliche aus unseren Wohngruppen ein großes Thema. Wir lassen da niemanden fallen. Worum geht es konkret?",
+    ],
+  },
+  {
+    id: "online", spezifitaet: 1,
+    keywords: ["online", "video", "zoom", "telefon", "fernberatung", "von zuhause", "digital"],
+    antworten: [
+      "Ja, wir bieten auch Beratung online an -per Video oder Telefon. Das läuft genauso vertraulich wie ein Gespräch bei uns im Haus. Was passt dir besser?",
+      "Online-Beratung ist bei uns möglich und wird gut angenommen -gerade wenn der Weg zu uns zu weit ist oder die Situation es gerade nicht zulässt. Worum soll es gehen?",
+    ],
+  },
+  {
+    id: "datenschutz", spezifitaet: 2,
+    keywords: ["anonym", "datenschutz", "vertraulich", "geheim", "niemand erfährt", "schweigepflicht"],
+    antworten: [
+      "Alles was du hier schreibst und was in einem Beratungsgespräch gesagt wird, bleibt vertraulich -das ist für uns keine Floskel sondern Grundlage unserer Arbeit. Was beschäftigt dich?",
+      "Schweigepflicht und Datenschutz nehmen wir ernst. Du kannst erstmal anonym fragen -und wenn du möchtest, sprechen wir über die nächsten Schritte. Was ist die Situation?",
+    ],
+  },
+  {
+    id: "kleidung", spezifitaet: 2,
+    keywords: ["kleidung", "ankerkleidung", "klamotten", "ausstattung", "versorgung", "sachspend"],
+    antworten: [
+      "Wir haben Ankerkleidung -ein eigenes Angebot für passende Kleidung nach Störungsbild und Bedarf. Das klingt erstmal ungewöhnlich, macht aber einen echten Unterschied. Soll ich mehr erklären?",
+      "Unser Versorgungsangebot hilft mit Ausstattung und materiellen Grundbedarfen -weil manchmal das Praktische genauso wichtig ist wie das Emotionale. Was wird gebraucht?",
+    ],
+  },
+  {
+    id: "wartezeit", spezifitaet: 1,
+    keywords: ["wartezeit", "wann", "wie schnell", "termin", "wie lange", "sofort frei"],
+    antworten: [
+      "Wir versuchen schnell zu reagieren -gerade bei akuten Situationen. Für einen ersten Gesprächstermin meld dich direkt: 030 22 45 43 22. Was ist der Bedarf?",
+      "Je nach Angebot ist die Wartezeit unterschiedlich. Bei Krisen: sofort. Bei Therapieplätzen: in der Regel deutlich kürzer als bei niedergelassenen Praxen. Worum geht es?",
+    ],
+  },
+  {
+    id: "frage", spezifitaet: 1,
+    keywords: ["frage", "fragen", "wollte fragen", "wüsste gerne", "würde gerne wissen"],
+    antworten: [
+      "Natürlich, sehr gerne! Was möchtest du wissen?",
+      "Aber klar -frag einfach los, ich helfe dir so gut ich kann!",
+      "Sehr gerne! Stell einfach deine Frage, ich bin ganz Ohr.",
+    ],
+  },
+  {
+    id: "dankeschoen", spezifitaet: 1,
+    keywords: ["danke", "toll", "super", "hilft", "geholfen", "dankeschön"],
+    antworten: [
+      "Das freut mich sehr, wirklich! Gibt es noch etwas, wobei ich helfen kann?",
+      "Sehr gerne! Meld dich jederzeit wieder -ich bin immer da.",
+      "Das höre ich gerne. Wenn du noch Fragen hast oder sich etwas ändert: 030 22 45 43 22, wir sind immer für dich da.",
+    ],
+  },
+];
+
+function istNegiert(m: string, wort: string): boolean {
+  const idx = m.indexOf(wort);
+  if (idx === -1) return false;
+  const davor = m.slice(Math.max(0, idx - 25), idx);
+  return NEGATIONEN.some((n) => davor.includes(n));
+}
+
+function bewerteKategorie(m: string, kat: Kategorie): number {
+  let treffer = 0;
+  for (const wort of kat.keywords) {
+    if (m.includes(wort) && !istNegiert(m, wort)) treffer++;
+  }
+  return treffer * kat.spezifitaet;
+}
+
+function findeKategorie(m: string): Kategorie | null {
+  let beste: Kategorie | null = null;
+  let besterScore = 0;
+  for (const kat of KATEGORIEN) {
+    const score = bewerteKategorie(m, kat);
+    if (score > besterScore) {
+      besterScore = score;
+      beste = kat;
+    }
+  }
+  return beste;
+}
+
+function smartFallback(message: string, isCrisis: boolean, verlauf: string[] = []): string {
   if (isCrisis) {
     return pick([
       "Ich höre dich. Bist du gerade in Sicherheit? Ruf uns jetzt an -da ist wirklich jemand: 030 22 45 43 22. Du musst das nicht alleine tragen.",
@@ -234,224 +488,7 @@ function smartFallback(message: string, isCrisis: boolean, lastBotMsg = ""): str
 
   const m = message.toLowerCase();
 
-  // Platz / Aufnahme / Wohngruppe
-  if (
-    m.includes("platz") || m.includes("aufnahme") || m.includes("wohngruppe") ||
-    m.includes("heim") || m.includes("unterkunft") || m.includes("unterbring") ||
-    m.includes(" wg") || m.includes("in wg") || m.includes("eine wg") ||
-    m.includes("bei euch wohn") || m.includes("bei euch leben") || m.includes("bei euch bleib") ||
-    m.includes("zu euch zieh") || m.includes("einzieh") || m.includes("einzug") ||
-    m.includes("aufnehmen") || m.includes("aufgenommen") || m.includes("wohnen bei") ||
-    m.includes("wohnen bei euch") || m.includes("stationär")
-  ) {
-    return pick([
-      "Das klingt nach einer Platzanfrage. Wie alt ist die Person und wie dringend ist es? Du kannst uns auch direkt schreiben: hilfe@ankernetz.com - oder anrufen: 030 22 45 43 22.",
-      "Wir haben Plätze für Kinder 6-12 und Jugendliche 12-17 Jahre sowie Krisenintervention rund um die Uhr. Ruf kurz an: 030 22 45 43 22 oder schreib uns: hilfe@ankernetz.com - dann schauen wir sofort was passt.",
-      "Platzanfragen bearbeiten wir schnell. Am einfachsten: /platzanfrage ausfüllen, schreib uns unter hilfe@ankernetz.com oder ruf an: 030 22 45 43 22. Um wen geht es - Alter und Situation?",
-    ]);
-  }
-
-  // Therapie / Psychologie / Psychiatrie
-  if (m.includes("therapie") || m.includes("therapeut") || m.includes("psycholog") || m.includes("psychiatr") || m.includes("behandlung")) {
-    return pick([
-      "Wir haben eine eigene Psychotherapie für Kinder und Jugendliche -mit Kassensitz, also keine Privatpraxis. Keine endlose Warteliste wie woanders. Geht es um dich oder jemanden in deiner Familie?",
-      "Unsere Therapeutinnen und Therapeuten sind direkt bei uns im Haus. Das bedeutet: kurze Wege, kein Stress mit Anfahrt, und Pädagogik und Therapie sprechen täglich miteinander. Was genau suchst du?",
-      "Therapieplätze bei uns sind über die Kasse -du brauchst keine Privatversicherung. Darf ich fragen, worum es geht? Dann kann ich dir sagen, was am besten passt.",
-    ]);
-  }
-
-  // Krise / Notfall / Dringend / Sofort
-  if (m.includes("krise") || m.includes("notfall") || m.includes("sofort") || m.includes("dringend") || m.includes("akut")) {
-    return pick([
-      "Akute Situationen nehmen wir sehr ernst. Wir haben eine 24/7 Krisenhotline und Sofortaufnahme: 030 22 45 43 22. Was ist gerade los?",
-      "Ruf uns direkt an -030 22 45 43 22 -die Krisenintervention ist rund um die Uhr besetzt. Du musst nicht erst lange erklären, einfach durchklingeln.",
-      "Bei uns gibt es keine langen Antragswege bei Krisen. 030 22 45 43 22 -jetzt. Was ist die Situation?",
-    ]);
-  }
-
-  // Frühe Hilfen / Baby / Kleinkind / Schwangerschaft / Eltern mit kleinen Kindern
-  if (m.includes("baby") || m.includes("kleinkind") || m.includes("schwanger") || m.includes("geburt") || m.includes("frühe hilfen") || m.includes("säugling") || m.includes("0 bis") || m.includes("0-6") || m.includes("kita")) {
-    return pick([
-      "Die Frühen Hilfen sind für Familien mit Kindern bis 6 Jahre -Bindung, Entwicklung, und wenn der Alltag mit Baby gerade einfach zu viel ist. Das ist kein Versagen, das ist menschlich. Wie alt ist dein Kind?",
-      "Wir begleiten Familien von Anfang an -auch schon in der Schwangerschaft. Keine Bewertung, keine Bürokratie am Anfang. Einfach reden. Was beschäftigt dich?",
-      "Für die ersten Jahre haben wir ein eigenes Team. Die kommen auch nach Hause, wenn das leichter ist. Geht es um dein eigenes Kind oder um eine Familie, die du kennst?",
-    ]);
-  }
-
-  // ADHS / Diagnose / Autismus / Förderung
-  if (m.includes("adhs") || m.includes("ads ") || m.includes("autismus") || m.includes("asd ") || m.includes("diagnose") || m.includes("störung") || m.includes("förder") || m.includes("sonderpädagog") || m.includes("lrs") || m.includes("legasthenie")) {
-    return pick([
-      "Diagnosen können sich erstmal überwältigend anfühlen -oder manchmal auch wie eine Erleichterung. Was genau beschäftigt dich gerade damit?",
-      "Wir haben ein eigenes Diagnostik-Team für Abklärungen und Gutachten. Und wir arbeiten täglich mit Kindern, bei denen ADHS, Autismus oder andere Diagnosen im Raum stehen. Was suchst du gerade?",
-      "Mit oder ohne Diagnose -was zählt ist, was das Kind braucht. Erzähl mir kurz die Situation, dann kann ich dir sagen was bei uns passen würde.",
-    ]);
-  }
-
-  // Trauma / Angst / PTBS / Missbrauch / Gewalt (non-crisis)
-  if (m.includes("trauma") || m.includes("ptbs") || m.includes("ptsd") || m.includes("angst") || m.includes("missbrauch") || m.includes("gewalt erlebt") || m.includes("übergriff") || m.includes("misshandl")) {
-    return pick([
-      "Das sind Erfahrungen, bei denen professionelle Begleitung wirklich einen Unterschied macht -und die Zeit, die man braucht, ist unterschiedlich. Geht es um dich selbst oder jemanden dem du nahe stehst?",
-      "Trauma braucht den richtigen Rahmen -kein Druck, kein Zeitplan von außen. Wir haben Erfahrung damit. Magst du kurz erzählen was passiert ist?",
-      "Ich hör dir zu. Was du erlebt hast, verdient echte Unterstützung. Darf ich fragen wie alt die Person ist, um die es geht -dann kann ich sagen, was wir konkret anbieten können.",
-    ]);
-  }
-
-  // Depression / Traurigkeit / Hoffnungslosigkeit / Erschöpfung
-  if (m.includes("depressiv") || m.includes("depression") || m.includes("traurig") || m.includes("hoffnungslos") || m.includes("erschöpft") || m.includes("kraft") || m.includes("leer") || m.includes("antriebslos") || m.includes("freude")) {
-    return pick([
-      "Das klingt wirklich anstrengend. Wie lange fühlst du dich schon so? Manchmal hilft es sehr, einfach erstmal mit jemandem zu reden -ohne Druck.",
-      "Sich so zu fühlen ist ernst zu nehmen, auch wenn von außen vielleicht nicht immer alle verstehen wie schwer das ist. Geht es dir selbst so gerade?",
-      "Wir haben Therapeutinnen, die genau dafür ausgebildet sind -nicht nur Ratschläge geben, sondern wirklich begleiten. Möchtest du mal ein Erstgespräch machen, einfach zum Kennenlernen?",
-    ]);
-  }
-
-  // Wut / Aggression / Impulskontrolle / Eskalation
-  if (m.includes("wut") || m.includes("aggressiv") || m.includes("ausrast") || m.includes("kontroll") || m.includes("explodier") || m.includes("schlägt") || m.includes("schlagen") || m.includes("gewaltbereit")) {
-    return pick([
-      "Starke Gefühle, die man nicht mehr steuern kann -das ist oft ein Zeichen, dass etwas Tieferes los ist. Geht es um dein eigenes Kind oder um dich selbst?",
-      "Wut ist oft ein Schutz. Wir arbeiten viel mit Kindern und Jugendlichen, bei denen Aggression das sichtbarste Symptom ist -dahinter steckt meist mehr. Was ist die Situation?",
-      "Das ist etwas, wo wir wirklich helfen können. Nicht mit erhobenem Zeigefinger, sondern mit echtem Verständnis was da gerade passiert. Erzähl mir mehr.",
-    ]);
-  }
-
-  // Schule / Leistung / Mobbing
-  if (m.includes("schule") || m.includes("lehrer") || m.includes("mobbing") || m.includes("klasse") || m.includes("zeugnis") || m.includes("noten") || m.includes("schulangst") || m.includes("schulverweiger")) {
-    return pick([
-      "Schule kann für manche Kinder ein richtiger Stressherd sein -mehr als Erwachsene manchmal ahnen. Worum geht es konkret? Leistung, soziale Probleme, oder eher so ein generelles Nicht-mehr-wollen?",
-      "Schulverweigerung, Mobbing, Überforderung -das sind Themen, mit denen viele Familien zu uns kommen. Kein Vorwurf, sondern echte Unterstützung. Was ist gerade los?",
-      "Wir begleiten Kinder und Jugendliche auch dabei, wieder einen Zugang zur Schule zu finden -ohne Druck. Was ist bei euch passiert?",
-    ]);
-  }
-
-  // Familie / Eltern / Trennung / Überforderung
-  if (m.includes("trennung") || m.includes("scheidung") || m.includes("überforder") || m.includes("alleinerzieh") || m.includes("mutter") || m.includes("vater") || m.includes("eltern") || m.includes("familie")) {
-    return pick([
-      "Familie kann manchmal der schwerste Job der Welt sein -besonders wenn man das Gefühl hat, es alleine tragen zu müssen. Was ist gerade die größte Belastung?",
-      "Wir unterstützen nicht nur Kinder, sondern das ganze System drumherum. Eltern, die Entlastung suchen, sind bei uns genau richtig. Was bräuchtest du gerade?",
-      "Trennung oder Scheidung ist auch für Kinder oft mehr als nur eine Familienveränderung. Gibt es konkrete Situationen, wo du dir Unterstützung wünschst?",
-    ]);
-  }
-
-  // Jugendamt / ASD / Hilfeplan / Antrag
-  if (m.includes("jugendamt") || m.includes("asd") || m.includes("hilfeplan") || m.includes("antrag") || m.includes("sozialarbeiter") || m.includes("träger") || m.includes("fachkraft") || m.includes("pädagog") || m.includes("kollege")) {
-    return pick([
-      "Bist du Fachkraft oder geht es um eine eigene Situation? Für Fachkräfte und ASD-Mitarbeitende haben wir direkte Wege -keine langen Wartezeiten, schnelle Kommunikation.",
-      "Wir arbeiten eng mit Jugendämtern zusammen und kennen die Abläufe gut. Geht es um eine Belegungsanfrage, einen Hilfeplan oder etwas anderes?",
-      "Als Träger legen wir viel Wert auf transparente Zusammenarbeit mit dem ASD. Womit kann ich dir weiterhelfen?",
-    ]);
-  }
-
-  // Kosten / Geld / Finanzierung
-  if (m.includes("kostet") || m.includes("kosten") || m.includes("bezahl") || m.includes("geld") || m.includes("gratis") || m.includes("kostenlos") || m.includes("krankenkasse") || m.includes("kasse") || m.includes("versicherung")) {
-    return pick([
-      "Unsere Beratung ist komplett kostenlos -kein Antrag, keine Hürde. Bei den weitergehenden Hilfen übernimmt in der Regel das Jugendamt die Kosten. Du musst das nicht aus eigener Tasche zahlen.",
-      "Geld sollte keine Hürde sein, Hilfe zu bekommen. Unsere Beratungsangebote kosten nichts. Die Therapie läuft über die Krankenkasse. Was genau meinst du?",
-      "Kurze Antwort: die meisten unserer Angebote sind für dich kostenlos. Entweder über die Kasse, über das Jugendamt oder als kostenfreie Beratung. Soll ich das für dein konkretes Anliegen erklären?",
-    ]);
-  }
-
-  // Drogen / Alkohol / Sucht
-  if (m.includes("drogen") || m.includes("alkohol") || m.includes("sucht") || m.includes("cannabis") || m.includes("kiffen") || m.includes("substanz") || m.includes("abhängig")) {
-    return pick([
-      "Sucht bei Jugendlichen ist oft mehr ein Symptom als das eigentliche Problem -meistens steckt da etwas dahinter. Geht es um dich selbst oder um jemanden in deiner Nähe?",
-      "Das ist ein Thema, mit dem wir regelmäßig arbeiten -ohne Verurteilung. Was ist gerade die Situation?",
-      "Zwischen 'manchmal kiffen' und echter Abhängigkeit gibt es viele Zwischenstufen. Wir schauen genau hin. Um wen geht es und wie alt ist die Person?",
-    ]);
-  }
-
-  // Essstörung / Essen
-  if (m.includes("ess") || m.includes("magersucht") || m.includes("bulimie") || m.includes("anorexie") || m.includes("gewicht") || m.includes("abnehmen") || m.includes("nicht essen")) {
-    return pick([
-      "Essstörungen sind ernstzunehmen -auch wenn von außen manchmal nicht alle die Schwere sehen. Geht es um dich oder jemanden dem du nahe stehst?",
-      "Das ist ein Bereich, wo Therapie wirklich helfen kann -aber der Zeitpunkt und die Person müssen passen. Was ist gerade die Situation?",
-    ]);
-  }
-
-  // Einsamkeit / Isolation / Freunde
-  if (m.includes("einsam") || m.includes("allein") || m.includes("keine freunde") || m.includes("niemand versteht") || m.includes("isolier") || m.includes("ausgeschlossen")) {
-    return pick([
-      "Einsamkeit ist oft das, worüber man am wenigsten redet -aber was am meisten wehtut. Wie lange ist das schon so?",
-      "Das Gefühl, dass niemand wirklich versteht was los ist -das kennen viele Jugendliche, auch wenn man das von außen nicht sieht. Magst du mir mehr erzählen?",
-      "Du hast gerade den ersten Schritt gemacht indem du schreibst. Das ist mehr als viele schaffen. Was ist gerade los bei dir?",
-    ]);
-  }
-
-  // Übergang Schule → Beruf
-  if (m.includes("ausbildung") || m.includes("beruf") || m.includes("arbeit") || m.includes("praktikum") || m.includes("bewerbung") || m.includes("abschluss") || m.includes("hauptschule") || m.includes("realschule") || m.includes("orientierung")) {
-    return pick([
-      "Der Übergang von Schule in den Beruf ist für viele Jugendliche kein gerader Weg -und das ist völlig okay. Wir haben ein eigenes Programm dafür. Wie alt ist die Person und was ist gerade das Problem?",
-      "Wir begleiten Jugendliche beim Schritt in die Arbeitswelt -Bewerbungen, Orientierung, Praktika, und auch wenn man einfach noch gar nicht weiß wohin. Was ist die Situation?",
-      "Manchmal braucht man jemanden der begleitet, nicht nur Ratschläge gibt. Unser Team für den Übergang Arbeit kennt die Stolpersteine. Worum geht es genau?",
-    ]);
-  }
-
-  // Pflegefamilie / Adoption / Inobhutnahme / Fremdunterbringung
-  if (m.includes("pflegefamilie") || m.includes("pflegekind") || m.includes("adoption") || m.includes("inobhutnahme") || m.includes("fremdunterbringu") || m.includes("herausnahme") || m.includes("weggenommen")) {
-    return pick([
-      "Das ist eine sehr einschneidende Situation -für das Kind und oft auch für die Familie. Was ist gerade der Stand und was suchst du?",
-      "Wir arbeiten mit Kindern und Jugendlichen, die aus ihrer Familie herausgenommen wurden -und wir wissen wie komplex das ist. Was brauchst du gerade?",
-    ]);
-  }
-
-  // Junge Volljährige / 18+ / Verselbstständigung
-  if (m.includes("volljährig") || m.includes("18 ") || m.includes("18+") || m.includes("erwachsen") || m.includes("eigene wohnung") || m.includes("selbstständig") || m.includes("auszug")) {
-    return pick([
-      "Mit 18 ist man rechtlich erwachsen, aber das bedeutet nicht, dass man plötzlich allein klarkommt. Wir begleiten junge Erwachsene bis 21 -manchmal auch länger. Was ist die Situation?",
-      "Der Übergang in die Selbstständigkeit ist für viele Jugendliche aus unseren Wohngruppen ein großes Thema. Wir lassen da niemanden fallen. Worum geht es konkret?",
-    ]);
-  }
-
-  // Online / Videotermin / Fernberatung
-  if (m.includes("online") || m.includes("video") || m.includes("zoom") || m.includes("telefon") || m.includes("fernberatung") || m.includes("von zuhause") || m.includes("digital")) {
-    return pick([
-      "Ja, wir bieten auch Beratung online an -per Video oder Telefon. Das läuft genauso vertraulich wie ein Gespräch bei uns im Haus. Was passt dir besser?",
-      "Online-Beratung ist bei uns möglich und wird gut angenommen -gerade wenn der Weg zu uns zu weit ist oder die Situation es gerade nicht zulässt. Worum soll es gehen?",
-    ]);
-  }
-
-  // Datenschutz / Anonymität / Vertrauen
-  if (m.includes("anonym") || m.includes("datenschutz") || m.includes("vertraulich") || m.includes("geheim") || m.includes("niemand erfährt") || m.includes("schweigepflicht")) {
-    return pick([
-      "Alles was du hier schreibst und was in einem Beratungsgespräch gesagt wird, bleibt vertraulich -das ist für uns keine Floskel sondern Grundlage unserer Arbeit. Was beschäftigt dich?",
-      "Schweigepflicht und Datenschutz nehmen wir ernst. Du kannst erstmal anonym fragen -und wenn du möchtest, sprechen wir über die nächsten Schritte. Was ist die Situation?",
-    ]);
-  }
-
-  // Kleidung / Versorgung / Material
-  if (m.includes("kleidung") || m.includes("ankerkleidung") || m.includes("klamotten") || m.includes("ausstattung") || m.includes("versorgung") || m.includes("sachspend")) {
-    return pick([
-      "Wir haben Ankerkleidung -ein eigenes Angebot für passende Kleidung nach Störungsbild und Bedarf. Das klingt erstmal ungewöhnlich, macht aber einen echten Unterschied. Soll ich mehr erklären?",
-      "Unser Versorgungsangebot hilft mit Ausstattung und materiellen Grundbedarfen -weil manchmal das Praktische genauso wichtig ist wie das Emotionale. Was wird gebraucht?",
-    ]);
-  }
-
-  // Wartezeit / Termin / Wann / Wie schnell
-  if (m.includes("wartezeit") || m.includes("wann") || m.includes("wie schnell") || m.includes("termin") || m.includes("wie lange") || m.includes("sofort frei")) {
-    return pick([
-      "Wir versuchen schnell zu reagieren -gerade bei akuten Situationen. Für einen ersten Gesprächstermin meld dich direkt: 030 22 45 43 22. Was ist der Bedarf?",
-      "Je nach Angebot ist die Wartezeit unterschiedlich. Bei Krisen: sofort. Bei Therapieplätzen: in der Regel deutlich kürzer als bei niedergelassenen Praxen. Worum geht es?",
-    ]);
-  }
-
-  // Frage / allgemeine Anfrage
-  if (m.includes("frage") || m.includes("fragen") || m.includes("wollte fragen") || m.includes("wüsste gerne") || m.includes("würde gerne wissen")) {
-    return pick([
-      "Natürlich, sehr gerne! Was möchtest du wissen?",
-      "Aber klar -frag einfach los, ich helfe dir so gut ich kann!",
-      "Sehr gerne! Stell einfach deine Frage, ich bin ganz Ohr.",
-    ]);
-  }
-
-  // Dankeschön / Positives Feedback
-  if (m.includes("danke") || m.includes("toll") || m.includes("super") || m.includes("hilft") || m.includes("geholfen") || m.includes("dankeschön")) {
-    return pick([
-      "Das freut mich sehr, wirklich! Gibt es noch etwas, wobei ich helfen kann?",
-      "Sehr gerne! Meld dich jederzeit wieder -ich bin immer da.",
-      "Das höre ich gerne. Wenn du noch Fragen hast oder sich etwas ändert: 030 22 45 43 22, wir sind immer für dich da.",
-    ]);
-  }
-
-  // Was ist/macht Ankernetz
+  // Was ist/macht Ankernetz - Phrasenlogik, passt nicht ins Keyword-Schema
   if (
     m.includes("was macht ankernetz") || m.includes("was ist ankernetz") ||
     m.includes("was bietet ankernetz") || m.includes("was bietet ihr") ||
@@ -484,6 +521,21 @@ function smartFallback(message: string, isCrisis: boolean, lastBotMsg = ""): str
       "Ich bin Lena, deine erste Ansprechpartnerin beim Ankernetz Berlin. Was liegt dir auf dem Herzen? Ich helfe dir gerne!",
     ]);
   }
+
+  // Gewichtete Kategorie-Suche mit Negations-Filter
+  let kategorie = findeKategorie(m);
+
+  // Session-Memory: Passt die aktuelle Nachricht zu keiner Kategorie (z.B. eine
+  // kurze Folgenachricht wie "in Berlin"), in den letzten Nutzer-Nachrichten
+  // dieser Unterhaltung nachschauen, welches Thema zuletzt erkannt wurde.
+  if (!kategorie) {
+    for (const vorherige of verlauf.slice().reverse()) {
+      kategorie = findeKategorie(vorherige.toLowerCase());
+      if (kategorie) break;
+    }
+  }
+
+  if (kategorie) return pick(kategorie.antworten);
 
   // Lokale Wissensdatenbank (Glossar + Wortlexikon) durchsuchen, bevor wir
   // auf die rein generische Antwort ausweichen - kein API-Aufruf nötig.
@@ -622,8 +674,12 @@ export async function POST(req: Request) {
         controller.close();
       } catch (err) {
         console.error("Chat API error:", err);
-        const lastBotMsg = messages.slice().reverse().find((m: { role: string }) => m.role === "assistant")?.content ?? "";
-        const fallback = smartFallback(lastMessage, isCrisis, lastBotMsg);
+        const vorherigeNutzerNachrichten: string[] = messages
+          .filter((m: { role: string }) => m.role === "user")
+          .slice(0, -1)
+          .slice(-2)
+          .map((m: { content: string }) => m.content);
+        const fallback = smartFallback(lastMessage, isCrisis, vorherigeNutzerNachrichten);
         controller.enqueue(encoder.encode(fallback));
         controller.close();
       }
