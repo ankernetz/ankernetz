@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
 
     // Honeypot: unsichtbares Feld, das nur Bots ausfüllen.
-    if (typeof data.website === "string" && data.website.trim() !== "") {
+    if (typeof data.hp37 === "string" && data.hp37.trim() !== "") {
       await sendeTelegram(`🤖 *Bot abgewehrt (Honeypot) - Platzanfrage*\n\n${formatiereAnfrageInfo(info)}`);
       return NextResponse.json({ ok: true });
     }

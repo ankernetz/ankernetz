@@ -134,7 +134,7 @@ export default function PlatzanfragePage() {
     email: "", telefon: "", bereich: "",
     alter: "", geschlecht: "", dringlichkeit: "",
     situation: "", bisherige: "",
-    website: "", // Honeypot - für Menschen unsichtbar, bleibt immer leer
+    hp37: "", // Honeypot - für Menschen unsichtbar, bleibt immer leer (bewusst kein Name wie "website", da Passwort-Manager solche Felder gerne automatisch ausfuellen)
   });
   const [dsgvo, setDsgvo] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -280,7 +280,7 @@ export default function PlatzanfragePage() {
 
             <form onSubmit={handleSubmit} style={{ padding: "2.5rem" }}>
               <input
-                type="text" name="website" value={form.website} onChange={(e) => set("website", e.target.value)}
+                type="text" name="hp37" value={form.hp37} onChange={(e) => set("hp37", e.target.value)}
                 tabIndex={-1} autoComplete="off" aria-hidden="true"
                 style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
               />

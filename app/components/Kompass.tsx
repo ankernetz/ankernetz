@@ -155,7 +155,7 @@ export default function Kompass() {
   const [kEmail, setKEmail] = useState("");
   const [kTelefon, setKTelefon] = useState("");
   const [kNachricht, setKNachricht] = useState("");
-  const [kWebsite, setKWebsite] = useState(""); // Honeypot - für Menschen unsichtbar, bleibt immer leer
+  const [kHp37, setKHp37] = useState(""); // Honeypot - für Menschen unsichtbar, bleibt immer leer (bewusst kein Name wie "website", da Passwort-Manager solche Felder gerne automatisch ausfuellen)
   const [kDsgvo, setKDsgvo] = useState(false);
   const [kSenden, setKSenden] = useState(false);
   const [kGesendet, setKGesendet] = useState(false);
@@ -185,7 +185,7 @@ export default function Kompass() {
     setAntworten({});
     setFertig(false);
     gesendetRef.current = false;
-    setKName(""); setKEmail(""); setKTelefon(""); setKNachricht(""); setKWebsite("");
+    setKName(""); setKEmail(""); setKTelefon(""); setKNachricht(""); setKHp37("");
     setKDsgvo(false); setKGesendet(false); setKFehler("");
   }
 
@@ -216,7 +216,7 @@ export default function Kompass() {
           antworten: antwortenListe,
           empfehlungen,
           kontakt: { name: kName, email: kEmail, telefon: kTelefon, nachricht: kNachricht },
-          website: kWebsite,
+          hp37: kHp37,
         }),
       });
       if (!res.ok) throw new Error("Senden fehlgeschlagen");
@@ -415,7 +415,7 @@ export default function Kompass() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1rem" }}>
               <input
-                type="text" value={kWebsite} onChange={(e) => setKWebsite(e.target.value)}
+                type="text" value={kHp37} onChange={(e) => setKHp37(e.target.value)}
                 tabIndex={-1} autoComplete="off" aria-hidden="true"
                 style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
               />

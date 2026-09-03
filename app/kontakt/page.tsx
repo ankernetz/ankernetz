@@ -248,7 +248,7 @@ export default function KontaktPage() {
   const [form, setForm] = useState({
     vorname: "", nachname: "", organisation: "",
     email: "", telefon: "", anliegen: "", nachricht: "",
-    website: "", // Honeypot - für Menschen unsichtbar, bleibt immer leer
+    hp37: "", // Honeypot - für Menschen unsichtbar, bleibt immer leer (bewusst kein Name wie "website", da Passwort-Manager solche Felder gerne automatisch ausfuellen)
   });
   const [dsgvo, setDsgvo] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -437,7 +437,7 @@ export default function KontaktPage() {
             ) : (
               <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
                 <input
-                  type="text" name="website" value={form.website} onChange={set("website")}
+                  type="text" name="hp37" value={form.hp37} onChange={set("hp37")}
                   tabIndex={-1} autoComplete="off" aria-hidden="true"
                   style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
                 />
