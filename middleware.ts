@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import type { NextFetchEvent } from "next/server";
 
 // Typische Pfade, nach denen automatisierte Scanner suchen - auf dieser
 // Next.js-Seite existiert keiner davon. Ein Zugriff darauf ist praktisch
@@ -53,11 +54,12 @@ async function meldeScanVersuch(req: NextRequest) {
   }
 }
 
-export function middleware(req: NextRequest) {
+export function middleware(req: NextRequest, event: NextFetchEvent) {
   const pfad = req.nextUrl.pathname.toLowerCase();
   if (SCAN_MUSTER.some((muster) => pfad.startsWith(muster))) {
-    // Nicht awaiten - die Anfrage soll nicht auf den Telegram-Versand warten.
-    void meldeScanVersuch(req);
+    // waitUntil statt "fire and forget": ohne das wird der Telegram-Request
+    // im Edge-Runtime abgebrochen, sobald die Antwort rausgeht, bevor er fertig ist.
+    event.waitUntil(meldeScanVersuch(req));
     return new NextResponse(null, { status: 404 });
   }
   return NextResponse.next();
