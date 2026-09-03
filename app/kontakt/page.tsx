@@ -248,6 +248,7 @@ export default function KontaktPage() {
   const [form, setForm] = useState({
     vorname: "", nachname: "", organisation: "",
     email: "", telefon: "", anliegen: "", nachricht: "",
+    website: "", // Honeypot - für Menschen unsichtbar, bleibt immer leer
   });
   const [dsgvo, setDsgvo] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -260,12 +261,11 @@ export default function KontaktPage() {
     e.preventDefault();
     if (!form.vorname || !form.email || !form.nachricht || !dsgvo) return;
     setSubmitting(true);
-    const text = `📬 <b>Neue Kontaktanfrage - Ankernetz</b>\n\n<b>Name:</b> ${form.vorname} ${form.nachname}\n<b>Organisation:</b> ${form.organisation || "-"}\n<b>E-Mail:</b> ${form.email}\n<b>Telefon:</b> ${form.telefon || "-"}\n<b>Anliegen:</b> ${form.anliegen || "-"}\n\n<b>Nachricht:</b>\n${form.nachricht}`;
     try {
       await fetch("/api/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify(form),
       });
     } catch { /**/ }
     setSubmitted(true);
@@ -436,6 +436,11 @@ export default function KontaktPage() {
               </div>
             ) : (
               <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
+                <input
+                  type="text" name="website" value={form.website} onChange={set("website")}
+                  tabIndex={-1} autoComplete="off" aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+                />
                 <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em",
                   textTransform: "uppercase", color: "#6FA3FE", marginBottom: "0.25rem" }}>
                   {t.formEyebrow}
