@@ -41,9 +41,26 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    const antworten: { frage: string; antwort: string }[] = data.antworten ?? [];
-    const empfehlungen: { label: string; prozent: number }[] = data.empfehlungen ?? [];
+    const antwortenRoh = Array.isArray(data.antworten) ? data.antworten.slice(0, 30) : [];
+    const antworten: { frage: string; antwort: string }[] = antwortenRoh.filter(
+      (a: unknown): a is { frage: string; antwort: string } =>
+        !!a && typeof a === "object" &&
+        typeof (a as Record<string, unknown>).frage === "string" &&
+        typeof (a as Record<string, unknown>).antwort === "string"
+    );
+    const empfehlungenRoh = Array.isArray(data.empfehlungen) ? data.empfehlungen.slice(0, 10) : [];
+    const empfehlungen: { label: string; prozent: number }[] = empfehlungenRoh.filter(
+      (e: unknown): e is { label: string; prozent: number } =>
+        !!e && typeof e === "object" && typeof (e as Record<string, unknown>).label === "string"
+    );
     const kontakt: { name?: string; email?: string; telefon?: string; nachricht?: string } | undefined = data.kontakt;
+
+    const kontaktFelder = [kontakt?.name, kontakt?.email, kontakt?.telefon, kontakt?.nachricht];
+    const antwortenTexte = antworten.flatMap((a) => [a.frage, a.antwort]);
+    if ([...kontaktFelder, ...antwortenTexte].some((v) => typeof v === "string" && v.length > 3000)) {
+      return NextResponse.json({ ok: false, error: "too_long" }, { status: 400 });
+    }
+
     const hatKontakt = !!(kontakt && (kontakt.email?.trim() || kontakt.telefon?.trim()));
 
     const text = [

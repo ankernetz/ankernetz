@@ -570,7 +570,20 @@ export async function POST(req: Request) {
     return new Response("Zu viele Anfragen - bitte kurz warten oder direkt anrufen: 030 22 45 43 22", { status: 429 });
   }
 
-  const { messages, sessionId, userMessageCount, location } = await req.json();
+  const body = await req.json();
+  const { sessionId, userMessageCount, location } = body;
+
+  if (!Array.isArray(body.messages) || body.messages.length === 0) {
+    return new Response("Ungültige Anfrage", { status: 400 });
+  }
+  // Begrenzung gegen überlange Verläufe/Nachrichten, die unnötig Gemini-Kontingent
+  // verbrauchen wuerden (das fuer echte Besucher reichen soll).
+  const messages = body.messages
+    .slice(-20)
+    .map((m: { role: string; content: string }) => ({
+      role: m.role,
+      content: typeof m.content === "string" ? m.content.slice(0, 4000) : "",
+    }));
 
   const lastMessage = messages[messages.length - 1]?.content ?? "";
   const isCrisis = detectCrisis(lastMessage);

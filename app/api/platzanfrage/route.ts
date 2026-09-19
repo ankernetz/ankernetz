@@ -50,6 +50,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
     }
 
+    const textFelder = [
+      data.vorname, data.nachname, data.institution, data.email, data.telefon,
+      data.bereich, data.dringlichkeit, data.alter, data.geschlecht,
+      data.situation, data.bisherige,
+    ];
+    if (textFelder.some((v) => typeof v === "string" && v.length > 3000)) {
+      return NextResponse.json({ ok: false, error: "too_long" }, { status: 400 });
+    }
+
     const text = [
       "🏥 <b>NEUE PLATZANFRAGE</b>",
       "",
