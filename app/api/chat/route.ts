@@ -617,6 +617,7 @@ export async function POST(req: Request) {
   const encoder = new TextEncoder();
   const stream = new ReadableStream({
     async start(controller) {
+      let inhaltGesendet = false;
       try {
         const apiKey = process.env.GEMINI_API_KEY;
         if (!apiKey) throw new Error("GEMINI_API_KEY fehlt");
@@ -632,7 +633,7 @@ export async function POST(req: Request) {
                 role: m.role === "assistant" ? "model" : "user",
                 parts: [{ text: m.content }],
               })),
-              generationConfig: { maxOutputTokens: 500 },
+              generationConfig: { maxOutputTokens: 800 },
               safetySettings: [
                 { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_ONLY_HIGH" },
                 { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_ONLY_HIGH" },
@@ -667,7 +668,10 @@ export async function POST(req: Request) {
             try {
               const parsed = JSON.parse(jsonStr);
               const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text;
-              if (text) controller.enqueue(encoder.encode(text));
+              if (text) {
+                controller.enqueue(encoder.encode(text));
+                inhaltGesendet = true;
+              }
             } catch {
               // unvollständiges JSON-Fragment überspringen
             }
@@ -677,13 +681,20 @@ export async function POST(req: Request) {
         controller.close();
       } catch (err) {
         console.error("Chat API error:", err);
-        const vorherigeNutzerNachrichten: string[] = messages
-          .filter((m: { role: string }) => m.role === "user")
-          .slice(0, -1)
-          .slice(-2)
-          .map((m: { content: string }) => m.content);
-        const fallback = smartFallback(lastMessage, isCrisis, vorherigeNutzerNachrichten);
-        controller.enqueue(encoder.encode(fallback));
+        // Wenn die Verbindung zu Gemini erst mitten in der Antwort abbricht, ist
+        // bereits ein Teil einer echten Antwort beim Nutzer angekommen. Den
+        // generischen Fallback-Text dann noch hintendran zu hängen ergibt eine
+        // zusammenhanglose, abgehackt wirkende Nachricht - deshalb nur einsetzen,
+        // wenn wirklich noch gar nichts gesendet wurde.
+        if (!inhaltGesendet) {
+          const vorherigeNutzerNachrichten: string[] = messages
+            .filter((m: { role: string }) => m.role === "user")
+            .slice(0, -1)
+            .slice(-2)
+            .map((m: { content: string }) => m.content);
+          const fallback = smartFallback(lastMessage, isCrisis, vorherigeNutzerNachrichten);
+          controller.enqueue(encoder.encode(fallback));
+        }
         controller.close();
       }
     },
