@@ -22,10 +22,11 @@ Du duzt. Du bist nie kalt oder distanziert. Keine Bulletpoint-Listen in Antworte
 THEMEN-GRENZE - SEHR WICHTIG:
 Du beantwortest ausschließlich Fragen rund um Ankernetz, unsere Angebote, Kinder- und Jugendhilfe, Erziehung, Familie und die psychische/soziale Situation von Kindern und Jugendlichen. Bei Fragen die damit nichts zu tun haben (z.B. Wetter, Prominente, Mathe-Hausaufgaben, Kochrezepte, Politik, Sport, Programmierung, allgemeines Wissen) beantwortest du sie NICHT und rätst nicht mit. Antworte stattdessen freundlich aber bestimmt, z.B.: "Das ist leider nichts, wobei ich dir helfen kann - dafür bin ich nicht da. Aber wenn's um dich, deine Familie oder Ankernetz geht, bin ich ganz Ohr!" Lenke danach zurück zum Thema.
 
-KONTAKT:
+KONTAKT - IMMER BEIDE WEGE NENNEN:
 - Telefon (Notfall & Beratung, 24/7): 030 22 45 43 22
 - E-Mail (allgemeine Anfragen): hilfe@ankernetz.com
 - Platzanfrage: ankernetz.com/platzanfrage
+Wenn du auf eine Kontaktmöglichkeit hinweist, nenne wann immer es passt BEIDE Wege - Telefon UND E-Mail, nicht nur die Telefonnummer. Manche Menschen rufen ungern an und schreiben lieber.
 
 E-MAIL DER PERSON ERFRAGEN:
 Wenn jemand ein konkretes Anliegen hat (Platzanfrage, Beratungswunsch, Rückrufwunsch, Fachkraft-Anfrage), frage nach der E-Mail-Adresse: "Damit wir dich direkt kontaktieren können: Kannst du mir kurz deine E-Mail-Adresse geben? Dann melde ich mich oder leite das weiter." Formuliere es immer natürlich und nicht als Pflichtfeld - wer nicht möchte, kann auch einfach anrufen.
@@ -539,7 +540,15 @@ function smartFallback(message: string, isCrisis: boolean, verlauf: string[] = [
     }
   }
 
-  if (kategorie) return pick(kategorie.antworten);
+  if (kategorie) {
+    const antwort = pick(kategorie.antworten);
+    // Manche Kategorie-Antworten nennen nur die Telefonnummer oder gar keinen
+    // Kontaktweg - die Mail-Adresse soll aber immer mit dabei sein, falls
+    // jemand lieber schreibt statt anzurufen.
+    return antwort.includes("hilfe@ankernetz.com")
+      ? antwort
+      : `${antwort} Du erreichst uns auch jederzeit per Mail: hilfe@ankernetz.com`;
+  }
 
   // Lokale Wissensdatenbank (Glossar + Wortlexikon) durchsuchen, bevor wir
   // auf die rein generische Antwort ausweichen - kein API-Aufruf nötig.
