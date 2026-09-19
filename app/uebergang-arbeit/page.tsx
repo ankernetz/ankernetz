@@ -8,6 +8,7 @@ import {
   Award, Building2, Handshake, Calendar, Compass,
   DollarSign, Key, Scale, Smile, Coffee, TreePine,
 } from "lucide-react";
+import { RelatedArticles } from "../components/RelatedArticles";
 
 /* ─── Daten ──────────────────────────────────────────────────── */
 
@@ -540,6 +541,8 @@ export default function UebergangArbeitPage() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles slugs={["was-passiert-mit-18-careleaver-rechte-unterstuetzung", "hilfeplangespraech-ablauf-beteiligte-asd"]} />
 
       {/* FAQ */}
       <section style={{ padding: "80px 24px", background: "#f4f7fb" }}>

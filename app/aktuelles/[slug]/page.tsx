@@ -10,6 +10,16 @@ export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
 }
 
+// Google zeigt in der Trefferliste nur ca. 155-160 Zeichen der Beschreibung an -
+// laengere Texte werden mitten im Satz abgeschnitten. Deshalb an einer Wortgrenze
+// kuerzen statt den vollen, fuer Leser gedachten Teaser-Text zu verwenden.
+function kuerzeBeschreibung(text: string, max = 155): string {
+  if (text.length <= max) return text;
+  const geschnitten = text.slice(0, max);
+  const letzteLeerstelle = geschnitten.lastIndexOf(" ");
+  return `${geschnitten.slice(0, letzteLeerstelle > 80 ? letzteLeerstelle : max)}...`;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -19,14 +29,16 @@ export async function generateMetadata({
   const article = getArticleBySlug(slug);
   if (!article) return {};
 
+  const metaDescription = kuerzeBeschreibung(article.excerpt.de);
+
   return {
-    title: `${article.title.de} | Ankernetz`,
-    description: article.excerpt.de,
+    title: `${article.title.de} | Ankernetz Berlin`,
+    description: metaDescription,
     keywords: article.keywords.de,
     alternates: { canonical: `${BASE}/aktuelles/${article.slug}` },
     openGraph: {
       title: article.title.de,
-      description: article.excerpt.de,
+      description: metaDescription,
       url: `${BASE}/aktuelles/${article.slug}`,
       type: "article",
       publishedTime: article.date,

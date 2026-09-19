@@ -13,6 +13,7 @@ import {
 
 import { SeoFaqSchema } from "../components/SeoFaqSchema";
 import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+import { RelatedArticles } from "../components/RelatedArticles";
 import { useT } from "../i18n/useT";
 
 /* ─── Icon arrays (outside TRANS) ───────────────────────────── */
@@ -743,6 +744,8 @@ export default function TherapieWohnenPage() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles slugs={["pflegefamilie-oder-wohngruppe-unterschiede-vergleich", "geschwisterkinder-inobhutnahme-herausnahme-was-passiert", "was-passiert-mit-18-careleaver-rechte-unterstuetzung"]} />
 
       {/* ══ FAQ ═══════════════════════════════════════════════════ */}
       <section style={{ background: "#f4f7fb", padding: "5rem 0" }}>

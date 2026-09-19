@@ -12,6 +12,7 @@ import {
 
 import { SeoFaqSchema } from "../components/SeoFaqSchema";
 import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+import { RelatedArticles } from "../components/RelatedArticles";
 import { useT } from "../i18n/useT";
 
 const TRANS = {
@@ -467,6 +468,8 @@ export default function PsychotherapiePage() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles slugs={["selbstverletzendes-verhalten-jugendliche-erkennen-reagieren", "schulverweigerung-kind-geht-nicht-mehr-zur-schule"]} />
 
       {/* ══ FAQ ═══════════════════════════════════════════════════ */}
       <section style={{ background: "#f4f7fb", padding: "5rem 0" }}>

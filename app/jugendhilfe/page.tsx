@@ -13,6 +13,7 @@ import {
 
 import { SeoFaq } from "../components/SeoFaq";
 import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+import { RelatedArticles } from "../components/RelatedArticles";
 
 const faqItems = [
   {
@@ -821,6 +822,8 @@ export default function JugendhilfePage() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles slugs={["pflegefamilie-oder-wohngruppe-unterschiede-vergleich", "hilfeplangespraech-ablauf-beteiligte-asd", "was-passiert-mit-18-careleaver-rechte-unterstuetzung"]} />
 
       {/* ══ FAQ ═══════════════════════════════════════════════════ */}
       <section style={{ background: "#f4f7fb", padding: "5rem 0" }}>

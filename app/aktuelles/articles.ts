@@ -8,6 +8,11 @@ export interface RelatedPage {
   href: string;
 }
 
+export interface FaqPair {
+  q: string;
+  a: string;
+}
+
 export interface Article {
   slug: string;
   date: string;
@@ -17,6 +22,12 @@ export interface Article {
   keywords: { de: string[]; en: string[] };
   sections: { de: ArticleSection[]; en: ArticleSection[] };
   relatedPages: { de: RelatedPage[]; en: RelatedPage[] };
+  /** Kurzfassung, direkt unter dem Teaser angezeigt - fuer Leser und Featured Snippets. */
+  tldr?: { de: string; en: string };
+  /** Slugs anderer Artikel zum Querverlinken innerhalb von Themen-Clustern. */
+  relatedArticles?: string[];
+  /** Themenspezifisches FAQ mit eigenem FAQPage-Schema - ersetzt das generische Fallback-FAQ. */
+  faq?: { de: FaqPair[]; en: FaqPair[] };
 }
 
 const articlesUnsorted: Article[] = [
@@ -1454,6 +1465,25 @@ const articlesUnsorted: Article[] = [
   {
     slug: "inobhutnahme-erste-24-stunden-was-passiert",
     date: "2026-09-12",
+    tldr: {
+      de: "Eine Inobhutnahme (§ 42 SGB VIII) ist eine zeitlich begrenzte Notfallmaßnahme, kein endgültiger Sorgerechtsentzug. Eltern müssen unverzüglich informiert werden, haben Widerspruchsrecht vor einem Familiengericht, und die meisten Fälle enden mit einer Rückkehr nach Hause.",
+      en: "An emergency placement (§ 42 SGB VIII) is a time-limited emergency measure, not a permanent removal of custody. Parents must be informed without delay, can object before a family court, and most cases end with the child returning home.",
+    },
+    relatedArticles: ["elternrechte-fremdunterbringung-mitsprache-besuchsrecht", "geschwisterkinder-inobhutnahme-herausnahme-was-passiert", "pflegefamilie-oder-wohngruppe-unterschiede-vergleich"],
+    faq: {
+      de: [
+        { q: "Verliere ich als Elternteil bei einer Inobhutnahme sofort das Sorgerecht?", a: "Nein. Das Sorgerecht bleibt grundsätzlich bestehen, solange kein Familiengericht es ausdrücklich entzieht. Eine Inobhutnahme allein ist kein Sorgerechtsentzug." },
+        { q: "Wie lange dauert eine Inobhutnahme?", a: "Sie ist immer zeitlich begrenzt und endet, sobald Klarheit über den weiteren Weg besteht - meist innerhalb weniger Tage bis Wochen, abgeschlossen durch ein Hilfeplangespräch." },
+        { q: "Was kann ich tun, wenn ich als Elternteil widerspreche?", a: "Widersprechen Sie der Maßnahme, muss das Jugendamt umgehend das Familiengericht einschalten, das die Entscheidung überprüft." },
+        { q: "Darf ich mein Kind während der Inobhutnahme sehen?", a: "In der Regel ja. Kontakt bleibt meist möglich, sofern er dem Kind nicht nachweislich schadet." },
+      ],
+      en: [
+        { q: "Do I lose custody immediately if my child is taken into care?", a: "No. Custody generally remains in place unless a family court explicitly withdraws it. An emergency placement alone does not remove custody." },
+        { q: "How long does an emergency placement last?", a: "It is always time-limited and ends once there is clarity about the way forward - usually within days to weeks, concluded by a care planning meeting." },
+        { q: "What can I do if I object as a parent?", a: "If you object to the measure, the youth welfare office must immediately involve the family court, which reviews the decision." },
+        { q: "Can I see my child during the placement?", a: "Generally yes. Contact usually remains possible unless it can be shown to harm the child." },
+      ],
+    },
     title: {
       de: "Was passiert bei einer Inobhutnahme? Die ersten 24 Stunden erklärt",
       en: "What Happens When a Child Is Taken Into Care? The First 24 Hours Explained",
@@ -1549,6 +1579,23 @@ const articlesUnsorted: Article[] = [
   {
     slug: "elternrechte-fremdunterbringung-mitsprache-besuchsrecht",
     date: "2026-09-15",
+    tldr: {
+      de: "Sorgerecht, Umgang und Mitspracherecht am Hilfeplan bleiben während einer Fremdunterbringung in aller Regel bestehen. Rückführung ist meist das Ziel und erfolgt schrittweise - von begleiteten Besuchen bis zur endgültigen Rückkehr.",
+      en: "Custody, contact and the right to be involved in the care plan generally remain in place during an out-of-home placement. Reunification is usually the goal and happens step by step - from supervised visits to the final return home.",
+    },
+    relatedArticles: ["inobhutnahme-erste-24-stunden-was-passiert", "hilfeplangespraech-ablauf-beteiligte-asd", "geschwisterkinder-inobhutnahme-herausnahme-was-passiert"],
+    faq: {
+      de: [
+        { q: "Verliere ich mein Sorgerecht, wenn mein Kind untergebracht wird?", a: "Nein, das Sorgerecht bleibt in aller Regel bestehen, solange kein Gericht es ausdrücklich entzieht." },
+        { q: "Wie oft darf ich mein Kind sehen?", a: "Häufigkeit und Form werden gemeinsam mit Jugendamt und Einrichtung festgelegt - Kontakt wird grundsätzlich gefördert, nicht verhindert." },
+        { q: "Wie läuft eine Rückführung ab?", a: "In der Regel schrittweise: von begleiteten Besuchen über unbegleitete Wochenendaufenthalte bis zur endgültigen Rückkehr, nicht abrupt an einem Tag." },
+      ],
+      en: [
+        { q: "Do I lose custody once my child is placed elsewhere?", a: "No, custody generally remains in place unless a court explicitly withdraws it." },
+        { q: "How often can I see my child?", a: "Frequency and form are agreed together with the youth welfare office and the placement provider - contact is generally supported, not prevented." },
+        { q: "How does reunification work?", a: "Usually step by step: from supervised visits to unsupervised weekend stays to the final return home, not abruptly in a single day." },
+      ],
+    },
     title: {
       de: "Elternrechte während der Fremdunterbringung: Mitsprache, Besuchsrecht, Rückführung",
       en: "Parental Rights During Out-of-Home Placement: Say, Contact and the Path Back Home",
@@ -1628,6 +1675,23 @@ const articlesUnsorted: Article[] = [
   {
     slug: "geschwisterkinder-inobhutnahme-herausnahme-was-passiert",
     date: "2026-09-08",
+    tldr: {
+      de: "Geschwister werden nach Möglichkeit gemeinsam untergebracht - das ist der fachliche Grundsatz. Eine Trennung ist die begründungspflichtige Ausnahme, etwa bei sehr unterschiedlichem Bedarf, und selbst dann bleibt Kontakt zwischen den Geschwistern aktiv erhalten.",
+      en: "Siblings are placed together wherever possible - that is the guiding professional principle. Separation is the exception requiring justification, for example with very different needs, and even then contact between siblings is actively maintained.",
+    },
+    relatedArticles: ["inobhutnahme-erste-24-stunden-was-passiert", "elternrechte-fremdunterbringung-mitsprache-besuchsrecht", "pflegefamilie-oder-wohngruppe-unterschiede-vergleich"],
+    faq: {
+      de: [
+        { q: "Bleiben Geschwister bei einer Herausnahme immer zusammen?", a: "Der Grundsatz ist, sie möglichst gemeinsam unterzubringen - das wird aktiv geprüft, ist aber nicht garantiert, wenn der Bedarf sehr unterschiedlich ist." },
+        { q: "Was passiert, wenn eine Trennung nötig ist?", a: "Kontakt zwischen den Geschwistern wird trotzdem strukturiert erhalten, etwa durch regelmäßige gemeinsame Besuche und Telefonate." },
+        { q: "Wer entscheidet, ob Geschwister getrennt werden?", a: "Das Jugendamt trifft die Entscheidung im Rahmen des Hilfeplanverfahrens, unter sorgfältiger Abwägung der Bedürfnisse jedes einzelnen Kindes." },
+      ],
+      en: [
+        { q: "Do siblings always stay together when removed from a family?", a: "The principle is to place them together wherever possible - this is actively checked, though not guaranteed if their needs differ significantly." },
+        { q: "What happens if separation is necessary?", a: "Contact between the siblings is still maintained in a structured way, for example through regular joint visits and phone calls." },
+        { q: "Who decides whether siblings are separated?", a: "The youth welfare office makes the decision as part of the care planning process, carefully weighing the needs of each individual child." },
+      ],
+    },
     title: {
       de: "Geschwisterkinder bei einer Herausnahme: Was passiert mit ihnen?",
       en: "Siblings and Out-of-Home Placement: What Happens to Them?",
@@ -1697,6 +1761,23 @@ const articlesUnsorted: Article[] = [
   {
     slug: "selbstverletzendes-verhalten-jugendliche-erkennen-reagieren",
     date: "2026-09-17",
+    tldr: {
+      de: "Selbstverletzendes Verhalten ist meist ein Versuch, überwältigende Gefühle zu regulieren - selten ein Hilferuf im theatralischen Sinn. Ruhig, ohne Vorwurf das Gespräch suchen und professionelle Unterstützung normalisieren hilft mehr als Verbote oder Kontrolle.",
+      en: "Self-harm is usually an attempt to regulate overwhelming feelings - rarely a dramatic cry for help. Approaching the topic calmly, without blame, and normalising professional support helps more than bans or control.",
+    },
+    relatedArticles: ["handysucht-warnzeichen-jugendliche-mediennutzung", "schulverweigerung-kind-geht-nicht-mehr-zur-schule", "was-ist-krisenintervention-leitfaden-eltern"],
+    faq: {
+      de: [
+        { q: "Bedeutet selbstverletzendes Verhalten, dass mein Kind suizidal ist?", a: "Nicht automatisch - aber es ist immer ernst zu nehmen und sollte nie als Phase abgetan werden." },
+        { q: "Wie spreche ich mein Kind darauf an?", a: "Ruhig, direkt und ohne Vorwurf: Zeigen Sie echtes Interesse statt sofort Lösungen oder Verbote auszusprechen." },
+        { q: "Wann ist es ein Notfall?", a: "Bei tiefen oder stark blutenden Verletzungen oder konkreten Suizidgedanken ist sofortiges Handeln nötig - Notaufnahme oder Krisenhotline." },
+      ],
+      en: [
+        { q: "Does self-harm mean my child is suicidal?", a: "Not automatically - but it should always be taken seriously and never dismissed as a phase." },
+        { q: "How do I bring it up with my child?", a: "Calmly, directly and without blame: show genuine interest rather than immediately offering solutions or bans." },
+        { q: "When is it an emergency?", a: "For deep or heavily bleeding injuries or concrete suicidal thoughts, immediate action is needed - an emergency room or the crisis hotline." },
+      ],
+    },
     title: {
       de: "Selbstverletzendes Verhalten bei Jugendlichen erkennen und richtig reagieren",
       en: "Recognising Self-Harm in Young People and Responding the Right Way",
@@ -1776,6 +1857,23 @@ const articlesUnsorted: Article[] = [
   {
     slug: "handysucht-warnzeichen-jugendliche-mediennutzung",
     date: "2026-09-10",
+    tldr: {
+      de: "Viel Bildschirmzeit allein ist noch kein Alarmsignal. Entscheidend sind Kontrollverlust, Rückzug aus anderen Lebensbereichen und Nutzung zur Gefühlsregulation. Interesse statt Kontrolle und Ersatz statt reinem Entzug helfen am meisten.",
+      en: "A lot of screen time alone is not a warning sign. What matters is loss of control, withdrawal from other areas of life, and using the phone to regulate emotions. Curiosity instead of control, and replacement instead of pure withdrawal, help the most.",
+    },
+    relatedArticles: ["selbstverletzendes-verhalten-jugendliche-erkennen-reagieren", "schulverweigerung-kind-geht-nicht-mehr-zur-schule"],
+    faq: {
+      de: [
+        { q: "Wie viel Handyzeit ist noch normal?", a: "Es gibt keine feste Stundenzahl - entscheidend ist die Funktion: Wofür wird das Handy genutzt, und was passiert, wenn es fehlt?" },
+        { q: "Woran erkenne ich problematische Nutzung?", a: "An Kontrollverlust trotz eigenem Wunsch zu reduzieren, Rückzug aus Freundschaften und Hobbys, und starker Reizbarkeit ohne Handy." },
+        { q: "Hilft ein striktes Verbot?", a: "Selten dauerhaft. Wenn das Handy die einzige Möglichkeit ist, mit schwierigen Gefühlen umzugehen, braucht es Ersatz, nicht nur Entzug." },
+      ],
+      en: [
+        { q: "How much phone time is still normal?", a: "There is no fixed number of hours - what matters is the function: what is the phone used for, and what happens when it is unavailable?" },
+        { q: "How do I recognise problematic use?", a: "Through loss of control despite wanting to reduce use, withdrawal from friendships and hobbies, and strong irritability without the phone." },
+        { q: "Does a strict ban help?", a: "Rarely in the long run. If the phone is the only way to cope with difficult feelings, what is needed is a replacement, not just withdrawal." },
+      ],
+    },
     title: {
       de: "Handysucht oder normale Nutzung? Warnzeichen bei Jugendlichen",
       en: "Phone Addiction or Normal Use? Warning Signs in Teenagers",
@@ -1849,6 +1947,23 @@ const articlesUnsorted: Article[] = [
   {
     slug: "schulverweigerung-kind-geht-nicht-mehr-zur-schule",
     date: "2026-09-05",
+    tldr: {
+      de: "Schulverweigerung ist meist ein Symptom, nicht das eigentliche Problem - Ursachen reichen von Mobbing über Leistungsdruck bis zu depressiver Symptomatik. Reiner Druck hilft selten; ruhiges Nachfragen und frühzeitige fachliche Unterstützung führen schneller zu einem tragfähigen Weg zurück.",
+      en: "School refusal is usually a symptom, not the real problem - causes range from bullying to performance pressure to depressive symptoms. Pure pressure rarely helps; calm inquiry and early professional support lead faster to a workable way back.",
+    },
+    relatedArticles: ["handysucht-warnzeichen-jugendliche-mediennutzung", "selbstverletzendes-verhalten-jugendliche-erkennen-reagieren"],
+    faq: {
+      de: [
+        { q: "Ist Schulverweigerung dasselbe wie Schwänzen?", a: "Nein. Schulangst und Schulphobie haben eine Angstkomponente dahinter, Schwänzen ist eher aktives Meiden ohne diese Komponente - beides braucht einen unterschiedlichen Zugang." },
+        { q: "Hilft es, Druck zu machen?", a: "Fast nie dauerhaft. Druck verstärkt oft den Widerstand, weil das Kind sich mit seiner tatsächlichen Not nicht ernst genommen fühlt." },
+        { q: "Wann sollte ich professionelle Hilfe holen?", a: "Wenn sich die Situation über mehrere Wochen hinzieht oder zusätzlich Angst, Rückzug oder körperliche Symptome auftreten." },
+      ],
+      en: [
+        { q: "Is school refusal the same as truancy?", a: "No. School anxiety and school phobia have an underlying fear component, while truancy is more active avoidance without that component - both need a different approach." },
+        { q: "Does applying pressure help?", a: "Almost never in the long run. Pressure often strengthens resistance because the child feels their real distress is not being taken seriously." },
+        { q: "When should I seek professional help?", a: "If the situation drags on for several weeks or is accompanied by anxiety, withdrawal or physical symptoms." },
+      ],
+    },
     title: {
       de: "Schulverweigerung: Wenn ein Kind einfach nicht mehr geht",
       en: "School Refusal: When a Child Simply Stops Going",
@@ -1922,6 +2037,23 @@ const articlesUnsorted: Article[] = [
   {
     slug: "hilfeplangespraech-ablauf-beteiligte-asd",
     date: "2026-09-14",
+    tldr: {
+      de: "Das Hilfeplangespräch nach § 36 SGB VIII ist das zentrale, wiederkehrende Instrument, mit dem Jugendamt, Familie und Leistungserbringer gemeinsam Ziele festlegen und überprüfen. Entscheidend sind aktive Beteiligung von Kind und Eltern sowie sorgfältige Vorbereitung.",
+      en: "The care planning meeting under § 36 SGB VIII is the central, recurring instrument through which the youth welfare office, family and service provider jointly set and review goals. Active involvement of the child and parents, plus careful preparation, are decisive.",
+    },
+    relatedArticles: ["elternrechte-fremdunterbringung-mitsprache-besuchsrecht", "uebergaben-einrichtungen-informationsverlust-ankernetz", "pflegefamilie-oder-wohngruppe-unterschiede-vergleich"],
+    faq: {
+      de: [
+        { q: "Wer muss am Hilfeplangespräch teilnehmen?", a: "Die zuständige Fachkraft des Jugendamts, die Erziehungsberechtigten, das Kind altersangemessen einbezogen, und der Leistungserbringer, sobald eine Hilfe läuft." },
+        { q: "Wie oft findet ein Hilfeplangespräch statt?", a: "Üblich sind Intervalle von etwa sechs Monaten, bei jüngeren Kindern oder instabilen Situationen auch häufiger." },
+        { q: "Was ist das Ergebnis des Gesprächs?", a: "Ein schriftlich dokumentierter Hilfeplan mit konkreten Zielen, Zuständigkeiten und einem Termin für die nächste Überprüfung." },
+      ],
+      en: [
+        { q: "Who must attend the care planning meeting?", a: "The responsible caseworker, the legal guardians, the child involved in an age-appropriate way, and the service provider once support is underway." },
+        { q: "How often does a care planning meeting take place?", a: "Roughly every six months is common, more often for younger children or unstable situations." },
+        { q: "What is the outcome of the meeting?", a: "A written care plan setting out concrete goals, responsibilities and a date for the next review." },
+      ],
+    },
     title: {
       de: "Das Hilfeplangespräch: Ablauf, Beteiligte, was ASD-Mitarbeitende wissen sollten",
       en: "The Care Planning Meeting: Process, Participants, What Caseworkers Should Know",
@@ -2003,6 +2135,23 @@ const articlesUnsorted: Article[] = [
   {
     slug: "uebergaben-einrichtungen-informationsverlust-ankernetz",
     date: "2026-09-01",
+    tldr: {
+      de: "Übergaben zwischen Trägern sind eine der größten Schwachstellen im Hilfesystem - fehlende gemeinsame Dokumentation und Zeitdruck führen zu Informationsverlust. Ankernetz löst das strukturell: Krisenintervention, Diagnostik, Therapie und Wohngruppen liegen unter einem Dach.",
+      en: "Handovers between providers are one of the biggest weak points in the support system - lack of shared documentation and time pressure lead to lost information. Ankernetz solves this structurally: crisis intervention, diagnostics, therapy and residential groups are all under one roof.",
+    },
+    relatedArticles: ["hilfeplangespraech-ablauf-beteiligte-asd", "was-ist-krisenintervention-leitfaden-eltern"],
+    faq: {
+      de: [
+        { q: "Warum gehen bei Übergaben oft Informationen verloren?", a: "Weil Träger häufig getrennte Akten führen, unter Zeitdruck übergeben und sich nur für den eigenen Abschnitt verantwortlich fühlen." },
+        { q: "Was bedeutet das für das Kind?", a: "Es muss oft seine Geschichte wieder von vorn erzählen und erneut Vertrauen aufbauen - genau in diesen Lücken gehen wichtige Informationen verloren." },
+        { q: "Wie macht Ankernetz das anders?", a: "Weil mehrere Hilfeformen unter einem Dach liegen, entfällt die klassische Träger-zu-Träger-Übergabe - das Team kennt die Vorgeschichte bereits." },
+      ],
+      en: [
+        { q: "Why is information often lost during handovers?", a: "Because providers often keep separate files, hand over under time pressure, and feel responsible only for their own section." },
+        { q: "What does that mean for the child?", a: "They often have to retell their story from scratch and rebuild trust - it is exactly in these gaps that important information gets lost." },
+        { q: "How does Ankernetz do this differently?", a: "Because several forms of support are under one roof, the classic provider-to-provider handover disappears - the team already knows the history." },
+      ],
+    },
     title: {
       de: "Warum Übergaben zwischen Einrichtungen so oft scheitern - und was wir anders machen",
       en: "Why Handovers Between Providers So Often Fail - and What We Do Differently",
@@ -2068,6 +2217,23 @@ const articlesUnsorted: Article[] = [
   {
     slug: "pflegefamilie-oder-wohngruppe-unterschiede-vergleich",
     date: "2026-09-18",
+    tldr: {
+      de: "Pflegefamilie (§ 33 SGB VIII) bietet einen familiären Rahmen, oft für jüngere Kinder ohne intensiven Therapiebedarf. Eine Wohngruppe (§ 34 SGB VIII) bietet ein professionelles Team rund um die Uhr und passt besser bei intensiverem pädagogischem oder therapeutischem Bedarf. Es gibt kein grundsätzlich Besseres, nur das, was zum Kind passt.",
+      en: "A foster family (§ 33 SGB VIII) offers a family setting, often for younger children without intensive therapy needs. A residential group (§ 34 SGB VIII) offers a professional team around the clock and fits better with more intensive pedagogical or therapeutic needs. Neither is fundamentally better - only what fits the child.",
+    },
+    relatedArticles: ["inobhutnahme-erste-24-stunden-was-passiert", "hilfeplangespraech-ablauf-beteiligte-asd", "geschwisterkinder-inobhutnahme-herausnahme-was-passiert"],
+    faq: {
+      de: [
+        { q: "Was ist der Hauptunterschied zwischen Pflegefamilie und Wohngruppe?", a: "Eine Pflegefamilie bietet einen familiären Alltag mit Pflegeeltern, eine Wohngruppe ein professionelles, mehrköpfiges pädagogisches Team in einer Einrichtung." },
+        { q: "Was passt besser bei intensivem therapeutischem Bedarf?", a: "In der Regel eine Wohngruppe mit angebundener Therapie, da dort ein multiprofessionelles Team rund um die Uhr verfügbar ist." },
+        { q: "Wer entscheidet, welche Form passt?", a: "Das Jugendamt gemeinsam mit Eltern und Kind im Rahmen des Hilfeplanverfahrens, oft unterstützt durch vorherige Diagnostik." },
+      ],
+      en: [
+        { q: "What is the main difference between a foster family and a residential group?", a: "A foster family offers family-based everyday life with foster parents; a residential group offers a professional, multi-person pedagogical team in a facility." },
+        { q: "What fits better for intensive therapeutic needs?", a: "Usually a residential group with attached therapy, since a multi-professional team is available around the clock there." },
+        { q: "Who decides which form fits?", a: "The youth welfare office together with parents and child as part of the care planning process, often supported by prior diagnostics." },
+      ],
+    },
     title: {
       de: "Pflegefamilie oder Wohngruppe? Unterschiede, Vor- und Nachteile",
       en: "Foster Family or Residential Group? Differences, Pros and Cons",
@@ -2145,6 +2311,23 @@ const articlesUnsorted: Article[] = [
   {
     slug: "was-passiert-mit-18-careleaver-rechte-unterstuetzung",
     date: "2026-08-30",
+    tldr: {
+      de: "Volljährigkeit beendet Jugendhilfe nicht automatisch. § 41 SGB VIII ermöglicht Unterstützung in der Regel bis 21, in Ausnahmefällen darüber hinaus. Frühzeitige Planung - idealerweise ab 16 oder 17 - macht den Übergang deutlich leichter.",
+      en: "Turning 18 does not automatically end youth welfare support. § 41 SGB VIII generally allows support up to age 21, and beyond in exceptional cases. Planning early - ideally from age 16 or 17 - makes the transition significantly easier.",
+    },
+    relatedArticles: ["uebergang-schule-beruf-jugendhilfe-begleitung", "hilfeplangespraech-ablauf-beteiligte-asd"],
+    faq: {
+      de: [
+        { q: "Endet die Jugendhilfe automatisch mit 18?", a: "Nein. § 41 SGB VIII ermöglicht die Fortsetzung, in der Regel bis zum 21. Geburtstag, wenn sie für eine gelingende Verselbstständigung notwendig ist." },
+        { q: "Wie lange kann Hilfe für junge Volljährige dauern?", a: "Regulär bis 21, in begründeten Ausnahmefällen auch darüber hinaus." },
+        { q: "Wann sollte man den Übergang planen?", a: "Frühzeitig - idealerweise mit 16 oder 17 -, um Wohnen, Ausbildung und Finanzen rechtzeitig zu klären." },
+      ],
+      en: [
+        { q: "Does youth welfare support automatically end at 18?", a: "No. § 41 SGB VIII allows it to continue, generally up to age 21, when necessary for a successful transition to independence." },
+        { q: "How long can support for young adults last?", a: "Generally up to age 21, and beyond in justified exceptional cases." },
+        { q: "When should the transition be planned?", a: "Early - ideally at 16 or 17 - to clarify housing, training and finances in good time." },
+      ],
+    },
     title: {
       de: "Was passiert mit 18? Rechte und Unterstützung für Careleaver",
       en: "What Happens at 18? Rights and Support for Care Leavers",

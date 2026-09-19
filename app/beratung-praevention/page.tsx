@@ -12,6 +12,7 @@ import {
 
 import { SeoFaq } from "../components/SeoFaq";
 import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+import { RelatedArticles } from "../components/RelatedArticles";
 
 const faqItems = [
   {
@@ -765,6 +766,8 @@ export default function BeratungPraeventionPage() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles slugs={["handysucht-warnzeichen-jugendliche-mediennutzung", "schulverweigerung-kind-geht-nicht-mehr-zur-schule", "selbstverletzendes-verhalten-jugendliche-erkennen-reagieren"]} />
 
       {/* ══ FAQ ═══════════════════════════════════════════════════ */}
       <section style={{ background: "#f4f7fb", padding: "5rem 0" }}>

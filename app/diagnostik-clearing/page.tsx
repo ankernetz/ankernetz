@@ -12,6 +12,7 @@ import {
 
 import { SeoFaq } from "../components/SeoFaq";
 import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+import { RelatedArticles } from "../components/RelatedArticles";
 
 const faqItems = [
   {
@@ -667,6 +668,8 @@ export default function DiagnostikClearingPage() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles slugs={["schulverweigerung-kind-geht-nicht-mehr-zur-schule", "hilfeplangespraech-ablauf-beteiligte-asd", "selbstverletzendes-verhalten-jugendliche-erkennen-reagieren"]} />
 
       {/* ══ FAQ ═══════════════════════════════════════════════════ */}
       <section style={{ background: "#f4f7fb", padding: "5rem 0" }}>

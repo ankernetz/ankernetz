@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { type Article, type ArticleSection } from "../articles";
+import { articles, type Article, type ArticleSection } from "../articles";
 import { SeoFaq } from "../../components/SeoFaq";
 import ExternalLinks from "../../components/ExternalLinks";
 import { useT } from "../../i18n/useT";
@@ -11,6 +11,9 @@ const TRANS = {
   de: {
     dateLocale: "de-DE",
     breadcrumbParent: "Aktuelles",
+    tldrLabel: "Kurz zusammengefasst",
+    weiterlesenEyebrow: "Weiterlesen",
+    faqEyebrow: "Häufige Fragen zu diesem Thema",
     relatedEyebrow: "Verwandte Angebote",
     ctaEyebrow: "Ankernetz Berlin · 24/7 erreichbar",
     ctaH2: "Brauchen Sie jetzt Hilfe?",
@@ -47,6 +50,9 @@ const TRANS = {
   en: {
     dateLocale: "en-GB",
     breadcrumbParent: "News",
+    tldrLabel: "In short",
+    weiterlesenEyebrow: "Keep reading",
+    faqEyebrow: "Frequently asked questions about this topic",
     relatedEyebrow: "Related Services",
     ctaEyebrow: "Ankernetz Berlin · Available 24/7",
     ctaH2: "Need help right now?",
@@ -160,9 +166,22 @@ export function ArticlePageClient({ article }: { article: Article }) {
           </h1>
 
           {/* Excerpt */}
-          <p style={{ fontSize: "1.125rem", color: "#5A4E48", lineHeight: 1.75, marginBottom: "3rem", paddingBottom: "2.5rem", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+          <p style={{ fontSize: "1.125rem", color: "#5A4E48", lineHeight: 1.75, marginBottom: article.tldr ? "1.5rem" : "3rem" }}>
             {al(article.excerpt)}
           </p>
+
+          {/* TL;DR */}
+          {article.tldr && (
+            <div style={{ background: "#F5F0EA", borderRadius: "14px", padding: "1.5rem 1.75rem", marginBottom: "3rem" }}>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#8B3A22", marginBottom: "0.625rem" }}>
+                {t.tldrLabel}
+              </p>
+              <p style={{ fontSize: "1rem", color: "#3A3230", lineHeight: 1.75, margin: 0 }}>
+                {al(article.tldr)}
+              </p>
+            </div>
+          )}
+          <div style={{ borderBottom: "1px solid rgba(0,0,0,0.08)", marginBottom: "3rem" }} />
         </div>
       </header>
 
@@ -172,6 +191,32 @@ export function ArticlePageClient({ article }: { article: Article }) {
           {al(article.sections).map((section, i) => renderSection(section, i))}
         </div>
       </article>
+
+      {/* Weiterlesen: verwandte Artikel im selben Themen-Cluster */}
+      {article.relatedArticles && article.relatedArticles.length > 0 && (
+        <section style={{ padding: "3rem 1.5rem 0" }}>
+          <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+            <div style={{ borderTop: "1px solid rgba(0,0,0,0.08)", paddingTop: "3rem" }}>
+              <p style={{ fontSize: "0.625rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#8B3A22", marginBottom: "1.25rem" }}>
+                {t.weiterlesenEyebrow}
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "0.875rem" }}>
+                {article.relatedArticles
+                  .map((s) => articles.find((a) => a.slug === s))
+                  .filter((a): a is Article => !!a)
+                  .map((related) => (
+                    <Link key={related.slug} href={`/aktuelles/${related.slug}`} style={{ textDecoration: "none" }} className="service-link-card">
+                      <div style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.07)", borderRadius: "12px", padding: "1.25rem" }}>
+                        <p style={{ fontSize: "0.9375rem", fontWeight: 600, color: "#1A1614", margin: "0 0 0.25rem", lineHeight: 1.4 }}>{al(related.title)}</p>
+                        <p style={{ fontSize: "0.8125rem", color: "#7A6E6A", margin: 0 }}>{al(related.readTime)}</p>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Verwandte Seiten */}
       {al(article.relatedPages).length > 0 && (
@@ -264,7 +309,11 @@ export function ArticlePageClient({ article }: { article: Article }) {
         </div>
       </section>
 
-      <SeoFaq items={t.faq} />
+      {article.faq ? (
+        <SeoFaq items={al(article.faq)} />
+      ) : (
+        <SeoFaq items={t.faq} />
+      )}
 
       <style>{`
         .related-link:hover { border-color: #8B3A22; color: #8B3A22; }

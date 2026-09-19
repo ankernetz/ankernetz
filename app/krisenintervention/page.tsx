@@ -10,6 +10,7 @@ import {
 
 import { SeoFaqSchema } from "../components/SeoFaqSchema";
 import { SeoBreadcrumb } from "../components/SeoBreadcrumb";
+import { RelatedArticles } from "../components/RelatedArticles";
 import { useT } from "../i18n/useT";
 
 const TRANS = {
@@ -633,6 +634,8 @@ export default function KriseninterventionPage() {
           </div>
         </div>
       </section>
+
+      <RelatedArticles slugs={["inobhutnahme-erste-24-stunden-was-passiert", "selbstverletzendes-verhalten-jugendliche-erkennen-reagieren", "elternrechte-fremdunterbringung-mitsprache-besuchsrecht"]} accent="#1a3f6f" />
 
       {/* ══ FAQ ═══════════════════════════════════════════════════ */}
       <section style={{ background: "white", padding: "5rem 0" }}>
