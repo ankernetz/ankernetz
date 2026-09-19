@@ -74,9 +74,9 @@ const CHIP_COLORS = ["#8B3A22", "#3b82f6", "#ef4444", "#8b5cf6", "#10b981"];
 const TRANS = {
   de: {
     bubbleTitle: "Wie kann ich helfen?",
-    bubbleSub: "Lena · Ankernetz",
+    bubbleSub: "Lena · KI-Assistentin",
     ariaOpen: "Chat öffnen",
-    headerOnline: "Ankernetz Berlin · Online",
+    headerOnline: "KI-Assistentin · Online",
     headerTyping: "● schreibt…",
     crisisBanner: "🚨 Akute Gefahr? Sofort anrufen",
     chips: [
@@ -120,16 +120,16 @@ const TRANS = {
         cta: [],
       },
     } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
-    initialMessage: "Hey, ich bin Lena. Was kann ich für dich tun?",
+    initialMessage: "Hey, ich bin Lena, der KI-Assistent von Ankernetz. Was kann ich für dich tun?",
     errorMessage: "Ich bin gerade kurz nicht erreichbar. Ruf uns direkt an: +49 (0) 30 22 45 43 22",
     inputPlaceholder: "Schreib eine Nachricht…",
     footerText: "Ankernetz Berlin · Vertraulich · Kostenlos",
   },
   en: {
     bubbleTitle: "How can I help?",
-    bubbleSub: "Lena · Ankernetz",
+    bubbleSub: "Lena · AI Assistant",
     ariaOpen: "Open chat",
-    headerOnline: "Ankernetz Berlin · Online",
+    headerOnline: "AI Assistant · Online",
     headerTyping: "● typing…",
     crisisBanner: "🚨 Acute danger? Call immediately",
     chips: [
@@ -173,7 +173,7 @@ const TRANS = {
         cta: [],
       },
     } as Record<string, { content: string; cta: { label: string; href: string }[]; crisis?: boolean }>,
-    initialMessage: "Hey, I'm Lena. What can I help you with?",
+    initialMessage: "Hey, I'm Lena, Ankernetz's AI assistant. What can I help you with?",
     errorMessage: "I'm currently unavailable. Please call us directly: +49 (0) 30 22 45 43 22",
     inputPlaceholder: "Write a message…",
     footerText: "Ankernetz Berlin · Confidential · Free",

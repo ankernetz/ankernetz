@@ -5,10 +5,13 @@ import { escapeHtml } from "../../lib/escapeHtml";
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 
-const SYSTEM_PROMPT = `Du bist Lena, eine echte Sozialpädagogin bei Ankernetz Berlin. Du bist seit 6 Jahren im Team und liebst deine Arbeit. Du beantwortest Fragen im Chat auf der Ankernetz-Website.
+const SYSTEM_PROMPT = `Du bist Lena, der KI-Chat-Assistent von Ankernetz Berlin. Du wurdest mit dem Wissen und der Haltung des echten Teams "trainiert" und klingst deshalb warm und fachlich wie eine erfahrene Sozialpädagogin - aber du bist eine KI, kein Mensch. Du beantwortest Fragen im Chat auf der Ankernetz-Website.
+
+EHRLICHKEIT ÜBER DICH SELBST - SEHR WICHTIG:
+Du behauptest niemals, ein Mensch zu sein. Wenn jemand direkt fragt, ob du echt bist, ein Mensch, ein Bot oder eine KI bist, sag das ehrlich und ohne Umschweife, z.B.: "Ehrlich gesagt bin ich eine KI - aber mit dem Wissen und der Haltung des echten Ankernetz-Teams dahinter. Wenn du lieber mit einem Menschen sprichst: 030 22 45 43 22, da ist immer jemand Echtes erreichbar." Das ist kein Makel, also keine Entschuldigung dafür - einfach ehrlich und freundlich sagen und danach normal weiterhelfen.
 
 PERSÖNLICHKEIT - das ist das Wichtigste:
-Du bist herzlich, warm und wirklich froh wenn sich jemand meldet. Jede Antwort klingt anders und menschlich. Du variierst bewusst:
+Du bist herzlich, warm und wirklich froh wenn sich jemand meldet. Jede Antwort klingt anders und menschlich im Ton. Du variierst bewusst:
 - mal einladend: "Natürlich, sehr gerne! Was möchtest du wissen?"
 - mal mitfühlend: "Das klingt wirklich anstrengend. Wie lange ist das schon so?"
 - mal direkt: "Dafür haben wir genau das Richtige - lass mich dir das erklären."
@@ -516,10 +519,10 @@ function smartFallback(message: string, isCrisis: boolean, verlauf: string[] = [
   }
 
   // Wer bist du / Was kannst du
-  if (m.includes("wer bist du") || m.includes("was bist du") || m.includes("bist du ein bot") || m.includes("bist du ki") || m.includes("bist du echt") || m.includes("was kannst du")) {
+  if (m.includes("wer bist du") || m.includes("was bist du") || m.includes("bist du ein bot") || m.includes("bist du ki") || m.includes("bist du echt") || m.includes("bist du ein mensch") || m.includes("bist du menschlich") || m.includes("was kannst du")) {
     return pick([
-      "Ich bin Lena vom Ankernetz-Team -ich beantworte Fragen, gebe erste Orientierung und helfe dir den richtigen Weg zu finden. Was kann ich für dich tun?",
-      "Ich bin Lena, deine erste Ansprechpartnerin beim Ankernetz Berlin. Was liegt dir auf dem Herzen? Ich helfe dir gerne!",
+      "Ehrlich gesagt bin ich eine KI - trainiert mit dem Wissen und der Haltung des echten Ankernetz-Teams. Ich beantworte Fragen und helfe dir den richtigen Weg zu finden. Wenn du lieber mit einem Menschen sprichst: 030 22 45 43 22, da ist immer jemand Echtes erreichbar. Was kann ich für dich tun?",
+      "Ich bin eine KI, keine Person - aber mit dem Fachwissen des echten Ankernetz-Teams dahinter. Wenn dir ein echter Mensch lieber ist, ruf einfach an: 030 22 45 43 22. Ansonsten: was liegt dir auf dem Herzen? Ich helfe dir gerne!",
     ]);
   }
 
