@@ -2,6 +2,7 @@ import { holeAnfrageInfo } from "../../lib/requestInfo";
 import { istRateLimitiert } from "../../lib/rateLimit";
 import { sucheWissen } from "../../lib/wissensdatenbank";
 import { escapeHtml } from "../../lib/escapeHtml";
+import { detectCrisis } from "../../lib/crisisKeywords";
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 
@@ -146,63 +147,9 @@ Bei Suizid, Selbstverletzung, "nicht mehr leben", akuter Gefahr:
 == REGELN ==
 - Maximal 3-4 Saetze pro Antwort. Kurz ist besser als lang.
 - Wenn du nicht weisst was gefragt wird: nachfragen, nicht raten
-- Du bist Lena - kein Bot. Wenn jemand fragt: "Ich bin vom Ankernetz-Team"
+- Wenn jemand fragt ob du ein Bot/KI/Mensch bist: siehe Abschnitt EHRLICHKEIT ÜBER DICH SELBST oben - IMMER ehrlich, niemals "ich bin vom Ankernetz-Team" als Ausweichantwort auf diese konkrete Frage
 - Keine Diagnosen - du orientierst, vermittelst, hoerst zu
 - Immer auf Deutsch, ausser jemand schreibt explizit auf Englisch`
-
-// Krisenworte für sofortige Erkennung
-const CRISIS_KEYWORDS = [
-  // Suizidabsicht -direkt
-  "suizid", "selbstmord", "umbringen", "will sterben", "will tot",
-  "möchte sterben", "wünsche mir zu sterben", "nicht mehr leben",
-  "aufhören zu leben", "leben beenden", "alles beenden", "alles zu beenden",
-  "nicht mehr da sein", "schluss machen", "nicht mehr existieren",
-  "bald nicht mehr hier", "bald tot", "lebe nicht mehr lange",
-  "letzter tag", "letzte nachricht", "zum letzten mal",
-  "abschiedsbrief", "abschied nehmen", "niemand vermisst mich",
-
-  // Suizidmethoden
-  "erhängen", "aufhängen", "strick", "strang",
-  "vor den zug", "vor einen zug", "gleise",
-  "von der brücke", "vom dach springen", "aus dem fenster springen",
-  "tabletten schlucken", "überdosis", "vergiften", "ertrinken",
-  "erschießen", "ersticken",
-
-  // Selbstverletzung
-  "ritzen", "schneiden", "selbstverletzung", "selbst verletzen",
-  "mich verletzen", "mich schneiden", "mich ritzen",
-  "haue mich", "schlage mich selbst", "brenne mich", "kratze mich blutig",
-
-  // Hoffnungslosigkeit / Warnsignale
-  "kann nicht mehr", "halte es nicht mehr aus", "halte das nicht mehr aus",
-  "schaffe es nicht mehr", "will nicht mehr", "will nicht mehr kämpfen",
-  "hat keinen sinn mehr", "alles sinnlos", "wozu noch leben", "wozu das alles",
-  "niemand braucht mich", "bin eine last", "bin zur last",
-  "ohne mich wäre es besser", "alle besser ohne mich",
-  "niemand würde mich vermissen", "keiner vermisst mich",
-  "bin nutzlos", "bin wertlos", "hasse mein leben", "hasse mich selbst",
-
-  // Akute Gefährdung durch andere
-  "werde misshandelt", "werde geschlagen", "werde missbraucht",
-  "sexueller missbrauch", "vergewaltigt", "jemand bedroht mich",
-  "ich werde bedroht", "angst vor zuhause", "angst nach hause",
-
-  // Notruf
-  "notruf", "notfall", "hilfe sofort", "akute gefahr",
-
-  // Englisch
-  "suicide", "kill myself", "want to die", "end my life", "end it all",
-  "no reason to live", "no way out", "dont want to live", "don't want to live",
-  "self-harm", "cutting myself", "hurt myself", "overdose",
-  "hang myself", "jump off", "in front of a train",
-  "nobody needs me", "burden to everyone", "worthless",
-  "abuse", "being abused", "emergency help",
-];
-
-function detectCrisis(message: string): boolean {
-  const lower = message.toLowerCase();
-  return CRISIS_KEYWORDS.some(kw => lower.includes(kw));
-}
 
 // Erkennt, ob zwei Nachrichten inhaltlich dieselbe Frage sind (auch wenn anders
 // formuliert), indem geprueft wird, wie viele bedeutungstragende Woerter (>3
@@ -677,16 +624,31 @@ export async function POST(req: Request) {
   // Gezielte Einspeisung aus der Wissensdatenbank (Glossar, Lexikon, Alltagsfragen):
   // nur die zur aktuellen Frage passende Antwort mitgeben, nicht den ganzen
   // Katalog dauerhaft in den Prompt packen - haelt die Kosten pro Anfrage niedrig.
-  const { treffer: wissenTreffer, eindeutig: wissenEindeutig } = sucheWissen(lastMessage);
-  if (wissenEindeutig && wissenTreffer.length > 0) {
-    const beste = wissenTreffer[0];
-    systemPrompt += `\n\nHINTERLEGTE INFORMATION ZU DIESER FRAGE (nutze sie als verlässliche Grundlage, halte dich aber an Ton- und Kürze-Regeln, gib sie nicht wortwörtlich wieder):\nFrage: ${beste.frage}\nAntwort: ${beste.antwort}`;
+  // Bei echten Krisen bewusst weglassen, damit eine zufaellig anklingende
+  // Alltagsfrage (z.B. "Zimmer") die Krisenantwort nicht verwaessert.
+  if (!isCrisis) {
+    const { treffer: wissenTreffer, eindeutig: wissenEindeutig } = sucheWissen(lastMessage);
+    if (wissenEindeutig && wissenTreffer.length > 0) {
+      const beste = wissenTreffer[0];
+      systemPrompt += `\n\nHINTERLEGTE INFORMATION ZU DIESER FRAGE (nutze sie als verlässliche Grundlage, halte dich aber an Ton- und Kürze-Regeln, gib sie nicht wortwörtlich wieder):\nFrage: ${beste.frage}\nAntwort: ${beste.antwort}`;
+    }
   }
 
   const encoder = new TextEncoder();
   const stream = new ReadableStream({
     async start(controller) {
       let inhaltGesendet = false;
+
+      function sendeFallback() {
+        const vorherigeNutzerNachrichten: string[] = messages
+          .filter((m: { role: string }) => m.role === "user")
+          .slice(0, -1)
+          .slice(-2)
+          .map((m: { content: string }) => m.content);
+        const fallback = smartFallback(lastMessage, isCrisis, vorherigeNutzerNachrichten);
+        controller.enqueue(encoder.encode(fallback));
+      }
+
       try {
         const apiKey = process.env.GEMINI_API_KEY;
         if (!apiKey) throw new Error("GEMINI_API_KEY fehlt");
@@ -747,6 +709,14 @@ export async function POST(req: Request) {
           }
         }
 
+        // Gemini kann mit Status 200 antworten und trotzdem keinen Text liefern
+        // (z.B. durch die Sicherheitsfilter komplett blockiert) - ohne diese
+        // Pruefung wuerde der Chat dann einfach stumm bleiben, ohne Fehler und
+        // ohne Fallback.
+        if (!inhaltGesendet) {
+          console.error("Chat API: Gemini-Antwort war leer (z.B. durch Sicherheitsfilter blockiert)");
+          sendeFallback();
+        }
         controller.close();
       } catch (err) {
         console.error("Chat API error:", err);
@@ -755,15 +725,7 @@ export async function POST(req: Request) {
         // generischen Fallback-Text dann noch hintendran zu hängen ergibt eine
         // zusammenhanglose, abgehackt wirkende Nachricht - deshalb nur einsetzen,
         // wenn wirklich noch gar nichts gesendet wurde.
-        if (!inhaltGesendet) {
-          const vorherigeNutzerNachrichten: string[] = messages
-            .filter((m: { role: string }) => m.role === "user")
-            .slice(0, -1)
-            .slice(-2)
-            .map((m: { content: string }) => m.content);
-          const fallback = smartFallback(lastMessage, isCrisis, vorherigeNutzerNachrichten);
-          controller.enqueue(encoder.encode(fallback));
-        }
+        if (!inhaltGesendet) sendeFallback();
         controller.close();
       }
     },
