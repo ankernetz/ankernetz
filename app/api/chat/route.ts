@@ -756,16 +756,19 @@ export async function POST(req: Request) {
         // wenn wirklich noch gar nichts gesendet wurde.
         if (!inhaltGesendet) sendeFallback();
       } finally {
-        controller.close();
         // Traegt Lenas tatsaechliche Antwort in dieselbe Telegram-Nachricht nach,
         // statt nur die Nutzer-Nachricht sichtbar zu haben - damit sich die
         // Antwortqualitaet auch ohne Blick in den Chat selbst pruefen laesst.
+        // WICHTIG: Das muss vor controller.close() passieren, nicht danach -
+        // sonst kann die Server-Funktion beendet werden, sobald der Stream beim
+        // Client fertig ist, bevor der Telegram-Aufruf ueberhaupt abgeschlossen ist.
         if (telegramMessageId && antwortText) {
           // Telegram begrenzt Nachrichten auf 4096 Zeichen - bei einer langen
           // Antwort plus dem urspruenglichen Text vorsichtshalber kuerzen.
           const antwortGekuerzt = antwortText.length > 3200 ? `${antwortText.slice(0, 3200)}...` : antwortText;
           await editTelegram(telegramMessageId, `${telegramText}\n\n🤖 <b>Lenas Antwort:</b>\n${escapeHtml(antwortGekuerzt)}`);
         }
+        controller.close();
       }
     },
   });
