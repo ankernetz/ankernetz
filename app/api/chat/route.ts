@@ -37,7 +37,7 @@ KONTAKT - IMMER BEIDE WEGE NENNEN:
 - Telefon (Notfall & Beratung, 24/7): 030 22 45 43 22
 - E-Mail (allgemeine Anfragen): hilfe@ankernetz.com
 - Platzanfrage: ankernetz.com/platzanfrage
-Wenn du auf eine Kontaktmöglichkeit hinweist, nenne wann immer es passt BEIDE Wege - Telefon UND E-Mail, nicht nur die Telefonnummer. Manche Menschen rufen ungern an und schreiben lieber.
+Wenn du auf eine Kontaktmöglichkeit hinweist, nenne wann immer es passt BEIDE Wege - Telefon UND E-Mail, nicht nur die Telefonnummer. Manche Menschen rufen ungern an und schreiben lieber. Nenne die volle Telefonnummer und E-Mail-Adresse nur einmal ausführlich pro Gespräch - schau dir dafür den bisherigen Chatverlauf an. Wurden sie schon genannt, reicht ein kurzer Verweis ("ruf uns kurz an" oder "die Nummer von eben"), außer die Person fragt ausdrücklich noch einmal danach.
 
 E-MAIL DER PERSON ERFRAGEN:
 Wenn jemand ein konkretes Anliegen hat (Platzanfrage, Beratungswunsch, Rückrufwunsch, Fachkraft-Anfrage), frage nach der E-Mail-Adresse: "Damit wir dich direkt kontaktieren können: Kannst du mir kurz deine E-Mail-Adresse geben? Dann melde ich mich oder leite das weiter." Formuliere es immer natürlich und nicht als Pflichtfeld - wer nicht möchte, kann auch einfach anrufen. Frage NICHT nach der E-Mail-Adresse, wenn du der Person im selben Moment sagst, sie soll sofort anrufen - das wirkt widersprüchlich. Erst wenn ein Anruf nicht der unmittelbare nächste Schritt ist, ist die E-Mail-Frage passend.
@@ -202,6 +202,18 @@ const CRISIS_KEYWORDS = [
 function detectCrisis(message: string): boolean {
   const lower = message.toLowerCase();
   return CRISIS_KEYWORDS.some(kw => lower.includes(kw));
+}
+
+// Erkennt, ob zwei Nachrichten inhaltlich dieselbe Frage sind (auch wenn anders
+// formuliert), indem geprueft wird, wie viele bedeutungstragende Woerter (>3
+// Zeichen) sich ueberschneiden, gemessen an der kuerzeren der beiden Nachrichten.
+function istAehnlicheFrage(a: string, b: string): boolean {
+  const woerter = (s: string) => new Set(s.toLowerCase().split(/\W+/).filter((w) => w.length > 3));
+  const woerterA = woerter(a);
+  const woerterB = woerter(b);
+  if (woerterA.size === 0 || woerterB.size === 0) return false;
+  const schnittmenge = [...woerterA].filter((w) => woerterB.has(w)).length;
+  return schnittmenge / Math.min(woerterA.size, woerterB.size) >= 0.5;
 }
 
 async function sendTelegram(text: string) {
@@ -646,9 +658,30 @@ export async function POST(req: Request) {
 
   await sendTelegram(telegramText);
 
-  const systemPrompt = isCrisis
-    ? SYSTEM_PROMPT + "\n\nACHTUNG: Die aktuelle Nachricht enthält Krisenhinweise. Reagiere sofort menschlich und warm, frage nach der Sicherheit und nenne dann die Notfallnummer."
-    : SYSTEM_PROMPT;
+  let systemPrompt = SYSTEM_PROMPT;
+
+  if (isCrisis) {
+    systemPrompt += "\n\nACHTUNG: Die aktuelle Nachricht enthält Krisenhinweise. Reagiere sofort menschlich und warm, frage nach der Sicherheit und nenne dann die Notfallnummer.";
+  }
+
+  // Wiederholungserkennung: verlässt sich nicht nur darauf, dass Gemini es von
+  // selbst merkt, wenn dieselbe Frage nochmal (anders formuliert) kommt.
+  const vorherigeNutzerNachricht = messages
+    .slice(0, -1)
+    .filter((m: { role: string }) => m.role === "user")
+    .at(-1)?.content as string | undefined;
+  if (vorherigeNutzerNachricht && istAehnlicheFrage(lastMessage, vorherigeNutzerNachricht)) {
+    systemPrompt += "\n\nHINWEIS: Diese Frage wurde in ähnlicher Form gerade schon gestellt - die vorherige Antwort hat die Person offenbar nicht zufriedengestellt. Sei jetzt besonders kurz und konkret, wiederhole NICHT dieselbe allgemeine Erklärung in anderen Worten. Wenn du die konkrete Info nicht sicher weißt, sag das in einem Satz direkt.";
+  }
+
+  // Gezielte Einspeisung aus der Wissensdatenbank (Glossar, Lexikon, Alltagsfragen):
+  // nur die zur aktuellen Frage passende Antwort mitgeben, nicht den ganzen
+  // Katalog dauerhaft in den Prompt packen - haelt die Kosten pro Anfrage niedrig.
+  const { treffer: wissenTreffer, eindeutig: wissenEindeutig } = sucheWissen(lastMessage);
+  if (wissenEindeutig && wissenTreffer.length > 0) {
+    const beste = wissenTreffer[0];
+    systemPrompt += `\n\nHINTERLEGTE INFORMATION ZU DIESER FRAGE (nutze sie als verlässliche Grundlage, halte dich aber an Ton- und Kürze-Regeln, gib sie nicht wortwörtlich wieder):\nFrage: ${beste.frage}\nAntwort: ${beste.antwort}`;
+  }
 
   const encoder = new TextEncoder();
   const stream = new ReadableStream({

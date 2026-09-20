@@ -1,12 +1,13 @@
 import Fuse from "fuse.js";
 import { glossarKategorien } from "../data/glossar";
 import { lexikonBuchstaben } from "../data/lexikon";
+import { alltagsfragenKategorien } from "../data/alltagsfragen";
 
 export interface WissenEintrag {
   frage: string;
   antwort: string;
   link?: string;
-  quelle: "glossar" | "lexikon";
+  quelle: "glossar" | "lexikon" | "alltag";
 }
 
 const wissen: WissenEintrag[] = [
@@ -20,6 +21,9 @@ const wissen: WissenEintrag[] = [
       link: e.href,
       quelle: "lexikon" as const,
     }))
+  ),
+  ...alltagsfragenKategorien.flatMap((kat) =>
+    kat.items.map((item) => ({ frage: item.q, antwort: item.a, quelle: "alltag" as const }))
   ),
 ];
 
