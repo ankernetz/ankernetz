@@ -163,12 +163,15 @@ function istAehnlicheFrage(a: string, b: string): boolean {
   return schnittmenge / Math.min(woerterA.size, woerterB.size) >= 0.5;
 }
 
-async function sendTelegram(text: string) {
+// Gibt die Telegram message_id zurueck, falls der Versand geklappt hat - damit
+// laesst sich die Nachricht spaeter bearbeiten (editTelegram), um Lenas Antwort
+// nachzutragen, statt eine zweite, separate Nachricht zu verschicken.
+async function sendTelegram(text: string): Promise<number | undefined> {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) {
     console.error("[Telegram] Token oder Chat-ID fehlt in den Umgebungsvariablen");
-    return;
+    return undefined;
   }
   try {
     const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -179,9 +182,32 @@ async function sendTelegram(text: string) {
     if (!res.ok) {
       const err = await res.text();
       console.error("[Telegram] Fehler:", err);
+      return undefined;
     }
+    const data = await res.json().catch(() => null);
+    return data?.result?.message_id;
   } catch (e) {
     console.error("[Telegram] Netzwerkfehler:", e);
+    return undefined;
+  }
+}
+
+async function editTelegram(messageId: number, text: string) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) return;
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${token}/editMessageText`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, message_id: messageId, text, parse_mode: "HTML" }),
+    });
+    if (!res.ok) {
+      const err = await res.text();
+      console.error("[Telegram] Bearbeiten fehlgeschlagen:", err);
+    }
+  } catch (e) {
+    console.error("[Telegram] Netzwerkfehler beim Bearbeiten:", e);
   }
 }
 
@@ -603,7 +629,7 @@ export async function POST(req: Request) {
       locationLine;
   }
 
-  await sendTelegram(telegramText);
+  const telegramMessageId = await sendTelegram(telegramText);
 
   let systemPrompt = SYSTEM_PROMPT;
 
@@ -638,6 +664,7 @@ export async function POST(req: Request) {
   const stream = new ReadableStream({
     async start(controller) {
       let inhaltGesendet = false;
+      let antwortText = "";
 
       function sendeFallback() {
         const vorherigeNutzerNachrichten: string[] = messages
@@ -647,6 +674,7 @@ export async function POST(req: Request) {
           .map((m: { content: string }) => m.content);
         const fallback = smartFallback(lastMessage, isCrisis, vorherigeNutzerNachrichten);
         controller.enqueue(encoder.encode(fallback));
+        antwortText = fallback;
       }
 
       try {
@@ -702,6 +730,7 @@ export async function POST(req: Request) {
               if (text) {
                 controller.enqueue(encoder.encode(text));
                 inhaltGesendet = true;
+                antwortText += text;
               }
             } catch {
               // unvollständiges JSON-Fragment überspringen
@@ -717,7 +746,6 @@ export async function POST(req: Request) {
           console.error("Chat API: Gemini-Antwort war leer (z.B. durch Sicherheitsfilter blockiert)");
           sendeFallback();
         }
-        controller.close();
       } catch (err) {
         console.error("Chat API error:", err);
         // Wenn die Verbindung zu Gemini erst mitten in der Antwort abbricht, ist
@@ -726,7 +754,17 @@ export async function POST(req: Request) {
         // zusammenhanglose, abgehackt wirkende Nachricht - deshalb nur einsetzen,
         // wenn wirklich noch gar nichts gesendet wurde.
         if (!inhaltGesendet) sendeFallback();
+      } finally {
         controller.close();
+        // Traegt Lenas tatsaechliche Antwort in dieselbe Telegram-Nachricht nach,
+        // statt nur die Nutzer-Nachricht sichtbar zu haben - damit sich die
+        // Antwortqualitaet auch ohne Blick in den Chat selbst pruefen laesst.
+        if (telegramMessageId && antwortText) {
+          // Telegram begrenzt Nachrichten auf 4096 Zeichen - bei einer langen
+          // Antwort plus dem urspruenglichen Text vorsichtshalber kuerzen.
+          const antwortGekuerzt = antwortText.length > 3200 ? `${antwortText.slice(0, 3200)}...` : antwortText;
+          await editTelegram(telegramMessageId, `${telegramText}\n\n🤖 <b>Lenas Antwort:</b>\n${escapeHtml(antwortGekuerzt)}`);
+        }
       }
     },
   });
