@@ -188,7 +188,7 @@ export default function ImpressumPage() {
     if (c.type === "register") return (
       <div style={{ lineHeight: 2, color: "#374151" }}>
         <p>{t.registerGericht} <strong style={{ color: "#1a3f6f" }}>Amtsgericht Berlin</strong></p>
-        <p>{t.registerNr} <strong style={{ color: "#1a3f6f" }}>HRB 167432</strong></p>
+        <p>{t.registerNr} <strong style={{ color: "#1a3f6f" }}>HRB 281132 B</strong></p>
       </div>
     );
     if (c.type === "ust") return (
